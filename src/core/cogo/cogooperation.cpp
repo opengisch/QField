@@ -25,7 +25,7 @@
 QList<CogoParameter> CogoOperationPointAtXYZ::parameters( Qgis::WkbType wkbType ) const
 {
   QList<CogoParameter> parameters;
-  parameters << CogoParameter( QStringLiteral( "point" ), QStringLiteral( "point" ), QString(), Qt::transparent, { { QStringLiteral( "hasZ" ), QgsWkbTypes::hasZ( wkbType ) } } );
+  parameters << CogoParameter( QStringLiteral( "point" ), QStringLiteral( "point" ), QObject::tr( "Point" ), Qt::transparent, { { QStringLiteral( "hasZ" ), QgsWkbTypes::hasZ( wkbType ) } } );
   return parameters;
 }
 
@@ -85,12 +85,12 @@ bool CogoOperationPointAtXYZ::execute( RubberbandModel *rubberbandModel, const Q
 QList<CogoParameter> CogoOperationPointAtDistanceAngle::parameters( Qgis::WkbType wkbType ) const
 {
   QList<CogoParameter> parameters;
-  parameters << CogoParameter( QStringLiteral( "point" ), QStringLiteral( "point" ), QString(), Qt::transparent, { { QStringLiteral( "hasZ" ), QgsWkbTypes::hasZ( wkbType ) } } )
-             << CogoParameter( QStringLiteral( "distance" ), QStringLiteral( "distance" ) )
-             << CogoParameter( QStringLiteral( "angle" ), QStringLiteral( "angle" ) );
+  parameters << CogoParameter( QStringLiteral( "point" ), QStringLiteral( "point" ), QObject::tr( "Point" ), Qt::transparent, { { QStringLiteral( "hasZ" ), QgsWkbTypes::hasZ( wkbType ) } } )
+             << CogoParameter( QStringLiteral( "distance" ), QStringLiteral( "distance" ), QObject::tr( "Distance" ) )
+             << CogoParameter( QStringLiteral( "angle" ), QStringLiteral( "angle" ), QObject::tr( "Angle" ) );
   if ( QgsWkbTypes::hasZ( wkbType ) )
   {
-    parameters << CogoParameter( QStringLiteral( "elevation" ), QStringLiteral( "elevation" ) );
+    parameters << CogoParameter( QStringLiteral( "elevation" ), QStringLiteral( "elevation" ), QObject::tr( "Elevation" ) );
   }
   return parameters;
 }
@@ -205,9 +205,9 @@ bool CogoOperationPointAtDistanceAngle::execute( RubberbandModel *rubberbandMode
 QList<CogoParameter> CogoOperationPointAtIntersectionCircles::parameters( Qgis::WkbType wkbType ) const
 {
   QList<CogoParameter> parameters;
-  parameters << CogoParameter( QStringLiteral( "point" ), QStringLiteral( "point1" ), QObject::tr( "Circle #1" ), COLOR_GROUP_1 )
+  parameters << CogoParameter( QStringLiteral( "point" ), QStringLiteral( "point1" ), QObject::tr( "Circle #1: point" ), COLOR_GROUP_1 )
              << CogoParameter( QStringLiteral( "distance" ), QStringLiteral( "distance1" ), QObject::tr( "Circle #1: radius" ), COLOR_GROUP_1 )
-             << CogoParameter( QStringLiteral( "point" ), QStringLiteral( "point2" ), QObject::tr( "Circle #2" ), COLOR_GROUP_2 )
+             << CogoParameter( QStringLiteral( "point" ), QStringLiteral( "point2" ), QObject::tr( "Circle #2: point" ), COLOR_GROUP_2 )
              << CogoParameter( QStringLiteral( "distance" ), QStringLiteral( "distance2" ), QObject::tr( "Circle #2: radius" ), COLOR_GROUP_2 )
              << CogoParameter( QStringLiteral( "enum" ), QStringLiteral( "candidate" ), QObject::tr( "Candidate" ), Qt::transparent, { { QStringLiteral( "options" ), QStringList() << QStringLiteral( "A" ) << QStringLiteral( "B" ) } } );
   return parameters;

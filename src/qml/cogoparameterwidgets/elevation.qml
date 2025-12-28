@@ -30,7 +30,7 @@ CogoParameterWidgetBase {
       Label {
         color: Theme.mainTextColor
         font: Theme.tipFont
-        text: parameterLabel ? parameterLabel : qsTr("Elevation")
+        text: parameterLabel
       }
 
       Label {
