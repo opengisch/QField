@@ -140,8 +140,7 @@ QfVisibilityFadingRow {
 
       onParametersChanged: {
         cogoOperationSettings.parameters = parameters;
-        cogoOperationSettings.parameterValues = {};
-        cogoOperationSettings.positionInformations = {};
+        cogoOperationSettings.clear();
       }
     }
   }
@@ -261,11 +260,7 @@ QfVisibilityFadingRow {
         if (cogoExecutor.isReady) {
           const success = cogoExecutor.execute();
           if (success) {
-            // Reset the parameter values
-            cogoOperationSettings.parameterValues = {};
-            cogoOperationSettings.positionInformations = {};
-            let params = cogoOperationSettings.parameters;
-            cogoOperationSettings.parameters = params;
+            cogoOperationSettings.clear();
             // Recenter to last added vertex
             mapSettings.setCenter(rubberbandModel.lastCoordinate, true);
             if (Number(rubberbandModel.geometryType) === Qgis.GeometryType.Point) {

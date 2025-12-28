@@ -104,4 +104,11 @@ QfOverlayContainer {
     pis[name] = positionInformation;
     cogoOperationSettings.positionInformations = pis;
   }
+
+  function clear() {
+    cogoOperationSettings.parameterValues = {};
+    cogoOperationSettings.positionInformations = {};
+    cogoOperationSettingsView.model = [];
+    cogoOperationSettingsView.model = cogoOperationSettings.parameters;
+  }
 }

@@ -42,7 +42,7 @@ RubberbandShape {
 
   Repeater {
     id: rubberbandVertices
-    model: showVertices ? rubberbandShape.polylines[0] : []
+    model: showVertices && rubberbandShape.model.vertexCount > 1 ? rubberbandShape.polylines[0] : []
 
     Rectangle {
       width: rubberbandShape.lineWidth / rubberbandShape.scale * 2

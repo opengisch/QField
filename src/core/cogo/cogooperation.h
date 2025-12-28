@@ -216,7 +216,7 @@ class CogoOperationPointAtXYZ : public CogoOperation
     ~CogoOperationPointAtXYZ() = default;
 
     QString name() const override { return QStringLiteral( "point_at_xyz" ); }
-    QString displayName() const override { return QObject::tr( "XY" ); }
+    QString displayName() const override { return QObject::tr( "XYZ Parameters" ); }
     QString icon() const override { return QStringLiteral( "ic_cogo_xy_white_24dp" ); }
     QList<CogoParameter> parameters( Qgis::WkbType wkbType ) const override;
     QList<CogoVisualGuide> visualGuides( const QVariantMap &parameters, QgsQuickMapSettings *mapSettings ) const override;

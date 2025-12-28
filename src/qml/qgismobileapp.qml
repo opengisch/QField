@@ -985,7 +985,7 @@ ApplicationWindow {
       mapSettings: mapCanvas.mapSettings
       currentLayer: dashBoard.activeLayer
       positionInformation: positionSource.positionInformation
-      positionLocked: positionSource.active && (positioningSettings.positioningCoordinateLock || gnssButton.followActive)
+      positionLocked: !digitizingToolbar.cogoEnabled && positionSource.active && (positioningSettings.positioningCoordinateLock || gnssButton.followActive)
       rubberbandModel: geometryEditorsToolbar.stateVisible ? geometryEditorsToolbar.editorRubberbandModel : digitizingToolbar.rubberbandModel
       averagedPosition: positionSource.averagedPosition
       averagedPositionCount: positionSource.averagedPositionCount

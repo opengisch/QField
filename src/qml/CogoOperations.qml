@@ -91,6 +91,7 @@ Item {
         iconColor: cogoOperationSettings.name === Name ? Theme.mainColor : Theme.toolButtonColor
 
         onClicked: {
+          Qt.inputMethod.hide();
           settings.setValue("/QField/CogoOperationLastUsed", Name);
           cogoOperationSettings.name = Name;
           cogoOperationSettings.title = DisplayName;
