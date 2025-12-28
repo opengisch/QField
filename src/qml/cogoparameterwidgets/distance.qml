@@ -45,6 +45,7 @@ CogoParameterWidgetBase {
       id: distanceField
       Layout.fillWidth: true
       font: Theme.tipFont
+      inputMethodHints: Qt.ImhFormattedNumbersOnly
 
       onTextEdited: {
         processValue();
