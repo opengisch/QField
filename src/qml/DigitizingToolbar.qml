@@ -13,6 +13,10 @@ QfVisibilityFadingRow {
   property RubberbandModel rubberbandModel
   property MapSettings mapSettings
 
+  property bool cogoEnabled: false
+  property var cogoOperationSettings: undefined
+  property alias cogoExecutor: cogoExecutor
+
   property bool showConfirmButton: true //<! if the geometry type is point, it will never be shown
   property bool screenHovering: false //<! if the stylus pen is used, one should not use the add button
 
@@ -26,6 +30,9 @@ QfVisibilityFadingRow {
   readonly property bool isDigitizing: rubberbandModel ? rubberbandModel.vertexCount > 1 : false //!< Readonly
 
   property bool geometryValid: false
+
+  signal requestJumpToPoint(var center, real scale, bool handleMargins)
+  signal requestPosition(var item, bool fromCoordinateLocator)
 
   spacing: 4
 
@@ -43,20 +50,8 @@ QfVisibilityFadingRow {
     target: rubberbandModel
 
     function onVertexCountChanged() {
-      var extraVertexNeed = coordinateLocator && coordinateLocator.positionLocked && positioningSettings.averagedPositioning && positioningSettings.averagedPositioningMinimumCount > 1 ? 1 : 0;
-
-      // set geometry valid
-      if (Number(rubberbandModel ? rubberbandModel.geometryType : 0) === 0) {
-        geometryValid = false;
-      } else if (Number(rubberbandModel.geometryType) === 1) {
-        // Line: at least 2 points
-        geometryValid = rubberbandModel.vertexCount > 1 + extraVertexNeed;
-      } else if (Number(rubberbandModel.geometryType) === 2) {
-        // Polygon: at least 3 points
-        geometryValid = rubberbandModel.vertexCount > 2 + extraVertexNeed;
-      } else {
-        geometryValid = false;
-      }
+      // check whether geometry is valid and can be confirmed
+      checkGeometryValidity();
 
       // emit the signal of digitizingToolbar
       vertexCountChanged();
@@ -97,9 +92,7 @@ QfVisibilityFadingRow {
 
   QfToolButton {
     id: confirmButton
-    iconSource: {
-      Theme.getThemeVectorIcon("ic_check_white_24dp");
-    }
+    iconSource: Theme.getThemeVectorIcon("ic_check_white_24dp")
     visible: {
       if (!showConfirmButton) {
         false;
@@ -108,11 +101,47 @@ QfVisibilityFadingRow {
       }
     }
     round: true
-    bgcolor: Theme.mainColor
+    bgcolor: !enabled ? Theme.toolButtonBackgroundSemiOpaqueColor : Theme.mainColor
 
     onClicked: {
       dashBoard.shouldReturnHome = false;
       confirm();
+    }
+  }
+
+  CogoOperations {
+    id: cogoOperations
+    enabled: digitizingToolbar.cogoEnabled
+
+    mapSettings: digitizingToolbar.mapSettings
+    cogoOperationSettings: digitizingToolbar.cogoOperationSettings
+
+    onEnabledChanged: {
+      digitizingToolbar.cogoOperationSettings.visible = enabled;
+      checkGeometryValidity();
+    }
+
+    onRequestJumpToPoint: function (center, scale, handleMargins) {
+      digitizingToolbar.requestJumpToPoint(center, scale, handleMargins);
+    }
+
+    onRequestPosition: function (item, fromCoordinateLocator) {
+      digitizingToolbar.requestPosition(item, fromCoordinateLocator);
+    }
+
+    CogoExecutor {
+      id: cogoExecutor
+
+      name: digitizingToolbar.cogoOperationSettings.name
+      parameterValues: digitizingToolbar.cogoOperationSettings.parameterValues
+
+      mapSettings: digitizingToolbar.mapSettings
+      rubberbandModel: digitizingToolbar.rubberbandModel
+
+      onParametersChanged: {
+        cogoOperationSettings.parameters = parameters;
+        cogoOperationSettings.clear();
+      }
     }
   }
 
@@ -122,8 +151,9 @@ QfVisibilityFadingRow {
     repeat: true
 
     onTriggered: {
-      if (!rubberbandModel || rubberbandModel.vertexCount == 0)
+      if (!rubberbandModel || rubberbandModel.vertexCount === 0) {
         stop();
+      }
       removeVertex();
       if (interval > 100)
         interval = interval * 0.8;
@@ -154,7 +184,7 @@ QfVisibilityFadingRow {
   QfToolButton {
     id: addVertexButton
     round: true
-    enabled: !screenHovering
+    enabled: (cogoEnabled && cogoExecutor.isReady) || (!cogoEnabled && !screenHovering)
     bgcolor: {
       if (!enabled) {
         Theme.toolButtonBackgroundSemiOpaqueColor;
@@ -185,7 +215,7 @@ QfVisibilityFadingRow {
     }
 
     onPressAndHold: {
-      if (coordinateLocator && coordinateLocator.positionLocked) {
+      if (!cogoEnabled && coordinateLocator && coordinateLocator.positionLocked) {
         if (!checkAccuracyRequirement()) {
           return;
         }
@@ -226,6 +256,20 @@ QfVisibilityFadingRow {
     }
 
     onClicked: {
+      if (cogoEnabled) {
+        if (cogoExecutor.isReady) {
+          const success = cogoExecutor.execute();
+          if (success) {
+            cogoOperationSettings.clear();
+            // Recenter to last added vertex
+            mapSettings.setCenter(rubberbandModel.lastCoordinate, true);
+            if (Number(rubberbandModel.geometryType) === Qgis.GeometryType.Point) {
+              confirm();
+            }
+          }
+        }
+        return;
+      }
       if (!checkAccuracyRequirement()) {
         return;
       }
@@ -276,6 +320,23 @@ QfVisibilityFadingRow {
       }
     }
     return true;
+  }
+
+  function checkGeometryValidity() {
+    var extraVertexNeed = cogoEnabled || (coordinateLocator && coordinateLocator.positionLocked && positioningSettings.averagedPositioning && positioningSettings.averagedPositioningMinimumCount > 1) ? 1 : 0;
+
+    // set geometry valid
+    if (Number(rubberbandModel ? rubberbandModel.geometryType : 0) === 0) {
+      geometryValid = false;
+    } else if (Number(rubberbandModel.geometryType) === 1) {
+      // Line: at least 2 points
+      geometryValid = rubberbandModel.vertexCount > 1 + extraVertexNeed;
+    } else if (Number(rubberbandModel.geometryType) === 2) {
+      // Polygon: at least 3 points
+      geometryValid = rubberbandModel.vertexCount > 2 + extraVertexNeed;
+    } else {
+      geometryValid = false;
+    }
   }
 
   function triggerAddVertex() {

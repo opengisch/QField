@@ -440,7 +440,7 @@ ApplicationWindow {
     DragHandler {
       id: freehandHandler
       property bool isDigitizing: false
-      enabled: freehandButton.visible && freehandButton.freehandDigitizing && !digitizingToolbar.rubberbandModel.frozen && ((!featureListForm.visible && digitizingToolbar.digitizingAllowed) || digitizingToolbar.geometryRequested)
+      enabled: freehandButton.visible && freehandButton.freehandDigitizing && !digitizingToolbar.cogoEnabled && !digitizingToolbar.rubberbandModel.frozen && ((!featureListForm.visible && digitizingToolbar.digitizingAllowed) || digitizingToolbar.geometryRequested)
       acceptedDevices: !qfieldSettings.mouseAsTouchScreen ? PointerDevice.Stylus | PointerDevice.Mouse : PointerDevice.Stylus
       grabPermissions: PointerHandler.CanTakeOverFromHandlersOfSameType | PointerHandler.CanTakeOverFromHandlersOfDifferentType | PointerHandler.ApprovesTakeOverByAnything
       dragThreshold: 0
@@ -687,6 +687,9 @@ ApplicationWindow {
             return;
           }
           if ((stateMachine.state === "digitize" && digitizingFeature.currentLayer && digitizingToolbar.digitizingAllowed) || stateMachine.state === "measure") {
+            if (digitizingToolbar.cogoEnabled) {
+              return;
+            }
             if (!positionLocked && (!featureListForm.visible || digitizingToolbar.geometryRequested)) {
               if (Number(currentRubberband.model.geometryType) === Qgis.GeometryType.Point || Number(currentRubberband.model.geometryType) === Qgis.GeometryType.Null) {
                 digitizingToolbar.confirm();
@@ -741,6 +744,9 @@ ApplicationWindow {
             return;
           }
           if (stateMachine.state === "digitize" && digitizingFeature.currentLayer && digitizingToolbar.digitizingAllowed) {
+            if (digitizingToolbar.cogoEnabled) {
+              return;
+            }
             // the sourceLocation test checks if a (stylus) hover is active
             if ((Number(currentRubberband.model.geometryType) === Qgis.GeometryType.Line && currentRubberband.model.vertexCount >= 2) || (Number(currentRubberband.model.geometryType) === Qgis.GeometryType.Polygon && currentRubberband.model.vertexCount >= 2)) {
               digitizingToolbar.addVertex();
@@ -862,38 +868,51 @@ ApplicationWindow {
       }
     }
 
+    /** COGO operation visual guides **/
+    CogoOperationPreview {
+      id: cogoOperationPreview
+      visible: digitizingToolbar.cogoEnabled
+      visualGuides: digitizingToolbar.cogoExecutor.visualGuides
+    }
+
     /** A rubberband for ditizing **/
     Rubberband {
       id: digitizingRubberband
 
       mapSettings: mapCanvas.mapSettings
+      showVertices: digitizingToolbar.cogoEnabled
 
       model: RubberbandModel {
         frozen: false
-        currentCoordinate: coordinateLocator.currentCoordinate
+        currentCoordinate: digitizingToolbar.cogoEnabled ? GeometryUtils.emptyPoint() : coordinateLocator.currentCoordinate
         measureValue: {
-          if (coordinateLocator.positionLocked) {
-            switch (positioningSettings.digitizingMeasureType) {
-            case Tracker.Timestamp:
-              return coordinateLocator.positionInformation.utcDateTime.getTime();
-            case Tracker.GroundSpeed:
-              return coordinateLocator.positionInformation.speed;
-            case Tracker.Bearing:
-              return coordinateLocator.positionInformation.direction;
-            case Tracker.HorizontalAccuracy:
-              return coordinateLocator.positionInformation.hacc;
-            case Tracker.VerticalAccuracy:
-              return coordinateLocator.positionInformation.vacc;
-            case Tracker.PDOP:
-              return coordinateLocator.positionInformation.pdop;
-            case Tracker.HDOP:
-              return coordinateLocator.positionInformation.hdop;
-            case Tracker.VDOP:
-              return coordinateLocator.positionInformation.vdop;
-            }
+          let pi;
+          if (digitizingToolbar.cogoEnabled) {
+            pi = digitizingToolbar.cogoOperationSettings.positionInformation;
+          } else if (coordinateLocator.positionLocked) {
+            pi = coordinateLocator.positionInformation;
           } else {
             return Number.NaN;
           }
+          switch (positioningSettings.digitizingMeasureType) {
+          case Tracker.Timestamp:
+            return pi.utcDateTime.getTime();
+          case Tracker.GroundSpeed:
+            return pi.speed;
+          case Tracker.Bearing:
+            return pi.direction;
+          case Tracker.HorizontalAccuracy:
+            return pi.hacc;
+          case Tracker.VerticalAccuracy:
+            return pi.vacc;
+          case Tracker.PDOP:
+            return pi.pdop;
+          case Tracker.HDOP:
+            return pi.hdop;
+          case Tracker.VDOP:
+            return pi.vdop;
+          }
+          return Number.NaN;
         }
         vectorLayer: digitizingToolbar.geometryRequested ? digitizingToolbar.geometryRequestedLayer : dashBoard.activeLayer
         crs: mapCanvas.mapSettings.destinationCrs
@@ -961,12 +980,12 @@ ApplicationWindow {
       objectName: "coordinateLocator"
       anchors.fill: parent
       anchors.bottomMargin: !gnssButton.followActive || !gnssButton.followOrientationActive ? informationDrawer.height > mainWindow.sceneBottomMargin ? informationDrawer.height : 0 : 0
-      visible: stateMachine.state === "digitize" || stateMachine.state === 'measure'
+      visible: (stateMachine.state === "digitize" || stateMachine.state === 'measure')
       highlightColor: digitizingToolbar.isDigitizing ? currentRubberband.color : "#CFD8DC"
       mapSettings: mapCanvas.mapSettings
       currentLayer: dashBoard.activeLayer
       positionInformation: positionSource.positionInformation
-      positionLocked: positionSource.active && (positioningSettings.positioningCoordinateLock || gnssButton.followActive)
+      positionLocked: !digitizingToolbar.cogoEnabled && positionSource.active && (positioningSettings.positioningCoordinateLock || gnssButton.followActive)
       rubberbandModel: geometryEditorsToolbar.stateVisible ? geometryEditorsToolbar.editorRubberbandModel : digitizingToolbar.rubberbandModel
       averagedPosition: positionSource.averagedPosition
       averagedPositionCount: positionSource.averagedPositionCount
@@ -1475,6 +1494,8 @@ ApplicationWindow {
     navigation: navigation
     positionSource: positionSource
     positioningSettings: positioningSettings
+
+    cogoOperationSettings.mapSettings: mapCanvas.mapSettings
   }
 
   /**************************************************
@@ -1944,6 +1965,43 @@ ApplicationWindow {
         iconColor: Theme.toolButtonColor
         spacing: 4
         visible: stateMachine.state === "digitize" && dashBoard.activeLayer && dashBoard.activeLayer.isValid && (dashBoard.activeLayer.geometryType() === Qgis.GeometryType.Polygon || dashBoard.activeLayer.geometryType() === Qgis.GeometryType.Line || dashBoard.activeLayer.geometryType() === Qgis.GeometryType.Point)
+
+        QfToolButton {
+          id: cogoButton
+          width: 40
+          height: 40
+          padding: 2
+          round: true
+          state: digitizingToolbar.cogoEnabled ? "On" : "Off"
+          iconSource: Theme.getThemeVectorIcon("ic_cogo_white_24dp")
+          iconColor: Theme.toolButtonColor
+          bgcolor: Theme.toolButtonBackgroundSemiOpaqueColor
+
+          states: [
+            State {
+
+              name: "Off"
+              PropertyChanges {
+                target: cogoButton
+                iconColor: Theme.toolButtonColor
+                bgcolor: Theme.toolButtonBackgroundSemiOpaqueColor
+              }
+            },
+            State {
+              name: "On"
+              PropertyChanges {
+                target: cogoButton
+                iconColor: Theme.mainColor
+                bgcolor: Theme.toolButtonBackgroundColor
+              }
+            }
+          ]
+
+          onClicked: {
+            digitizingToolbar.cogoEnabled = !digitizingToolbar.cogoEnabled;
+            displayToast(digitizingToolbar.cogoEnabled ? qsTr("COGO digitizing turned on") : qsTr("COGO digitizing turned off"));
+          }
+        }
 
         QfToolButton {
           id: snappingButton
@@ -2677,6 +2735,8 @@ ApplicationWindow {
         showConfirmButton: stateMachine.state === "digitize"
         screenHovering: mapCanvasMap.hovered
 
+        cogoOperationSettings: informationDrawer.cogoOperationSettings
+
         digitizingLogger.type: stateMachine.state === 'measure' ? '' : 'add'
 
         FeatureModel {
@@ -2777,6 +2837,7 @@ ApplicationWindow {
           }
           if (digitizingRubberband.model.geometryType === Qgis.GeometryType.Null) {
             digitizingRubberband.model.reset();
+            digitizingRubberband.model.frozen = digitizingToolbar.cogoEnabled;
           } else {
             coordinateLocator.flash();
             digitizingFeature.geometry.applyRubberband();
@@ -2808,9 +2869,22 @@ ApplicationWindow {
               }
             }
             digitizingRubberband.model.reset();
+            digitizingRubberband.model.frozen = digitizingToolbar.cogoEnabled;
             digitizingFeature.resetFeature();
           }
           coordinateLocator.sourceLocation = undefined;
+        }
+
+        onRequestJumpToPoint: function (center, scale, handleMargins) {
+          mapCanvasMap.jumpTo(center, scale, -1, handleMargins);
+        }
+
+        onRequestPosition: function (item, fromCoordinateLocator) {
+          if (fromCoordinateLocator) {
+            item.requestedPositionReceived(coordinateLocator.currentCoordinate, undefined);
+          } else {
+            item.requestedPositionReceived(positionSource.projectedPosition, positionSource.positionInformation);
+          }
         }
       }
 

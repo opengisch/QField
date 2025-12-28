@@ -245,10 +245,14 @@ void RubberbandModel::setCurrentCoordinate( const QgsPoint &currentCoordinate )
   }
 
   if ( mPointList.at( mCurrentCoordinateIndex ) == currentCoordinate )
+  {
     return;
+  }
 
   if ( mFrozen )
+  {
     return;
+  }
 
   mPointList.replace( mCurrentCoordinateIndex, currentCoordinate );
 

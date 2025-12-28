@@ -8,6 +8,7 @@ Row {
   property bool stateVisible: false
   visible: opacity > 0
   opacity: 0
+  spacing: 4
 
   states: [
     State {

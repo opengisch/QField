@@ -1,4 +1,8 @@
 set(QFIELD_CORE_SRCS
+    cogo/cogoexecutor.cpp
+    cogo/cogooperation.cpp
+    cogo/cogooperationsmodel.cpp
+    cogo/cogoregistry.cpp
     platforms/platformutilities.cpp
     utils/coordinatereferencesystemutils.cpp
     utils/expressioncontextutils.cpp
@@ -131,6 +135,10 @@ set(QFIELD_CORE_SRCS
     webdavconnection.cpp)
 
 set(QFIELD_CORE_HDRS
+    cogo/cogoexecutor.h
+    cogo/cogooperation.h
+    cogo/cogooperationsmodel.h
+    cogo/cogoregistry.h
     platforms/platformutilities.h
     utils/coordinatereferencesystemutils.h
     utils/expressioncontextutils.h
@@ -339,6 +347,7 @@ endif()
 target_include_directories(
   qfield_core
   PUBLIC ${CMAKE_SOURCE_DIR}/src/core
+         ${CMAKE_SOURCE_DIR}/src/core/cogo
          ${CMAKE_SOURCE_DIR}/src/core/locator
          ${CMAKE_SOURCE_DIR}/src/core/platforms
          ${CMAKE_SOURCE_DIR}/src/core/qgsquick

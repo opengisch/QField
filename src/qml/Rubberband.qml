@@ -10,6 +10,8 @@ import Theme
 RubberbandShape {
   id: rubberbandShape
 
+  property bool showVertices: false
+
   Shape {
     anchors.fill: parent
     ShapePath {
@@ -35,6 +37,23 @@ RubberbandShape {
       PathPolyline {
         path: rubberbandShape.polylines[0]
       }
+    }
+  }
+
+  Repeater {
+    id: rubberbandVertices
+    model: showVertices && rubberbandShape.model.vertexCount > 1 ? rubberbandShape.polylines[0] : []
+
+    Rectangle {
+      width: rubberbandShape.lineWidth / rubberbandShape.scale * 2
+      height: width
+
+      x: modelData.x - width / 2
+      y: modelData.y - width / 2
+
+      color: rubberbandShape.color
+      border.width: 1
+      border.color: rubberbandShape.outlineColor
     }
   }
 }
