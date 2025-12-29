@@ -298,24 +298,14 @@ Item {
       }
 
       font: Theme.defaultFont
-
-      contentItem: Text {
-        leftPadding: relationCombobox.enabled || (!isEditable && isEditing) ? 10 : 0
-        height: fontMetrics.height + 20
-        text: {
-          if (!isEditing && value === "") {
-            return qsTr("Empty");
-          } else if (!isEditing && FeatureUtils.attributeIsNull(value)) {
-            return qsTr("NULL");
-          }
-          return comboBox.currentIndex === -1 && value !== undefined ? '(' + value + ')' : comboBox.currentText;
+      text.color: displayedTextColor
+      displayText: {
+        if (!isEditing && value === "") {
+          return qsTr("Empty");
+        } else if (!isEditing && FeatureUtils.attributeIsNull(value)) {
+          return qsTr("NULL");
         }
-
-        font: comboBox.font
-        horizontalAlignment: Text.AlignLeft
-        verticalAlignment: Text.AlignVCenter
-        elide: Text.ElideRight
-        color: displayedTextColor
+        return comboBox.currentIndex === -1 && value !== undefined ? '(' + value + ')' : comboBox.currentText;
       }
 
       popup: Popup {
