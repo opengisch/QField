@@ -260,7 +260,6 @@ Page {
         font.bold: true
         topPadding: 10
         bottomPadding: 5
-        opacity: form.state === 'ReadOnly' || embedded && EditorWidget === 'RelationEditor' ? 0.45 : 1
         color: labelOverrideColor !== undefined && labelOverrideColor ? labelColor : Theme.mainTextColor
       }
 
@@ -306,7 +305,6 @@ Page {
         font.bold: true
         topPadding: 10
         bottomPadding: 5
-        opacity: form.state === 'ReadOnly' || embedded && EditorWidget === 'RelationEditor' ? 0.45 : 1
         color: labelOverrideColor !== undefined && labelOverrideColor ? labelColor : Theme.mainTextColor
       }
 
@@ -353,7 +351,6 @@ Page {
         font.bold: true
         topPadding: 10
         bottomPadding: 5
-        opacity: form.state === 'ReadOnly' || embedded && EditorWidget === 'RelationEditor' ? 0.45 : 1
         color: labelOverrideColor !== undefined && labelOverrideColor ? labelColor : Theme.mainTextColor
       }
 
