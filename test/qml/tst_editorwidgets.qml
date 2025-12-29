@@ -886,7 +886,7 @@ TestCase {
     const openSearchFeaturePopupButton = Utils.findChildren(relationComboBoxParent, "OpenSearchFeaturePopupButton");
 
     // Initially, the combobox should not select any item because the value is undefined
-    compare(comboBoxItem.displayText, "");
+    compare(comboBoxItem.displayText, "NULL");
 
     // Enable editable mode
     valueRelation.isEnabled = true;
