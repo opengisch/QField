@@ -216,11 +216,6 @@ EditorWidgetBase {
       }
     }
 
-    FontMetrics {
-      id: fontMetrics
-      font: comboBox.font
-    }
-
     QfToolButton {
       id: searchButton
 
