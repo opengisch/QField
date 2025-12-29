@@ -3791,7 +3791,7 @@ Même si vous pouvez toujours voir et utiliser ce projet, il est fortement recom
     </message>
     <message numerus="yes">
         <source>Are you sure you want to remove %n files?</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Es-tu sûr de vouloir supprimer %n fichiers ?</numerusform><numerusform>Es-tu sûr de vouloir supprimer %n fichiers ?</numerusform><numerusform>Êtes-vous sûr de vouloir supprimer %n fichiers ?</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>%n file(s) deleted successfully</source>
@@ -4513,6 +4513,38 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Error opening zip archive: &apos;%1&apos; (Error code: %2)</source>
         <translation>Erreur à l&apos;ouverture de l&apos;archive zip &apos;%1&apos; (code d&apos;erreur : %2)</translation>
+    </message>
+    <message>
+        <source>Circle #1</source>
+        <translation>Cercle #1</translation>
+    </message>
+    <message>
+        <source>Circle #1: radius</source>
+        <translation>Cercle #1 : rayon</translation>
+    </message>
+    <message>
+        <source>Circle #2</source>
+        <translation>Cercle #2</translation>
+    </message>
+    <message>
+        <source>Circle #2: radius</source>
+        <translation>Cercle #2 : rayon</translation>
+    </message>
+    <message>
+        <source>Candidate</source>
+        <translation>Points d&apos;intersection </translation>
+    </message>
+    <message>
+        <source>XYZ Parameters</source>
+        <translation>Paramètres XYZ</translation>
+    </message>
+    <message>
+        <source>Distance/Angle from Point</source>
+        <translation>Distance/angle depuis le Point</translation>
+    </message>
+    <message>
+        <source>Circles Intersection</source>
+        <translation>Intersections des cercles</translation>
     </message>
 </context>
 <context>
@@ -5601,6 +5633,17 @@ projet</translation>
     </message>
 </context>
 <context>
+    <name>angle</name>
+    <message>
+        <source>Angle</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>deg</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>area</name>
     <message>
         <source>square degrees</source>
@@ -5712,6 +5755,24 @@ projet</translation>
         <source>inches</source>
         <translation>pouces</translation>
     </message>
+    <message>
+        <source>Distance</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>elevation</name>
+    <message>
+        <source>Elevation</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>enum</name>
+    <message>
+        <source>Choices</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>ordered_relation_editor</name>
@@ -5746,6 +5807,37 @@ projet</translation>
     <message>
         <source>Failed to delete referencing feature</source>
         <translation type="vanished">Échec de la suppression de l&apos;entité référencée.</translation>
+    </message>
+</context>
+<context>
+    <name>point</name>
+    <message>
+        <source>Point</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>latitude</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>longitude</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>elevation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>easting [X]</source>
+        <translation>Est [X]</translation>
+    </message>
+    <message>
+        <source>northing [Y]</source>
+        <translation>Nord [Y]</translation>
+    </message>
+    <message>
+        <source>elevation [Z]</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -6513,6 +6605,14 @@ pour afficher des actions</translation>
     <message>
         <source>No compatible layers available to launch tracking</source>
         <translation>Pas de couche compatible pour le suivi</translation>
+    </message>
+    <message>
+        <source>COGO digitizing turned on</source>
+        <translation>Numérisation COGO activée</translation>
+    </message>
+    <message>
+        <source>COGO digitizing turned off</source>
+        <translation>Numérisation COGO désactivée</translation>
     </message>
 </context>
 <context>

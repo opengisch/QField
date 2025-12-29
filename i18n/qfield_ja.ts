@@ -4005,7 +4005,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>To apply the selected user interface language, QField needs to completely shutdown and restart.</source>
-        <translation>選択した表示言語を適用するには、QFieldを完全にシャットダウンして再起動する必要があります。</translation>
+        <translation type="vanished">選択した表示言語を適用するには、QFieldを完全にシャットダウンして再起動する必要があります。</translation>
     </message>
     <message>
         <source>system</source>
@@ -4514,6 +4514,38 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Error opening zip archive: &apos;%1&apos; (Error code: %2)</source>
         <translation>ZIPアーカイブがエラーで開けませんでした: &apos;%1&apos; (エラーコード: %2)</translation>
+    </message>
+    <message>
+        <source>Circle #1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Circle #1: radius</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Circle #2</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Circle #2: radius</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Candidate</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>XYZ Parameters</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Distance/Angle from Point</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Circles Intersection</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -5597,6 +5629,17 @@ project</source>
     </message>
 </context>
 <context>
+    <name>angle</name>
+    <message>
+        <source>Angle</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>deg</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>area</name>
     <message>
         <source>square degrees</source>
@@ -5708,6 +5751,24 @@ project</source>
         <source>inches</source>
         <translation>インチ</translation>
     </message>
+    <message>
+        <source>Distance</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>elevation</name>
+    <message>
+        <source>Elevation</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>enum</name>
+    <message>
+        <source>Choices</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>ordered_relation_editor</name>
@@ -5742,6 +5803,37 @@ project</source>
     <message>
         <source>Failed to delete referencing feature</source>
         <translation type="vanished">参照している地物を削除できませんでした</translation>
+    </message>
+</context>
+<context>
+    <name>point</name>
+    <message>
+        <source>Point</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>latitude</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>longitude</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>elevation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>easting [X]</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>northing [Y]</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>elevation [Z]</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -6505,6 +6597,14 @@ to show actions</source>
     </message>
     <message>
         <source>No compatible layers available to launch tracking</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>COGO digitizing turned on</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>COGO digitizing turned off</source>
         <translation type="unfinished"/>
     </message>
 </context>

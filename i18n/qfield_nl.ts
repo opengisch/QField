@@ -4007,7 +4007,7 @@ Hoewel u het project nog steeds kunt bekijken en gebruiken, wordt het ten zeerst
     </message>
     <message>
         <source>To apply the selected user interface language, QField needs to completely shutdown and restart.</source>
-        <translation>Om de geselecteerde taal voor de gebruikersinterface toe te passen, moet QField volledig worden afgesloten en herstart.</translation>
+        <translation type="vanished">Om de geselecteerde taal voor de gebruikersinterface toe te passen, moet QField volledig worden afgesloten en herstart.</translation>
     </message>
     <message>
         <source>system</source>
@@ -4516,6 +4516,38 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     <message>
         <source>Error opening zip archive: &apos;%1&apos; (Error code: %2)</source>
         <translation>Fout bij openen zip archief: &apos;%1&apos; (Error code: %2)</translation>
+    </message>
+    <message>
+        <source>Circle #1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Circle #1: radius</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Circle #2</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Circle #2: radius</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Candidate</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>XYZ Parameters</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Distance/Angle from Point</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Circles Intersection</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -5602,6 +5634,17 @@ project</translation>
     </message>
 </context>
 <context>
+    <name>angle</name>
+    <message>
+        <source>Angle</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>deg</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>area</name>
     <message>
         <source>square degrees</source>
@@ -5713,6 +5756,24 @@ project</translation>
         <source>inches</source>
         <translation>inch</translation>
     </message>
+    <message>
+        <source>Distance</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>elevation</name>
+    <message>
+        <source>Elevation</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>enum</name>
+    <message>
+        <source>Choices</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>ordered_relation_editor</name>
@@ -5747,6 +5808,37 @@ project</translation>
     <message>
         <source>Failed to delete referencing feature</source>
         <translation type="vanished">Kan verwijzingsobject niet verwijderen</translation>
+    </message>
+</context>
+<context>
+    <name>point</name>
+    <message>
+        <source>Point</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>latitude</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>longitude</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>elevation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>easting [X]</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>northing [Y]</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>elevation [Z]</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -6510,6 +6602,14 @@ to show actions</source>
     </message>
     <message>
         <source>No compatible layers available to launch tracking</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>COGO digitizing turned on</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>COGO digitizing turned off</source>
         <translation type="unfinished"/>
     </message>
 </context>

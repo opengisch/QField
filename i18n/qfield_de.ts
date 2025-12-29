@@ -4004,7 +4004,7 @@ Du kannst das Projekt zwar weiterhin anzeigen und nutzen, aber es wird dringend 
     </message>
     <message>
         <source>To apply the selected user interface language, QField needs to completely shutdown and restart.</source>
-        <translation>Um die ausgewählte Sprache der Benutzeroberfläche anzuwenden, muss QField komplett ausgeschaltet und neu gestartet werden.</translation>
+        <translation type="vanished">Um die ausgewählte Sprache der Benutzeroberfläche anzuwenden, muss QField komplett ausgeschaltet und neu gestartet werden.</translation>
     </message>
     <message>
         <source>system</source>
@@ -4513,6 +4513,38 @@ Abbrechen um einen verkürzten Scan durchzuführen. </translation>
     <message>
         <source>Error opening zip archive: &apos;%1&apos; (Error code: %2)</source>
         <translation>Fehler beim Öffnen des zip Archivs: &apos;%1&apos; (Fehlercode: %2)</translation>
+    </message>
+    <message>
+        <source>Circle #1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Circle #1: radius</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Circle #2</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Circle #2: radius</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Candidate</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>XYZ Parameters</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Distance/Angle from Point</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Circles Intersection</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -5599,6 +5631,17 @@ erstellen</translation>
     </message>
 </context>
 <context>
+    <name>angle</name>
+    <message>
+        <source>Angle</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>deg</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>area</name>
     <message>
         <source>square degrees</source>
@@ -5710,6 +5753,24 @@ erstellen</translation>
         <source>inches</source>
         <translation>Inch</translation>
     </message>
+    <message>
+        <source>Distance</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>elevation</name>
+    <message>
+        <source>Elevation</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>enum</name>
+    <message>
+        <source>Choices</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>ordered_relation_editor</name>
@@ -5744,6 +5805,37 @@ erstellen</translation>
     <message>
         <source>Failed to delete referencing feature</source>
         <translation type="vanished">Referenz-Objekt konnte nicht gelöscht werden.</translation>
+    </message>
+</context>
+<context>
+    <name>point</name>
+    <message>
+        <source>Point</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>latitude</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>longitude</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>elevation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>easting [X]</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>northing [Y]</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>elevation [Z]</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -6509,6 +6601,14 @@ um Aktionen anzuzeigen</translation>
     <message>
         <source>No compatible layers available to launch tracking</source>
         <translation>Keine kompatiblen Layer zum Starten des Trackings verfügbar</translation>
+    </message>
+    <message>
+        <source>COGO digitizing turned on</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>COGO digitizing turned off</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

@@ -4005,7 +4005,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>To apply the selected user interface language, QField needs to completely shutdown and restart.</source>
-        <translation>要应用选中的用户界面语言，QField需要完全关闭并重新启动。</translation>
+        <translation type="vanished">要应用选中的用户界面语言，QField需要完全关闭并重新启动。</translation>
     </message>
     <message>
         <source>system</source>
@@ -4514,6 +4514,38 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Error opening zip archive: &apos;%1&apos; (Error code: %2)</source>
         <translation>打开ZIP归档文件时出错: &apos;%1&apos; (错误代码: %2)</translation>
+    </message>
+    <message>
+        <source>Circle #1</source>
+        <translation>圆 #1</translation>
+    </message>
+    <message>
+        <source>Circle #1: radius</source>
+        <translation>圆 #1: 半径</translation>
+    </message>
+    <message>
+        <source>Circle #2</source>
+        <translation>圆 #2</translation>
+    </message>
+    <message>
+        <source>Circle #2: radius</source>
+        <translation>圆 #2: 半径</translation>
+    </message>
+    <message>
+        <source>Candidate</source>
+        <translation>候选</translation>
+    </message>
+    <message>
+        <source>XYZ Parameters</source>
+        <translation>XYZ参数</translation>
+    </message>
+    <message>
+        <source>Distance/Angle from Point</source>
+        <translation>点的距离/角度</translation>
+    </message>
+    <message>
+        <source>Circles Intersection</source>
+        <translation>圆的交点</translation>
     </message>
 </context>
 <context>
@@ -5600,6 +5632,17 @@ project</source>
     </message>
 </context>
 <context>
+    <name>angle</name>
+    <message>
+        <source>Angle</source>
+        <translation>角度</translation>
+    </message>
+    <message>
+        <source>deg</source>
+        <translation>度</translation>
+    </message>
+</context>
+<context>
     <name>area</name>
     <message>
         <source>square degrees</source>
@@ -5711,6 +5754,24 @@ project</source>
         <source>inches</source>
         <translation>英寸</translation>
     </message>
+    <message>
+        <source>Distance</source>
+        <translation>距离</translation>
+    </message>
+</context>
+<context>
+    <name>elevation</name>
+    <message>
+        <source>Elevation</source>
+        <translation>高程</translation>
+    </message>
+</context>
+<context>
+    <name>enum</name>
+    <message>
+        <source>Choices</source>
+        <translation>选择</translation>
+    </message>
 </context>
 <context>
     <name>ordered_relation_editor</name>
@@ -5745,6 +5806,37 @@ project</source>
     <message>
         <source>Failed to delete referencing feature</source>
         <translation type="vanished">删除参考要素失败</translation>
+    </message>
+</context>
+<context>
+    <name>point</name>
+    <message>
+        <source>Point</source>
+        <translation>点</translation>
+    </message>
+    <message>
+        <source>latitude</source>
+        <translation>纬度</translation>
+    </message>
+    <message>
+        <source>longitude</source>
+        <translation>经度</translation>
+    </message>
+    <message>
+        <source>elevation</source>
+        <translation>高程</translation>
+    </message>
+    <message>
+        <source>easting [X]</source>
+        <translation>东 [X]</translation>
+    </message>
+    <message>
+        <source>northing [Y]</source>
+        <translation>北 [Y]</translation>
+    </message>
+    <message>
+        <source>elevation [Z]</source>
+        <translation>高程 [Z]</translation>
     </message>
 </context>
 <context>
@@ -5803,7 +5895,7 @@ project</source>
     </message>
     <message>
         <source>Topological editing turned on</source>
-        <translation>拓扑编辑已打开</translation>
+        <translation>拓扑编辑已开启</translation>
     </message>
     <message>
         <source>Topological editing turned off</source>
@@ -5811,7 +5903,7 @@ project</source>
     </message>
     <message>
         <source>Freehand digitizing turned on</source>
-        <translation>手绘数字化已打开</translation>
+        <translation>手绘数字化已开启</translation>
     </message>
     <message>
         <source>Freehand digitizing turned off</source>
@@ -5847,7 +5939,7 @@ project</source>
     </message>
     <message>
         <source>Positioning turned off</source>
-        <translation type="vanished">关闭定位功能</translation>
+        <translation type="vanished">定位已关闭</translation>
     </message>
     <message>
         <source>Canvas stopped following location</source>
@@ -6155,7 +6247,7 @@ project</source>
     </message>
     <message>
         <source>Snapping turned on</source>
-        <translation>捕捉已打开</translation>
+        <translation>捕捉已开启</translation>
     </message>
     <message>
         <source>Snapping turned off</source>
@@ -6163,7 +6255,7 @@ project</source>
     </message>
     <message>
         <source>Snap to %1° angle turned on</source>
-        <translation>捕捉到已打开的 %1° 角</translation>
+        <translation>捕捉到已开启的 %1° 角</translation>
     </message>
     <message>
         <source>Snap to common angle turned off</source>
@@ -6510,6 +6602,14 @@ to show actions</source>
     <message>
         <source>No compatible layers available to launch tracking</source>
         <translation>没有可用于启动跟踪的兼容图层</translation>
+    </message>
+    <message>
+        <source>COGO digitizing turned on</source>
+        <translation>COGO数字化已开启</translation>
+    </message>
+    <message>
+        <source>COGO digitizing turned off</source>
+        <translation>COGO数字化已关闭</translation>
     </message>
 </context>
 <context>
