@@ -78,7 +78,9 @@ QFieldCloudConnection::QFieldCloudConnection()
 bool QFieldCloudConnection::beginProjectPushOrQueue( const QString &projectId )
 {
   if ( projectId.isEmpty() )
+  {
     return false;
+  }
 
   if ( !isReachableToCloud() )
   {
@@ -92,7 +94,9 @@ bool QFieldCloudConnection::beginProjectPushOrQueue( const QString &projectId )
 void QFieldCloudConnection::requestQueuedProjectPush( const QString &projectId )
 {
   if ( projectId.isEmpty() )
+  {
     return;
+  }
 
   mQueuedProjectPushes.insert( projectId );
   tryFlushQueuedProjectPushes();
@@ -101,16 +105,24 @@ void QFieldCloudConnection::requestQueuedProjectPush( const QString &projectId )
 void QFieldCloudConnection::tryFlushQueuedProjectPushes()
 {
   if ( mIsFlushingQueuedProjectPushes )
+  {
     return;
+  }
 
   if ( mQueuedProjectPushes.isEmpty() )
+  {
     return;
+  }
 
   if ( status() != ConnectionStatus::LoggedIn )
+  {
     return;
+  }
 
   if ( !isReachableToCloud() )
+  {
     return;
+  }
 
   mIsFlushingQueuedProjectPushes = true;
 
@@ -177,7 +189,9 @@ QString QFieldCloudConnection::url() const
 void QFieldCloudConnection::setUrl( const QString &url )
 {
   if ( url == mUrl )
+  {
     return;
+  }
 
   mUrl = url;
   QSettings().setValue( QStringLiteral( "/QFieldCloud/url" ), url );
@@ -223,7 +237,9 @@ QString QFieldCloudConnection::provider() const
 void QFieldCloudConnection::setProvider( const QString &provider )
 {
   if ( mProvider == provider )
+  {
     return;
+  }
 
   mProvider = provider;
   QSettings().setValue( QStringLiteral( "/QFieldCloud/provider" ), provider );
@@ -239,7 +255,9 @@ QString QFieldCloudConnection::username() const
 void QFieldCloudConnection::setUsername( const QString &username )
 {
   if ( mUsername == username )
+  {
     return;
+  }
 
   mQueuedProjectPushes.clear();
   mUsername = username;
@@ -261,7 +279,9 @@ QString QFieldCloudConnection::password() const
 void QFieldCloudConnection::setPassword( const QString &password )
 {
   if ( password == mPassword )
+  {
     return;
+  }
 
   mPassword = password;
   emit passwordChanged();
@@ -600,7 +620,9 @@ NetworkReply *QFieldCloudConnection::get( QNetworkRequest &request, const QStrin
   QUrl url( endpoint );
 
   if ( url.isRelative() )
+  {
     url.setUrl( mUrl + endpoint );
+  }
 
   return get( request, url, params );
 }
@@ -610,7 +632,9 @@ NetworkReply *QFieldCloudConnection::get( QNetworkRequest &request, const QUrl &
   QUrlQuery urlQuery = QUrlQuery( url.query() );
 
   for ( auto [key, value] : qfield::asKeyValueRange( params ) )
+  {
     urlQuery.addQueryItem( key, value.toString() );
+  }
 
   QUrl requestUrl = url;
   requestUrl.setQuery( urlQuery );
@@ -655,7 +679,9 @@ NetworkReply *QFieldCloudConnection::get( QNetworkRequest &request, const QUrl &
 void QFieldCloudConnection::setToken( const QByteArray &token )
 {
   if ( mToken == token )
+  {
     return;
+  }
 
   mToken = token;
 
@@ -692,7 +718,9 @@ void QFieldCloudConnection::invalidateToken()
 {
   mQueuedProjectPushes.clear();
   if ( mToken.isNull() )
+  {
     return;
+  }
 
   mToken = QByteArray();
 
@@ -709,7 +737,9 @@ void QFieldCloudConnection::invalidateToken()
 void QFieldCloudConnection::setStatus( ConnectionStatus status )
 {
   if ( mStatus == status )
+  {
     return;
+  }
 
   mStatus = status;
   emit statusChanged();
@@ -725,7 +755,9 @@ void QFieldCloudConnection::setStatus( ConnectionStatus status )
 void QFieldCloudConnection::setState( ConnectionState state )
 {
   if ( mState == state )
+  {
     return;
+  }
 
   mState = state;
   emit stateChanged();
@@ -810,7 +842,9 @@ void QFieldCloudConnection::setClientHeaders( QNetworkRequest &request )
 QFieldCloudConnection::CloudError::CloudError( QNetworkReply *reply )
 {
   if ( !reply )
+  {
     return;
+  }
 
   QString errorMessage;
 
@@ -843,15 +877,23 @@ QFieldCloudConnection::CloudError::CloudError( QNetworkReply *reply )
           errorMessage += QStringLiteral( "[QF/%1] " ).arg( mQfcCode );
 
           if ( sErrors.contains( mQfcCode ) )
+          {
             errorMessage += sErrors.value( mQfcCode );
+          }
           else
+          {
             errorMessage += doc.value( QStringLiteral( "message" ) ).toString();
+          }
         }
         else
+        {
           errorMessage += QStringLiteral( "<no server details>" );
+        }
 
         if ( errorMessage.isEmpty() )
+        {
           errorMessage += QStringLiteral( "<empty server details>" );
+        }
       }
       break;
   }
@@ -867,7 +909,9 @@ QFieldCloudConnection::CloudError::CloudError( QNetworkReply *reply )
   QString payloadPlainText = QTextDocumentFragment::fromHtml( mPayload ).toPlainText().trimmed();
 
   if ( mPayload.size() > 200 )
+  {
     errorMessage += QStringLiteral( "…" );
+  }
 
   if ( errorMessage.isEmpty() )
   {
@@ -888,7 +932,9 @@ QFieldCloudConnection::CloudError::CloudError( QNetworkReply *reply )
 qsizetype QFieldCloudConnection::uploadPendingAttachments()
 {
   if ( mUploadPendingCount > 0 )
+  {
     return mUploadPendingCount;
+  }
 
   QMultiMap<QString, QString> attachments = QFieldCloudUtils::getPendingAttachments( mUsername );
   if ( attachments.isEmpty() )
