@@ -109,25 +109,37 @@ void FeatureListExtentController::zoomToAllFeatures() const
     const QgsFeature feature = mModel->data( index, MultiFeatureListModel::FeatureRole ).value<QgsFeature>();
 
     if ( !layer || layer->geometryType() == Qgis::GeometryType::Unknown || layer->geometryType() == Qgis::GeometryType::Null )
+    {
       continue;
+    }
 
     try
     {
       const QgsGeometry geom( feature.geometry() );
       if ( geom.isNull() )
+      {
         continue;
+      }
 
       if ( geom.type() != Qgis::GeometryType::Point || geom.constGet()->partCount() > 1 )
+      {
         hasNonPointGeometry = true;
+      }
 
       const QgsRectangle extent = FeatureUtils::extent( mMapSettings, layer, feature );
       if ( extent.isNull() )
+      {
         continue;
+      }
 
       if ( combinedExtent.isNull() )
+      {
         combinedExtent = extent;
+      }
       else
+      {
         combinedExtent.combineExtentWith( extent );
+      }
     }
     catch ( const QgsException &e )
     {
