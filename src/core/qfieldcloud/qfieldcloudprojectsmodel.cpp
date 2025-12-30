@@ -47,9 +47,6 @@ QFieldCloudProjectsModel::QFieldCloudProjectsModel()
     if ( roles.isEmpty() || roles.contains( StatusRole ) )
     {
       emit busyProjectIdsChanged();
-
-      if ( mCloudConnection )
-        mCloudConnection->tryFlushQueuedProjectPushes();
     }
   } );
 }
@@ -69,7 +66,7 @@ void QFieldCloudProjectsModel::setCloudConnection( QFieldCloudConnection *cloudC
     disconnect( mCloudConnection, &QFieldCloudConnection::statusChanged, this, &QFieldCloudProjectsModel::connectionStatusChanged );
     disconnect( mCloudConnection, &QFieldCloudConnection::usernameChanged, this, &QFieldCloudProjectsModel::usernameChanged );
     disconnect( mCloudConnection, &QFieldCloudConnection::urlChanged, this, &QFieldCloudProjectsModel::urlChanged );
-    disconnect( mCloudConnection, &QFieldCloudConnection::queuedProjectPush, this, &QFieldCloudProjectsModel::projectPush );
+    disconnect( mCloudConnection, &QFieldCloudConnection::queuedProjectPushRequested, this, nullptr );
   }
 
   mCloudConnection = cloudConnection;
@@ -79,12 +76,14 @@ void QFieldCloudProjectsModel::setCloudConnection( QFieldCloudConnection *cloudC
     connect( mCloudConnection, &QFieldCloudConnection::statusChanged, this, &QFieldCloudProjectsModel::connectionStatusChanged );
     connect( mCloudConnection, &QFieldCloudConnection::usernameChanged, this, &QFieldCloudProjectsModel::usernameChanged );
     connect( mCloudConnection, &QFieldCloudConnection::urlChanged, this, &QFieldCloudProjectsModel::urlChanged );
-    connect( mCloudConnection, &QFieldCloudConnection::queuedProjectPush, this, &QFieldCloudProjectsModel::projectPush );
-
+    connect( mCloudConnection, &QFieldCloudConnection::queuedProjectPushRequested, this,
+             [this]( const QString &projectId ) {
+               // queuedProjectPush only provides projectId, so default shouldDownloadUpdates = false
+               projectPush( projectId, false );
+             } );
     mUsername = mCloudConnection->username();
     mUrl = mCloudConnection->url();
     resetProjects();
-    mCloudConnection->tryFlushQueuedProjectPushes();
   }
 
   emit cloudConnectionChanged();
@@ -331,23 +330,18 @@ void QFieldCloudProjectsModel::projectPush( const QString &projectId, const bool
   if ( !project )
     return;
 
-  // If the network is not active, queue the push and warn the user.
-  if ( !mCloudConnection || !mCloudConnection->isReachableToCloud() )
-  {
-    if ( mCloudConnection )
-      mCloudConnection->queueProjectPush( projectId, shouldDownloadUpdates );
+  if ( !mCloudConnection )
+    return;
 
+  if ( !mCloudConnection->beginProjectPushOrQueue( projectId ) )
+  {
     emit warning( tr( "Network is not currently active. "
                       "We will push the changes automatically once you are back online." ) );
     return;
   }
 
   if ( project->status() != QFieldCloudProject::ProjectStatus::Idle )
-  {
-    // if user requested push while busy, schedule it
-    mCloudConnection->queueProjectPush( projectId, shouldDownloadUpdates );
     return;
-  }
 
   project->push( shouldDownloadUpdates );
 }

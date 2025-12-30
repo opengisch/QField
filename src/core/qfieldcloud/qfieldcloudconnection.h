@@ -20,10 +20,10 @@
 #include "networkreply.h"
 #include "qfieldcloudutils.h"
 
-#include <QHash>
 #include <QJsonDocument>
 #include <QNetworkInformation>
 #include <QObject>
+#include <QSet>
 #include <QVariantMap>
 
 class QNetworkRequest;
@@ -220,9 +220,14 @@ class QFieldCloudConnection : public QObject
      */
     qsizetype uploadPendingAttachments();
 
-    bool isReachableToCloud() const;
-    void queueProjectPush( const QString &projectId, const bool shouldDownloadUpdates );
-    void tryFlushQueuedProjectPushes();
+
+    /**
+     * Called by the push initiator (typically QFieldCloudProject) before starting a push.
+     *      * Returns true if the push can start now.
+     * If the device is offline, the projectId is queued and will be re-emitted via
+     * queuedProjectPushRequested(projectId) once the connection becomes reachable again.
+     */
+    bool beginProjectPushOrQueue( const QString &projectId );
 
   signals:
     void providerChanged();
@@ -246,8 +251,8 @@ class QFieldCloudConnection : public QObject
     void availableProvidersChanged();
     void isFetchingAvailableProvidersChanged();
 
-    void reachabilityToCloudChanged();
-    void queuedProjectPush( const QString &projectId, const bool shouldDownloadUpdates );
+    void isReachable();
+    void queuedProjectPushRequested( const QString &projectId );
 
   private:
     void setStatus( ConnectionStatus status );
@@ -281,10 +286,13 @@ class QFieldCloudConnection : public QObject
 
     void setClientHeaders( QNetworkRequest &request );
 
-    QHash<QString, bool> mQueuedProjectPushes;
+    QSet<QString> mQueuedProjectPushes;
     bool mIsFlushingQueuedProjectPushes = false;
 
-    const QNetworkInformation *mNetworkInfo = nullptr;
+    const QNetworkInformation *mNetworkInformation = nullptr;
+    bool isReachableToCloud() const;
+    void requestQueuedProjectPush( const QString &projectId );
+    void tryFlushQueuedProjectPushes();
 };
 
 #endif // QFIELDCLOUDCONNECTION_H

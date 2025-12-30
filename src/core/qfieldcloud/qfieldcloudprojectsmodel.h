@@ -20,7 +20,6 @@
 #include "qgsgpkgflusher.h"
 
 #include <QAbstractListModel>
-#include <QHash>
 #include <QJsonArray>
 #include <QNetworkReply>
 #include <QPointer>

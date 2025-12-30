@@ -62,27 +62,39 @@ QFieldCloudConnection::QFieldCloudConnection()
   }
 
   QNetworkInformation::loadBackendByFeatures( QNetworkInformation::Feature::Reachability );
-  mNetworkInfo = QNetworkInformation::instance();
+  mNetworkInformation = QNetworkInformation::instance();
 
-  if ( mNetworkInfo )
+  if ( mNetworkInformation )
   {
-    connect( mNetworkInfo, &QNetworkInformation::reachabilityChanged, this,
+    connect( mNetworkInformation, &QNetworkInformation::reachabilityChanged, this,
              [this]( QNetworkInformation::Reachability ) {
-               emit reachabilityToCloudChanged();
+               emit isReachable();
                tryFlushQueuedProjectPushes();
              } );
   }
 }
 
 
-void QFieldCloudConnection::queueProjectPush( const QString &projectId, const bool shouldDownloadUpdates )
+bool QFieldCloudConnection::beginProjectPushOrQueue( const QString &projectId )
+{
+  if ( projectId.isEmpty() )
+    return false;
+
+  if ( !isReachableToCloud() )
+  {
+    requestQueuedProjectPush( projectId );
+    return false;
+  }
+
+  return true;
+}
+
+void QFieldCloudConnection::requestQueuedProjectPush( const QString &projectId )
 {
   if ( projectId.isEmpty() )
     return;
 
-  // merge flag so "true" wins
-  mQueuedProjectPushes[projectId] = mQueuedProjectPushes.value( projectId, false ) || shouldDownloadUpdates;
-
+  mQueuedProjectPushes.insert( projectId );
   tryFlushQueuedProjectPushes();
 }
 
@@ -102,24 +114,26 @@ void QFieldCloudConnection::tryFlushQueuedProjectPushes()
 
   mIsFlushingQueuedProjectPushes = true;
 
-  const auto queued = mQueuedProjectPushes;
+  const QSet<QString> queued = mQueuedProjectPushes;
   mQueuedProjectPushes.clear();
 
-  for ( auto it = queued.cbegin(); it != queued.cend(); ++it )
-    emit queuedProjectPush( it.key(), it.value() );
+  for ( const QString &id : queued )
+  {
+    emit queuedProjectPushRequested( id );
+  }
 
   mIsFlushingQueuedProjectPushes = false;
 }
 
 bool QFieldCloudConnection::isReachableToCloud() const
 {
-  if ( !mNetworkInfo || !mNetworkInfo->supports( QNetworkInformation::Feature::Reachability ) )
+  if ( !mNetworkInformation || !mNetworkInformation->supports( QNetworkInformation::Feature::Reachability ) )
   {
     // No backend or no reachability support, dont change behaviour
     return true;
   }
 
-  switch ( mNetworkInfo->reachability() )
+  switch ( mNetworkInformation->reachability() )
   {
     case QNetworkInformation::Reachability::Online:
     case QNetworkInformation::Reachability::Unknown:
@@ -699,6 +713,13 @@ void QFieldCloudConnection::setStatus( ConnectionStatus status )
 
   mStatus = status;
   emit statusChanged();
+
+  // If we just logged in and we have queued pushes waiting from offline mode,
+  // try to flush them now (reachabilityChanged will also handle later changes).
+  if ( mStatus == ConnectionStatus::LoggedIn )
+  {
+    tryFlushQueuedProjectPushes();
+  }
 }
 
 void QFieldCloudConnection::setState( ConnectionState state )
