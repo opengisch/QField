@@ -108,6 +108,7 @@ set(QFIELD_CORE_SRCS
     projectsimageprovider.cpp
     qfieldappauthrequesthandler.cpp
     qfieldurlhandler.cpp
+    qfieldxmlhttprequest.cpp
     qgismobileapp.cpp
     qgsgeometrywrapper.cpp
     qgsgpkgflusher.cpp
@@ -127,8 +128,7 @@ set(QFIELD_CORE_SRCS
     valuemapmodelbase.cpp
     vertexmodel.cpp
     viewstatus.cpp
-    webdavconnection.cpp
-    qfieldxmlhttprequest.cpp)
+    webdavconnection.cpp)
 
 set(QFIELD_CORE_HDRS
     platforms/platformutilities.h
@@ -241,6 +241,7 @@ set(QFIELD_CORE_HDRS
     projectsimageprovider.h
     qfieldappauthrequesthandler.h
     qfieldurlhandler.h
+    qfieldxmlhttprequest.h
     qgismobileapp.h
     qgsgeometrywrapper.h
     qgsgpkgflusher.h
@@ -261,7 +262,6 @@ set(QFIELD_CORE_HDRS
     vertexmodel.h
     viewstatus.h
     webdavconnection.h
-    qfieldxmlhttprequest.h
     ${CMAKE_CURRENT_BINARY_DIR}/qfield.h)
 
 list(APPEND QFIELD_CORE_SRCS permissions.cpp)

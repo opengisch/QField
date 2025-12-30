@@ -1,5 +1,5 @@
 /***************************************************************************
-qfieldxmlhttprequest.h - QFIELDXMLHTTPREQUEST
+qfieldxmlhttprequest.h - QFieldXmlHttpRequest
 
 begin                : 15.12.2025
 copyright            : (C) 2025 by Kaustuv Pokharel
@@ -28,125 +28,144 @@ email                : kaustuv (at) opengis.ch
 #include <QUrl>
 #include <QVariant>
 
-class NetworkReply;
 class QHttpMultiPart;
-class QNetworkReply;
 
 /**
- * \brief QML-friendly XMLHttpRequest using QField's NetworkManager/NetworkReply.
+ * This class provides a small, predictable
+ * subset of browser XMLHttpRequest semantics:
  *
- * This class provides a small subset of the browser XMLHttpRequest (XHR) workflow,
- * but implemented on top of QField's networking stack:
+ *  - open(method, url)
+ *  - setRequestHeader(name, value)
+ *  - send(body)
+ *  - abort()
  *
- *   - open(method, url)
- *   - setRequestHeader(name, value)
- *   - send(body)
- *   - abort()
- *
- * Observability:
- *   - readyState/status/statusText/responseText/response/responseType/responseUrl
- *   - callback properties: onreadystatechange, ondownloadprogress, onuploadprogress,
- *     onredirected, ontimeout, onaborted, onerror, onload, onloadend
+ * It exposes common XHR state and event callbacks as QML properties.
  *
  * Payload handling:
- *   - QByteArray: sent as-is
- *   - QString: UTF-8 text payload (Content-Type inferred if not set)
- *   - QVariantMap/QVariantList: encoded as JSON payload (Content-Type inferred if not set)
- *   - Multipart upload:
- *       - enabled if body contains explicit "file://..." URLs OR Content-Type starts with "multipart/form-data"
+ *  - QByteArray is sent as-is.
+ *  - QString is sent as UTF-8 text (Content-Type is inferred if not set).
+ *  - QVariantMap / QVariantList is encoded as JSON (Content-Type is inferred if not set).
+ *  - Multipart upload is enabled if the body contains "file://..." URLs or if the caller sets
+ *    a Content-Type header starting with "multipart/form-data".
  *
- * Security/safety:
- *   - local file uploads are intentionally restricted to:
- *       - current project directory
- *       - QFieldCloud local directory
+ * Security:
+ *  - Local file uploads are restricted to:
+ *    - the current project directory
+ *    - the QFieldCloud local directory
  *
- * Notes:
- *   - The implementation aims to be minimal and predictable for QML usage, not a full browser XHR
+ * \note This is not a full browser XHR implementation. It focuses on a clean QML API and
+ * predictable behavior in QField.
  */
 class QFieldXmlHttpRequest : public QObject
 {
     Q_OBJECT
 
+    //! The current request state, aligned with browser XMLHttpRequest readyState values.
     Q_PROPERTY( ReadyState readyState READ readyState NOTIFY readyStateChanged )
+
+    //! The HTTP status code of the final response. For network-level failures, this is 0.
     Q_PROPERTY( int status READ status NOTIFY responseChanged )
+
+    //! The HTTP reason phrase of the final response (when available).
     Q_PROPERTY( QString statusText READ statusText NOTIFY responseChanged )
 
-    // Response body decoded as UTF-8 text
+    //! The response body decoded as UTF-8 text.
     Q_PROPERTY( QString responseText READ responseText NOTIFY responseChanged )
-    // Parsed response if JSON, otherwise equals responseText
+
+    //! The parsed response value for JSON payloads; otherwise it equals responseText.
     Q_PROPERTY( QVariant response READ response NOTIFY responseChanged )
+
+    //! The response Content-Type string (as provided by the server).
     Q_PROPERTY( QString responseType READ responseType NOTIFY responseChanged )
+
+    //! The final response URL (after redirects, when redirects are followed).
     Q_PROPERTY( QUrl responseUrl READ responseUrl NOTIFY responseChanged )
 
-    /**
-   * \brief Timeout in milliseconds. 0 disables
-   *    * Timeout is implemented as an external timer that aborts the request if it is still running
-   */
+    //! The request timeout in milliseconds. A value of 0 disables the timeout.
+    //!
+    //! When the timeout triggers, the request is aborted and ontimeout/onloadend are called.
     Q_PROPERTY( int timeout READ timeout WRITE setTimeout NOTIFY timeoutChanged )
 
+    //! If enabled, the object schedules deleteLater() after onload/onerror/onloadend completes.
     Q_PROPERTY( bool autoDelete READ autoDelete WRITE setAutoDelete NOTIFY autoDeleteChanged )
 
+    //! Called whenever readyState changes.
     Q_PROPERTY( QJSValue onreadystatechange READ onreadystatechange WRITE setOnreadystatechange )
+
+    //! Called during download progress as (receivedBytes, totalBytes).
     Q_PROPERTY( QJSValue ondownloadprogress READ ondownloadprogress WRITE setOndownloadprogress )
+
+    //! Called during upload progress as (sentBytes, totalBytes).
     Q_PROPERTY( QJSValue onuploadprogress READ onuploadprogress WRITE setOnuploadprogress )
+
+    //! Called when a redirect is reported by Qt as (urlString).
     Q_PROPERTY( QJSValue onredirected READ onredirected WRITE setOnredirected )
+
+    //! Called when the timeout triggers.
     Q_PROPERTY( QJSValue ontimeout READ ontimeout WRITE setOntimeout )
+
+    //! Called when the request is aborted.
     Q_PROPERTY( QJSValue onaborted READ onaborted WRITE setOnaborted )
+
+    //! Called for network-level failures as (errorCode, errorMessage).
     Q_PROPERTY( QJSValue onerror READ onerror WRITE setOnerror )
+
+    //! Called when the request completes and status is available.
+    //!
+    //! \note HTTP errors like 404/500 still trigger onload. Developers/Users should inspect status.
     Q_PROPERTY( QJSValue onload READ onload WRITE setOnload )
+
+    //! Called at the end of the request lifecycle (success, error, abort, timeout).
     Q_PROPERTY( QJSValue onloadend READ onloadend WRITE setOnloadend )
 
   public:
+    //! ReadyState values aligned with browser XMLHttpRequest.
     enum ReadyState : uchar
     {
       Unsent = 0,      // open() has not been called or open() args were invalid
-      Opened,          //open() called successfully; request is prepared
-      HeadersReceived, //headers are available (metaDataChanged)
-      Loading,         //body is being received (readyRead)
-      Done             //request finished (success or failure)
+      Opened,          // open() called successfully; request is prepared
+      HeadersReceived, // headers are available (metaDataChanged)
+      Loading,         // body is being received (readyRead)
+      Done             // request finished (success or failure)
     };
     Q_ENUM( ReadyState )
 
     explicit QFieldXmlHttpRequest( QObject *parent = nullptr );
     ~QFieldXmlHttpRequest() override;
 
+    //! Creates a new request instance.
     Q_INVOKABLE static QFieldXmlHttpRequest *newRequest( QObject *parent = nullptr );
 
-    /**
-   * \brief Prepares the request. Must be called before send().
-   *    * behavior: calling open() while a request is active will abort it.
-   *    * \param method HTTP method (GET/POST/PUT/DELETE supported)
-   * \param url Request URL
-   */
+    //! Prepares the request. This must be called before send().
+    //!
+    //! Calling open() while a request is active aborts the active request.
+    //! Supported methods are GET, POST, PUT, and DELETE.
     Q_INVOKABLE void open( const QString &method, const QUrl &url );
 
-    /**
-   * \brief Sets a raw HTTP request header.
-   *    * Only effective after open() and before send().
-   * Basic newline protection is applied to avoid CR/LF header injection.
-   */
+    //! Sets a raw HTTP request header.
+    //!
+    //! Headers are only applied after open() and before send(). Basic newline protection
+    //! is applied to prevent CR/LF header injection.
     Q_INVOKABLE void setRequestHeader( const QString &headerName, const QString &headerValue );
 
-    /**
-   * \brief Starts the request.
-   *    * Body can be:
-   *  - QByteArray (sent as-is)
-   *  - QString (UTF-8 text)
-   *  - QVariantMap / QVariantList (JSON encoding)
-   *  - multipart: QVariantMap containing "file://..." strings (restricted local paths)
-   */
+    //! Starts the request.
+    //!
+    //! The body may be:
+    //!  - QByteArray (sent as-is)
+    //!  - QString (UTF-8 text)
+    //!  - QVariantMap / QVariantList (JSON encoding)
+    //!  - QVariantMap with "file://..." strings for multipart uploads (restricted local paths)
     Q_INVOKABLE void send( const QVariant &body = QVariant() );
 
-    /**
-   * \brief Aborts the current request (if any).
-   *    * This will trigger onaborted (if set) and finalize the request state as Done.
-   */
+    //! Aborts the current request (if any).
+    //!
+    //! This triggers onaborted/onloadend (if set) and transitions readyState to Done.
     Q_INVOKABLE void abort();
 
-    /**
-   * \brief XHR-like response header accessors (final response only).
-   */
+    //! Returns a response header value by name (final response only).
     Q_INVOKABLE QString getResponseHeader( const QString &name ) const;
+
+    //! Returns all response headers in HTTP-style format (final response only).
     Q_INVOKABLE QString getAllResponseHeaders() const;
 
     ReadyState readyState() const { return mReadyState; }
@@ -159,14 +178,12 @@ class QFieldXmlHttpRequest : public QObject
     QString responseType() const { return mResponseType; }
     QUrl responseUrl() const { return mResponseUrl; }
 
-    /**
-   * \brief Sets request timeout in ms. 0 disables.
-   */
-    void setTimeout( int ms );
+    //! Sets the request timeout in milliseconds. A value of 0 disables the timeout.
+    void setTimeout( int milliseconds );
     int timeout() const { return mTimeoutMs; }
 
     bool autoDelete() const { return mAutoDelete; }
-    void setAutoDelete( bool v );
+    void setAutoDelete( bool enabled );
 
     QJSValue onreadystatechange() const { return mOnReadyStateChanged; }
     void setOnreadystatechange( const QJSValue &cb ) { mOnReadyStateChanged = cb; }
@@ -202,69 +219,37 @@ class QFieldXmlHttpRequest : public QObject
     void autoDeleteChanged();
 
   private:
-    // Returns true if open() was called with valid method+URL.
     bool isOpen() const;
-
-    // Transitions readyState and emits onreadystatechange.
     void setReadyState( ReadyState state );
-
-    // Clears response-related members (status/text/body/type/url).
     void clearResponse();
-
-    // Resets per-request flags (finalized/aborted/timedOut) and clears response.
     void resetForNewRequest();
 
-    /**
-   * \brief Disconnects signals and disposes current reply objects.
-   * \param abortNetwork If true, aborts the network operation before deleting the reply.
-   *    * This method is used both for resend and destruction. It must never call JS callbacks.
-   */
+    // Disconnects signals and disposes the current reply.
+    //
+    // This method must never call QML callbacks.
     void cleanupReply( bool abortNetwork );
 
-    // Creates and starts the underlying NetworkReply based on method/body.
     void startRequest( const QVariant &body );
-
-    // Hooks high-level NetworkReply signals (progress/errors/finished/raw reply changes).
-    void hookReply( NetworkReply *reply );
-
-    // Hooks current raw QNetworkReply to derive readyState transitions.
-    void hookRawReply( QNetworkReply *rawReply );
-
-    // Finalizes response members from raw reply data.
+    void hookReply( QNetworkReply *networkReply );
     void finalizeFromRawReply();
-
-    // Finalizes as an error message payload (stored in responseText/response).
     void finalizeAsError( const QString &msg, bool emitResponse = true );
 
-    // Serializes body into raw bytes (with optional inferred Content-Type).
     QByteArray bodyToBytes( const QVariant &body, QString *outContentType = nullptr ) const;
-
-    // Detects explicit "file://..." strings to decide multipart behavior.
     bool bodyContainsFileUrls( const QVariant &body ) const;
-
-    // Builds multipart/form-data body; returns nullptr on invalid structure.
     QHttpMultiPart *buildMultipart( const QVariant &body ) const;
-
-    // Returns true if a local file path is allowed to be uploaded.
     bool isAllowedLocalUploadPath( const QString &localPath ) const;
 
-    // Calls a QML callback safely
     void call( const QJSValue &cb, const QJSValueList &args = {} );
+    static bool containsNewlines( const QString &stringValue );
 
-    // Basic newline detection helper for header protection.
-    static bool containsNewlines( const QString &s );
+    void collectResponseHeaders( QNetworkReply *networkReply );
+    static QString normalizeHeaderName( const QString &stringValue );
 
-    // Collect final response headers from raw reply
-    void collectResponseHeaders( QNetworkReply *rawReply );
-    static QString normalizeHeaderName( const QString &s );
-
-    // Schedules deleteLater() if autoDelete is enabled
     void maybeAutoDelete();
 
   private:
-    QPointer<NetworkReply> mReply;
-    QPointer<QNetworkReply> mRawReply;
-    QList<QMetaObject::Connection> mRawConnections;
+    QPointer<QNetworkReply> mReply;
+    QList<QMetaObject::Connection> mConnections;
 
     QNetworkRequest mRequest;
     QByteArray mMethod;
@@ -279,10 +264,7 @@ class QFieldXmlHttpRequest : public QObject
     bool mTimedOut = false;
     bool mAborted = false;
 
-    /**
-   * \brief Increments on each send() call.
-   *    * Used to prevent stale timeout singleShot timers from aborting newer requests.
-   */
+    // Increments on each send() call. Used to prevent stale timeout timers from aborting newer requests.
     quint64 mRequestSerial = 0;
 
     int mStatus = 0;
@@ -292,14 +274,11 @@ class QFieldXmlHttpRequest : public QObject
     QString mResponseType;
     QUrl mResponseUrl;
 
-    // Final response headers
     QMap<QString, QString> mResponseHeaders;
 
-    // Track last Qt network error (for status==0 network failures)
     QNetworkReply::NetworkError mLastError = QNetworkReply::NoError;
     QString mLastErrorString;
 
-    // Callback properties
     QJSValue mOnReadyStateChanged;
     QJSValue mOnDownloadProgress;
     QJSValue mOnUploadProgress;
