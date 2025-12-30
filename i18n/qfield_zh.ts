@@ -4516,16 +4516,8 @@ Cancel to make a minimal device scan instead.</source>
         <translation>打开ZIP归档文件时出错: &apos;%1&apos; (错误代码: %2)</translation>
     </message>
     <message>
-        <source>Circle #1</source>
-        <translation>圆 #1</translation>
-    </message>
-    <message>
         <source>Circle #1: radius</source>
         <translation>圆 #1: 半径</translation>
-    </message>
-    <message>
-        <source>Circle #2</source>
-        <translation>圆 #2</translation>
     </message>
     <message>
         <source>Circle #2: radius</source>
@@ -4546,6 +4538,30 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Circles Intersection</source>
         <translation>圆的交点</translation>
+    </message>
+    <message>
+        <source>Point</source>
+        <translation>点</translation>
+    </message>
+    <message>
+        <source>Distance</source>
+        <translation>距离</translation>
+    </message>
+    <message>
+        <source>Angle</source>
+        <translation>角度</translation>
+    </message>
+    <message>
+        <source>Elevation</source>
+        <translation>高程</translation>
+    </message>
+    <message>
+        <source>Circle #1: point</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Circle #2: point</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -5634,10 +5650,6 @@ project</source>
 <context>
     <name>angle</name>
     <message>
-        <source>Angle</source>
-        <translation>角度</translation>
-    </message>
-    <message>
         <source>deg</source>
         <translation>度</translation>
     </message>
@@ -5754,24 +5766,6 @@ project</source>
         <source>inches</source>
         <translation>英寸</translation>
     </message>
-    <message>
-        <source>Distance</source>
-        <translation>距离</translation>
-    </message>
-</context>
-<context>
-    <name>elevation</name>
-    <message>
-        <source>Elevation</source>
-        <translation>高程</translation>
-    </message>
-</context>
-<context>
-    <name>enum</name>
-    <message>
-        <source>Choices</source>
-        <translation>选择</translation>
-    </message>
 </context>
 <context>
     <name>ordered_relation_editor</name>
@@ -5810,10 +5804,6 @@ project</source>
 </context>
 <context>
     <name>point</name>
-    <message>
-        <source>Point</source>
-        <translation>点</translation>
-    </message>
     <message>
         <source>latitude</source>
         <translation>纬度</translation>
@@ -6610,6 +6600,14 @@ to show actions</source>
     <message>
         <source>COGO digitizing turned off</source>
         <translation>COGO数字化已关闭</translation>
+    </message>
+    <message>
+        <source>Enable positioning service to get points at your location</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Positioning service has not yet received a valid location</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

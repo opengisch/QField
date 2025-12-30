@@ -295,15 +295,15 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Bluetooth permission is required to scan for bluetooth devices</source>
-        <translation type="unfinished"/>
+        <translation>Для пошуку пристроїв Bluetooth необхідний дозвіл Bluetooth.</translation>
     </message>
     <message>
         <source>Location permission denied</source>
-        <translation type="unfinished"/>
+        <translation>Дозвіл на визначення місцезнаходження відхилено</translation>
     </message>
     <message>
         <source>Location permission is required to scan for bluetooth devices</source>
-        <translation type="unfinished"/>
+        <translation>Для пошуку пристроїв Bluetooth необхідний дозвіл на визначення місцезнаходження.</translation>
     </message>
 </context>
 <context>
@@ -502,7 +502,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Empty</source>
-        <translation type="unfinished"/>
+        <translation>Порожній</translation>
     </message>
 </context>
 <context>
@@ -598,7 +598,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Return home</source>
-        <translation type="unfinished"/>
+        <translation>Повернутися додому</translation>
     </message>
 </context>
 <context>
@@ -846,7 +846,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Empty</source>
-        <translation type="unfinished"/>
+        <translation>Порожній</translation>
     </message>
     <message>
         <source>NULL</source>
@@ -921,11 +921,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Remember All Reusable Values</source>
-        <translation type="unfinished"/>
+        <translation>Запам&apos;ятати всі значення, що можуть бути використані повторно</translation>
     </message>
     <message>
         <source>Forget All Reusable Values</source>
-        <translation type="unfinished"/>
+        <translation>Забути всі повторно використовувані значення</translation>
     </message>
     <message>
         <source>Soft constraints were not satisified</source>
@@ -1351,7 +1351,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Precise view</source>
-        <translation type="unfinished"/>
+        <translation>Точний огляд</translation>
     </message>
     <message>
         <source>Sensors</source>
@@ -4522,15 +4522,7 @@ Cancel to make a minimal device scan instead.</source>
         <translation>Помилка відкриття zip-архіву: &apos;%1&apos; (Error code: %2)</translation>
     </message>
     <message>
-        <source>Circle #1</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Circle #1: radius</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Circle #2</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -4551,6 +4543,30 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Circles Intersection</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Point</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Distance</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Angle</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Elevation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Circle #1: point</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Circle #2: point</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -4761,7 +4777,7 @@ Cancel to make a minimal device scan instead.</source>
     <name>Range</name>
     <message>
         <source>Empty</source>
-        <translation type="unfinished"/>
+        <translation>Порожній</translation>
     </message>
     <message>
         <source>NULL</source>
@@ -4826,7 +4842,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Empty</source>
-        <translation type="unfinished"/>
+        <translation>Порожній</translation>
     </message>
     <message>
         <source>NULL</source>
@@ -5080,7 +5096,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Empty</source>
-        <translation type="unfinished"/>
+        <translation>Порожній</translation>
     </message>
     <message>
         <source>NULL</source>
@@ -5640,10 +5656,6 @@ project</source>
 <context>
     <name>angle</name>
     <message>
-        <source>Angle</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>deg</source>
         <translation type="unfinished"/>
     </message>
@@ -5760,24 +5772,6 @@ project</source>
         <source>inches</source>
         <translation>дюймів</translation>
     </message>
-    <message>
-        <source>Distance</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>elevation</name>
-    <message>
-        <source>Elevation</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>enum</name>
-    <message>
-        <source>Choices</source>
-        <translation type="unfinished"/>
-    </message>
 </context>
 <context>
     <name>ordered_relation_editor</name>
@@ -5816,10 +5810,6 @@ project</source>
 </context>
 <context>
     <name>point</name>
-    <message>
-        <source>Point</source>
-        <translation type="unfinished"/>
-    </message>
     <message>
         <source>latitude</source>
         <translation type="unfinished"/>
@@ -6614,6 +6604,14 @@ to show actions</source>
     </message>
     <message>
         <source>COGO digitizing turned off</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Enable positioning service to get points at your location</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Positioning service has not yet received a valid location</source>
         <translation type="unfinished"/>
     </message>
 </context>

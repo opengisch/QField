@@ -4515,15 +4515,7 @@ Abbrechen um einen verkürzten Scan durchzuführen. </translation>
         <translation>Fehler beim Öffnen des zip Archivs: &apos;%1&apos; (Fehlercode: %2)</translation>
     </message>
     <message>
-        <source>Circle #1</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Circle #1: radius</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Circle #2</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -4544,6 +4536,30 @@ Abbrechen um einen verkürzten Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Circles Intersection</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Point</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Distance</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Angle</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Elevation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Circle #1: point</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Circle #2: point</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -5633,10 +5649,6 @@ erstellen</translation>
 <context>
     <name>angle</name>
     <message>
-        <source>Angle</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>deg</source>
         <translation type="unfinished"/>
     </message>
@@ -5753,24 +5765,6 @@ erstellen</translation>
         <source>inches</source>
         <translation>Inch</translation>
     </message>
-    <message>
-        <source>Distance</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>elevation</name>
-    <message>
-        <source>Elevation</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>enum</name>
-    <message>
-        <source>Choices</source>
-        <translation type="unfinished"/>
-    </message>
 </context>
 <context>
     <name>ordered_relation_editor</name>
@@ -5809,10 +5803,6 @@ erstellen</translation>
 </context>
 <context>
     <name>point</name>
-    <message>
-        <source>Point</source>
-        <translation type="unfinished"/>
-    </message>
     <message>
         <source>latitude</source>
         <translation type="unfinished"/>
@@ -6608,6 +6598,14 @@ um Aktionen anzuzeigen</translation>
     </message>
     <message>
         <source>COGO digitizing turned off</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Enable positioning service to get points at your location</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Positioning service has not yet received a valid location</source>
         <translation type="unfinished"/>
     </message>
 </context>
