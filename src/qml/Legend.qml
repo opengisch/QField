@@ -28,66 +28,6 @@ ListView {
     itemProperties.open();
   }
 
-  function collapseAll() {
-    let anyCollapsedChanged = true;
-    while (anyCollapsedChanged) {
-      anyCollapsedChanged = false;
-      const rowCount = legend.model.rowCount();
-      for (let i = rowCount - 1; i >= 0; i--) {
-        const idx = legend.model.index(i, 0);
-        if (legend.model.data(idx, FlatLayerTreeModel.HasChildren) && !legend.model.data(idx, FlatLayerTreeModel.IsCollapsed)) {
-          legend.model.setData(idx, true, FlatLayerTreeModel.IsCollapsed);
-          anyCollapsedChanged = true;
-        }
-      }
-    }
-    projectInfo.saveLayerTreeState();
-  }
-
-  function expandAll() {
-    let anyExpandedChanged = true;
-    while (anyExpandedChanged) {
-      anyExpandedChanged = false;
-      const rowCount = legend.model.rowCount();
-      for (let i = 0; i < rowCount; i++) {
-        const idx = legend.model.index(i, 0);
-        if (legend.model.data(idx, FlatLayerTreeModel.HasChildren) && legend.model.data(idx, FlatLayerTreeModel.IsCollapsed)) {
-          legend.model.setData(idx, false, FlatLayerTreeModel.IsCollapsed);
-          anyExpandedChanged = true;
-        }
-      }
-    }
-    projectInfo.saveLayerTreeState();
-  }
-
-  function hasCollapsible() {
-    if (!legend.model) {
-      return false;
-    }
-    const rowCount = legend.model.rowCount();
-    for (let i = 0; i < rowCount; i++) {
-      const idx = legend.model.index(i, 0);
-      if (legend.model.data(idx, FlatLayerTreeModel.HasChildren)) {
-        return true;
-      }
-    }
-    return false;
-  }
-
-  function allCollapsed() {
-    if (!legend.model) {
-      return false;
-    }
-    const rowCount = legend.model.rowCount();
-    for (let i = 0; i < rowCount; i++) {
-      const idx = legend.model.index(i, 0);
-      if (legend.model.data(idx, FlatLayerTreeModel.HasChildren) && !legend.model.data(idx, FlatLayerTreeModel.IsCollapsed)) {
-        return false;
-      }
-    }
-    return true;
-  }
-
   delegate: Rectangle {
     id: rectangle
     property int itemPadding: 30 * TreeLevel

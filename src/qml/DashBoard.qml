@@ -411,20 +411,17 @@ Drawer {
           font.pointSize: 8
 
           onClicked: {
-            if (!toggleAllButton.allCollapsed) {
-              legend.collapseAll();
-            } else {
-              legend.expandAll();
-            }
+            legend.model.setAllCollapsed(!toggleAllButton.allCollapsed);
             toggleAllButton.allCollapsed = !toggleAllButton.allCollapsed;
+            projectInfo.saveLayerTreeState();
           }
         }
 
         Connections {
           target: iface
           function onLoadProjectEnded() {
-            toggleAllButton.visible = legend.hasCollapsible();
-            toggleAllButton.allCollapsed = legend.allCollapsed();
+            toggleAllButton.visible = legend.model.hasCollapsibleItems();
+            toggleAllButton.allCollapsed = legend.model.isAllCollapsed();
           }
         }
       }

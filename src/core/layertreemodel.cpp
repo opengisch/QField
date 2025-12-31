@@ -117,6 +117,39 @@ QgsRectangle FlatLayerTreeModel::nodeExtent( const QModelIndex &index, QgsQuickM
   return mSourceModel->nodeExtent( mapToSource( index ), mapSettings, buffer );
 }
 
+void FlatLayerTreeModel::setAllCollapsed( bool collapsed )
+{
+  mSourceModel->setAllCollapsed( collapsed );
+}
+
+bool FlatLayerTreeModel::hasCollapsibleItems() const
+{
+  const int count = rowCount();
+  for ( int i = 0; i < count; i++ )
+  {
+    const QModelIndex idx = index( i, 0 );
+    if ( data( idx, FlatLayerTreeModel::HasChildren ).toBool() )
+    {
+      return true;
+    }
+  }
+  return false;
+}
+
+bool FlatLayerTreeModel::isAllCollapsed() const
+{
+  const int count = rowCount();
+  for ( int i = 0; i < count; i++ )
+  {
+    const QModelIndex idx = index( i, 0 );
+    if ( data( idx, FlatLayerTreeModel::HasChildren ).toBool() && !data( idx, FlatLayerTreeModel::IsCollapsed ).toBool() )
+    {
+      return false;
+    }
+  }
+  return true;
+}
+
 FlatLayerTreeModelBase::FlatLayerTreeModelBase( QgsLayerTree *layerTree, QgsProject *project, QObject *parent )
   : QAbstractProxyModel( parent )
   , mProject( project )
@@ -1542,4 +1575,28 @@ QgsRectangle FlatLayerTreeModelBase::nodeExtent( const QModelIndex &index, QgsQu
   }
 
   return extent;
+}
+
+void FlatLayerTreeModelBase::setAllCollapsed( bool collapsed )
+{
+  bool anyChanged = true;
+  while ( anyChanged )
+  {
+    anyChanged = false;
+    const int count = rowCount();
+    // Iterate backwards when collapsing, forwards when expanding
+    const int start = collapsed ? count - 1 : 0;
+    const int end = collapsed ? -1 : count;
+    const int step = collapsed ? -1 : 1;
+
+    for ( int i = start; i != end; i += step )
+    {
+      const QModelIndex idx = index( i, 0 );
+      if ( data( idx, FlatLayerTreeModel::HasChildren ).toBool() && data( idx, FlatLayerTreeModel::IsCollapsed ).toBool() != collapsed )
+      {
+        setData( idx, collapsed, FlatLayerTreeModel::IsCollapsed );
+        anyChanged = true;
+      }
+    }
+  }
 }
