@@ -44,19 +44,17 @@ AppInterface::AppInterface( QgisMobileapp *app )
 {
 }
 
-QObject *AppInterface::createHttpRequest( bool autoDelete ) const
+QObject *AppInterface::createHttpRequest() const
 {
-  auto *req = new QFieldXmlHttpRequest();
-  req->setAutoDelete( autoDelete );
+  QFieldXmlHttpRequest *request = new QFieldXmlHttpRequest();
 
-  // explicitly mark QML ownership when possible
-  QObject *root = ( !mApp->rootObjects().isEmpty() ) ? mApp->rootObjects().at( 0 ) : nullptr;
-  if ( root && qmlEngine( root ) )
+  QObject *rootObject = ( !mApp->rootObjects().isEmpty() ) ? mApp->rootObjects().at( 0 ) : nullptr;
+  if ( rootObject && qmlEngine( rootObject ) )
   {
-    QQmlEngine::setObjectOwnership( req, QQmlEngine::JavaScriptOwnership );
+    QQmlEngine::setObjectOwnership( request, QQmlEngine::CppOwnership );
   }
 
-  return req;
+  return request;
 }
 
 QObject *AppInterface::findItemByObjectName( const QString &name ) const

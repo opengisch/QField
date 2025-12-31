@@ -209,7 +209,9 @@ class AppInterface : public QObject
      */
     Q_INVOKABLE QObject *positioning() const;
 
-    Q_INVOKABLE QObject *createHttpRequest( bool autoDelete = false ) const;
+
+    //! One-shot xmlhttp request. Defaults to autoDelete = true.
+    Q_INVOKABLE QObject *createHttpRequest() const;
 
     /// @cond PRIVATE
     //! Reads the content of the loaded project, called on loadProjectTriggered()
