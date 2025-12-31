@@ -55,6 +55,12 @@ jobs:
         with:
           cmakeVersion: 3.29.0
 
+      - name: 🍮 ccache
+        uses: hendrikmuhs/ccache-action@v1
+        with:
+          key: ccache-x64-linux
+          max-size: 2G
+
       - name: 🔨 Prepare build env
         run: |
           sudo apt-get update
@@ -91,6 +97,7 @@ jobs:
                 -D CMAKE_INSTALL_PREFIX=/usr \
                 -D CMAKE_EXPORT_COMPILE_COMMANDS=ON \
                 -D CMAKE_COMPILE_WARNING_AS_ERROR=ON \
+                -D WITH_CCACHE=ON \
                 -D SENTRY_DSN=${{ secrets.SENTRY_DSN }} \
                 -D SENTRY_ENV="${APP_ENV}" \
                 -D LINUXDEPLOY_EXECUTABLE=${{ env.BUILD_ROOT }}/linuxdeploy-x86_64.AppImage
@@ -110,7 +117,16 @@ jobs:
 
       - name: 🌋 Build
         run: |
+          echo "::group::Build timing"
+          BUILD_START=$(date +%s)
           xvfb-run cmake --build build --config ${{ env.BUILD_TYPE }}
+          BUILD_END=$(date +%s)
+          echo "::endgroup::"
+          echo "⏱️ Build took $((BUILD_END - BUILD_START)) seconds"
+          echo "BUILD_TIME=$((BUILD_END - BUILD_START))" >> $GITHUB_ENV
+
+      - name: 📊 ccache statistics
+        run: ccache --show-stats
 
       - uses: ZedThree/clang-tidy-review@v0.22.3
         id: review

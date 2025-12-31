@@ -120,6 +120,12 @@ jobs:
         with:
           cmakeVersion: 3.29.0
 
+      - name: 🍮 ccache
+        uses: hendrikmuhs/ccache-action@v1
+        with:
+          key: ccache-${{ matrix.triplet }}
+          max-size: 500M
+
       - name: 🔨 Prepare build env
         run: |
           sudo apt-get update
@@ -168,7 +174,8 @@ jobs:
                 -D NUGET_TOKEN=${{ secrets.GITHUB_TOKEN }} \
                 -D SENTRY_DSN=${{ secrets.SENTRY_DSN }} \
                 -D SENTRY_ENV="${APP_ENV}" \
-                -D SENTRY_IMPORT_PREFIX=/tmp/sentry-android-ndk/jni
+                -D SENTRY_IMPORT_PREFIX=/tmp/sentry-android-ndk/jni \
+                -D WITH_CCACHE=ON
 
       - name: 📑 Upload Dep Build Logs
         uses: actions/upload-artifact@v6
@@ -180,7 +187,16 @@ jobs:
 
       - name: 🌋 Build
         run: |
+          echo "::group::Build timing"
+          BUILD_START=$(date +%s)
           cmake --build "${{ env.CMAKE_BUILD_DIR }}" --config ${{ env.BUILD_TYPE }}
+          BUILD_END=$(date +%s)
+          echo "::endgroup::"
+          echo "⏱️ Build took $((BUILD_END - BUILD_START)) seconds"
+          echo "BUILD_TIME=$((BUILD_END - BUILD_START))" >> $GITHUB_ENV
+
+      - name: 📊 ccache statistics
+        run: ccache --show-stats
 
       - name: 🔑 Setup signing key
         env:
