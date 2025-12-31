@@ -63,7 +63,9 @@ void QFieldXmlHttpRequest::setTimeout( int milliseconds )
 {
   const int timeoutMilliseconds = milliseconds > 0 ? milliseconds : 0;
   if ( mTimeoutMs == timeoutMilliseconds )
+  {
     return;
+  }
 
   mTimeoutMs = timeoutMilliseconds;
   emit timeoutChanged();
@@ -93,15 +95,19 @@ QString QFieldXmlHttpRequest::normalizeHeaderName( const QString &stringValue )
 void QFieldXmlHttpRequest::collectResponseHeaders( QNetworkReply *networkReply )
 {
   if ( !networkReply )
+  {
     return;
+  }
 
-  const QList<QNetworkReply::RawHeaderPair> headerPairs = networkReply->rawHeaderPairs();
+  const QList<QNetworkReply::RawHeaderPair> &headerPairs = networkReply->rawHeaderPairs();
   for ( const QNetworkReply::RawHeaderPair &headerPair : headerPairs )
   {
     const QString headerNameLowercase = QString::fromUtf8( headerPair.first ).trimmed().toLower();
     const QString headerValue = QString::fromUtf8( headerPair.second ).trimmed();
     if ( !headerNameLowercase.isEmpty() )
+    {
       mResponseHeaders.insert( headerNameLowercase, headerValue );
+    }
   }
 }
 
@@ -116,7 +122,9 @@ QString QFieldXmlHttpRequest::getAllResponseHeaders() const
 
   QMap<QString, QString>::ConstIterator headerIterator = mResponseHeaders.constBegin();
   for ( ; headerIterator != mResponseHeaders.constEnd(); ++headerIterator )
+  {
     allHeaders += headerIterator.key() + QStringLiteral( ": " ) + headerIterator.value() + QStringLiteral( "\r\n" );
+  }
 
   return allHeaders;
 }
@@ -146,7 +154,9 @@ void QFieldXmlHttpRequest::resetForNewRequest()
 void QFieldXmlHttpRequest::cleanupReply( bool abortNetwork )
 {
   for ( const QMetaObject::Connection &connection : mConnections )
+  {
     disconnect( connection );
+  }
   mConnections.clear();
 
   if ( mReply )
@@ -154,7 +164,9 @@ void QFieldXmlHttpRequest::cleanupReply( bool abortNetwork )
     disconnect( mReply, nullptr, this, nullptr );
 
     if ( abortNetwork )
+    {
       mReply->abort();
+    }
 
     mReply->deleteLater();
     mReply = nullptr;
@@ -164,7 +176,9 @@ void QFieldXmlHttpRequest::cleanupReply( bool abortNetwork )
 void QFieldXmlHttpRequest::setReadyState( ReadyState state )
 {
   if ( mReadyState == state )
+  {
     return;
+  }
 
   mReadyState = state;
   emit readyStateChanged();
@@ -175,7 +189,9 @@ void QFieldXmlHttpRequest::open( const QString &method, const QUrl &url )
 {
   // open() cancels any in-flight request
   if ( mReply )
+  {
     cleanupReply( true );
+  }
 
   const QByteArray methodBytes = method.trimmed().toUtf8();
   if ( methodBytes.isEmpty() || !url.isValid() )
@@ -201,11 +217,15 @@ void QFieldXmlHttpRequest::open( const QString &method, const QUrl &url )
 void QFieldXmlHttpRequest::setRequestHeader( const QString &headerName, const QString &headerValue )
 {
   if ( !isOpen() || mReply )
+  {
     return;
+  }
 
   const QString headerKey = headerName.trimmed();
   if ( headerKey.isEmpty() )
+  {
     return;
+  }
 
   if ( containsNewlines( headerKey ) || containsNewlines( headerValue ) )
   {
@@ -237,10 +257,14 @@ void QFieldXmlHttpRequest::send( const QVariant &body )
 
   // "Resend" should not behave like abort(): it should not produce an error callback chain
   if ( mReply )
+  {
     cleanupReply( true );
+  }
 
   if ( mReadyState != Opened )
+  {
     setReadyState( Opened );
+  }
 
   resetForNewRequest();
   ++mRequestSerial;
@@ -312,15 +336,24 @@ void QFieldXmlHttpRequest::startRequest( const QVariant &body )
     QByteArray requestPayload;
 
     if ( body.isValid() && !body.isNull() )
+    {
       requestPayload = bodyToBytes( body, &inferredContentTypeHeader );
+    }
 
     if ( mRequest.header( QNetworkRequest::ContentTypeHeader ).isNull() && !inferredContentTypeHeader.isEmpty() )
+    {
       mRequest.setHeader( QNetworkRequest::ContentTypeHeader, inferredContentTypeHeader );
+    }
 
     if ( requestPayload.isEmpty() )
+    {
       networkReply = networkAccessManager->deleteResource( mRequest );
+    }
+
     else
+    {
       networkReply = networkAccessManager->sendCustomRequest( mRequest, QByteArrayLiteral( "DELETE" ), requestPayload );
+    }
   }
   else
   {
@@ -329,7 +362,9 @@ void QFieldXmlHttpRequest::startRequest( const QVariant &body )
       // Do NOT keep a preset Content-Type, because QHttpMultiPart/QNetworkAccessManager
       // will generate the correct Content-Type including the boundary.
       if ( isMultipartForcedByHeader )
+      {
         mRequest.setHeader( QNetworkRequest::ContentTypeHeader, QVariant() );
+      }
 
       QHttpMultiPart *multipartBody = buildMultipart( body );
       if ( !multipartBody )
@@ -342,9 +377,13 @@ void QFieldXmlHttpRequest::startRequest( const QVariant &body )
                                   : networkAccessManager->put( mRequest, multipartBody );
 
       if ( networkReply )
+      {
         multipartBody->setParent( networkReply );
+      }
       else
+      {
         multipartBody->deleteLater();
+      }
     }
     else
     {
@@ -352,10 +391,14 @@ void QFieldXmlHttpRequest::startRequest( const QVariant &body )
       QByteArray requestPayload;
 
       if ( body.isValid() && !body.isNull() )
+      {
         requestPayload = bodyToBytes( body, &inferredContentTypeHeader );
+      }
 
       if ( mRequest.header( QNetworkRequest::ContentTypeHeader ).isNull() && !inferredContentTypeHeader.isEmpty() )
+      {
         mRequest.setHeader( QNetworkRequest::ContentTypeHeader, inferredContentTypeHeader );
+      }
 
       networkReply = isPostMethod ? networkAccessManager->post( mRequest, requestPayload )
                                   : networkAccessManager->put( mRequest, requestPayload );
@@ -375,10 +418,14 @@ void QFieldXmlHttpRequest::startRequest( const QVariant &body )
 void QFieldXmlHttpRequest::abort()
 {
   if ( mFinalized )
+  {
     return;
+  }
 
   if ( !mReply )
+  {
     return;
+  }
 
   mAborted = true;
 
@@ -396,20 +443,28 @@ void QFieldXmlHttpRequest::abort()
 void QFieldXmlHttpRequest::hookReply( QNetworkReply *networkReply )
 {
   if ( !networkReply )
+  {
     return;
+  }
 
   mConnections << connect( networkReply, &QNetworkReply::metaDataChanged, this, [this, networkReply]() {
     if ( mReadyState < HeadersReceived )
+    {
       setReadyState( HeadersReceived );
+    }
 
     collectResponseHeaders( networkReply );
   } );
 
   mConnections << connect( networkReply, &QNetworkReply::readyRead, this, [this]() {
     if ( mReadyState < HeadersReceived )
+    {
       setReadyState( HeadersReceived );
+    }
     if ( mReadyState < Loading )
+    {
       setReadyState( Loading );
+    }
   } );
 
   mConnections << connect( networkReply, &QNetworkReply::downloadProgress, this, [this]( qint64 receivedBytes, qint64 totalBytes ) {
@@ -426,15 +481,21 @@ void QFieldXmlHttpRequest::hookReply( QNetworkReply *networkReply )
 
   mConnections << connect( networkReply, &QNetworkReply::errorOccurred, this, [this]( QNetworkReply::NetworkError networkError ) {
     if ( mFinalized )
+    {
       return;
+    }
 
     if ( mAborted )
+    {
       return;
+    }
 
     if ( networkError == QNetworkReply::TimeoutError )
     {
       if ( mTimedOut )
+      {
         return;
+      }
 
       mTimedOut = true;
 
@@ -451,7 +512,9 @@ void QFieldXmlHttpRequest::hookReply( QNetworkReply *networkReply )
     }
 
     if ( networkError == QNetworkReply::OperationCanceledError )
+    {
       return;
+    }
 
     mLastError = networkError;
     mLastErrorString = mReply ? mReply->errorString() : QString();
@@ -466,13 +529,19 @@ void QFieldXmlHttpRequest::hookReply( QNetworkReply *networkReply )
     const quint64 requestSerialSnapshot = mRequestSerial;
     QTimer::singleShot( mTimeoutMs, this, [this, requestSerialSnapshot]() {
       if ( requestSerialSnapshot != mRequestSerial )
+      {
         return;
+      }
 
       if ( mFinalized || mAborted || mTimedOut )
+      {
         return;
+      }
 
       if ( !mReply || mReply->isFinished() )
+      {
         return;
+      }
 
       mTimedOut = true;
 
@@ -492,7 +561,9 @@ void QFieldXmlHttpRequest::hookReply( QNetworkReply *networkReply )
 void QFieldXmlHttpRequest::finalizeFromRawReply()
 {
   if ( mFinalized )
+  {
     return;
+  }
 
   mFinalized = true;
 
@@ -519,11 +590,17 @@ void QFieldXmlHttpRequest::finalizeFromRawReply()
       if ( jsonParseError.error == QJsonParseError::NoError )
       {
         if ( jsonDocument.isObject() )
+        {
           mResponse = jsonDocument.object().toVariantMap();
+        }
         else if ( jsonDocument.isArray() )
+        {
           mResponse = jsonDocument.array().toVariantList();
+        }
         else
+        {
           mResponse = mResponseText;
+        }
       }
       else
       {
@@ -538,7 +615,9 @@ void QFieldXmlHttpRequest::finalizeFromRawReply()
   else
   {
     if ( mResponseText.isEmpty() )
+    {
       mResponseText = QStringLiteral( "{\"detail\":\"No response\"}" );
+    }
     mResponse = mResponseText;
   }
 
@@ -565,7 +644,9 @@ void QFieldXmlHttpRequest::finalizeFromRawReply()
 void QFieldXmlHttpRequest::finalizeAsError( const QString &message, bool shouldEmitResponseChanged )
 {
   if ( mFinalized )
+  {
     return;
+  }
 
   clearResponse();
   mResponseText = message;
@@ -577,7 +658,9 @@ void QFieldXmlHttpRequest::finalizeAsError( const QString &message, bool shouldE
 
   setReadyState( Done );
   if ( shouldEmitResponseChanged )
+  {
     emit responseChanged();
+  }
 
   call( mOnError, { int( QNetworkReply::UnknownNetworkError ), message } );
   call( mOnLoadEnd );
@@ -587,15 +670,21 @@ void QFieldXmlHttpRequest::finalizeAsError( const QString &message, bool shouldE
 QByteArray QFieldXmlHttpRequest::bodyToBytes( const QVariant &body, QString *outContentType ) const
 {
   if ( outContentType )
+  {
     outContentType->clear();
+  }
 
   if ( body.typeId() == QMetaType::QByteArray )
+  {
     return body.toByteArray();
+  }
 
   if ( body.typeId() == QMetaType::QString )
   {
     if ( outContentType )
+    {
       *outContentType = QStringLiteral( "text/plain; charset=utf-8" );
+    }
     return body.toString().toUtf8();
   }
 
@@ -605,7 +694,9 @@ QByteArray QFieldXmlHttpRequest::bodyToBytes( const QVariant &body, QString *out
                                                      : QJsonDocument( QJsonObject { { QStringLiteral( "value" ), jsonValue } } );
 
   if ( outContentType )
+  {
     *outContentType = QStringLiteral( "application/json" );
+  }
 
   return jsonDocument.toJson( QJsonDocument::Compact );
 }
@@ -613,7 +704,9 @@ QByteArray QFieldXmlHttpRequest::bodyToBytes( const QVariant &body, QString *out
 bool QFieldXmlHttpRequest::bodyContainsFileUrls( const QVariant &body ) const
 {
   if ( body.typeId() == QMetaType::QString )
+  {
     return isFileUrlString( body.toString() );
+  }
 
   if ( body.canConvert<QVariantList>() )
   {
@@ -628,7 +721,9 @@ bool QFieldXmlHttpRequest::bodyContainsFileUrls( const QVariant &body ) const
     const QVariantMap variantMap = body.toMap();
     return std::any_of( variantMap.cbegin(), variantMap.cend(), []( const QVariant &mapValue ) {
       if ( mapValue.typeId() == QMetaType::QString && isFileUrlString( mapValue.toString() ) )
+      {
         return true;
+      }
 
       if ( mapValue.canConvert<QVariantList>() )
       {
@@ -637,7 +732,6 @@ bool QFieldXmlHttpRequest::bodyContainsFileUrls( const QVariant &body ) const
           return nestedListValue.typeId() == QMetaType::QString && isFileUrlString( nestedListValue.toString() );
         } );
       }
-
       return false;
     } );
   }
@@ -648,14 +742,20 @@ bool QFieldXmlHttpRequest::bodyContainsFileUrls( const QVariant &body ) const
 bool QFieldXmlHttpRequest::isAllowedLocalUploadPath( const QString &localPath ) const
 {
   if ( localPath.isEmpty() )
+  {
     return false;
+  }
 
   const QString canonical = QFileInfo( localPath ).canonicalFilePath();
   if ( canonical.isEmpty() )
+  {
     return false;
+  }
 
   if ( FileUtils::isWithinProjectDirectory( canonical ) )
+  {
     return true;
+  }
 
   const QString cloudRoot = QFieldCloudUtils::localCloudDirectory();
   if ( !cloudRoot.isEmpty() )
@@ -665,7 +765,9 @@ bool QFieldXmlHttpRequest::isAllowedLocalUploadPath( const QString &localPath ) 
     {
       const QString cloudRootPrefix = QDir::cleanPath( cloudCanonical ) + QDir::separator();
       if ( QDir::cleanPath( canonical ).startsWith( cloudRootPrefix ) )
+      {
         return true;
+      }
     }
   }
 
@@ -675,14 +777,18 @@ bool QFieldXmlHttpRequest::isAllowedLocalUploadPath( const QString &localPath ) 
 QHttpMultiPart *QFieldXmlHttpRequest::buildMultipart( const QVariant &body ) const
 {
   if ( !body.canConvert<QVariantMap>() )
+  {
     return nullptr;
+  }
 
   const QVariantMap bodyMap = body.toMap();
   QHttpMultiPart *multipartBody = new QHttpMultiPart( QHttpMultiPart::FormDataType );
 
   const auto appendTextPart = [multipartBody]( const QString &fieldName, const QString &fieldValueText ) {
     if ( fieldName.isEmpty() )
+    {
       return;
+    }
 
     QHttpPart httpPart;
     httpPart.setHeader( QNetworkRequest::ContentDispositionHeader,
@@ -693,7 +799,9 @@ QHttpMultiPart *QFieldXmlHttpRequest::buildMultipart( const QVariant &body ) con
 
   const auto appendFilePart = [this, multipartBody]( const QString &fieldName, const QUrl &fileUrl ) -> bool {
     if ( fieldName.isEmpty() || !fileUrl.isValid() || !fileUrl.isLocalFile() )
+    {
       return false;
+    }
 
     const QString filePath = fileUrl.toLocalFile();
     if ( !isAllowedLocalUploadPath( filePath ) )
@@ -727,8 +835,8 @@ QHttpMultiPart *QFieldXmlHttpRequest::buildMultipart( const QVariant &body ) con
   QVariantMap::ConstIterator fieldIterator = bodyMap.constBegin();
   for ( ; fieldIterator != bodyMap.constEnd(); ++fieldIterator )
   {
-    const QString fieldName = fieldIterator.key();
-    const QVariant fieldValue = fieldIterator.value();
+    const QString &fieldName = fieldIterator.key();
+    const QVariant &fieldValue = fieldIterator.value();
 
     if ( fieldValue.canConvert<QVariantList>() )
     {
@@ -742,7 +850,9 @@ QHttpMultiPart *QFieldXmlHttpRequest::buildMultipart( const QVariant &body ) con
           {
             const QUrl fileUrl = UrlUtils::fromString( stringValue );
             if ( fileUrl.isLocalFile() && appendFilePart( fieldName, fileUrl ) )
+            {
               continue;
+            }
           }
         }
         const QJsonValue value = QJsonValue::fromVariant( listValue );
@@ -766,7 +876,9 @@ QHttpMultiPart *QFieldXmlHttpRequest::buildMultipart( const QVariant &body ) con
       {
         const QUrl fileUrl = UrlUtils::fromString( stringValue );
         if ( appendFilePart( fieldName, fileUrl ) )
+        {
           continue;
+        }
       }
     }
 
@@ -787,7 +899,9 @@ QHttpMultiPart *QFieldXmlHttpRequest::buildMultipart( const QVariant &body ) con
 void QFieldXmlHttpRequest::call( const QJSValue &callback, const QJSValueList &arguments )
 {
   if ( !callback.isCallable() )
+  {
     return;
+  }
 
   const QJSValue result = callback.call( arguments );
   if ( result.isError() )
