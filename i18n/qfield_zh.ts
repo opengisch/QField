@@ -4557,11 +4557,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Circle #1: point</source>
-        <translation type="unfinished"/>
+        <translation>圆 #1: 点</translation>
     </message>
     <message>
         <source>Circle #2: point</source>
-        <translation type="unfinished"/>
+        <translation>圆 #2: 点</translation>
     </message>
 </context>
 <context>
@@ -6603,11 +6603,11 @@ to show actions</source>
     </message>
     <message>
         <source>Enable positioning service to get points at your location</source>
-        <translation type="unfinished"/>
+        <translation>启用定位服务以获取您所在位置的坐标点</translation>
     </message>
     <message>
         <source>Positioning service has not yet received a valid location</source>
-        <translation type="unfinished"/>
+        <translation>定位服务未收到有效位置信息</translation>
     </message>
 </context>
 <context>
