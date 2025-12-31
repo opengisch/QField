@@ -17,11 +17,35 @@ Item {
   property bool editing: false
   property bool editable: true
 
+  /**
+   * When true, clicking on an already-selected button will deselect it,
+   * setting selectedIndex to -1 and emitting the deselected() signal.
+   */
+  property bool allowDeselect: false
+
   // Minimum width for buttons to handle empty text gracefully
   readonly property real buttonMinWidth: 48
 
-  signal itemClicked(int index, var modelData)
+  /**
+   * Emitted when user selects a button
+   * \param index The index of the selected item
+   * \param modelData The model data for the selected item
+   */
+  signal itemSelected(int index, var modelData)
+
+  /**
+   * Emitted when an item is completed (delegate created).
+   * \param index The index of the completed item
+   * \param modelData The model data for the item
+   * \param selected Whether the item is currently selected
+   */
   signal itemCompleted(int index, var modelData, bool selected)
+
+  /**
+   * Emitted when the user deselects the currently selected item (only when allowDeselect is true).
+   * The selectedIndex will be -1 after this signal is emitted.
+   */
+  signal itemDeselected
 
   height: flow.height + flow.anchors.topMargin + flow.anchors.bottomMargin
 
@@ -44,8 +68,9 @@ Item {
         property bool selected: toggleButtonGroup.selectedIndex === index
         property string text: toggleButtonGroup.textRole ? (model[toggleButtonGroup.textRole] ?? "") : ""
 
-        width: Math.max(toggleButtonGroup.buttonMinWidth, Math.min(flow.width - 16, innerText.implicitWidth + 16))
-        height: 34
+        visible: text !== ""
+        width: visible ? Math.max(toggleButtonGroup.buttonMinWidth, Math.min(flow.width - 16, innerText.implicitWidth + 16)) : 0
+        height: visible ? 34 : 0
         radius: 4
         color: selected ? toggleButtonGroup.editable && toggleButtonGroup.editing ? Theme.mainColor : Theme.controlBorderColor : "transparent"
         border.color: toggleButtonGroup.editing ? selected ? Theme.mainColor : Theme.secondaryTextColor : "transparent"
@@ -77,7 +102,13 @@ Item {
           enabled: toggleButtonGroup.enabled
 
           onClicked: {
-            toggleButtonGroup.itemClicked(index, model);
+            if (toggleButton.selected && toggleButtonGroup.allowDeselect) {
+              toggleButtonGroup.selectedIndex = -1;
+              toggleButtonGroup.itemDeselected();
+            } else {
+              toggleButtonGroup.selectedIndex = index;
+              toggleButtonGroup.itemSelected(index, model);
+            }
           }
 
           Ripple {

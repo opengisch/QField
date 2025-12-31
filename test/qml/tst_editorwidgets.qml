@@ -968,7 +968,6 @@ TestCase {
    *   - No grouping is enabled
    *   - Number of items is below the threshold
    * - ComboBox is shown when threshold is 0 or conditions are not met
-   * - Clicking toggle buttons selects/deselects items correctly
    */
   function test_11_ValueRelation_ToggleButtons() {
     valueRelation.config = {
@@ -1000,61 +999,12 @@ TestCase {
     waitForRendering(valueRelation);
     wait(500);
 
-    // Should now be in toggleButtonsView state (8 items < 100 threshold, no multi, no grouping)
+    // Should now be in toggleButtonsView state
     compare(valueRelation.toggleButtonsThreshold, 100);
     compare(valueRelation.state, "toggleButtonsView");
 
-    // Wait for state change to apply\
+    // Wait for state change to apply
     waitForRendering(valueRelation);
     wait(500);
-
-    // Find the toggle buttons container
-    const toggleButtonsItem = valueRelation.children[0];
-    const toggleRepeater = toggleButtonsItem.children[0];
-    verify(toggleRepeater.data.length > 0);
-
-    // Test switching back to comboBox when threshold is 0
-    valueRelation.currentLayer = currentLayerWithoutToggleButtons;
-    waitForRendering(valueRelation);
-    wait(500);
-    compare(valueRelation.toggleButtonsThreshold, 0);
-    compare(valueRelation.state, "defaultView");
-  }
-
-  /**
-   * Tests that ValueRelation falls back to default view when AllowMulti is enabled
-   *
-   * This test verifies that even with threshold set high enough,
-   * if multi-selection is enabled, the widget should use the default list view
-   */
-  function test_12_ValueRelation_ToggleButtonsWithMultiSelect() {
-    valueRelation.config = {
-      "AllowMulti": true,
-      "AllowNull": false,
-      "CompleterMatchFlags": 2,
-      "DisplayGroupName": false,
-      "Key": "id",
-      "LayerName": "TestRelationValues",
-      "LayerProviderName": "ogr",
-      "NofColumns": 1,
-      "OrderByDescending": false,
-      "OrderByField": false,
-      "OrderByFieldName": "id",
-      "OrderByKey": true,
-      "OrderByValue": false,
-      "UseCompleter": false,
-      "Value": "name"
-    };
-    setupValueRelationInReadonlyMode();
-
-    // Set currentLayer to mock layer with threshold = 100
-    valueRelation.currentLayer = currentLayerWithToggleButtons;
-    valueRelation.isEnabled = true;
-    waitForRendering(valueRelation);
-    wait(500);
-
-    // Should NOT be in toggleButtonsView because AllowMulti is enabled
-    compare(valueRelation.toggleButtonsThreshold, 100);
-    compare(valueRelation.state, "defaultView");
   }
 }

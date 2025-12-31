@@ -101,6 +101,7 @@ EditorWidgetBase {
     editing: isEditing
     editable: isEditable
     enabled: isEnabled
+    allowDeselect: true
 
     onItemCompleted: function (index, itemModel, selected) {
       if (itemModel.checked) {
@@ -108,10 +109,15 @@ EditorWidgetBase {
       }
     }
 
-    onItemClicked: function (index, itemModel) {
-      const newValue = listModel.dataFromRowIndex(index, FeatureListModel.KeyFieldRole);
-      valueChangeRequested(newValue, false);
-      selectedIndex = index;
+    onItemSelected: function (index, itemModel) {
+      if (selectedIndex >= 0) {
+        const newValue = listModel.dataFromRowIndex(selectedIndex, FeatureListModel.KeyFieldRole);
+        valueChangeRequested(newValue, false);
+      }
+    }
+
+    onItemDeselected: {
+      valueChangeRequested("", false);
     }
   }
 

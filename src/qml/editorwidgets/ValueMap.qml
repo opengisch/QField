@@ -85,34 +85,17 @@ EditorWidgetBase {
       Layout.fillWidth: true
       Layout.minimumHeight: toggleButtons.height
 
-      property string currentSelectedKey: ""
-      property string currentSelectedValue: ""
-
       model: comboBox.model
       textRole: "value"
       selectedIndex: comboBox.currentIndex
       editing: isEditing
       editable: isEditable
       enabled: isEnabled
+      allowDeselect: false
 
-      onItemCompleted: function (index, itemModel, selected) {
-        if (selected) {
-          toggleButtons.currentSelectedKey = itemModel.key;
-          toggleButtons.currentSelectedValue = itemModel.value;
-        }
-      }
-
-      onItemClicked: function (index, itemModel) {
-        if (selectedIndex != index) {
-          comboBox.currentIndex = index;
-          toggleButtons.currentSelectedKey = itemModel.key;
-          toggleButtons.currentSelectedValue = itemModel.value;
-        } else {
-          comboBox.currentIndex = -1;
-          toggleButtons.currentSelectedKey = "";
-          toggleButtons.currentSelectedValue = "";
-        }
-        valueChangeRequested(toggleButtons.currentSelectedKey, false);
+      onItemSelected: function (index, itemModel) {
+        comboBox.currentIndex = selectedIndex;
+        valueChangeRequested(selectedIndex >= 0 ? itemModel.key : "", false);
       }
     }
 
