@@ -340,6 +340,24 @@ ApplicationWindow {
 
     loggingPath: platformUtilities.appDataDirs()[0] + "/logs"
     logging: positioningSettings.logging
+    enableNtripClient: positioningSettings.enableNtripClient
+    ntripHost: positioningSettings.ntripHost
+    ntripPort: positioningSettings.ntripPort
+    ntripMountpoint: positioningSettings.ntripMountpoint
+    ntripUsername: positioningSettings.ntripUsername
+    ntripPassword: positioningSettings.ntripPassword
+
+    onNtripStatusChanged: {
+      positioningSettings.ntripStatus = ntripStatus;
+    }
+
+    onNtripBytesSentChanged: {
+      positioningSettings.ntripBytesSent = ntripBytesSent;
+    }
+
+    onNtripBytesReceivedChanged: {
+      positioningSettings.ntripBytesReceived = ntripBytesReceived;
+    }
 
     onPositionInformationChanged: {
       if (active) {
@@ -4068,6 +4086,21 @@ ApplicationWindow {
       indicator.implicitWidth: 24
 
       onTriggered: positioningSettings.showPositionInformation = checked
+    }
+
+    MenuItem {
+      text: qsTr("Enable NTRIP Client")
+      height: 48
+      leftPadding: Theme.menuItemCheckLeftPadding
+      font: Theme.defaultFont
+
+      checkable: true
+      checked: positioningSettings.enableNtripClient
+      indicator.height: 20
+      indicator.width: 20
+      indicator.implicitHeight: 24
+      indicator.implicitWidth: 24
+      onCheckedChanged: positioningSettings.enableNtripClient = checked
     }
 
     MenuItem {
