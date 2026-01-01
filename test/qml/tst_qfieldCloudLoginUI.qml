@@ -85,6 +85,7 @@ TestCase {
     verify(usernameField.visible);
     verify(passwordField.visible);
     verify(cloudRegisterLabel.visible);
+    console.log("MM-qfcTestServerUrl: ", qfcTestServerUrl);
     cloudConnection.url = qfcTestServerUrl;
     cloudConnection.username = qfcTestUsername;
     cloudConnection.provider = "";
