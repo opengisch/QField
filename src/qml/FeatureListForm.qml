@@ -516,6 +516,7 @@ Pane {
       model: globalFeaturesList.model
       selection: featureFormList.selection
       mapSettings: featureFormList.mapSettings
+      autoZoom: qfieldSettings.autoZoomToIdentifiedFeature
 
       onFeatureFormStateRequested: {
         featureFormList.state = "FeatureForm";

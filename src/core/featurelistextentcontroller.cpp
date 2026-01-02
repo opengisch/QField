@@ -15,6 +15,7 @@
 
 #include "featurelistextentcontroller.h"
 #include "featureutils.h"
+#include "multifeaturelistmodel.h"
 
 #include <qgsgeometry.h>
 #include <qgsvectorlayer.h>
@@ -90,6 +91,70 @@ void FeatureListExtentController::zoomToSelected( bool skipIfIntersects ) const
         }
       }
     }
+  }
+}
+
+void FeatureListExtentController::zoomToAllFeatures() const
+{
+  if ( !mModel || !mMapSettings || mModel->rowCount( QModelIndex() ) == 0 )
+    return;
+
+  QgsRectangle combinedExtent;
+  bool hasNonPointGeometry = false;
+
+  for ( int i = 0; i < mModel->rowCount( QModelIndex() ); ++i )
+  {
+    const QModelIndex index = mModel->index( i, 0 );
+    QgsVectorLayer *layer = qvariant_cast<QgsVectorLayer *>( mModel->data( index, MultiFeatureListModel::LayerRole ) );
+    const QgsFeature feature = mModel->data( index, MultiFeatureListModel::FeatureRole ).value<QgsFeature>();
+
+    if ( !layer || layer->geometryType() == Qgis::GeometryType::Unknown || layer->geometryType() == Qgis::GeometryType::Null )
+    {
+      continue;
+    }
+
+    try
+    {
+      const QgsGeometry geom( feature.geometry() );
+      if ( geom.isNull() )
+      {
+        continue;
+      }
+
+      if ( geom.type() != Qgis::GeometryType::Point || geom.constGet()->partCount() > 1 )
+      {
+        hasNonPointGeometry = true;
+      }
+
+      const QgsRectangle extent = FeatureUtils::extent( mMapSettings, layer, feature );
+      if ( extent.isNull() )
+      {
+        continue;
+      }
+
+      if ( combinedExtent.isNull() )
+      {
+        combinedExtent = extent;
+      }
+      else
+      {
+        combinedExtent.combineExtentWith( extent );
+      }
+    }
+    catch ( const QgsException &e )
+    {
+      Q_UNUSED( e )
+    }
+  }
+
+  if ( !combinedExtent.isNull() )
+  {
+    // Add buffer to ensure features are fully visible within the view
+    const double buffer = std::max( combinedExtent.width(), combinedExtent.height() ) * 0.5;
+    combinedExtent = combinedExtent.buffered( buffer );
+
+    const double scale = ( mKeepScale || !hasNonPointGeometry ) ? -1 : mMapSettings->computeScaleForExtent( combinedExtent, true );
+    emit requestJumpToPoint( QgsPoint( combinedExtent.center() ), scale, true );
   }
 }
 
