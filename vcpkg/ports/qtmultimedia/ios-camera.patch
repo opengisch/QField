@@ -1,0 +1,66 @@
+From e8c3d299decd0912de699dd87f43e45dee8aa2f5 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Nils=20Petter=20Ska=CC=8Alerud?=
+ <nils.petter.skalerud@qt.io>
+Date: Tue, 30 Dec 2025 13:02:47 +0100
+Subject: [PATCH] AVFImageCapture: Fix use-after-free error in completion
+ handler
+
+When using Obj-C block functions, local reference variables are
+captured as references, not as copies of their referenced type. This
+caused an issue in the still photo completion handler where we were
+reading a string after it was freed.
+
+This patch fixes this by making a local copy and capturing that
+instead.
+
+Pick-to: 6.8
+Fixes: QTBUG-143058
+Change-Id: Id56d20e75e5241925e0825953a98beb033723773
+Reviewed-by: Tim Blechmann <tim.blechmann@qt.io>
+(cherry picked from commit 7bab8f2b885e8eafb012df9b2295810bbd5641f0)
+Reviewed-by: Qt Cherry-pick Bot <cherrypick_bot@qt-project.org>
+(cherry picked from commit ee8f6b8de405604b0483a127d8445356c205eb3b)
+---
+ src/plugins/multimedia/darwin/camera/avfimagecapture.mm | 9 +++++----
+ 1 file changed, 5 insertions(+), 4 deletions(-)
+
+diff --git a/src/plugins/multimedia/darwin/camera/avfimagecapture.mm b/src/plugins/multimedia/darwin/camera/avfimagecapture.mm
+index feda3e451d..629c0c54ec 100644
+--- a/src/plugins/multimedia/darwin/camera/avfimagecapture.mm
++++ b/src/plugins/multimedia/darwin/camera/avfimagecapture.mm
+@@ -79,9 +79,10 @@
+     m_captureRequests.enqueue(request);
+     m_requestsMutex.unlock();
+ 
++    // Obj-C block functions don't capture local reference variables as copies. Make one explicitly.
++    QString fileNameCopy = fileName;
+     [m_stillImageOutput captureStillImageAsynchronouslyFromConnection:m_videoConnection
+                         completionHandler: ^(CMSampleBufferRef imageSampleBuffer, NSError *error) {
+-
+         if (error) {
+             QStringList messageParts;
+             messageParts << QString::fromUtf8([[error localizedDescription] UTF8String]);
+@@ -125,12 +126,12 @@
+                                           Q_ARG(int, request.captureId),
+                                           Q_ARG(QVideoFrame, frame));
+             } else {
+-                QFile f(fileName);
++                QFile f(fileNameCopy);
+                 if (f.open(QFile::WriteOnly)) {
+                     if (f.write(jpgData) != -1) {
+                         QMetaObject::invokeMethod(this, "imageSaved", Qt::QueuedConnection,
+                                                   Q_ARG(int, request.captureId),
+-                                                  Q_ARG(QString, fileName));
++                                                  Q_ARG(QString, fileNameCopy));
+                     } else {
+                         QMetaObject::invokeMethod(this, "error", Qt::QueuedConnection,
+                                                   Q_ARG(int, request.captureId),
+@@ -138,7 +139,7 @@
+                                                   Q_ARG(QString, f.errorString()));
+                     }
+                 } else {
+-                    QString errorMessage = tr("Could not open destination file:\n%1").arg(fileName);
++                    QString errorMessage = tr("Could not open destination file:\n%1").arg(fileNameCopy);
+                     QMetaObject::invokeMethod(this, "error", Qt::QueuedConnection,
+                                               Q_ARG(int, request.captureId),
+                                               Q_ARG(int, QImageCapture::ResourceError),
