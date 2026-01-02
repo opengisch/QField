@@ -750,7 +750,7 @@ EditorWidgetBase {
 
   function capturePhoto() {
     Qt.inputMethod.hide();
-    if (platformUtilities.capabilities & PlatformUtilities.NativeCamera && (settings.valueBool("nativeCamera2", true) || Qt.platform.os === "ios")) {
+    if (platformUtilities.capabilities & PlatformUtilities.NativeCamera && settings.valueBool("nativeCamera2", true)) {
       var filepath = getResourceFilePath();
       // Pictures taken by cameras will always be JPG
       filepath = filepath.replace('{extension}', 'JPG');
@@ -764,7 +764,7 @@ EditorWidgetBase {
 
   function captureVideo() {
     Qt.inputMethod.hide();
-    if (platformUtilities.capabilities & PlatformUtilities.NativeCamera && (settings.valueBool("nativeCamera2", true) || Qt.platform.os === "ios")) {
+    if (platformUtilities.capabilities & PlatformUtilities.NativeCamera && settings.valueBool("nativeCamera2", true)) {
       var filepath = getResourceFilePath();
       // Video taken by cameras will always be MP4
       filepath = filepath.replace('{extension}', 'MP4');
