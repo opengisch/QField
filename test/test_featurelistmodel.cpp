@@ -37,7 +37,7 @@ TEST_CASE( "FeatureListModel validation checks" )
   REQUIRE_FALSE( featureListModel.getFeatureFromKeyValue( QVariant( 1 ) ).isValid() );
   REQUIRE_FALSE( featureListModel.getFeatureById( 1 ).isValid() );
   REQUIRE( featureListModel.findKey( QVariant( 1 ) ) == -1 );
-  REQUIRE( featureListModel.findDisplayValueMatches( QStringLiteral( "al" ) ).isEmpty() );
+  REQUIRE( featureListModel.findDisplayValueMatches( QStringLiteral( "t" ) ).isEmpty() );
 }
 
 TEST_CASE( "FeatureListModel behaviours" )
@@ -124,14 +124,14 @@ TEST_CASE( "FeatureListModel behaviours" )
 
   // Prefix matching behaviour
   {
-    const QList<int> matchedRowIndices = featureListModel.findDisplayValueMatches( QStringLiteral( " al " ) );
+    const QList<int> matchedRowIndices = featureListModel.findDisplayValueMatches( QStringLiteral( " t " ) );
     REQUIRE( matchedRowIndices.size() == 2 );
 
     const QString firstMatchLower = featureListModel.dataFromRowIndex( matchedRowIndices.at( 0 ), FeatureListModel::DisplayStringRole ).toString().trimmed().toLower();
     const QString secondMatchLower = featureListModel.dataFromRowIndex( matchedRowIndices.at( 1 ), FeatureListModel::DisplayStringRole ).toString().trimmed().toLower();
 
-    REQUIRE( firstMatchLower.startsWith( QStringLiteral( "al" ) ) );
-    REQUIRE( secondMatchLower.startsWith( QStringLiteral( "al" ) ) );
+    REQUIRE( firstMatchLower.startsWith( QStringLiteral( "t" ) ) );
+    REQUIRE( secondMatchLower.startsWith( QStringLiteral( "t" ) ) );
   }
 
   // addNull behaviour
@@ -191,7 +191,7 @@ TEST_CASE( "FeatureListModel behaviours" )
     while ( waitForSortTimer.elapsed() < maximumWaitTimeMilliseconds )
     {
       const QString firstRowDisplayLower = featureListModel.dataFromRowIndex( 0, FeatureListModel::DisplayStringRole ).toString().toLower();
-      if ( firstRowDisplayLower == QStringLiteral( "Two" ) )
+      if ( firstRowDisplayLower == QStringLiteral( "three" ) )
       {
         break;
       }
@@ -199,7 +199,7 @@ TEST_CASE( "FeatureListModel behaviours" )
       QCoreApplication::processEvents( QEventLoop::AllEvents, 50 );
     }
 
-    REQUIRE( featureListModel.dataFromRowIndex( 0, FeatureListModel::DisplayStringRole ).toString().toLower() == QStringLiteral( "Two" ) );
+    REQUIRE( featureListModel.dataFromRowIndex( 0, FeatureListModel::DisplayStringRole ).toString().toLower() == QStringLiteral( "three" ) );
   }
 
   // Layer change triggers reload (featureAdded gives reload)
