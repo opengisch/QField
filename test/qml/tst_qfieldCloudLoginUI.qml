@@ -90,6 +90,7 @@ TestCase {
     cloudConnection.username = qfcTestUsername;
     cloudConnection.provider = "";
     cloudConnection.login(qfcTestPassword);
+    wait(5000); // Give it some time
     tryCompare(cloudConnection, "status", QFieldCloudConnection.LoggedIn, 15000);
     compare(usernameField.visible, false);
     compare(passwordField.visible, false);
