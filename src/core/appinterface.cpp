@@ -19,6 +19,7 @@
 #include "fileutils.h"
 #include "platformutilities.h"
 #include "qfield.h"
+#include "qfieldxmlhttprequest.h"
 #include "qgismobileapp.h"
 #include "translatormanager.h"
 #if WITH_SENTRY
@@ -46,6 +47,19 @@ AppInterface *AppInterface::sAppInterface = nullptr;
 AppInterface::AppInterface( QgisMobileapp *app )
   : mApp( app )
 {
+}
+
+QObject *AppInterface::createHttpRequest() const
+{
+  QFieldXmlHttpRequest *request = new QFieldXmlHttpRequest();
+
+  QObject *rootObject = ( !mApp->rootObjects().isEmpty() ) ? mApp->rootObjects().at( 0 ) : nullptr;
+  if ( rootObject && qmlEngine( rootObject ) )
+  {
+    QQmlEngine::setObjectOwnership( request, QQmlEngine::CppOwnership );
+  }
+
+  return request;
 }
 
 QObject *AppInterface::findItemByObjectName( const QString &name ) const
