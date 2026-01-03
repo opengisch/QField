@@ -173,6 +173,10 @@ class Setup : public QObject
       engine->rootContext()->setContextProperty( QStringLiteral( "qgisProject" ), QgsProject::instance() );
       engine->rootContext()->setContextProperty( QStringLiteral( "dataDir" ), mDataDir );
 
+      engine->rootContext()->setContextProperty( QStringLiteral( "qfcTestUsername" ), QString::fromUtf8( qgetenv( "QFIELDCLOUD_TEST_USERNAME" ) ) );
+      engine->rootContext()->setContextProperty( QStringLiteral( "qfcTestPassword" ), QString::fromUtf8( qgetenv( "QFIELDCLOUD_TEST_PASSWORD" ) ) );
+      engine->rootContext()->setContextProperty( QStringLiteral( "qfcTestServerUrl" ), QString::fromUtf8( qgetenv( "QFIELDCLOUD_TEST_SERVER_URL" ) ) );
+
       QgsExifTools mExifTools;
       engine->rootContext()->setContextProperty( "ExifTools", QVariant::fromValue<QgsExifTools>( mExifTools ) );
 
