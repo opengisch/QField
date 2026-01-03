@@ -4373,6 +4373,14 @@ Cancel to make a minimal device scan instead.</source>
         <source>If enabled, newly-added features are stored as soon as it has having a valid geometry and the constraints are fulfilled and edited atributes are commited immediately.</source>
         <translation>如果勾选，新添加的要素一旦具有有效的几何图形并且满足约束，就会立即存储，并立即提交编辑属性。</translation>
     </message>
+    <message>
+        <source>Auto-zoom to identified feature(s)</source>
+        <translation>自动缩放至已识别的要素</translation>
+    </message>
+    <message>
+        <source>When enabled, the map will automatically zoom to show all identified features, as well as the individual selected feature when the feature form is opened.</source>
+        <translation>启用后，地图将自动缩放以显示所有已识别的要素，以及在打开要素表单时单个所选要素。</translation>
+    </message>
 </context>
 <context>
     <name>QFieldSketcher</name>

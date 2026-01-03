@@ -4372,6 +4372,14 @@ Abbrechen um einen verkürzten Scan durchzuführen. </translation>
         <source>If enabled, newly-added features are stored as soon as it has having a valid geometry and the constraints are fulfilled and edited atributes are commited immediately.</source>
         <translation>Wenn aktiviert, werden neu hinzugefügte Objekte gespeichert, sobald sie eine gültige Geometrie haben und die Bedigungen erfüllt sind, und bearbeitete Attribute werden sofort übernommen.</translation>
     </message>
+    <message>
+        <source>Auto-zoom to identified feature(s)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When enabled, the map will automatically zoom to show all identified features, as well as the individual selected feature when the feature form is opened.</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldSketcher</name>
