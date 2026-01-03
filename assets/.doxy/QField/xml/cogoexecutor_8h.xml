@@ -1,0 +1,257 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="cogoexecutor_8h" kind="file" language="C++">
+    <compoundname>cogoexecutor.h</compoundname>
+    <includes refid="cogooperation_8h" local="yes">cogooperation.h</includes>
+    <includes refid="qgsquickmapsettings_8h" local="yes">qgsquickmapsettings.h</includes>
+    <includes refid="rubberbandmodel_8h" local="yes">rubberbandmodel.h</includes>
+    <includes local="no">QMap</includes>
+    <includes local="no">QObject</includes>
+    <includes local="no">QVariant</includes>
+    <includedby refid="cogoexecutor_8cpp" local="yes">src/core/cogo/cogoexecutor.cpp</includedby>
+    <includedby refid="qgismobileapp_8cpp" local="yes">src/core/qgismobileapp.cpp</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>src/core/cogo/cogoexecutor.h</label>
+        <link refid="cogoexecutor_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>cogooperation.h</label>
+        <link refid="cogooperation_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>qgsquickmapsettings.h</label>
+        <link refid="qgsquickmapsettings_8h_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>rubberbandmodel.h</label>
+        <link refid="rubberbandmodel_8h_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="21">
+        <label>QColor</label>
+      </node>
+      <node id="13">
+        <label>QDateTime</label>
+      </node>
+      <node id="23">
+        <label>QMap</label>
+      </node>
+      <node id="5">
+        <label>QObject</label>
+      </node>
+      <node id="14">
+        <label>QPointF</label>
+      </node>
+      <node id="15">
+        <label>QPointer</label>
+      </node>
+      <node id="22">
+        <label>QString</label>
+      </node>
+      <node id="24">
+        <label>QVariant</label>
+      </node>
+      <node id="16">
+        <label>QVector</label>
+      </node>
+      <node id="4">
+        <label>qfield_core_export.h</label>
+      </node>
+      <node id="17">
+        <label>qgis.h</label>
+      </node>
+      <node id="18">
+        <label>qgsabstractgeometry.h</label>
+      </node>
+      <node id="19">
+        <label>qgscoordinatereferencesystem.h</label>
+      </node>
+      <node id="6">
+        <label>qgscoordinatetransformcontext.h</label>
+      </node>
+      <node id="20">
+        <label>qgsgeometry.h</label>
+      </node>
+      <node id="7">
+        <label>qgsmaplayer.h</label>
+      </node>
+      <node id="8">
+        <label>qgsmapsettings.h</label>
+      </node>
+      <node id="9">
+        <label>qgsmapthemecollection.h</label>
+      </node>
+      <node id="10">
+        <label>qgspoint.h</label>
+      </node>
+      <node id="11">
+        <label>qgsrectangle.h</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="classCogoExecutor" prot="public">CogoExecutor</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/***************************************************************************</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>cogoexecutor.h</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>-------------------</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>begin<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>2025.12.21</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>copyright<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>(C)<sp/>2025<sp/>by<sp/>Mathieu<sp/>Pellerin</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>email<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>mathieu<sp/>(at)<sp/>opengis.ch</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>***************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="comment">/***************************************************************************</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>*<sp/><sp/><sp/>This<sp/>program<sp/>is<sp/>free<sp/>software;<sp/>you<sp/>can<sp/>redistribute<sp/>it<sp/>and/or<sp/>modify<sp/><sp/>*</highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*<sp/><sp/><sp/>it<sp/>under<sp/>the<sp/>terms<sp/>of<sp/>the<sp/>GNU<sp/>General<sp/>Public<sp/>License<sp/>as<sp/>published<sp/>by<sp/><sp/>*</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>*<sp/><sp/><sp/>the<sp/>Free<sp/>Software<sp/>Foundation;<sp/>either<sp/>version<sp/>2<sp/>of<sp/>the<sp/>License,<sp/>or<sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/>*<sp/><sp/><sp/>(at<sp/>your<sp/>option)<sp/>any<sp/>later<sp/>version.<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="15"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="16"><highlight class="comment"><sp/>***************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>COGOEXECUTOR_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>COGOEXECUTOR_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;cogooperation.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;qgsquickmapsettings.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;rubberbandmodel.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QMap&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QObject&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QVariant&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33" refid="classCogoExecutor" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classCogoExecutor" kindref="compound">CogoExecutor</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>QObject</highlight></codeline>
+<codeline lineno="34"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_OBJECT</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40" refid="classCogoExecutor_1a75c4f3e1ebc5a1c512f817361d5ea50c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/>QString<sp/><ref refid="classCogoExecutor_1a75c4f3e1ebc5a1c512f817361d5ea50c" kindref="member">name</ref><sp/>READ<sp/><ref refid="classCogoExecutor_1a75c4f3e1ebc5a1c512f817361d5ea50c" kindref="member">name</ref><sp/>WRITE<sp/><ref refid="classCogoExecutor_1a4b96119c7da0f2251d944546a4f65d1c" kindref="member">setName</ref><sp/>NOTIFY<sp/><ref refid="classCogoExecutor_1a6faf30d33b03baf6b0717672e54e8e63" kindref="member">nameChanged</ref><sp/>)</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="45" refid="classCogoExecutor_1a32878331a3146ab7fd08086e7e1e4158" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/>QList&lt;<ref refid="classCogoParameter" kindref="compound">CogoParameter</ref>&gt;<sp/><ref refid="classCogoExecutor_1a32878331a3146ab7fd08086e7e1e4158" kindref="member">parameters</ref><sp/>READ<sp/><ref refid="classCogoExecutor_1a32878331a3146ab7fd08086e7e1e4158" kindref="member">parameters</ref><sp/>NOTIFY<sp/><ref refid="classCogoExecutor_1a6ca7a9fb496180d5d258952a5c21e4d1" kindref="member">parametersChanged</ref><sp/>)</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50" refid="classCogoExecutor_1af1df1c62ff33dbf6f64323187cf3c18c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/>QVariantMap<sp/><ref refid="classCogoExecutor_1af1df1c62ff33dbf6f64323187cf3c18c" kindref="member">parameterValues</ref><sp/>READ<sp/><ref refid="classCogoExecutor_1af1df1c62ff33dbf6f64323187cf3c18c" kindref="member">parameterValues</ref><sp/>WRITE<sp/><ref refid="classCogoExecutor_1aa70ffe1bda09c73b36413efb3f60c7a9" kindref="member">setParameterValues</ref><sp/>NOTIFY<sp/><ref refid="classCogoExecutor_1ac004554b8436c2e056f39cd8c810683e" kindref="member">parameterValuesChanged</ref><sp/>)</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight></codeline>
+<codeline lineno="55" refid="classCogoExecutor_1a28c28daffa11aac7929826143b5dc39d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/>QList&lt;<ref refid="classCogoVisualGuide" kindref="compound">CogoVisualGuide</ref>&gt;<sp/><ref refid="classCogoExecutor_1a28c28daffa11aac7929826143b5dc39d" kindref="member">visualGuides</ref><sp/>READ<sp/><ref refid="classCogoExecutor_1a28c28daffa11aac7929826143b5dc39d" kindref="member">visualGuides</ref><sp/>NOTIFY<sp/><ref refid="classCogoExecutor_1ad847aa0e88d4f9a7efbc541b8a351323" kindref="member">visualGuidesChanged</ref><sp/>)</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight></codeline>
+<codeline lineno="60" refid="classCogoExecutor_1a441adaf4f5492fa94f75fae0d6659509" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classCogoExecutor_1a441adaf4f5492fa94f75fae0d6659509" kindref="member">isReady</ref><sp/>READ<sp/><ref refid="classCogoExecutor_1a441adaf4f5492fa94f75fae0d6659509" kindref="member">isReady</ref><sp/>NOTIFY<sp/><ref refid="classCogoExecutor_1aa61f122aaeb6b92933dd06ce4188aacc" kindref="member">isReadyChanged</ref><sp/>)</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight></codeline>
+<codeline lineno="65" refid="classCogoExecutor_1a241e4dfb79b8a96dc5ec8eb55645f865" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/><ref refid="classRubberbandModel" kindref="compound">RubberbandModel</ref><sp/>*<ref refid="classCogoExecutor_1a241e4dfb79b8a96dc5ec8eb55645f865" kindref="member">rubberbandModel</ref><sp/>READ<sp/><ref refid="classCogoExecutor_1a241e4dfb79b8a96dc5ec8eb55645f865" kindref="member">rubberbandModel</ref><sp/>WRITE<sp/><ref refid="classCogoExecutor_1afdd83963188dcbbbc14148b9c2ea8dec" kindref="member">setRubberbandModel</ref><sp/>NOTIFY<sp/><ref refid="classCogoExecutor_1a53abca3b42bbe995c32342c126bacb04" kindref="member">rubberbandModelChanged</ref><sp/>)</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight></codeline>
+<codeline lineno="70" refid="classCogoExecutor_1a193f50ea0ac5f29c32b72bdf7ad91fae" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref><sp/>*<ref refid="classCogoExecutor_1a193f50ea0ac5f29c32b72bdf7ad91fae" kindref="member">mapSettings</ref><sp/>READ<sp/><ref refid="classCogoExecutor_1a193f50ea0ac5f29c32b72bdf7ad91fae" kindref="member">mapSettings</ref><sp/>WRITE<sp/><ref refid="classCogoExecutor_1a6b1021bbd3f20dfccc9a33f9bff93a3a" kindref="member">setMapSettings</ref><sp/>NOTIFY<sp/><ref refid="classCogoExecutor_1a11248c1a11287766a7a81382b73ffa76" kindref="member">mapSettingsChanged</ref><sp/>)</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/>public:</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/>explicit<sp/><ref refid="classCogoExecutor" kindref="compound">CogoExecutor</ref>(<sp/>QObject<sp/>*parent<sp/>=<sp/></highlight><highlight class="keywordtype">nullptr</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight></codeline>
+<codeline lineno="76" refid="classCogoExecutor_1a74dfae9f829a3a573d23f476f7fc3d0a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/><ref refid="classCogoExecutor_1a75c4f3e1ebc5a1c512f817361d5ea50c" kindref="member">name</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>mName;<sp/>}</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classCogoExecutor_1a4b96119c7da0f2251d944546a4f65d1c" kindref="member">setName</ref>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;<ref refid="classCogoExecutor_1a75c4f3e1ebc5a1c512f817361d5ea50c" kindref="member">name</ref><sp/>);</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight></codeline>
+<codeline lineno="81" refid="classCogoExecutor_1ae1ddd15ed5f499cc76b5e5ed7f0fa404" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>QList&lt;CogoParameter&gt;<sp/><ref refid="classCogoExecutor_1ae1ddd15ed5f499cc76b5e5ed7f0fa404" kindref="member">parameters</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>mParameters;<sp/>}</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight></codeline>
+<codeline lineno="84" refid="classCogoExecutor_1af6bdb92fd894703802a854ae480569a8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>QVariantMap<sp/><ref refid="classCogoExecutor_1af6bdb92fd894703802a854ae480569a8" kindref="member">parameterValues</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>mParameterValues;<sp/>}</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classCogoExecutor_1aa70ffe1bda09c73b36413efb3f60c7a9" kindref="member">setParameterValues</ref>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QVariantMap<sp/>&amp;<ref refid="classCogoExecutor_1af1df1c62ff33dbf6f64323187cf3c18c" kindref="member">parameterValues</ref><sp/>);</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/>QList&lt;CogoVisualGuide&gt;<sp/><ref refid="classCogoExecutor_1a28c28daffa11aac7929826143b5dc39d" kindref="member">visualGuides</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"></highlight></codeline>
+<codeline lineno="92" refid="classCogoExecutor_1a0be772a7722a56246531b984c6747840" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classCogoExecutor_1a0be772a7722a56246531b984c6747840" kindref="member">isReady</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>mIsReady;<sp/>}</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"></highlight></codeline>
+<codeline lineno="95" refid="classCogoExecutor_1a8dc6b1f02e00ecc11c6b5c764e8ad3cf" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref><sp/>*<ref refid="classCogoExecutor_1a8dc6b1f02e00ecc11c6b5c764e8ad3cf" kindref="member">mapSettings</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>mMapSettings;<sp/>}</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classCogoExecutor_1a6b1021bbd3f20dfccc9a33f9bff93a3a" kindref="member">setMapSettings</ref>(<sp/><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref><sp/>*<ref refid="classCogoExecutor_1a193f50ea0ac5f29c32b72bdf7ad91fae" kindref="member">mapSettings</ref><sp/>);</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"></highlight></codeline>
+<codeline lineno="100" refid="classCogoExecutor_1aa83551fd25349e9d1612f244ffe99510" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classRubberbandModel" kindref="compound">RubberbandModel</ref><sp/>*<ref refid="classCogoExecutor_1aa83551fd25349e9d1612f244ffe99510" kindref="member">rubberbandModel</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>mRubberbandModel;<sp/>}</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classCogoExecutor_1afdd83963188dcbbbc14148b9c2ea8dec" kindref="member">setRubberbandModel</ref>(<sp/><ref refid="classRubberbandModel" kindref="compound">RubberbandModel</ref><sp/>*<ref refid="classCogoExecutor_1a241e4dfb79b8a96dc5ec8eb55645f865" kindref="member">rubberbandModel</ref><sp/>);</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"></highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_INVOKABLE<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classCogoExecutor_1a2502b1763cd6d2cc31baae305dad6e6d" kindref="member">execute</ref>();</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"></highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/>signals:</highlight></codeline>
+<codeline lineno="111" refid="classCogoExecutor_1a6faf30d33b03baf6b0717672e54e8e63" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classCogoExecutor_1a6faf30d33b03baf6b0717672e54e8e63" kindref="member">nameChanged</ref>();</highlight></codeline>
+<codeline lineno="113" refid="classCogoExecutor_1a6ca7a9fb496180d5d258952a5c21e4d1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classCogoExecutor_1a6ca7a9fb496180d5d258952a5c21e4d1" kindref="member">parametersChanged</ref>();</highlight></codeline>
+<codeline lineno="115" refid="classCogoExecutor_1ac004554b8436c2e056f39cd8c810683e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classCogoExecutor_1ac004554b8436c2e056f39cd8c810683e" kindref="member">parameterValuesChanged</ref>();</highlight></codeline>
+<codeline lineno="117" refid="classCogoExecutor_1ad847aa0e88d4f9a7efbc541b8a351323" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classCogoExecutor_1ad847aa0e88d4f9a7efbc541b8a351323" kindref="member">visualGuidesChanged</ref>();</highlight></codeline>
+<codeline lineno="119" refid="classCogoExecutor_1aa61f122aaeb6b92933dd06ce4188aacc" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classCogoExecutor_1aa61f122aaeb6b92933dd06ce4188aacc" kindref="member">isReadyChanged</ref>();</highlight></codeline>
+<codeline lineno="121" refid="classCogoExecutor_1a11248c1a11287766a7a81382b73ffa76" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classCogoExecutor_1a11248c1a11287766a7a81382b73ffa76" kindref="member">mapSettingsChanged</ref>();</highlight></codeline>
+<codeline lineno="123" refid="classCogoExecutor_1a53abca3b42bbe995c32342c126bacb04" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classCogoExecutor_1a53abca3b42bbe995c32342c126bacb04" kindref="member">rubberbandModelChanged</ref>();</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"></highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>getParameters();</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>generateVisualGuides();</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>checkReadiness();</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"></highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/>mName;</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/>QList&lt;CogoParameter&gt;<sp/>mParameters;</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"></highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/>QVariantMap<sp/>mParameterValues;</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/>QList&lt;CogoVisualGuide&gt;<sp/>mVisualGuides;</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>mIsReady<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"></highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref><sp/>*mMapSettings<sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classRubberbandModel" kindref="compound">RubberbandModel</ref><sp/>*mRubberbandModel<sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="139"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"></highlight></codeline>
+<codeline lineno="141"><highlight class="normal">Q_DECLARE_METATYPE(<sp/><ref refid="classCogoExecutor" kindref="compound">CogoExecutor</ref><sp/>)</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>COGOEXECUTOR_H</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="src/core/cogo/cogoexecutor.h"/>
+  </compounddef>
+</doxygen>

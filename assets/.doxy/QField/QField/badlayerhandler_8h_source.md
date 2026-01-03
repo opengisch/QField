@@ -1,0 +1,68 @@
+
+
+# File badlayerhandler.h
+
+[**File List**](files.md) **>** [**core**](dir_aebb8dcc11953d78e620bbef0b9e2183.md) **>** [**badlayerhandler.h**](badlayerhandler_8h.md)
+
+[Go to the documentation of this file](badlayerhandler_8h.md)
+
+
+```C++
+/***************************************************************************
+  badlayerhandler.h - BadLayerHandler
+
+ ---------------------
+ begin                : 3.10.2016
+ copyright            : (C) 2016 by Matthias Kuhn
+ email                : matthias@opengis.ch
+ ***************************************************************************
+ *                                                                         *
+ *   This program is free software; you can redistribute it and/or modify  *
+ *   it under the terms of the GNU General Public License as published by  *
+ *   the Free Software Foundation; either version 2 of the License, or     *
+ *   (at your option) any later version.                                   *
+ *                                                                         *
+ ***************************************************************************/
+#ifndef BADLAYERHANDLER_H
+#define BADLAYERHANDLER_H
+
+#include <QStandardItemModel>
+#include <qgsproject.h>
+#include <qgsprojectbadlayerhandler.h>
+
+class BadLayerHandler : public QStandardItemModel, public QgsProjectBadLayerHandler
+{
+    Q_OBJECT
+
+    Q_PROPERTY( QgsProject *project READ project WRITE setProject NOTIFY projectChanged )
+
+  public:
+    enum Roles
+    {
+      DataSourceRole = Qt::UserRole,
+      LayerNameRole
+    };
+
+    explicit BadLayerHandler( QObject *parent = nullptr );
+
+    QHash<int, QByteArray> roleNames() const override;
+
+    QgsProject *project() const;
+    void setProject( QgsProject *project );
+
+    void handleBadLayers( const QList<QDomNode> &layers ) override;
+
+  signals:
+    void projectChanged();
+    void badLayersFound();
+
+  private:
+    QString layerName( const QDomNode &layerNode ) const;
+
+    QgsProject *mProject = nullptr;
+};
+
+#endif // BADLAYERHANDLER_H
+```
+
+

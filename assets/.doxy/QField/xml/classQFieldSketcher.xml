@@ -1,0 +1,374 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQFieldSketcher" kind="class" language="C++" prot="public">
+    <compoundname>QFieldSketcher</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Popup</basecompoundref>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQFieldSketcher_1aff44f8f65d5bc70a21c8efb5a6917436" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QFieldSketcher::width</definition>
+        <argsstring></argsstring>
+        <name>width</name>
+        <qualifiedname>QFieldSketcher::width</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldSketcher.qml" line="18" column="5" bodyfile="src/qml/QFieldSketcher.qml" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldSketcher_1ae2081d398bfc41d4c4a09a806a8a819a" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QFieldSketcher::height</definition>
+        <argsstring></argsstring>
+        <name>height</name>
+        <qualifiedname>QFieldSketcher::height</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldSketcher.qml" line="19" column="5" bodyfile="src/qml/QFieldSketcher.qml" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldSketcher_1a87837bfdb3a17e6e376e5ac1ee800f31" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QFieldSketcher::x</definition>
+        <argsstring></argsstring>
+        <name>x</name>
+        <qualifiedname>QFieldSketcher::x</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldSketcher.qml" line="20" column="5" bodyfile="src/qml/QFieldSketcher.qml" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldSketcher_1ae5e3d30597a1577684af2060801a26b1" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QFieldSketcher::y</definition>
+        <argsstring></argsstring>
+        <name>y</name>
+        <qualifiedname>QFieldSketcher::y</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldSketcher.qml" line="21" column="5" bodyfile="src/qml/QFieldSketcher.qml" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldSketcher_1abd4f26222cdd2607349857a4176dc518" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QFieldSketcher::z</definition>
+        <argsstring></argsstring>
+        <name>z</name>
+        <qualifiedname>QFieldSketcher::z</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldSketcher.qml" line="22" column="5" bodyfile="src/qml/QFieldSketcher.qml" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldSketcher_1a835ec6caab0c00297a2680ac591b61a5" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QFieldSketcher::padding</definition>
+        <argsstring></argsstring>
+        <name>padding</name>
+        <qualifiedname>QFieldSketcher::padding</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldSketcher.qml" line="24" column="5" bodyfile="src/qml/QFieldSketcher.qml" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldSketcher_1a9414f358256c42d6c5f54fd2f46e39b5" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QFieldSketcher::closePolicy</definition>
+        <argsstring></argsstring>
+        <name>closePolicy</name>
+        <qualifiedname>QFieldSketcher::closePolicy</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldSketcher.qml" line="25" column="5" bodyfile="src/qml/QFieldSketcher.qml" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldSketcher_1a8a2c2ce8bf9218a6fbf788e01b062943" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QFieldSketcher::focus</definition>
+        <argsstring></argsstring>
+        <name>focus</name>
+        <qualifiedname>QFieldSketcher::focus</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldSketcher.qml" line="26" column="5" bodyfile="src/qml/QFieldSketcher.qml" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldSketcher_1a21cd368608c748ad55fd59f9e22d1b7f" prot="private" static="no" mutable="no">
+        <type><ref refid="classSettings" kindref="compound">Settings</ref></type>
+        <definition>Settings QFieldSketcher::settings</definition>
+        <argsstring></argsstring>
+        <name>settings</name>
+        <qualifiedname>QFieldSketcher::settings</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldSketcher.qml" line="27" column="10" bodyfile="src/qml/QFieldSketcher.qml" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldSketcher_1a4ee13e4f80f17470271e9b91acb9dcb2" prot="private" static="no" mutable="no">
+        <type><ref refid="classDrawingCanvas" kindref="compound">DrawingCanvas</ref></type>
+        <definition>DrawingCanvas QFieldSketcher::drawingCanvas</definition>
+        <argsstring></argsstring>
+        <name>drawingCanvas</name>
+        <qualifiedname>QFieldSketcher::drawingCanvas</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldSketcher.qml" line="28" column="15" bodyfile="src/qml/QFieldSketcher.qml" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldSketcher_1abff79107d090062c52aa237ae82542a9" prot="private" static="no" mutable="no">
+        <type>Shape</type>
+        <definition>Shape QFieldSketcher::drawingCurrentStroke</definition>
+        <argsstring></argsstring>
+        <name>drawingCurrentStroke</name>
+        <qualifiedname>QFieldSketcher::drawingCurrentStroke</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldSketcher.qml" line="29" column="7" bodyfile="src/qml/QFieldSketcher.qml" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldSketcher_1a42e54e39cd44be3bc4c96b70e3c1a092" prot="private" static="no" mutable="no">
+        <type>DragHandler</type>
+        <definition>DragHandler QFieldSketcher::stylusDragHandler</definition>
+        <argsstring></argsstring>
+        <name>stylusDragHandler</name>
+        <qualifiedname>QFieldSketcher::stylusDragHandler</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldSketcher.qml" line="30" column="13" bodyfile="src/qml/QFieldSketcher.qml" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldSketcher_1a1b08cc0ff4ff844e0e08afd7ed9581c0" prot="private" static="no" mutable="no">
+        <type>DragHandler</type>
+        <definition>DragHandler QFieldSketcher::dragHandler</definition>
+        <argsstring></argsstring>
+        <name>dragHandler</name>
+        <qualifiedname>QFieldSketcher::dragHandler</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldSketcher.qml" line="31" column="13" bodyfile="src/qml/QFieldSketcher.qml" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldSketcher_1ad35ab4213b1b58042f3c4779a093bdc0" prot="private" static="no" mutable="no">
+        <type>PinchHandler</type>
+        <definition>PinchHandler QFieldSketcher::pinchHandler</definition>
+        <argsstring></argsstring>
+        <name>pinchHandler</name>
+        <qualifiedname>QFieldSketcher::pinchHandler</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldSketcher.qml" line="32" column="14" bodyfile="src/qml/QFieldSketcher.qml" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldSketcher_1af3448d085e9faa03bea3c62522f9fcbf" prot="private" static="no" mutable="no">
+        <type>WheelHandler</type>
+        <definition>WheelHandler QFieldSketcher::wheelHandler</definition>
+        <argsstring></argsstring>
+        <name>wheelHandler</name>
+        <qualifiedname>QFieldSketcher::wheelHandler</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldSketcher.qml" line="33" column="14" bodyfile="src/qml/QFieldSketcher.qml" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldSketcher_1a6044f61294313e7ba4b68fd41df0a8b0" prot="private" static="no" mutable="no">
+        <type>Rectangle</type>
+        <definition>Rectangle QFieldSketcher::templateContainer</definition>
+        <argsstring></argsstring>
+        <name>templateContainer</name>
+        <qualifiedname>QFieldSketcher::templateContainer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldSketcher.qml" line="34" column="11" bodyfile="src/qml/QFieldSketcher.qml" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldSketcher_1a69285f63d7b86bc4ddf4cae6736b286c" prot="private" static="no" mutable="no">
+        <type>ListView</type>
+        <definition>ListView QFieldSketcher::templateList</definition>
+        <argsstring></argsstring>
+        <name>templateList</name>
+        <qualifiedname>QFieldSketcher::templateList</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldSketcher.qml" line="35" column="10" bodyfile="src/qml/QFieldSketcher.qml" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldSketcher_1aa122a08f6bfe477c78fdc562b9b24d65" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton QFieldSketcher::backButton</definition>
+        <argsstring></argsstring>
+        <name>backButton</name>
+        <qualifiedname>QFieldSketcher::backButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldSketcher.qml" line="36" column="14" bodyfile="src/qml/QFieldSketcher.qml" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldSketcher_1ae0e53139ede5e35d0c5ff7e9d3879dbd" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton QFieldSketcher::undoButton</definition>
+        <argsstring></argsstring>
+        <name>undoButton</name>
+        <qualifiedname>QFieldSketcher::undoButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldSketcher.qml" line="37" column="14" bodyfile="src/qml/QFieldSketcher.qml" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldSketcher_1a61aae09460b9e8b222696a2561d37f10" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton QFieldSketcher::saveButton</definition>
+        <argsstring></argsstring>
+        <name>saveButton</name>
+        <qualifiedname>QFieldSketcher::saveButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldSketcher.qml" line="38" column="14" bodyfile="src/qml/QFieldSketcher.qml" bodystart="38" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classQFieldSketcher_1a9f42c6fb10ee78dc4e0681e2ecdfbdaa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QFieldSketcher::finished</definition>
+        <argsstring>(var path)</argsstring>
+        <name>finished</name>
+        <qualifiedname>QFieldSketcher::finished</qualifiedname>
+        <param>
+          <type>var</type>
+          <declname>path</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldSketcher.qml" line="14" column="17"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQFieldSketcher_1a340b1609cc83b9b1a159c99fff9113f3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QFieldSketcher::cancelled</definition>
+        <argsstring>()</argsstring>
+        <name>cancelled</name>
+        <qualifiedname>QFieldSketcher::cancelled</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldSketcher.qml" line="16" column="17"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>Popup</label>
+      </node>
+      <node id="1">
+        <label>QFieldSketcher</label>
+        <link refid="classQFieldSketcher"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>Popup</label>
+      </node>
+      <node id="1">
+        <label>QFieldSketcher</label>
+        <link refid="classQFieldSketcher"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/qml/QFieldSketcher.qml" line="11" column="1" bodyfile="src/qml/QFieldSketcher.qml" bodystart="11" bodyend="39"/>
+    <listofallmembers>
+      <member refid="classQFieldSketcher_1aa122a08f6bfe477c78fdc562b9b24d65" prot="private" virt="non-virtual"><scope>QFieldSketcher</scope><name>backButton</name></member>
+      <member refid="classQFieldSketcher_1a340b1609cc83b9b1a159c99fff9113f3" prot="public" virt="non-virtual"><scope>QFieldSketcher</scope><name>cancelled</name></member>
+      <member refid="classQFieldSketcher_1a9414f358256c42d6c5f54fd2f46e39b5" prot="private" virt="non-virtual"><scope>QFieldSketcher</scope><name>closePolicy</name></member>
+      <member refid="classQFieldSketcher_1a1b08cc0ff4ff844e0e08afd7ed9581c0" prot="private" virt="non-virtual"><scope>QFieldSketcher</scope><name>dragHandler</name></member>
+      <member refid="classQFieldSketcher_1a4ee13e4f80f17470271e9b91acb9dcb2" prot="private" virt="non-virtual"><scope>QFieldSketcher</scope><name>drawingCanvas</name></member>
+      <member refid="classQFieldSketcher_1abff79107d090062c52aa237ae82542a9" prot="private" virt="non-virtual"><scope>QFieldSketcher</scope><name>drawingCurrentStroke</name></member>
+      <member refid="classQFieldSketcher_1a9f42c6fb10ee78dc4e0681e2ecdfbdaa" prot="public" virt="non-virtual"><scope>QFieldSketcher</scope><name>finished</name></member>
+      <member refid="classQFieldSketcher_1a8a2c2ce8bf9218a6fbf788e01b062943" prot="private" virt="non-virtual"><scope>QFieldSketcher</scope><name>focus</name></member>
+      <member refid="classQFieldSketcher_1ae2081d398bfc41d4c4a09a806a8a819a" prot="private" virt="non-virtual"><scope>QFieldSketcher</scope><name>height</name></member>
+      <member refid="classQFieldSketcher_1a835ec6caab0c00297a2680ac591b61a5" prot="private" virt="non-virtual"><scope>QFieldSketcher</scope><name>padding</name></member>
+      <member refid="classQFieldSketcher_1ad35ab4213b1b58042f3c4779a093bdc0" prot="private" virt="non-virtual"><scope>QFieldSketcher</scope><name>pinchHandler</name></member>
+      <member refid="classQFieldSketcher_1a61aae09460b9e8b222696a2561d37f10" prot="private" virt="non-virtual"><scope>QFieldSketcher</scope><name>saveButton</name></member>
+      <member refid="classQFieldSketcher_1a21cd368608c748ad55fd59f9e22d1b7f" prot="private" virt="non-virtual"><scope>QFieldSketcher</scope><name>settings</name></member>
+      <member refid="classQFieldSketcher_1a42e54e39cd44be3bc4c96b70e3c1a092" prot="private" virt="non-virtual"><scope>QFieldSketcher</scope><name>stylusDragHandler</name></member>
+      <member refid="classQFieldSketcher_1a6044f61294313e7ba4b68fd41df0a8b0" prot="private" virt="non-virtual"><scope>QFieldSketcher</scope><name>templateContainer</name></member>
+      <member refid="classQFieldSketcher_1a69285f63d7b86bc4ddf4cae6736b286c" prot="private" virt="non-virtual"><scope>QFieldSketcher</scope><name>templateList</name></member>
+      <member refid="classQFieldSketcher_1ae0e53139ede5e35d0c5ff7e9d3879dbd" prot="private" virt="non-virtual"><scope>QFieldSketcher</scope><name>undoButton</name></member>
+      <member refid="classQFieldSketcher_1af3448d085e9faa03bea3c62522f9fcbf" prot="private" virt="non-virtual"><scope>QFieldSketcher</scope><name>wheelHandler</name></member>
+      <member refid="classQFieldSketcher_1aff44f8f65d5bc70a21c8efb5a6917436" prot="private" virt="non-virtual"><scope>QFieldSketcher</scope><name>width</name></member>
+      <member refid="classQFieldSketcher_1a87837bfdb3a17e6e376e5ac1ee800f31" prot="private" virt="non-virtual"><scope>QFieldSketcher</scope><name>x</name></member>
+      <member refid="classQFieldSketcher_1ae5e3d30597a1577684af2060801a26b1" prot="private" virt="non-virtual"><scope>QFieldSketcher</scope><name>y</name></member>
+      <member refid="classQFieldSketcher_1abd4f26222cdd2607349857a4176dc518" prot="private" virt="non-virtual"><scope>QFieldSketcher</scope><name>z</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

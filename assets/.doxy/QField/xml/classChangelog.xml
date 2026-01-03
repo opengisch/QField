@@ -1,0 +1,260 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classChangelog" kind="class" language="C++" prot="public">
+    <compoundname>Changelog</compoundname>
+    <basecompoundref refid="classTheme_1_1QfPopup" prot="public" virt="non-virtual">Theme::QfPopup</basecompoundref>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classChangelog_1a07e77f98f8e91cf188fd01a98ee0cedc" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var Changelog::parent</definition>
+        <argsstring></argsstring>
+        <name>parent</name>
+        <qualifiedname>Changelog::parent</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/Changelog.qml" line="10" column="5" bodyfile="src/qml/Changelog.qml" bodystart="10" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classChangelog_1a4b58a655019d3cccb0f19daf1feb3d98" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var Changelog::width</definition>
+        <argsstring></argsstring>
+        <name>width</name>
+        <qualifiedname>Changelog::width</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/Changelog.qml" line="11" column="5" bodyfile="src/qml/Changelog.qml" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classChangelog_1aee0731f90fc8e19b0354547256497679" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var Changelog::height</definition>
+        <argsstring></argsstring>
+        <name>height</name>
+        <qualifiedname>Changelog::height</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/Changelog.qml" line="12" column="5" bodyfile="src/qml/Changelog.qml" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classChangelog_1ad790bb4fde94860c6578c7525fb9c123" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var Changelog::x</definition>
+        <argsstring></argsstring>
+        <name>x</name>
+        <qualifiedname>Changelog::x</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/Changelog.qml" line="13" column="5" bodyfile="src/qml/Changelog.qml" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classChangelog_1afefc551a8bd73539385e1e4b01618990" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var Changelog::y</definition>
+        <argsstring></argsstring>
+        <name>y</name>
+        <qualifiedname>Changelog::y</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/Changelog.qml" line="14" column="5" bodyfile="src/qml/Changelog.qml" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classChangelog_1ac1cbb4d272badf33f5a2102cf7be49dd" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var Changelog::closePolicy</definition>
+        <argsstring></argsstring>
+        <name>closePolicy</name>
+        <qualifiedname>Changelog::closePolicy</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/Changelog.qml" line="15" column="5" bodyfile="src/qml/Changelog.qml" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classChangelog_1aa8e430b32923560e24ff207b463b5317" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var Changelog::focus</definition>
+        <argsstring></argsstring>
+        <name>focus</name>
+        <qualifiedname>Changelog::focus</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/Changelog.qml" line="16" column="5" bodyfile="src/qml/Changelog.qml" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classChangelog_1a519cbfa47d780906bf55e078dddda4d0" prot="private" static="no" mutable="no">
+        <type>Flickable</type>
+        <definition>Flickable Changelog::changelogFlickable</definition>
+        <argsstring></argsstring>
+        <name>changelogFlickable</name>
+        <qualifiedname>Changelog::changelogFlickable</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/Changelog.qml" line="17" column="11" bodyfile="src/qml/Changelog.qml" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classChangelog_1a3c26f40d7554ec0a1f42e59f2bcb929a" prot="private" static="no" mutable="no">
+        <type>GridLayout</type>
+        <definition>GridLayout Changelog::changelogGrid</definition>
+        <argsstring></argsstring>
+        <name>changelogGrid</name>
+        <qualifiedname>Changelog::changelogGrid</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/Changelog.qml" line="18" column="12" bodyfile="src/qml/Changelog.qml" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classChangelog_1a05dda9b17bfdcbc6afb4b3fde3844db0" prot="private" static="no" mutable="no">
+        <type>Text</type>
+        <definition>Text Changelog::changelogBody</definition>
+        <argsstring></argsstring>
+        <name>changelogBody</name>
+        <qualifiedname>Changelog::changelogBody</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/Changelog.qml" line="19" column="6" bodyfile="src/qml/Changelog.qml" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classChangelog_1a73c910e3a587c1bf4220439e542826b6" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfButton" kindref="compound">QfButton</ref></type>
+        <definition>QfButton Changelog::sponsorshipButton</definition>
+        <argsstring></argsstring>
+        <name>sponsorshipButton</name>
+        <qualifiedname>Changelog::sponsorshipButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/Changelog.qml" line="20" column="10" bodyfile="src/qml/Changelog.qml" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classChangelog_1a845b81675b85fbba9458c6311c1e711c" prot="private" static="no" mutable="no">
+        <type><ref refid="classChangelogContents" kindref="compound">ChangelogContents</ref></type>
+        <definition>ChangelogContents Changelog::changelogContents</definition>
+        <argsstring></argsstring>
+        <name>changelogContents</name>
+        <qualifiedname>Changelog::changelogContents</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/Changelog.qml" line="21" column="19" bodyfile="src/qml/Changelog.qml" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classChangelog_1ac158289c11103fca05ccdfc002390e89" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var Changelog::onClosed</definition>
+        <argsstring></argsstring>
+        <name>onClosed</name>
+        <qualifiedname>Changelog::onClosed</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/Changelog.qml" line="22" column="5" bodyfile="src/qml/Changelog.qml" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classChangelog_1a15f4958c7d660003846ed0f1c0111f17" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var Changelog::onOpened</definition>
+        <argsstring></argsstring>
+        <name>onOpened</name>
+        <qualifiedname>Changelog::onOpened</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/Changelog.qml" line="23" column="5" bodyfile="src/qml/Changelog.qml" bodystart="23" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>Changelog</label>
+        <link refid="classChangelog"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Popup</label>
+      </node>
+      <node id="2">
+        <label>Theme::QfPopup</label>
+        <link refid="classTheme_1_1QfPopup"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>Changelog</label>
+        <link refid="classChangelog"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Popup</label>
+      </node>
+      <node id="2">
+        <label>Theme::QfPopup</label>
+        <link refid="classTheme_1_1QfPopup"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/qml/Changelog.qml" line="9" column="1" bodyfile="src/qml/Changelog.qml" bodystart="9" bodyend="24"/>
+    <listofallmembers>
+      <member refid="classChangelog_1a05dda9b17bfdcbc6afb4b3fde3844db0" prot="private" virt="non-virtual"><scope>Changelog</scope><name>changelogBody</name></member>
+      <member refid="classChangelog_1a845b81675b85fbba9458c6311c1e711c" prot="private" virt="non-virtual"><scope>Changelog</scope><name>changelogContents</name></member>
+      <member refid="classChangelog_1a519cbfa47d780906bf55e078dddda4d0" prot="private" virt="non-virtual"><scope>Changelog</scope><name>changelogFlickable</name></member>
+      <member refid="classChangelog_1a3c26f40d7554ec0a1f42e59f2bcb929a" prot="private" virt="non-virtual"><scope>Changelog</scope><name>changelogGrid</name></member>
+      <member refid="classChangelog_1ac1cbb4d272badf33f5a2102cf7be49dd" prot="private" virt="non-virtual"><scope>Changelog</scope><name>closePolicy</name></member>
+      <member refid="classChangelog_1aa8e430b32923560e24ff207b463b5317" prot="private" virt="non-virtual"><scope>Changelog</scope><name>focus</name></member>
+      <member refid="classChangelog_1aee0731f90fc8e19b0354547256497679" prot="private" virt="non-virtual"><scope>Changelog</scope><name>height</name></member>
+      <member refid="classChangelog_1ac158289c11103fca05ccdfc002390e89" prot="private" virt="non-virtual"><scope>Changelog</scope><name>onClosed</name></member>
+      <member refid="classChangelog_1a15f4958c7d660003846ed0f1c0111f17" prot="private" virt="non-virtual"><scope>Changelog</scope><name>onOpened</name></member>
+      <member refid="classChangelog_1a07e77f98f8e91cf188fd01a98ee0cedc" prot="private" virt="non-virtual"><scope>Changelog</scope><name>parent</name></member>
+      <member refid="classChangelog_1a73c910e3a587c1bf4220439e542826b6" prot="private" virt="non-virtual"><scope>Changelog</scope><name>sponsorshipButton</name></member>
+      <member refid="classChangelog_1a4b58a655019d3cccb0f19daf1feb3d98" prot="private" virt="non-virtual"><scope>Changelog</scope><name>width</name></member>
+      <member refid="classChangelog_1ad790bb4fde94860c6578c7525fb9c123" prot="private" virt="non-virtual"><scope>Changelog</scope><name>x</name></member>
+      <member refid="classChangelog_1afefc551a8bd73539385e1e4b01618990" prot="private" virt="non-virtual"><scope>Changelog</scope><name>y</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

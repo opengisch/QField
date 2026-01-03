@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classNyuki" kind="class" language="C++" prot="public">
+    <compoundname>Nyuki</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QtQuick::Item</basecompoundref>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classNyuki_1ab6653a676a84fc2285fb4f108fe40815" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var Nyuki::state</definition>
+        <argsstring></argsstring>
+        <name>state</name>
+        <qualifiedname>Nyuki::state</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/Nyuki.qml" line="7" column="5" bodyfile="src/qml/Nyuki.qml" bodystart="7" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classNyuki_1ae38dbee09a0af1d1c8c18e30609ef2f5" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var Nyuki::states</definition>
+        <argsstring></argsstring>
+        <name>states</name>
+        <qualifiedname>Nyuki::states</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/Nyuki.qml" line="8" column="5" bodyfile="src/qml/Nyuki.qml" bodystart="8" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>Nyuki</label>
+        <link refid="classNyuki"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QtQuick::Item</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>Nyuki</label>
+        <link refid="classNyuki"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QtQuick::Item</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/qml/Nyuki.qml" line="6" column="1" bodyfile="src/qml/Nyuki.qml" bodystart="6" bodyend="9"/>
+    <listofallmembers>
+      <member refid="classNyuki_1ab6653a676a84fc2285fb4f108fe40815" prot="private" virt="non-virtual"><scope>Nyuki</scope><name>state</name></member>
+      <member refid="classNyuki_1ae38dbee09a0af1d1c8c18e30609ef2f5" prot="private" virt="non-virtual"><scope>Nyuki</scope><name>states</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

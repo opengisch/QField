@@ -1,0 +1,304 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classCogoOperationSettings" kind="class" language="C++" prot="public">
+    <compoundname>CogoOperationSettings</compoundname>
+    <basecompoundref refid="classTheme_1_1QfOverlayContainer" prot="public" virt="non-virtual">Theme::QfOverlayContainer</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classCogoOperationSettings_1a21ecaeaab246450a2489df7e066d8d33" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string CogoOperationSettings::name</definition>
+        <argsstring></argsstring>
+        <name>name</name>
+        <qualifiedname>CogoOperationSettings::name</qualifiedname>
+        <read>dummyGetter_name_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/CogoOperationSettings.qml" line="9" column="1" bodyfile="src/qml/CogoOperationSettings.qml" bodystart="9" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classCogoOperationSettings_1a7828bd49c5c90c90ec18e101967f1b4e" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>var</type>
+        <definition>var CogoOperationSettings::parameters</definition>
+        <argsstring></argsstring>
+        <name>parameters</name>
+        <qualifiedname>CogoOperationSettings::parameters</qualifiedname>
+        <read>dummyGetter_parameters_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/CogoOperationSettings.qml" line="11" column="1" bodyfile="src/qml/CogoOperationSettings.qml" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classCogoOperationSettings_1a692048737806a7f2c28b39265fd4d4fd" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>var</type>
+        <definition>var CogoOperationSettings::parameterValues</definition>
+        <argsstring></argsstring>
+        <name>parameterValues</name>
+        <qualifiedname>CogoOperationSettings::parameterValues</qualifiedname>
+        <read>dummyGetter_parameterValues_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/CogoOperationSettings.qml" line="13" column="1" bodyfile="src/qml/CogoOperationSettings.qml" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classCogoOperationSettings_1a9f16a4f502ecde2a2b3b3df50e77ab7c" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>var</type>
+        <definition>var CogoOperationSettings::positionInformations</definition>
+        <argsstring></argsstring>
+        <name>positionInformations</name>
+        <qualifiedname>CogoOperationSettings::positionInformations</qualifiedname>
+        <read>dummyGetter_positionInformations_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/CogoOperationSettings.qml" line="15" column="1" bodyfile="src/qml/CogoOperationSettings.qml" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classCogoOperationSettings_1a1b86dc0414b7cb3924e76fb1bf28fe74" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classGnssPositionInformation" kindref="compound">GnssPositionInformation</ref></type>
+        <definition>GnssPositionInformation CogoOperationSettings::positionInformation</definition>
+        <argsstring></argsstring>
+        <name>positionInformation</name>
+        <qualifiedname>CogoOperationSettings::positionInformation</qualifiedname>
+        <read>dummyGetter_positionInformation_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/CogoOperationSettings.qml" line="17" column="1" bodyfile="src/qml/CogoOperationSettings.qml" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classCogoOperationSettings_1acfadee67c6a52f168d7d8ae1cbc8f935" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref></type>
+        <definition>QgsQuickMapSettings CogoOperationSettings::mapSettings</definition>
+        <argsstring></argsstring>
+        <name>mapSettings</name>
+        <qualifiedname>CogoOperationSettings::mapSettings</qualifiedname>
+        <read>dummyGetter_mapSettings_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/CogoOperationSettings.qml" line="19" column="1" bodyfile="src/qml/CogoOperationSettings.qml" bodystart="19" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classCogoOperationSettings_1a24b1a6cc10a6ca58b69f84fb60fee7e4" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var CogoOperationSettings::width</definition>
+        <argsstring></argsstring>
+        <name>width</name>
+        <qualifiedname>CogoOperationSettings::width</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/CogoOperationSettings.qml" line="25" column="5" bodyfile="src/qml/CogoOperationSettings.qml" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCogoOperationSettings_1abf860f51edf459032979215cdd651755" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var CogoOperationSettings::height</definition>
+        <argsstring></argsstring>
+        <name>height</name>
+        <qualifiedname>CogoOperationSettings::height</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/CogoOperationSettings.qml" line="26" column="5" bodyfile="src/qml/CogoOperationSettings.qml" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCogoOperationSettings_1a1c1b484ede799770272e420f2f4a587c" prot="private" static="no" mutable="no">
+        <type>ListView</type>
+        <definition>ListView CogoOperationSettings::cogoOperationSettingsView</definition>
+        <argsstring></argsstring>
+        <name>cogoOperationSettingsView</name>
+        <qualifiedname>CogoOperationSettings::cogoOperationSettingsView</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/CogoOperationSettings.qml" line="27" column="10" bodyfile="src/qml/CogoOperationSettings.qml" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCogoOperationSettings_1a250558ad1e313c29e7e0f11f4d8f843d" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var CogoOperationSettings::onPositionInformationsChanged</definition>
+        <argsstring></argsstring>
+        <name>onPositionInformationsChanged</name>
+        <qualifiedname>CogoOperationSettings::onPositionInformationsChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/CogoOperationSettings.qml" line="28" column="5" bodyfile="src/qml/CogoOperationSettings.qml" bodystart="28" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classCogoOperationSettings_1a94caf006b75465f49fc36c33a965f86d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void CogoOperationSettings::requestJumpToPoint</definition>
+        <argsstring>(var center, real scale, bool handleMargins)</argsstring>
+        <name>requestJumpToPoint</name>
+        <qualifiedname>CogoOperationSettings::requestJumpToPoint</qualifiedname>
+        <param>
+          <type>var</type>
+          <declname>center</declname>
+        </param>
+        <param>
+          <type>real</type>
+          <declname>scale</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>handleMargins</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/CogoOperationSettings.qml" line="21" column="17"/>
+      </memberdef>
+      <memberdef kind="signal" id="classCogoOperationSettings_1a6a458dcd294e3a1d0ca1c12673686e09" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void CogoOperationSettings::requestPosition</definition>
+        <argsstring>(var item, bool fromCoordinateLocator)</argsstring>
+        <name>requestPosition</name>
+        <qualifiedname>CogoOperationSettings::requestPosition</qualifiedname>
+        <param>
+          <type>var</type>
+          <declname>item</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>fromCoordinateLocator</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/CogoOperationSettings.qml" line="23" column="17"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classCogoOperationSettings_1ab55431f2fbc828af84741f3910c5bf42" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void CogoOperationSettings::requestedPositionReceived</definition>
+        <argsstring>(name, position, positionInformation)</argsstring>
+        <name>requestedPositionReceived</name>
+        <qualifiedname>CogoOperationSettings::requestedPositionReceived</qualifiedname>
+        <param>
+          <type>name</type>
+        </param>
+        <param>
+          <type>position</type>
+        </param>
+        <param>
+          <type>positionInformation</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/CogoOperationSettings.qml" line="31" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classCogoOperationSettings_1a786c0f74f46dbaba579469b12d5ec9e6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void CogoOperationSettings::clear</definition>
+        <argsstring>()</argsstring>
+        <name>clear</name>
+        <qualifiedname>CogoOperationSettings::clear</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/CogoOperationSettings.qml" line="33" column="6"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>CogoOperationSettings</label>
+        <link refid="classCogoOperationSettings"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Rectangle</label>
+      </node>
+      <node id="2">
+        <label>Theme::QfOverlayContainer</label>
+        <link refid="classTheme_1_1QfOverlayContainer"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>CogoOperationSettings</label>
+        <link refid="classCogoOperationSettings"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Rectangle</label>
+      </node>
+      <node id="2">
+        <label>Theme::QfOverlayContainer</label>
+        <link refid="classTheme_1_1QfOverlayContainer"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/qml/CogoOperationSettings.qml" line="6" column="1" bodyfile="src/qml/CogoOperationSettings.qml" bodystart="6" bodyend="34"/>
+    <listofallmembers>
+      <member refid="classCogoOperationSettings_1a786c0f74f46dbaba579469b12d5ec9e6" prot="public" virt="non-virtual"><scope>CogoOperationSettings</scope><name>clear</name></member>
+      <member refid="classCogoOperationSettings_1a1c1b484ede799770272e420f2f4a587c" prot="private" virt="non-virtual"><scope>CogoOperationSettings</scope><name>cogoOperationSettingsView</name></member>
+      <member refid="classTheme_1_1QfOverlayContainer_1a6bb51f5bfe34f9e02a1c0da7274c07f9" prot="public" virt="non-virtual"><scope>CogoOperationSettings</scope><name>contents</name></member>
+      <member refid="classCogoOperationSettings_1abf860f51edf459032979215cdd651755" prot="private" virt="non-virtual"><scope>CogoOperationSettings</scope><name>height</name></member>
+      <member refid="classTheme_1_1QfOverlayContainer_1a0f012a4e54030e9e1bba6e9d1030787f" prot="public" virt="non-virtual"><scope>CogoOperationSettings</scope><name>layout</name></member>
+      <member refid="classCogoOperationSettings_1acfadee67c6a52f168d7d8ae1cbc8f935" prot="public" virt="non-virtual"><scope>CogoOperationSettings</scope><name>mapSettings</name></member>
+      <member refid="classCogoOperationSettings_1a21ecaeaab246450a2489df7e066d8d33" prot="public" virt="non-virtual"><scope>CogoOperationSettings</scope><name>name</name></member>
+      <member refid="classCogoOperationSettings_1a250558ad1e313c29e7e0f11f4d8f843d" prot="private" virt="non-virtual"><scope>CogoOperationSettings</scope><name>onPositionInformationsChanged</name></member>
+      <member refid="classCogoOperationSettings_1a7828bd49c5c90c90ec18e101967f1b4e" prot="public" virt="non-virtual"><scope>CogoOperationSettings</scope><name>parameters</name></member>
+      <member refid="classCogoOperationSettings_1a692048737806a7f2c28b39265fd4d4fd" prot="public" virt="non-virtual"><scope>CogoOperationSettings</scope><name>parameterValues</name></member>
+      <member refid="classCogoOperationSettings_1a1b86dc0414b7cb3924e76fb1bf28fe74" prot="public" virt="non-virtual"><scope>CogoOperationSettings</scope><name>positionInformation</name></member>
+      <member refid="classCogoOperationSettings_1a9f16a4f502ecde2a2b3b3df50e77ab7c" prot="public" virt="non-virtual"><scope>CogoOperationSettings</scope><name>positionInformations</name></member>
+      <member refid="classCogoOperationSettings_1ab55431f2fbc828af84741f3910c5bf42" prot="public" virt="non-virtual"><scope>CogoOperationSettings</scope><name>requestedPositionReceived</name></member>
+      <member refid="classCogoOperationSettings_1a94caf006b75465f49fc36c33a965f86d" prot="public" virt="non-virtual"><scope>CogoOperationSettings</scope><name>requestJumpToPoint</name></member>
+      <member refid="classCogoOperationSettings_1a6a458dcd294e3a1d0ca1c12673686e09" prot="public" virt="non-virtual"><scope>CogoOperationSettings</scope><name>requestPosition</name></member>
+      <member refid="classTheme_1_1QfOverlayContainer_1a2e606ddbfbcaa587a3c88b82d9b47913" prot="public" virt="non-virtual"><scope>CogoOperationSettings</scope><name>title</name></member>
+      <member refid="classCogoOperationSettings_1a24b1a6cc10a6ca58b69f84fb60fee7e4" prot="private" virt="non-virtual"><scope>CogoOperationSettings</scope><name>width</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

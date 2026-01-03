@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="dir_755943273b0ca8aa2c962f9336c80f06" kind="dir">
+    <compoundname>src/qml/editorwidgets/relationeditors</compoundname>
+    <innerfile refid="ordered__relation__editor_8qml">ordered_relation_editor.qml</innerfile>
+    <innerfile refid="relation__editor_8qml">relation_editor.qml</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/qml/editorwidgets/relationeditors/"/>
+  </compounddef>
+</doxygen>

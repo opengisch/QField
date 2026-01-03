@@ -1,0 +1,357 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classBluetoothReceiver" kind="class" language="C++" prot="public">
+    <compoundname>BluetoothReceiver</compoundname>
+    <basecompoundref refid="classNmeaGnssReceiver" prot="public" virt="non-virtual">NmeaGnssReceiver</basecompoundref>
+    <includes refid="bluetoothreceiver_8h" local="no">bluetoothreceiver.h</includes>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classBluetoothReceiver_1aa81ad3503bba588a64d88f4b04ec8047" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString BluetoothReceiver::mAddress</definition>
+        <argsstring></argsstring>
+        <name>mAddress</name>
+        <qualifiedname>BluetoothReceiver::mAddress</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/bluetoothreceiver.h" line="59" column="13" bodyfile="src/core/positioning/bluetoothreceiver.h" bodystart="59" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBluetoothReceiver_1aec0af231a930d4a50a1ed52ea8abb1f0" prot="private" static="no" mutable="no">
+        <type>std::unique_ptr&lt; QBluetoothLocalDevice &gt;</type>
+        <definition>std::unique_ptr&lt;QBluetoothLocalDevice&gt; BluetoothReceiver::mLocalDevice</definition>
+        <argsstring></argsstring>
+        <name>mLocalDevice</name>
+        <qualifiedname>BluetoothReceiver::mLocalDevice</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/bluetoothreceiver.h" line="61" column="21" bodyfile="src/core/positioning/bluetoothreceiver.h" bodystart="61" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBluetoothReceiver_1a97aeb2840233e3f70629cf9325d417b0" prot="private" static="no" mutable="no">
+        <type>QBluetoothSocket *</type>
+        <definition>QBluetoothSocket* BluetoothReceiver::mSocket</definition>
+        <argsstring></argsstring>
+        <name>mSocket</name>
+        <qualifiedname>BluetoothReceiver::mSocket</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/bluetoothreceiver.h" line="62" column="22" bodyfile="src/core/positioning/bluetoothreceiver.h" bodystart="62" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBluetoothReceiver_1acb026b616479ea5a10904121b95bb788" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool BluetoothReceiver::mPoweringOn</definition>
+        <argsstring></argsstring>
+        <name>mPoweringOn</name>
+        <qualifiedname>BluetoothReceiver::mPoweringOn</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/bluetoothreceiver.h" line="64" column="10" bodyfile="src/core/positioning/bluetoothreceiver.h" bodystart="64" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBluetoothReceiver_1af535b4628a5f94654cff0ac27398d4f4" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool BluetoothReceiver::mDisconnecting</definition>
+        <argsstring></argsstring>
+        <name>mDisconnecting</name>
+        <qualifiedname>BluetoothReceiver::mDisconnecting</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/bluetoothreceiver.h" line="65" column="10" bodyfile="src/core/positioning/bluetoothreceiver.h" bodystart="65" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBluetoothReceiver_1aa6622572a23562d7accfb6753a2eae1c" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool BluetoothReceiver::mConnectOnDisconnect</definition>
+        <argsstring></argsstring>
+        <name>mConnectOnDisconnect</name>
+        <qualifiedname>BluetoothReceiver::mConnectOnDisconnect</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/bluetoothreceiver.h" line="66" column="10" bodyfile="src/core/positioning/bluetoothreceiver.h" bodystart="66" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classBluetoothReceiver_1a2d1f89b5039f9ffa06d9138ec5216695" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BluetoothReceiver::BluetoothReceiver</definition>
+        <argsstring>(const QString &amp;address=QString(), QObject *parent=nullptr)</argsstring>
+        <name>BluetoothReceiver</name>
+        <qualifiedname>BluetoothReceiver::BluetoothReceiver</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>address</declname>
+          <defval>QString()</defval>
+        </param>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/bluetoothreceiver.h" line="35" column="14" bodyfile="src/core/positioning/bluetoothreceiver.cpp" bodystart="23" bodyend="84"/>
+      </memberdef>
+      <memberdef kind="function" id="classBluetoothReceiver_1a15e9607014432e2a330661eb4b94f2d9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BluetoothReceiver::~BluetoothReceiver</definition>
+        <argsstring>() override</argsstring>
+        <name>~BluetoothReceiver</name>
+        <qualifiedname>BluetoothReceiver::~BluetoothReceiver</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/bluetoothreceiver.h" line="36" column="5" bodyfile="src/core/positioning/bluetoothreceiver.cpp" bodystart="86" bodyend="90"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-slot">
+      <memberdef kind="slot" id="classBluetoothReceiver_1a0d99b3b61fa4e77d9fc8a67423aa56d6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString BluetoothReceiver::socketStateString</definition>
+        <argsstring>() override</argsstring>
+        <name>socketStateString</name>
+        <qualifiedname>BluetoothReceiver::socketStateString</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/bluetoothreceiver.h" line="39" column="13" bodyfile="src/core/positioning/bluetoothreceiver.cpp" bodystart="164" bodyend="176"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-slot">
+      <memberdef kind="slot" id="classBluetoothReceiver_1a40e1b572a226d6fce613b05330f76c6a" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BluetoothReceiver::pairingFinished</definition>
+        <argsstring>(const QBluetoothAddress &amp;address, QBluetoothLocalDevice::Pairing status)</argsstring>
+        <name>pairingFinished</name>
+        <qualifiedname>BluetoothReceiver::pairingFinished</qualifiedname>
+        <param>
+          <type>const QBluetoothAddress &amp;</type>
+          <declname>address</declname>
+        </param>
+        <param>
+          <type>QBluetoothLocalDevice::Pairing</type>
+          <declname>status</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>these functions used for repairing are only needed in the linux (not android) environment since there are troubles by connect to a paired device. Maybe it can be resolved in future but meanwhile we keep them as the developer setup. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/bluetoothreceiver.h" line="47" column="10" bodyfile="src/core/positioning/bluetoothreceiver.cpp" bodystart="199" bodyend="222"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classBluetoothReceiver_1a84b02dc2a257d65154acb60b52aee4af" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void BluetoothReceiver::handleConnectDevice</definition>
+        <argsstring>() override</argsstring>
+        <name>handleConnectDevice</name>
+        <qualifiedname>BluetoothReceiver::handleConnectDevice</qualifiedname>
+        <reimplements refid="classAbstractGnssReceiver_1ab5f4dc91f3711881f4fb6217e4e4f1b9">handleConnectDevice</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/bluetoothreceiver.h" line="50" column="10" bodyfile="src/core/positioning/bluetoothreceiver.cpp" bodystart="103" bodyend="120"/>
+      </memberdef>
+      <memberdef kind="function" id="classBluetoothReceiver_1a4c011bb795e2720d72c6f07e2cb42dbc" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void BluetoothReceiver::handleDisconnectDevice</definition>
+        <argsstring>() override</argsstring>
+        <name>handleDisconnectDevice</name>
+        <qualifiedname>BluetoothReceiver::handleDisconnectDevice</qualifiedname>
+        <reimplements refid="classAbstractGnssReceiver_1a66579ca4823f700826dcf66fcdad18e0">handleDisconnectDevice</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/bluetoothreceiver.h" line="51" column="10" bodyfile="src/core/positioning/bluetoothreceiver.cpp" bodystart="92" bodyend="101"/>
+      </memberdef>
+      <memberdef kind="function" id="classBluetoothReceiver_1a225a2093ec8ee9c52c5fe958e4d670c0" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BluetoothReceiver::handleError</definition>
+        <argsstring>(QBluetoothSocket::SocketError error)</argsstring>
+        <name>handleError</name>
+        <qualifiedname>BluetoothReceiver::handleError</qualifiedname>
+        <param>
+          <type>QBluetoothSocket::SocketError</type>
+          <declname>error</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/bluetoothreceiver.h" line="52" column="10" bodyfile="src/core/positioning/bluetoothreceiver.cpp" bodystart="122" bodyend="146"/>
+      </memberdef>
+      <memberdef kind="function" id="classBluetoothReceiver_1aa0f1bc1218290807a4c11376085ea687" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BluetoothReceiver::repairDevice</definition>
+        <argsstring>(const QBluetoothAddress &amp;address)</argsstring>
+        <name>repairDevice</name>
+        <qualifiedname>BluetoothReceiver::repairDevice</qualifiedname>
+        <param>
+          <type>const QBluetoothAddress &amp;</type>
+          <declname>address</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/bluetoothreceiver.h" line="54" column="10" bodyfile="src/core/positioning/bluetoothreceiver.cpp" bodystart="178" bodyend="197"/>
+      </memberdef>
+      <memberdef kind="function" id="classBluetoothReceiver_1ae8080e8c032c4513e964d12f532d5508" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BluetoothReceiver::doConnectDevice</definition>
+        <argsstring>()</argsstring>
+        <name>doConnectDevice</name>
+        <qualifiedname>BluetoothReceiver::doConnectDevice</qualifiedname>
+        <briefdescription>
+<para>Used to wait for previous connection to finish disconnecting. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/bluetoothreceiver.h" line="57" column="10" bodyfile="src/core/positioning/bluetoothreceiver.cpp" bodystart="148" bodyend="162"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>The bluetoothreceiver connects to a device and feeds the QgsNmeaConnection over QBluetoothSocket. It receives QgsGpsInformation and converts it to <ref refid="classGnssPositionInformation" kindref="compound">GnssPositionInformation</ref> </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="3">
+        <label>AbstractGnssReceiver</label>
+        <link refid="classAbstractGnssReceiver"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>BluetoothReceiver</label>
+        <link refid="classBluetoothReceiver"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>NmeaGnssReceiver</label>
+        <link refid="classNmeaGnssReceiver"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>QObject</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="3">
+        <label>AbstractGnssReceiver</label>
+        <link refid="classAbstractGnssReceiver"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>BluetoothReceiver</label>
+        <link refid="classBluetoothReceiver"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>NmeaGnssReceiver</label>
+        <link refid="classNmeaGnssReceiver"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>QObject</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/positioning/bluetoothreceiver.h" line="30" column="1" bodyfile="src/core/positioning/bluetoothreceiver.h" bodystart="31" bodyend="67"/>
+    <listofallmembers>
+      <member refid="classAbstractGnssReceiver_1a1609d1d8c1a316b44ffdbcc83bf4a766" prot="public" virt="non-virtual"><scope>BluetoothReceiver</scope><name>AbstractGnssReceiver</name></member>
+      <member refid="classBluetoothReceiver_1a2d1f89b5039f9ffa06d9138ec5216695" prot="public" virt="non-virtual"><scope>BluetoothReceiver</scope><name>BluetoothReceiver</name></member>
+      <member refid="classAbstractGnssReceiver_1ae59d2b8077ab097a16f63dd369a60975" prot="public" virt="non-virtual"><scope>BluetoothReceiver</scope><name>Capability</name></member>
+      <member refid="classAbstractGnssReceiver_1a44f38d0bb07d582b9b301aeb1b834c71" prot="public" virt="non-virtual"><scope>BluetoothReceiver</scope><name>connectDevice</name></member>
+      <member refid="classAbstractGnssReceiver_1a8238eb63f6cea17e0269188394fad4d8" prot="public" virt="non-virtual"><scope>BluetoothReceiver</scope><name>disconnectDevice</name></member>
+      <member refid="classBluetoothReceiver_1ae8080e8c032c4513e964d12f532d5508" prot="private" virt="non-virtual"><scope>BluetoothReceiver</scope><name>doConnectDevice</name></member>
+      <member refid="classBluetoothReceiver_1a84b02dc2a257d65154acb60b52aee4af" prot="private" virt="virtual"><scope>BluetoothReceiver</scope><name>handleConnectDevice</name></member>
+      <member refid="classBluetoothReceiver_1a4c011bb795e2720d72c6f07e2cb42dbc" prot="private" virt="virtual"><scope>BluetoothReceiver</scope><name>handleDisconnectDevice</name></member>
+      <member refid="classBluetoothReceiver_1a225a2093ec8ee9c52c5fe958e4d670c0" prot="private" virt="non-virtual"><scope>BluetoothReceiver</scope><name>handleError</name></member>
+      <member refid="classNmeaGnssReceiver_1a9c49ff486907cd866c2caa732b47a0d6" prot="public" virt="non-virtual"><scope>BluetoothReceiver</scope><name>initNmeaConnection</name></member>
+      <member refid="classAbstractGnssReceiver_1aaca96579de6a3a47f6af8f3872b9b727" prot="public" virt="non-virtual"><scope>BluetoothReceiver</scope><name>lastError</name></member>
+      <member refid="classAbstractGnssReceiver_1afe956f57b712d23f7ffc7988293aea3e" prot="public" virt="non-virtual"><scope>BluetoothReceiver</scope><name>lastErrorChanged</name></member>
+      <member refid="classAbstractGnssReceiver_1acae5ab4648a4eaa9aae76c1b76d4915c" prot="public" virt="non-virtual"><scope>BluetoothReceiver</scope><name>lastGnssPositionInformation</name></member>
+      <member refid="classAbstractGnssReceiver_1a4f9353d27fc14bbbc9f157a3aea8429f" prot="public" virt="non-virtual"><scope>BluetoothReceiver</scope><name>lastGnssPositionInformationChanged</name></member>
+      <member refid="classAbstractGnssReceiver_1ae59d2b8077ab097a16f63dd369a60975a627bf82746c2007f651b25f6a9f4e76d" prot="public" virt="non-virtual"><scope>BluetoothReceiver</scope><name>Logging</name></member>
+      <member refid="classBluetoothReceiver_1aa81ad3503bba588a64d88f4b04ec8047" prot="private" virt="non-virtual"><scope>BluetoothReceiver</scope><name>mAddress</name></member>
+      <member refid="classBluetoothReceiver_1aa6622572a23562d7accfb6753a2eae1c" prot="private" virt="non-virtual"><scope>BluetoothReceiver</scope><name>mConnectOnDisconnect</name></member>
+      <member refid="classBluetoothReceiver_1af535b4628a5f94654cff0ac27398d4f4" prot="private" virt="non-virtual"><scope>BluetoothReceiver</scope><name>mDisconnecting</name></member>
+      <member refid="classNmeaGnssReceiver_1a2820ae5b15d27fbada2b3d6437701c9b" prot="protected" virt="non-virtual"><scope>BluetoothReceiver</scope><name>mLastGnssPositionValid</name></member>
+      <member refid="classBluetoothReceiver_1aec0af231a930d4a50a1ed52ea8abb1f0" prot="private" virt="non-virtual"><scope>BluetoothReceiver</scope><name>mLocalDevice</name></member>
+      <member refid="classNmeaGnssReceiver_1a825488688149acfdc3f38967fbf1c480" prot="protected" virt="non-virtual"><scope>BluetoothReceiver</scope><name>mNmeaConnection</name></member>
+      <member refid="classBluetoothReceiver_1acb026b616479ea5a10904121b95bb788" prot="private" virt="non-virtual"><scope>BluetoothReceiver</scope><name>mPoweringOn</name></member>
+      <member refid="classBluetoothReceiver_1a97aeb2840233e3f70629cf9325d417b0" prot="private" virt="non-virtual"><scope>BluetoothReceiver</scope><name>mSocket</name></member>
+      <member refid="classNmeaGnssReceiver_1aff510bf60aa7f7ad90f953e070c608fd" prot="public" virt="non-virtual"><scope>BluetoothReceiver</scope><name>NmeaGnssReceiver</name></member>
+      <member refid="classAbstractGnssReceiver_1ae59d2b8077ab097a16f63dd369a60975aed9e46fde2ff0acea44bc8137ac4d21a" prot="public" virt="non-virtual"><scope>BluetoothReceiver</scope><name>NoCapabilities</name></member>
+      <member refid="classAbstractGnssReceiver_1ae59d2b8077ab097a16f63dd369a60975a26d16bd4c6171e893dd7303886a782e5" prot="public" virt="non-virtual"><scope>BluetoothReceiver</scope><name>OrthometricAltitude</name></member>
+      <member refid="classBluetoothReceiver_1a40e1b572a226d6fce613b05330f76c6a" prot="private" virt="non-virtual"><scope>BluetoothReceiver</scope><name>pairingFinished</name></member>
+      <member refid="classBluetoothReceiver_1aa0f1bc1218290807a4c11376085ea687" prot="private" virt="non-virtual"><scope>BluetoothReceiver</scope><name>repairDevice</name></member>
+      <member refid="classAbstractGnssReceiver_1a579d81115c16bc5a498cc8532f44fcb3" prot="protected" virt="non-virtual"><scope>BluetoothReceiver</scope><name>setSocketState</name></member>
+      <member refid="classAbstractGnssReceiver_1a61a9a4baf3e854038b0cd6bd9f969366" prot="public" virt="non-virtual"><scope>BluetoothReceiver</scope><name>setValid</name></member>
+      <member refid="classAbstractGnssReceiver_1a778bd4ee7e98f891e42396a953eba4b4" prot="public" virt="virtual"><scope>BluetoothReceiver</scope><name>socketState</name></member>
+      <member refid="classAbstractGnssReceiver_1a251c5c7ac7a3e6a8795fd9004b729e2e" prot="public" virt="non-virtual"><scope>BluetoothReceiver</scope><name>socketStateChanged</name></member>
+      <member refid="classBluetoothReceiver_1a0d99b3b61fa4e77d9fc8a67423aa56d6" prot="public" virt="non-virtual"><scope>BluetoothReceiver</scope><name>socketStateString</name></member>
+      <member refid="classAbstractGnssReceiver_1ad9d28fec49b2faf94fe187453b540d00" prot="public" virt="non-virtual"><scope>BluetoothReceiver</scope><name>socketStateStringChanged</name></member>
+      <member refid="classAbstractGnssReceiver_1acb8e0d5ddd87eb007bf55a2a9a231801" prot="public" virt="non-virtual"><scope>BluetoothReceiver</scope><name>startLogging</name></member>
+      <member refid="classAbstractGnssReceiver_1a098f12276d444f455473ffb9b95735d0" prot="public" virt="non-virtual"><scope>BluetoothReceiver</scope><name>stopLogging</name></member>
+      <member refid="classAbstractGnssReceiver_1a0738727cbe42715b16564e8ea5863875" prot="public" virt="non-virtual"><scope>BluetoothReceiver</scope><name>valid</name></member>
+      <member refid="classAbstractGnssReceiver_1a3fa79a03f84f0f9b0938cf9cc76513ba" prot="public" virt="non-virtual"><scope>BluetoothReceiver</scope><name>validChanged</name></member>
+      <member refid="classAbstractGnssReceiver_1a79bb78bb03066de84106cd0a72579378" prot="public" virt="virtual"><scope>BluetoothReceiver</scope><name>~AbstractGnssReceiver</name></member>
+      <member refid="classBluetoothReceiver_1a15e9607014432e2a330661eb4b94f2d9" prot="public" virt="non-virtual"><scope>BluetoothReceiver</scope><name>~BluetoothReceiver</name></member>
+      <member refid="classNmeaGnssReceiver_1a01427d39adc04c08330d0812f0e89482" prot="public" virt="non-virtual"><scope>BluetoothReceiver</scope><name>~NmeaGnssReceiver</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

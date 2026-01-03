@@ -1,0 +1,185 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classEgenioussDeviceChooser" kind="class" language="C++" prot="public">
+    <compoundname>EgenioussDeviceChooser</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QtQuick::Item</basecompoundref>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classEgenioussDeviceChooser_1ae1bbb0b3974df4cc9203cfd01a457bec" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var EgenioussDeviceChooser::width</definition>
+        <argsstring></argsstring>
+        <name>width</name>
+        <qualifiedname>EgenioussDeviceChooser::width</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/EgenioussDeviceChooser.qml" line="10" column="5" bodyfile="src/qml/EgenioussDeviceChooser.qml" bodystart="10" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classEgenioussDeviceChooser_1a6813f0240c97d2ddbea9bd6b902139d2" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var EgenioussDeviceChooser::height</definition>
+        <argsstring></argsstring>
+        <name>height</name>
+        <qualifiedname>EgenioussDeviceChooser::height</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/EgenioussDeviceChooser.qml" line="11" column="5" bodyfile="src/qml/EgenioussDeviceChooser.qml" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classEgenioussDeviceChooser_1aa154d53f632a4dc4774123789033cd2f" prot="private" static="no" mutable="no">
+        <type>Loader</type>
+        <definition>Loader EgenioussDeviceChooser::loader</definition>
+        <argsstring></argsstring>
+        <name>loader</name>
+        <qualifiedname>EgenioussDeviceChooser::loader</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/EgenioussDeviceChooser.qml" line="26" column="8" bodyfile="src/qml/EgenioussDeviceChooser.qml" bodystart="26" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classEgenioussDeviceChooser_1ac6002ba35bfa602073f4f3102ea4e422" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string EgenioussDeviceChooser::deviceAddress</definition>
+        <argsstring></argsstring>
+        <name>deviceAddress</name>
+        <qualifiedname>EgenioussDeviceChooser::deviceAddress</qualifiedname>
+        <read>dummyGetter_deviceAddress_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/EgenioussDeviceChooser.qml" line="14" column="1" bodyfile="src/qml/EgenioussDeviceChooser.qml" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classEgenioussDeviceChooser_1a9731296ac7accbf4103d98acf2dc3676" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string EgenioussDeviceChooser::devicePort</definition>
+        <argsstring></argsstring>
+        <name>devicePort</name>
+        <qualifiedname>EgenioussDeviceChooser::devicePort</qualifiedname>
+        <read>dummyGetter_devicePort_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/EgenioussDeviceChooser.qml" line="16" column="1" bodyfile="src/qml/EgenioussDeviceChooser.qml" bodystart="16" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classEgenioussDeviceChooser_1a779c577e2ff586a5dc46559ddf229d0d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void EgenioussDeviceChooser::generateName</definition>
+        <argsstring>()</argsstring>
+        <name>generateName</name>
+        <qualifiedname>EgenioussDeviceChooser::generateName</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/EgenioussDeviceChooser.qml" line="18" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classEgenioussDeviceChooser_1a603cf1a9c898b2acc2130da7eabf47f7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void EgenioussDeviceChooser::setSettings</definition>
+        <argsstring>(settings)</argsstring>
+        <name>setSettings</name>
+        <qualifiedname>EgenioussDeviceChooser::setSettings</qualifiedname>
+        <param>
+          <type>settings</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/EgenioussDeviceChooser.qml" line="20" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classEgenioussDeviceChooser_1ab8ebb811c35956af7dd7d9fbed3eb5ba" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void EgenioussDeviceChooser::getSettings</definition>
+        <argsstring>()</argsstring>
+        <name>getSettings</name>
+        <qualifiedname>EgenioussDeviceChooser::getSettings</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/EgenioussDeviceChooser.qml" line="22" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classEgenioussDeviceChooser_1a8ef470f53784c464aca4fbad77a17c96" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void EgenioussDeviceChooser::setupLoader</definition>
+        <argsstring>(uiComponent)</argsstring>
+        <name>setupLoader</name>
+        <qualifiedname>EgenioussDeviceChooser::setupLoader</qualifiedname>
+        <param>
+          <type>uiComponent</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/EgenioussDeviceChooser.qml" line="24" column="6"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>EgenioussDeviceChooser</label>
+        <link refid="classEgenioussDeviceChooser"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QtQuick::Item</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>EgenioussDeviceChooser</label>
+        <link refid="classEgenioussDeviceChooser"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QtQuick::Item</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/qml/EgenioussDeviceChooser.qml" line="9" column="1" bodyfile="src/qml/EgenioussDeviceChooser.qml" bodystart="9" bodyend="27"/>
+    <listofallmembers>
+      <member refid="classEgenioussDeviceChooser_1ac6002ba35bfa602073f4f3102ea4e422" prot="public" virt="non-virtual"><scope>EgenioussDeviceChooser</scope><name>deviceAddress</name></member>
+      <member refid="classEgenioussDeviceChooser_1a9731296ac7accbf4103d98acf2dc3676" prot="public" virt="non-virtual"><scope>EgenioussDeviceChooser</scope><name>devicePort</name></member>
+      <member refid="classEgenioussDeviceChooser_1a779c577e2ff586a5dc46559ddf229d0d" prot="public" virt="non-virtual"><scope>EgenioussDeviceChooser</scope><name>generateName</name></member>
+      <member refid="classEgenioussDeviceChooser_1ab8ebb811c35956af7dd7d9fbed3eb5ba" prot="public" virt="non-virtual"><scope>EgenioussDeviceChooser</scope><name>getSettings</name></member>
+      <member refid="classEgenioussDeviceChooser_1a6813f0240c97d2ddbea9bd6b902139d2" prot="private" virt="non-virtual"><scope>EgenioussDeviceChooser</scope><name>height</name></member>
+      <member refid="classEgenioussDeviceChooser_1aa154d53f632a4dc4774123789033cd2f" prot="private" virt="non-virtual"><scope>EgenioussDeviceChooser</scope><name>loader</name></member>
+      <member refid="classEgenioussDeviceChooser_1a603cf1a9c898b2acc2130da7eabf47f7" prot="public" virt="non-virtual"><scope>EgenioussDeviceChooser</scope><name>setSettings</name></member>
+      <member refid="classEgenioussDeviceChooser_1a8ef470f53784c464aca4fbad77a17c96" prot="public" virt="non-virtual"><scope>EgenioussDeviceChooser</scope><name>setupLoader</name></member>
+      <member refid="classEgenioussDeviceChooser_1ae1bbb0b3974df4cc9203cfd01a457bec" prot="private" virt="non-virtual"><scope>EgenioussDeviceChooser</scope><name>width</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

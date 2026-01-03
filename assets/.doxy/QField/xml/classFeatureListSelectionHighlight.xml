@@ -1,0 +1,246 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classFeatureListSelectionHighlight" kind="class" language="C++" prot="public">
+    <compoundname>FeatureListSelectionHighlight</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Repeater</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classFeatureListSelectionHighlight_1a89b940842b1a7ec1e6b956809c223c6e" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classFeatureListModelSelection" kindref="compound">FeatureListModelSelection</ref></type>
+        <definition>FeatureListModelSelection FeatureListSelectionHighlight::selectionModel</definition>
+        <argsstring></argsstring>
+        <name>selectionModel</name>
+        <qualifiedname>FeatureListSelectionHighlight::selectionModel</qualifiedname>
+        <read>dummyGetter_selectionModel_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/FeatureListSelectionHighlight.qml" line="10" column="1" bodyfile="src/qml/FeatureListSelectionHighlight.qml" bodystart="10" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classFeatureListSelectionHighlight_1a67866b95382e1500d3e48b70d3f1cb38" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref></type>
+        <definition>QgsQuickMapSettings FeatureListSelectionHighlight::mapSettings</definition>
+        <argsstring></argsstring>
+        <name>mapSettings</name>
+        <qualifiedname>FeatureListSelectionHighlight::mapSettings</qualifiedname>
+        <read>dummyGetter_mapSettings_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/FeatureListSelectionHighlight.qml" line="12" column="1" bodyfile="src/qml/FeatureListSelectionHighlight.qml" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classFeatureListSelectionHighlight_1a3c2b1cc54a1fe1b161bd5bb8386f04fb" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double FeatureListSelectionHighlight::translateX</definition>
+        <argsstring></argsstring>
+        <name>translateX</name>
+        <qualifiedname>FeatureListSelectionHighlight::translateX</qualifiedname>
+        <read>dummyGetter_translateX_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/FeatureListSelectionHighlight.qml" line="14" column="1" bodyfile="src/qml/FeatureListSelectionHighlight.qml" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classFeatureListSelectionHighlight_1a14189d17221e15116a593fbd316135ba" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double FeatureListSelectionHighlight::translateY</definition>
+        <argsstring></argsstring>
+        <name>translateY</name>
+        <qualifiedname>FeatureListSelectionHighlight::translateY</qualifiedname>
+        <read>dummyGetter_translateY_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/FeatureListSelectionHighlight.qml" line="16" column="1" bodyfile="src/qml/FeatureListSelectionHighlight.qml" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classFeatureListSelectionHighlight_1ac53e12c38fe3fb2e42841fc3ba9624eb" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double FeatureListSelectionHighlight::rotationDegrees</definition>
+        <argsstring></argsstring>
+        <name>rotationDegrees</name>
+        <qualifiedname>FeatureListSelectionHighlight::rotationDegrees</qualifiedname>
+        <read>dummyGetter_rotationDegrees_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/FeatureListSelectionHighlight.qml" line="18" column="1" bodyfile="src/qml/FeatureListSelectionHighlight.qml" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classFeatureListSelectionHighlight_1a419f56ae209cc9ce8897ed3d71d0bd8c" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>color</type>
+        <definition>color FeatureListSelectionHighlight::color</definition>
+        <argsstring></argsstring>
+        <name>color</name>
+        <qualifiedname>FeatureListSelectionHighlight::color</qualifiedname>
+        <read>dummyGetter_color_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/FeatureListSelectionHighlight.qml" line="20" column="1" bodyfile="src/qml/FeatureListSelectionHighlight.qml" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classFeatureListSelectionHighlight_1aab09c3af85ab66665161e4355bc1d7d8" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>color</type>
+        <definition>color FeatureListSelectionHighlight::focusedColor</definition>
+        <argsstring></argsstring>
+        <name>focusedColor</name>
+        <qualifiedname>FeatureListSelectionHighlight::focusedColor</qualifiedname>
+        <read>dummyGetter_focusedColor_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/FeatureListSelectionHighlight.qml" line="22" column="1" bodyfile="src/qml/FeatureListSelectionHighlight.qml" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classFeatureListSelectionHighlight_1a43067a481c7634aed41fb9d17acf61a3" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>color</type>
+        <definition>color FeatureListSelectionHighlight::selectedColor</definition>
+        <argsstring></argsstring>
+        <name>selectedColor</name>
+        <qualifiedname>FeatureListSelectionHighlight::selectedColor</qualifiedname>
+        <read>dummyGetter_selectedColor_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/FeatureListSelectionHighlight.qml" line="24" column="1" bodyfile="src/qml/FeatureListSelectionHighlight.qml" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classFeatureListSelectionHighlight_1a75cbbb9ab325fa37ee4aa787402d8220" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool FeatureListSelectionHighlight::showSelectedOnly</definition>
+        <argsstring></argsstring>
+        <name>showSelectedOnly</name>
+        <qualifiedname>FeatureListSelectionHighlight::showSelectedOnly</qualifiedname>
+        <read>dummyGetter_showSelectedOnly_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/FeatureListSelectionHighlight.qml" line="26" column="1" bodyfile="src/qml/FeatureListSelectionHighlight.qml" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classFeatureListSelectionHighlight_1ac95dd17c9e63ac00565cda0e7b3e4d20" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double FeatureListSelectionHighlight::originX</definition>
+        <argsstring></argsstring>
+        <name>originX</name>
+        <qualifiedname>FeatureListSelectionHighlight::originX</qualifiedname>
+        <read>dummyGetter_originX_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/FeatureListSelectionHighlight.qml" line="28" column="1" bodyfile="src/qml/FeatureListSelectionHighlight.qml" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classFeatureListSelectionHighlight_1a78f02e9d1e0dc5c77046fa9b7f3f6a67" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double FeatureListSelectionHighlight::originY</definition>
+        <argsstring></argsstring>
+        <name>originY</name>
+        <qualifiedname>FeatureListSelectionHighlight::originY</qualifiedname>
+        <read>dummyGetter_originY_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/FeatureListSelectionHighlight.qml" line="30" column="1" bodyfile="src/qml/FeatureListSelectionHighlight.qml" bodystart="30" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classFeatureListSelectionHighlight_1afda9765b39141a684d2fdd056d840b60" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var FeatureListSelectionHighlight::model</definition>
+        <argsstring></argsstring>
+        <name>model</name>
+        <qualifiedname>FeatureListSelectionHighlight::model</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/FeatureListSelectionHighlight.qml" line="32" column="5" bodyfile="src/qml/FeatureListSelectionHighlight.qml" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classFeatureListSelectionHighlight_1acb636ac845aba9ae0b0e30d9a4ca4223" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var FeatureListSelectionHighlight::delegate</definition>
+        <argsstring></argsstring>
+        <name>delegate</name>
+        <qualifiedname>FeatureListSelectionHighlight::delegate</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/FeatureListSelectionHighlight.qml" line="33" column="5" bodyfile="src/qml/FeatureListSelectionHighlight.qml" bodystart="33" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>FeatureListSelectionHighlight</label>
+        <link refid="classFeatureListSelectionHighlight"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Repeater</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>FeatureListSelectionHighlight</label>
+        <link refid="classFeatureListSelectionHighlight"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Repeater</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/qml/FeatureListSelectionHighlight.qml" line="7" column="1" bodyfile="src/qml/FeatureListSelectionHighlight.qml" bodystart="7" bodyend="34"/>
+    <listofallmembers>
+      <member refid="classFeatureListSelectionHighlight_1a419f56ae209cc9ce8897ed3d71d0bd8c" prot="public" virt="non-virtual"><scope>FeatureListSelectionHighlight</scope><name>color</name></member>
+      <member refid="classFeatureListSelectionHighlight_1acb636ac845aba9ae0b0e30d9a4ca4223" prot="private" virt="non-virtual"><scope>FeatureListSelectionHighlight</scope><name>delegate</name></member>
+      <member refid="classFeatureListSelectionHighlight_1aab09c3af85ab66665161e4355bc1d7d8" prot="public" virt="non-virtual"><scope>FeatureListSelectionHighlight</scope><name>focusedColor</name></member>
+      <member refid="classFeatureListSelectionHighlight_1a67866b95382e1500d3e48b70d3f1cb38" prot="public" virt="non-virtual"><scope>FeatureListSelectionHighlight</scope><name>mapSettings</name></member>
+      <member refid="classFeatureListSelectionHighlight_1afda9765b39141a684d2fdd056d840b60" prot="private" virt="non-virtual"><scope>FeatureListSelectionHighlight</scope><name>model</name></member>
+      <member refid="classFeatureListSelectionHighlight_1ac95dd17c9e63ac00565cda0e7b3e4d20" prot="public" virt="non-virtual"><scope>FeatureListSelectionHighlight</scope><name>originX</name></member>
+      <member refid="classFeatureListSelectionHighlight_1a78f02e9d1e0dc5c77046fa9b7f3f6a67" prot="public" virt="non-virtual"><scope>FeatureListSelectionHighlight</scope><name>originY</name></member>
+      <member refid="classFeatureListSelectionHighlight_1ac53e12c38fe3fb2e42841fc3ba9624eb" prot="public" virt="non-virtual"><scope>FeatureListSelectionHighlight</scope><name>rotationDegrees</name></member>
+      <member refid="classFeatureListSelectionHighlight_1a43067a481c7634aed41fb9d17acf61a3" prot="public" virt="non-virtual"><scope>FeatureListSelectionHighlight</scope><name>selectedColor</name></member>
+      <member refid="classFeatureListSelectionHighlight_1a89b940842b1a7ec1e6b956809c223c6e" prot="public" virt="non-virtual"><scope>FeatureListSelectionHighlight</scope><name>selectionModel</name></member>
+      <member refid="classFeatureListSelectionHighlight_1a75cbbb9ab325fa37ee4aa787402d8220" prot="public" virt="non-virtual"><scope>FeatureListSelectionHighlight</scope><name>showSelectedOnly</name></member>
+      <member refid="classFeatureListSelectionHighlight_1a3c2b1cc54a1fe1b161bd5bb8386f04fb" prot="public" virt="non-virtual"><scope>FeatureListSelectionHighlight</scope><name>translateX</name></member>
+      <member refid="classFeatureListSelectionHighlight_1a14189d17221e15116a593fbd316135ba" prot="public" virt="non-virtual"><scope>FeatureListSelectionHighlight</scope><name>translateY</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

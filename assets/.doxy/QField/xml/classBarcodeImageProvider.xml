@@ -1,0 +1,95 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classBarcodeImageProvider" kind="class" language="C++" prot="public">
+    <compoundname>BarcodeImageProvider</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QQuickImageProvider</basecompoundref>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classBarcodeImageProvider_1acf45f890d58e9fdb73ed94cdf642773e" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BarcodeImageProvider::BarcodeImageProvider</definition>
+        <argsstring>()</argsstring>
+        <name>BarcodeImageProvider</name>
+        <qualifiedname>BarcodeImageProvider::BarcodeImageProvider</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/barcodeimageprovider.h" line="29" column="14" bodyfile="src/core/barcodeimageprovider.cpp" bodystart="26" bodyend="29"/>
+      </memberdef>
+      <memberdef kind="function" id="classBarcodeImageProvider_1ac3ff6dc3f5fe39d003fa4a7275895dff" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QQmlImageProviderBase::ImageType</type>
+        <definition>QQmlImageProviderBase::ImageType BarcodeImageProvider::imageType</definition>
+        <argsstring>() const override</argsstring>
+        <name>imageType</name>
+        <qualifiedname>BarcodeImageProvider::imageType</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/barcodeimageprovider.h" line="31" column="38" bodyfile="src/core/barcodeimageprovider.h" bodystart="31" bodyend="31"/>
+      </memberdef>
+      <memberdef kind="function" id="classBarcodeImageProvider_1a7ed77d029aa0d11c7816d92eacf8d855" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>QImage</type>
+        <definition>QImage BarcodeImageProvider::requestImage</definition>
+        <argsstring>(const QString &amp;id, QSize *size, const QSize &amp;requestedSize) override</argsstring>
+        <name>requestImage</name>
+        <qualifiedname>BarcodeImageProvider::requestImage</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>id</declname>
+        </param>
+        <param>
+          <type>QSize *</type>
+          <declname>size</declname>
+        </param>
+        <param>
+          <type>const QSize &amp;</type>
+          <declname>requestedSize</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/barcodeimageprovider.h" line="32" column="12" bodyfile="src/core/barcodeimageprovider.cpp" bodystart="31" bodyend="76"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>BarcodeImageProvider</label>
+        <link refid="classBarcodeImageProvider"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QQuickImageProvider</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>BarcodeImageProvider</label>
+        <link refid="classBarcodeImageProvider"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QQuickImageProvider</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/barcodeimageprovider.h" line="26" column="1" bodyfile="src/core/barcodeimageprovider.h" bodystart="27" bodyend="33"/>
+    <listofallmembers>
+      <member refid="classBarcodeImageProvider_1acf45f890d58e9fdb73ed94cdf642773e" prot="public" virt="non-virtual"><scope>BarcodeImageProvider</scope><name>BarcodeImageProvider</name></member>
+      <member refid="classBarcodeImageProvider_1ac3ff6dc3f5fe39d003fa4a7275895dff" prot="public" virt="non-virtual"><scope>BarcodeImageProvider</scope><name>imageType</name></member>
+      <member refid="classBarcodeImageProvider_1a7ed77d029aa0d11c7816d92eacf8d855" prot="public" virt="non-virtual"><scope>BarcodeImageProvider</scope><name>requestImage</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

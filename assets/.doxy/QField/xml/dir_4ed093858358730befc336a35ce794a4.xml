@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="dir_4ed093858358730befc336a35ce794a4" kind="dir">
+    <compoundname>src/core/platforms</compoundname>
+    <innerdir refid="dir_4a4823380b8154b853061c3a6b746fec">src/core/platforms/android</innerdir>
+    <innerdir refid="dir_493ad750a5d458d3fc370128c0d017ff">src/core/platforms/ios</innerdir>
+    <innerfile refid="platformutilities_8cpp">platformutilities.cpp</innerfile>
+    <innerfile refid="platformutilities_8h">platformutilities.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/core/platforms/"/>
+  </compounddef>
+</doxygen>
