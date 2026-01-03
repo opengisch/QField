@@ -21,7 +21,9 @@
 #include "qfieldcloudutils.h"
 
 #include <QJsonDocument>
+#include <QNetworkInformation>
 #include <QObject>
+#include <QSet>
 #include <QVariantMap>
 
 class QNetworkRequest;
@@ -218,6 +220,15 @@ class QFieldCloudConnection : public QObject
      */
     qsizetype uploadPendingAttachments();
 
+
+    /**
+     * Called by the push initiator (typically QFieldCloudProject) before starting a push.
+     *      * Returns true if the push can start now.
+     * If the device is offline, the projectId is queued and will be re-emitted via
+     * queuedProjectPushRequested(projectId) once the connection becomes reachable again.
+     */
+    bool beginProjectPushOrQueue( const QString &projectId );
+
   signals:
     void providerChanged();
     void usernameChanged();
@@ -239,6 +250,9 @@ class QFieldCloudConnection : public QObject
 
     void availableProvidersChanged();
     void isFetchingAvailableProvidersChanged();
+
+    void isReachable();
+    void queuedProjectPushRequested( const QString &projectId );
 
   private:
     void setStatus( ConnectionStatus status );
@@ -271,6 +285,14 @@ class QFieldCloudConnection : public QObject
     qsizetype mUploadFailingCount = 0;
 
     void setClientHeaders( QNetworkRequest &request );
+
+    QSet<QString> mQueuedProjectPushes;
+    bool mIsFlushingQueuedProjectPushes = false;
+
+    const QNetworkInformation *mNetworkInformation = nullptr;
+    bool isReachableToCloud() const;
+    void requestQueuedProjectPush( const QString &projectId );
+    void tryFlushQueuedProjectPushes();
 };
 
 #endif // QFIELDCLOUDCONNECTION_H
