@@ -148,14 +148,15 @@ QVariant MapLayerBaseModel::data( const QModelIndex &index, int role ) const
 
   switch ( role )
   {
-    case MapLayerModel::IdRole:
-    {
-      return layer ? layer->id() : QString();
-    }
-
+    case Qt::DisplayRole:
     case MapLayerModel::NameRole:
     {
       return layer ? layer->name() : QString();
+    }
+
+    case MapLayerModel::IdRole:
+    {
+      return layer ? layer->id() : QString();
     }
 
     case MapLayerModel::LayerRole:
@@ -180,6 +181,9 @@ QVariant MapLayerBaseModel::data( const QModelIndex &index, int role ) const
       }
       return QVariant();
     }
+
+    default:
+      break;
   }
 
   return QVariant();

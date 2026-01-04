@@ -144,18 +144,20 @@ QfPopup {
 
         QfComboBox {
           id: layersComboBox
+
+          Layout.fillWidth: true
+          Layout.topMargin: 5
+          Layout.columnSpan: 2
+
           model: MapLayerModel {
             id: layersModel
             enabled: false
             project: qgisProject
             requiresTrackingAvailability: true
           }
+
           textRole: 'Name'
           valueRole: 'LayerPointer'
-
-          Layout.fillWidth: true
-          Layout.topMargin: 5
-          Layout.columnSpan: 2
 
           delegate: ItemDelegate {
             width: layersComboBox.width
