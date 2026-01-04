@@ -85,6 +85,7 @@
 #include "localfilesimageprovider.h"
 #include "localfilesmodel.h"
 #include "locatormodelsuperbridge.h"
+#include "maplayermodel.h"
 #include "maptoscreen.h"
 #include "messagelogmodel.h"
 #include "navigation.h"
@@ -503,6 +504,7 @@ void QgisMobileapp::initDeclarative( QQmlEngine *engine )
   qmlRegisterType<ParametizedImage>( "org.qfield", 1, 0, "ParametizedImage" );
   qmlRegisterType<PrintLayoutListModel>( "org.qfield", 1, 0, "PrintLayoutListModel" );
   qmlRegisterType<VertexModel>( "org.qfield", 1, 0, "VertexModel" );
+  qmlRegisterType<MapLayerModel>( "org.qfield", 1, 0, "MapLayerModel" );
   qmlRegisterType<MapToScreen>( "org.qfield", 1, 0, "MapToScreen" );
   qmlRegisterType<LocatorModelSuperBridge>( "org.qfield", 1, 0, "LocatorModelSuperBridge" );
   qmlRegisterType<LocatorActionsModel>( "org.qfield", 1, 0, "LocatorActionsModel" );
