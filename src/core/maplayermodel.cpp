@@ -119,7 +119,7 @@ void MapLayerBaseModel::addLayers( const QList<QgsMapLayer *> &layers )
   if ( !layers.isEmpty() )
   {
     beginInsertRows( QModelIndex(), mLayers.size(), mLayers.size() + layers.size() - 1 );
-    for ( QgsMapLayer *layer : std::as_const( layers ) )
+    for ( QgsMapLayer *layer : layers ) // cppcheck-suppress constVariablePointer
     {
       mLayers.append( layer );
     }
