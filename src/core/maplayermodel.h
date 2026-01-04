@@ -147,7 +147,7 @@ class MapLayerModel : public QSortFilterProxyModel
      */
     Q_INVOKABLE QVariantMap get( int row ) const;
 
-    bool filterAcceptsRow( int source_row, const QModelIndex &source_parent ) const override;
+    bool filterAcceptsRow( int sourceRow, const QModelIndex &sourceParent ) const override;
     bool lessThan( const QModelIndex &left, const QModelIndex &right ) const override;
 
   signals:
