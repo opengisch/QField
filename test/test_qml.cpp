@@ -173,9 +173,21 @@ class Setup : public QObject
       engine->rootContext()->setContextProperty( QStringLiteral( "qgisProject" ), QgsProject::instance() );
       engine->rootContext()->setContextProperty( QStringLiteral( "dataDir" ), mDataDir );
 
-      engine->rootContext()->setContextProperty( QStringLiteral( "qfcTestUsername" ), QString::fromUtf8( qgetenv( "QFIELDCLOUD_TEST_USERNAME" ) ) );
-      engine->rootContext()->setContextProperty( QStringLiteral( "qfcTestPassword" ), QString::fromUtf8( qgetenv( "QFIELDCLOUD_TEST_PASSWORD" ) ) );
-      engine->rootContext()->setContextProperty( QStringLiteral( "qfcTestServerUrl" ), QString::fromUtf8( qgetenv( "QFIELDCLOUD_TEST_SERVER_URL" ) ) );
+      // Test credentials from environment variables (for CI/CD)
+      // Set these in your environment: QFIELDCLOUD_TEST_USERNAME, QFIELDCLOUD_TEST_PASSWORD, QFIELDCLOUD_TEST_SERVER_URL
+      QString testUsername = QString::fromUtf8( qgetenv( "QFIELDCLOUD_TEST_USERNAME" ) );
+      QString testPassword = QString::fromUtf8( qgetenv( "QFIELDCLOUD_TEST_PASSWORD" ) );
+      QString testServerUrl = QString::fromUtf8( qgetenv( "QFIELDCLOUD_TEST_SERVER_URL" ) );
+
+      qDebug() << "=== QFieldCloud Test Credentials Debug ===";
+      qDebug() << "Username length:" << testUsername.length() << "isEmpty:" << testUsername.isEmpty();
+      qDebug() << "Password length:" << testPassword.length() << "isEmpty:" << testPassword.isEmpty();
+      qDebug() << "ServerUrl length:" << testServerUrl.length() << "isEmpty:" << testServerUrl.isEmpty();
+      qDebug() << "==========================================";
+
+      engine->rootContext()->setContextProperty( QStringLiteral( "qfcTestUsername" ), testUsername );
+      engine->rootContext()->setContextProperty( QStringLiteral( "qfcTestPassword" ), testPassword );
+      engine->rootContext()->setContextProperty( QStringLiteral( "qfcTestServerUrl" ), testServerUrl );
 
       QgsExifTools mExifTools;
       engine->rootContext()->setContextProperty( "ExifTools", QVariant::fromValue<QgsExifTools>( mExifTools ) );

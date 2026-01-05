@@ -246,18 +246,29 @@ void QFieldCloudConnection::getAuthenticationProviders()
 
 void QFieldCloudConnection::login( const QString &password )
 {
+  qDebug() << "=== QFieldCloudConnection::login START ===";
+  qDebug() << "mProvider:" << mProvider << "isEmpty:" << mProvider.isEmpty();
+  qDebug() << "mUsername length:" << mUsername.length();
+  qDebug() << "password length:" << password.length();
+  qDebug() << "mToken isEmpty:" << mToken.isEmpty();
+  qDebug() << "mUrl:" << mUrl;
+
   if ( !mProvider.isEmpty() )
   {
+    qDebug() << "Branch: mProvider is NOT empty";
     if ( mProviderConfigId.isEmpty() && !mAvailableProviders.contains( mProvider ) )
     {
+      qDebug() << "ERROR: Authentication provider missing";
       emit loginFailed( tr( "Authentication provider missing" ) );
       return;
     }
   }
   else
   {
+    qDebug() << "Branch: mProvider is empty (using username/password)";
     if ( mToken.isEmpty() && password.isEmpty() )
     {
+      qDebug() << "ERROR: Password missing";
       emit loginFailed( tr( "Password missing" ) );
       return;
     }
@@ -265,8 +276,11 @@ void QFieldCloudConnection::login( const QString &password )
 
   setPassword( password );
   setStatus( ConnectionStatus::Connecting );
+  qDebug() << "Status set to Connecting";
 
   const bool loginUsingToken = !mProvider.isEmpty() || ( !mToken.isEmpty() && ( mPassword.isEmpty() || mUsername.isEmpty() ) );
+  qDebug() << "loginUsingToken:" << loginUsingToken;
+
   NetworkReply *reply = loginUsingToken
                           ? get( QStringLiteral( "/api/v1/auth/user/" ) )
                           : post( QStringLiteral( "/api/v1/auth/token/" ), QVariantMap(
@@ -274,9 +288,11 @@ void QFieldCloudConnection::login( const QString &password )
                                                                                { "username", mUsername },
                                                                                { "password", mPassword },
                                                                              } ) );
+  qDebug() << "Network request sent";
 
   // Handle login redirect as an error state
   connect( reply, &NetworkReply::redirected, this, [this, reply]() {
+    qDebug() << "ERROR: Login redirected";
     QNetworkReply *rawReply = reply->currentRawReply();
     reply->deleteLater();
     rawReply->deleteLater();
@@ -288,6 +304,7 @@ void QFieldCloudConnection::login( const QString &password )
   } );
 
   connect( reply, &NetworkReply::finished, this, [this, reply, loginUsingToken]() {
+    qDebug() << "=== Network reply finished ===";
     QNetworkReply *rawReply = reply->currentRawReply();
 
     Q_ASSERT( reply->isFinished() );
@@ -296,32 +313,40 @@ void QFieldCloudConnection::login( const QString &password )
     reply->deleteLater();
     rawReply->deleteLater();
 
+    qDebug() << "rawReply error:" << rawReply->error() << rawReply->errorString();
+
     if ( rawReply->error() != QNetworkReply::NoError )
     {
       const int httpCode = rawReply->attribute( QNetworkRequest::HttpStatusCodeAttribute ).toInt();
+      qDebug() << "HTTP error code:" << httpCode;
 
       if ( rawReply->error() == QNetworkReply::HostNotFoundError )
       {
+        qDebug() << "ERROR: Host not found";
         emit loginFailed( tr( "Server not found, please check the server URL" ) );
       }
       else if ( rawReply->error() == QNetworkReply::TimeoutError )
       {
+        qDebug() << "ERROR: Timeout";
         emit loginFailed( tr( "Timeout error, please retry" ) );
       }
       else if ( httpCode == 400 || httpCode == 401 )
       {
         if ( !loginUsingToken )
         {
+          qDebug() << "ERROR: Wrong username or password";
           emit loginFailed( tr( "Wrong username or password" ) );
         }
         else
         {
+          qDebug() << "ERROR: Session expired";
           emit loginFailed( tr( "Session expired" ) );
         }
       }
       else
       {
         QString message( errorString( rawReply ) );
+        qDebug() << "ERROR: Other error -" << message;
         emit loginFailed( message );
       }
 
@@ -338,15 +363,18 @@ void QFieldCloudConnection::login( const QString &password )
     }
 
     QJsonObject resp = QJsonDocument::fromJson( rawReply->readAll() ).object();
+    qDebug() << "Response JSON isEmpty:" << resp.isEmpty();
 
     if ( resp.isEmpty() )
     {
+      qDebug() << "ERROR: Login temporary unavailable (empty response)";
       emit loginFailed( tr( "Login temporary unavailable" ) );
       setStatus( ConnectionStatus::Disconnected );
       return;
     }
 
     QByteArray token = resp.value( QStringLiteral( "token" ) ).toString().toUtf8();
+    qDebug() << "Token received, length:" << token.length();
 
     if ( !token.isEmpty() )
     {
@@ -370,6 +398,7 @@ void QFieldCloudConnection::login( const QString &password )
       settings.setValue( QStringLiteral( "/QFieldCloud/urls" ), savedUrls );
       emit urlsChanged();
     }
+    qDebug() << "=== LOGIN SUCCESS - Setting status to LoggedIn ===";
     setStatus( ConnectionStatus::LoggedIn );
   } );
 }
