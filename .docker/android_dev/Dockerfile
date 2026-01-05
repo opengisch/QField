@@ -29,7 +29,7 @@ ENV APT_PACKAGES="$APT_PACKAGES libxext-dev libxfixes-dev libxrender-dev \
   libxcb-image0-dev libxcb-shm0-dev libxcb-icccm4-dev libxcb-sync-dev \
   libxcb-xfixes0-dev libxcb-shape0-dev libxcb-randr0-dev \
   libxcb-render-util0-dev libxcb-xinerama0-dev libxcb-xkb-dev libxcb-xinput-dev \
-  libxcb-cursor-dev libxkbcommon-x11-dev libcups2-dev"
+  libxcb-cursor-dev libxkbcommon-x11-dev libcups2-dev libsm-dev libice-dev"
 
 ## qtbase for android
 ENV APT_PACKAGES="$APT_PACKAGES openjdk-17-jre-headless openjdk-17-jdk-headless"
