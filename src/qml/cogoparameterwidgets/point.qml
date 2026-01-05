@@ -75,6 +75,7 @@ CogoParameterWidgetBase {
       round: true
 
       onClicked: {
+        mainWindow.closeToast();
         pointPickerLoader.active = true;
       }
     }
