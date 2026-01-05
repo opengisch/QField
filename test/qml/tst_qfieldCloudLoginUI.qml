@@ -46,11 +46,6 @@ TestCase {
   property var availableProvidersRepeater: connectionSettings.children[9]
   property var cloudRegisterLabel: connectionSettings.children[10]
 
-  // Normalize URL: remove trailing slash to prevent double-slash issues
-  function normalizeUrl(url) {
-    return url.endsWith('/') ? url.slice(0, -1) : url;
-  }
-
   SignalSpy {
     id: loginFailedSpy
     target: cloudConnection
@@ -90,7 +85,7 @@ TestCase {
     verify(usernameField.visible);
     verify(passwordField.visible);
     verify(cloudRegisterLabel.visible);
-    cloudConnection.url = normalizeUrl(qfcTestServerUrl);
+    cloudConnection.url = qfcTestServerUrl;
     cloudConnection.username = qfcTestUsername;
     cloudConnection.login(qfcTestPassword);
     wait(5000); // Give it some time
@@ -124,7 +119,7 @@ TestCase {
    */
   function test_03_loginFeedbackOnFailure() {
     compare(loginFeedbackLabel.visible, false);
-    cloudConnection.url = normalizeUrl(qfcTestServerUrl);
+    cloudConnection.url = qfcTestServerUrl;
     cloudConnection.username = "wrong_user_name";
     cloudConnection.login("wrong_password_12345");
     tryCompare(loginFailedSpy, "count", 1, 15000);
@@ -177,7 +172,7 @@ TestCase {
   function test_06_authProvidersRepeaterModelUpdate() {
     var initialCount = availableProvidersRepeater.model.length;
     availableProvidersChangedSpy.clear();
-    cloudConnection.url = normalizeUrl(qfcTestServerUrl);
+    cloudConnection.url = qfcTestServerUrl;
     cloudConnection.getAuthenticationProviders();
     tryCompare(availableProvidersChangedSpy, "count", 1, 10000);
     wait(200);
@@ -214,7 +209,7 @@ TestCase {
    */
   function test_08_usernameFieldSyncsAfterLogin() {
     usernameField.text = "";
-    cloudConnection.url = normalizeUrl(qfcTestServerUrl);
+    cloudConnection.url = qfcTestServerUrl;
     cloudConnection.username = qfcTestUsername;
     cloudConnection.login(qfcTestPassword);
     tryCompare(cloudConnection, "status", QFieldCloudConnection.LoggedIn, 15000);

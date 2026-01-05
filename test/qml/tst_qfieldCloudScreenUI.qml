@@ -68,11 +68,6 @@ TestCase {
   property var table: tableContainer.children[0]
   property var projectDetails: projectsSwipeView.contentChildren[1]
 
-  // Normalize URL: remove trailing slash to prevent double-slash issues
-  function normalizeUrl(url) {
-    return url.endsWith('/') ? url.slice(0, -1) : url;
-  }
-
   SignalSpy {
     id: connectionStatusSpy
     target: cloudConnection
@@ -107,7 +102,7 @@ TestCase {
     compare(cloudConnection.status, QFieldCloudConnection.Disconnected);
     verify(connectionSettings.visible);
     compare(projectsSwipeView.visible, false);
-    cloudConnection.url = normalizeUrl(qfcTestServerUrl);
+    cloudConnection.url = qfcTestServerUrl;
     cloudConnection.username = qfcTestUsername;
     cloudConnection.login(qfcTestPassword);
     tryCompare(cloudConnection, "status", QFieldCloudConnection.LoggedIn, 15000);
@@ -125,7 +120,7 @@ TestCase {
    * Scenario: Switching tabs changes the filter model's filter property
    */
   function test_02_filterBarTabSwitching() {
-    cloudConnection.url = normalizeUrl(qfcTestServerUrl);
+    cloudConnection.url = qfcTestServerUrl;
     cloudConnection.username = qfcTestUsername;
     cloudConnection.login(qfcTestPassword);
     tryCompare(cloudConnection, "status", QFieldCloudConnection.LoggedIn, 15000);
@@ -155,7 +150,7 @@ TestCase {
   // function test_03_searchBarFiltering() {
   //   // No project without login
   //   compare(table.count, 0);
-  //   cloudConnection.url = normalizeUrl(qfcTestServerUrl);
+  //   cloudConnection.url = qfcTestServerUrl;
   //   cloudConnection.username = qfcTestUsername;
   //   cloudConnection.login(qfcTestPassword);
   //   tryCompare(cloudConnection, "status", QFieldCloudConnection.LoggedIn, 15000);
@@ -183,7 +178,7 @@ TestCase {
    * Scenario: SwipeView index changes when navigating to/from project details
    */
   // function test_04_swipeViewNavigation() {
-  //   cloudConnection.url = normalizeUrl(qfcTestServerUrl);
+  //   cloudConnection.url = qfcTestServerUrl;
   //   cloudConnection.username = qfcTestUsername;
   //   cloudConnection.login(qfcTestPassword);
   //   tryCompare(cloudConnection, "status", QFieldCloudConnection.LoggedIn, 15000);
@@ -211,7 +206,7 @@ TestCase {
   function test_05_loginLogoutViewTransitions() {
     verify(connectionSettings.visible);
     compare(projectsSwipeView.visible, false);
-    cloudConnection.url = normalizeUrl(qfcTestServerUrl);
+    cloudConnection.url = qfcTestServerUrl;
     cloudConnection.username = qfcTestUsername;
     cloudConnection.login(qfcTestPassword);
     tryCompare(cloudConnection, "status", QFieldCloudConnection.LoggedIn, 15000);
