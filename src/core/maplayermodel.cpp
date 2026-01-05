@@ -279,7 +279,7 @@ void MapLayerModel::setRequiresTrackingAvailability( bool requiresTrackingAvaila
   invalidateFilter();
 }
 
-int MapLayerModel::findLayer( QgsMapLayer *layer )
+int MapLayerModel::findLayer( QgsMapLayer *layer ) const
 {
   if ( layer )
   {

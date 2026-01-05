@@ -140,7 +140,7 @@ class MapLayerModel : public QSortFilterProxyModel
      * Returns the model row for given map \a layer.
      * \note If the map layer is not found, -1 will be returned
      */
-    Q_INVOKABLE int findLayer( QgsMapLayer *layer );
+    Q_INVOKABLE int findLayer( QgsMapLayer *layer ) const;
 
     /**
      * Returns a model data map for a given \a row.
