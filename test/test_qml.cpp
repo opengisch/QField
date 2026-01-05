@@ -180,9 +180,9 @@ class Setup : public QObject
       QString testServerUrl = QString::fromUtf8( qgetenv( "QFIELDCLOUD_TEST_SERVER_URL" ) );
 
       qDebug() << "=== QFieldCloud Test Credentials Debug ===";
-      qDebug() << "Username length:" << testUsername.length() << "isEmpty:" << testUsername.isEmpty();
+      qDebug() << "Username length:" << testUsername.length() << "isEmpty:" << testUsername.isEmpty() << "value:" << testUsername;
       qDebug() << "Password length:" << testPassword.length() << "isEmpty:" << testPassword.isEmpty();
-      qDebug() << "ServerUrl length:" << testServerUrl.length() << "isEmpty:" << testServerUrl.isEmpty();
+      qDebug() << "ServerUrl length:" << testServerUrl.length() << "isEmpty:" << testServerUrl.isEmpty() << "value:" << testServerUrl;
       qDebug() << "==========================================";
 
       engine->rootContext()->setContextProperty( QStringLiteral( "qfcTestUsername" ), testUsername );

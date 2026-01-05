@@ -88,7 +88,6 @@ TestCase {
     console.log("MM-DEBUG: username length:", qfcTestUsername.length, "password length:", qfcTestPassword.length, "url length:", qfcTestServerUrl.length);
     cloudConnection.url = qfcTestServerUrl;
     cloudConnection.username = qfcTestUsername;
-    cloudConnection.provider = "";
     cloudConnection.login(qfcTestPassword);
     wait(5000); // Give it some time
     tryCompare(cloudConnection, "status", QFieldCloudConnection.LoggedIn, 15000);
@@ -123,7 +122,6 @@ TestCase {
     compare(loginFeedbackLabel.visible, false);
     cloudConnection.url = qfcTestServerUrl;
     cloudConnection.username = "wrong_user_name";
-    cloudConnection.provider = "";
     cloudConnection.login("wrong_password_12345");
     tryCompare(loginFailedSpy, "count", 1, 15000);
     wait(200);
@@ -214,7 +212,6 @@ TestCase {
     usernameField.text = "";
     cloudConnection.url = qfcTestServerUrl;
     cloudConnection.username = qfcTestUsername;
-    cloudConnection.provider = "";
     cloudConnection.login(qfcTestPassword);
     tryCompare(cloudConnection, "status", QFieldCloudConnection.LoggedIn, 15000);
     compare(usernameField.text, cloudConnection.username);

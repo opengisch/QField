@@ -104,7 +104,6 @@ TestCase {
     compare(projectsSwipeView.visible, false);
     cloudConnection.url = qfcTestServerUrl;
     cloudConnection.username = qfcTestUsername;
-    cloudConnection.provider = "";
     cloudConnection.login(qfcTestPassword);
     tryCompare(cloudConnection, "status", QFieldCloudConnection.LoggedIn, 15000);
     wait(500);
@@ -123,7 +122,6 @@ TestCase {
   function test_02_filterBarTabSwitching() {
     cloudConnection.url = qfcTestServerUrl;
     cloudConnection.username = qfcTestUsername;
-    cloudConnection.provider = "";
     cloudConnection.login(qfcTestPassword);
     tryCompare(cloudConnection, "status", QFieldCloudConnection.LoggedIn, 15000);
     wait(500);
@@ -154,7 +152,6 @@ TestCase {
     compare(table.count, 0);
     cloudConnection.url = qfcTestServerUrl;
     cloudConnection.username = qfcTestUsername;
-    cloudConnection.provider = "";
     cloudConnection.login(qfcTestPassword);
     tryCompare(cloudConnection, "status", QFieldCloudConnection.LoggedIn, 15000);
     cloudProjectsModel.refreshProjectsList(true, false, 0);
@@ -183,7 +180,6 @@ TestCase {
   function test_04_swipeViewNavigation() {
     cloudConnection.url = qfcTestServerUrl;
     cloudConnection.username = qfcTestUsername;
-    cloudConnection.provider = "";
     cloudConnection.login(qfcTestPassword);
     tryCompare(cloudConnection, "status", QFieldCloudConnection.LoggedIn, 15000);
     cloudProjectsModel.refreshProjectsList(true, false, 0);
@@ -212,7 +208,6 @@ TestCase {
     compare(projectsSwipeView.visible, false);
     cloudConnection.url = qfcTestServerUrl;
     cloudConnection.username = qfcTestUsername;
-    cloudConnection.provider = "";
     cloudConnection.login(qfcTestPassword);
     tryCompare(cloudConnection, "status", QFieldCloudConnection.LoggedIn, 15000);
     wait(500);
