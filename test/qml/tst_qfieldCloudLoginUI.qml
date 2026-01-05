@@ -90,7 +90,6 @@ TestCase {
     verify(usernameField.visible);
     verify(passwordField.visible);
     verify(cloudRegisterLabel.visible);
-    console.log("MM-DEBUG: username length:", qfcTestUsername.length, "password length:", qfcTestPassword.length, "url length:", qfcTestServerUrl.length);
     cloudConnection.url = normalizeUrl(qfcTestServerUrl);
     cloudConnection.username = qfcTestUsername;
     cloudConnection.login(qfcTestPassword);
