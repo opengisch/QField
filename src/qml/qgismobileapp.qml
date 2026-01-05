@@ -4257,6 +4257,10 @@ ApplicationWindow {
     toast.show(message, type, action_text, action_function, stop_function, is_animation_enabled);
   }
 
+  function closeToast() {
+    toast.close();
+  }
+
   Timer {
     id: readProjectTimer
 
