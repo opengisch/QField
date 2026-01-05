@@ -14,6 +14,8 @@ Item {
 
   signal returnPressed
 
+  height: childrenRect.height
+
   Rectangle {
     width: parent.width
     height: 40
