@@ -136,7 +136,9 @@ CogoParameterWidgetBase {
           showBackButton: false
           showApplyButton: false
           showCancelButton: true
-          onCancel: pointPickerPopup.close()
+          onCancel: {
+            pointPickerLoader.active = false;
+          }
         }
 
         ColumnLayout {
