@@ -4381,11 +4381,11 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Auto-zoom to identified feature(s)</source>
-        <translation type="unfinished"/>
+        <translation>Automatyczny zoom do zidentyfikowanego obiektu(ów)</translation>
     </message>
     <message>
         <source>When enabled, the map will automatically zoom to show all identified features, as well as the individual selected feature when the feature form is opened.</source>
-        <translation type="unfinished"/>
+        <translation>Po włączeniu tej opcji mapa będzie automatycznie powiększana w celu wyświetlenia wszystkich zidentyfikowanych obiektów, a także pojedynczego wybranego obiektu po otwarciu formularza obiektu.</translation>
     </message>
 </context>
 <context>
