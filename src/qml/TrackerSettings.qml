@@ -74,7 +74,6 @@ QfPopup {
     }
     layersModel.trackingModel = trackingModel;
     layersModel.enabled = true;
-    console.log(layersModel.enabled ? "enabled" : "disabled");
     const defaultLayerIndex = layersModel.findLayer(defaultLayer);
     if (defaultLayerIndex >= 0) {
       trackerSettings.layer = defaultLayer;
