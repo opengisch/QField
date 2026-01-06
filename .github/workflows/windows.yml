@@ -62,6 +62,11 @@ jobs:
             EXTRA_CMAKE_ARGS="${EXTRA_CMAKE_ARGS} -DCMAKE_WIN32_EXECUTABLE=ON"
           fi
           echo "EXTRA_CMAKE_ARGS=${EXTRA_CMAKE_ARGS}" >> $GITHUB_ENV
+
+      - name: 🔨 Uninstall system cmake
+        if: matrix.os == 'windows-2022'
+        shell: bash
+        run: |
           choco uninstall cmake.install
 
       - name: 🐩 Install CMake and Ninja
