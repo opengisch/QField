@@ -93,6 +93,7 @@ set(QFIELD_CORE_SRCS
     linepolygonshape.cpp
     localfilesimageprovider.cpp
     localfilesmodel.cpp
+    maplayermodel.cpp
     maptoscreen.cpp
     messagelogmodel.cpp
     multifeaturelistmodel.cpp
@@ -230,6 +231,7 @@ set(QFIELD_CORE_HDRS
     linepolygonshape.h
     localfilesimageprovider.h
     localfilesmodel.h
+    maplayermodel.h
     maptoscreen.h
     messagelogmodel.h
     multifeaturelistmodel.h
