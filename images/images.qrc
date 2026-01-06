@@ -199,5 +199,6 @@
         <file>themes/qfield/nodpi/ic_login_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_download_white_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_sort_white_24dp.svg</file>
+        <file>themes/qfield/nodpi/ic_field_geometry_24dp.svg</file>
     </qresource>
 </RCC>
