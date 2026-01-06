@@ -5,6 +5,7 @@ on:
     branches:
       - master
       - release-**
+      - winarm
   pull_request:
   release:
     types: ['published']
@@ -19,8 +20,15 @@ env:
 
 jobs:
   build:
+    strategy:
+      matrix:
+        include:
+          - os: windows-2022
+            triplet: x64-windows-static
+          - os: windows-11-arm
+            triplet: arm64-windows-static
     name: build (windows)
-    runs-on: windows-2022
+    runs-on: ${{ matrix.os }}
 
     outputs:
       artifact_name: ${{ steps.package.outputs.artifact_name }}
@@ -79,8 +87,8 @@ jobs:
                 -D CMAKE_C_COMPILER="C:/Program Files/Microsoft Visual Studio/2022/Enterprise/VC/Tools/Llvm/x64/bin/clang-cl.exe" \
                 -D CMAKE_CXX_COMPILER="C:/Program Files/Microsoft Visual Studio/2022/Enterprise/VC/Tools/Llvm/x64/bin/clang-cl.exe" \
                 -D CMAKE_BUILD_TYPE=${{ env.BUILD_TYPE }} \
-                -D VCPKG_TARGET_TRIPLET="x64-windows-static" \
-                -D VCPKG_HOST_TRIPLET="x64-windows-static" \
+                -D VCPKG_TARGET_TRIPLET="${{ matrix.triplet }}" \
+                -D VCPKG_HOST_TRIPLET="${{ matrix.triplet }}" \
                 -D WITH_VCPKG=ON \
                 -D WITH_SPIX=ON \
                 -D WITH_UNITTESTS=OFF \
@@ -92,7 +100,7 @@ jobs:
                 -D NUGET_USERNAME=opengisch \
                 -D NUGET_TOKEN=${{ secrets.GITHUB_TOKEN }} \
                 -D CMAKE_MSVC_RUNTIME_LIBRARY="MultiThreaded\$<\$<CONFIG:Debug>:Debug>" \
-                -D PKG_CONFIG_EXECUTABLE=${CMAKE_BUILD_DIR}/vcpkg_installed/x64-windows-static/tools/pkgconf/pkgconf.exe \
+                -D PKG_CONFIG_EXECUTABLE=${CMAKE_BUILD_DIR}/vcpkg_installed/${{ matrix.triplet }}/tools/pkgconf/pkgconf.exe \
                 -D WITH_BLUETOOTH=ON \
                 -D VCPKG_INSTALL_OPTIONS="--x-buildtrees-root=C:/src" \
                 -D CMAKE_COMPILE_WARNING_AS_ERROR=ON \
@@ -104,7 +112,7 @@ jobs:
         uses: actions/upload-artifact@v6
         if: failure()
         with:
-          name: build-logs-x64-windows-static
+          name: build-logs-${{ matrix.triplet }}
           path: |
             C:/src/**/*.log
 
@@ -119,7 +127,7 @@ jobs:
       - name: 🧫 Test
         shell: bash
         env:
-          PROJ_LIB: ${{ env.CMAKE_BUILD_DIR }}/vcpkg_installed/x64-windows-static/share/proj
+          PROJ_LIB: ${{ env.CMAKE_BUILD_DIR }}/vcpkg_installed/${{ matrix.triplet }}/share/proj
         run: |
           SOURCE_DIR=$( cygpath "${{ github.workspace }}" )
           pip install -r "${SOURCE_DIR}/test/spix/requirements.txt"
@@ -142,7 +150,7 @@ jobs:
         uses: actions/upload-artifact@v6
         if: failure()
         with:
-          name: package-logs-x64-windows-static
+          name: package-logs-${{ matrix.triplet }}
           path: |
             ${{ env.CMAKE_BUILD_DIR }}/_CPack_Packages/**/*.log
             ${{ env.CMAKE_BUILD_DIR }}/CMakeCache.txt
@@ -168,14 +176,14 @@ jobs:
         uses: actions/upload-artifact@v6
         id: artifact-windows
         with:
-          name: "QField-dev-x64-windows-static-${{ env.BUILD_TYPE }}"
+          name: "QField-dev-${{ matrix.triplet }}-${{ env.BUILD_TYPE }}"
           path: ${{ env.ARTIFACT_PATHNAME }}
 
       - name: 📊 Upload test report
         if: always()
         uses: actions/upload-artifact@v6
         with:
-          name: "test-report-x64-windows-static-${{ env.BUILD_TYPE }}"
+          name: "test-report-${{ matrix.triplet }}-${{ env.BUILD_TYPE }}"
           path: "${{ env.CMAKE_BUILD_DIR }}/report"
 
       - name: 🚀 Upload release asset
