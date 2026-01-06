@@ -5,6 +5,7 @@ on:
     branches:
       - master
       - release-**
+      - arm64-linux
   pull_request:
   release:
     types: ['published']
@@ -15,9 +16,13 @@ concurrency:
 
 jobs:
   build:
+    strategy:
+      matrix:
+        include:
+          - os: ubuntu-22.04-arm
+          - os: ubuntu-22.04
     name: build (linux)
-    runs-on: ubuntu-22.04
-
+    runs-on: ${{matrix.os}}
     steps:
       - name: 🐣 Checkout
         uses: actions/checkout@v6
