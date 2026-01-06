@@ -8,7 +8,7 @@
 [![QFieldCloud](https://img.shields.io/badge/QFieldCloud-GitHub-blue)](https://github.com/opengisch/QFieldCloud)
 
 # QField for QGIS
-
+#
 A simplified touch-optimized interface for QGIS in the field.
 
 [![Visit QField's homepage](https://github.com/user-attachments/assets/88771ae0-3701-4cf4-8d8c-cd295c0831b1)](https://qfield.org)
