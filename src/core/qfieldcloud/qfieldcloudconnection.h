@@ -85,6 +85,8 @@ class QFieldCloudConnection : public QObject
 
     Q_PROPERTY( QList<AuthenticationProvider> availableProviders READ availableProviders NOTIFY availableProvidersChanged )
     Q_PROPERTY( bool isFetchingAvailableProviders READ isFetchingAvailableProviders NOTIFY isFetchingAvailableProvidersChanged )
+    Q_PROPERTY( bool isReachable READ isReachable NOTIFY isReachableChanged )
+
 
   public:
     enum class ConnectionStatus
@@ -220,14 +222,21 @@ class QFieldCloudConnection : public QObject
      */
     qsizetype uploadPendingAttachments();
 
+    /**
+     * Queues a project push request when the network is not reachable.
+     *
+     * The push will be automatically triggered once the connection is back online
+     * and the user is logged in.
+     */
+    void queueProjectPush( const QString &projectId );
 
     /**
-     * Called by the push initiator (typically QFieldCloudProject) before starting a push.
-     *      * Returns true if the push can start now.
-     * If the device is offline, the projectId is queued and will be re-emitted via
-     * queuedProjectPushRequested(projectId) once the connection becomes reachable again.
+     * Returns whether the network is currently reachable.
+     *
+     * If reachability information is not available, this returns true to keep
+     * the existing behavior unchanged.
      */
-    bool beginProjectPushOrQueue( const QString &projectId );
+    bool isReachable() const;
 
   signals:
     void providerChanged();
@@ -251,7 +260,7 @@ class QFieldCloudConnection : public QObject
     void availableProvidersChanged();
     void isFetchingAvailableProvidersChanged();
 
-    void isReachable();
+    void isReachableChanged();
     void queuedProjectPushRequested( const QString &projectId );
 
   private:
@@ -290,8 +299,6 @@ class QFieldCloudConnection : public QObject
     bool mIsFlushingQueuedProjectPushes = false;
 
     const QNetworkInformation *mNetworkInformation = nullptr;
-    bool isReachableToCloud() const;
-    void requestQueuedProjectPush( const QString &projectId );
     void tryFlushQueuedProjectPushes();
 };
 

@@ -68,30 +68,13 @@ QFieldCloudConnection::QFieldCloudConnection()
   {
     connect( mNetworkInformation, &QNetworkInformation::reachabilityChanged, this,
              [this]( QNetworkInformation::Reachability ) {
-               emit isReachable();
+               emit isReachableChanged();
                tryFlushQueuedProjectPushes();
              } );
   }
 }
 
-
-bool QFieldCloudConnection::beginProjectPushOrQueue( const QString &projectId )
-{
-  if ( projectId.isEmpty() )
-  {
-    return false;
-  }
-
-  if ( !isReachableToCloud() )
-  {
-    requestQueuedProjectPush( projectId );
-    return false;
-  }
-
-  return true;
-}
-
-void QFieldCloudConnection::requestQueuedProjectPush( const QString &projectId )
+void QFieldCloudConnection::queueProjectPush( const QString &projectId )
 {
   if ( projectId.isEmpty() )
   {
@@ -119,7 +102,7 @@ void QFieldCloudConnection::tryFlushQueuedProjectPushes()
     return;
   }
 
-  if ( !isReachableToCloud() )
+  if ( !isReachable() )
   {
     return;
   }
@@ -137,7 +120,7 @@ void QFieldCloudConnection::tryFlushQueuedProjectPushes()
   mIsFlushingQueuedProjectPushes = false;
 }
 
-bool QFieldCloudConnection::isReachableToCloud() const
+bool QFieldCloudConnection::isReachable() const
 {
   if ( !mNetworkInformation || !mNetworkInformation->supports( QNetworkInformation::Feature::Reachability ) )
   {

@@ -131,7 +131,6 @@ void QFieldCloudProjectsModel::setCurrentProjectId( const QString &currentProjec
   mLayerObserver->setDeltaFileWrapper( mCurrentProject ? mCurrentProject->deltaFileWrapper() : nullptr );
 
   emit currentProjectIdChanged();
-  emit currentProjectChanged();
 }
 
 QFieldCloudProject *QFieldCloudProjectsModel::currentProject() const
@@ -359,8 +358,9 @@ void QFieldCloudProjectsModel::projectPush( const QString &projectId, const bool
     return;
   }
 
-  if ( !mCloudConnection->beginProjectPushOrQueue( projectId ) )
+  if ( !mCloudConnection->isReachable() )
   {
+    mCloudConnection->queueProjectPush( projectId );
     emit warning( tr( "Network is not currently active. "
                       "We will push the changes automatically once you are back online." ) );
     return;
