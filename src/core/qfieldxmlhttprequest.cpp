@@ -282,7 +282,7 @@ void QFieldXmlHttpRequest::startRequest( const QVariant &body )
   if ( urlScheme != QStringLiteral( "http" ) && urlScheme != QStringLiteral( "https" ) )
   {
     qWarning() << "QFieldXmlHttpRequest: blocked non-http(s) URL:" << mUrl;
-    finalizeAsError( QStringLiteral( "{\"detail\":\"Blocked non-http(s) URL\"}" ) );
+    finalizeAsError( QStringLiteral( "Blocked non-http(s) URL" ) );
     return;
   }
 
@@ -294,7 +294,7 @@ void QFieldXmlHttpRequest::startRequest( const QVariant &body )
   if ( !isGetMethod && !isPostMethod && !isPutMethod && !isDeleteMethod )
   {
     qWarning() << "QFieldXmlHttpRequest: unsupported method:" << upperCaseMethod;
-    finalizeAsError( QStringLiteral( "{\"detail\":\"Unsupported HTTP method\"}" ) );
+    finalizeAsError( QStringLiteral( "Unsupported HTTP method" ) );
     return;
   }
 
@@ -313,14 +313,14 @@ void QFieldXmlHttpRequest::startRequest( const QVariant &body )
   if ( isMultipartForcedByHeader && !canBuildMultipart )
   {
     qWarning() << "QFieldXmlHttpRequest: multipart/form-data requires a QVariantMap body";
-    finalizeAsError( QStringLiteral( "{\"detail\":\"multipart/form-data requires a map body\"}" ) );
+    finalizeAsError( QStringLiteral( "multipart/form-data requires a map body" ) );
     return;
   }
 
   QNetworkAccessManager *networkAccessManager = QgsNetworkAccessManager::instance();
   if ( !networkAccessManager )
   {
-    finalizeAsError( QStringLiteral( "{\"detail\":\"Network manager unavailable\"}" ) );
+    finalizeAsError( QStringLiteral( "Network manager unavailable" ) );
     return;
   }
 
@@ -369,7 +369,7 @@ void QFieldXmlHttpRequest::startRequest( const QVariant &body )
       QHttpMultiPart *multipartBody = buildMultipart( body );
       if ( !multipartBody )
       {
-        finalizeAsError( QStringLiteral( "{\"detail\":\"Invalid multipart body\"}" ) );
+        finalizeAsError( QStringLiteral( "Invalid multipart body" ) );
         return;
       }
 
@@ -407,7 +407,7 @@ void QFieldXmlHttpRequest::startRequest( const QVariant &body )
 
   if ( !networkReply )
   {
-    finalizeAsError( QStringLiteral( "{\"detail\":\"Failed to start request\"}" ) );
+    finalizeAsError( QStringLiteral( "Failed to start request" ) );
     return;
   }
 
@@ -520,8 +520,8 @@ void QFieldXmlHttpRequest::hookReply( QNetworkReply *networkReply )
     mLastErrorString = mReply ? mReply->errorString() : QString();
   } );
 
-  mConnections << connect( networkReply, &QNetworkReply::finished, this, [this]() {
-    finalizeFromRawReply();
+  mConnections << connect( networkReply, &QNetworkReply::finished, this, [this, networkReply]() {
+    finalizeReply( networkReply );
   } );
 
   if ( mTimeoutMs > 0 )
@@ -558,49 +558,46 @@ void QFieldXmlHttpRequest::hookReply( QNetworkReply *networkReply )
   }
 }
 
-void QFieldXmlHttpRequest::finalizeFromRawReply()
+void QFieldXmlHttpRequest::finalizeReply( QNetworkReply *finishedReply )
 {
   if ( mFinalized )
   {
     return;
   }
 
+  // Ignore stale finished signals (example; resend raced with previous reply)
+  if ( !finishedReply || finishedReply != mReply )
+  {
+    return;
+  }
+
   mFinalized = true;
 
-  QNetworkReply *rawNetworkReply = mReply;
+  mStatus = mReply->attribute( QNetworkRequest::HttpStatusCodeAttribute ).toInt();
+  mStatusText = mReply->attribute( QNetworkRequest::HttpReasonPhraseAttribute ).toString();
 
-  if ( rawNetworkReply )
+  mResponseUrl = mReply->url();
+  mResponseType = mReply->header( QNetworkRequest::ContentTypeHeader ).toString();
+
+  collectResponseHeaders( mReply );
+
+  const QByteArray responseBytes = mReply->readAll();
+  mResponseText = QString::fromUtf8( responseBytes );
+
+  const QString responseContentTypeLowercase = mResponseType.toLower();
+  if ( responseContentTypeLowercase.contains( QStringLiteral( "application/json" ) ) || responseContentTypeLowercase.contains( QStringLiteral( "+json" ) ) )
   {
-    mStatus = rawNetworkReply->attribute( QNetworkRequest::HttpStatusCodeAttribute ).toInt();
-    mStatusText = rawNetworkReply->attribute( QNetworkRequest::HttpReasonPhraseAttribute ).toString();
-
-    mResponseUrl = rawNetworkReply->url();
-    mResponseType = rawNetworkReply->header( QNetworkRequest::ContentTypeHeader ).toString();
-
-    collectResponseHeaders( rawNetworkReply );
-
-    const QByteArray responseBytes = rawNetworkReply->readAll();
-    mResponseText = QString::fromUtf8( responseBytes );
-
-    const QString responseContentTypeLowercase = mResponseType.toLower();
-    if ( responseContentTypeLowercase.contains( QStringLiteral( "application/json" ) ) || responseContentTypeLowercase.contains( QStringLiteral( "+json" ) ) )
+    QJsonParseError jsonParseError;
+    const QJsonDocument jsonDocument = QJsonDocument::fromJson( responseBytes, &jsonParseError );
+    if ( jsonParseError.error == QJsonParseError::NoError )
     {
-      QJsonParseError jsonParseError;
-      const QJsonDocument jsonDocument = QJsonDocument::fromJson( responseBytes, &jsonParseError );
-      if ( jsonParseError.error == QJsonParseError::NoError )
+      if ( jsonDocument.isObject() )
       {
-        if ( jsonDocument.isObject() )
-        {
-          mResponse = jsonDocument.object().toVariantMap();
-        }
-        else if ( jsonDocument.isArray() )
-        {
-          mResponse = jsonDocument.array().toVariantList();
-        }
-        else
-        {
-          mResponse = mResponseText;
-        }
+        mResponse = jsonDocument.object().toVariantMap();
+      }
+      else if ( jsonDocument.isArray() )
+      {
+        mResponse = jsonDocument.array().toVariantList();
       }
       else
       {
@@ -614,10 +611,6 @@ void QFieldXmlHttpRequest::finalizeFromRawReply()
   }
   else
   {
-    if ( mResponseText.isEmpty() )
-    {
-      mResponseText = QStringLiteral( "{\"detail\":\"No response\"}" );
-    }
     mResponse = mResponseText;
   }
 
@@ -641,7 +634,7 @@ void QFieldXmlHttpRequest::finalizeFromRawReply()
   scheduleAutoDelete();
 }
 
-void QFieldXmlHttpRequest::finalizeAsError( const QString &message, bool shouldEmitResponseChanged )
+void QFieldXmlHttpRequest::finalizeAsError( const QString &detail, bool shouldEmitResponseChanged )
 {
   if ( mFinalized )
   {
@@ -649,8 +642,13 @@ void QFieldXmlHttpRequest::finalizeAsError( const QString &message, bool shouldE
   }
 
   clearResponse();
-  mResponseText = message;
-  mResponse = mResponseText;
+
+  const QJsonObject errorObj { { QStringLiteral( "detail" ), detail } };
+  mResponseText = QString::fromUtf8( QJsonDocument( errorObj ).toJson( QJsonDocument::Compact ) );
+  mResponse = errorObj.toVariantMap();
+
+  mLastError = QNetworkReply::UnknownNetworkError;
+  mLastErrorString = detail;
 
   mFinalized = true;
 
@@ -662,7 +660,7 @@ void QFieldXmlHttpRequest::finalizeAsError( const QString &message, bool shouldE
     emit responseChanged();
   }
 
-  call( mOnError, { int( QNetworkReply::UnknownNetworkError ), message } );
+  call( mOnError, { int( QNetworkReply::UnknownNetworkError ), detail } );
   call( mOnLoadEnd );
   scheduleAutoDelete();
 }

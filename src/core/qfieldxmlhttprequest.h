@@ -317,8 +317,8 @@ class QFieldXmlHttpRequest : public QObject
 
     void startRequest( const QVariant &body );
     void hookReply( QNetworkReply *networkReply );
-    void finalizeFromRawReply();
-    void finalizeAsError( const QString &message, bool shouldEmitResponseChanged = true );
+    void finalizeReply( QNetworkReply *finishedReply );
+    void finalizeAsError( const QString &detail, bool shouldEmitResponseChanged = true );
 
     QByteArray bodyToBytes( const QVariant &body, QString *outContentType = nullptr ) const;
     bool bodyContainsFileUrls( const QVariant &body ) const;
