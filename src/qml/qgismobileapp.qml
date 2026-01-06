@@ -821,17 +821,29 @@ ApplicationWindow {
       id: identifyTool
 
       property bool isMenuRequest: false
+      property bool isPieMenuRequest: false
 
       mapSettings: mapCanvas.mapSettings
-      model: isMenuRequest ? canvasMenuFeatureListModel : featureListForm.model
+      model: isPieMenuRequest ? pieMenuFeatureListModel : (isMenuRequest ? canvasMenuFeatureListModel : featureListForm.model)
       searchRadiusMm: 3
 
       onIdentifyFinished: {
+        if (isPieMenuRequest) {
+          pieMenuFeatureListModel.identifiedCount = pieMenuFeatureListModel.count;
+          isPieMenuRequest = false;
+          return;
+        }
         if (qfieldSettings.autoOpenFormSingleIdentify && !isMenuRequest && !featureListForm.multiSelection && featureListForm.model.count === 1) {
           featureListForm.selection.focusedItem = 0;
           featureListForm.state = "FeatureForm";
         }
       }
+    }
+
+    MultiFeatureListModel {
+      id: pieMenuFeatureListModel
+
+      property int identifiedCount: 0
     }
 
     /** A rubberband for measuring **/
@@ -1061,6 +1073,41 @@ ApplicationWindow {
 
       targetPoint: locationMarker.screenLocation
       showConnectionLine: visible && (nearToEdge || locationMarkerOutSidePieMenu)
+
+      centralActionVisible: pieMenuFeatureListModel.identifiedCount > 0
+      centralActionComponent: Component {
+        QfToolButton {
+          id: identifyFeaturesButton
+          width: actionsPieMenu.bandWidth - 8
+          height: width
+          padding: 2
+          round: true
+          iconSource: Theme.getThemeVectorIcon("ic_field_geometry_24dp")
+          iconColor: Theme.light
+          bgcolor: Theme.toolButtonBackgroundColor
+
+          QfBadge {
+            width: 16
+            color: Theme.toolButtonBackgroundColor
+            badgeText.text: pieMenuFeatureListModel.identifiedCount > 99 ? "99+" : pieMenuFeatureListModel.identifiedCount.toString()
+            badgeText.color: Theme.light
+            z: 2
+          }
+
+          onClicked: {
+            identifyTool.isMenuRequest = false;
+            identifyTool.isPieMenuRequest = false;
+            identifyTool.identify(locationMarker.screenLocation);
+            if (qfieldSettings.autoOpenFormSingleIdentify) {
+              featureListForm.selection.focusedItem = 0;
+              featureListForm.state = "FeatureForm";
+            } else if (featureListForm.model.count > 0) {
+              featureListForm.state = "FeatureList";
+            }
+            actionsPieMenu.close();
+          }
+        }
+      }
 
       QfToolButton {
         id: gnssCursorLockButton
@@ -1312,6 +1359,11 @@ ApplicationWindow {
         onOpened.connect(() => {
             settings.setValue("/QField/pieMenuOpenedOnce", true);
             locationMarker.bubbleVisible = false;
+            // Identify features underneath the location marker
+            pieMenuFeatureListModel.clear(false);
+            pieMenuFeatureListModel.identifiedCount = 0;
+            identifyTool.isPieMenuRequest = true;
+            identifyTool.identify(locationMarker.screenLocation);
           });
       }
     }
