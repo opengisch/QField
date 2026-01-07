@@ -130,6 +130,5 @@ if (WITH_UNITTESTS)
   ADD_CATCH2_TEST(identifytool test_identifytool.cpp TRUE)
   ADD_CATCH2_TEST(featurelistmodel test_featurelistmodel.cpp TRUE)
   ADD_CATCH2_TEST(featurelistmodelselection test_featurelistmodelselection.cpp TRUE)
-  
   ADD_QFIELD_QML_TEST(qmltest test_qml.cpp)
 endif()
