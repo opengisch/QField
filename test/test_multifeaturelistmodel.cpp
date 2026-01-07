@@ -229,8 +229,8 @@ TEST_CASE( "MultiFeatureListModel behaviours" )
       QCoreApplication::processEvents( QEventLoop::AllEvents, 50 );
     }
 
-    REQUIRE( model.count() == 1 );     // source reduced to selected only
-    REQUIRE( model.rowCount() == 1 );  // proxy shows the same single feature
+    REQUIRE( model.count() == 1 );    // source reduced to selected only
+    REQUIRE( model.rowCount() == 1 ); // proxy shows the same single feature
     REQUIRE( model.selectedCount() == 1 );
     REQUIRE( model.selectedLayer() == roadsLayer.get() );
 
@@ -352,4 +352,3 @@ TEST_CASE( "MultiFeatureListModel setFeatures filter and extent" )
     REQUIRE( f.attribute( QStringLiteral( "name" ) ).toString() == QStringLiteral( "A1" ) );
   }
 }
-
