@@ -822,6 +822,13 @@ ApplicationWindow {
    * - Digitizing Rubberband
    **************************************************/
 
+    // Model for pie menu and context menu feature identification
+    MultiFeatureListModel {
+      id: menuFeatureListModel
+
+      property int identifiedCount: 0
+    }
+
     /** The identify tool **/
     IdentifyTool {
       id: identifyTool
@@ -830,14 +837,17 @@ ApplicationWindow {
       property bool isPieMenuRequest: false
 
       mapSettings: mapCanvas.mapSettings
-      model: isPieMenuRequest ? pieMenuFeatureListModel : (isMenuRequest ? canvasMenuFeatureListModel : featureListForm.model)
+      model: isPieMenuRequest ? menuFeatureListModel : (isMenuRequest ? menuFeatureListModel : featureListForm.model)
       searchRadiusMm: 3
 
       onIdentifyFinished: {
         if (isPieMenuRequest) {
-          pieMenuFeatureListModel.identifiedCount = pieMenuFeatureListModel.count;
+          menuFeatureListModel.identifiedCount = menuFeatureListModel.count;
           isPieMenuRequest = false;
           return;
+        }
+        if (isMenuRequest) {
+          canvasMenuFeatureListInstantiator.active = true;
         }
         if (qfieldSettings.autoOpenFormSingleIdentify && !isMenuRequest && !featureListForm.multiSelection && featureListForm.model.count === 1) {
           featureListForm.selection.focusedItem = 0;
@@ -847,12 +857,6 @@ ApplicationWindow {
           featureListForm.extentController.zoomToAllFeatures();
         }
       }
-    }
-
-    MultiFeatureListModel {
-      id: pieMenuFeatureListModel
-
-      property int identifiedCount: 0
     }
 
     /** A rubberband for measuring **/
@@ -1096,7 +1100,7 @@ ApplicationWindow {
       targetPoint: locationMarker.screenLocation
       showConnectionLine: visible && (nearToEdge || locationMarkerOutSidePieMenu)
 
-      centralActionVisible: pieMenuFeatureListModel.identifiedCount > 0
+      centralActionVisible: menuFeatureListModel.identifiedCount > 0
       centralActionComponent: Component {
         QfToolButton {
           id: identifyFeaturesButton
@@ -1111,7 +1115,7 @@ ApplicationWindow {
           QfBadge {
             width: 16
             color: Theme.toolButtonBackgroundColor
-            badgeText.text: pieMenuFeatureListModel.identifiedCount > 99 ? "99+" : pieMenuFeatureListModel.identifiedCount.toString()
+            badgeText.text: menuFeatureListModel.identifiedCount > 9 ? "9+" : menuFeatureListModel.identifiedCount.toString()
             badgeText.color: Theme.light
             z: 2
           }
@@ -1382,8 +1386,8 @@ ApplicationWindow {
             settings.setValue("/QField/pieMenuOpenedOnce", true);
             locationMarker.bubbleVisible = false;
             // Identify features underneath the location marker
-            pieMenuFeatureListModel.clear(false);
-            pieMenuFeatureListModel.identifiedCount = 0;
+            menuFeatureListModel.clear(false);
+            menuFeatureListModel.identifiedCount = 0;
             identifyTool.isPieMenuRequest = true;
             identifyTool.identify(locationMarker.screenLocation);
           });
@@ -3651,10 +3655,9 @@ ApplicationWindow {
 
     Instantiator {
       id: canvasMenuFeatureListInstantiator
+      active: false
 
-      model: MultiFeatureListModel {
-        id: canvasMenuFeatureListModel
-      }
+      model: menuFeatureListModel
 
       QfMenu {
         id: featureMenu
