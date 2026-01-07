@@ -46,11 +46,10 @@ Popup {
   }
 
   onAboutToShow: {
-    currentPath = ""
-    photoPreview.source = ""
-    videoPreview.stop()
-    videoPreview.source = ""
-
+    currentPath = "";
+    photoPreview.source = "";
+    videoPreview.stop();
+    videoPreview.source = "";
     if (cameraPermission.status === Qt.PermissionStatus.Undetermined) {
       cameraPermission.request();
     } else if (state == "VideoCapture" && microphonePermission.status === Qt.PermissionStatus.Undetermined) {
@@ -166,7 +165,6 @@ Popup {
                     }
                     i++;
                   }
-
                   if (fallbackIndex >= 0) {
                     camera.cameraFormat = camera.cameraDevice.videoFormats[fallbackIndex];
                   }
@@ -177,8 +175,7 @@ Popup {
                 var zoom = camera.zoomFactor + increase;
                 if (zoom < camera.maximumZoomFactor) {
                   camera.zoomFactor = zoom;
-                }
-                else {
+                } else {
                   camera.zoomFactor = camera.maximumZoomFactor;
                 }
               }
@@ -187,8 +184,7 @@ Popup {
                 var zoom = camera.zoomFactor - decrease;
                 if (zoom > 1) {
                   camera.zoomFactor = zoom;
-                }
-                else {
+                } else {
                   camera.zoomFactor = 1;
                 }
               }
@@ -226,7 +222,6 @@ Popup {
         item.recorder.mediaFormat.audioCodec = MediaFormat.AudioCodec.AAC;
         item.recorder.mediaFormat.videoCodec = MediaFormat.VideoCodec.H264;
         item.recorder.mediaFormat.fileFormat = MediaFormat.MPEG4;
-
         let cameraPicked = false;
         if (cameraSettings.deviceId != '') {
           for (const device of mediaDevices.videoInputs) {
@@ -448,8 +443,8 @@ Popup {
               bgcolor: cameraItem.state == "PhotoPreview" || cameraItem.state == "VideoPreview" ? Theme.mainColor : cameraItem.state == "VideoCapture" ? "red" : "white"
 
               onClicked: {
-                if (captureLoader.status !== Loader.Ready) return;
-
+                if (captureLoader.status !== Loader.Ready)
+                  return;
                 if (cameraItem.state == "PhotoCapture") {
                   platformUtilities.createDir(qgisProject.homePath, 'DCIM');
                   captureLoader.item.imageCapture.captureToFile(qgisProject.homePath + '/DCIM/');
@@ -471,7 +466,8 @@ Popup {
                     currentPath = UrlUtils.toLocalFile(path);
                   }
                 } else if (cameraItem.state == "PhotoPreview" || cameraItem.state == "VideoPreview") {
-                  if (!currentPath || currentPath === "") return;
+                  if (!currentPath || currentPath === "")
+                    return;
                   if (cameraItem.state == "PhotoPreview") {
                     if (cameraSettings.geoTagging && positionSource.active) {
                       FileUtils.addImageMetadata(currentPath, currentPosition);
