@@ -3463,6 +3463,10 @@ While you can still view and use the project, it is strongly recommended to rese
         <source>Cloud project could not be created.</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Network is not currently active. We will push the changes automatically once you are back online.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>QFieldCloudScreen</name>
@@ -5709,6 +5713,10 @@ project</source>
     </message>
     <message>
         <source>elevation [Z]</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Point Feature Picker</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

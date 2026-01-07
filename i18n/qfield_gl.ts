@@ -3392,6 +3392,10 @@ Aínda que podes seguir vendo e utilizando este proxecto, recoméndase fortement
         <source>Cloud project could not be created.</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Network is not currently active. We will push the changes automatically once you are back online.</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldCloudScreen</name>
@@ -5833,6 +5837,10 @@ project</source>
     </message>
     <message>
         <source>elevation [Z]</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Point Feature Picker</source>
         <translation type="unfinished"/>
     </message>
 </context>
