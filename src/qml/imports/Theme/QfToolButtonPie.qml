@@ -20,12 +20,16 @@ Menu {
   property var targetPoint: null
   property bool showConnectionLine: false
 
+  property Component centralActionComponent: null
+  property bool centralActionVisible: false
+
   QtObject {
     id: internal
     property int animationDuration: 75
     property real outerRadius: pieMenu.width / 2
     property real innerRadius: outerRadius - bandWidth
     property real pathRadius: (innerRadius + outerRadius + bandWidth) / 2
+    property real centralButtonSize: Math.min(innerRadius * 1.4, bandWidth)
   }
 
   background: Shape {
@@ -159,6 +163,35 @@ Menu {
         else
           pieMenu.open();
         event.accepted = false;
+      }
+    }
+
+    Item {
+      id: centralActionContainer
+      anchors.centerIn: parent
+      width: internal.centralButtonSize + 12
+      height: internal.centralButtonSize + 12
+      visible: pieMenu.centralActionVisible
+      opacity: visible ? 1 : 0
+
+      Behavior on opacity  {
+        NumberAnimation {
+          duration: internal.animationDuration
+        }
+      }
+
+      Rectangle {
+        id: centralBg
+        anchors.fill: parent
+        color: Qt.hsla(Theme.toolButtonBackgroundColor.hslHue, Theme.toolButtonBackgroundColor.hslSaturation, Theme.toolButtonBackgroundColor.hslLightness, 0.3)
+        radius: width / 2
+      }
+
+      Loader {
+        id: centralActionLoader
+        anchors.centerIn: parent
+        sourceComponent: pieMenu.centralActionComponent
+        active: pieMenu.centralActionComponent !== null
       }
     }
   }

@@ -155,6 +155,7 @@
         <file>themes/qfield/nodpi/ic_geometry_point_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_geometry_line_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_geometry_polygon_24dp.svg</file>
+        <file>themes/qfield/nodpi/ic_geometry_mixed_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_vectorlayer_point_18dp.svg</file>
         <file>themes/qfield/nodpi/ic_vectorlayer_line_18dp.svg</file>
         <file>themes/qfield/nodpi/ic_vectorlayer_polygon_18dp.svg</file>
