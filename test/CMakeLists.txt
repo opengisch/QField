@@ -129,6 +129,7 @@ if (WITH_UNITTESTS)
   ADD_CATCH2_TEST(trackingtest test_tracking.cpp FALSE)
   ADD_CATCH2_TEST(identifytool test_identifytool.cpp TRUE)
   ADD_CATCH2_TEST(featurelistmodel test_featurelistmodel.cpp TRUE)
+  ADD_CATCH2_TEST(multifeaturelistmodel test_multifeaturelistmodel.cpp TRUE)
 
   ADD_QFIELD_QML_TEST(qmltest test_qml.cpp)
 endif()
