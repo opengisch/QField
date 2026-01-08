@@ -21,6 +21,22 @@ Popup {
   property var currentPosition: PositioningUtils.createEmptyGnssPositionInformation()
   property var currentProjectedPosition: undefined
 
+  property bool captureLoaderActivated: false
+
+  function requiredPermissionsGranted() {
+    if (cameraPermission.status !== Qt.PermissionStatus.Granted)
+      return false;
+    if (state === "VideoCapture" && microphonePermission.status !== Qt.PermissionStatus.Granted)
+      return false;
+    return true;
+  }
+
+  function tryActivateCaptureLoader() {
+    if (!captureLoaderActivated && requiredPermissionsGranted()) {
+      captureLoaderActivated = true;
+    }
+  }
+
   signal finished(string path)
   signal canceled
 
@@ -50,11 +66,20 @@ Popup {
     photoPreview.source = "";
     videoPreview.stop();
     videoPreview.source = "";
+
+    captureLoaderActivated = false;
+
     if (cameraPermission.status === Qt.PermissionStatus.Undetermined) {
       cameraPermission.request();
     } else if (state == "VideoCapture" && microphonePermission.status === Qt.PermissionStatus.Undetermined) {
       microphonePermission.request();
     }
+
+    tryActivateCaptureLoader();
+  }
+
+  onAboutToHide: {
+    captureLoaderActivated = false;
   }
 
   QfCameraPermission {
@@ -64,6 +89,7 @@ Popup {
       if (state == "VideoCapture" && microphonePermission.status === Qt.PermissionStatus.Undetermined) {
         microphonePermission.request();
       }
+      cameraItem.tryActivateCaptureLoader();
     }
   }
   QfMicrophonePermission {
@@ -73,6 +99,7 @@ Popup {
       if (cameraPermission.status === Qt.PermissionStatus.Undetermined) {
         cameraPermission.request();
       }
+      cameraItem.tryActivateCaptureLoader();
     }
   }
 
@@ -124,7 +151,7 @@ Popup {
       id: captureLoader
       anchors.fill: parent
 
-      active: cameraPermission.status === Qt.PermissionStatus.Granted
+      active: cameraItem.visible && captureLoaderActivated
       asynchronous: true
 
       sourceComponent: Component {
@@ -351,7 +378,7 @@ Popup {
 
     PinchArea {
       id: pinchArea
-      enabled: cameraItem.visible && cameraItem.isCapturing && captureLoader.status === Loader.Ready
+      enabled: cameraItem.visible && cameraItem.isCapturing && captureLoader.item
       anchors.fill: parent
 
       onPinchUpdated: pinch => {
@@ -364,7 +391,7 @@ Popup {
     }
 
     WheelHandler {
-      enabled: cameraItem.visible && cameraItem.isCapturing && captureLoader.status === Loader.Ready
+      enabled: cameraItem.visible && cameraItem.isCapturing && captureLoader.item
       target: null
       grabPermissions: PointerHandler.CanTakeOverFromHandlersOfDifferentType | PointerHandler.ApprovesTakeOverByItems
 
@@ -429,14 +456,14 @@ Popup {
             height: 64
             radius: 32
             color: Theme.darkGraySemiOpaque
-            border.color: cameraItem.state == "VideoCapture" && captureLoader.status === Loader.Ready && captureLoader.item.recorder.recorderState !== MediaRecorder.StoppedState ? "red" : "white"
+            border.color: cameraItem.state == "VideoCapture" && captureLoader.item && captureLoader.item.recorder.recorderState !== MediaRecorder.StoppedState ? "red" : "white"
             border.width: 2
 
             QfToolButton {
               id: captureButton
 
               anchors.centerIn: parent
-              visible: captureLoader.status === Loader.Ready && (captureLoader.item.camera.cameraStatus === Camera.ActiveStatus || captureLoader.item.camera.cameraStatus === Camera.LoadedStatus || captureLoader.item.camera.cameraStatus === Camera.StandbyStatus)
+              visible: captureLoader.item && (captureLoader.item.camera.cameraStatus === Camera.ActiveStatus || captureLoader.item.camera.cameraStatus === Camera.LoadedStatus || captureLoader.item.camera.cameraStatus === Camera.StandbyStatus)
 
               round: true
               roundborder: true
@@ -445,7 +472,7 @@ Popup {
               bgcolor: cameraItem.state == "PhotoPreview" || cameraItem.state == "VideoPreview" ? Theme.mainColor : cameraItem.state == "VideoCapture" ? "red" : "white"
 
               onClicked: {
-                if (captureLoader.status !== Loader.Ready)
+                if (!captureLoader.item)
                   return;
                 if (cameraItem.state == "PhotoCapture") {
                   platformUtilities.createDir(qgisProject.homePath, 'DCIM');
@@ -490,7 +517,7 @@ Popup {
 
           QfToolButton {
             id: zoomButton
-            visible: cameraItem.isCapturing && captureLoader.status === Loader.Ready && (captureLoader.item.camera.maximumZoomFactor !== 1.0 || captureLoader.item.camera.minimumZoomFactor !== 1.0)
+            visible: cameraItem.isCapturing && captureLoader.item && (captureLoader.item.camera.maximumZoomFactor !== 1.0 || captureLoader.item.camera.minimumZoomFactor !== 1.0)
 
             x: cameraItem.isPortraitMode ? (parent.width / 4) - (width / 2) : (parent.width - width) / 2
             y: cameraItem.isPortraitMode ? (parent.height - height) / 2 : (parent.height / 4) * 3 - (height / 2)
@@ -499,11 +526,11 @@ Popup {
             bgcolor: Theme.toolButtonBackgroundSemiOpaqueColor
             round: true
 
-            text: captureLoader.status === Loader.Ready ? captureLoader.item.camera.zoomFactor.toFixed(1) + 'X' : '1.0X'
+            text: captureLoader.item ? captureLoader.item.camera.zoomFactor.toFixed(1) + 'X' : '1.0X'
             font: Theme.tinyFont
 
             onClicked: {
-              if (captureLoader.status === Loader.Ready) {
+              if (captureLoader.item) {
                 captureLoader.item.camera.zoomFactor = 1;
               }
             }
@@ -511,13 +538,13 @@ Popup {
 
           QfToolButton {
             id: flashButton
-            visible: cameraItem.isCapturing && captureLoader.status === Loader.Ready && captureLoader.item.camera.isFlashModeSupported(Camera.FlashOn)
+            visible: cameraItem.isCapturing && captureLoader.item && captureLoader.item.camera.isFlashModeSupported(Camera.FlashOn)
 
             x: cameraItem.isPortraitMode ? (parent.width / 4) * 3 - (width / 2) : (parent.width - width) / 2
             y: cameraItem.isPortraitMode ? (parent.height - height) / 2 : (parent.height / 4) - (height / 2)
 
             iconSource: {
-              if (captureLoader.status !== Loader.Ready)
+              if (!captureLoader.item)
                 return '';
               switch (captureLoader.item.camera.flashMode) {
               case Camera.FlashAuto:
@@ -535,7 +562,7 @@ Popup {
             round: true
 
             onClicked: {
-              if (captureLoader.status !== Loader.Ready)
+              if (!captureLoader.item)
                 return;
               if (captureLoader.item.camera.flashMode === Camera.FlashOff) {
                 captureLoader.item.camera.flashMode = Camera.FlashOn;
@@ -546,7 +573,7 @@ Popup {
           }
 
           Rectangle {
-            visible: cameraItem.state == "VideoCapture" && captureLoader.status === Loader.Ready && captureLoader.item.recorder.recorderState !== MediaRecorder.StoppedState
+            visible: cameraItem.state == "VideoCapture" && captureLoader.item && captureLoader.item.recorder.recorderState !== MediaRecorder.StoppedState
 
             x: cameraItem.isPortraitMode ? captureRing.x + captureRing.width / 2 - width / 2 : captureRing.x + captureRing.width / 2 - width / 2
             y: cameraItem.isPortraitMode ? captureRing.y - height - 20 : captureRing.y - height - 20
@@ -561,7 +588,7 @@ Popup {
               id: durationLabel
               anchors.centerIn: parent
               text: {
-                if (captureLoader.status === Loader.Ready && captureLoader.item.recorder.duration > 0) {
+                if (captureLoader.item && captureLoader.item.recorder.duration > 0) {
                   var seconds = Math.ceil(captureLoader.item.recorder.duration / 1000);
                   var hours = Math.floor(seconds / 60 / 60) + '';
                   seconds -= hours * 60 * 60;
@@ -634,7 +661,7 @@ Popup {
         height: cameraSelectionMenu.count > 1 ? width : 0
         visible: cameraSelectionMenu.count
         padding: 2
-        enabled: captureLoader.status === Loader.Ready
+        enabled: captureLoader.item
 
         iconSource: Theme.getThemeVectorIcon("ic_camera_switch_black_24dp")
         iconColor: Theme.toolButtonColor
@@ -653,7 +680,7 @@ Popup {
         height: resolutionSelectionMenu.count > 1 ? width : 0
         visible: resolutionSelectionMenu.count
         padding: 2
-        enabled: captureLoader.status === Loader.Ready
+        enabled: captureLoader.item
 
         iconSource: Theme.getThemeVectorIcon("ic_camera_resolution_black_24dp")
         iconColor: Theme.toolButtonColor
@@ -738,7 +765,7 @@ Popup {
           height: 48
           leftPadding: Theme.menuItemCheckLeftPadding
           font: Theme.defaultFont
-          enabled: !checked && captureLoader.status === Loader.Ready
+          enabled: !checked && captureLoader.item
           checkable: true
           checked: deviceId == cameraSettings.deviceId || (isDefault && cameraSettings.deviceId == '')
           indicator.height: 20
@@ -749,7 +776,7 @@ Popup {
           onToggled: {
             if (checked && cameraSettings.deviceId !== modelData.id) {
               cameraSettings.deviceId = modelData.id;
-              if (captureLoader.status === Loader.Ready) {
+              if (captureLoader.item) {
                 captureLoader.item.camera.cameraDevice = modelData;
                 captureLoader.item.camera.applyCameraFormat();
               }
@@ -792,7 +819,7 @@ Popup {
       }
 
       Repeater {
-        model: captureLoader.status === Loader.Ready ? captureLoader.item.camera.cameraDevice.videoFormats : []
+        model: captureLoader.item ? captureLoader.item.camera.cameraDevice.videoFormats : []
 
         delegate: MenuItem {
           property int pixelFormat: modelData.pixelFormat
@@ -813,7 +840,7 @@ Popup {
           height: 48
           leftPadding: Theme.menuItemCheckLeftPadding
           font: Theme.defaultFont
-          enabled: !checked && captureLoader.status === Loader.Ready
+          enabled: !checked && captureLoader.item
           checkable: true
           checked: cameraSettings.resolution == resolution && cameraSettings.pixelFormat == pixelFormat
           indicator.height: 20
@@ -825,7 +852,7 @@ Popup {
             if (checked && (cameraSettings.resolution != resolution || cameraSettings.pixelFormat != pixelFormat)) {
               cameraSettings.resolution = resolution;
               cameraSettings.pixelFormat = pixelFormat;
-              if (captureLoader.status === Loader.Ready) {
+              if (captureLoader.item) {
                 captureLoader.item.camera.applyCameraFormat();
               }
             }
