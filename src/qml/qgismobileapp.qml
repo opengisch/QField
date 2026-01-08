@@ -822,17 +822,31 @@ ApplicationWindow {
    * - Digitizing Rubberband
    **************************************************/
 
+    // Model for pie menu and context menu feature identification
+    MultiFeatureListModel {
+      id: menuFeatureListModel
+    }
+
     /** The identify tool **/
     IdentifyTool {
       id: identifyTool
 
       property bool isMenuRequest: false
+      property bool isPieMenuRequest: false
 
       mapSettings: mapCanvas.mapSettings
-      model: isMenuRequest ? canvasMenuFeatureListModel : featureListForm.model
+      model: isPieMenuRequest || isMenuRequest ? menuFeatureListModel : featureListForm.model
       searchRadiusMm: 3
 
       onIdentifyFinished: {
+        if (isPieMenuRequest) {
+          actionsPieMenu.identifiedCount = menuFeatureListModel.count;
+          isPieMenuRequest = false;
+          return;
+        }
+        if (isMenuRequest) {
+          canvasMenuFeatureListInstantiator.active = true;
+        }
         if (qfieldSettings.autoOpenFormSingleIdentify && !isMenuRequest && !featureListForm.multiSelection && featureListForm.model.count === 1) {
           featureListForm.selection.focusedItem = 0;
           featureListForm.state = "FeatureForm";
@@ -1052,6 +1066,8 @@ ApplicationWindow {
           actionsPieMenu.y = locationMarker.screenLocation.y - actionsPieMenu.menuHalfSize;
         }
         actionsPieMenu.open();
+        identifyTool.isPieMenuRequest = true;
+        identifyTool.identify(locationMarker.screenLocation);
       }
     }
 
@@ -1077,12 +1093,55 @@ ApplicationWindow {
       }
 
       readonly property int segmentAngle: 360 / actionsPieMenu.numberOfButtons
+      property int identifiedCount: 0
+
+      onClosed: {
+        menuFeatureListModel.clear(false);
+        identifiedCount = 0;
+      }
 
       width: Math.min(150, mapCanvasMap.width / 3)
       height: width
 
       targetPoint: locationMarker.screenLocation
       showConnectionLine: visible && (nearToEdge || locationMarkerOutSidePieMenu)
+
+      centralActionVisible: identifiedCount > 0
+      centralActionComponent: Component {
+        QfToolButton {
+          id: identifyFeaturesButton
+          width: actionsPieMenu.bandWidth - 8
+          height: width
+          padding: 2
+          round: true
+          iconSource: Theme.getThemeVectorIcon("ic_geometry_mixed_24dp")
+          iconColor: Theme.toolButtonColor
+          bgcolor: Theme.toolButtonBackgroundColor
+
+          QfBadge {
+            width: 16
+            color: Theme.toolButtonColor
+            border.width: 1
+            border.color: Theme.toolButtonColor
+            badgeText.text: actionsPieMenu.identifiedCount > 9 ? "+" : actionsPieMenu.identifiedCount
+            badgeText.color: Theme.toolButtonBackgroundColor
+            z: 2
+          }
+
+          onClicked: {
+            identifyTool.isMenuRequest = false;
+            identifyTool.isPieMenuRequest = false;
+            identifyTool.identify(locationMarker.screenLocation);
+            if (qfieldSettings.autoOpenFormSingleIdentify) {
+              featureListForm.selection.focusedItem = 0;
+              featureListForm.state = "FeatureForm";
+            } else if (featureListForm.model.count > 0) {
+              featureListForm.state = "FeatureList";
+            }
+            actionsPieMenu.close();
+          }
+        }
+      }
 
       QfToolButton {
         id: gnssCursorLockButton
@@ -3599,10 +3658,9 @@ ApplicationWindow {
 
     Instantiator {
       id: canvasMenuFeatureListInstantiator
+      active: false
 
-      model: MultiFeatureListModel {
-        id: canvasMenuFeatureListModel
-      }
+      model: menuFeatureListModel
 
       QfMenu {
         id: featureMenu
