@@ -5842,7 +5842,7 @@ project</source>
     </message>
     <message>
         <source>Point Feature Picker</source>
-        <translation type="unfinished"/>
+        <translation>点要素选取器</translation>
     </message>
 </context>
 <context>
