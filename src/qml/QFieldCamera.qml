@@ -124,7 +124,8 @@ Popup {
       id: captureLoader
       anchors.fill: parent
 
-      active: cameraItem.visible && cameraPermission.status === Qt.PermissionStatus.Granted && (cameraItem.state !== "VideoCapture" || microphonePermission.status === Qt.PermissionStatus.Granted)
+      active: cameraPermission.status === Qt.PermissionStatus.Granted
+      asynchronous: true
 
       sourceComponent: Component {
         Item {
@@ -200,7 +201,8 @@ Popup {
 
               onPreviewChanged: {
                 cameraItem.state = "PhotoPreview";
-                photoPreview.source = imageCapture.preview;
+                photoPreview.source = "";
+                Qt.callLater(() => photoPreview.source = imageCapture.preview);
               }
             }
 
@@ -341,7 +343,7 @@ Popup {
       visible: cameraItem.state == "PhotoPreview"
 
       anchors.fill: parent
-
+      cache: false
       fillMode: Image.PreserveAspectFit
       smooth: true
       focus: visible
