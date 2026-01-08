@@ -825,8 +825,6 @@ ApplicationWindow {
     // Model for pie menu and context menu feature identification
     MultiFeatureListModel {
       id: menuFeatureListModel
-
-      property int identifiedCount: 0
     }
 
     /** The identify tool **/
@@ -837,12 +835,12 @@ ApplicationWindow {
       property bool isPieMenuRequest: false
 
       mapSettings: mapCanvas.mapSettings
-      model: isPieMenuRequest ? menuFeatureListModel : (isMenuRequest ? menuFeatureListModel : featureListForm.model)
+      model: isPieMenuRequest || isMenuRequest ? menuFeatureListModel : featureListForm.model
       searchRadiusMm: 3
 
       onIdentifyFinished: {
         if (isPieMenuRequest) {
-          menuFeatureListModel.identifiedCount = menuFeatureListModel.count;
+          actionsPieMenu.identifiedCount = menuFeatureListModel.count;
           isPieMenuRequest = false;
           return;
         }
@@ -1068,6 +1066,8 @@ ApplicationWindow {
           actionsPieMenu.y = locationMarker.screenLocation.y - actionsPieMenu.menuHalfSize;
         }
         actionsPieMenu.open();
+        identifyTool.isPieMenuRequest = true;
+        identifyTool.identify(locationMarker.screenLocation);
       }
     }
 
@@ -1093,6 +1093,12 @@ ApplicationWindow {
       }
 
       readonly property int segmentAngle: 360 / actionsPieMenu.numberOfButtons
+      property int identifiedCount: 0
+
+      onClosed: {
+        menuFeatureListModel.clear(false);
+        identifiedCount = 0;
+      }
 
       width: Math.min(150, mapCanvasMap.width / 3)
       height: width
@@ -1100,7 +1106,7 @@ ApplicationWindow {
       targetPoint: locationMarker.screenLocation
       showConnectionLine: visible && (nearToEdge || locationMarkerOutSidePieMenu)
 
-      centralActionVisible: menuFeatureListModel.identifiedCount > 0
+      centralActionVisible: identifiedCount > 0
       centralActionComponent: Component {
         QfToolButton {
           id: identifyFeaturesButton
@@ -1108,15 +1114,17 @@ ApplicationWindow {
           height: width
           padding: 2
           round: true
-          iconSource: Theme.getThemeVectorIcon("ic_field_geometry_24dp")
-          iconColor: Theme.light
+          iconSource: Theme.getThemeVectorIcon("ic_geometry_mixed_24dp")
+          iconColor: Theme.toolButtonColor
           bgcolor: Theme.toolButtonBackgroundColor
 
           QfBadge {
             width: 16
-            color: Theme.toolButtonBackgroundColor
-            badgeText.text: menuFeatureListModel.identifiedCount > 9 ? "9+" : menuFeatureListModel.identifiedCount.toString()
-            badgeText.color: Theme.light
+            color: Theme.toolButtonColor
+            border.width: 1
+            border.color: Theme.toolButtonColor
+            badgeText.text: actionsPieMenu.identifiedCount > 9 ? "+" : actionsPieMenu.identifiedCount
+            badgeText.color: Theme.toolButtonBackgroundColor
             z: 2
           }
 
@@ -1385,11 +1393,6 @@ ApplicationWindow {
         onOpened.connect(() => {
             settings.setValue("/QField/pieMenuOpenedOnce", true);
             locationMarker.bubbleVisible = false;
-            // Identify features underneath the location marker
-            menuFeatureListModel.clear(false);
-            menuFeatureListModel.identifiedCount = 0;
-            identifyTool.isPieMenuRequest = true;
-            identifyTool.identify(locationMarker.screenLocation);
           });
       }
     }
