@@ -3391,7 +3391,7 @@ Du kannst das Projekt zwar weiterhin anzeigen und nutzen, aber es wird dringend 
     </message>
     <message>
         <source>Network is not currently active. We will push the changes automatically once you are back online.</source>
-        <translation type="unfinished"/>
+        <translation>Netzwerkverbindung ist zur Zeit nicht aktiv. Wir werden die Änderungen hochladen, sobald du wieder online bist.</translation>
     </message>
 </context>
 <context>
@@ -4378,11 +4378,11 @@ Abbrechen um einen verkürzten Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Auto-zoom to identified feature(s)</source>
-        <translation type="unfinished"/>
+        <translation>Zoome automatisch zum identifizierten Objekt(en)</translation>
     </message>
     <message>
         <source>When enabled, the map will automatically zoom to show all identified features, as well as the individual selected feature when the feature form is opened.</source>
-        <translation type="unfinished"/>
+        <translation>wenn aktiviert, wird die Karte so gezoomt, dass sowohl alle identifizierten Objekt, als auch individuell ausgewählt Objekte angezeigt werden, wenn das Objekt-Formular geöffnet wird.</translation>
     </message>
 </context>
 <context>
@@ -4528,51 +4528,51 @@ Abbrechen um einen verkürzten Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Circle #1: radius</source>
-        <translation type="unfinished"/>
+        <translation>Kreis #1: Radius</translation>
     </message>
     <message>
         <source>Circle #2: radius</source>
-        <translation type="unfinished"/>
+        <translation>Kreis #2: Radius</translation>
     </message>
     <message>
         <source>Candidate</source>
-        <translation type="unfinished"/>
+        <translation>Kandidat</translation>
     </message>
     <message>
         <source>XYZ Parameters</source>
-        <translation type="unfinished"/>
+        <translation>XYZ Parameter</translation>
     </message>
     <message>
         <source>Distance/Angle from Point</source>
-        <translation type="unfinished"/>
+        <translation>Distanz/Winkel vom Punkt</translation>
     </message>
     <message>
         <source>Circles Intersection</source>
-        <translation type="unfinished"/>
+        <translation>Überschneidung von Kreisen</translation>
     </message>
     <message>
         <source>Point</source>
-        <translation type="unfinished"/>
+        <translation>Punkt</translation>
     </message>
     <message>
         <source>Distance</source>
-        <translation type="unfinished"/>
+        <translation>Distanz</translation>
     </message>
     <message>
         <source>Angle</source>
-        <translation type="unfinished"/>
+        <translation>Winkel</translation>
     </message>
     <message>
         <source>Elevation</source>
-        <translation type="unfinished"/>
+        <translation>Höhe</translation>
     </message>
     <message>
         <source>Circle #1: point</source>
-        <translation type="unfinished"/>
+        <translation>Kreis #1: Punkt</translation>
     </message>
     <message>
         <source>Circle #2: point</source>
-        <translation type="unfinished"/>
+        <translation>Kreis #2: Punkt</translation>
     </message>
 </context>
 <context>
@@ -5662,7 +5662,7 @@ erstellen</translation>
     <name>angle</name>
     <message>
         <source>deg</source>
-        <translation type="unfinished"/>
+        <translation>Grad</translation>
     </message>
 </context>
 <context>
@@ -5817,31 +5817,31 @@ erstellen</translation>
     <name>point</name>
     <message>
         <source>latitude</source>
-        <translation type="unfinished"/>
+        <translation>Breitengrad</translation>
     </message>
     <message>
         <source>longitude</source>
-        <translation type="unfinished"/>
+        <translation>Längengrad</translation>
     </message>
     <message>
         <source>elevation</source>
-        <translation type="unfinished"/>
+        <translation>Höhe</translation>
     </message>
     <message>
         <source>easting [X]</source>
-        <translation type="unfinished"/>
+        <translation>Ostwert [X]</translation>
     </message>
     <message>
         <source>northing [Y]</source>
-        <translation type="unfinished"/>
+        <translation>Nordwert [Y]</translation>
     </message>
     <message>
         <source>elevation [Z]</source>
-        <translation type="unfinished"/>
+        <translation>Höhe [Z]</translation>
     </message>
     <message>
         <source>Point Feature Picker</source>
-        <translation type="unfinished"/>
+        <translation>Auswahlwerkzeug für Punkt-Objekte</translation>
     </message>
 </context>
 <context>
@@ -6610,19 +6610,19 @@ um Aktionen anzuzeigen</translation>
     </message>
     <message>
         <source>COGO digitizing turned on</source>
-        <translation type="unfinished"/>
+        <translation>COGO-Digitalisierung eingeschaltet</translation>
     </message>
     <message>
         <source>COGO digitizing turned off</source>
-        <translation type="unfinished"/>
+        <translation>COGO-Digitalisierung ausgeschaltet</translation>
     </message>
     <message>
         <source>Enable positioning service to get points at your location</source>
-        <translation type="unfinished"/>
+        <translation>Aktiviere den Standort-Service um Punkte an deiner Position zu bekommen.</translation>
     </message>
     <message>
         <source>Positioning service has not yet received a valid location</source>
-        <translation type="unfinished"/>
+        <translation>Der Standort-Service hat noch keine korrekte Position erhalten.</translation>
     </message>
 </context>
 <context>
