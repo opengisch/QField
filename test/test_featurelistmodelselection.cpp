@@ -45,7 +45,7 @@ TEST_CASE( "FeatureListModelSelection default state is safe" )
   REQUIRE( selection.focusedItem() == -1 );
 }
 
-TEST_CASE( "FeatureListModelSelection exposes focused data and forwards selection" )
+TEST_CASE( "FeatureListModelSelection behaviour" )
 {
   if ( !QCoreApplication::instance() )
   {
@@ -65,6 +65,9 @@ TEST_CASE( "FeatureListModelSelection exposes focused data and forwards selectio
 
   REQUIRE( layer->isValid() );
   layer->setDisplayExpression( QStringLiteral( "\"name\"" ) );
+
+  const int nameFieldIndex = layer->fields().indexFromName( QStringLiteral( "name" ) );
+  REQUIRE( nameFieldIndex >= 0 );
 
   layer->startEditing();
 
@@ -109,6 +112,10 @@ TEST_CASE( "FeatureListModelSelection exposes focused data and forwards selectio
   }
   REQUIRE( rowA >= 0 );
 
+  const QModelIndex idxA = model.index( rowA, 0 );
+  const QgsFeatureId fidA = model.data( idxA, MultiFeatureListModel::FeatureIdRole ).value<QgsFeatureId>();
+  REQUIRE( fidA >= 0 );
+
   FeatureListModelSelection selection;
 
   // check setModel resets
@@ -117,20 +124,80 @@ TEST_CASE( "FeatureListModelSelection exposes focused data and forwards selectio
   selection.setModel( &model );
   REQUIRE( selection.focusedItem() == -1 );
 
-  QSignalSpy selectedSpy( &selection, &FeatureListModelSelection::selectedFeaturesChanged );
-
+  // Focused properties expose data from the underlying model
   selection.setFocusedItem( rowA );
-
   REQUIRE( selection.focusedLayer() == layer.get() );
 
-  const QgsFeature focusedFeature = selection.focusedFeature();
-  REQUIRE( focusedFeature.isValid() );
-  REQUIRE( focusedFeature.attribute( QStringLiteral( "name" ) ).toString() == QStringLiteral( "A" ) );
+  {
+    const QgsFeature focusedFeature = selection.focusedFeature();
+    REQUIRE( focusedFeature.isValid() );
+    REQUIRE( focusedFeature.attribute( QStringLiteral( "name" ) ).toString() == QStringLiteral( "A" ) );
+  }
 
-  // Forward selection to the model
-  selection.toggleSelectedItem( rowA );
-  REQUIRE( model.selectedCount() == 1 );
-  REQUIRE( selectedSpy.count() == 1 );
+  // toggleSelectedItem forwards to the model and emits signal
+  {
+    QSignalSpy selectedSpy( &selection, &FeatureListModelSelection::selectedFeaturesChanged );
+
+    selection.toggleSelectedItem( rowA );
+
+    QElapsedTimer timer;
+    timer.start();
+    while ( model.selectedCount() != 1 && timer.elapsed() < maximumWaitTimeMilliseconds )
+    {
+      QCoreApplication::processEvents( QEventLoop::AllEvents, 50 );
+    }
+
+    REQUIRE( model.selectedCount() == 1 );
+    REQUIRE( selectedSpy.count() == 1 );
+
+    model.clearSelection();
+  }
+
+  // Feature edit updates list display name, and focusedFeature reflects it, no caching in selection
+  {
+    layer->startEditing();
+    REQUIRE( layer->changeAttributeValue( fidA, nameFieldIndex, QVariant( QStringLiteral( "A updated" ) ) ) );
+    layer->commitChanges();
+
+    int rowUpdated = -1;
+
+    QElapsedTimer timer;
+    timer.start();
+    while ( rowUpdated < 0 && timer.elapsed() < maximumWaitTimeMilliseconds )
+    {
+      for ( int row = 0; row < model.rowCount(); ++row )
+      {
+        const QModelIndex idx = model.index( row, 0 );
+        if ( model.data( idx, Qt::DisplayRole ).toString() == QStringLiteral( "A updated" ) )
+        {
+          rowUpdated = row;
+          break;
+        }
+      }
+
+      if ( rowUpdated < 0 )
+        QCoreApplication::processEvents( QEventLoop::AllEvents, 50 );
+    }
+
+    REQUIRE( rowUpdated >= 0 );
+
+    selection.setFocusedItem( rowUpdated );
+
+    const QgsFeature focusedFeature = selection.focusedFeature();
+    REQUIRE( focusedFeature.isValid() );
+    REQUIRE( focusedFeature.attribute( QStringLiteral( "name" ) ).toString() == QStringLiteral( "A updated" ) );
+  }
+
+  // Out of range focus is safe so invalid model index -> default or empty results
+  {
+    selection.setFocusedItem( 999 );
+
+    REQUIRE( selection.focusedLayer() == nullptr );
+
+    const QgsFeature f = selection.focusedFeature();
+    REQUIRE_FALSE( f.isValid() );
+    REQUIRE( selection.focusedGeometry().isEmpty() );
+  }
 
   selection.clear();
   REQUIRE( selection.focusedItem() == -1 );
