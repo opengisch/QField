@@ -453,8 +453,6 @@ void QgsQuickMapSettings::onReadProject( const QDomDocument &doc )
     {
       foundTheMapCanvas = true;
       mMapSettings.readXml( node );
-
-      mMapSettings.setZRange( QgsDoubleRange( 10, 400 ) );
     }
   }
   if ( !foundTheMapCanvas )
