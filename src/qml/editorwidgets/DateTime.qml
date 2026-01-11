@@ -73,7 +73,6 @@ EditorWidgetBase {
       } else {
         let dateFormat = config['display_format'] !== undefined ? config['display_format'] : '';
         if (!!config['field_format_overwrite']) {
-          console.log('!!!');
           dateFormat = !!config['field_iso_format'] ? 'yyyy-MM-dd HH:mm:ss+t' : config['field_format'];
         }
         const date = Date.fromLocaleString(Qt.locale(), value, dateFormat);
