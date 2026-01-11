@@ -79,8 +79,7 @@ ColumnLayout {
       contentWidth: width
       contentHeight: projectDetailsBodyLayout.height
       ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
-      ScrollBar.vertical: QfScrollBar {
-      }
+      ScrollBar.vertical: QfScrollBar {}
 
       ColumnLayout {
         id: projectDetailsBodyLayout
@@ -190,8 +189,8 @@ ColumnLayout {
             sourceSize.width: desiredWidth * Screen.devicePixelRatio
             sourceSize.height: desiredWidth * Screen.devicePixelRatio
             source: cloudProject != undefined ? "image://barcode/?text=" + encodeURIComponent(UrlUtils.createActionUrl("qfield", "cloud", {
-                  "project": cloudProject.id
-                })) + "&color=%2380cc28" : ""
+              "project": cloudProject.id
+            })) + "&color=%2380cc28" : ""
             property int desiredWidth: Math.min(mainWindow.width - 40, 250)
           }
 

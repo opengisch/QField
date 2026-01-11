@@ -88,27 +88,33 @@ Page {
             height: 105
             orientation: ListView.Horizontal
             spacing: 10
-            model: [{
+            model: [
+              {
                 "icon": "qrc:/pictures/pictures/colorful.jpg",
                 "name": "colorful",
                 "displayName": qsTr("Colorful")
-              }, {
+              },
+              {
                 "icon": "qrc:/pictures/pictures/dark.jpg",
                 "name": "darkgray",
                 "displayName": qsTr("Darkgray")
-              }, {
+              },
+              {
                 "icon": "qrc:/pictures/pictures/lightgray.jpg",
                 "name": "lightgray",
                 "displayName": qsTr("Lightgray")
-              }, {
+              },
+              {
                 "icon": "",
                 "name": "blank",
                 "displayName": qsTr("Blank")
-              }, {
+              },
+              {
                 "icon": "",
                 "name": "custom",
                 "displayName": qsTr("Custom")
-              }]
+              }
+            ]
 
             clip: true
 

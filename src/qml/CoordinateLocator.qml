@@ -205,21 +205,21 @@ Item {
     x: displayPosition.x - halfWidth
     y: displayPosition.y - halfWidth
 
-    Behavior on x  {
+    Behavior on x {
       enabled: !overrideLocation && !sourceLocation // It looks strange if the GPS position indicator and the crosshair are not synchronized
       NumberAnimation {
         duration: 100
       }
     }
 
-    Behavior on y  {
+    Behavior on y {
       enabled: !overrideLocation && !sourceLocation
       NumberAnimation {
         duration: 100
       }
     }
 
-    Behavior on width  {
+    Behavior on width {
       SmoothedAnimation {
         duration: 2000
       }

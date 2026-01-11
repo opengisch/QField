@@ -28,7 +28,7 @@ T.ScrollBar {
       }
       return handle.height === _maxSize;
     }
-    Behavior on opacity  {
+    Behavior on opacity {
       NumberAnimation {
         duration: 20
       }

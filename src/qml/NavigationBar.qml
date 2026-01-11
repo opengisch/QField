@@ -201,7 +201,7 @@ Rectangle {
       }
     }
 
-    Behavior on width  {
+    Behavior on width {
       PropertyAnimation {
         easing.type: Easing.OutQuart
       }
@@ -235,7 +235,7 @@ Rectangle {
       }
     }
 
-    Behavior on width  {
+    Behavior on width {
       PropertyAnimation {
         easing.type: Easing.OutQuart
       }
@@ -273,7 +273,7 @@ Rectangle {
         }
       }
     }
-    Behavior on width  {
+    Behavior on width {
       PropertyAnimation {
         easing.type: Easing.OutQuart
       }
@@ -300,7 +300,7 @@ Rectangle {
       toolBar.cancel();
     }
 
-    Behavior on width  {
+    Behavior on width {
       PropertyAnimation {
         easing.type: Easing.OutQuart
       }
@@ -330,7 +330,7 @@ Rectangle {
       toolBar.editGeometryButtonClicked();
     }
 
-    Behavior on width  {
+    Behavior on width {
       PropertyAnimation {
         easing.type: Easing.OutQuart
       }
@@ -367,7 +367,7 @@ Rectangle {
       toolBar.editAttributesButtonClicked();
     }
 
-    Behavior on width  {
+    Behavior on width {
       PropertyAnimation {
         easing.type: Easing.OutQuart
       }
@@ -413,7 +413,7 @@ Rectangle {
       }
     }
 
-    Behavior on width  {
+    Behavior on width {
       PropertyAnimation {
         easing.type: Easing.OutQuart
       }
@@ -439,7 +439,7 @@ Rectangle {
 
     onClicked: toggleMultiSelection()
 
-    Behavior on width  {
+    Behavior on width {
       PropertyAnimation {
         easing.type: Easing.OutQuart
       }
@@ -486,7 +486,7 @@ Rectangle {
       multiEditClicked();
     }
 
-    Behavior on width  {
+    Behavior on width {
       PropertyAnimation {
         easing.type: Easing.OutQuart
       }

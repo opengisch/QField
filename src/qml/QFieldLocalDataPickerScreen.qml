@@ -1505,8 +1505,7 @@ Page {
             anchors.fill: parent
             anchors.margins: 1
             enabled: !webdavConnectionLoader.item || !webdavConnectionLoader.item.isFetchingAvailablePaths
-            ScrollBar.vertical: QfScrollBar {
-            }
+            ScrollBar.vertical: QfScrollBar {}
             clip: true
             model: []
 
@@ -1586,7 +1585,7 @@ Page {
                   opacity: lineDialog.level > 0 && lineDialog.hasChildren && !lineDialog.isImported ? 1 : 0
                   rotation: importWebdavPathInput.expandedPaths.indexOf(modelData) > -1 ? 90 : 0
 
-                  Behavior on rotation  {
+                  Behavior on rotation {
                     NumberAnimation {
                       duration: 100
                     }

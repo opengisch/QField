@@ -129,27 +129,27 @@ Item {
         Component.onCompleted: {
           // Register bookmark handler
           pointHandler.registerHandler("bookmark_" + bookmarkRenderer.bookmarkId, (point, type, interactionType) => {
-              if (pointHandler.pointInItem(point, bookmark)) {
-                if (interactionType === "clicked") {
-                  displayToast(qsTr('Bookmark: %1').arg(bookmarkRenderer.bookmarkName));
-                  return true;
-                } else if (interactionType === "pressedAndHold") {
-                  if (bookmarkRenderer.bookmarkUser) {
-                    bookmarkProperties.bookmarkId = bookmarkRenderer.bookmarkId;
-                    bookmarkProperties.bookmarkName = bookmarkRenderer.bookmarkName;
-                    bookmarkProperties.bookmarkGroup = bookmarkRenderer.bookmarkGroup;
-                    bookmarkProperties.open();
-                  } else {
-                    displayToast(qsTr('Project bookmarks cannot be edited'));
-                  }
-                  return true;
-                } else if (interactionType === "doubleClicked") {
-                  bookmarkModel.setExtentFromBookmark(bookmarkModel.index(bookmarkRenderer.bookmarkIndex, 0));
-                  return true;
+            if (pointHandler.pointInItem(point, bookmark)) {
+              if (interactionType === "clicked") {
+                displayToast(qsTr('Bookmark: %1').arg(bookmarkRenderer.bookmarkName));
+                return true;
+              } else if (interactionType === "pressedAndHold") {
+                if (bookmarkRenderer.bookmarkUser) {
+                  bookmarkProperties.bookmarkId = bookmarkRenderer.bookmarkId;
+                  bookmarkProperties.bookmarkName = bookmarkRenderer.bookmarkName;
+                  bookmarkProperties.bookmarkGroup = bookmarkRenderer.bookmarkGroup;
+                  bookmarkProperties.open();
+                } else {
+                  displayToast(qsTr('Project bookmarks cannot be edited'));
                 }
+                return true;
+              } else if (interactionType === "doubleClicked") {
+                bookmarkModel.setExtentFromBookmark(bookmarkModel.index(bookmarkRenderer.bookmarkIndex, 0));
+                return true;
               }
-              return false;
-            }, MapCanvasPointHandler.Priority.Low);
+            }
+            return false;
+          }, MapCanvasPointHandler.Priority.Low);
         }
 
         Component.onDestruction: {

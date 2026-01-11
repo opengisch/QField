@@ -97,8 +97,7 @@ QfPopup {
         Layout.fillHeight: true
         visible: count !== 0
         clip: true
-        ScrollBar.vertical: QfScrollBar {
-        }
+        ScrollBar.vertical: QfScrollBar {}
 
         delegate: Rectangle {
           id: rectangle
