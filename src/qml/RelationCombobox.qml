@@ -114,8 +114,7 @@ Item {
         width: parent.width
         height: searchFeaturePopup.height - searchBar.height - 50
         clip: true
-        ScrollBar.vertical: QfScrollBar {
-        }
+        ScrollBar.vertical: QfScrollBar {}
         section.property: featureListModel ? featureListModel.groupField != "" ? "groupFieldValue" : "" : ""
         section.labelPositioning: ViewSection.CurrentLabelAtStart | ViewSection.InlineLabels
         section.delegate: Component {
@@ -167,8 +166,7 @@ Item {
               font.weight: model.checked ? Font.DemiBold : Font.Normal
 
               checked: model.checked
-              indicator: Rectangle {
-              }
+              indicator: Rectangle {}
             }
 
             CheckBox {
@@ -352,8 +350,7 @@ Item {
             }
           }
 
-          ScrollIndicator.vertical: ScrollIndicator {
-          }
+          ScrollIndicator.vertical: ScrollIndicator {}
         }
       }
 

@@ -373,13 +373,17 @@ TestCase {
     compare(comboBoxItem.model.length, undefined);
     compare(comboBoxItem.currentIndex, toggleButtonsItem.selectedIndex);
     valueMap.config = {
-      "map": [{
+      "map": [
+        {
           "Buckfast bee": "Apis Mellifera"
-        }, {
+        },
+        {
           "Carniolan honey bee": "Apis Mellifera Carnica"
-        }, {
+        },
+        {
           "European honey bee": "Apis Mellifera Mellifera"
-        }]
+        }
+      ]
     };
     valueMap.currentLayer = currentLayerTrue;
     valueMap.value = "Apis Mellifera";

@@ -100,37 +100,44 @@ TestCase {
     compare(tabRow.model.rowCount(), 6);
     const expectedTabs = ["General", "Picture", "Issues", "Review", "Consumption", "GNSS"];
     compareFeatureFormTabNamesWithExpectedResults(expectedTabs);
-    const expectedModel = [{
+    const expectedModel = [
+      {
         "containerName": "Number of Boxes",
         "widgetType": "Range",
         "source": "editorwidgets/Range.qml",
         "value": 7
-      }, {
+      },
+      {
         "containerName": "Species of Bees",
         "widgetType": "ValueMap",
         "source": "editorwidgets/ValueMap.qml",
         "value": "Apis Mellifera Carnica"
-      }, {
+      },
+      {
         "containerName": "Amount of Bees",
         "widgetType": "ValueMap",
         "source": "editorwidgets/ValueMap.qml",
         "value": "1000"
-      }, {
+      },
+      {
         "containerName": "Beekeeper",
         "widgetType": "TextEdit",
         "source": "editorwidgets/TextEdit.qml",
         "value": "Stephen Hawking"
-      }, {
+      },
+      {
         "containerName": "Yearly Harvest (kg)",
         "widgetType": "Range",
         "source": "editorwidgets/Range.qml",
         "value": 10
-      }, {
+      },
+      {
         "containerName": "Owner",
         "widgetType": "ValueRelation",
         "source": "editorwidgets/ValueRelation.qml",
         "value": ""
-      }];
+      }
+    ];
     compareFeatureFormWithExpectedResults(expectedModel);
   }
 
@@ -174,22 +181,26 @@ TestCase {
     compare(titleLabel.text, "View feature on Fields");
     const expectedTabs = ["General", "Picture", "Review", "Consuming Apiaries"];
     compareFeatureFormTabNamesWithExpectedResults(expectedTabs);
-    const expectedModel = [{
+    const expectedModel = [
+      {
         "containerName": "Proprietor",
         "widgetType": "ValueMap",
         "source": "editorwidgets/ValueMap.qml",
         "value": "national"
-      }, {
+      },
+      {
         "containerName": "Plants",
         "widgetType": "ValueMap",
         "source": "editorwidgets/ValueMap.qml",
         "value": "taraxacum"
-      }, {
+      },
+      {
         "containerName": "Owner",
         "widgetType": "ValueRelation",
         "source": "editorwidgets/ValueRelation.qml",
         "value": "2"
-      }];
+      }
+    ];
     compareFeatureFormWithExpectedResults(expectedModel);
   }
 
@@ -228,22 +239,26 @@ TestCase {
     compare(titleLabel.text, "View feature on Tracks");
     const tabRow = Utils.findChildren(featureForm, "tabRow");
     compare(tabRow.model.hasTabs, undefined); // Notice: its better to be false not undefined
-    const expectedModel = [{
+    const expectedModel = [
+      {
         "containerName": "Track Name",
         "widgetType": "TextEdit",
         "source": "editorwidgets/TextEdit.qml",
         "value": "Munt Sura"
-      }, {
+      },
+      {
         "containerName": "Region",
         "widgetType": "TextEdit",
         "source": "editorwidgets/TextEdit.qml",
         "value": ""
-      }, {
+      },
+      {
         "containerName": "Editor Name",
         "widgetType": "TextEdit",
         "source": "editorwidgets/TextEdit.qml",
         "value": "Linda Camathiias"
-      }];
+      }
+    ];
     compareFeatureFormWithExpectedResults(expectedModel);
   }
 

@@ -29,10 +29,10 @@ Item {
       return false;
     }
     handlers.push({
-        "name": name,
-        "handler": handler,
-        "priority": priority
-      });
+      "name": name,
+      "handler": handler,
+      "priority": priority
+    });
 
     // Sort handlers by priority (descending - highest first)
     handlers.sort((a, b) => b.priority - a.priority);

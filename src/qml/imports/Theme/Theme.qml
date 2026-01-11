@@ -122,43 +122,43 @@ QtObject {
   property real fontScale: 1.0
 
   property font defaultFont: Qt.font({
-      "pointSize": systemFontPointSize * fontScale,
-      "weight": Font.Normal
-    })
+    "pointSize": systemFontPointSize * fontScale,
+    "weight": Font.Normal
+  })
   property font tinyFont: Qt.font({
-      "pointSize": systemFontPointSize * fontScale * 0.75,
-      "weight": Font.Normal
-    })
+    "pointSize": systemFontPointSize * fontScale * 0.75,
+    "weight": Font.Normal
+  })
   property font tipFont: Qt.font({
-      "pointSize": systemFontPointSize * fontScale * 0.875,
-      "weight": Font.Normal
-    })
+    "pointSize": systemFontPointSize * fontScale * 0.875,
+    "weight": Font.Normal
+  })
   property font resultFont: Qt.font({
-      "pointSize": systemFontPointSize * fontScale * 0.8125,
-      "weight": Font.Normal
-    })
+    "pointSize": systemFontPointSize * fontScale * 0.8125,
+    "weight": Font.Normal
+  })
   property font strongFont: Qt.font({
-      "pointSize": systemFontPointSize * fontScale,
-      "bold": true,
-      "weight": Font.Bold
-    })
+    "pointSize": systemFontPointSize * fontScale,
+    "bold": true,
+    "weight": Font.Bold
+  })
   property font strongTipFont: Qt.font({
-      "pointSize": systemFontPointSize * fontScale * 0.875,
-      "bold": true,
-      "weight": Font.Bold
-    })
+    "pointSize": systemFontPointSize * fontScale * 0.875,
+    "bold": true,
+    "weight": Font.Bold
+  })
   property font secondaryTitleFont: Qt.font({
-      "pointSize": systemFontPointSize * fontScale * 1.125,
-      "weight": Font.Normal
-    })
+    "pointSize": systemFontPointSize * fontScale * 1.125,
+    "weight": Font.Normal
+  })
   property font titleFont: Qt.font({
-      "pointSize": systemFontPointSize * fontScale * 1.25,
-      "weight": Font.Normal
-    })
+    "pointSize": systemFontPointSize * fontScale * 1.25,
+    "weight": Font.Normal
+  })
   property font strongTitleFont: Qt.font({
-      "pointSize": systemFontPointSize * fontScale * 1.25,
-      "weight": Font.Bold
-    })
+    "pointSize": systemFontPointSize * fontScale * 1.25,
+    "weight": Font.Bold
+  })
 
   readonly property int popupScreenEdgeVerticalMargin: 40
   readonly property int popupScreenEdgeHorizontalMargin: 20

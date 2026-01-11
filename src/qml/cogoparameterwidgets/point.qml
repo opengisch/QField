@@ -125,8 +125,7 @@ CogoParameterWidgetBase {
         searchBar.clear();
       }
 
-      onClosed: {
-      }
+      onClosed: {}
 
       Page {
         anchors.fill: parent
@@ -177,8 +176,7 @@ CogoParameterWidgetBase {
             width: parent.width
             height: pointPickerPopup.height - layersComboBox.height - searchBar.height - 50
             clip: true
-            ScrollBar.vertical: QfScrollBar {
-            }
+            ScrollBar.vertical: QfScrollBar {}
 
             delegate: Rectangle {
               id: rectangle

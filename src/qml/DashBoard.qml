@@ -479,7 +479,7 @@ Drawer {
               sourceSize.width: parent.height * screen.devicePixelRatio
               sourceSize.height: parent.width * screen.devicePixelRatio
             }
-            Behavior on x  {
+            Behavior on x {
               PropertyAnimation {
                 duration: 100
                 easing.type: Easing.OutQuart

@@ -210,7 +210,7 @@ Item {
       }
     }
 
-    Behavior on position  {
+    Behavior on position {
       enabled: jumpDetails.enabled
       NumberAnimation {
         easing.type: Easing.InOutQuart
@@ -230,22 +230,22 @@ Item {
 
     freeze: false
 
-    Behavior on x  {
+    Behavior on x {
       NumberAnimation {
         duration: mapCanvasWrapper.animationDuration
       }
     }
-    Behavior on y  {
+    Behavior on y {
       NumberAnimation {
         duration: mapCanvasWrapper.animationDuration
       }
     }
-    Behavior on scale  {
+    Behavior on scale {
       NumberAnimation {
         duration: mapCanvasWrapper.animationDuration
       }
     }
-    Behavior on rotation  {
+    Behavior on rotation {
       NumberAnimation {
         duration: mapCanvasWrapper.animationDuration
       }

@@ -161,8 +161,7 @@ EditorWidgetBase {
       clip: true
       boundsBehavior: Flickable.StopAtBounds
       highlightRangeMode: ListView.ApplyRange
-      ScrollBar.vertical: QfScrollBar {
-      }
+      ScrollBar.vertical: QfScrollBar {}
     }
 
     BusyIndicator {

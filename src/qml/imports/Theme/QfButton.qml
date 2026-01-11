@@ -70,7 +70,7 @@ Button {
         color: Theme.mainColor
         clip: true
 
-        Behavior on width  {
+        Behavior on width {
           NumberAnimation {
             duration: 200
           }
@@ -91,7 +91,7 @@ Button {
           radius: backgroundRectangle.radius
           color: Theme.mainColor
           opacity: 0.9
-          SequentialAnimation on x  {
+          SequentialAnimation on x {
             loops: Animation.Infinite
             NumberAnimation {
               from: -bar.width

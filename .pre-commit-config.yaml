@@ -76,11 +76,13 @@ repos:
     types: [json]
     args: ["--schemafile", "https://raw.githubusercontent.com/rouault/zenodo_json_schema/master/zenodo-json-schema.json"]
 
-
-- repo: https://github.com/nrbnlulu/qt-hooks
-  rev: v0.1.5  # current revision
+- repo: https://github.com/tomas-krupa/qmlformat-hook.git
+  rev: 1.2.0
   hooks:
-    -  id: qml-format
+    - id: qmlformat
+      # args: ["--check"]
+      # additional_dependencies:
+      #   - PySide6-Essentials==6.8.3
 
 - repo: https://github.com/open-vcpkg/pre-commit
   rev: v1.0.1
