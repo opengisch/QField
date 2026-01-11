@@ -127,9 +127,9 @@ Item {
     jumpDetails.fromRotation = currentRotation;
     jumpDetails.fromX = currentCenter.x;
     jumpDetails.fromY = currentCenter.y;
-    jumpDetails.toScale = scale;
+    jumpDetails.toScale = !isNaN(scale) ? scale : -1;
     jumpDetails.completedCallback = callback;
-    jumpDetails.toRotation = rotation;
+    jumpDetails.toRotation = !isNaN(rotation) ? rotation : -1;
     jumpDetails.position = 0.0;
     jumpDetails.handleMargins = handleMargins;
     freeze('jumping');
