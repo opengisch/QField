@@ -43,7 +43,7 @@ RoundButton {
     radius: round ? height / 2 : roundborder ? 12 : 0
     clip: true
 
-    Behavior on color  {
+    Behavior on color {
       ColorAnimation {
         duration: 200
       }

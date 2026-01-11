@@ -157,8 +157,7 @@ Page {
         Layout.fillWidth: true
         Layout.fillHeight: true
         ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
-        ScrollBar.vertical: QfScrollBar {
-        }
+        ScrollBar.vertical: QfScrollBar {}
         contentWidth: qfieldCloudLogin.width
         contentHeight: qfieldCloudLogin.height
         clip: true

@@ -58,7 +58,7 @@ Page {
       _maxSize: 4
       _minSize: 2
 
-      Behavior on opacity  {
+      Behavior on opacity {
         NumberAnimation {
           duration: 200
         }
@@ -104,7 +104,7 @@ Page {
         Layout.preferredHeight: Math.max(ohno.childrenRect.height, intro.childrenRect.height, ohyeah.childrenRect.height)
         clip: true
 
-        Behavior on Layout.preferredHeight  {
+        Behavior on Layout.preferredHeight {
           NumberAnimation {
             duration: 100
             easing.type: Easing.InQuad
@@ -311,7 +311,7 @@ Page {
         Layout.preferredHeight: Math.max(collectionOhno.childrenRect.height, collectionIntro.childrenRect.height)
         clip: true
 
-        Behavior on Layout.preferredHeight  {
+        Behavior on Layout.preferredHeight {
           NumberAnimation {
             duration: 100
             easing.type: Easing.InQuad
@@ -467,26 +467,30 @@ Page {
 
             Repeater {
               id: actionsRepeater
-              model: [{
+              model: [
+                {
                   "icon": Theme.getThemeVectorIcon("ic_cloud_active_24dp"),
                   "iconColor": "transparent",
                   "action": function () {
                     showQFieldCloudScreen();
                   }
-                }, {
+                },
+                {
                   "icon": Theme.getThemeVectorIcon("ic_folder_open_black_24dp"),
                   "iconColor": Theme.mainColor,
                   "action": function () {
                     platformUtilities.requestStoragePermission();
                     showLocalDataPicker();
                   }
-                }, {
+                },
+                {
                   "icon": Theme.getThemeVectorIcon("ic_add_white_24dp"),
                   "iconColor": Theme.mainColor,
                   "action": function () {
                     showProjectCreationScreen();
                   }
-                }]
+                }
+              ]
 
               delegate: QfToolButton {
                 Layout.alignment: Qt.AlignHCenter
@@ -536,8 +540,7 @@ Page {
 
             ListView {
               id: table
-              ScrollBar.vertical: QfScrollBar {
-              }
+              ScrollBar.vertical: QfScrollBar {}
               flickableDirection: Flickable.AutoFlickIfNeeded
               boundsBehavior: Flickable.StopAtBounds
               clip: true

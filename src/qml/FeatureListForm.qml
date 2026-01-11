@@ -257,8 +257,7 @@ Pane {
 
   WheelHandler {
     acceptedDevices: PointerDevice.AllDevices
-    onWheel: {
-    }
+    onWheel: {}
   }
 
   QtObject {
@@ -280,8 +279,7 @@ Pane {
     anchors.bottomMargin: mainWindow.sceneBottomMargin
     height: parent.height - featureListToolBar.height
     visible: false
-    ScrollBar.vertical: QfScrollBar {
-    }
+    ScrollBar.vertical: QfScrollBar {}
 
     section.property: "layerName"
     section.labelPositioning: ViewSection.CurrentLabelAtStart | ViewSection.InlineLabels
@@ -356,7 +354,7 @@ Pane {
         width: 6
         color: featureFormList.selectionColor
         opacity: index == featureFormList.selection.focusedItem && featureFormList.selection.model.selectedCount == 0 ? 1 : 0
-        Behavior on opacity  {
+        Behavior on opacity {
           PropertyAnimation {
             easing.type: Easing.OutQuart
           }
@@ -409,7 +407,7 @@ Pane {
       width: parent.width
     }
 
-    Behavior on height  {
+    Behavior on height {
       PropertyAnimation {
         easing.type: Easing.OutQuart
       }
@@ -789,7 +787,7 @@ Pane {
     }
   }
 
-  Behavior on width  {
+  Behavior on width {
     enabled: !isDragging
     PropertyAnimation {
       duration: parent.width > parent.height ? 250 : 0
@@ -804,7 +802,7 @@ Pane {
     }
   }
 
-  Behavior on height  {
+  Behavior on height {
     enabled: !isDragging
     PropertyAnimation {
       duration: parent.width < parent.height ? 250 : 0
@@ -819,7 +817,7 @@ Pane {
     }
   }
 
-  Behavior on anchors.rightMargin  {
+  Behavior on anchors.rightMargin {
     PropertyAnimation {
       duration: 250
       easing.type: Easing.OutQuart
@@ -833,7 +831,7 @@ Pane {
     }
   }
 
-  Behavior on anchors.bottomMargin  {
+  Behavior on anchors.bottomMargin {
     PropertyAnimation {
       duration: 250
       easing.type: Easing.OutQuart

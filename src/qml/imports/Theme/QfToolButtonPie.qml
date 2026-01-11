@@ -33,7 +33,7 @@ Menu {
     visible: pieMenu.showConnectionLine && pieMenu.targetPoint !== null
     opacity: visible ? 1 : 0
 
-    Behavior on opacity  {
+    Behavior on opacity {
       NumberAnimation {
         duration: internal.animationDuration
       }
@@ -118,8 +118,7 @@ Menu {
       interactive: false
       model: pieMenu.contentModel
 
-      delegate: Item {
-      }
+      delegate: Item {}
 
       path: Path {
         startX: pieMenu.width / 2

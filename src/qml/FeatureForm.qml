@@ -177,8 +177,7 @@ Page {
           contentHeight: content.height
           bottomMargin: form.bottomMargin
           clip: true
-          ScrollBar.vertical: QfScrollBar {
-          }
+          ScrollBar.vertical: QfScrollBar {}
           boundsBehavior: Flickable.StopAtBounds
 
           Rectangle {
@@ -432,8 +431,7 @@ Page {
   Component {
     id: dummyContainer
 
-    Item {
-    }
+    Item {}
   }
 
   /**

@@ -116,8 +116,7 @@ QfPopup {
       leftPadding: 5
       rightPadding: 5 // Considering scroll bar
       ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
-      ScrollBar.vertical: QfScrollBar {
-      }
+      ScrollBar.vertical: QfScrollBar {}
       contentWidth: trackerSettingsGrid.width
       contentHeight: trackerSettingsGrid.height + bottomRow.height
       clip: true
@@ -615,8 +614,7 @@ QfPopup {
     id: featureModel
     project: qgisProject
 
-    geometry: Geometry {
-    }
+    geometry: Geometry {}
 
     appExpressionContextScopesGenerator: AppExpressionContextScopesGenerator {
       positionInformation: appScopesGenerator.positionInformation

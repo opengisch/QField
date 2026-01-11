@@ -315,8 +315,7 @@ Page {
           leftPadding: 0
           rightPadding: 0
           ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
-          ScrollBar.vertical: QfScrollBar {
-          }
+          ScrollBar.vertical: QfScrollBar {}
           contentWidth: generalSettingsGrid.width
           contentHeight: generalSettingsGrid.height
           anchors.fill: parent
@@ -820,8 +819,7 @@ Page {
           leftPadding: 20
           rightPadding: 20
           ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
-          ScrollBar.vertical: QfScrollBar {
-          }
+          ScrollBar.vertical: QfScrollBar {}
           contentWidth: positioningGrid.width
           contentHeight: positioningGrid.height
           anchors.fill: parent
@@ -1243,12 +1241,12 @@ Page {
 
               Label {
                 text: qsTr("When the accuracy indicator is enabled, a badge is attached to the location button and colored <span %1>red</span> if the accuracy value is worse than <i>bad</i>, <span %2>yellow</span> if it falls short of <i>excellent</i>, or <span %3>green</span>.<br><br>In addition, an accuracy restriction mode can be toggled on, which restricts vertex addition when locked to coordinate cursor to positions with an accuracy value worse than the bad threshold.").arg("style='%1'".arg(Theme.toInlineStyles({
-                        "color": Theme.accuracyBad
-                      }))).arg("style='%1'".arg(Theme.toInlineStyles({
-                        "color": Theme.accuracyTolerated
-                      }))).arg("style='%1'".arg(Theme.toInlineStyles({
-                        "color": Theme.accuracyExcellent
-                      })))
+                  "color": Theme.accuracyBad
+                }))).arg("style='%1'".arg(Theme.toInlineStyles({
+                  "color": Theme.accuracyTolerated
+                }))).arg("style='%1'".arg(Theme.toInlineStyles({
+                  "color": Theme.accuracyExcellent
+                })))
                 font: Theme.tipFont
                 color: Theme.secondaryTextColor
                 textFormat: Qt.RichText
@@ -1522,23 +1520,23 @@ Page {
                   reloading = true;
                   verticalGridShiftComboBox.model.clear();
                   verticalGridShiftComboBox.model.append({
-                      "text": qsTr("None"),
-                      "value": Positioning.ElevationCorrectionMode.None
-                    });
+                    "text": qsTr("None"),
+                    "value": Positioning.ElevationCorrectionMode.None
+                  });
                   if ((positionSource.deviceCapabilities & AbstractGnssReceiver.OrthometricAltitude) != 0) {
                     verticalGridShiftComboBox.model.append({
-                        "text": qsTr("Orthometric from device"),
-                        "value": Positioning.ElevationCorrectionMode.OrthometricFromDevice
-                      });
+                      "text": qsTr("Orthometric from device"),
+                      "value": Positioning.ElevationCorrectionMode.OrthometricFromDevice
+                    });
                   }
 
                   // Add geoid files to combobox
                   var geoidFiles = platformUtilities.availableGrids();
                   for (var i = 0; i < geoidFiles.length; i++)
                     verticalGridShiftComboBox.model.append({
-                        "text": geoidFiles[i],
-                        "value": Positioning.ElevationCorrectionMode.OrthometricFromGeoidFile
-                      });
+                      "text": geoidFiles[i],
+                      "value": Positioning.ElevationCorrectionMode.OrthometricFromGeoidFile
+                    });
                   if (positioningSettings.elevationCorrectionMode === Positioning.ElevationCorrectionMode.None) {
                     verticalGridShiftComboBox.currentIndex = indexOfValue(positioningSettings.elevationCorrectionMode);
                     positioningSettings.verticalGrid = "";

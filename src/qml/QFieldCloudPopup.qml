@@ -54,10 +54,8 @@ Popup {
       id: scrollView
       anchors.fill: parent
 
-      ScrollBar.horizontal: QfScrollBar {
-      }
-      ScrollBar.vertical: QfScrollBar {
-      }
+      ScrollBar.horizontal: QfScrollBar {}
+      ScrollBar.vertical: QfScrollBar {}
       contentWidth: mainGrid.width
       contentHeight: mainGrid.height
       padding: 0
@@ -650,8 +648,7 @@ Popup {
             Layout.margins: 0
             height: parent.height
             ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
-            ScrollBar.vertical: QfScrollBar {
-            }
+            ScrollBar.vertical: QfScrollBar {}
             contentWidth: qfieldCloudLogin.width
             contentHeight: qfieldCloudLogin.childrenRect.height
             clip: true
@@ -687,7 +684,7 @@ Popup {
       clip: true
       opacity: isVisible ? 1 : 0
 
-      Behavior on opacity  {
+      Behavior on opacity {
         PropertyAnimation {
           easing.type: Easing.OutQuart
         }

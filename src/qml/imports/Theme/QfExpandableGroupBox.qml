@@ -22,7 +22,7 @@ Rectangle {
 
   signal clicked
 
-  Behavior on implicitHeight  {
+  Behavior on implicitHeight {
     NumberAnimation {
       duration: 200
     }

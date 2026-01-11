@@ -18,7 +18,7 @@ ToolButton {
   width: height + (buttonText.visible ? buttonText.width + 24 : 0) + (innerAction.visible ? 32 : 0)
   clip: true
 
-  Behavior on width  {
+  Behavior on width {
     NumberAnimation {
       duration: 200
     }

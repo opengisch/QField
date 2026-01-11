@@ -52,8 +52,7 @@ Page {
         objectName: 'messagesList'
         flickableDirection: Flickable.VerticalFlick
         boundsBehavior: Flickable.StopAtBounds
-        ScrollBar.vertical: QfScrollBar {
-        }
+        ScrollBar.vertical: QfScrollBar {}
         clip: true
         anchors.fill: parent
         spacing: 2

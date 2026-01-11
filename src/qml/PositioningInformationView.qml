@@ -31,8 +31,7 @@ Rectangle {
     height: positioningInformationView.height
     contentHeight: grid.height
     boundsBehavior: Flickable.StopAtBounds
-    ScrollBar.vertical: QfScrollBar {
-    }
+    ScrollBar.vertical: QfScrollBar {}
 
     GridView {
       id: grid

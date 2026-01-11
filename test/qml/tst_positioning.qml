@@ -184,31 +184,38 @@ TestCase {
     compare(positioning.positionInformation.imuSteeringValid, true);
 
     // Expected values for positioningInformations
-    const expectedPositioningInformationsValues = [{
+    const expectedPositioningInformationsValues = [
+      {
         "name": "PDOP",
         "value": "1.5"
-      }, {
+      },
+      {
         "name": "HDOP",
         "value": "0.9"
-      }, {
+      },
+      {
         "name": "VDOP",
         "value": "1.2"
-      }, {
+      },
+      {
         "name": "Valid",
         "value": "True"
-      }, {
+      },
+      {
         "name": "Fix",
         "value": "Fix3D"
-      }, {
+      },
+      {
         "name": "Quality",
         "value": "Fixed RTK + IMU"
-      }];
+      }
+    ];
 
     // we are skipping "4" items ["X","Y","Altitude","Speed", "H. Accuracy", "V. Accuracy"] because they might move a bit.
     compare(positioningInformations.count, expectedPositioningInformationsValues.length + 6);
     expectedPositioningInformationsValues.forEach((expected, index) => {
-        compare(positioningInformations.itemAt(index + 6).name, expected.name);
-        compare(positioningInformations.itemAt(index + 6).value, expected.value);
-      });
+      compare(positioningInformations.itemAt(index + 6).name, expected.name);
+      compare(positioningInformations.itemAt(index + 6).value, expected.value);
+    });
   }
 }
