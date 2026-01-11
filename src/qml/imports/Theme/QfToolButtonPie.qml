@@ -173,7 +173,7 @@ Menu {
       visible: pieMenu.centralActionVisible
       opacity: visible ? 1 : 0
 
-      Behavior on opacity  {
+      Behavior on opacity {
         NumberAnimation {
           duration: internal.animationDuration
         }
