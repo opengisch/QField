@@ -479,7 +479,10 @@ void ProjectInfo::restoreSettings( QString &projectFilePath, QgsProject *project
   QSettings settings;
 
   const double rotation = settings.value( QStringLiteral( "qgis/projectInfo/%1/rotation" ).arg( projectFilePath ), mapCanvas->mapSettings()->rotation() ).toDouble();
-  mapCanvas->mapSettings()->setRotation( rotation );
+  if ( !std::isnan( rotation ) )
+  {
+    mapCanvas->mapSettings()->setRotation( rotation );
+  }
 
   const bool isTemporal = settings.value( QStringLiteral( "/qgis/projectInfo/%1/isTemporal" ).arg( projectFilePath ), false ).toBool();
   const QString begin = settings.value( QStringLiteral( "/qgis/projectInfo/%1/StartDateTime" ).arg( projectFilePath ), QString() ).toString();
