@@ -307,27 +307,35 @@ bool CogoOperationPointAtIntersectionCircles::checkReadiness( const QVariantMap 
     return false;
   }
 
-  QgsPoint point = parameters[QStringLiteral( "point1" )].value<QgsPoint>();
-  if ( point.isEmpty() )
+  const QgsPoint point1 = parameters[QStringLiteral( "point1" )].value<QgsPoint>();
+  if ( point1.isEmpty() )
   {
     return false;
   }
 
-  point = parameters[QStringLiteral( "point2" )].value<QgsPoint>();
-  if ( point.isEmpty() )
+  const QgsPoint point2 = parameters[QStringLiteral( "point2" )].value<QgsPoint>();
+  if ( point2.isEmpty() )
   {
     return false;
   }
 
   bool ok;
-  ( void ) parameters[QStringLiteral( "distance1" )].toDouble( &ok );
+  const double distance1 = parameters[QStringLiteral( "distance1" )].toDouble( &ok );
   if ( !ok )
   {
     return false;
   }
 
-  ( void ) parameters[QStringLiteral( "distance2" )].toDouble( &ok );
+  const double distance2 = parameters[QStringLiteral( "distance2" )].toDouble( &ok );
   if ( !ok )
+  {
+    return false;
+  }
+
+  QgsPointXY candidateA;
+  QgsPointXY candidateB;
+  QgsGeometryUtils::circleCircleIntersections( point1, distance1, point2, distance2, candidateA, candidateB );
+  if ( candidateA.isEmpty() )
   {
     return false;
   }
