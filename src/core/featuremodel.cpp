@@ -946,10 +946,6 @@ void FeatureModel::applyGeometry( bool fromVertexModel )
             }
           }
 
-          QHash<QgsVectorLayer *, QSet<QgsFeatureId>> ignoredFeature;
-          ignoredFeature.insert( mLayer, modifiedFeatureIds );
-          geometry.avoidIntersectionsV2( intersectionLayers, ignoredFeature );
-
           if ( fromVertexModel && !modifiedFeatureIds.isEmpty() )
           {
             if ( !modifiedFeatureIds.contains( mFeature.id() ) || modifiedFeatureIds.size() >= 2 )
@@ -972,6 +968,8 @@ void FeatureModel::applyGeometry( bool fromVertexModel )
                   // PSA: calling makeValid() wipes out M values
                   modifiedGeometry = modifiedGeometry.makeValid();
                 }
+                QHash<QgsVectorLayer *, QSet<QgsFeatureId>> ignoredFeature;
+                ignoredFeature.insert( mLayer, QSet<QgsFeatureId>() << modifiedFeature.id() << mFeature.id() );
                 Qgis::GeometryOperationResult result = modifiedGeometry.avoidIntersectionsV2( intersectionLayers, ignoredFeature );
                 if ( result != Qgis::GeometryOperationResult::NothingHappened )
                 {
@@ -1005,6 +1003,10 @@ void FeatureModel::applyGeometry( bool fromVertexModel )
               mLayer->commitChanges();
             }
           }
+
+          QHash<QgsVectorLayer *, QSet<QgsFeatureId>> ignoredFeature;
+          ignoredFeature.insert( mLayer, QSet<QgsFeatureId>() << mFeature.id() );
+          geometry.avoidIntersectionsV2( intersectionLayers, ignoredFeature );
         }
       }
       break;
