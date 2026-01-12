@@ -98,6 +98,7 @@ jobs:
                 -D CMAKE_COMPILE_WARNING_AS_ERROR=ON \
                 -D SENTRY_DSN=${{ secrets.SENTRY_DSN }} \
                 -D SENTRY_ENV="${APP_ENV}" \
+                -D PACKAGE_ZIP=ON \
                 ${EXTRA_CMAKE_ARGS}
 
       - name: 📑 Upload dep build logs
