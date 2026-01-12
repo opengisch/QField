@@ -132,8 +132,8 @@ QfVisibilityFadingRow {
     CogoExecutor {
       id: cogoExecutor
 
-      name: digitizingToolbar.cogoOperationSettings.name
-      parameterValues: digitizingToolbar.cogoOperationSettings.parameterValues
+      name: digitizingToolbar.cogoOperationSettings ? digitizingToolbar.cogoOperationSettings.name : ""
+      parameterValues: digitizingToolbar.cogoOperationSettings ? digitizingToolbar.cogoOperationSettings.parameterValues : {}
 
       mapSettings: digitizingToolbar.mapSettings
       rubberbandModel: digitizingToolbar.rubberbandModel
