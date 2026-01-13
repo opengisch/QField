@@ -889,7 +889,7 @@ Page {
 
         iconSource: Theme.getThemeVectorIcon("ic_check_white_24dp")
         iconColor: (form.state === 'Add' && model.featureModel.featureAdditionLocked) || !model.constraintsHardValid ? Theme.mainOverlayColor : Theme.mainTextColor
-        bgcolor: (form.state === 'Add' && model.featureModel.featureAdditionLocked) || !model.constraintsHardValid ? Theme.errorColor : !model.constraintsSoftValid ? Theme.warningColor : "transparent"
+        bgcolor: (form.state === 'Add' && model.featureModel.featureAdditionLocked) || !model.constraintsHardValid ? Theme.errorColor : !model.constraintsSoftValid ? Theme.warningColor : model.hasConstraints ? Theme.goodColor : "transparent"
         borderColor: Theme.mainBackgroundColor
         roundborder: true
         round: true

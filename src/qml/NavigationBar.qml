@@ -257,7 +257,7 @@ Rectangle {
 
     iconSource: Theme.getThemeVectorIcon("ic_check_white_24dp")
     iconColor: !featureForm.model.constraintsHardValid ? Theme.mainOverlayColor : Theme.mainTextColor
-    bgcolor: !featureForm.model.constraintsHardValid ? Theme.errorColor : !featureForm.model.constraintsSoftValid ? Theme.warningColor : "transparent"
+    bgcolor: !featureForm.model.constraintsHardValid ? Theme.errorColor : !featureForm.model.constraintsSoftValid ? Theme.warningColor : featureForm.model.hasConstraints ? Theme.goodColor : "transparent"
     borderColor: Theme.mainBackgroundColor
     roundborder: true
     round: true
