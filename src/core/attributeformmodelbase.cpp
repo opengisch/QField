@@ -193,6 +193,7 @@ void AttributeFormModelBase::resetModel()
   setConstraintsSoftValid( true );
   setHasTabs( false );
   setHasRemembrance( false );
+  setHasConstraints( false );
 
   if ( !mFeatureModel )
     return;
@@ -587,7 +588,15 @@ void AttributeFormModelBase::buildForm( QgsAttributeEditorContainer *container, 
           descriptions << tr( "Unique" );
         }
 
-        item->setData( descriptions.join( ", " ), AttributeFormModel::ConstraintDescription );
+        if ( !descriptions.isEmpty() )
+        {
+          setHasConstraints( true );
+          item->setData( descriptions.join( ", " ), AttributeFormModel::ConstraintDescription );
+        }
+        else
+        {
+          item->setData( QString(), AttributeFormModel::ConstraintDescription );
+        }
 
         QgsProperty property = mLayer->editFormConfig().dataDefinedFieldProperties( field.name() ).property( QgsEditFormConfig::DataDefinedProperty::Alias );
         if ( property.isActive() )
@@ -1204,6 +1213,20 @@ void AttributeFormModelBase::setHasRemembrance( bool hasRemembrance )
 
   mHasRemembrance = hasRemembrance;
   emit hasRemembranceChanged();
+}
+
+bool AttributeFormModelBase::hasConstraints() const
+{
+  return mHasConstraints;
+}
+
+void AttributeFormModelBase::setHasConstraints( bool hasConstraints )
+{
+  if ( hasConstraints == mHasConstraints )
+    return;
+
+  mHasConstraints = hasConstraints;
+  emit hasConstraintsChanged();
 }
 
 bool AttributeFormModelBase::save()
