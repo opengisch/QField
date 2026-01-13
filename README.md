@@ -1,5 +1,5 @@
 [![Read the Docs](https://img.shields.io/badge/Read-the%20Docs-green.svg)](https://docs.qfield.org/)
-[![Discussions](https://img.shields.io/github/discussions/opengisch/qfield?label=Discussions)](https://github.com/opengisch/QField/discussions)
+[![Community Platform](https://img.shields.io/discourse/topics?server=https://community.qfield.org)](https://community.qfield.org)
 [![Sponsor](https://img.shields.io/static/v1?label=Support&message=%E2%9D%A4)](https://github.com/sponsors/opengisch)
 [![Contribute](https://img.shields.io/static/v1?label=Contribute&message=💪)](#contribute)
 [![Release](https://img.shields.io/github/release/opengisch/QField.svg?label=Release)](https://github.com/opengisch/QField/releases)
