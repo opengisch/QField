@@ -85,6 +85,7 @@ QtObject {
   property color lightestGraySemiOpaque: "#e0eeeeee"
   property color light: "#ffffff"
 
+  property color goodColor: "#80cc28"
   property color errorColor: darkTheme ? "#df3422" : "#c0392b"
   property color warningColor: "orange"
   property color cloudColor: "#4c6dac"
