@@ -1,0 +1,40 @@
+From ffc5bcf6b234c8429ccbd7056b8f4b47151d8bf6 Mon Sep 17 00:00:00 2001
+From: Jani Korteniemi <jani.korteniemi@qt.io>
+Date: Fri, 19 Dec 2025 15:25:27 +0200
+Subject: [PATCH] Android: Add Keyboard inset in safe area margins
+
+Use Keyboard height to set changes to safe area bottom
+if keyboard is visible.
+
+Fixes Edittext overlapping with keyboard when
+tapped multiple times.
+
+Pick-to: 6.11 6.10 6.8
+Fixes: QTBUG-141175
+Task-number: QTBUG-139722
+Task-number: QTBUG-140069
+Change-Id: If28702e856e90b106b7c8f615bcdca43fff45715
+---
+
+diff --git a/src/android/jar/src/org/qtproject/qt/android/QtWindow.java b/src/android/jar/src/org/qtproject/qt/android/QtWindow.java
+index c63cd1a..d38a597 100644
+--- a/src/android/jar/src/org/qtproject/qt/android/QtWindow.java
++++ b/src/android/jar/src/org/qtproject/qt/android/QtWindow.java
+@@ -207,12 +207,16 @@
+         int rightOffset = (rootX + rootView.getWidth()) - (windowX + getWidth());
+         int bottomOffset = (rootY + rootView.getHeight()) - (windowY + getHeight());
+ 
++        int keyboardHeight = 0;
++        if (insets.isVisible(WindowInsets.Type.ime()))
++            keyboardHeight = insets.getInsets(WindowInsets.Type.ime()).bottom;
++
+         // Find the remaining minimum safe margins
+         Insets safeInsets = getSafeInsets(rootView, insets);
+         int left = Math.max(0, Math.min(safeInsets.left, safeInsets.left - leftOffset));
+         int top = Math.max(0, Math.min(safeInsets.top, safeInsets.top - topOffset));
+         int right = Math.max(0, Math.min(safeInsets.right, safeInsets.right - rightOffset));
+-        int bottom = Math.max(0, Math.min(safeInsets.bottom, safeInsets.bottom - bottomOffset));
++        int bottom = Math.max(keyboardHeight, Math.min(safeInsets.bottom, safeInsets.bottom - bottomOffset));
+ 
+         safeAreaMarginsChanged(Insets.of(left, top, right, bottom), id);
+     }

@@ -28,6 +28,7 @@ set(${PORT}_PATCHES
         xcodebuild-not-installed.patch
         fix-libresolv-test.patch
         android_keyboard_fix.patch
+        android_keyboard_fix2.patch
 )
  
 if(VCPKG_TARGET_IS_WINDOWS AND NOT VCPKG_TARGET_IS_MINGW)
