@@ -33,7 +33,6 @@ ComboBox {
     selectedTextColor: comboBox.Material.primaryHighlightedTextColor
     verticalAlignment: Text.AlignVCenter
 
-    cursorDelegate: CursorDelegate {
-    }
+    cursorDelegate: CursorDelegate {}
   }
 }

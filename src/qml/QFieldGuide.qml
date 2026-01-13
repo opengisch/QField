@@ -26,10 +26,8 @@ Popup {
   parent: Overlay.overlay
   width: internalObject.parentWidth
   height: internalObject.parentHeight
-  background: Item {
-  }
-  contentItem: Item {
-  }
+  background: Item {}
+  contentItem: Item {}
   clip: true
   onVisibleChanged: {
     if (visible) {
@@ -171,7 +169,7 @@ Popup {
     radius: 4
     clip: true
 
-    Behavior on x  {
+    Behavior on x {
       enabled: enablePanelAnimation
 
       NumberAnimation {
@@ -179,7 +177,7 @@ Popup {
         duration: 150
       }
     }
-    Behavior on y  {
+    Behavior on y {
       enabled: enablePanelAnimation
 
       NumberAnimation {

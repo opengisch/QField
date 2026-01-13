@@ -52,14 +52,14 @@ Container {
   clip: true
   focusPolicy: Qt.NoFocus
 
-  Behavior on width  {
+  Behavior on width {
     enabled: true
     NumberAnimation {
       duration: 200
     }
   }
 
-  Behavior on height  {
+  Behavior on height {
     enabled: true
     NumberAnimation {
       duration: 200

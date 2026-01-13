@@ -432,6 +432,7 @@ void QgisMobileapp::initDeclarative( QQmlEngine *engine )
   qRegisterMetaType<Qgis::GeometryType>( "Qgis::GeometryType" );
   qRegisterMetaType<Qgis::WkbType>( "Qgis::WkbType" );
   qRegisterMetaType<Qgis::LayerType>( "Qgis::LayerType" );
+  qRegisterMetaType<Qgis::LayerFilters>( "Qgis::LayerFilters" );
   qRegisterMetaType<Qgis::DistanceUnit>( "Qgis::DistanceUnit" );
   qRegisterMetaType<Qgis::AreaUnit>( "Qgis::AreaUnit" );
   qRegisterMetaType<Qgis::AngleUnit>( "Qgis::AngleUnit" );

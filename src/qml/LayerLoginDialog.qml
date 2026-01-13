@@ -34,8 +34,7 @@ Page {
     Layout.fillHeight: true
     contentHeight: content.height
     clip: true
-    ScrollBar.vertical: QfScrollBar {
-    }
+    ScrollBar.vertical: QfScrollBar {}
 
     ColumnLayout {
       id: content

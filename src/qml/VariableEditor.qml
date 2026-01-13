@@ -37,8 +37,7 @@ ColumnLayout {
       spacing: 1
       anchors.fill: parent
 
-      ScrollBar.vertical: QfScrollBar {
-      }
+      ScrollBar.vertical: QfScrollBar {}
 
       model: ExpressionVariableModel {
         currentProject: qgisProject

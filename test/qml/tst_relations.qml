@@ -43,8 +43,8 @@ TestCase {
 
     // 4) Create and register relation
     let relation = RelationUtils.createRelation(referencedLayer, referencingLayer, {
-        "district_uuid": "parent_district_uuid"
-      });
+      "district_uuid": "parent_district_uuid"
+    });
     verify(relation.isValid, "Relation should be valid");
     let relationManager = qgisProject.relationManager;
     relationManager.addRelation(relation);
@@ -182,8 +182,8 @@ TestCase {
 
     // 5) Create and register polymorphic relation
     let polymorphicRelation = RelationUtils.addPolymorphicRelation(qgisProject, [parent1Layer, parent2Layer], childLayer, {
-        "uuid": "parent_uuid"
-      }, "parent_layer", "@layer_name");
+      "uuid": "parent_uuid"
+    }, "parent_layer", "@layer_name");
     verify(polymorphicRelation.isValid, "Polymorphic relation should be valid");
 
     // 6) Add features to first parent layer

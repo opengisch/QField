@@ -86,9 +86,9 @@ Item {
         height: 40
         padding: 2
         round: true
-        bgcolor: cogoOperationSettings.name === Name ? Theme.toolButtonBackgroundColor : Theme.toolButtonBackgroundSemiOpaqueColor
+        bgcolor: cogoOperationSettings && cogoOperationSettings.name === Name ? Theme.toolButtonBackgroundColor : Theme.toolButtonBackgroundSemiOpaqueColor
         iconSource: Theme.getThemeVectorIcon(Icon)
-        iconColor: cogoOperationSettings.name === Name ? Theme.mainColor : Theme.toolButtonColor
+        iconColor: cogoOperationSettings && cogoOperationSettings.name === Name ? Theme.mainColor : Theme.toolButtonColor
 
         onClicked: {
           Qt.inputMethod.hide();

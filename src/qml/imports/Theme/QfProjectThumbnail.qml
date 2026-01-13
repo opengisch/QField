@@ -174,7 +174,7 @@ Rectangle {
           anchors.margins: 8
           opacity: visible
 
-          Behavior on opacity  {
+          Behavior on opacity {
             NumberAnimation {
               duration: 200
             }

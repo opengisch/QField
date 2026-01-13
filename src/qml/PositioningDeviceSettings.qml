@@ -48,9 +48,9 @@ QfPopup {
   function handleEgenioussChange() {
     if (positioningSettings.egenioussEnabled) {
       positioningDeviceTypeModel.insert(0, {
-          "name": qsTr('Egeniouss'),
-          "value": PositioningDeviceModel.EgenioussDevice
-        });
+        "name": qsTr('Egeniouss'),
+        "value": PositioningDeviceModel.EgenioussDevice
+      });
     } else {
       positioningDeviceTypeModel.remove(0, 1);
       if (positioningDeviceModel.findIndexFromDeviceId("egeniouss:") !== -1) {
@@ -64,27 +64,27 @@ QfPopup {
   Component.onCompleted: {
     if (withBluetooth) {
       positioningDeviceTypeModel.insert(0, {
-          "name": qsTr('Bluetooth (NMEA)'),
-          "value": PositioningDeviceModel.BluetoothDevice
-        });
+        "name": qsTr('Bluetooth (NMEA)'),
+        "value": PositioningDeviceModel.BluetoothDevice
+      });
     }
     if (withSerialPort) {
       positioningDeviceTypeModel.insert(positioningDeviceTypeModel.count, {
-          "name": qsTr('Serial port (NMEA)'),
-          "value": PositioningDeviceModel.SerialPortDevice
-        });
+        "name": qsTr('Serial port (NMEA)'),
+        "value": PositioningDeviceModel.SerialPortDevice
+      });
     }
     if (Qt.platform.os !== "android" && Qt.platform.os !== "ios") {
       positioningDeviceTypeModel.insert(positioningDeviceTypeModel.count, {
-          "name": qsTr('Logs file (NMEA)'),
-          "value": PositioningDeviceModel.FileDevice
-        });
+        "name": qsTr('Logs file (NMEA)'),
+        "value": PositioningDeviceModel.FileDevice
+      });
     }
     if (positioningSettings.egenioussEnabled) {
       positioningDeviceTypeModel.insert(0, {
-          "name": qsTr('Egeniouss'),
-          "value": PositioningDeviceModel.EgenioussDevice
-        });
+        "name": qsTr('Egeniouss'),
+        "value": PositioningDeviceModel.EgenioussDevice
+      });
     }
     positioningDeviceType.model = positioningDeviceTypeModel;
     positioningSettings.onEgenioussEnabledChanged.connect(handleEgenioussChange);
@@ -130,8 +130,7 @@ QfPopup {
       rightPadding: 5
       bottomPadding: 0
       ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
-      ScrollBar.vertical: QfScrollBar {
-      }
+      ScrollBar.vertical: QfScrollBar {}
       contentWidth: settingsLayout.childrenRect.width
       contentHeight: settingsLayout.childrenRect.height + positioningDeviceItem.item.childrenRect.height
       width: parent.width

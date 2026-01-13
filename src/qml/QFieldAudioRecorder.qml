@@ -56,8 +56,7 @@ QfPopup {
 
     sourceComponent: Component {
       CaptureSession {
-        audioInput: AudioInput {
-        }
+        audioInput: AudioInput {}
         recorder: audioRecorder
       }
     }
@@ -209,7 +208,7 @@ QfPopup {
               radius: recorder.recorderState === MediaRecorder.RecordingState ? 10 : width / 2
               color: "#FFFFFF"
 
-              Behavior on radius  {
+              Behavior on radius {
                 PropertyAnimation {
                   duration: 250
                   easing.type: Easing.InOutQuad

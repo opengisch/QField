@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24" height="24" version="1.1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+ <g fill="none" stroke="#000">
+  <g stroke-width="2">
+   <!-- Point -->
+   <circle cx="4.5" cy="6.5" r="1.5"/>
+   <!-- Line -->
+   <path d="m5.3182 18.515 5.3408-12.852" stroke-linecap="round" stroke-linejoin="round"/>
+   <!-- Line vertices -->
+   <circle cx="11.5" cy="4" r="1.5"/>
+   <circle cx="20.5" cy="4" r="1.5"/>
+   <circle cx="4.5" cy="20" r="1.5"/>
+   <!-- Polygon -->
+  </g>
+  <path d="m17.86 11.061c-2.9509 1.1448-6.6798 3.0959-5.7255 7.2238 0.95426 4.1279 7.6341 3.0959 8.5883 0s-0.71805-7.9977-2.8628-7.2238z" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.9847"/>
+  <path d="m13 4h6" stroke-dashoffset="3" stroke-linejoin="round" stroke-width="2"/>
+ </g>
+</svg>

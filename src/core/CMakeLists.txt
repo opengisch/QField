@@ -114,6 +114,7 @@ set(QFIELD_CORE_SRCS
     projectsimageprovider.cpp
     qfieldappauthrequesthandler.cpp
     qfieldurlhandler.cpp
+    qfieldxmlhttprequest.cpp
     qgismobileapp.cpp
     qgsgeometrywrapper.cpp
     qgsgpkgflusher.cpp
@@ -252,6 +253,7 @@ set(QFIELD_CORE_HDRS
     projectsimageprovider.h
     qfieldappauthrequesthandler.h
     qfieldurlhandler.h
+    qfieldxmlhttprequest.h
     qgismobileapp.h
     qgsgeometrywrapper.h
     qgsgpkgflusher.h

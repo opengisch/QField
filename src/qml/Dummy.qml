@@ -5,5 +5,4 @@ import QtQuick3D.Helpers
 import QtQuick3D.Particles3D
 import QtWebSockets
 
-Item {
-}
+Item {}

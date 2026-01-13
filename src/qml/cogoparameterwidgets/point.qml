@@ -18,11 +18,11 @@ CogoParameterWidgetBase {
       left: parent.left
       right: parent.right
     }
-    columns: 3
+    columns: 4
 
     RowLayout {
       Layout.fillWidth: true
-      Layout.columnSpan: 3
+      Layout.columnSpan: 4
       Rectangle {
         visible: parameterColor != "#00000000"
         width: 10
@@ -69,6 +69,18 @@ CogoParameterWidgetBase {
     }
 
     QfToolButton {
+      iconSource: Theme.getThemeVectorIcon("ic_list_black_24dp")
+      iconColor: Theme.mainTextColor
+      bgcolor: "transparent"
+      round: true
+
+      onClicked: {
+        mainWindow.closeToast();
+        pointPickerLoader.active = true;
+      }
+    }
+
+    QfToolButton {
       iconSource: Theme.getThemeVectorIcon("ic_coordinate_locator_white_24dp")
       iconColor: Theme.mainTextColor
       bgcolor: "transparent"
@@ -91,6 +103,147 @@ CogoParameterWidgetBase {
     }
   }
 
+  Loader {
+    id: pointPickerLoader
+    active: false
+
+    sourceComponent: QfPopup {
+      id: pointPickerPopup
+      readonly property int minimumHeight: mainWindow.height - Math.max(Theme.popupScreenEdgeVerticalMargin * 2, mainWindow.sceneTopMargin * 2 + 4, mainWindow.sceneBottomMargin * 2 + 4)
+
+      parent: mainWindow.contentItem
+      width: mainWindow.width - Theme.popupScreenEdgeHorizontalMargin * 2
+      height: minimumHeight > 0 ? minimumHeight : 200
+      x: Theme.popupScreenEdgeHorizontalMargin
+      y: (mainWindow.height - height) / 2
+      z: 10000 // 1000s are embedded feature forms, use a higher value to insure feature form popups always show above embedded feature formes
+      closePolicy: Popup.CloseOnEscape
+      visible: true
+      focus: visible
+
+      onAboutToShow: {
+        searchBar.clear();
+      }
+
+      onClosed: {}
+
+      Page {
+        anchors.fill: parent
+        padding: 5
+
+        header: QfPageHeader {
+          title: qsTr("Point Feature Picker")
+          showBackButton: false
+          showApplyButton: false
+          showCancelButton: true
+          onCancel: {
+            pointPickerLoader.active = false;
+          }
+        }
+
+        ColumnLayout {
+          anchors.fill: parent
+
+          QfComboBox {
+            id: layersComboBox
+            Layout.fillWidth: true
+            model: MapLayerModel {
+              id: layersModel
+              enabled: true
+              project: qgisProject
+              filters: Qgis.LayerFilters.PointLayer
+            }
+
+            textRole: "Name"
+            valueRole: "LayerPointer"
+          }
+
+          QfSearchBar {
+            id: searchBar
+            Layout.fillWidth: true
+          }
+
+          ListView {
+            id: pointsList
+            Layout.fillWidth: true
+            Layout.fillHeight: true
+            model: FeatureCheckListModel {
+              id: featureListModel
+              searchTerm: searchBar.searchTerm
+              currentLayer: layersComboBox.currentValue
+            }
+
+            width: parent.width
+            height: pointPickerPopup.height - layersComboBox.height - searchBar.height - 50
+            clip: true
+            ScrollBar.vertical: QfScrollBar {}
+
+            delegate: Rectangle {
+              id: rectangle
+
+              property int fid: featureId
+              property string itemText: StringUtils.highlightText(displayString, featureListModel.searchTerm, Theme.mainTextColor)
+
+              anchors.margins: 10
+              width: parent ? parent.width : undefined
+              height: line.height + 20
+              color: pointPickerPopup.Material ? pointPickerPopup.Material.dialogColor : Theme.mainBackgroundColor
+
+              Row {
+                id: line
+                anchors.verticalCenter: parent.verticalCenter
+                spacing: 5
+
+                Text {
+                  id: contentText
+                  width: rectangle.width - 10
+                  anchors.verticalCenter: parent.verticalCenter
+                  leftPadding: 5
+                  font: Theme.defaultFont
+                  elide: Text.ElideRight
+                  wrapMode: Text.WordWrap
+                  color: featureListModel.searchTerm != '' ? Theme.secondaryTextColor : Theme.mainTextColor
+                  textFormat: Text.RichText
+                  text: itemText
+                }
+              }
+
+              Rectangle {
+                anchors.bottom: parent.bottom
+                height: 1
+                color: Theme.controlBorderColor
+                width: parent.width
+              }
+            }
+
+            MouseArea {
+              anchors.fill: parent
+              propagateComposedEvents: true
+
+              onClicked: mouse => {
+                const item = pointsList.itemAt(pointsList.contentX + mouse.x, pointsList.contentY + mouse.y);
+                if (!item) {
+                  return;
+                }
+                const feature = featureListModel.currentLayer.getFeature(item.fid);
+                if (feature) {
+                  let point = GeometryUtils.centroid(feature.geometry);
+                  point = GeometryUtils.reprojectPoint(point, featureListModel.currentLayer.crs, mapSettings.destinationCrs);
+                  applyPoint(point);
+                }
+                pointPickerLoader.active = false;
+              }
+            }
+
+            onMovementStarted: {
+              Qt.inputMethod.hide();
+            }
+          }
+        }
+      }
+    }
+  }
+
   function processValue() {
     const parts = pointField.text.split(" ").filter(Boolean);
     if (parts.length === 2 || parts.length === 3) {
@@ -106,22 +259,26 @@ CogoParameterWidgetBase {
     valueChangeRequested(undefined);
   }
 
-  function requestedPositionReceived(position, positionInformation) {
-    if (!isNaN(position.x)) {
+  function applyPoint(point) {
+    if (!isNaN(point.x)) {
       const isGeographic = destinationCrs.isGeographic;
       const precision = isGeographic ? 7 : 3;
-      let content = isGeographic ? position.y.toFixed(precision) + ' ' + position.x.toFixed(precision) : position.x.toFixed(precision) + ' ' + position.y.toFixed(precision);
+      let content = isGeographic ? point.y.toFixed(precision) + ' ' + point.x.toFixed(precision) : point.x.toFixed(precision) + ' ' + point.y.toFixed(precision);
       if (!!parameterConfiguration["hasZ"]) {
-        if (!isNaN(position.z)) {
-          content += ' ' + position.z.toFixed(3);
+        if (!isNaN(point.z)) {
+          content += ' ' + point.z.toFixed(3);
         }
       }
       pointField.text = content;
-      processValue();
     } else {
       pointField.text = '';
-      processValue();
     }
+    processValue();
+    pointField.cursorPosition = 0;
+  }
+
+  function requestedPositionReceived(position, positionInformation) {
+    applyPoint(position);
     pointParameter.positionInformation = positionInformation;
     cogoOperationSettings.requestedPositionReceived(parameterName, position, positionInformation);
   }

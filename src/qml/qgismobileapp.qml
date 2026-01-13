@@ -822,17 +822,31 @@ ApplicationWindow {
    * - Digitizing Rubberband
    **************************************************/
 
+    // Model for pie menu and context menu feature identification
+    MultiFeatureListModel {
+      id: menuFeatureListModel
+    }
+
     /** The identify tool **/
     IdentifyTool {
       id: identifyTool
 
       property bool isMenuRequest: false
+      property bool isPieMenuRequest: false
 
       mapSettings: mapCanvas.mapSettings
-      model: isMenuRequest ? canvasMenuFeatureListModel : featureListForm.model
+      model: isPieMenuRequest || isMenuRequest ? menuFeatureListModel : featureListForm.model
       searchRadiusMm: 3
 
       onIdentifyFinished: {
+        if (isPieMenuRequest) {
+          actionsPieMenu.identifiedCount = menuFeatureListModel.count;
+          isPieMenuRequest = false;
+          return;
+        }
+        if (isMenuRequest) {
+          canvasMenuFeatureListInstantiator.active = true;
+        }
         if (qfieldSettings.autoOpenFormSingleIdentify && !isMenuRequest && !featureListForm.multiSelection && featureListForm.model.count === 1) {
           featureListForm.selection.focusedItem = 0;
           featureListForm.state = "FeatureForm";
@@ -867,8 +881,7 @@ ApplicationWindow {
         }
       }
 
-      TrackingSession {
-      }
+      TrackingSession {}
     }
 
     /** COGO operation visual guides **/
@@ -1015,18 +1028,18 @@ ApplicationWindow {
 
       Component.onCompleted: {
         pointHandler.registerHandler("LocationMarker", (point, type, interactionType) => {
-            if (!locationMarker.visible || !locationMarker.isOnMapCanvas || interactionType !== "clicked") {
-              return false;
-            }
-            const dx = point.x - locationMarker.screenLocation.x;
-            const dy = point.y - locationMarker.screenLocation.y;
-            const distance = Math.sqrt(dx * dx + dy * dy);
-            if (distance > 25) {
-              return false;
-            }
-            openPieMenu(point);
-            return true;
-          }, MapCanvasPointHandler.Priority.High);
+          if (!locationMarker.visible || !locationMarker.isOnMapCanvas || interactionType !== "clicked") {
+            return false;
+          }
+          const dx = point.x - locationMarker.screenLocation.x;
+          const dy = point.y - locationMarker.screenLocation.y;
+          const distance = Math.sqrt(dx * dx + dy * dy);
+          if (distance > 25) {
+            return false;
+          }
+          openPieMenu(point);
+          return true;
+        }, MapCanvasPointHandler.Priority.High);
         if (!settings.valueBool("/QField/pieMenuOpenedOnce", false)) {
           bubbleText = qsTr("Tap on your location marker\nto show actions");
           bubbleVisible = Qt.binding(() => locationMarker.isOnMapCanvas && locationMarker.visible && !mapCanvasTour.visible);
@@ -1052,6 +1065,8 @@ ApplicationWindow {
           actionsPieMenu.y = locationMarker.screenLocation.y - actionsPieMenu.menuHalfSize;
         }
         actionsPieMenu.open();
+        identifyTool.isPieMenuRequest = true;
+        identifyTool.identify(locationMarker.screenLocation);
       }
     }
 
@@ -1077,12 +1092,55 @@ ApplicationWindow {
       }
 
       readonly property int segmentAngle: 360 / actionsPieMenu.numberOfButtons
+      property int identifiedCount: 0
+
+      onClosed: {
+        menuFeatureListModel.clear(false);
+        identifiedCount = 0;
+      }
 
       width: Math.min(150, mapCanvasMap.width / 3)
       height: width
 
       targetPoint: locationMarker.screenLocation
       showConnectionLine: visible && (nearToEdge || locationMarkerOutSidePieMenu)
+
+      centralActionVisible: identifiedCount > 0
+      centralActionComponent: Component {
+        QfToolButton {
+          id: identifyFeaturesButton
+          width: actionsPieMenu.bandWidth - 8
+          height: width
+          padding: 2
+          round: true
+          iconSource: Theme.getThemeVectorIcon("ic_geometry_mixed_24dp")
+          iconColor: Theme.toolButtonColor
+          bgcolor: Theme.toolButtonBackgroundColor
+
+          QfBadge {
+            width: 16
+            color: Theme.toolButtonColor
+            border.width: 1
+            border.color: Theme.toolButtonColor
+            badgeText.text: actionsPieMenu.identifiedCount > 9 ? "+" : actionsPieMenu.identifiedCount
+            badgeText.color: Theme.toolButtonBackgroundColor
+            z: 2
+          }
+
+          onClicked: {
+            identifyTool.isMenuRequest = false;
+            identifyTool.isPieMenuRequest = false;
+            identifyTool.identify(locationMarker.screenLocation);
+            if (qfieldSettings.autoOpenFormSingleIdentify) {
+              featureListForm.selection.focusedItem = 0;
+              featureListForm.state = "FeatureForm";
+            } else if (featureListForm.model.count > 0) {
+              featureListForm.state = "FeatureList";
+            }
+            actionsPieMenu.close();
+          }
+        }
+      }
 
       QfToolButton {
         id: gnssCursorLockButton
@@ -1313,17 +1371,17 @@ ApplicationWindow {
         onClicked: {
           if (trackings.count > 0) {
             displayToast(qsTr('Tracking active on %n layer(s)', '', trackings.count), 'info', qsTr('Stop all'), function () {
-                displayToast(qsTr('Tracking on %n layer(s) stopped', '', trackings.count));
-                trackingModel.stopTrackers();
-              });
+              displayToast(qsTr('Tracking on %n layer(s) stopped', '', trackings.count));
+              trackingModel.stopTrackers();
+            });
           } else {
             trackerSettings.prepareSettings();
             if (trackerSettings.availableLayersCount > 0) {
               trackerSettings.open();
             } else {
               displayToast(qsTr('No compatible layers available to launch tracking'), 'info', qsTr('Learn more'), function () {
-                  Qt.openUrlExternally('https://docs.qfield.org/how-to/navigation-and-positioning/tracking/');
-                });
+                Qt.openUrlExternally('https://docs.qfield.org/how-to/navigation-and-positioning/tracking/');
+              });
             }
           }
           actionsPieMenu.close();
@@ -1332,9 +1390,9 @@ ApplicationWindow {
 
       Component.onCompleted: {
         onOpened.connect(() => {
-            settings.setValue("/QField/pieMenuOpenedOnce", true);
-            locationMarker.bubbleVisible = false;
-          });
+          settings.setValue("/QField/pieMenuOpenedOnce", true);
+          locationMarker.bubbleVisible = false;
+        });
       }
     }
 
@@ -2516,8 +2574,8 @@ ApplicationWindow {
                 } else {
                   displayToast(qsTr("Map canvas follows location and compass orientation"));
                   mapCanvasMap.jumpToPosition(positionSource, -1, -positionSource.orientation, true, () => {
-                      gnssButton.followOrientation();
-                    });
+                    gnssButton.followOrientation();
+                  });
                   followOrientationActive = true;
                 }
               } else {
@@ -2575,8 +2633,8 @@ ApplicationWindow {
             jumpedOnce = true;
           }
           mapCanvasMap.jumpToPosition(positionSource, targetScale, -1, true, () => {
-              gnssButton.followLocation(true);
-            });
+            gnssButton.followLocation(true);
+          });
           if (!gnssButton.followActive) {
             mapCanvasMap.freeze('follow');
             gnssButton.followActive = true;
@@ -3223,8 +3281,8 @@ ApplicationWindow {
         } else {
           mainMenu.close();
           toast.show(qsTr('No sensor available'), 'info', qsTr('Learn more'), function () {
-              Qt.openUrlExternally('https://docs.qfield.org/how-to/advanced-how-tos/sensors/');
-            });
+            Qt.openUrlExternally('https://docs.qfield.org/how-to/advanced-how-tos/sensors/');
+          });
         }
         highlighted = false;
       }
@@ -3599,10 +3657,9 @@ ApplicationWindow {
 
     Instantiator {
       id: canvasMenuFeatureListInstantiator
+      active: false
 
-      model: MultiFeatureListModel {
-        id: canvasMenuFeatureListModel
-      }
+      model: menuFeatureListModel
 
       QfMenu {
         id: featureMenu
@@ -3737,9 +3794,9 @@ ApplicationWindow {
             if (layerGeometryType !== Qgis.GeometryType.Null && layerGeometryType !== Qgis.GeometryType.Unknown && (featureGeometryType !== Qgis.GeometryType.Point || layerGeometryType === Qgis.GeometryType.Point)) {
               if (layer.supportsEditing && !layer.readOnly) {
                 layersModel.append({
-                    "LayerType": layerGeometryType,
-                    "Layer": layer
-                  });
+                  "LayerType": layerGeometryType,
+                  "Layer": layer
+                });
               }
             }
           }
@@ -4173,8 +4230,7 @@ ApplicationWindow {
     allowEdit: stateMachine.state === "digitize"
     allowDelete: stateMachine.state === "digitize"
 
-    model: MultiFeatureListModel {
-    }
+    model: MultiFeatureListModel {}
 
     selection: FeatureListModelSelection {
       id: featureListModelSelection
@@ -4243,18 +4299,22 @@ ApplicationWindow {
 
   function showAutoLockToast() {
     displayToast(qsTr('Map canvas lock paused'), 'info', qsTr('Unlock'), () => {
-        gnssButton.autoRefollow = false;
-      }, true, () => {
-        if (positionSource.active && gnssButton.autoRefollow) {
-          mapCanvasMap.freeze('follow');
-          gnssButton.followActive = true;
-          gnssButton.followLocation(true);
-        }
-      });
+      gnssButton.autoRefollow = false;
+    }, true, () => {
+      if (positionSource.active && gnssButton.autoRefollow) {
+        mapCanvasMap.freeze('follow');
+        gnssButton.followActive = true;
+        gnssButton.followLocation(true);
+      }
+    });
   }
 
   function displayToast(message, type, action_text, action_function, stop_function, is_animation_enabled) {
     toast.show(message, type, action_text, action_function, stop_function, is_animation_enabled);
+  }
+
+  function closeToast() {
+    toast.close();
   }
 
   Timer {
@@ -4327,10 +4387,10 @@ ApplicationWindow {
     function onLoadProjectTriggered(path, name) {
       qfieldAuthRequestHandler.isProjectLoading = true;
       messageLogModel.suppress({
-          "WFS": [""],
-          "WMS": [""],
-          "PostGIS": ["fe_sendauth: no password supplied"]
-        });
+        "WFS": [""],
+        "WMS": [""],
+        "PostGIS": ["fe_sendauth: no password supplied"]
+      });
       qfieldLocalDataPickerScreen.visible = false;
       qfieldLocalDataPickerScreen.focus = false;
       welcomeScreen.visible = false;
@@ -4361,10 +4421,10 @@ ApplicationWindow {
         // project in need of handling layer credentials
         qfieldAuthRequestHandler.isProjectLoading = true;
         messageLogModel.unsuppress({
-            "WFS": [],
-            "WMS": [],
-            "PostGIS": []
-          });
+          "WFS": [],
+          "WMS": [],
+          "PostGIS": []
+        });
       }
       projectInfo.filePath = path;
       stateMachine.state = projectInfo.stateMode;
@@ -5112,22 +5172,26 @@ ApplicationWindow {
     baseRoot: mainWindow
     objectName: 'mapCanvasTour'
 
-    steps: [{
+    steps: [
+      {
         "type": "information",
         "title": qsTr("Dashboard"),
         "description": qsTr("This button opens the dashboard. With the dashboard you can interact with the legend and map theme, or start digitizing by activating the editing mode. Long-pressing the button gives you immediate access to the main menu."),
         "target": () => [menuButton]
-      }, {
+      },
+      {
         "type": "information",
         "title": qsTr("Positioning"),
         "description": qsTr("This button toggles the positioning system. When enabled, a position marker will appear top of the map. Long-pressing the button will open the positioning menu where additional functionalities can be explored."),
         "target": () => [gnssButton]
-      }, {
+      },
+      {
         "type": "information",
         "title": qsTr("Search"),
         "description": qsTr("The search bar provides you with a quick way to find features within your project, jump to a typed latitude and longitude point, and much more."),
         "target": () => [locatorItem]
-      }]
+      }
+    ]
 
     function startOnFreshRun() {
       const startupGuide = settings.valueBool("/QField/showMapCanvasGuide", true);
@@ -5145,37 +5209,44 @@ ApplicationWindow {
     z: dashBoard.z + 1
     index: -1
 
-    steps: [{
+    steps: [
+      {
         "type": "information",
         "title": qsTr("Digitizing toggle"),
         "description": qsTr("Switch between browse and digitize modes. Browse mode focuses on delivering the best experience viewing the map and its features, while digitize mode enables you to create features and edit geometries."),
         "target": () => [iface.findItemByObjectName('ModeSwitch')]
-      }, {
+      },
+      {
         "type": "information",
         "title": qsTr("Legend"),
         "description": qsTr("The legend shows map layers and allows you to toggle visibility and opacity properties by <b>long-pressing on a layer to open a properties popup</b>. The popup offers additional functionalities such as zooming to layer extent and displaying features contained within vector layers."),
         "target": () => [iface.findItemByObjectName('Legend')]
-      }, {
+      },
+      {
         "type": "information",
         "title": qsTr("Measurement"),
         "description": qsTr("Toggle the measurement tool to calculate distances and areas on the map."),
         "target": () => [iface.findItemByObjectName('MeasurementButton')]
-      }, {
+      },
+      {
         "type": "information",
         "title": qsTr("Print"),
         "description": qsTr("Export the map canvas to PDF using configured project print and atlas layouts."),
         "target": () => [iface.findItemByObjectName('PrintItemButton')]
-      }, {
+      },
+      {
         "type": "information",
         "title": qsTr("QFieldCloud"),
         "description": qsTr("Push changes, synchronize or revert changes to and from QFieldCloud when a cloud project is opened."),
         "target": () => [iface.findItemByObjectName('CloudButton')]
-      }, {
+      },
+      {
         "type": "information",
         "title": qsTr("Project folder"),
         "description": qsTr("Open the project folder to access project files, data sources, and related documents. Useful for managing project resources, manually uploading data to QFieldCloud, and sharing datasets, attachments, and layouts."),
         "target": () => [iface.findItemByObjectName('ProjectFolderButton')]
-      }]
+      }
+    ]
 
     Connections {
       id: dashBoardConnections

@@ -138,6 +138,9 @@ jobs:
       - name: 🧫 Test
         env:
           PROJ_LIB: ${{ github.workspace }}/build/vcpkg_installed/x64-linux/share/proj
+          QFIELDCLOUD_TEST_USERNAME: ${{ secrets.QFIELDCLOUD_TEST_USERNAME }}
+          QFIELDCLOUD_TEST_PASSWORD: ${{ secrets.QFIELDCLOUD_TEST_PASSWORD }}
+          QFIELDCLOUD_TEST_SERVER_URL: ${{ secrets.QFIELDCLOUD_TEST_SERVER_URL }}
         run: |
           pip install -r "${{ github.workspace }}/test/spix/requirements.txt"
           docker compose -f "${{ github.workspace }}/test/docker-compose.yaml" up -d
@@ -159,6 +162,9 @@ jobs:
           chmod 700 ${{ github.workspace }}/test/postgis_docker/cert_keys/server.crt
 
           cd build
+          export QFIELDCLOUD_TEST_USERNAME="${QFIELDCLOUD_TEST_USERNAME}"
+          export QFIELDCLOUD_TEST_PASSWORD="${QFIELDCLOUD_TEST_PASSWORD}"
+          export QFIELDCLOUD_TEST_SERVER_URL="${QFIELDCLOUD_TEST_SERVER_URL}"
           xvfb-run --server-args="-screen 0 640x480x24" ctest --output-on-failure -C ${{ env.BUILD_TYPE }}
 
           docker compose -f "${{ github.workspace }}/test/docker-compose.yaml" down

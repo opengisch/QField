@@ -45,23 +45,28 @@ TestCase {
     QFieldControls.QFieldGuide {
       id: testTour
       baseRoot: dummyParent
-      steps: [{
+      steps: [
+        {
           "title": "dummyItem1",
           "description": "dummyItem1 responsibility.",
           "target": () => [dummyItem1]
-        }, {
+        },
+        {
           "title": "dummyItem2",
           "description": "dummyItem2 responsibility.",
           "target": () => [dummyItem2]
-        }, {
+        },
+        {
           "title": "dummyItem3",
           "description": "dummyItem3 responsibility.",
           "target": () => [dummyItem3]
-        }, {
+        },
+        {
           "title": "dummyItem4",
           "description": "dummyItem4 responsibility.",
           "target": () => [dummyItem4]
-        }]
+        }
+      ]
     }
   }
 

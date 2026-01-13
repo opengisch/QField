@@ -122,7 +122,7 @@ EditorWidgetBase {
               }
             }
 
-            Behavior on color  {
+            Behavior on color {
               ColorAnimation {
                 duration: 150
               }
@@ -298,8 +298,7 @@ EditorWidgetBase {
           height: searchFeaturePopup.height - searchBar.height - 50
           boundsBehavior: Flickable.StopAtBounds
           clip: true
-          ScrollBar.vertical: QfScrollBar {
-          }
+          ScrollBar.vertical: QfScrollBar {}
           delegate: Rectangle {
             id: delegateRect
 
@@ -323,8 +322,7 @@ EditorWidgetBase {
               font.italic: value ? false : true
 
               checked: itemChecked
-              indicator: Rectangle {
-              }
+              indicator: Rectangle {}
 
               text: StringUtils.highlightText(itemText, searchBar.searchTerm, Theme.mainTextColor)
 
