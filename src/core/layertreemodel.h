@@ -79,6 +79,9 @@ class FlatLayerTreeModelBase : public QAbstractProxyModel
     //! Calculate layer tree node extent and add optional buffer
     Q_INVOKABLE QgsRectangle nodeExtent( const QModelIndex &index, QgsQuickMapSettings *mapSettings, const float buffer );
 
+    //! Collapses or expands all collapsible items in the layer tree
+    Q_INVOKABLE void setAllCollapsed( bool collapsed );
+
   signals:
     void layersAdded();
     void layersRemoved();
@@ -203,6 +206,15 @@ class FlatLayerTreeModel : public QSortFilterProxyModel
 
     //! Calculate layer tree node extent
     Q_INVOKABLE QgsRectangle nodeExtent( const QModelIndex &index, QgsQuickMapSettings *mapSettings, const float buffer = 0.02 );
+
+    //! Collapses or expands all collapsible items in the layer tree
+    Q_INVOKABLE void setAllCollapsed( bool collapsed );
+
+    //! Returns true if the layer tree has at least one collapsible item
+    Q_INVOKABLE bool hasCollapsibleItems() const;
+
+    //! Returns true if all collapsible items are currently collapsed
+    Q_INVOKABLE bool isAllCollapsed() const;
 
   signals:
     void layersAdded();
