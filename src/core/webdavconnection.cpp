@@ -240,17 +240,15 @@ void WebdavConnection::processDirParserFinished()
       }
     }
 
-    if ( !mIsFetchingAvailablePaths )
+    if ( !mIsFetchingAvailablePaths && !mAvailablePaths.isEmpty() )
     {
       // When downloading or uploading folders, we must fetch all possible paths
-      for ( const QString &availablePath : std::as_const( mAvailablePaths ) )
+      auto match = std::find_if( mAvailablePaths.begin(), mAvailablePaths.end(), [this]( const QString &availablePath ) { return !mCheckedPaths.contains( availablePath ); } );
+      if ( match != mAvailablePaths.end() )
       {
-        if ( !mCheckedPaths.contains( availablePath ) )
-        {
-          mCheckedPaths << availablePath;
-          mWebdavDirParser.listDirectory( &mWebdavConnection, availablePath, false );
-          return;
-        }
+        mCheckedPaths << *match;
+        mWebdavDirParser.listDirectory( &mWebdavConnection, *match, false );
+        return;
       }
     }
   }
