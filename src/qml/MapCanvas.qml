@@ -189,9 +189,7 @@ Item {
       }
       if (toRotation !== -1) {
         const progressRotation = fromRotation + (toRotation - fromRotation) * position;
-        if (Number.isFinite(progressRotation)) {
-          mapCanvasWrapper.mapSettings.rotation = progressRotation;
-        }
+        mapCanvasWrapper.mapSettings.rotation = progressRotation;
       }
       const progressX = fromX + dx * position;
       const progressY = fromY + dy * position;
