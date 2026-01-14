@@ -60,7 +60,7 @@ EditorWidgetBase {
     wrapMode: TextInput.Wrap
     background.visible: enabled || (!isEditable && isEditing)
 
-    text: FeatureUtils.attributeIsNull(value) ? '' : value
+    text: isNull ? '' : value
 
     validator: {
       if (field && field.isNumeric)
@@ -97,7 +97,7 @@ EditorWidgetBase {
         } else {
           valueChangeRequested(text, false);
         }
-      } else {
+      } else if (!isNull) {
         valueChangeRequested(text, true);
       }
     }
@@ -115,11 +115,15 @@ EditorWidgetBase {
     font: Theme.defaultFont
     color: (!isEditable && isEditing) ? Theme.mainTextDisabledColor : Theme.mainTextColor
 
-    text: FeatureUtils.attributeIsNull(value) ? '' : value
+    text: isNull ? '' : value
     textFormat: config['UseHtml'] ? TextEdit.RichText : TextEdit.PlainText
 
     onTextChanged: {
-      valueChangeRequested(text, text == '');
+      if (text !== '') {
+        valueChangeRequested(text, false);
+      } else if (!isNull) {
+        valueChangeRequested(text, true);
+      }
     }
     background.visible: enabled || (!isEditable && isEditing)
   }

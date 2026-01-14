@@ -64,8 +64,12 @@ EditorWidgetBase {
       background.visible: isEnabled || (!isEditable && isEditing)
 
       onTextChanged: {
-        if (text === '' || !isNaN(parseFloat(text))) {
-          valueChangeRequested(text, text === '');
+        if (text !== "") {
+          if (!isNaN(parseFloat(text))) {
+            valueChangeRequested(text, false);
+          }
+        } else if (!isNull) {
+          valueChangeRequested(text, true);
         }
       }
     }
