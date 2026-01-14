@@ -1100,7 +1100,7 @@ Page {
               Label {
                 id: positionFollowModeTipLabel
                 Layout.fillWidth: true
-                text: qsTr("When locked to position, the map canvas can follow only the position, or also rotate to match compass orientation or movement direction.")
+                text: qsTr("When the map canvas is following or locked to position, it can also rotate to match compass orientation or movement direction.")
                 font: Theme.tipFont
                 color: Theme.secondaryTextColor
 
