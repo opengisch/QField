@@ -601,6 +601,14 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
         <source>Return home</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Expand All</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Collapse All</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>DateTime</name>

@@ -600,6 +600,14 @@ Cancel to make a minimal device scan instead.</source>
         <source>Return home</source>
         <translation>Повернутися додому</translation>
     </message>
+    <message>
+        <source>Expand All</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Collapse All</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>DateTime</name>

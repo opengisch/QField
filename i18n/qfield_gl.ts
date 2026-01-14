@@ -600,6 +600,14 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
         <source>Return home</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Expand All</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Collapse All</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>DateTime</name>

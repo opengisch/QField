@@ -605,6 +605,14 @@ Cancel to make a minimal device scan instead.</translation>
         <source>Return home</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Expand All</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Collapse All</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>DateTime</name>

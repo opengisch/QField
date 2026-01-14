@@ -600,6 +600,14 @@ Cancel to make a minimal device scan instead.</source>
         <source>Return home</source>
         <translation>返回首页</translation>
     </message>
+    <message>
+        <source>Expand All</source>
+        <translation>全部展开</translation>
+    </message>
+    <message>
+        <source>Collapse All</source>
+        <translation>全部折叠</translation>
+    </message>
 </context>
 <context>
     <name>DateTime</name>
