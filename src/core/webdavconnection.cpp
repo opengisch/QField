@@ -206,6 +206,8 @@ void WebdavConnection::fetchAvailablePaths( const QString &remotePath )
   if ( path.isEmpty() )
   {
     path = QStringLiteral( "/" );
+    mAvailablePaths.clear();
+    mAvailablePaths << QStringLiteral( "/" );
   }
   else
   {
@@ -223,10 +225,6 @@ void WebdavConnection::processDirParserFinished()
   {
     applyStoredPassword();
 
-    if ( mAvailablePaths.isEmpty() )
-    {
-      mAvailablePaths << QStringLiteral( "/" );
-    }
     for ( const QWebdavItem &item : list )
     {
       mWebdavItems << item;
@@ -266,8 +264,6 @@ void WebdavConnection::processDirParserFinished()
   {
     if ( !mWebdavItems.isEmpty() )
     {
-      applyStoredPassword();
-
       QDir localDir( mProcessLocalPath );
       for ( const QWebdavItem &item : mWebdavItems )
       {
@@ -669,7 +665,8 @@ void WebdavConnection::putLocalItems()
       {
         mCheckedPaths.clear();
         mCheckedPaths << mProcessRemotePath;
-        mWebdavDirParser.listDirectory( &mWebdavConnection, mProcessRemotePath, true );
+        mAvailablePaths.clear();
+        mWebdavDirParser.listDirectory( &mWebdavConnection, mProcessRemotePath, false );
       }
       else
       {
@@ -716,7 +713,8 @@ void WebdavConnection::importPath( const QString &remotePath, const QString &loc
 
   mCheckedPaths.clear();
   mCheckedPaths << mProcessRemotePath;
-  mWebdavDirParser.listDirectory( &mWebdavConnection, mProcessRemotePath, true );
+  mAvailablePaths.clear();
+  mWebdavDirParser.listDirectory( &mWebdavConnection, mProcessRemotePath, false );
 }
 
 void WebdavConnection::downloadPath( const QString &localPath )
@@ -897,6 +895,7 @@ void WebdavConnection::confirmRequest()
     setupConnection();
     mCheckedPaths.clear();
     mCheckedPaths << mProcessRemotePath;
+    mAvailablePaths.clear();
     mWebdavDirParser.listDirectory( &mWebdavConnection, mProcessRemotePath, false );
   }
 }
