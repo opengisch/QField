@@ -205,12 +205,15 @@ void WebdavConnection::fetchAvailablePaths( const QString &remotePath )
   QString path = remotePath;
   if ( path.isEmpty() )
   {
+    // Reset any previously fetched details
     path = QStringLiteral( "/" );
     mAvailablePaths.clear();
+    mCheckedPaths.clear();
     mAvailablePaths << QStringLiteral( "/" );
   }
   else
   {
+    // Assume this is building on a valid paths tree, but reset any children to that remote path
     mCheckedPaths.erase( std::remove_if( mCheckedPaths.begin(), mCheckedPaths.end(), [path]( const QString &checkedPath ) { return checkedPath.startsWith( path ); } ), mCheckedPaths.end() );
   }
 
