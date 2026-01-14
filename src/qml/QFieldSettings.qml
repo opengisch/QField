@@ -1077,15 +1077,15 @@ Page {
                 Layout.columnSpan: 2
                 Layout.alignment: Qt.AlignVCenter
                 font: Theme.defaultFont
+                model: [qsTr("Follow position only"), qsTr("Follow position and compass orientation"), qsTr("Follow position and movement direction")];
 
                 popup.font: Theme.defaultFont
                 popup.topMargin: mainWindow.sceneTopMargin
                 popup.bottomMargin: mainWindow.sceneTopMargin
 
                 property bool loaded: false
+
                 Component.onCompleted: {
-                  var modes = [qsTr("Follow position only"), qsTr("Follow position and compass orientation"), qsTr("Follow position and movement direction")];
-                  positionFollowModeComboBox.model = modes;
                   positionFollowModeComboBox.currentIndex = positioningSettings.positionFollowMode;
                   loaded = true;
                 }
