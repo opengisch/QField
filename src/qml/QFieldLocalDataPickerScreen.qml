@@ -1119,7 +1119,7 @@ Page {
           if (!isFetchingAvailablePaths && importWebdavDialog.visible) {
             swipeDialog.currentIndex = 1;
             importWebdavPathInput.model = availablePaths;
-            importWebdavPathInput.currentIndex = -1;
+            importWebdavPathInput.currentIndex = importWebdavPathInput.model.indexOf(importWebdavPathInput.lastIndexPath);
           }
         }
       }
@@ -1509,6 +1509,7 @@ Page {
             clip: true
             model: []
 
+            property string lastIndexPath: ""
             property var expandedPaths: []
             property int expandedPathsClicks: 0
 
@@ -1550,6 +1551,10 @@ Page {
                   return true;
                 }
                 property bool hasChildren: {
+                  if (webdavConnectionLoader.item.checkedPaths.indexOf(modelData) === -1) {
+                    return true;
+                  }
+
                   for (const availablePath of importWebdavPathInput.model) {
                     if (availablePath.indexOf(modelData) === 0 && availablePath !== modelData) {
                       return true;
@@ -1645,6 +1650,10 @@ Page {
                   const index = importWebdavPathInput.expandedPaths.indexOf(modelData);
                   if (importWebdavPathInput.expandedPaths.indexOf(modelData) == -1) {
                     importWebdavPathInput.expandedPaths.push(modelData);
+                    if (webdavConnectionLoader.item.checkedPaths.indexOf(modelData) === -1) {
+                      importWebdavPathInput.lastIndexPath = modelData;
+                      webdavConnectionLoader.item.fetchAvailablePaths(modelData);
+                    }
                   } else {
                     importWebdavPathInput.expandedPaths.splice(index, 1);
                   }
