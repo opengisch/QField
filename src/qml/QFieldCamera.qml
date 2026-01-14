@@ -24,10 +24,12 @@ Popup {
   property bool captureLoaderActivated: false
 
   function requiredPermissionsGranted() {
-    if (cameraPermission.status !== Qt.PermissionStatus.Granted)
+    if (cameraPermission.status !== Qt.PermissionStatus.Granted) {
       return false;
-    if (state === "VideoCapture" && microphonePermission.status !== Qt.PermissionStatus.Granted)
+    }
+    if (state === "VideoCapture" && microphonePermission.status !== Qt.PermissionStatus.Granted) {
       return false;
+    }
     return true;
   }
 
