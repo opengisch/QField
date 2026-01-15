@@ -301,15 +301,15 @@ jobs:
             Download an [Android arm64 build of this PR for testing](https://qfieldapks.sos-ch-dk-2.exoscale-cdn.com/ci-builds/qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}-android-arm64.apk).
             *(Built from commit ${{ github.event.pull_request.head.sha }})*
             <details>
-              <summary>Other architectures</summary>
+            <summary>Other architectures</summary>
 
-              - [arm-neon](https://qfieldapks.sos-ch-dk-2.exoscale-cdn.com/ci-builds/qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}-android-arm-neon.apk)
-              - [x64](https://qfieldapks.sos-ch-dk-2.exoscale-cdn.com/ci-builds/qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}-android-x64.apk)
-              - [x86](https://qfieldapks.sos-ch-dk-2.exoscale-cdn.com/ci-builds/qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}-android-x86.apk)
-              - [**all access arm64**](https://qfieldapks.sos-ch-dk-2.exoscale-cdn.com/ci-builds/qfield_all_access-${{ env.CI_PACKAGE_FILE_SUFFIX }}-android-arm64.apk)
-              - [all access arm-neon](https://qfieldapks.sos-ch-dk-2.exoscale-cdn.com/ci-builds/qfield_all_access-${{ env.CI_PACKAGE_FILE_SUFFIX }}-android-arm-neon.apk)
-              - [all access x64](https://qfieldapks.sos-ch-dk-2.exoscale-cdn.com/ci-builds/qfield_all_access-${{ env.CI_PACKAGE_FILE_SUFFIX }}-android-x64.apk)
-              - [all access x86](https://qfieldapks.sos-ch-dk-2.exoscale-cdn.com/ci-builds/qfield_all_access-${{ env.CI_PACKAGE_FILE_SUFFIX }}-android-x86.apk)
+            - [arm-neon](https://qfieldapks.sos-ch-dk-2.exoscale-cdn.com/ci-builds/qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}-android-arm-neon.apk)
+            - [x64](https://qfieldapks.sos-ch-dk-2.exoscale-cdn.com/ci-builds/qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}-android-x64.apk)
+            - [x86](https://qfieldapks.sos-ch-dk-2.exoscale-cdn.com/ci-builds/qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}-android-x86.apk)
+            - [**all access arm64**](https://qfieldapks.sos-ch-dk-2.exoscale-cdn.com/ci-builds/qfield_all_access-${{ env.CI_PACKAGE_FILE_SUFFIX }}-android-arm64.apk)
+            - [all access arm-neon](https://qfieldapks.sos-ch-dk-2.exoscale-cdn.com/ci-builds/qfield_all_access-${{ env.CI_PACKAGE_FILE_SUFFIX }}-android-arm-neon.apk)
+            - [all access x64](https://qfieldapks.sos-ch-dk-2.exoscale-cdn.com/ci-builds/qfield_all_access-${{ env.CI_PACKAGE_FILE_SUFFIX }}-android-x64.apk)
+            - [all access x86](https://qfieldapks.sos-ch-dk-2.exoscale-cdn.com/ci-builds/qfield_all_access-${{ env.CI_PACKAGE_FILE_SUFFIX }}-android-x86.apk)
             </details>
           pr: ${{ github.event.number }}
 
