@@ -159,8 +159,6 @@ void QgsQuickMapCanvasMap::refreshMap()
   mapSettings.setFlag( Qgis::MapSettingsFlag::UseRenderingOptimization );
   // with incremental rendering - enables updates of partially rendered layers (good for WMTS, XYZ layers)
   mapSettings.setFlag( Qgis::MapSettingsFlag::RenderPartialOutput, mIncrementalRendering );
-  // pick a better image format across all platforms
-  mapSettings.setOutputImageFormat( QImage::Format_RGBA8888_Premultiplied );
 
   // create the renderer job
   Q_ASSERT( !mJob );
@@ -911,7 +909,6 @@ void QgsQuickMapCanvasMap::startPreviewJob( int number )
     previewLayers.insert( 0, QgsProject::instance()->mainAnnotationLayer() );
   }
   jobSettings.setLayers( filterLayersForRender( previewLayers ) );
-  jobSettings.setOutputImageFormat( QImage::Format_RGBA8888_Premultiplied );
 
   QgsMapRendererQImageJob *job = new QgsMapRendererSequentialJob( jobSettings );
   job->setProperty( "number", number );
