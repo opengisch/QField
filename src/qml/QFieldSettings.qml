@@ -1077,7 +1077,7 @@ Page {
                 Layout.columnSpan: 2
                 Layout.alignment: Qt.AlignVCenter
                 font: Theme.defaultFont
-                model: [qsTr("Follow position only"), qsTr("Follow position and compass orientation"), qsTr("Follow position and movement direction")];
+                model: [qsTr("Follow position only"), qsTr("Follow position and compass orientation"), qsTr("Follow position and movement direction")]
 
                 popup.font: Theme.defaultFont
                 popup.topMargin: mainWindow.sceneTopMargin

@@ -2630,12 +2630,12 @@ ApplicationWindow {
             jumpedOnce = true;
           }
           mapCanvasMap.jumpToPosition(positionSource, targetScale, -1, true, () => {
-              gnssButton.followLocation(true);
-              // Apply orientation immediately when follow mode includes orientation
-              if (gnssButton.followOrientationActive) {
-                gnssButton.followOrientation();
-              }
-            });
+            gnssButton.followLocation(true);
+            // Apply orientation immediately when follow mode includes orientation
+            if (gnssButton.followOrientationActive) {
+              gnssButton.followOrientation();
+            }
+          });
           if (!gnssButton.followActive) {
             mapCanvasMap.freeze('follow');
             gnssButton.followActive = true;
