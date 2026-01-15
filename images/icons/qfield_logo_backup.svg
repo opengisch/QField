@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.1"
+   id="Ebene_1"
+   x="0px"
+   y="0px"
+   viewBox="0 0 512 512"
+   style="enable-background:new 0 0 512 512;"
+   xml:space="preserve"
+   sodipodi:docname="qfield_logo.svg"
+   inkscape:version="1.0.1 (3bc2e813f5, 2020-09-07)"><metadata
+   id="metadata15"><rdf:RDF><cc:Work
+       rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
+         rdf:resource="http://purl.org/dc/dcmitype/StillImage" /><dc:title /></cc:Work></rdf:RDF></metadata><defs
+   id="defs13" /><sodipodi:namedview
+   pagecolor="#ffffff"
+   bordercolor="#666666"
+   borderopacity="1"
+   objecttolerance="10"
+   gridtolerance="10"
+   guidetolerance="10"
+   inkscape:pageopacity="0"
+   inkscape:pageshadow="2"
+   inkscape:window-width="1870"
+   inkscape:window-height="1015"
+   id="namedview11"
+   showgrid="true"
+   inkscape:zoom="1.1960048"
+   inkscape:cx="285.46707"
+   inkscape:cy="302.95002"
+   inkscape:window-x="50"
+   inkscape:window-y="28"
+   inkscape:window-maximized="1"
+   inkscape:current-layer="Ebene_1"
+   inkscape:document-rotation="0"><inkscape:grid
+     type="xygrid"
+     id="grid840" /></sodipodi:namedview>
+<style
+   type="text/css"
+   id="style2">
+	.st0{fill:#80CC28;}
+</style>
+
+<g
+   id="g880"
+   transform="translate(-3.251526,1.627246)"><g
+     id="g8-3"
+     transform="matrix(1.2279158,0,0,1.2279158,-55.033523,-60.028947)"
+     style="opacity:1;fill:none;stroke:#ffffff;stroke-width:26.0604;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" /><g
+     id="g8"
+     transform="matrix(1.2279158,0,0,1.2279158,-55.033523,-60.028952)"
+     style="stroke-width:0.814388">
+	<polygon
+   class="st0"
+   points="362.43,244.34 339.1,339.97 243.47,363.3 422.09,422.97 "
+   id="polygon4"
+   style="stroke-width:0.814388" />
+	<path
+   class="st0"
+   d="m 255.96,393.69 c -36.77,0 -71.33,-14.32 -97.33,-40.31 -26,-26 -40.31,-60.56 -40.31,-97.33 0,-36.77 14.32,-71.33 40.31,-97.33 26,-26 60.56,-40.31 97.33,-40.31 36.77,0 71.33,14.32 97.33,40.31 26,26 40.31,60.56 40.31,97.33 0,7.78 -0.65,15.46 -1.91,22.99 l 26.56,79.53 C 437.03,328.91 447.9,293.75 447.9,256.05 447.9,150.04 361.96,64.09 255.94,64.09 149.92,64.09 64,150.03 64,256.04 64,362.05 149.94,448 255.96,448 c 37.83,0 73.1,-10.95 102.83,-29.84 l -79.24,-26.47 c -7.72,1.32 -15.61,2 -23.59,2 z"
+   id="path6"
+   style="stroke-width:0.814388" />
+</g></g></svg>
