@@ -350,8 +350,8 @@ ApplicationWindow {
         bearingTrueNorth = PositioningUtils.bearingTrueNorth(positionSource.projectedPosition, mapCanvas.mapSettings.destinationCrs);
         if (gnssButton.followActive) {
           gnssButton.followLocation(false);
-          // Call followOrientation for movement direction mode (mode 2)
-          if (positioningSettings.positionFollowMode === 2) {
+          // Call followOrientation for movement direction mode
+          if (positioningSettings.positionFollowMode === PositioningSettings.FollowMode.PositionAndDirection) {
             gnssButton.followOrientation();
           }
         }
@@ -360,8 +360,8 @@ ApplicationWindow {
 
     onOrientationChanged: {
       if (active && gnssButton.followActive) {
-        // Call followOrientation for compass mode (mode 1)
-        if (positioningSettings.positionFollowMode === 1) {
+        // Call followOrientation for compass mode
+        if (positioningSettings.positionFollowMode === PositioningSettings.FollowMode.PositionAndCompass) {
           gnssButton.followOrientation();
         }
       }
@@ -1250,9 +1250,9 @@ ApplicationWindow {
             gnssButton.autoRefollow = true;
             gnssButton.followActive = true;
             gnssButton.followLocation(true);
-            if (positioningSettings.positionFollowMode === 1) {
+            if (positioningSettings.positionFollowMode === PositioningSettings.FollowMode.PositionAndCompass) {
               displayToast(qsTr("Map canvas locked to location and compass orientation"));
-            } else if (positioningSettings.positionFollowMode === 2) {
+            } else if (positioningSettings.positionFollowMode === PositioningSettings.FollowMode.PositionAndDirection) {
               displayToast(qsTr("Map canvas locked to location and movement direction"));
             } else {
               displayToast(qsTr("Map canvas locked to location"));
@@ -2553,7 +2553,7 @@ ApplicationWindow {
         /*
         / When set to true, the map will rotate to match the device's orientation (compass or movement direction based on setting).
         */
-        property bool followOrientationActive: followActive && qfieldSettings.enableMapRotation && positioningSettings.positionFollowMode > 0
+        property bool followOrientationActive: followActive && qfieldSettings.enableMapRotation && positioningSettings.positionFollowMode !== PositioningSettings.FollowMode.PositionOnly
         /*
         / When set to true, map canvas rotation changes will not result in the
         / deactivation of the above followOrientationActive mode.
@@ -2639,9 +2639,9 @@ ApplicationWindow {
           if (!gnssButton.followActive) {
             mapCanvasMap.freeze('follow');
             gnssButton.followActive = true;
-            if (positioningSettings.positionFollowMode === 1) {
+            if (positioningSettings.positionFollowMode === PositioningSettings.FollowMode.PositionAndCompass) {
               displayToast(qsTr("Map canvas follows location and compass orientation"));
-            } else if (positioningSettings.positionFollowMode === 2) {
+            } else if (positioningSettings.positionFollowMode === PositioningSettings.FollowMode.PositionAndDirection) {
               displayToast(qsTr("Map canvas follows location and movement direction"));
             } else {
               displayToast(qsTr("Map canvas follows location"));
@@ -2704,13 +2704,13 @@ ApplicationWindow {
             return;
           }
           let targetRotation;
-          if (positioningSettings.positionFollowMode === 1) {
+          if (positioningSettings.positionFollowMode === PositioningSettings.FollowMode.PositionAndCompass) {
             // Follow compass orientation
             if (isNaN(positionSource.orientation)) {
               return;
             }
             targetRotation = -positionSource.orientation;
-          } else if (positioningSettings.positionFollowMode === 2) {
+          } else if (positioningSettings.positionFollowMode === PositioningSettings.FollowMode.PositionAndDirection) {
             // Follow movement direction
             if (!positionSource.positionInformation || !positionSource.positionInformation.directionValid) {
               return;
