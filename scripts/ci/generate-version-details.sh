@@ -37,10 +37,12 @@ elif [[ ${CI_PULL_REQUEST} = false ]]; then
 	CUSTOM_APP_PACKAGE_NAME=$(echo ${NIGHTLY_PACKAGE_NAME} | awk '{print $NF}' FS=.)
 
 	if [[ ${ALL_FILES_ACCESS} == "ON" ]]; then
-		export APP_NAME="${CUSTOM_APP_NAME:-QField~ Dev}"
+		#export APP_NAME="${CUSTOM_APP_NAME:-QField~ Dev}"
+		export APP_NAME="재난피해현장조사"
 		export APP_PACKAGE_NAME="${CUSTOM_APP_PACKAGE_NAME:-qfield_all_access_dev}"
 	else
-		export APP_NAME="${CUSTOM_APP_NAME:-QField Dev}"
+		#export APP_NAME="${CUSTOM_APP_NAME:-QField Dev}"
+		export APP_NAME="재난피해현장조사"
 		export APP_PACKAGE_NAME="${CUSTOM_APP_PACKAGE_NAME:-qfield_dev}"
 	fi
 	export APP_ICON="qfield_logo_beta"
