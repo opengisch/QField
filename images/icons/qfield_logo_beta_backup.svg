@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg enable-background="new 0 0 512 512" version="1.1" viewBox="0 0 512 512" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"><metadata><rdf:RDF><cc:Work rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/></cc:Work></rdf:RDF></metadata>
+<style type="text/css">
+	.st0{fill:#000000;}
+</style>
+
+<g transform="translate(-3.2515 1.6272)"><g transform="matrix(1.2279 0 0 1.2279 -55.034 -60.029)" stroke-width=".81439">
+	<polygon class="st0" points="362.43 244.34 339.1 339.97 243.47 363.3 422.09 422.97"/>
+	<path class="st0" d="m255.96 393.69c-36.77 0-71.33-14.32-97.33-40.31-26-26-40.31-60.56-40.31-97.33s14.32-71.33 40.31-97.33c26-26 60.56-40.31 97.33-40.31s71.33 14.32 97.33 40.31c26 26 40.31 60.56 40.31 97.33 0 7.78-0.65 15.46-1.91 22.99l26.56 79.53c18.78-29.66 29.65-64.82 29.65-102.52 0-106.01-85.94-191.96-191.96-191.96s-191.94 85.94-191.94 191.95 85.94 191.96 191.96 191.96c37.83 0 73.1-10.95 102.83-29.84l-79.24-26.47c-7.72 1.32-15.61 2-23.59 2z"/>
+</g></g></svg>
