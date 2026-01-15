@@ -140,51 +140,55 @@ GeometryUtils::GeometryOperationResult GeometryUtils::reshapeFromRubberband( Qgs
         if ( otherGeometry.isNull() )
           continue;
 
+        const bool isPolygon = layer->geometryType() == Qgis::GeometryType::Polygon;
         if ( selectedGeometry.intersects( reshapeLineStringGeom ) && otherGeometry.intersects( reshapeLineStringGeom ) )
         {
           GeometryUtils::GeometryOperationResult otherReturn = static_cast<GeometryUtils::GeometryOperationResult>( otherGeometry.reshapeGeometry( reshapeLineString ) );
-          qDebug() << otherReturn;
-          if ( otherReturn == GeometryUtils::GeometryOperationResult::NothingHappened )
+          if ( otherReturn == GeometryUtils::GeometryOperationResult::Success )
           {
-            if ( layer->geometryType() == Qgis::GeometryType::Polygon )
+            if ( !isPolygon || ( !otherGeometry.intersects( selectedGeometry ) || otherGeometry.touches( selectedGeometry ) ) )
             {
-              QgsGeometry otherGeometryDifference = otherGeometry.difference( selectedGeometry );
-              if ( QgsWkbTypes::isMultiType( otherGeometryDifference.wkbType() ) && !QgsWkbTypes::isMultiType( layer->wkbType() ) )
+              layer->changeGeometry( otherFeature.id(), otherGeometry );
+              // Add topological points
+              layer->addTopologicalPoints( otherGeometry );
+              continue;
+            }
+          }
+        }
+
+        // Intersect fallback for polygon
+        if ( isPolygon )
+        {
+          otherGeometry = otherFeature.geometry();
+          QgsGeometry otherGeometryDifference = otherGeometry.difference( selectedGeometry );
+          if ( QgsWkbTypes::isMultiType( otherGeometryDifference.wkbType() ) && !QgsWkbTypes::isMultiType( layer->wkbType() ) )
+          {
+            QVector<QgsGeometry> otherGeometryDifferenceCollection = otherGeometryDifference.asGeometryCollection();
+            QVector<QgsGeometry>::iterator largestModifiedFeature = std::max_element( otherGeometryDifferenceCollection.begin(), otherGeometryDifferenceCollection.end(), []( const QgsGeometry &a, const QgsGeometry &b ) -> bool {
+              return a.area() < b.area();
+            } );
+            otherGeometryDifference = *largestModifiedFeature;
+            otherGeometryDifferenceCollection.erase( largestModifiedFeature );
+            for ( QgsGeometry &otherGeometryDifferenceFromCollection : otherGeometryDifferenceCollection )
+            {
+              QgsFeature newFeature = QgsVectorLayerUtils::createFeature( layer, otherGeometryDifferenceFromCollection, otherFeature.attributes().toMap() );
+              const QString sourcePrimaryKeys = layer->customProperty( QStringLiteral( "QFieldSync/sourceDataPrimaryKeys" ) ).toString();
+              if ( !sourcePrimaryKeys.isEmpty() && layer->fields().lookupField( sourcePrimaryKeys ) >= 0 )
               {
-                QVector<QgsGeometry> otherGeometryDifferenceCollection = otherGeometryDifference.asGeometryCollection();
-                QVector<QgsGeometry>::iterator largestModifiedFeature = std::max_element( otherGeometryDifferenceCollection.begin(), otherGeometryDifferenceCollection.end(), []( const QgsGeometry &a, const QgsGeometry &b ) -> bool {
-                  return a.area() < b.area();
-                } );
-                otherGeometryDifference = *largestModifiedFeature;
-                otherGeometryDifferenceCollection.erase( largestModifiedFeature );
-                for ( QgsGeometry &otherGeometryDifferenceFromCollection : otherGeometryDifferenceCollection )
+                const int sourcePrimaryKeysIndex = layer->fields().lookupField( sourcePrimaryKeys );
+                if ( !layer->fields().at( sourcePrimaryKeysIndex ).defaultValueDefinition().isValid() )
                 {
-                  QgsFeature newFeature = QgsVectorLayerUtils::createFeature( layer, otherGeometryDifferenceFromCollection, otherFeature.attributes().toMap() );
-                  const QString sourcePrimaryKeys = layer->customProperty( QStringLiteral( "QFieldSync/sourceDataPrimaryKeys" ) ).toString();
-                  if ( !sourcePrimaryKeys.isEmpty() && layer->fields().lookupField( sourcePrimaryKeys ) >= 0 )
-                  {
-                    const int sourcePrimaryKeysIndex = layer->fields().lookupField( sourcePrimaryKeys );
-                    if ( !layer->fields().at( sourcePrimaryKeysIndex ).defaultValueDefinition().isValid() )
-                    {
-                      newFeature.setAttribute( layer->fields().lookupField( sourcePrimaryKeys ), QVariant() );
-                    }
-                  }
-                  layer->addFeature( newFeature );
-                  // Add topological points
-                  layer->addTopologicalPoints( otherGeometryDifference );
+                  newFeature.setAttribute( layer->fields().lookupField( sourcePrimaryKeys ), QVariant() );
                 }
               }
-              layer->changeGeometry( otherFeature.id(), otherGeometryDifference );
+              layer->addFeature( newFeature );
               // Add topological points
               layer->addTopologicalPoints( otherGeometryDifference );
             }
           }
-          else
-          {
-            layer->changeGeometry( otherFeature.id(), otherGeometry );
-            // Add topological points
-            layer->addTopologicalPoints( otherGeometry );
-          }
+          layer->changeGeometry( otherFeature.id(), otherGeometryDifference );
+          // Add topological points
+          layer->addTopologicalPoints( otherGeometryDifference );
         }
       }
     }
