@@ -3055,7 +3055,7 @@ Même si vous pouvez toujours voir et utiliser ce projet, il est fortement recom
     </message>
     <message>
         <source>Pushing changes, %1%…</source>
-        <translation type="unfinished"/>
+        <translation>Envoi des changements, %1%...</translation>
     </message>
     <message>
         <source>QFieldCloud is applying the latest pushed changes. This might take some time, please hold tight…</source>
@@ -3895,7 +3895,7 @@ Même si vous pouvez toujours voir et utiliser ce projet, il est fortement recom
     </message>
     <message>
         <source>Imported folder name</source>
-        <translation type="unfinished"/>
+        <translation>Nom du dossier importé</translation>
     </message>
     <message>
         <source>Confirm</source>
@@ -4386,11 +4386,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Auto-zoom to identified feature(s)</source>
-        <translation type="unfinished"/>
+        <translation>Zoom automatique sur l&apos;entité identifiée</translation>
     </message>
     <message>
         <source>When enabled, the map will automatically zoom to show all identified features, as well as the individual selected feature when the feature form is opened.</source>
-        <translation type="unfinished"/>
+        <translation>Si activé, la carte zoomera automatiquement sur les entités sélectionnées, ainsi que sur l&apos;entité sélectionnée lorsque le formulaire d&apos;entité est ouvert.</translation>
     </message>
 </context>
 <context>
@@ -6634,7 +6634,7 @@ pour afficher des actions</translation>
     </message>
     <message>
         <source>Positioning service has not yet received a valid location</source>
-        <translation type="unfinished"/>
+        <translation>Le service de positionnement n&apos;a pas encore reçu de localisation valide.</translation>
     </message>
 </context>
 <context>
