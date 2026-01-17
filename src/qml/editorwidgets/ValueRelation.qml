@@ -12,11 +12,8 @@ EditorWidgetBase {
   height: state === "toggleButtonsView" ? toggleButtons.height + 4 : (Number(config['AllowMulti']) !== 1 ? valueRelationCombobox.height : valueRelationListComponent.height) + 4
   enabled: true
 
-  // Toggle button threshold - reuse the same property as ValueMap
   readonly property int toggleButtonsThreshold: currentLayer && currentLayer.customProperty('QFieldSync/value_map_button_interface_threshold') !== undefined ? currentLayer.customProperty('QFieldSync/value_map_button_interface_threshold') : 0
-
-  // Check groupping ???
-  property bool canUseToggleButtons: !listModel.allowMulti && valueRelationCombobox.count > 0 && valueRelationCombobox.count < toggleButtonsThreshold
+  property bool canUseToggleButtons: !listModel.allowMulti && !listModel.groupField && valueRelationCombobox.count > 0 && valueRelationCombobox.count < toggleButtonsThreshold
 
   state: canUseToggleButtons ? "toggleButtonsView" : "defaultView"
 
@@ -117,7 +114,7 @@ EditorWidgetBase {
     }
 
     onItemDeselected: {
-      valueChangeRequested("", false);
+      valueChangeRequested("", listModel.addNull);
     }
   }
 

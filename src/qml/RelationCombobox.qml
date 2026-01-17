@@ -19,7 +19,7 @@ Item {
   property var relation: undefined
   property var layerResolver: undefined
   property var currentKeyValue: value
-  property int count: comboBox.count
+  readonly property alias count: comboBox.count
   property EmbeddedFeatureForm embeddedFeatureForm: embeddedPopupLoader.item
   readonly property alias searchPopup: searchFeaturePopup
   property color displayedTextColor: FeatureUtils.attributeIsNull(value) || value === "" || (!isEditable && isEditing) ? Theme.mainTextDisabledColor : Theme.mainTextColor

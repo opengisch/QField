@@ -6,6 +6,7 @@ import Theme
 
 /**
  * Provides a consistent UI for selecting single values from a list of options.
+ * \ingroup qml
  */
 Item {
   id: toggleButtonGroup
@@ -23,7 +24,9 @@ Item {
    */
   property bool allowDeselect: false
 
-  // Minimum width for buttons to handle empty text gracefully
+  /**
+   * Minimum width for buttons to handle empty text gracefully
+   */
   readonly property real buttonMinWidth: 48
 
   /**
@@ -70,7 +73,7 @@ Item {
 
         visible: text !== ""
         width: visible ? Math.max(toggleButtonGroup.buttonMinWidth, Math.min(flow.width - 16, innerText.implicitWidth + 16)) : 0
-        height: visible ? 34 : 0
+        height: visible ? fontMetrics.height + 16 : 0
         radius: 4
         color: selected ? toggleButtonGroup.editable && toggleButtonGroup.editing ? Theme.mainColor : Theme.controlBorderColor : "transparent"
         border.color: toggleButtonGroup.editing ? selected ? Theme.mainColor : Theme.secondaryTextColor : "transparent"
@@ -80,7 +83,7 @@ Item {
           toggleButtonGroup.itemCompleted(index, model, selected);
         }
 
-        Behavior on color  {
+        Behavior on color {
           ColorAnimation {
             duration: 150
           }
@@ -94,6 +97,11 @@ Item {
           anchors.centerIn: parent
           font: Theme.defaultFont
           color: !toggleButtonGroup.editable && toggleButtonGroup.editing ? Theme.mainTextDisabledColor : selected && toggleButtonGroup.editing ? Theme.buttonTextColor : Theme.mainTextColor
+        }
+
+        FontMetrics {
+          id: fontMetrics
+          font: Theme.defaultFont
         }
 
         MouseArea {
