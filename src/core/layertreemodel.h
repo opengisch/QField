@@ -77,15 +77,23 @@ class FlatLayerTreeModelBase : public QAbstractProxyModel
     bool isTemporal() const { return mIsTemporal; }
 
     //! Calculate layer tree node extent and add optional buffer
-    Q_INVOKABLE QgsRectangle nodeExtent( const QModelIndex &index, QgsQuickMapSettings *mapSettings, const float buffer );
+    QgsRectangle nodeExtent( const QModelIndex &index, QgsQuickMapSettings *mapSettings, const float buffer );
 
     //! Collapses or expands all collapsible items in the layer tree
-    Q_INVOKABLE void setAllCollapsed( bool collapsed );
+    void setAllCollapsed( bool collapsed );
+
+    //! Returns TRUE if the layer tree has at least one collapsible item
+    bool hasCollapsibleItems() const;
+
+    //! Returns TRUE if all collapsible items are currently collapsed
+    bool isCollapsed() const;
 
   signals:
     void layersAdded();
     void layersRemoved();
     void mapThemeChanged();
+    void hasCollapsibleItemsChanged();
+    void isCollapsedChanged();
     void isTemporalChanged();
     void isFrozenChanged();
 
@@ -101,6 +109,9 @@ class FlatLayerTreeModelBase : public QAbstractProxyModel
     void updateTemporalState();
     void adjustTemporalStateFromAddedLayers( const QList<QgsMapLayer *> &layers );
 
+    void checkHasCollapsibleItems();
+    void checkIsCollapsed();
+
     QMap<QModelIndex, int> mRowMap;
     QMap<int, QModelIndex> mIndexMap;
     QMap<int, int> mTreeLevelMap;
@@ -110,6 +121,9 @@ class FlatLayerTreeModelBase : public QAbstractProxyModel
     QString mMapTheme;
     QgsProject *mProject = nullptr;
     QList<QgsLayerTreeLayer *> mLayersInTracking;
+
+    bool mHasCollapsibleItems = false;
+    bool mIsCollapsed = false;
 
     bool mIsTemporal = false;
     int mFrozen = 0;
@@ -125,6 +139,10 @@ class FlatLayerTreeModel : public QSortFilterProxyModel
     Q_OBJECT
 
     Q_PROPERTY( QString mapTheme READ mapTheme WRITE setMapTheme NOTIFY mapThemeChanged )
+
+    Q_PROPERTY( bool hasCollapsibleItems READ hasCollapsibleItems NOTIFY hasCollapsibleItemsChanged )
+    Q_PROPERTY( bool isCollapsed READ isCollapsed NOTIFY isCollapsedChanged )
+
     Q_PROPERTY( bool isTemporal READ isTemporal NOTIFY isTemporalChanged )
     Q_PROPERTY( bool isFrozen READ isFrozen NOTIFY isFrozenChanged )
 
@@ -210,16 +228,18 @@ class FlatLayerTreeModel : public QSortFilterProxyModel
     //! Collapses or expands all collapsible items in the layer tree
     Q_INVOKABLE void setAllCollapsed( bool collapsed );
 
-    //! Returns true if the layer tree has at least one collapsible item
-    Q_INVOKABLE bool hasCollapsibleItems() const;
+    //! Returns TRUE if the layer tree has at least one collapsible item
+    bool hasCollapsibleItems() const;
 
-    //! Returns true if all collapsible items are currently collapsed
-    Q_INVOKABLE bool isAllCollapsed() const;
+    //! Returns TRUE if all collapsible items are currently collapsed
+    bool isCollapsed() const;
 
   signals:
     void layersAdded();
     void layersRemoved();
     void mapThemeChanged();
+    void hasCollapsibleItemsChanged();
+    void isCollapsedChanged();
     void isTemporalChanged();
     void isFrozenChanged();
 

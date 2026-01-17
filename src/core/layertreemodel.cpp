@@ -38,6 +38,8 @@ FlatLayerTreeModel::FlatLayerTreeModel( QgsLayerTree *layerTree, QgsProject *pro
   connect( mSourceModel, &FlatLayerTreeModelBase::layersAdded, this, &FlatLayerTreeModel::layersAdded );
   connect( mSourceModel, &FlatLayerTreeModelBase::layersRemoved, this, &FlatLayerTreeModel::layersRemoved );
   connect( mSourceModel, &FlatLayerTreeModelBase::mapThemeChanged, this, &FlatLayerTreeModel::mapThemeChanged );
+  connect( mSourceModel, &FlatLayerTreeModelBase::hasCollapsibleItemsChanged, this, &FlatLayerTreeModel::hasCollapsibleItemsChanged );
+  connect( mSourceModel, &FlatLayerTreeModelBase::isCollapsedChanged, this, &FlatLayerTreeModel::isCollapsedChanged );
   connect( mSourceModel, &FlatLayerTreeModelBase::isTemporalChanged, this, &FlatLayerTreeModel::isTemporalChanged );
   connect( mSourceModel, &FlatLayerTreeModelBase::isFrozenChanged, this, &FlatLayerTreeModel::isFrozenChanged );
 }
@@ -124,30 +126,11 @@ void FlatLayerTreeModel::setAllCollapsed( bool collapsed )
 
 bool FlatLayerTreeModel::hasCollapsibleItems() const
 {
-  const int count = rowCount();
-  for ( int i = 0; i < count; i++ )
-  {
-    const QModelIndex idx = index( i, 0 );
-    if ( data( idx, FlatLayerTreeModel::HasChildren ).toBool() )
-    {
-      return true;
-    }
-  }
-  return false;
+  return mSourceModel->hasCollapsibleItems();
 }
-
-bool FlatLayerTreeModel::isAllCollapsed() const
+bool FlatLayerTreeModel::isCollapsed() const
 {
-  const int count = rowCount();
-  for ( int i = 0; i < count; i++ )
-  {
-    const QModelIndex idx = index( i, 0 );
-    if ( data( idx, FlatLayerTreeModel::HasChildren ).toBool() && !data( idx, FlatLayerTreeModel::IsCollapsed ).toBool() )
-    {
-      return false;
-    }
-  }
-  return true;
+  return mSourceModel->isCollapsed();
 }
 
 FlatLayerTreeModelBase::FlatLayerTreeModelBase( QgsLayerTree *layerTree, QgsProject *project, QObject *parent )
@@ -510,7 +493,12 @@ int FlatLayerTreeModelBase::buildMap( QgsLayerTreeModel *model, const QModelInde
   }
 
   if ( reset )
+  {
     endResetModel();
+    checkHasCollapsibleItems();
+    checkIsCollapsed();
+  }
+
   return row;
 }
 
@@ -1294,9 +1282,12 @@ bool FlatLayerTreeModelBase::setData( const QModelIndex &index, const QVariant &
       int treeLevel = mTreeLevelMap[index.row()];
       int endRow = index.row();
       while ( mTreeLevelMap.contains( endRow + 1 ) && mTreeLevelMap[endRow + 1] > treeLevel )
+      {
         endRow++;
+      }
 
       emit dataChanged( index, createIndex( endRow, 0 ), QVector<int>() << FlatLayerTreeModel::IsCollapsed << FlatLayerTreeModel::IsParentCollapsed );
+      checkIsCollapsed();
       return true;
     }
 
@@ -1579,6 +1570,11 @@ QgsRectangle FlatLayerTreeModelBase::nodeExtent( const QModelIndex &index, QgsQu
 
 void FlatLayerTreeModelBase::setAllCollapsed( bool collapsed )
 {
+  if ( !mHasCollapsibleItems || mIsCollapsed == collapsed )
+  {
+    return;
+  }
+
   bool anyChanged = true;
   while ( anyChanged )
   {
@@ -1598,5 +1594,64 @@ void FlatLayerTreeModelBase::setAllCollapsed( bool collapsed )
         anyChanged = true;
       }
     }
+  }
+}
+
+bool FlatLayerTreeModelBase::hasCollapsibleItems() const
+{
+  return mHasCollapsibleItems;
+}
+
+void FlatLayerTreeModelBase::checkHasCollapsibleItems()
+{
+  bool hasCollpasibleItems = false;
+  const int count = rowCount();
+  for ( int i = 0; i < count; i++ )
+  {
+    const QModelIndex idx = index( i, 0 );
+    if ( data( idx, FlatLayerTreeModel::HasChildren ).toBool() )
+    {
+      hasCollpasibleItems = true;
+      break;
+    }
+  }
+
+  if ( mHasCollapsibleItems != hasCollpasibleItems )
+  {
+    mHasCollapsibleItems = hasCollpasibleItems;
+    emit hasCollapsibleItemsChanged();
+  }
+}
+
+bool FlatLayerTreeModelBase::isCollapsed() const
+{
+  return mIsCollapsed;
+}
+
+void FlatLayerTreeModelBase::checkIsCollapsed()
+{
+  bool isCollapsed = false;
+  if ( mHasCollapsibleItems )
+  {
+    isCollapsed = true;
+    const int count = rowCount();
+    for ( int i = 0; i < count; i++ )
+    {
+      const QModelIndex idx = index( i, 0 );
+      if ( data( idx, FlatLayerTreeModel::HasChildren ).toBool() && data( idx, FlatLayerTreeModel::TreeLevel ).toInt() == 0 )
+      {
+        if ( !data( idx, FlatLayerTreeModel::IsCollapsed ).toBool() )
+        {
+          isCollapsed = false;
+          break;
+        }
+      }
+    }
+  }
+
+  if ( mIsCollapsed != isCollapsed )
+  {
+    mIsCollapsed = isCollapsed;
+    emit isCollapsedChanged();
   }
 }
