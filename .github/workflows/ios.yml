@@ -135,7 +135,8 @@ jobs:
                 -D CMAKE_OSX_DEPLOYMENT_TARGET=${{ env.DEPLOYMENT_TARGET }} \
                 -D ENABLE_TESTS=OFF \
                 -D CMAKE_CXX_VISIBILITY_PRESET=hidden \
-                -D WITH_CCACHE=ON
+                -D WITH_CCACHE=ON \
+                -D VCPKG_INSTALL_OPTIONS="--x-abi-tools-use-exact-versions"
 
       - name: 📑 Upload Dep Build Logs
         uses: actions/upload-artifact@v6
