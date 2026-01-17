@@ -218,7 +218,7 @@ jobs:
           marker: windows
           body: |
             ### 🪟 Windows builds
-            Download a [Windows build of this PR for testing](${{ steps.artifact-windows.outputs.artifact-url }}).
+            Download a [Windows build of this PR for testing](${{ steps.artifact-windows.outputs.artifact-url }}) (GitHub login required).
             *(Built from commit ${{ github.event.pull_request.head.sha }})*
           pr: ${{ github.event.number }}
 
