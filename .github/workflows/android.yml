@@ -5,7 +5,6 @@ on:
     branches:
       - master
       - release-**
-      - x-abi-tools-use-exact-versions
   pull_request:
   release:
     types: ['published']
