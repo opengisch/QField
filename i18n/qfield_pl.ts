@@ -937,11 +937,11 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Soft constraints were not satisified</source>
-        <translation type="unfinished"/>
+        <translation>Miękkie ograniczenia nie zostały spełnione</translation>
     </message>
     <message>
         <source>Hard constraints not satisfied</source>
-        <translation type="unfinished"/>
+        <translation>Twarde ograniczenia nie zostały spełnione</translation>
     </message>
 </context>
 <context>
@@ -1974,7 +1974,7 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
     </message>
     <message>
         <source>Hard constraints not satisfied</source>
-        <translation type="unfinished"/>
+        <translation>Twarde ograniczenia nie zostały spełnione</translation>
     </message>
 </context>
 <context>
@@ -5856,7 +5856,7 @@ projekt</translation>
     </message>
     <message>
         <source>Point Feature Picker</source>
-        <translation type="unfinished"/>
+        <translation>Punktowy wybór elementu</translation>
     </message>
 </context>
 <context>
