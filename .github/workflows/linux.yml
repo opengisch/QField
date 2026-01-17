@@ -93,7 +93,8 @@ jobs:
                 -D CMAKE_COMPILE_WARNING_AS_ERROR=ON \
                 -D SENTRY_DSN=${{ secrets.SENTRY_DSN }} \
                 -D SENTRY_ENV="${APP_ENV}" \
-                -D LINUXDEPLOY_EXECUTABLE=${{ env.BUILD_ROOT }}/linuxdeploy-x86_64.AppImage
+                -D LINUXDEPLOY_EXECUTABLE=${{ env.BUILD_ROOT }}/linuxdeploy-x86_64.AppImage \
+                -D VCPKG_INSTALL_OPTIONS="--x-abi-tools-use-exact-versions"
 
       - name: 📑 Upload dep build logs
         uses: actions/upload-artifact@v6

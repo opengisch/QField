@@ -94,7 +94,7 @@ jobs:
                 -D CMAKE_MSVC_RUNTIME_LIBRARY="MultiThreaded\$<\$<CONFIG:Debug>:Debug>" \
                 -D PKG_CONFIG_EXECUTABLE=${CMAKE_BUILD_DIR}/vcpkg_installed/x64-windows-static/tools/pkgconf/pkgconf.exe \
                 -D WITH_BLUETOOTH=ON \
-                -D VCPKG_INSTALL_OPTIONS="--x-buildtrees-root=C:/src" \
+                -D VCPKG_INSTALL_OPTIONS="--x-buildtrees-root=C:/src;--x-abi-tools-use-exact-versions" \
                 -D CMAKE_COMPILE_WARNING_AS_ERROR=ON \
                 -D SENTRY_DSN=${{ secrets.SENTRY_DSN }} \
                 -D SENTRY_ENV="${APP_ENV}" \
