@@ -394,34 +394,24 @@ Drawer {
         QfButton {
           id: toggleAllButton
 
-          property bool allCollapsed: true
-
           anchors {
             verticalCenter: parent.verticalCenter
             right: parent.right
             rightMargin: 10
           }
+          visible: legend.model.hasCollapsibleItems
 
-          text: toggleAllButton.allCollapsed ? qsTr('Expand All') : qsTr('Collapse All')
+          text: legend.model.isCollapsed ? qsTr('Expand All') : qsTr('Collapse All')
           bgcolor: Theme.darkTheme ? Theme.mainBackgroundColorSemiOpaque : Theme.lightestGraySemiOpaque
           color: Theme.mainTextColor
-          icon.source: toggleAllButton.allCollapsed ? Theme.getThemeVectorIcon('ic_expand_all_24dp') : Theme.getThemeVectorIcon('ic_collapse_all_24dp')
+          icon.source: legend.model.isCollapsed ? Theme.getThemeVectorIcon('ic_expand_all_24dp') : Theme.getThemeVectorIcon('ic_collapse_all_24dp')
           icon.width: 14
           icon.height: 14
           font.pointSize: 8
 
           onClicked: {
-            legend.model.setAllCollapsed(!toggleAllButton.allCollapsed);
-            toggleAllButton.allCollapsed = !toggleAllButton.allCollapsed;
+            legend.model.setAllCollapsed(!legend.model.isCollapsed);
             projectInfo.saveLayerTreeState();
-          }
-        }
-
-        Connections {
-          target: iface
-          function onLoadProjectEnded() {
-            toggleAllButton.visible = legend.model.hasCollapsibleItems();
-            toggleAllButton.allCollapsed = legend.model.isAllCollapsed();
           }
         }
       }
