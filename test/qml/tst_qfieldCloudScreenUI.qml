@@ -147,56 +147,56 @@ TestCase {
    *
    * Scenario: Setting searchTerm filters the projects in the table
    */
-  // function test_03_searchBarFiltering() {
-  //   // No project without login
-  //   compare(table.count, 0);
-  //   cloudConnection.url = qfcTestServerUrl;
-  //   cloudConnection.username = qfcTestUsername;
-  //   cloudConnection.login(qfcTestPassword);
-  //   tryCompare(cloudConnection, "status", QFieldCloudConnection.LoggedIn, 15000);
-  //   cloudProjectsModel.refreshProjectsList(true, false, 0);
-  //   tryCompare(cloudProjectsModel, "isRefreshing", true, 5000);
-  //   tryCompare(cloudProjectsModel, "isRefreshing", false, 30000);
-  //   wait(500);
-  //   var initialCount = table.count;
-  //   searchBarTextArea.text = "---";
-  //   wait(300);
+  function test_03_searchBarFiltering() {
+    // No project without login
+    compare(table.count, 0);
+    cloudConnection.url = qfcTestServerUrl;
+    cloudConnection.username = qfcTestUsername;
+    cloudConnection.login(qfcTestPassword);
+    tryCompare(cloudConnection, "status", QFieldCloudConnection.LoggedIn, 15000);
+    cloudProjectsModel.refreshProjectsList(true, false, 0);
+    tryCompare(cloudProjectsModel, "isRefreshing", true, 5000);
+    tryCompare(cloudProjectsModel, "isRefreshing", false, 30000);
+    wait(500);
+    var initialCount = table.count;
+    searchBarTextArea.text = "---";
+    wait(300);
 
-  //   // Filtered count should not exceed original count
-  //   var filteredCount = table.count;
-  //   verify(filteredCount < initialCount);
-  //   searchBarTextArea.text = "";
-  //   wait(300);
+    // Filtered count should not exceed original count
+    var filteredCount = table.count;
+    verify(filteredCount < initialCount);
+    searchBarTextArea.text = "";
+    wait(300);
 
-  //   // Count should return to original after clearing filter
-  //   compare(table.count, initialCount);
-  // }
+    // Count should return to original after clearing filter
+    compare(table.count, initialCount);
+  }
 
   /**
    * Tests projectsSwipeView navigation between projects list and project details.
    *
    * Scenario: SwipeView index changes when navigating to/from project details
    */
-  // function test_04_swipeViewNavigation() {
-  //   cloudConnection.url = qfcTestServerUrl;
-  //   cloudConnection.username = qfcTestUsername;
-  //   cloudConnection.login(qfcTestPassword);
-  //   tryCompare(cloudConnection, "status", QFieldCloudConnection.LoggedIn, 15000);
-  //   cloudProjectsModel.refreshProjectsList(true, false, 0);
-  //   tryCompare(cloudProjectsModel, "isRefreshing", true, 5000);
-  //   tryCompare(cloudProjectsModel, "isRefreshing", false, 30000);
-  //   wait(500);
-  //   compare(projectsSwipeView.currentIndex, 0);
-  //   var projectId = cloudProjectsModel.data(cloudProjectsModel.index(0, 0), QFieldCloudProjectsModel.IdRole);
-  //   var project = cloudProjectsModel.findProject(projectId);
-  //   verify(project);
-  //   projectDetails.cloudProject = project;
-  //   projectsSwipeView.currentIndex = 1;
-  //   compare(projectsSwipeView.currentIndex, 1);
-  //   compare(connectionInformation.visible, false);
-  //   projectsSwipeView.currentIndex = 0;
-  //   compare(projectsSwipeView.currentIndex, 0);
-  // }
+  function test_04_swipeViewNavigation() {
+    cloudConnection.url = qfcTestServerUrl;
+    cloudConnection.username = qfcTestUsername;
+    cloudConnection.login(qfcTestPassword);
+    tryCompare(cloudConnection, "status", QFieldCloudConnection.LoggedIn, 15000);
+    cloudProjectsModel.refreshProjectsList(true, false, 0);
+    tryCompare(cloudProjectsModel, "isRefreshing", true, 5000);
+    tryCompare(cloudProjectsModel, "isRefreshing", false, 30000);
+    wait(500);
+    compare(projectsSwipeView.currentIndex, 0);
+    var projectId = cloudProjectsModel.data(cloudProjectsModel.index(0, 0), QFieldCloudProjectsModel.IdRole);
+    var project = cloudProjectsModel.findProject(projectId);
+    verify(project);
+    projectDetails.cloudProject = project;
+    projectsSwipeView.currentIndex = 1;
+    compare(projectsSwipeView.currentIndex, 1);
+    compare(connectionInformation.visible, false);
+    projectsSwipeView.currentIndex = 0;
+    compare(projectsSwipeView.currentIndex, 0);
+  }
 
   /**
    * Tests UI state changes during login/logout cycle.
