@@ -302,7 +302,7 @@ jobs:
             Download an [Android arm64 build of this PR for testing](https://qfieldapks.sos-ch-dk-2.exoscale-cdn.com/ci-builds/qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}-android-arm64.apk).
             *(Built from commit ${{ github.event.pull_request.head.sha }})*
             <details>
-            <summary>Other architectures</summary>
+            <summary>Other Android architectures</summary>
 
             - [arm-neon](https://qfieldapks.sos-ch-dk-2.exoscale-cdn.com/ci-builds/qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}-android-arm-neon.apk)
             - [x64](https://qfieldapks.sos-ch-dk-2.exoscale-cdn.com/ci-builds/qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}-android-x64.apk)
@@ -336,9 +336,10 @@ jobs:
         with:
           token: ${{ secrets.FAIRY_TOKEN }}
           body: |
-            🎉 Ta-daaa, freshly created APKs are available: [**arm64-android**](https://qfieldapks.sos-ch-dk-2.exoscale-cdn.com/ci-builds/qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}-android-arm64.apk)
+            ### 📱 Android builds
+            Download an [Android arm64 build of this commit for testing](https://qfieldapks.sos-ch-dk-2.exoscale-cdn.com/ci-builds/qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}-android-arm64.apk).
             <details>
-            <summary>Other architectures</summary>
+            <summary>Other Android architectures</summary>
 
             - [arm-neon-android](https://qfieldapks.sos-ch-dk-2.exoscale-cdn.com/ci-builds/qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}-android-arm-neon.apk)
             - [x64-android](https://qfieldapks.sos-ch-dk-2.exoscale-cdn.com/ci-builds/qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}-android-x64.apk)

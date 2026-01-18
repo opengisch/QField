@@ -214,6 +214,6 @@ jobs:
           marker: linux
           body: |
             ### 🐧 Linux AppImage builds
-            Download a [Linux AppImage build of this PR for testing](${{ steps.artifact-linux.outputs.artifact-url }}).
+            Download a [Linux AppImage build of this PR for testing](${{ steps.artifact-linux.outputs.artifact-url }}) (GitHub login required).
             *(Built from commit ${{ github.event.pull_request.head.sha }})*
           pr: ${{ github.event.number }}
