@@ -1061,6 +1061,53 @@ Page {
               }
 
               Label {
+                id: positionFollowModeLabel
+                Layout.fillWidth: true
+                Layout.columnSpan: 2
+                text: qsTr("Behavior when locked to position:")
+                font: Theme.defaultFont
+                color: Theme.mainTextColor
+
+                wrapMode: Text.WordWrap
+              }
+
+              QfComboBox {
+                id: positionFollowModeComboBox
+                Layout.fillWidth: true
+                Layout.columnSpan: 2
+                Layout.alignment: Qt.AlignVCenter
+                font: Theme.defaultFont
+                model: [qsTr("Follow position only"), qsTr("Follow position and compass orientation"), qsTr("Follow position and movement direction")]
+
+                popup.font: Theme.defaultFont
+                popup.topMargin: mainWindow.sceneTopMargin
+                popup.bottomMargin: mainWindow.sceneTopMargin
+
+                property bool loaded: false
+
+                Component.onCompleted: {
+                  positionFollowModeComboBox.currentIndex = positioningSettings.positionFollowMode;
+                  loaded = true;
+                }
+
+                onCurrentIndexChanged: {
+                  if (loaded) {
+                    positioningSettings.positionFollowMode = currentIndex;
+                  }
+                }
+              }
+
+              Label {
+                id: positionFollowModeTipLabel
+                Layout.fillWidth: true
+                text: qsTr("When the map canvas is following or locked to position, it can also rotate to match compass orientation or movement direction.")
+                font: Theme.tipFont
+                color: Theme.secondaryTextColor
+
+                wrapMode: Text.WordWrap
+              }
+
+              Label {
                 id: measureLabel
                 Layout.fillWidth: true
                 Layout.columnSpan: 2
