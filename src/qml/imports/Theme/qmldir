@@ -23,6 +23,7 @@ QfSwipeAnimator 1.0 QfSwipeAnimator.qml
 QfSwitch 1.0 QfSwitch.qml
 QfTabBar 1.0 QfTabBar.qml
 QfTextField 1.0 QfTextField.qml
+QfToggleButtonGroup 1.0 QfToggleButtonGroup.qml
 QfToolButton 1.0 QfToolButton.qml
 QfToolButtonDrawer 1.0 QfToolButtonDrawer.qml
 QfToolButtonPie 1.0 QfToolButtonPie.qml
