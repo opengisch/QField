@@ -1,0 +1,186 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classpoint" kind="class" language="C++" prot="public">
+    <compoundname>point</compoundname>
+    <basecompoundref refid="classCogoParameterWidgetBase" prot="public" virt="non-virtual">CogoParameterWidgetBase</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classpoint_1a63d4d644da5c053d7e482cc552ed3b2b" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>var</type>
+        <definition>var point::positionInformation</definition>
+        <argsstring></argsstring>
+        <name>positionInformation</name>
+        <qualifiedname>point::positionInformation</qualifiedname>
+        <read>dummyGetter_positionInformation_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/cogoparameterwidgets/point.qml" line="10" column="1" bodyfile="src/qml/cogoparameterwidgets/point.qml" bodystart="10" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classpoint_1a6b0530facf01ebcba97e156012c5f287" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var point::width</definition>
+        <argsstring></argsstring>
+        <name>width</name>
+        <qualifiedname>point::width</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/cogoparameterwidgets/point.qml" line="12" column="5" bodyfile="src/qml/cogoparameterwidgets/point.qml" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classpoint_1a7becf78c489ac61c605af3f323c6b928" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var point::height</definition>
+        <argsstring></argsstring>
+        <name>height</name>
+        <qualifiedname>point::height</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/cogoparameterwidgets/point.qml" line="13" column="5" bodyfile="src/qml/cogoparameterwidgets/point.qml" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classpoint_1af7547a4692fa6f5644c039435facc215" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfTextField" kindref="compound">QfTextField</ref></type>
+        <definition>QfTextField point::pointField</definition>
+        <argsstring></argsstring>
+        <name>pointField</name>
+        <qualifiedname>point::pointField</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/cogoparameterwidgets/point.qml" line="14" column="13" bodyfile="src/qml/cogoparameterwidgets/point.qml" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classpoint_1a35c7058945951a4020430056919b16ac" prot="private" static="no" mutable="no">
+        <type>Loader</type>
+        <definition>Loader point::pointPickerLoader</definition>
+        <argsstring></argsstring>
+        <name>pointPickerLoader</name>
+        <qualifiedname>point::pointPickerLoader</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/cogoparameterwidgets/point.qml" line="15" column="8" bodyfile="src/qml/cogoparameterwidgets/point.qml" bodystart="15" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classpoint_1ad686ce774392d8270f48cd15a97e825b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void point::processValue</definition>
+        <argsstring>()</argsstring>
+        <name>processValue</name>
+        <qualifiedname>point::processValue</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/cogoparameterwidgets/point.qml" line="18" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classpoint_1aa7416237296a811cb2e52c345f5f18ec" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void point::applyPoint</definition>
+        <argsstring>(point)</argsstring>
+        <name>applyPoint</name>
+        <qualifiedname>point::applyPoint</qualifiedname>
+        <param>
+          <type><ref refid="classpoint" kindref="compound">point</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/cogoparameterwidgets/point.qml" line="20" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classpoint_1ab914e1eb1c70724400f1592d297f0168" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void point::requestedPositionReceived</definition>
+        <argsstring>(position, positionInformation)</argsstring>
+        <name>requestedPositionReceived</name>
+        <qualifiedname>point::requestedPositionReceived</qualifiedname>
+        <param>
+          <type>position</type>
+        </param>
+        <param>
+          <type>positionInformation</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/cogoparameterwidgets/point.qml" line="22" column="6"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>CogoParameterWidgetBase</label>
+        <link refid="classCogoParameterWidgetBase"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QtQuick::Item</label>
+      </node>
+      <node id="1">
+        <label>point</label>
+        <link refid="classpoint"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>CogoParameterWidgetBase</label>
+        <link refid="classCogoParameterWidgetBase"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QtQuick::Item</label>
+      </node>
+      <node id="1">
+        <label>point</label>
+        <link refid="classpoint"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/qml/cogoparameterwidgets/point.qml" line="7" column="1" bodyfile="src/qml/cogoparameterwidgets/point.qml" bodystart="7" bodyend="23"/>
+    <listofallmembers>
+      <member refid="classpoint_1aa7416237296a811cb2e52c345f5f18ec" prot="public" virt="non-virtual"><scope>point</scope><name>applyPoint</name></member>
+      <member refid="classpoint_1a7becf78c489ac61c605af3f323c6b928" prot="private" virt="non-virtual"><scope>point</scope><name>height</name></member>
+      <member refid="classpoint_1af7547a4692fa6f5644c039435facc215" prot="private" virt="non-virtual"><scope>point</scope><name>pointField</name></member>
+      <member refid="classpoint_1a35c7058945951a4020430056919b16ac" prot="private" virt="non-virtual"><scope>point</scope><name>pointPickerLoader</name></member>
+      <member refid="classpoint_1a63d4d644da5c053d7e482cc552ed3b2b" prot="public" virt="non-virtual"><scope>point</scope><name>positionInformation</name></member>
+      <member refid="classpoint_1ad686ce774392d8270f48cd15a97e825b" prot="public" virt="non-virtual"><scope>point</scope><name>processValue</name></member>
+      <member refid="classpoint_1ab914e1eb1c70724400f1592d297f0168" prot="public" virt="non-virtual"><scope>point</scope><name>requestedPositionReceived</name></member>
+      <member refid="classCogoParameterWidgetBase_1a52b53003934d715a6bbbf2f77b658371" prot="public" virt="non-virtual"><scope>point</scope><name>requestPosition</name></member>
+      <member refid="classCogoParameterWidgetBase_1ab7393dc8cfb637327c684bef80703422" prot="public" virt="non-virtual"><scope>point</scope><name>valueChangeRequested</name></member>
+      <member refid="classpoint_1a6b0530facf01ebcba97e156012c5f287" prot="private" virt="non-virtual"><scope>point</scope><name>width</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

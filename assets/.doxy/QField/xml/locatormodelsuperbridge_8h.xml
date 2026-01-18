@@ -1,0 +1,350 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="locatormodelsuperbridge_8h" kind="file" language="C++">
+    <compoundname>locatormodelsuperbridge.h</compoundname>
+    <includes refid="bookmarkmodel_8h" local="yes">bookmarkmodel.h</includes>
+    <includes refid="navigation_8h" local="yes">navigation.h</includes>
+    <includes local="no">QStandardItemModel</includes>
+    <includes local="no">qgslocatorfilter.h</includes>
+    <includes local="no">qgslocatormodelbridge.h</includes>
+    <includedby refid="activelayerfeatureslocatorfilter_8cpp" local="yes">src/core/locator/activelayerfeatureslocatorfilter.cpp</includedby>
+    <includedby refid="bookmarklocatorfilter_8cpp" local="yes">src/core/locator/bookmarklocatorfilter.cpp</includedby>
+    <includedby refid="expressioncalculatorlocatorfilter_8cpp" local="yes">src/core/locator/expressioncalculatorlocatorfilter.cpp</includedby>
+    <includedby refid="featureslocatorfilter_8cpp" local="yes">src/core/locator/featureslocatorfilter.cpp</includedby>
+    <includedby refid="finlandlocatorfilter_8cpp" local="yes">src/core/locator/finlandlocatorfilter.cpp</includedby>
+    <includedby refid="gotolocatorfilter_8cpp" local="yes">src/core/locator/gotolocatorfilter.cpp</includedby>
+    <includedby refid="helplocatorfilter_8cpp" local="yes">src/core/locator/helplocatorfilter.cpp</includedby>
+    <includedby refid="locatormodelsuperbridge_8cpp" local="yes">src/core/locator/locatormodelsuperbridge.cpp</includedby>
+    <includedby refid="qfieldlocatorfilter_8h" local="yes">src/core/locator/qfieldlocatorfilter.h</includedby>
+    <includedby refid="qgismobileapp_8cpp" local="yes">src/core/qgismobileapp.cpp</includedby>
+    <incdepgraph>
+      <node id="2">
+        <label>bookmarkmodel.h</label>
+        <link refid="bookmarkmodel_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>src/core/locator/locatormodelsuperbridge.h</label>
+        <link refid="locatormodelsuperbridge_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>navigation.h</label>
+        <link refid="navigation_8h_source"/>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+      </node>
+      <node id="16">
+        <label>navigationmodel.h</label>
+        <link refid="navigationmodel_8h_source"/>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>qgsquickmapsettings.h</label>
+        <link refid="qgsquickmapsettings_8h_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="17">
+        <label>QAbstractListModel</label>
+      </node>
+      <node id="5">
+        <label>QObject</label>
+      </node>
+      <node id="20">
+        <label>QSoundEffect</label>
+      </node>
+      <node id="23">
+        <label>QStandardItemModel</label>
+      </node>
+      <node id="21">
+        <label>QTimer</label>
+      </node>
+      <node id="4">
+        <label>qfield_core_export.h</label>
+      </node>
+      <node id="18">
+        <label>qgsabstractgeometry.h</label>
+      </node>
+      <node id="12">
+        <label>qgsbookmarkmanager.h</label>
+      </node>
+      <node id="13">
+        <label>qgsbookmarkmodel.h</label>
+      </node>
+      <node id="19">
+        <label>qgscoordinatereferencesystem.h</label>
+      </node>
+      <node id="6">
+        <label>qgscoordinatetransformcontext.h</label>
+      </node>
+      <node id="22">
+        <label>qgsdistancearea.h</label>
+      </node>
+      <node id="24">
+        <label>qgslocatorfilter.h</label>
+      </node>
+      <node id="25">
+        <label>qgslocatormodelbridge.h</label>
+      </node>
+      <node id="7">
+        <label>qgsmaplayer.h</label>
+      </node>
+      <node id="8">
+        <label>qgsmapsettings.h</label>
+      </node>
+      <node id="9">
+        <label>qgsmapthemecollection.h</label>
+      </node>
+      <node id="10">
+        <label>qgspoint.h</label>
+      </node>
+      <node id="11">
+        <label>qgsrectangle.h</label>
+      </node>
+      <node id="14">
+        <label>qobjectuniqueptr.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="1">
+        <label>src/core/locator/locatormodelsuperbridge.h</label>
+        <link refid="locatormodelsuperbridge_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>src/core/locator/qfieldlocatorfilter.h</label>
+        <link refid="qfieldlocatorfilter_8h_source"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="classLocatorActionsModel" prot="public">LocatorActionsModel</innerclass>
+    <innerclass refid="classLocatorModelSuperBridge" prot="public">LocatorModelSuperBridge</innerclass>
+    <innerclass refid="classLocatorFiltersModel" prot="public">LocatorFiltersModel</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/***************************************************************************</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/><sp/>locatormodelsuperbridge.h</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"></highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>---------------------</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>begin<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>01.12.2018</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>copyright<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>(C)<sp/>2018<sp/>by<sp/>Denis<sp/>Rouzaud</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>email<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>denis@opengis.ch</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>***************************************************************************</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>*<sp/><sp/><sp/>This<sp/>program<sp/>is<sp/>free<sp/>software;<sp/>you<sp/>can<sp/>redistribute<sp/>it<sp/>and/or<sp/>modify<sp/><sp/>*</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>*<sp/><sp/><sp/>it<sp/>under<sp/>the<sp/>terms<sp/>of<sp/>the<sp/>GNU<sp/>General<sp/>Public<sp/>License<sp/>as<sp/>published<sp/>by<sp/><sp/>*</highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*<sp/><sp/><sp/>the<sp/>Free<sp/>Software<sp/>Foundation;<sp/>either<sp/>version<sp/>2<sp/>of<sp/>the<sp/>License,<sp/>or<sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>*<sp/><sp/><sp/>(at<sp/>your<sp/>option)<sp/>any<sp/>later<sp/>version.<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="15"><highlight class="comment"><sp/>***************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>LOCATORMODELSUPERBRIDGE_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>LOCATORMODELSUPERBRIDGE_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;bookmarkmodel.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;navigation.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QStandardItemModel&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;qgslocatorfilter.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;qgslocatormodelbridge.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref>;</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classFeatureListExtentController" kindref="compound">FeatureListExtentController</ref>;</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classPeliasGeocoder" kindref="compound">PeliasGeocoder</ref>;</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classGnssPositionInformation" kindref="compound">GnssPositionInformation</ref>;</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classQFieldLocatorFilter" kindref="compound">QFieldLocatorFilter</ref>;</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">QgsLocator;</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40" refid="classLocatorActionsModel" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classLocatorActionsModel" kindref="compound">LocatorActionsModel</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>QStandardItemModel</highlight></codeline>
+<codeline lineno="41"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_OBJECT</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/>ActionRoles</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>IdRole<sp/>=<sp/>Qt::UserRole<sp/>+<sp/>1,</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>IconPathRole</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">explicit</highlight><highlight class="normal"><sp/><ref refid="classLocatorActionsModel" kindref="compound">LocatorActionsModel</ref>(<sp/>QObject<sp/>*parent<sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classLocatorActionsModel" kindref="compound">LocatorActionsModel</ref>(<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>rows,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>columns,<sp/>QObject<sp/>*parent<sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/>QHash&lt;int,<sp/>QByteArray&gt;<sp/>roleNames()<sp/></highlight><highlight class="keyword">const<sp/>override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="52"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight></codeline>
+<codeline lineno="59" refid="classLocatorModelSuperBridge" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classLocatorModelSuperBridge" kindref="compound">LocatorModelSuperBridge</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>QgsLocatorModelBridge</highlight></codeline>
+<codeline lineno="60"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_OBJECT</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight></codeline>
+<codeline lineno="64" refid="classLocatorModelSuperBridge_1ac6474f8b28a66f0e57dcf0926999ba9f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref><sp/>*<ref refid="classLocatorModelSuperBridge_1ac6474f8b28a66f0e57dcf0926999ba9f" kindref="member">mapSettings</ref><sp/>READ<sp/><ref refid="classLocatorModelSuperBridge_1ac6474f8b28a66f0e57dcf0926999ba9f" kindref="member">mapSettings</ref><sp/>WRITE<sp/><ref refid="classLocatorModelSuperBridge_1af5b3c94371c6953ff332cc0887109482" kindref="member">setMapSettings</ref><sp/>NOTIFY<sp/>mapSettingsChanged<sp/>)</highlight></codeline>
+<codeline lineno="66" refid="classLocatorModelSuperBridge_1af0e3ba62ef7f3751d7d0f3e5b11fcb19" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/>QObject<sp/>*<ref refid="classLocatorModelSuperBridge_1af0e3ba62ef7f3751d7d0f3e5b11fcb19" kindref="member">geometryHighlighter</ref><sp/>READ<sp/><ref refid="classLocatorModelSuperBridge_1af0e3ba62ef7f3751d7d0f3e5b11fcb19" kindref="member">geometryHighlighter</ref><sp/>WRITE<sp/><ref refid="classLocatorModelSuperBridge_1a0f83715ace36ccd023f46809fd2c7065" kindref="member">setGeometryHighlighter</ref><sp/>NOTIFY<sp/>geometryHighlighterChanged<sp/>)</highlight></codeline>
+<codeline lineno="68" refid="classLocatorModelSuperBridge_1a8a11e5bb7a5b9ec186847cb2d98ad815" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/><ref refid="classFeatureListExtentController" kindref="compound">FeatureListExtentController</ref><sp/>*<ref refid="classLocatorModelSuperBridge_1a8a11e5bb7a5b9ec186847cb2d98ad815" kindref="member">featureListController</ref><sp/>READ<sp/><ref refid="classLocatorModelSuperBridge_1a8a11e5bb7a5b9ec186847cb2d98ad815" kindref="member">featureListController</ref><sp/>WRITE<sp/><ref refid="classLocatorModelSuperBridge_1ad7a5180dc0199bd03ca29abdd3ae7931" kindref="member">setFeatureListController</ref><sp/>NOTIFY<sp/>featureListControllerChanged<sp/>)</highlight></codeline>
+<codeline lineno="70" refid="classLocatorModelSuperBridge_1acc745104f4432e5ae1dd86b889c8e0bd" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/>QgsMapLayer<sp/>*<ref refid="classLocatorModelSuperBridge_1acc745104f4432e5ae1dd86b889c8e0bd" kindref="member">activeLayer</ref><sp/>READ<sp/><ref refid="classLocatorModelSuperBridge_1acc745104f4432e5ae1dd86b889c8e0bd" kindref="member">activeLayer</ref><sp/>WRITE<sp/><ref refid="classLocatorModelSuperBridge_1a025799d1682039bd97276f591a16a3af" kindref="member">setActiveLayer</ref><sp/>NOTIFY<sp/>activeLayerChanged<sp/>)</highlight></codeline>
+<codeline lineno="72" refid="classLocatorModelSuperBridge_1a2886dabe53303f0300f8993ee20f02d6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/><ref refid="classBookmarkModel" kindref="compound">BookmarkModel</ref><sp/>*<ref refid="classLocatorModelSuperBridge_1a2886dabe53303f0300f8993ee20f02d6" kindref="member">bookmarks</ref><sp/>READ<sp/><ref refid="classLocatorModelSuperBridge_1a2886dabe53303f0300f8993ee20f02d6" kindref="member">bookmarks</ref><sp/>WRITE<sp/><ref refid="classLocatorModelSuperBridge_1a3c5d0e5e3dcf185cba66cb7b008284b1" kindref="member">setBookmarks</ref><sp/>NOTIFY<sp/>bookmarksChanged<sp/>)</highlight></codeline>
+<codeline lineno="74" refid="classLocatorModelSuperBridge_1ac8737d8e0b82f9ab9ebdd876877db927" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/><ref refid="classNavigation" kindref="compound">Navigation</ref><sp/>*<ref refid="classLocatorModelSuperBridge_1ac8737d8e0b82f9ab9ebdd876877db927" kindref="member">navigation</ref><sp/>READ<sp/><ref refid="classLocatorModelSuperBridge_1ac8737d8e0b82f9ab9ebdd876877db927" kindref="member">navigation</ref><sp/>WRITE<sp/><ref refid="classLocatorModelSuperBridge_1a475ab48e999309fe7282b7b144b4a596" kindref="member">setNavigation</ref><sp/>NOTIFY<sp/>navigationChanged<sp/>)</highlight></codeline>
+<codeline lineno="76" refid="classLocatorModelSuperBridge_1a486cdd1bd163e10d3c0d9d5f91631683" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classLocatorModelSuperBridge_1a486cdd1bd163e10d3c0d9d5f91631683" kindref="member">keepScale</ref><sp/>READ<sp/><ref refid="classLocatorModelSuperBridge_1a486cdd1bd163e10d3c0d9d5f91631683" kindref="member">keepScale</ref><sp/>WRITE<sp/><ref refid="classLocatorModelSuperBridge_1adf2479b4a0fbf8e02bc58548640a9dc1" kindref="member">setKeepScale</ref><sp/>NOTIFY<sp/>keepScaleChanged<sp/>)</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/>public:</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/>explicit<sp/><ref refid="classLocatorModelSuperBridge" kindref="compound">LocatorModelSuperBridge</ref>(<sp/>QObject<sp/>*parent<sp/>=<sp/></highlight><highlight class="keywordtype">nullptr</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/>~<ref refid="classLocatorModelSuperBridge" kindref="compound">LocatorModelSuperBridge</ref>()<sp/>=<sp/>default;</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref><sp/>*<ref refid="classLocatorModelSuperBridge_1ac6474f8b28a66f0e57dcf0926999ba9f" kindref="member">mapSettings</ref>()<sp/>const;</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classLocatorModelSuperBridge_1af5b3c94371c6953ff332cc0887109482" kindref="member">setMapSettings</ref>(<sp/><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref><sp/>*<ref refid="classLocatorModelSuperBridge_1ac6474f8b28a66f0e57dcf0926999ba9f" kindref="member">mapSettings</ref><sp/>);</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classBookmarkModel" kindref="compound">BookmarkModel</ref><sp/>*<ref refid="classLocatorModelSuperBridge_1a2886dabe53303f0300f8993ee20f02d6" kindref="member">bookmarks</ref>()<sp/>const;</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classLocatorModelSuperBridge_1a3c5d0e5e3dcf185cba66cb7b008284b1" kindref="member">setBookmarks</ref>(<sp/><ref refid="classBookmarkModel" kindref="compound">BookmarkModel</ref><sp/>*<ref refid="classLocatorModelSuperBridge_1a2886dabe53303f0300f8993ee20f02d6" kindref="member">bookmarks</ref><sp/>);</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classNavigation" kindref="compound">Navigation</ref><sp/>*<ref refid="classLocatorModelSuperBridge_1ac8737d8e0b82f9ab9ebdd876877db927" kindref="member">navigation</ref>()<sp/>const;</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classLocatorModelSuperBridge_1a475ab48e999309fe7282b7b144b4a596" kindref="member">setNavigation</ref>(<sp/><ref refid="classNavigation" kindref="compound">Navigation</ref><sp/>*<ref refid="classLocatorModelSuperBridge_1ac8737d8e0b82f9ab9ebdd876877db927" kindref="member">navigation</ref><sp/>);</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/>QObject<sp/>*<ref refid="classLocatorModelSuperBridge_1af0e3ba62ef7f3751d7d0f3e5b11fcb19" kindref="member">geometryHighlighter</ref>()<sp/>const;</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classLocatorModelSuperBridge_1a0f83715ace36ccd023f46809fd2c7065" kindref="member">setGeometryHighlighter</ref>(<sp/>QObject<sp/>*<ref refid="classLocatorModelSuperBridge_1af0e3ba62ef7f3751d7d0f3e5b11fcb19" kindref="member">geometryHighlighter</ref><sp/>);</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"></highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classFeatureListExtentController" kindref="compound">FeatureListExtentController</ref><sp/>*<ref refid="classLocatorModelSuperBridge_1a8a11e5bb7a5b9ec186847cb2d98ad815" kindref="member">featureListController</ref>()<sp/>const;</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classLocatorModelSuperBridge_1ad7a5180dc0199bd03ca29abdd3ae7931" kindref="member">setFeatureListController</ref>(<sp/><ref refid="classFeatureListExtentController" kindref="compound">FeatureListExtentController</ref><sp/>*<ref refid="classLocatorModelSuperBridge_1a8a11e5bb7a5b9ec186847cb2d98ad815" kindref="member">featureListController</ref><sp/>);</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/>QgsMapLayer<sp/>*<ref refid="classLocatorModelSuperBridge_1acc745104f4432e5ae1dd86b889c8e0bd" kindref="member">activeLayer</ref>()<sp/>const;</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classLocatorModelSuperBridge_1a025799d1682039bd97276f591a16a3af" kindref="member">setActiveLayer</ref>(<sp/>QgsMapLayer<sp/>*layer<sp/>);</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classLocatorModelSuperBridge_1a486cdd1bd163e10d3c0d9d5f91631683" kindref="member">keepScale</ref>()<sp/>const;</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classLocatorModelSuperBridge_1adf2479b4a0fbf8e02bc58548640a9dc1" kindref="member">setKeepScale</ref>(<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classLocatorModelSuperBridge_1a486cdd1bd163e10d3c0d9d5f91631683" kindref="member">keepScale</ref><sp/>);</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"></highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_INVOKABLE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classLocatorModelSuperBridge_1a4d620d8014ad043a107566f30c3b0ee5" kindref="member">requestSearch</ref>(<sp/>const<sp/>QString<sp/>&amp;text<sp/>);</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"></highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classLocatorModelSuperBridge_1a389246bc96a9dc8851634bd8764f6271" kindref="member">requestSearchTextChange</ref>(<sp/>const<sp/>QString<sp/>&amp;text<sp/>);</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"></highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_INVOKABLE<sp/><ref refid="classLocatorActionsModel" kindref="compound">LocatorActionsModel</ref><sp/>*<ref refid="classLocatorModelSuperBridge_1a46c8e3927487d0ffad98514798f5254a" kindref="member">contextMenuActionsModel</ref>(<sp/>const<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>row<sp/>);</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"></highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_INVOKABLE<sp/>QString<sp/><ref refid="classLocatorModelSuperBridge_1a28b5109414bedb360998448ae53e0feb" kindref="member">getLocatorModelDescription</ref>(<sp/>const<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>row<sp/>);</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"></highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_INVOKABLE<sp/>QString<sp/><ref refid="classLocatorModelSuperBridge_1a619c7f6e3159fba98cf70e13f48d471d" kindref="member">getPrefixFromSearchString</ref>(<sp/>const<sp/>QString<sp/>&amp;</highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"></highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_INVOKABLE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classLocatorModelSuperBridge_1a30b937612ab45755ddc79cdc4f42a467" kindref="member">registerQFieldLocatorFilter</ref>(<sp/><ref refid="classQFieldLocatorFilter" kindref="compound">QFieldLocatorFilter</ref><sp/>*filter<sp/>);</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"></highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_INVOKABLE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classLocatorModelSuperBridge_1a7c51d6c1bbd5774cabd58652a4d2782f" kindref="member">deregisterQFieldLocatorFilter</ref>(<sp/><ref refid="classQFieldLocatorFilter" kindref="compound">QFieldLocatorFilter</ref><sp/>*filter<sp/>);</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"></highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>emitMessage(<sp/>const<sp/>QString<sp/>&amp;text<sp/>);</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"></highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/>signals:</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>mapSettingsChanged();</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>bookmarksChanged();</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>navigationChanged();</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>geometryHighlighterChanged();</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>featureListControllerChanged();</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>activeLayerChanged();</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>messageEmitted(<sp/>const<sp/>QString<sp/>&amp;text<sp/>);</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>keepScaleChanged();</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>searchRequested(<sp/>const<sp/>QString<sp/>&amp;text<sp/>);</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>searchTextChangeRequested(<sp/>const<sp/>QString<sp/>&amp;text<sp/>);</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>locatorFiltersChanged();</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>requestJumpToPoint(<sp/>const<sp/>QgsPoint<sp/>&amp;center,<sp/>const<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>&amp;scale<sp/>=<sp/>-1.0,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>handleMargins<sp/>=<sp/>false<sp/>);</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"></highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/>public<sp/>slots:</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_INVOKABLE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>triggerResultAtRow(<sp/>const<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>row,<sp/>const<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal"><sp/>=<sp/>-1<sp/>);</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"></highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/>private:</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref><sp/>*mMapSettings<sp/>=<sp/></highlight><highlight class="keywordtype">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/><sp/><sp/>QObject<sp/>*mGeometryHighlighter<sp/>=<sp/></highlight><highlight class="keywordtype">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classFeatureListExtentController" kindref="compound">FeatureListExtentController</ref><sp/>*mFeatureListController<sp/>=<sp/></highlight><highlight class="keywordtype">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/><sp/><sp/>QPointer&lt;QgsMapLayer&gt;<sp/>mActiveLayer;</highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>mKeepScale<sp/>=<sp/>false;</highlight></codeline>
+<codeline lineno="180"><highlight class="normal"></highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classPeliasGeocoder" kindref="compound">PeliasGeocoder</ref><sp/>*mFinlandGeocoder<sp/>=<sp/></highlight><highlight class="keywordtype">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classBookmarkModel" kindref="compound">BookmarkModel</ref><sp/>*mBookmarks<sp/>=<sp/></highlight><highlight class="keywordtype">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classNavigation" kindref="compound">Navigation</ref><sp/>*mNavigation<sp/>=<sp/></highlight><highlight class="keywordtype">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="184"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="185"><highlight class="normal"></highlight></codeline>
+<codeline lineno="186" refid="classLocatorFiltersModel" refkind="compound"><highlight class="normal">class<sp/><ref refid="classLocatorFiltersModel" kindref="compound">LocatorFiltersModel</ref><sp/>:<sp/>public<sp/>QAbstractListModel</highlight></codeline>
+<codeline lineno="187"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="188"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_OBJECT</highlight></codeline>
+<codeline lineno="189"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/><ref refid="classLocatorModelSuperBridge" kindref="compound">LocatorModelSuperBridge</ref><sp/>*locatorModelSuperBridge<sp/>READ<sp/>locatorModelSuperBridge<sp/>WRITE<sp/>setLocatorModelSuperBridge<sp/>NOTIFY<sp/>locatorModelSuperBridgeChanged<sp/>)</highlight></codeline>
+<codeline lineno="190"><highlight class="normal"></highlight></codeline>
+<codeline lineno="191"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="193" refid="classLocatorFiltersModel_1a7a0381e925a473ee183dbacb9024acd2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/><ref refid="classLocatorFiltersModel_1a7a0381e925a473ee183dbacb9024acd2" kindref="member">Role</ref></highlight></codeline>
+<codeline lineno="194"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="195"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>NameRole<sp/>=<sp/>Qt::UserRole<sp/>+<sp/>1,</highlight></codeline>
+<codeline lineno="196"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>DescriptionRole,</highlight></codeline>
+<codeline lineno="197"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>PrefixRole,</highlight></codeline>
+<codeline lineno="198"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>ActiveRole,</highlight></codeline>
+<codeline lineno="199"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>DefaultRole,</highlight></codeline>
+<codeline lineno="200"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="201"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_ENUM(<sp/>Role<sp/>)</highlight></codeline>
+<codeline lineno="202"><highlight class="normal"></highlight></codeline>
+<codeline lineno="203"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="206"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classLocatorFiltersModel" kindref="compound">LocatorFiltersModel</ref>();</highlight></codeline>
+<codeline lineno="207"><highlight class="normal"></highlight></codeline>
+<codeline lineno="208"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>rowCount(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QModelIndex<sp/>&amp;parent<sp/>=<sp/>QModelIndex()<sp/>)<sp/></highlight><highlight class="keyword">const<sp/>override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="209"><highlight class="normal"><sp/><sp/><sp/><sp/>QHash&lt;int,<sp/>QByteArray&gt;<sp/>roleNames()<sp/></highlight><highlight class="keyword">const<sp/>override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="210"><highlight class="normal"><sp/><sp/><sp/><sp/>QVariant<sp/>data(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QModelIndex<sp/>&amp;index,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>role<sp/>=<sp/>Qt::DisplayRole<sp/>)<sp/></highlight><highlight class="keyword">const<sp/>override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="211"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>setData(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QModelIndex<sp/>&amp;index,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QVariant<sp/>&amp;value,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>role<sp/>=<sp/>Qt::EditRole<sp/>)<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="212"><highlight class="normal"></highlight></codeline>
+<codeline lineno="213"><highlight class="normal"><sp/><sp/><sp/><sp/>QgsLocatorFilter<sp/>*filterForIndex(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QModelIndex<sp/>&amp;index<sp/>)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="214"><highlight class="normal"></highlight></codeline>
+<codeline lineno="215"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classLocatorModelSuperBridge" kindref="compound">LocatorModelSuperBridge</ref><sp/>*locatorModelSuperBridge()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="216"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setLocatorModelSuperBridge(<sp/><ref refid="classLocatorModelSuperBridge" kindref="compound">LocatorModelSuperBridge</ref><sp/>*locatorModelSuperBridge<sp/>);</highlight></codeline>
+<codeline lineno="217"><highlight class="normal"></highlight></codeline>
+<codeline lineno="218"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_INVOKABLE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setGeocoderLocatorFiltersDefaulByPosition(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classGnssPositionInformation" kindref="compound">GnssPositionInformation</ref><sp/>&amp;position<sp/>);</highlight></codeline>
+<codeline lineno="219"><highlight class="normal"></highlight></codeline>
+<codeline lineno="220"><highlight class="normal"><sp/><sp/>signals:</highlight></codeline>
+<codeline lineno="221"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>locatorModelSuperBridgeChanged();</highlight></codeline>
+<codeline lineno="222"><highlight class="normal"></highlight></codeline>
+<codeline lineno="223"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/>slots:</highlight></codeline>
+<codeline lineno="224"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>locatorFiltersChanged();</highlight></codeline>
+<codeline lineno="225"><highlight class="normal"></highlight></codeline>
+<codeline lineno="226"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="227"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classLocatorModelSuperBridge" kindref="compound">LocatorModelSuperBridge</ref><sp/>*mLocatorModelSuperBridge<sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="228"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="229"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>LOCATORMODELSUPERBRIDGE_H</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="src/core/locator/locatormodelsuperbridge.h"/>
+  </compounddef>
+</doxygen>

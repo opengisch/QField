@@ -1,0 +1,137 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="barcodeimageprovider_8cpp" kind="file" language="C++">
+    <compoundname>barcodeimageprovider.cpp</compoundname>
+    <includes refid="barcodeimageprovider_8h" local="yes">barcodeimageprovider.h</includes>
+    <includes local="no">QFileInfo</includes>
+    <includes local="no">QUrlQuery</includes>
+    <includes local="no">ZXing/BarcodeFormat.h</includes>
+    <includes local="no">ZXing/BitMatrix.h</includes>
+    <includes local="no">ZXing/MultiFormatWriter.h</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>src/core/barcodeimageprovider.cpp</label>
+        <link refid="barcodeimageprovider_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>barcodeimageprovider.h</label>
+        <link refid="barcodeimageprovider_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>QFileInfo</label>
+      </node>
+      <node id="3">
+        <label>QQuickImageProvider</label>
+      </node>
+      <node id="5">
+        <label>QUrlQuery</label>
+      </node>
+      <node id="6">
+        <label>ZXing/BarcodeFormat.h</label>
+      </node>
+      <node id="7">
+        <label>ZXing/BitMatrix.h</label>
+      </node>
+      <node id="8">
+        <label>ZXing/MultiFormatWriter.h</label>
+      </node>
+    </incdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/***************************************************************************</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/><sp/>barcodeimageprovider.cpp<sp/>-<sp/>BarcodeImageProvider</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"></highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>---------------------</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>begin<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>26.04.2025</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>copyright<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>(C)<sp/>2025<sp/>by<sp/>Mathieu<sp/>Pellerin</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>email<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>mathieu<sp/>at<sp/>opengis<sp/>dot<sp/>ch</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>***************************************************************************</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>*<sp/><sp/><sp/>This<sp/>program<sp/>is<sp/>free<sp/>software;<sp/>you<sp/>can<sp/>redistribute<sp/>it<sp/>and/or<sp/>modify<sp/><sp/>*</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>*<sp/><sp/><sp/>it<sp/>under<sp/>the<sp/>terms<sp/>of<sp/>the<sp/>GNU<sp/>General<sp/>Public<sp/>License<sp/>as<sp/>published<sp/>by<sp/><sp/>*</highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*<sp/><sp/><sp/>the<sp/>Free<sp/>Software<sp/>Foundation;<sp/>either<sp/>version<sp/>2<sp/>of<sp/>the<sp/>License,<sp/>or<sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>*<sp/><sp/><sp/>(at<sp/>your<sp/>option)<sp/>any<sp/>later<sp/>version.<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="15"><highlight class="comment"><sp/>***************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;barcodeimageprovider.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QFileInfo&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QUrlQuery&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;ZXing/BarcodeFormat.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;ZXing/BitMatrix.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;ZXing/MultiFormatWriter.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal">BarcodeImageProvider::BarcodeImageProvider()</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/>:<sp/>QQuickImageProvider(<sp/>Image<sp/>)</highlight></codeline>
+<codeline lineno="28"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="29"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal">QImage<sp/>BarcodeImageProvider::requestImage(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;</highlight><highlight class="keywordtype">id</highlight><highlight class="normal">,<sp/>QSize<sp/>*size,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QSize<sp/>&amp;requestedSize<sp/>)</highlight></codeline>
+<codeline lineno="32"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>the<sp/>id<sp/>is<sp/>passed<sp/>on<sp/>as<sp/>an<sp/>encoded<sp/>URL<sp/>string<sp/>which<sp/>needs<sp/>decoding</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QUrlQuery<sp/>urlQuery<sp/>=<sp/>QUrlQuery(<sp/>QUrl(<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">.toUtf8()<sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>text<sp/>=<sp/>urlQuery.queryItemValue(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;text&quot;</highlight><highlight class="normal"><sp/>),<sp/>QUrl::FullyDecoded<sp/>);</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QColor<sp/>foregroundColor<sp/>=<sp/>QColor(<sp/>urlQuery.queryItemValue(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;color&quot;</highlight><highlight class="normal"><sp/>)<sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>text.isEmpty()<sp/>)</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>QImage();</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>width<sp/>=<sp/>requestedSize.width()<sp/>&gt;<sp/>0<sp/>?<sp/>requestedSize.width()<sp/>:<sp/>DEFAULT_BARCODE_SIZE;</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>height<sp/>=<sp/>requestedSize.height()<sp/>&gt;<sp/>0<sp/>?<sp/>requestedSize.height()<sp/>:<sp/>DEFAULT_BARCODE_SIZE;</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/>ZXing::MultiFormatWriter<sp/>writer(<sp/>ZXing::BarcodeFormat::QRCode<sp/>);</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/>ZXing::BitMatrix<sp/>matrix<sp/>=<sp/>writer.encode(<sp/>text.toStdString(),<sp/>width,<sp/>height<sp/>);</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/>ZXing::Matrix&lt;uint8_t&gt;<sp/>bitmap<sp/>=<sp/>ZXing::ToMatrix&lt;uint8_t&gt;(<sp/>matrix<sp/>);</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/>QImage<sp/>barcodeImage(<sp/>bitmap.data(),<sp/>bitmap.width(),<sp/>bitmap.height(),<sp/>bitmap.width(),<sp/>QImage::Format::Format_Grayscale8<sp/>);</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/>barcodeImage.convertTo(<sp/>QImage::Format::Format_ARGB32<sp/>);</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QRgb<sp/>white<sp/>=<sp/>qRgba(<sp/>255,<sp/>255,<sp/>255,<sp/>255<sp/>);</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QRgb<sp/>black<sp/>=<sp/>qRgba(<sp/>0,<sp/>0,<sp/>0,<sp/>255<sp/>);</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QRgb<sp/>transparent<sp/>=<sp/>qRgba(<sp/>255,<sp/>255,<sp/>255,<sp/>0<sp/>);</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QRgb<sp/>color<sp/>=<sp/>foregroundColor.isValid()<sp/>?<sp/>foregroundColor.rgba()<sp/>:<sp/>qRgba(<sp/>0,<sp/>0,<sp/>0,<sp/>255<sp/>);</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>y<sp/>=<sp/>0;<sp/>y<sp/>&lt;<sp/>barcodeImage.height();<sp/>++y<sp/>)</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/>QRgb<sp/>*pixel<sp/>=<sp/></highlight><highlight class="keyword">reinterpret_cast&lt;</highlight><highlight class="normal">QRgb<sp/>*</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(<sp/>barcodeImage.scanLine(<sp/>y<sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>x<sp/>=<sp/>0;<sp/>x<sp/>&lt;<sp/>barcodeImage.width();<sp/>++x,<sp/>++pixel<sp/>)</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>*pixel<sp/>==<sp/>white<sp/>)</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*pixel<sp/>=<sp/>transparent;</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>*pixel<sp/>==<sp/>black<sp/>)</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*pixel<sp/>=<sp/>color;</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>barcodeImage.copy();</highlight></codeline>
+<codeline lineno="76"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="src/core/barcodeimageprovider.cpp"/>
+  </compounddef>
+</doxygen>

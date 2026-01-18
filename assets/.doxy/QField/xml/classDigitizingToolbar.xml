@@ -1,0 +1,620 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classDigitizingToolbar" kind="class" language="C++" prot="public">
+    <compoundname>DigitizingToolbar</compoundname>
+    <basecompoundref refid="classTheme_1_1QfVisibilityFadingRow" prot="public" virt="non-virtual">Theme::QfVisibilityFadingRow</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classDigitizingToolbar_1ad4a616931f7f43bb0803a848fe4d2d15" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classRubberbandModel" kindref="compound">RubberbandModel</ref></type>
+        <definition>RubberbandModel DigitizingToolbar::rubberbandModel</definition>
+        <argsstring></argsstring>
+        <name>rubberbandModel</name>
+        <qualifiedname>DigitizingToolbar::rubberbandModel</qualifiedname>
+        <read>dummyGetter_rubberbandModel_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/DigitizingToolbar.qml" line="12" column="1" bodyfile="src/qml/DigitizingToolbar.qml" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classDigitizingToolbar_1a5cf5a404decdc8a547674d2cae5ccc23" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>MapSettings</type>
+        <definition>MapSettings DigitizingToolbar::mapSettings</definition>
+        <argsstring></argsstring>
+        <name>mapSettings</name>
+        <qualifiedname>DigitizingToolbar::mapSettings</qualifiedname>
+        <read>dummyGetter_mapSettings_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/DigitizingToolbar.qml" line="14" column="1" bodyfile="src/qml/DigitizingToolbar.qml" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classDigitizingToolbar_1ab4b2705951474dba3267e348bb267c80" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool DigitizingToolbar::cogoEnabled</definition>
+        <argsstring></argsstring>
+        <name>cogoEnabled</name>
+        <qualifiedname>DigitizingToolbar::cogoEnabled</qualifiedname>
+        <read>dummyGetter_cogoEnabled_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/DigitizingToolbar.qml" line="16" column="1" bodyfile="src/qml/DigitizingToolbar.qml" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classDigitizingToolbar_1a0842fdd5d615c7caad25c5e4ff7efadb" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>var</type>
+        <definition>var DigitizingToolbar::cogoOperationSettings</definition>
+        <argsstring></argsstring>
+        <name>cogoOperationSettings</name>
+        <qualifiedname>DigitizingToolbar::cogoOperationSettings</qualifiedname>
+        <read>dummyGetter_cogoOperationSettings_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/DigitizingToolbar.qml" line="18" column="1" bodyfile="src/qml/DigitizingToolbar.qml" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classDigitizingToolbar_1a910bb9f979ab20d312b2105af5db425a" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias DigitizingToolbar::cogoExecutor</definition>
+        <argsstring></argsstring>
+        <name>cogoExecutor</name>
+        <qualifiedname>DigitizingToolbar::cogoExecutor</qualifiedname>
+        <read>dummyGetter_cogoExecutor_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/DigitizingToolbar.qml" line="20" column="1" bodyfile="src/qml/DigitizingToolbar.qml" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classDigitizingToolbar_1ab8e4c869b264047356b7b9389cd94f47" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool DigitizingToolbar::showConfirmButton</definition>
+        <argsstring></argsstring>
+        <name>showConfirmButton</name>
+        <qualifiedname>DigitizingToolbar::showConfirmButton</qualifiedname>
+        <read>dummyGetter_showConfirmButton_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/DigitizingToolbar.qml" line="22" column="1" bodyfile="src/qml/DigitizingToolbar.qml" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classDigitizingToolbar_1a2fb6946139181150e0698ce43241eb90" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool DigitizingToolbar::screenHovering</definition>
+        <argsstring></argsstring>
+        <name>screenHovering</name>
+        <qualifiedname>DigitizingToolbar::screenHovering</qualifiedname>
+        <read>dummyGetter_screenHovering_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/DigitizingToolbar.qml" line="24" column="1" bodyfile="src/qml/DigitizingToolbar.qml" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classDigitizingToolbar_1a032d87507b6dc83e1c09c1753aa8fa07" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool DigitizingToolbar::geometryRequested</definition>
+        <argsstring></argsstring>
+        <name>geometryRequested</name>
+        <qualifiedname>DigitizingToolbar::geometryRequested</qualifiedname>
+        <read>dummyGetter_geometryRequested_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/DigitizingToolbar.qml" line="26" column="1" bodyfile="src/qml/DigitizingToolbar.qml" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classDigitizingToolbar_1aa3b3b90657036ddc4677d16b1f68092f" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>var</type>
+        <definition>var DigitizingToolbar::geometryRequestedItem</definition>
+        <argsstring></argsstring>
+        <name>geometryRequestedItem</name>
+        <qualifiedname>DigitizingToolbar::geometryRequestedItem</qualifiedname>
+        <read>dummyGetter_geometryRequestedItem_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/DigitizingToolbar.qml" line="28" column="1" bodyfile="src/qml/DigitizingToolbar.qml" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classDigitizingToolbar_1a0068ad9ee37737a1f18e73a11e37b36b" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>VectorLayer</type>
+        <definition>VectorLayer DigitizingToolbar::geometryRequestedLayer</definition>
+        <argsstring></argsstring>
+        <name>geometryRequestedLayer</name>
+        <qualifiedname>DigitizingToolbar::geometryRequestedLayer</qualifiedname>
+        <read>dummyGetter_geometryRequestedLayer_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/DigitizingToolbar.qml" line="30" column="1" bodyfile="src/qml/DigitizingToolbar.qml" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classDigitizingToolbar_1ab72599318b2f1c368570f84502b24391" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias DigitizingToolbar::digitizingLogger</definition>
+        <argsstring></argsstring>
+        <name>digitizingLogger</name>
+        <qualifiedname>DigitizingToolbar::digitizingLogger</qualifiedname>
+        <read>dummyGetter_digitizingLogger_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/DigitizingToolbar.qml" line="32" column="1" bodyfile="src/qml/DigitizingToolbar.qml" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classDigitizingToolbar_1a1bc0aedc7e2769857f3314e5a7bc9f29" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias DigitizingToolbar::cancelDialog</definition>
+        <argsstring></argsstring>
+        <name>cancelDialog</name>
+        <qualifiedname>DigitizingToolbar::cancelDialog</qualifiedname>
+        <read>dummyGetter_cancelDialog_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/DigitizingToolbar.qml" line="34" column="1" bodyfile="src/qml/DigitizingToolbar.qml" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classDigitizingToolbar_1a7d6603f0a4a5e9f34ff7ae4820155691" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool DigitizingToolbar::isDigitizing</definition>
+        <argsstring></argsstring>
+        <name>isDigitizing</name>
+        <qualifiedname>DigitizingToolbar::isDigitizing</qualifiedname>
+        <read>dummyGetter_isDigitizing_ignore</read>
+        <briefdescription>
+<para>Readonly. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="remark"><para>This property is read-only </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/DigitizingToolbar.qml" line="36" column="1" bodyfile="src/qml/DigitizingToolbar.qml" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classDigitizingToolbar_1a5d77dc071eab4b6a1e9a75f04acf2997" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool DigitizingToolbar::geometryValid</definition>
+        <argsstring></argsstring>
+        <name>geometryValid</name>
+        <qualifiedname>DigitizingToolbar::geometryValid</qualifiedname>
+        <read>dummyGetter_geometryValid_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/DigitizingToolbar.qml" line="38" column="1" bodyfile="src/qml/DigitizingToolbar.qml" bodystart="38" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classDigitizingToolbar_1af53d5542229753346a8bc5cee5ce439f" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var DigitizingToolbar::spacing</definition>
+        <argsstring></argsstring>
+        <name>spacing</name>
+        <qualifiedname>DigitizingToolbar::spacing</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/DigitizingToolbar.qml" line="44" column="5" bodyfile="src/qml/DigitizingToolbar.qml" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classDigitizingToolbar_1ad46ca17f018f46333ce33fb2b269d959" prot="private" static="no" mutable="no">
+        <type><ref refid="classDigitizingLogger" kindref="compound">DigitizingLogger</ref></type>
+        <definition>DigitizingLogger DigitizingToolbar::digitizingLogger</definition>
+        <argsstring></argsstring>
+        <name>digitizingLogger</name>
+        <qualifiedname>DigitizingToolbar::digitizingLogger</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/DigitizingToolbar.qml" line="57" column="18" bodyfile="src/qml/DigitizingToolbar.qml" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classDigitizingToolbar_1ac18f385fc589551a232ee2dc0359a724" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton DigitizingToolbar::cancelButton</definition>
+        <argsstring></argsstring>
+        <name>cancelButton</name>
+        <qualifiedname>DigitizingToolbar::cancelButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/DigitizingToolbar.qml" line="58" column="14" bodyfile="src/qml/DigitizingToolbar.qml" bodystart="58" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classDigitizingToolbar_1ae3bdbf9c6da73ff2e9eacaa7b51b84e4" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton DigitizingToolbar::confirmButton</definition>
+        <argsstring></argsstring>
+        <name>confirmButton</name>
+        <qualifiedname>DigitizingToolbar::confirmButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/DigitizingToolbar.qml" line="59" column="14" bodyfile="src/qml/DigitizingToolbar.qml" bodystart="59" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classDigitizingToolbar_1a8dce772e0e33bd24b0300ebfd24ae5b4" prot="private" static="no" mutable="no">
+        <type><ref refid="classCogoOperations" kindref="compound">CogoOperations</ref></type>
+        <definition>CogoOperations DigitizingToolbar::cogoOperations</definition>
+        <argsstring></argsstring>
+        <name>cogoOperations</name>
+        <qualifiedname>DigitizingToolbar::cogoOperations</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/DigitizingToolbar.qml" line="60" column="16" bodyfile="src/qml/DigitizingToolbar.qml" bodystart="60" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classDigitizingToolbar_1a676548feeb35f72950ebcde589476968" prot="private" static="no" mutable="no">
+        <type><ref refid="classCogoExecutor" kindref="compound">CogoExecutor</ref></type>
+        <definition>CogoExecutor DigitizingToolbar::cogoExecutor</definition>
+        <argsstring></argsstring>
+        <name>cogoExecutor</name>
+        <qualifiedname>DigitizingToolbar::cogoExecutor</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/DigitizingToolbar.qml" line="61" column="14" bodyfile="src/qml/DigitizingToolbar.qml" bodystart="61" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classDigitizingToolbar_1aaecac715a6d12edbca05b68f2a14f26a" prot="private" static="no" mutable="no">
+        <type>Timer</type>
+        <definition>Timer DigitizingToolbar::removeVertexTimer</definition>
+        <argsstring></argsstring>
+        <name>removeVertexTimer</name>
+        <qualifiedname>DigitizingToolbar::removeVertexTimer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/DigitizingToolbar.qml" line="62" column="7" bodyfile="src/qml/DigitizingToolbar.qml" bodystart="62" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classDigitizingToolbar_1a895461b48016b9456d38572571602be8" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton DigitizingToolbar::removeVertexButton</definition>
+        <argsstring></argsstring>
+        <name>removeVertexButton</name>
+        <qualifiedname>DigitizingToolbar::removeVertexButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/DigitizingToolbar.qml" line="63" column="14" bodyfile="src/qml/DigitizingToolbar.qml" bodystart="63" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classDigitizingToolbar_1a52e3876b65305cbcd19f86357fcc628b" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton DigitizingToolbar::addVertexButton</definition>
+        <argsstring></argsstring>
+        <name>addVertexButton</name>
+        <qualifiedname>DigitizingToolbar::addVertexButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/DigitizingToolbar.qml" line="64" column="14" bodyfile="src/qml/DigitizingToolbar.qml" bodystart="64" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classDigitizingToolbar_1a26cee48cbcf56c9d6fe15f1a2e454ab5" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfDialog" kindref="compound">QfDialog</ref></type>
+        <definition>QfDialog DigitizingToolbar::cancelDialog</definition>
+        <argsstring></argsstring>
+        <name>cancelDialog</name>
+        <qualifiedname>DigitizingToolbar::cancelDialog</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/DigitizingToolbar.qml" line="65" column="10" bodyfile="src/qml/DigitizingToolbar.qml" bodystart="65" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classDigitizingToolbar_1a6808ca11e6e881d7db6b5c646358cc3f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void DigitizingToolbar::requestJumpToPoint</definition>
+        <argsstring>(var center, real scale, bool handleMargins)</argsstring>
+        <name>requestJumpToPoint</name>
+        <qualifiedname>DigitizingToolbar::requestJumpToPoint</qualifiedname>
+        <param>
+          <type>var</type>
+          <declname>center</declname>
+        </param>
+        <param>
+          <type>real</type>
+          <declname>scale</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>handleMargins</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/DigitizingToolbar.qml" line="40" column="17"/>
+      </memberdef>
+      <memberdef kind="signal" id="classDigitizingToolbar_1a9d28d3bb6026e3c30493af48de169388" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void DigitizingToolbar::requestPosition</definition>
+        <argsstring>(var item, bool fromCoordinateLocator)</argsstring>
+        <name>requestPosition</name>
+        <qualifiedname>DigitizingToolbar::requestPosition</qualifiedname>
+        <param>
+          <type>var</type>
+          <declname>item</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>fromCoordinateLocator</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/DigitizingToolbar.qml" line="42" column="17"/>
+      </memberdef>
+      <memberdef kind="signal" id="classDigitizingToolbar_1ac75746c30cf6d79e7da529d89a8c0010" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void DigitizingToolbar::confirmed</definition>
+        <argsstring>()</argsstring>
+        <name>confirmed</name>
+        <qualifiedname>DigitizingToolbar::confirmed</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/DigitizingToolbar.qml" line="49" column="17"/>
+      </memberdef>
+      <memberdef kind="signal" id="classDigitizingToolbar_1af5e6ae92c5e1fc867f6707ac1602f1e7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void DigitizingToolbar::cancel</definition>
+        <argsstring>()</argsstring>
+        <name>cancel</name>
+        <qualifiedname>DigitizingToolbar::cancel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/DigitizingToolbar.qml" line="53" column="17"/>
+      </memberdef>
+      <memberdef kind="signal" id="classDigitizingToolbar_1adfbc1c4600d30cf5ecb34eb34da6294a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void DigitizingToolbar::vertexCountChanged</definition>
+        <argsstring>()</argsstring>
+        <name>vertexCountChanged</name>
+        <qualifiedname>DigitizingToolbar::vertexCountChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/DigitizingToolbar.qml" line="55" column="17"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classDigitizingToolbar_1a6ab17846809d76545c9b35f7738a7a89" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void DigitizingToolbar::checkAccuracyRequirement</definition>
+        <argsstring>()</argsstring>
+        <name>checkAccuracyRequirement</name>
+        <qualifiedname>DigitizingToolbar::checkAccuracyRequirement</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/DigitizingToolbar.qml" line="68" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classDigitizingToolbar_1a6db0863f909c1bd30420f413c0135373" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void DigitizingToolbar::checkGeometryValidity</definition>
+        <argsstring>()</argsstring>
+        <name>checkGeometryValidity</name>
+        <qualifiedname>DigitizingToolbar::checkGeometryValidity</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/DigitizingToolbar.qml" line="70" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classDigitizingToolbar_1aedaeb8ea61d6c772de4bd51eacb446e9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void DigitizingToolbar::triggerAddVertex</definition>
+        <argsstring>()</argsstring>
+        <name>triggerAddVertex</name>
+        <qualifiedname>DigitizingToolbar::triggerAddVertex</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/DigitizingToolbar.qml" line="72" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classDigitizingToolbar_1a5ff630f1b623e1b0fbde194bd17cd0a3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void DigitizingToolbar::addVertex</definition>
+        <argsstring>()</argsstring>
+        <name>addVertex</name>
+        <qualifiedname>DigitizingToolbar::addVertex</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/DigitizingToolbar.qml" line="74" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classDigitizingToolbar_1a22099c5ee95fcef4331d177d198a0589" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void DigitizingToolbar::removeVertex</definition>
+        <argsstring>()</argsstring>
+        <name>removeVertex</name>
+        <qualifiedname>DigitizingToolbar::removeVertex</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/DigitizingToolbar.qml" line="76" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classDigitizingToolbar_1a563590d85122c2cc02fe836541557ad2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void DigitizingToolbar::confirm</definition>
+        <argsstring>()</argsstring>
+        <name>confirm</name>
+        <qualifiedname>DigitizingToolbar::confirm</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/DigitizingToolbar.qml" line="78" column="6"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>DigitizingToolbar</label>
+        <link refid="classDigitizingToolbar"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Row</label>
+      </node>
+      <node id="2">
+        <label>Theme::QfVisibilityFadingRow</label>
+        <link refid="classTheme_1_1QfVisibilityFadingRow"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>DigitizingToolbar</label>
+        <link refid="classDigitizingToolbar"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Row</label>
+      </node>
+      <node id="2">
+        <label>Theme::QfVisibilityFadingRow</label>
+        <link refid="classTheme_1_1QfVisibilityFadingRow"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/qml/DigitizingToolbar.qml" line="9" column="1" bodyfile="src/qml/DigitizingToolbar.qml" bodystart="9" bodyend="79"/>
+    <listofallmembers>
+      <member refid="classDigitizingToolbar_1a5ff630f1b623e1b0fbde194bd17cd0a3" prot="public" virt="non-virtual"><scope>DigitizingToolbar</scope><name>addVertex</name></member>
+      <member refid="classDigitizingToolbar_1a52e3876b65305cbcd19f86357fcc628b" prot="private" virt="non-virtual"><scope>DigitizingToolbar</scope><name>addVertexButton</name></member>
+      <member refid="classDigitizingToolbar_1af5e6ae92c5e1fc867f6707ac1602f1e7" prot="public" virt="non-virtual"><scope>DigitizingToolbar</scope><name>cancel</name></member>
+      <member refid="classDigitizingToolbar_1ac18f385fc589551a232ee2dc0359a724" prot="private" virt="non-virtual"><scope>DigitizingToolbar</scope><name>cancelButton</name></member>
+      <member refid="classDigitizingToolbar_1a1bc0aedc7e2769857f3314e5a7bc9f29" prot="public" virt="non-virtual"><scope>DigitizingToolbar</scope><name>cancelDialog</name></member>
+      <member refid="classDigitizingToolbar_1a26cee48cbcf56c9d6fe15f1a2e454ab5" prot="private" virt="non-virtual"><scope>DigitizingToolbar</scope><name>cancelDialog</name></member>
+      <member refid="classDigitizingToolbar_1a6ab17846809d76545c9b35f7738a7a89" prot="public" virt="non-virtual"><scope>DigitizingToolbar</scope><name>checkAccuracyRequirement</name></member>
+      <member refid="classDigitizingToolbar_1a6db0863f909c1bd30420f413c0135373" prot="public" virt="non-virtual"><scope>DigitizingToolbar</scope><name>checkGeometryValidity</name></member>
+      <member refid="classDigitizingToolbar_1ab4b2705951474dba3267e348bb267c80" prot="public" virt="non-virtual"><scope>DigitizingToolbar</scope><name>cogoEnabled</name></member>
+      <member refid="classDigitizingToolbar_1a910bb9f979ab20d312b2105af5db425a" prot="public" virt="non-virtual"><scope>DigitizingToolbar</scope><name>cogoExecutor</name></member>
+      <member refid="classDigitizingToolbar_1a676548feeb35f72950ebcde589476968" prot="private" virt="non-virtual"><scope>DigitizingToolbar</scope><name>cogoExecutor</name></member>
+      <member refid="classDigitizingToolbar_1a8dce772e0e33bd24b0300ebfd24ae5b4" prot="private" virt="non-virtual"><scope>DigitizingToolbar</scope><name>cogoOperations</name></member>
+      <member refid="classDigitizingToolbar_1a0842fdd5d615c7caad25c5e4ff7efadb" prot="public" virt="non-virtual"><scope>DigitizingToolbar</scope><name>cogoOperationSettings</name></member>
+      <member refid="classDigitizingToolbar_1a563590d85122c2cc02fe836541557ad2" prot="public" virt="non-virtual"><scope>DigitizingToolbar</scope><name>confirm</name></member>
+      <member refid="classDigitizingToolbar_1ae3bdbf9c6da73ff2e9eacaa7b51b84e4" prot="private" virt="non-virtual"><scope>DigitizingToolbar</scope><name>confirmButton</name></member>
+      <member refid="classDigitizingToolbar_1ac75746c30cf6d79e7da529d89a8c0010" prot="public" virt="non-virtual"><scope>DigitizingToolbar</scope><name>confirmed</name></member>
+      <member refid="classDigitizingToolbar_1ab72599318b2f1c368570f84502b24391" prot="public" virt="non-virtual"><scope>DigitizingToolbar</scope><name>digitizingLogger</name></member>
+      <member refid="classDigitizingToolbar_1ad46ca17f018f46333ce33fb2b269d959" prot="private" virt="non-virtual"><scope>DigitizingToolbar</scope><name>digitizingLogger</name></member>
+      <member refid="classDigitizingToolbar_1a032d87507b6dc83e1c09c1753aa8fa07" prot="public" virt="non-virtual"><scope>DigitizingToolbar</scope><name>geometryRequested</name></member>
+      <member refid="classDigitizingToolbar_1aa3b3b90657036ddc4677d16b1f68092f" prot="public" virt="non-virtual"><scope>DigitizingToolbar</scope><name>geometryRequestedItem</name></member>
+      <member refid="classDigitizingToolbar_1a0068ad9ee37737a1f18e73a11e37b36b" prot="public" virt="non-virtual"><scope>DigitizingToolbar</scope><name>geometryRequestedLayer</name></member>
+      <member refid="classDigitizingToolbar_1a5d77dc071eab4b6a1e9a75f04acf2997" prot="public" virt="non-virtual"><scope>DigitizingToolbar</scope><name>geometryValid</name></member>
+      <member refid="classDigitizingToolbar_1a7d6603f0a4a5e9f34ff7ae4820155691" prot="public" virt="non-virtual"><scope>DigitizingToolbar</scope><name>isDigitizing</name></member>
+      <member refid="classDigitizingToolbar_1a5cf5a404decdc8a547674d2cae5ccc23" prot="public" virt="non-virtual"><scope>DigitizingToolbar</scope><name>mapSettings</name></member>
+      <member refid="classDigitizingToolbar_1a22099c5ee95fcef4331d177d198a0589" prot="public" virt="non-virtual"><scope>DigitizingToolbar</scope><name>removeVertex</name></member>
+      <member refid="classDigitizingToolbar_1a895461b48016b9456d38572571602be8" prot="private" virt="non-virtual"><scope>DigitizingToolbar</scope><name>removeVertexButton</name></member>
+      <member refid="classDigitizingToolbar_1aaecac715a6d12edbca05b68f2a14f26a" prot="private" virt="non-virtual"><scope>DigitizingToolbar</scope><name>removeVertexTimer</name></member>
+      <member refid="classDigitizingToolbar_1a6808ca11e6e881d7db6b5c646358cc3f" prot="public" virt="non-virtual"><scope>DigitizingToolbar</scope><name>requestJumpToPoint</name></member>
+      <member refid="classDigitizingToolbar_1a9d28d3bb6026e3c30493af48de169388" prot="public" virt="non-virtual"><scope>DigitizingToolbar</scope><name>requestPosition</name></member>
+      <member refid="classDigitizingToolbar_1ad4a616931f7f43bb0803a848fe4d2d15" prot="public" virt="non-virtual"><scope>DigitizingToolbar</scope><name>rubberbandModel</name></member>
+      <member refid="classDigitizingToolbar_1a2fb6946139181150e0698ce43241eb90" prot="public" virt="non-virtual"><scope>DigitizingToolbar</scope><name>screenHovering</name></member>
+      <member refid="classDigitizingToolbar_1ab8e4c869b264047356b7b9389cd94f47" prot="public" virt="non-virtual"><scope>DigitizingToolbar</scope><name>showConfirmButton</name></member>
+      <member refid="classDigitizingToolbar_1af53d5542229753346a8bc5cee5ce439f" prot="private" virt="non-virtual"><scope>DigitizingToolbar</scope><name>spacing</name></member>
+      <member refid="classTheme_1_1QfVisibilityFadingRow_1a5757c98a1693481e83314781b5d3433e" prot="public" virt="non-virtual"><scope>DigitizingToolbar</scope><name>stateVisible</name></member>
+      <member refid="classDigitizingToolbar_1aedaeb8ea61d6c772de4bd51eacb446e9" prot="public" virt="non-virtual"><scope>DigitizingToolbar</scope><name>triggerAddVertex</name></member>
+      <member refid="classDigitizingToolbar_1adfbc1c4600d30cf5ecb34eb34da6294a" prot="public" virt="non-virtual"><scope>DigitizingToolbar</scope><name>vertexCountChanged</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

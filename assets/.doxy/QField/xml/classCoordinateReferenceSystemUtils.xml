@@ -1,0 +1,152 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classCoordinateReferenceSystemUtils" kind="class" language="C++" prot="public">
+    <compoundname>CoordinateReferenceSystemUtils</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QObject</basecompoundref>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classCoordinateReferenceSystemUtils_1ab727f61bb76abf07605a9ed38bb1ec3d" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>CoordinateReferenceSystemUtils::CoordinateReferenceSystemUtils</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>CoordinateReferenceSystemUtils</name>
+        <qualifiedname>CoordinateReferenceSystemUtils::CoordinateReferenceSystemUtils</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/coordinatereferencesystemutils.h" line="33" column="14" bodyfile="src/core/utils/coordinatereferencesystemutils.cpp" bodystart="21" bodyend="24"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classCoordinateReferenceSystemUtils_1a7c17f88c95c8da7c8c6b7e9be20166f2" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>Q_INVOKABLE QgsCoordinateReferenceSystem</type>
+        <definition>static Q_INVOKABLE QgsCoordinateReferenceSystem CoordinateReferenceSystemUtils::fromDescription</definition>
+        <argsstring>(const QString &amp;definition)</argsstring>
+        <name>fromDescription</name>
+        <qualifiedname>CoordinateReferenceSystemUtils::fromDescription</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>definition</declname>
+        </param>
+        <briefdescription>
+<para>Returns an CRS matching the provided <emphasis>definition</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/coordinatereferencesystemutils.h" line="36" column="53" bodyfile="src/core/utils/coordinatereferencesystemutils.h" bodystart="36" bodyend="36"/>
+      </memberdef>
+      <memberdef kind="function" id="classCoordinateReferenceSystemUtils_1a61cdff451a590290f004b3d84da2dcf3" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>Q_INVOKABLE QgsCoordinateReferenceSystem</type>
+        <definition>static Q_INVOKABLE QgsCoordinateReferenceSystem CoordinateReferenceSystemUtils::wgs84Crs</definition>
+        <argsstring>()</argsstring>
+        <name>wgs84Crs</name>
+        <qualifiedname>CoordinateReferenceSystemUtils::wgs84Crs</qualifiedname>
+        <briefdescription>
+<para>Returns an EPGS:4326 WGS84 CRS. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/coordinatereferencesystemutils.h" line="39" column="53" bodyfile="src/core/utils/coordinatereferencesystemutils.h" bodystart="39" bodyend="39"/>
+      </memberdef>
+      <memberdef kind="function" id="classCoordinateReferenceSystemUtils_1a95f5466a3784ab00cfb310bb9c83fded" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>Q_INVOKABLE QgsCoordinateReferenceSystem</type>
+        <definition>static Q_INVOKABLE QgsCoordinateReferenceSystem CoordinateReferenceSystemUtils::invalidCrs</definition>
+        <argsstring>()</argsstring>
+        <name>invalidCrs</name>
+        <qualifiedname>CoordinateReferenceSystemUtils::invalidCrs</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns an invalid CRS <simplesect kind="note"><para>This can be used in QML to avoid errors when a parent object pointer goes undefined </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/coordinatereferencesystemutils.h" line="45" column="53" bodyfile="src/core/utils/coordinatereferencesystemutils.h" bodystart="45" bodyend="45"/>
+      </memberdef>
+      <memberdef kind="function" id="classCoordinateReferenceSystemUtils_1a6dbd70551963be2cc7a71c11caa840d9" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>Q_INVOKABLE QgsCoordinateTransformContext</type>
+        <definition>static Q_INVOKABLE QgsCoordinateTransformContext CoordinateReferenceSystemUtils::emptyTransformContext</definition>
+        <argsstring>()</argsstring>
+        <name>emptyTransformContext</name>
+        <qualifiedname>CoordinateReferenceSystemUtils::emptyTransformContext</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns an empty transform context <simplesect kind="note"><para>This can be used in QML to avoid errors when a parent object pointer goes undefined </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/coordinatereferencesystemutils.h" line="51" column="54" bodyfile="src/core/utils/coordinatereferencesystemutils.h" bodystart="51" bodyend="51"/>
+      </memberdef>
+      <memberdef kind="function" id="classCoordinateReferenceSystemUtils_1af65431b456f23b1c3a7a0902fb537002" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE bool</type>
+        <definition>bool CoordinateReferenceSystemUtils::defaultCoordinateOrderForCrsIsXY</definition>
+        <argsstring>(const QgsCoordinateReferenceSystem &amp;crs)</argsstring>
+        <name>defaultCoordinateOrderForCrsIsXY</name>
+        <qualifiedname>CoordinateReferenceSystemUtils::defaultCoordinateOrderForCrsIsXY</qualifiedname>
+        <param>
+          <type>const QgsCoordinateReferenceSystem &amp;</type>
+          <declname>crs</declname>
+        </param>
+        <briefdescription>
+<para>Returns whether the default coordinate order of a given <emphasis>crs</emphasis> is XY. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/coordinatereferencesystemutils.h" line="54" column="29" bodyfile="src/core/utils/coordinatereferencesystemutils.cpp" bodystart="26" bodyend="29"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>CoordinateReferenceSystemUtils</label>
+        <link refid="classCoordinateReferenceSystemUtils"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>CoordinateReferenceSystemUtils</label>
+        <link refid="classCoordinateReferenceSystemUtils"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/utils/coordinatereferencesystemutils.h" line="28" column="1" bodyfile="src/core/utils/coordinatereferencesystemutils.h" bodystart="29" bodyend="55"/>
+    <listofallmembers>
+      <member refid="classCoordinateReferenceSystemUtils_1ab727f61bb76abf07605a9ed38bb1ec3d" prot="public" virt="non-virtual"><scope>CoordinateReferenceSystemUtils</scope><name>CoordinateReferenceSystemUtils</name></member>
+      <member refid="classCoordinateReferenceSystemUtils_1af65431b456f23b1c3a7a0902fb537002" prot="public" virt="non-virtual"><scope>CoordinateReferenceSystemUtils</scope><name>defaultCoordinateOrderForCrsIsXY</name></member>
+      <member refid="classCoordinateReferenceSystemUtils_1a6dbd70551963be2cc7a71c11caa840d9" prot="public" virt="non-virtual"><scope>CoordinateReferenceSystemUtils</scope><name>emptyTransformContext</name></member>
+      <member refid="classCoordinateReferenceSystemUtils_1a7c17f88c95c8da7c8c6b7e9be20166f2" prot="public" virt="non-virtual"><scope>CoordinateReferenceSystemUtils</scope><name>fromDescription</name></member>
+      <member refid="classCoordinateReferenceSystemUtils_1a95f5466a3784ab00cfb310bb9c83fded" prot="public" virt="non-virtual"><scope>CoordinateReferenceSystemUtils</scope><name>invalidCrs</name></member>
+      <member refid="classCoordinateReferenceSystemUtils_1a61cdff451a590290f004b3d84da2dcf3" prot="public" virt="non-virtual"><scope>CoordinateReferenceSystemUtils</scope><name>wgs84Crs</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

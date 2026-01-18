@@ -1,0 +1,906 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classGeofencer" kind="class" language="C++" prot="public">
+    <compoundname>Geofencer</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QObject</basecompoundref>
+    <includes refid="geofencer_8h" local="no">geofencer.h</includes>
+    <sectiondef kind="public-type">
+      <memberdef kind="enum" id="classGeofencer_1aace524d360c715cf6e96385c8669a31a" prot="public" static="no" strong="no">
+        <type></type>
+        <name>Behaviors</name>
+        <qualifiedname>Geofencer::Behaviors</qualifiedname>
+        <enumvalue id="classGeofencer_1aace524d360c715cf6e96385c8669a31aab1c8534ab84e82bf8fb72824e06f05c2" prot="public">
+          <name>AlertWhenInsideGeofencedArea</name>
+          <initializer>= 1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classGeofencer_1aace524d360c715cf6e96385c8669a31aabdfcc7fbeab170f3136a0eb6869af584" prot="public">
+          <name>AlertWhenOutsideGeofencedArea</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classGeofencer_1aace524d360c715cf6e96385c8669a31aae9b235db2d2c843d548e05c42dbf5173" prot="public">
+          <name>InformWhenEnteringLeavingGeofencedArea</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/geofencer.h" line="53" column="5" bodyfile="src/core/positioning/geofencer.h" bodystart="54" bodyend="58"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classGeofencer_1af9e25a4fac7e244209e3754e030c90b7" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool Geofencer::active</definition>
+        <argsstring></argsstring>
+        <name>active</name>
+        <qualifiedname>Geofencer::active</qualifiedname>
+        <read>active</read>
+        <write>setActive</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/geofencer.h" line="38" column="5" bodyfile="src/core/positioning/geofencer.h" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classGeofencer_1a2c19bcefe01c49451639d25c5b829bf0" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>Behaviors</type>
+        <definition>Behaviors Geofencer::behavior</definition>
+        <argsstring></argsstring>
+        <name>behavior</name>
+        <qualifiedname>Geofencer::behavior</qualifiedname>
+        <read>behavior</read>
+        <write>setBehavior</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/geofencer.h" line="39" column="5" bodyfile="src/core/positioning/geofencer.h" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classGeofencer_1a284ad96858fa7372f4743bbeb52f4cd4" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QgsPoint</type>
+        <definition>QgsPoint Geofencer::position</definition>
+        <argsstring></argsstring>
+        <name>position</name>
+        <qualifiedname>Geofencer::position</qualifiedname>
+        <read>position</read>
+        <write>setPosition</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/geofencer.h" line="41" column="5" bodyfile="src/core/positioning/geofencer.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classGeofencer_1aa4434243552d2082dc1ada838e5c5978" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QgsCoordinateReferenceSystem</type>
+        <definition>QgsCoordinateReferenceSystem Geofencer::positionCrs</definition>
+        <argsstring></argsstring>
+        <name>positionCrs</name>
+        <qualifiedname>Geofencer::positionCrs</qualifiedname>
+        <read>positionCrs</read>
+        <write>setPositionCrs</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/geofencer.h" line="42" column="5" bodyfile="src/core/positioning/geofencer.h" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classGeofencer_1a985af9cf9e3bc2281f4fb5b8848c57ad" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QgsVectorLayer *</type>
+        <definition>QgsVectorLayer * Geofencer::areasLayer</definition>
+        <argsstring></argsstring>
+        <name>areasLayer</name>
+        <qualifiedname>Geofencer::areasLayer</qualifiedname>
+        <read>areasLayer</read>
+        <write>setAreasLayer</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/geofencer.h" line="44" column="5" bodyfile="src/core/positioning/geofencer.h" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classGeofencer_1a1751ee6d5d21108f5caeb3f59ec2dbb6" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool Geofencer::isAlerting</definition>
+        <argsstring></argsstring>
+        <name>isAlerting</name>
+        <qualifiedname>Geofencer::isAlerting</qualifiedname>
+        <read>isAlerting</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/geofencer.h" line="46" column="5" bodyfile="src/core/positioning/geofencer.h" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classGeofencer_1aa073ae339a8722256755d6607adc9768" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool Geofencer::isWithin</definition>
+        <argsstring></argsstring>
+        <name>isWithin</name>
+        <qualifiedname>Geofencer::isWithin</qualifiedname>
+        <read>isWithin</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/geofencer.h" line="48" column="5" bodyfile="src/core/positioning/geofencer.h" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classGeofencer_1a7d77718f128a7d27b4505bf645f46e6f" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString Geofencer::isWithinAreaName</definition>
+        <argsstring></argsstring>
+        <name>isWithinAreaName</name>
+        <qualifiedname>Geofencer::isWithinAreaName</qualifiedname>
+        <read>isWithinAreaName</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/geofencer.h" line="49" column="5" bodyfile="src/core/positioning/geofencer.h" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classGeofencer_1a0c47b5fe13f769ce6c3db0e0b0888e66" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString Geofencer::lastWithinAreaName</definition>
+        <argsstring></argsstring>
+        <name>lastWithinAreaName</name>
+        <qualifiedname>Geofencer::lastWithinAreaName</qualifiedname>
+        <read>lastWithinAreaName</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/geofencer.h" line="50" column="5" bodyfile="src/core/positioning/geofencer.h" bodystart="50" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classGeofencer_1ada9607886b03a9c1d3222b48df09284f" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Geofencer::mActive</definition>
+        <argsstring></argsstring>
+        <name>mActive</name>
+        <qualifiedname>Geofencer::mActive</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/geofencer.h" line="163" column="10" bodyfile="src/core/positioning/geofencer.h" bodystart="163" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classGeofencer_1aa864435b8488316f19b38d74c7e7cf69" prot="private" static="no" mutable="no">
+        <type>Behaviors</type>
+        <definition>Behaviors Geofencer::mBehavior</definition>
+        <argsstring></argsstring>
+        <name>mBehavior</name>
+        <qualifiedname>Geofencer::mBehavior</qualifiedname>
+        <initializer>= AlertWhenInsideGeofencedArea</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/geofencer.h" line="164" column="15" bodyfile="src/core/positioning/geofencer.h" bodystart="164" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classGeofencer_1a24c1d14af462919760b5b199a262cbc2" prot="private" static="no" mutable="no">
+        <type>QgsPoint</type>
+        <definition>QgsPoint Geofencer::mPosition</definition>
+        <argsstring></argsstring>
+        <name>mPosition</name>
+        <qualifiedname>Geofencer::mPosition</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/geofencer.h" line="166" column="14" bodyfile="src/core/positioning/geofencer.h" bodystart="166" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classGeofencer_1a66968c64217d6b17a76869bbd9bcea15" prot="private" static="no" mutable="no">
+        <type>QgsCoordinateReferenceSystem</type>
+        <definition>QgsCoordinateReferenceSystem Geofencer::mPositionCrs</definition>
+        <argsstring></argsstring>
+        <name>mPositionCrs</name>
+        <qualifiedname>Geofencer::mPositionCrs</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/geofencer.h" line="167" column="34" bodyfile="src/core/positioning/geofencer.h" bodystart="167" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classGeofencer_1a780466e2ff7b24f24c9f9e85a98eb825" prot="private" static="no" mutable="no">
+        <type>QPointer&lt; QgsVectorLayer &gt;</type>
+        <definition>QPointer&lt;QgsVectorLayer&gt; Geofencer::mAreasLayer</definition>
+        <argsstring></argsstring>
+        <name>mAreasLayer</name>
+        <qualifiedname>Geofencer::mAreasLayer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/geofencer.h" line="169" column="14" bodyfile="src/core/positioning/geofencer.h" bodystart="169" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classGeofencer_1a3c0745bfaad0fa800fa531c06f6cd2ab" prot="private" static="no" mutable="no">
+        <type>QList&lt; <ref refid="structFeatureExpressionValuesGatherer_1_1Entry" kindref="compound">FeatureExpressionValuesGatherer::Entry</ref> &gt;</type>
+        <definition>QList&lt;FeatureExpressionValuesGatherer::Entry&gt; Geofencer::mAreas</definition>
+        <argsstring></argsstring>
+        <name>mAreas</name>
+        <qualifiedname>Geofencer::mAreas</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/geofencer.h" line="170" column="11" bodyfile="src/core/positioning/geofencer.h" bodystart="170" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classGeofencer_1a4bc318c98440d9152603a32e84f569c6" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Geofencer::mIsAlerting</definition>
+        <argsstring></argsstring>
+        <name>mIsAlerting</name>
+        <qualifiedname>Geofencer::mIsAlerting</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/geofencer.h" line="172" column="10" bodyfile="src/core/positioning/geofencer.h" bodystart="172" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classGeofencer_1ab0a458d7f773f06ef3a997242707a629" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Geofencer::mIsWithinIndex</definition>
+        <argsstring></argsstring>
+        <name>mIsWithinIndex</name>
+        <qualifiedname>Geofencer::mIsWithinIndex</qualifiedname>
+        <initializer>= -1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/geofencer.h" line="174" column="9" bodyfile="src/core/positioning/geofencer.h" bodystart="174" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classGeofencer_1aa1b502b85a1620ae70329214d43033e0" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Geofencer::mLastWithinIndex</definition>
+        <argsstring></argsstring>
+        <name>mLastWithinIndex</name>
+        <qualifiedname>Geofencer::mLastWithinIndex</qualifiedname>
+        <initializer>= -1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/geofencer.h" line="175" column="9" bodyfile="src/core/positioning/geofencer.h" bodystart="175" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classGeofencer_1ae5e0415a350e582ab0f253d02aec82e4" prot="private" static="no" mutable="no">
+        <type><ref refid="classFeatureExpressionValuesGatherer" kindref="compound">FeatureExpressionValuesGatherer</ref> *</type>
+        <definition>FeatureExpressionValuesGatherer* Geofencer::mGatherer</definition>
+        <argsstring></argsstring>
+        <name>mGatherer</name>
+        <qualifiedname>Geofencer::mGatherer</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/geofencer.h" line="177" column="37" bodyfile="src/core/positioning/geofencer.h" bodystart="177" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classGeofencer_1a0f6a75fd0cef5267e7a82e18310fe8d3" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Geofencer::Geofencer</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>Geofencer</name>
+        <qualifiedname>Geofencer::Geofencer</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/geofencer.h" line="61" column="14" bodyfile="src/core/positioning/geofencer.cpp" bodystart="22" bodyend="25"/>
+      </memberdef>
+      <memberdef kind="function" id="classGeofencer_1aade874f3f3ac304da505b541a71a34ff" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>Geofencer::~Geofencer</definition>
+        <argsstring>()</argsstring>
+        <name>~Geofencer</name>
+        <qualifiedname>Geofencer::~Geofencer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/geofencer.h" line="62" column="13" bodyfile="src/core/positioning/geofencer.cpp" bodystart="27" bodyend="29"/>
+      </memberdef>
+      <memberdef kind="function" id="classGeofencer_1aaff969d3ece373ac3694559c3ee738c6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void Geofencer::applyProjectSettings</definition>
+        <argsstring>(QgsProject *project)</argsstring>
+        <name>applyProjectSettings</name>
+        <qualifiedname>Geofencer::applyProjectSettings</qualifiedname>
+        <param>
+          <type>QgsProject *</type>
+          <declname>project</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the polygon layer holding areas from a given <emphasis>project</emphasis>. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/geofencer.h" line="67" column="22" bodyfile="src/core/positioning/geofencer.cpp" bodystart="236" bodyend="256"/>
+      </memberdef>
+      <memberdef kind="function" id="classGeofencer_1ad392bd91b7e458d11b63e70e6850b30e" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Geofencer::active</definition>
+        <argsstring>() const</argsstring>
+        <name>active</name>
+        <qualifiedname>Geofencer::active</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns TRUE when geofencing is active. <simplesect kind="see"><para><ref refid="classGeofencer_1aa94217b26fa6470cd093a70ba6dd47ad" kindref="member">setActive</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/geofencer.h" line="73" column="10" bodyfile="src/core/positioning/geofencer.h" bodystart="73" bodyend="73"/>
+      </memberdef>
+      <memberdef kind="function" id="classGeofencer_1aa94217b26fa6470cd093a70ba6dd47ad" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Geofencer::setActive</definition>
+        <argsstring>(bool active)</argsstring>
+        <name>setActive</name>
+        <qualifiedname>Geofencer::setActive</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>active</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the geofencing <emphasis>active</emphasis> state. <simplesect kind="see"><para>active </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/geofencer.h" line="79" column="10" bodyfile="src/core/positioning/geofencer.cpp" bodystart="168" bodyend="180"/>
+      </memberdef>
+      <memberdef kind="function" id="classGeofencer_1a40060ee259ff13432ad5e49e76f80bf8" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>Behaviors</type>
+        <definition>Behaviors Geofencer::behavior</definition>
+        <argsstring>() const</argsstring>
+        <name>behavior</name>
+        <qualifiedname>Geofencer::behavior</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns thegeofencing behavior. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/geofencer.h" line="84" column="15" bodyfile="src/core/positioning/geofencer.h" bodystart="84" bodyend="84"/>
+      </memberdef>
+      <memberdef kind="function" id="classGeofencer_1a3afdac276ccd0b0d3bb571a40008532c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Geofencer::setBehavior</definition>
+        <argsstring>(Behaviors behavior)</argsstring>
+        <name>setBehavior</name>
+        <qualifiedname>Geofencer::setBehavior</qualifiedname>
+        <param>
+          <type>Behaviors</type>
+          <declname>behavior</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the geofencing behavior. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/geofencer.h" line="89" column="10" bodyfile="src/core/positioning/geofencer.cpp" bodystart="182" bodyend="194"/>
+      </memberdef>
+      <memberdef kind="function" id="classGeofencer_1a6597e7623c9c639d07e9be878b55d168" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QgsPoint</type>
+        <definition>QgsPoint Geofencer::position</definition>
+        <argsstring>() const</argsstring>
+        <name>position</name>
+        <qualifiedname>Geofencer::position</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the position to be used to check for overlap with areas. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/geofencer.h" line="94" column="14" bodyfile="src/core/positioning/geofencer.h" bodystart="94" bodyend="94"/>
+      </memberdef>
+      <memberdef kind="function" id="classGeofencer_1ad4673b0e8f7e6b855bdd4cbfa2586789" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Geofencer::setPosition</definition>
+        <argsstring>(const QgsPoint &amp;position)</argsstring>
+        <name>setPosition</name>
+        <qualifiedname>Geofencer::setPosition</qualifiedname>
+        <param>
+          <type>const QgsPoint &amp;</type>
+          <declname>position</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the <emphasis>position</emphasis> to be used to check for overlap with areas. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/geofencer.h" line="99" column="10" bodyfile="src/core/positioning/geofencer.cpp" bodystart="196" bodyend="208"/>
+      </memberdef>
+      <memberdef kind="function" id="classGeofencer_1a19adb650f242b749d033db382f2efd5e" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QgsCoordinateReferenceSystem</type>
+        <definition>QgsCoordinateReferenceSystem Geofencer::positionCrs</definition>
+        <argsstring>() const</argsstring>
+        <name>positionCrs</name>
+        <qualifiedname>Geofencer::positionCrs</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the position&apos;s coordinate reference system (CRS). </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/geofencer.h" line="104" column="34" bodyfile="src/core/positioning/geofencer.h" bodystart="104" bodyend="104"/>
+      </memberdef>
+      <memberdef kind="function" id="classGeofencer_1a6a787a404518d0ad0b784ca77922664c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Geofencer::setPositionCrs</definition>
+        <argsstring>(const QgsCoordinateReferenceSystem &amp;crs)</argsstring>
+        <name>setPositionCrs</name>
+        <qualifiedname>Geofencer::setPositionCrs</qualifiedname>
+        <param>
+          <type>const QgsCoordinateReferenceSystem &amp;</type>
+          <declname>crs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the position&apos;s coordinate reference system (CRS). </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/geofencer.h" line="109" column="10" bodyfile="src/core/positioning/geofencer.cpp" bodystart="210" bodyend="221"/>
+      </memberdef>
+      <memberdef kind="function" id="classGeofencer_1ad46fe4e56717aacd3041810d30cc01a7" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QgsVectorLayer *</type>
+        <definition>QgsVectorLayer * Geofencer::areasLayer</definition>
+        <argsstring>() const</argsstring>
+        <name>areasLayer</name>
+        <qualifiedname>Geofencer::areasLayer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the polygon layer holding areas. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/geofencer.h" line="114" column="20" bodyfile="src/core/positioning/geofencer.h" bodystart="114" bodyend="114"/>
+      </memberdef>
+      <memberdef kind="function" id="classGeofencer_1ad9fe2ef95c45db4878cdd1a685491093" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Geofencer::setAreasLayer</definition>
+        <argsstring>(QgsVectorLayer *layer)</argsstring>
+        <name>setAreasLayer</name>
+        <qualifiedname>Geofencer::setAreasLayer</qualifiedname>
+        <param>
+          <type>QgsVectorLayer *</type>
+          <declname>layer</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the polygon layer holding areas. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/geofencer.h" line="119" column="10" bodyfile="src/core/positioning/geofencer.cpp" bodystart="223" bodyend="234"/>
+      </memberdef>
+      <memberdef kind="function" id="classGeofencer_1a77ec973c1830a03a943fb67d2a1912d2" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Geofencer::isAlerting</definition>
+        <argsstring>() const</argsstring>
+        <name>isAlerting</name>
+        <qualifiedname>Geofencer::isAlerting</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns TRUE when the geofencer&apos;s behavior is triggering an alarm. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/geofencer.h" line="124" column="10" bodyfile="src/core/positioning/geofencer.h" bodystart="124" bodyend="124"/>
+      </memberdef>
+      <memberdef kind="function" id="classGeofencer_1a6bc7a5be89a0e5e145e1bec32f454074" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Geofencer::isWithin</definition>
+        <argsstring>() const</argsstring>
+        <name>isWithin</name>
+        <qualifiedname>Geofencer::isWithin</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns whether the current position is within an area. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/geofencer.h" line="129" column="10" bodyfile="src/core/positioning/geofencer.cpp" bodystart="143" bodyend="146"/>
+      </memberdef>
+      <memberdef kind="function" id="classGeofencer_1a19130fd201ac336b60cf1deece22b717" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString Geofencer::isWithinAreaName</definition>
+        <argsstring>() const</argsstring>
+        <name>isWithinAreaName</name>
+        <qualifiedname>Geofencer::isWithinAreaName</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the area name within which the current position overlaps. If no overlap, an empty string will be returned. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/geofencer.h" line="135" column="13" bodyfile="src/core/positioning/geofencer.cpp" bodystart="148" bodyend="156"/>
+      </memberdef>
+      <memberdef kind="function" id="classGeofencer_1ae307165c72bfc2b1c389565579951e13" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString Geofencer::lastWithinAreaName</definition>
+        <argsstring>() const</argsstring>
+        <name>lastWithinAreaName</name>
+        <qualifiedname>Geofencer::lastWithinAreaName</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the last area name within which the position had overlapped. If no overlap has yet to occur, an empty string will be returned. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/geofencer.h" line="141" column="13" bodyfile="src/core/positioning/geofencer.cpp" bodystart="158" bodyend="166"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classGeofencer_1a1bd17729530b44974f7c87be1323107e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Geofencer::activeChanged</definition>
+        <argsstring>()</argsstring>
+        <name>activeChanged</name>
+        <qualifiedname>Geofencer::activeChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/geofencer.h" line="145" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classGeofencer_1adf50a69c8b12158f51343cc4d6128539" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Geofencer::behaviorChanged</definition>
+        <argsstring>()</argsstring>
+        <name>behaviorChanged</name>
+        <qualifiedname>Geofencer::behaviorChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/geofencer.h" line="146" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classGeofencer_1a32521a12de1f1a71402e8c86f968a646" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Geofencer::invertLogicChanged</definition>
+        <argsstring>()</argsstring>
+        <name>invertLogicChanged</name>
+        <qualifiedname>Geofencer::invertLogicChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/geofencer.h" line="147" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classGeofencer_1ae1cf78d1c79b8ed0f16a6b2d5be54026" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Geofencer::positionChanged</definition>
+        <argsstring>()</argsstring>
+        <name>positionChanged</name>
+        <qualifiedname>Geofencer::positionChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/geofencer.h" line="148" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classGeofencer_1a17c5a87231be7d6558a3db6753fa9005" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Geofencer::positionCrsChanged</definition>
+        <argsstring>()</argsstring>
+        <name>positionCrsChanged</name>
+        <qualifiedname>Geofencer::positionCrsChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/geofencer.h" line="149" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classGeofencer_1aab1e1873f6d001c1d1bd13c17551ec6d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Geofencer::areasLayerChanged</definition>
+        <argsstring>()</argsstring>
+        <name>areasLayerChanged</name>
+        <qualifiedname>Geofencer::areasLayerChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/geofencer.h" line="150" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classGeofencer_1a8aae9f68a75f0366262afd2d2de576b9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Geofencer::isAlertingChanged</definition>
+        <argsstring>()</argsstring>
+        <name>isAlertingChanged</name>
+        <qualifiedname>Geofencer::isAlertingChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/geofencer.h" line="151" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classGeofencer_1abe45e07129f5704a330bea33b65bf085" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Geofencer::isWithinChanged</definition>
+        <argsstring>()</argsstring>
+        <name>isWithinChanged</name>
+        <qualifiedname>Geofencer::isWithinChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/geofencer.h" line="152" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classGeofencer_1a32fe86faf625ada53e016b79cbd690ee" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Geofencer::projectChanged</definition>
+        <argsstring>()</argsstring>
+        <name>projectChanged</name>
+        <qualifiedname>Geofencer::projectChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/geofencer.h" line="153" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classGeofencer_1a1b0b0e0766c3ac09ef373f169e204479" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Geofencer::cleanupGatherer</definition>
+        <argsstring>()</argsstring>
+        <name>cleanupGatherer</name>
+        <qualifiedname>Geofencer::cleanupGatherer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/geofencer.h" line="156" column="10" bodyfile="src/core/positioning/geofencer.cpp" bodystart="31" bodyend="40"/>
+      </memberdef>
+      <memberdef kind="function" id="classGeofencer_1a4ccde035c8710b70a6aa426c96210c97" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Geofencer::gatherAreas</definition>
+        <argsstring>()</argsstring>
+        <name>gatherAreas</name>
+        <qualifiedname>Geofencer::gatherAreas</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/geofencer.h" line="157" column="10" bodyfile="src/core/positioning/geofencer.cpp" bodystart="42" bodyend="63"/>
+      </memberdef>
+      <memberdef kind="function" id="classGeofencer_1a29fbe0f270ccfb95500cc13ca5cfc362" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Geofencer::processAreas</definition>
+        <argsstring>()</argsstring>
+        <name>processAreas</name>
+        <qualifiedname>Geofencer::processAreas</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/geofencer.h" line="158" column="10" bodyfile="src/core/positioning/geofencer.cpp" bodystart="65" bodyend="81"/>
+      </memberdef>
+      <memberdef kind="function" id="classGeofencer_1a18b975437a043f4668a645d4fded4927" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Geofencer::checkWithin</definition>
+        <argsstring>()</argsstring>
+        <name>checkWithin</name>
+        <qualifiedname>Geofencer::checkWithin</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/geofencer.h" line="160" column="10" bodyfile="src/core/positioning/geofencer.cpp" bodystart="83" bodyend="111"/>
+      </memberdef>
+      <memberdef kind="function" id="classGeofencer_1a75d5b74392e4fa6df60c3e5608882b50" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Geofencer::checkAlert</definition>
+        <argsstring>()</argsstring>
+        <name>checkAlert</name>
+        <qualifiedname>Geofencer::checkAlert</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/geofencer.h" line="161" column="10" bodyfile="src/core/positioning/geofencer.cpp" bodystart="113" bodyend="141"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>This class provides an interface to manage geofencing of areas as well as providing feedback whenever the position trespasses into or out of those areas. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>Geofencer</label>
+        <link refid="classGeofencer"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>Geofencer</label>
+        <link refid="classGeofencer"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/positioning/geofencer.h" line="34" column="1" bodyfile="src/core/positioning/geofencer.h" bodystart="35" bodyend="178"/>
+    <listofallmembers>
+      <member refid="classGeofencer_1af9e25a4fac7e244209e3754e030c90b7" prot="public" virt="non-virtual"><scope>Geofencer</scope><name>active</name></member>
+      <member refid="classGeofencer_1ad392bd91b7e458d11b63e70e6850b30e" prot="public" virt="non-virtual"><scope>Geofencer</scope><name>active</name></member>
+      <member refid="classGeofencer_1a1bd17729530b44974f7c87be1323107e" prot="public" virt="non-virtual"><scope>Geofencer</scope><name>activeChanged</name></member>
+      <member refid="classGeofencer_1aace524d360c715cf6e96385c8669a31aab1c8534ab84e82bf8fb72824e06f05c2" prot="public" virt="non-virtual"><scope>Geofencer</scope><name>AlertWhenInsideGeofencedArea</name></member>
+      <member refid="classGeofencer_1aace524d360c715cf6e96385c8669a31aabdfcc7fbeab170f3136a0eb6869af584" prot="public" virt="non-virtual"><scope>Geofencer</scope><name>AlertWhenOutsideGeofencedArea</name></member>
+      <member refid="classGeofencer_1aaff969d3ece373ac3694559c3ee738c6" prot="public" virt="non-virtual"><scope>Geofencer</scope><name>applyProjectSettings</name></member>
+      <member refid="classGeofencer_1a985af9cf9e3bc2281f4fb5b8848c57ad" prot="public" virt="non-virtual"><scope>Geofencer</scope><name>areasLayer</name></member>
+      <member refid="classGeofencer_1ad46fe4e56717aacd3041810d30cc01a7" prot="public" virt="non-virtual"><scope>Geofencer</scope><name>areasLayer</name></member>
+      <member refid="classGeofencer_1aab1e1873f6d001c1d1bd13c17551ec6d" prot="public" virt="non-virtual"><scope>Geofencer</scope><name>areasLayerChanged</name></member>
+      <member refid="classGeofencer_1a2c19bcefe01c49451639d25c5b829bf0" prot="public" virt="non-virtual"><scope>Geofencer</scope><name>behavior</name></member>
+      <member refid="classGeofencer_1a40060ee259ff13432ad5e49e76f80bf8" prot="public" virt="non-virtual"><scope>Geofencer</scope><name>behavior</name></member>
+      <member refid="classGeofencer_1adf50a69c8b12158f51343cc4d6128539" prot="public" virt="non-virtual"><scope>Geofencer</scope><name>behaviorChanged</name></member>
+      <member refid="classGeofencer_1aace524d360c715cf6e96385c8669a31a" prot="public" virt="non-virtual"><scope>Geofencer</scope><name>Behaviors</name></member>
+      <member refid="classGeofencer_1a75d5b74392e4fa6df60c3e5608882b50" prot="private" virt="non-virtual"><scope>Geofencer</scope><name>checkAlert</name></member>
+      <member refid="classGeofencer_1a18b975437a043f4668a645d4fded4927" prot="private" virt="non-virtual"><scope>Geofencer</scope><name>checkWithin</name></member>
+      <member refid="classGeofencer_1a1b0b0e0766c3ac09ef373f169e204479" prot="private" virt="non-virtual"><scope>Geofencer</scope><name>cleanupGatherer</name></member>
+      <member refid="classGeofencer_1a4ccde035c8710b70a6aa426c96210c97" prot="private" virt="non-virtual"><scope>Geofencer</scope><name>gatherAreas</name></member>
+      <member refid="classGeofencer_1a0f6a75fd0cef5267e7a82e18310fe8d3" prot="public" virt="non-virtual"><scope>Geofencer</scope><name>Geofencer</name></member>
+      <member refid="classGeofencer_1aace524d360c715cf6e96385c8669a31aae9b235db2d2c843d548e05c42dbf5173" prot="public" virt="non-virtual"><scope>Geofencer</scope><name>InformWhenEnteringLeavingGeofencedArea</name></member>
+      <member refid="classGeofencer_1a32521a12de1f1a71402e8c86f968a646" prot="public" virt="non-virtual"><scope>Geofencer</scope><name>invertLogicChanged</name></member>
+      <member refid="classGeofencer_1a1751ee6d5d21108f5caeb3f59ec2dbb6" prot="public" virt="non-virtual"><scope>Geofencer</scope><name>isAlerting</name></member>
+      <member refid="classGeofencer_1a77ec973c1830a03a943fb67d2a1912d2" prot="public" virt="non-virtual"><scope>Geofencer</scope><name>isAlerting</name></member>
+      <member refid="classGeofencer_1a8aae9f68a75f0366262afd2d2de576b9" prot="public" virt="non-virtual"><scope>Geofencer</scope><name>isAlertingChanged</name></member>
+      <member refid="classGeofencer_1aa073ae339a8722256755d6607adc9768" prot="public" virt="non-virtual"><scope>Geofencer</scope><name>isWithin</name></member>
+      <member refid="classGeofencer_1a6bc7a5be89a0e5e145e1bec32f454074" prot="public" virt="non-virtual"><scope>Geofencer</scope><name>isWithin</name></member>
+      <member refid="classGeofencer_1a7d77718f128a7d27b4505bf645f46e6f" prot="public" virt="non-virtual"><scope>Geofencer</scope><name>isWithinAreaName</name></member>
+      <member refid="classGeofencer_1a19130fd201ac336b60cf1deece22b717" prot="public" virt="non-virtual"><scope>Geofencer</scope><name>isWithinAreaName</name></member>
+      <member refid="classGeofencer_1abe45e07129f5704a330bea33b65bf085" prot="public" virt="non-virtual"><scope>Geofencer</scope><name>isWithinChanged</name></member>
+      <member refid="classGeofencer_1a0c47b5fe13f769ce6c3db0e0b0888e66" prot="public" virt="non-virtual"><scope>Geofencer</scope><name>lastWithinAreaName</name></member>
+      <member refid="classGeofencer_1ae307165c72bfc2b1c389565579951e13" prot="public" virt="non-virtual"><scope>Geofencer</scope><name>lastWithinAreaName</name></member>
+      <member refid="classGeofencer_1ada9607886b03a9c1d3222b48df09284f" prot="private" virt="non-virtual"><scope>Geofencer</scope><name>mActive</name></member>
+      <member refid="classGeofencer_1a3c0745bfaad0fa800fa531c06f6cd2ab" prot="private" virt="non-virtual"><scope>Geofencer</scope><name>mAreas</name></member>
+      <member refid="classGeofencer_1a780466e2ff7b24f24c9f9e85a98eb825" prot="private" virt="non-virtual"><scope>Geofencer</scope><name>mAreasLayer</name></member>
+      <member refid="classGeofencer_1aa864435b8488316f19b38d74c7e7cf69" prot="private" virt="non-virtual"><scope>Geofencer</scope><name>mBehavior</name></member>
+      <member refid="classGeofencer_1ae5e0415a350e582ab0f253d02aec82e4" prot="private" virt="non-virtual"><scope>Geofencer</scope><name>mGatherer</name></member>
+      <member refid="classGeofencer_1a4bc318c98440d9152603a32e84f569c6" prot="private" virt="non-virtual"><scope>Geofencer</scope><name>mIsAlerting</name></member>
+      <member refid="classGeofencer_1ab0a458d7f773f06ef3a997242707a629" prot="private" virt="non-virtual"><scope>Geofencer</scope><name>mIsWithinIndex</name></member>
+      <member refid="classGeofencer_1aa1b502b85a1620ae70329214d43033e0" prot="private" virt="non-virtual"><scope>Geofencer</scope><name>mLastWithinIndex</name></member>
+      <member refid="classGeofencer_1a24c1d14af462919760b5b199a262cbc2" prot="private" virt="non-virtual"><scope>Geofencer</scope><name>mPosition</name></member>
+      <member refid="classGeofencer_1a66968c64217d6b17a76869bbd9bcea15" prot="private" virt="non-virtual"><scope>Geofencer</scope><name>mPositionCrs</name></member>
+      <member refid="classGeofencer_1a284ad96858fa7372f4743bbeb52f4cd4" prot="public" virt="non-virtual"><scope>Geofencer</scope><name>position</name></member>
+      <member refid="classGeofencer_1a6597e7623c9c639d07e9be878b55d168" prot="public" virt="non-virtual"><scope>Geofencer</scope><name>position</name></member>
+      <member refid="classGeofencer_1ae1cf78d1c79b8ed0f16a6b2d5be54026" prot="public" virt="non-virtual"><scope>Geofencer</scope><name>positionChanged</name></member>
+      <member refid="classGeofencer_1aa4434243552d2082dc1ada838e5c5978" prot="public" virt="non-virtual"><scope>Geofencer</scope><name>positionCrs</name></member>
+      <member refid="classGeofencer_1a19adb650f242b749d033db382f2efd5e" prot="public" virt="non-virtual"><scope>Geofencer</scope><name>positionCrs</name></member>
+      <member refid="classGeofencer_1a17c5a87231be7d6558a3db6753fa9005" prot="public" virt="non-virtual"><scope>Geofencer</scope><name>positionCrsChanged</name></member>
+      <member refid="classGeofencer_1a29fbe0f270ccfb95500cc13ca5cfc362" prot="private" virt="non-virtual"><scope>Geofencer</scope><name>processAreas</name></member>
+      <member refid="classGeofencer_1a32fe86faf625ada53e016b79cbd690ee" prot="public" virt="non-virtual"><scope>Geofencer</scope><name>projectChanged</name></member>
+      <member refid="classGeofencer_1aa94217b26fa6470cd093a70ba6dd47ad" prot="public" virt="non-virtual"><scope>Geofencer</scope><name>setActive</name></member>
+      <member refid="classGeofencer_1ad9fe2ef95c45db4878cdd1a685491093" prot="public" virt="non-virtual"><scope>Geofencer</scope><name>setAreasLayer</name></member>
+      <member refid="classGeofencer_1a3afdac276ccd0b0d3bb571a40008532c" prot="public" virt="non-virtual"><scope>Geofencer</scope><name>setBehavior</name></member>
+      <member refid="classGeofencer_1ad4673b0e8f7e6b855bdd4cbfa2586789" prot="public" virt="non-virtual"><scope>Geofencer</scope><name>setPosition</name></member>
+      <member refid="classGeofencer_1a6a787a404518d0ad0b784ca77922664c" prot="public" virt="non-virtual"><scope>Geofencer</scope><name>setPositionCrs</name></member>
+      <member refid="classGeofencer_1aade874f3f3ac304da505b541a71a34ff" prot="public" virt="virtual"><scope>Geofencer</scope><name>~Geofencer</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

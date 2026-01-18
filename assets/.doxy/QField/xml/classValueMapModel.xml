@@ -1,0 +1,255 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classValueMapModel" kind="class" language="C++" prot="public">
+    <compoundname>ValueMapModel</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QSortFilterProxyModel</basecompoundref>
+    <includes refid="valuemapmodel_8h" local="no">valuemapmodel.h</includes>
+    <sectiondef kind="public-type">
+      <memberdef kind="enum" id="classValueMapModel_1ac7528f2a40658f7e5962a8cd6fdabb5b" prot="public" static="no" strong="no">
+        <type></type>
+        <name>ValueMapRoles</name>
+        <qualifiedname>ValueMapModel::ValueMapRoles</qualifiedname>
+        <enumvalue id="classValueMapModel_1ac7528f2a40658f7e5962a8cd6fdabb5ba79d99e763bceabe63be39790675fa7ca" prot="public">
+          <name>KeyRole</name>
+          <initializer>= Qt::UserRole + 1</initializer>
+          <briefdescription>
+<para>obtain the key </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classValueMapModel_1ac7528f2a40658f7e5962a8cd6fdabb5ba2868c079f222622019c129c850b7a544" prot="public">
+          <name>ValueRole</name>
+          <briefdescription>
+<para>obtain the value </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>The roles provided by this model. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/valuemapmodel.h" line="47" column="5" bodyfile="src/core/valuemapmodel.h" bodystart="48" bodyend="51"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classValueMapModel_1a95f187cb0223203a907e58dd2f5cd464" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QVariant</type>
+        <definition>QVariant ValueMapModel::valueMap</definition>
+        <argsstring></argsstring>
+        <name>valueMap</name>
+        <qualifiedname>ValueMapModel::valueMap</qualifiedname>
+        <read>map</read>
+        <write>setMap</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>A list of QVariantMap, wrapped in a QVariant.</para>
+<para>Like this:</para>
+<para>[{&apos;CH&apos;: &apos;Switzerland&apos;}, {&apos;DE&apos;: &apos;Germany&apos;}, {&apos;FR&apos;: &apos;France&apos;}] </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/valuemapmodel.h" line="42" column="5" bodyfile="src/core/valuemapmodel.h" bodystart="42" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classValueMapModel_1ad215ecb7d2efc24d6b428fe94d3e77de" prot="private" static="no" mutable="no">
+        <type><ref refid="classValueMapModelBase" kindref="compound">ValueMapModelBase</ref> *</type>
+        <definition>ValueMapModelBase* ValueMapModel::mSourceModel</definition>
+        <argsstring></argsstring>
+        <name>mSourceModel</name>
+        <qualifiedname>ValueMapModel::mSourceModel</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/valuemapmodel.h" line="90" column="23" bodyfile="src/core/valuemapmodel.h" bodystart="90" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classValueMapModel_1a8393f8884168df8b43a11b5e6269e937" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>ValueMapModel::ValueMapModel</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>ValueMapModel</name>
+        <qualifiedname>ValueMapModel::ValueMapModel</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Create a new value map model </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/valuemapmodel.h" line="58" column="14" bodyfile="src/core/valuemapmodel.cpp" bodystart="22" bodyend="31"/>
+      </memberdef>
+      <memberdef kind="function" id="classValueMapModel_1a82ca3dd819ed5765e82fff4dca127796" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QVariant</type>
+        <definition>QVariant ValueMapModel::map</definition>
+        <argsstring>() const</argsstring>
+        <name>map</name>
+        <qualifiedname>ValueMapModel::map</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The map, see the property description </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/valuemapmodel.h" line="63" column="14" bodyfile="src/core/valuemapmodel.cpp" bodystart="33" bodyend="36"/>
+      </memberdef>
+      <memberdef kind="function" id="classValueMapModel_1a9ba98110526c44045085c2c5cd131429" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ValueMapModel::setMap</definition>
+        <argsstring>(const QVariant &amp;map)</argsstring>
+        <name>setMap</name>
+        <qualifiedname>ValueMapModel::setMap</qualifiedname>
+        <param>
+          <type>const QVariant &amp;</type>
+          <declname>map</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The map, see the property description </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/valuemapmodel.h" line="68" column="10" bodyfile="src/core/valuemapmodel.cpp" bodystart="38" bodyend="41"/>
+      </memberdef>
+      <memberdef kind="function" id="classValueMapModel_1ac75aaaca227cedc15c1e706ae3e65a26" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE int</type>
+        <definition>int ValueMapModel::keyToIndex</definition>
+        <argsstring>(const QVariant &amp;key) const</argsstring>
+        <name>keyToIndex</name>
+        <qualifiedname>ValueMapModel::keyToIndex</qualifiedname>
+        <param>
+          <type>const QVariant &amp;</type>
+          <declname>key</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the row (index) of a key or -1 if not found. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/valuemapmodel.h" line="73" column="21" bodyfile="src/core/valuemapmodel.cpp" bodystart="43" bodyend="46"/>
+      </memberdef>
+      <memberdef kind="function" id="classValueMapModel_1a40fa912947deab407e07001035db4e40" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QVariant</type>
+        <definition>QVariant ValueMapModel::keyForValue</definition>
+        <argsstring>(const QString &amp;value) const</argsstring>
+        <name>keyForValue</name>
+        <qualifiedname>ValueMapModel::keyForValue</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the key for a value or an invalid QVariant if not found. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/valuemapmodel.h" line="78" column="26" bodyfile="src/core/valuemapmodel.cpp" bodystart="48" bodyend="51"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="protected-func">
+      <memberdef kind="function" id="classValueMapModel_1aa4c6df9974266ae82e39d38c941580d6" prot="protected" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ValueMapModel::filterAcceptsRow</definition>
+        <argsstring>(int sourceRow, const QModelIndex &amp;sourceParent) const override</argsstring>
+        <name>filterAcceptsRow</name>
+        <qualifiedname>ValueMapModel::filterAcceptsRow</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>sourceRow</declname>
+        </param>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>sourceParent</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/valuemapmodel.h" line="81" column="10" bodyfile="src/core/valuemapmodel.cpp" bodystart="53" bodyend="59"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classValueMapModel_1a765c69b79ba40188d15d77c4d00758b8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ValueMapModel::mapChanged</definition>
+        <argsstring>()</argsstring>
+        <name>mapChanged</name>
+        <qualifiedname>ValueMapModel::mapChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Emitted when the map changes. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/valuemapmodel.h" line="87" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>A model that manages the key/value pairs for a <ref refid="classValueMap" kindref="compound">ValueMap</ref> widget. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>QSortFilterProxyModel</label>
+      </node>
+      <node id="1">
+        <label>ValueMapModel</label>
+        <link refid="classValueMapModel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>QSortFilterProxyModel</label>
+      </node>
+      <node id="1">
+        <label>ValueMapModel</label>
+        <link refid="classValueMapModel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/valuemapmodel.h" line="31" column="1" bodyfile="src/core/valuemapmodel.h" bodystart="32" bodyend="91"/>
+    <listofallmembers>
+      <member refid="classValueMapModel_1aa4c6df9974266ae82e39d38c941580d6" prot="protected" virt="non-virtual"><scope>ValueMapModel</scope><name>filterAcceptsRow</name></member>
+      <member refid="classValueMapModel_1a40fa912947deab407e07001035db4e40" prot="public" virt="non-virtual"><scope>ValueMapModel</scope><name>keyForValue</name></member>
+      <member refid="classValueMapModel_1ac7528f2a40658f7e5962a8cd6fdabb5ba79d99e763bceabe63be39790675fa7ca" prot="public" virt="non-virtual"><scope>ValueMapModel</scope><name>KeyRole</name></member>
+      <member refid="classValueMapModel_1ac75aaaca227cedc15c1e706ae3e65a26" prot="public" virt="non-virtual"><scope>ValueMapModel</scope><name>keyToIndex</name></member>
+      <member refid="classValueMapModel_1a82ca3dd819ed5765e82fff4dca127796" prot="public" virt="non-virtual"><scope>ValueMapModel</scope><name>map</name></member>
+      <member refid="classValueMapModel_1a765c69b79ba40188d15d77c4d00758b8" prot="public" virt="non-virtual"><scope>ValueMapModel</scope><name>mapChanged</name></member>
+      <member refid="classValueMapModel_1ad215ecb7d2efc24d6b428fe94d3e77de" prot="private" virt="non-virtual"><scope>ValueMapModel</scope><name>mSourceModel</name></member>
+      <member refid="classValueMapModel_1a9ba98110526c44045085c2c5cd131429" prot="public" virt="non-virtual"><scope>ValueMapModel</scope><name>setMap</name></member>
+      <member refid="classValueMapModel_1a95f187cb0223203a907e58dd2f5cd464" prot="public" virt="non-virtual"><scope>ValueMapModel</scope><name>valueMap</name></member>
+      <member refid="classValueMapModel_1a8393f8884168df8b43a11b5e6269e937" prot="public" virt="non-virtual"><scope>ValueMapModel</scope><name>ValueMapModel</name></member>
+      <member refid="classValueMapModel_1ac7528f2a40658f7e5962a8cd6fdabb5b" prot="public" virt="non-virtual"><scope>ValueMapModel</scope><name>ValueMapRoles</name></member>
+      <member refid="classValueMapModel_1ac7528f2a40658f7e5962a8cd6fdabb5ba2868c079f222622019c129c850b7a544" prot="public" virt="non-virtual"><scope>ValueMapModel</scope><name>ValueRole</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

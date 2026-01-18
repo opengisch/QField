@@ -1,0 +1,525 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="qfieldcloudprojectsmodel_8h" kind="file" language="C++">
+    <compoundname>qfieldcloudprojectsmodel.h</compoundname>
+    <includes refid="qfieldcloudproject_8h" local="yes">qfieldcloudproject.h</includes>
+    <includes refid="qgsgpkgflusher_8h" local="yes">qgsgpkgflusher.h</includes>
+    <includes local="no">QAbstractListModel</includes>
+    <includes local="no">QJsonArray</includes>
+    <includes local="no">QNetworkReply</includes>
+    <includes local="no">QPointer</includes>
+    <includes local="no">QSortFilterProxyModel</includes>
+    <includes local="no">QTimer</includes>
+    <includedby refid="qfieldcloudprojectsmodel_8cpp" local="yes">src/core/qfieldcloud/qfieldcloudprojectsmodel.cpp</includedby>
+    <includedby refid="qgismobileapp_8cpp" local="yes">src/core/qgismobileapp.cpp</includedby>
+    <includedby refid="qfieldcloudutils_8h" local="no">src/core/utils/qfieldcloudutils.h</includedby>
+    <incdepgraph>
+      <node id="3">
+        <label>deltafilewrapper.h</label>
+        <link refid="deltafilewrapper_8h_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>networkmanager.h</label>
+        <link refid="networkmanager_8h_source"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>networkreply.h</label>
+        <link refid="networkreply_8h_source"/>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>qfieldcloudproject.h</label>
+        <link refid="qfieldcloudproject_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>src/core/qfieldcloud/qfieldcloudprojectsmodel.h</label>
+        <link refid="qfieldcloudprojectsmodel_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+      </node>
+      <node id="18">
+        <label>qgsgpkgflusher.h</label>
+        <link refid="qgsgpkgflusher_8h_source"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+      </node>
+      <node id="21">
+        <label>QAbstractListModel</label>
+      </node>
+      <node id="4">
+        <label>QJsonArray</label>
+      </node>
+      <node id="5">
+        <label>QJsonDocument</label>
+      </node>
+      <node id="6">
+        <label>QJsonObject</label>
+      </node>
+      <node id="13">
+        <label>QNetworkAccessManager</label>
+      </node>
+      <node id="14">
+        <label>QNetworkReply</label>
+      </node>
+      <node id="11">
+        <label>QObject</label>
+      </node>
+      <node id="16">
+        <label>QPointer</label>
+      </node>
+      <node id="22">
+        <label>QSortFilterProxyModel</label>
+      </node>
+      <node id="19">
+        <label>QThread</label>
+      </node>
+      <node id="23">
+        <label>QTimer</label>
+      </node>
+      <node id="17">
+        <label>QVariantMap</label>
+      </node>
+      <node id="7">
+        <label>qgsfeature.h</label>
+      </node>
+      <node id="8">
+        <label>qgslogger.h</label>
+      </node>
+      <node id="20">
+        <label>qgsmaplayer.h</label>
+      </node>
+      <node id="15">
+        <label>qgsnetworkaccessmanager.h</label>
+      </node>
+      <node id="9">
+        <label>qgsvectorlayer.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="3">
+        <label>src/core/appexpressioncontextscopesgenerator.h</label>
+        <link refid="appexpressioncontextscopesgenerator_8h_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>src/core/attributeformmodel.h</label>
+        <link refid="attributeformmodel_8h_source"/>
+      </node>
+      <node id="8">
+        <label>src/core/attributeformmodelbase.h</label>
+        <link refid="attributeformmodelbase_8h_source"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>src/core/digitizinglogger.h</label>
+        <link refid="digitizinglogger_8h_source"/>
+      </node>
+      <node id="4">
+        <label>src/core/expressionevaluator.h</label>
+        <link refid="expressionevaluator_8h_source"/>
+      </node>
+      <node id="6">
+        <label>src/core/featurechecklistmodel.h</label>
+        <link refid="featurechecklistmodel_8h_source"/>
+      </node>
+      <node id="5">
+        <label>src/core/featurelistmodel.h</label>
+        <link refid="featurelistmodel_8h_source"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>src/core/featuremodel.h</label>
+        <link refid="featuremodel_8h_source"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>src/core/projectinfo.h</label>
+        <link refid="projectinfo_8h_source"/>
+      </node>
+      <node id="11">
+        <label>src/core/qfieldcloud/qfieldcloudconnection.h</label>
+        <link refid="qfieldcloudconnection_8h_source"/>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>src/core/qfieldcloud/qfieldcloudprojectsmodel.h</label>
+        <link refid="qfieldcloudprojectsmodel_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>src/core/utils/expressioncontextutils.h</label>
+        <link refid="expressioncontextutils_8h_source"/>
+      </node>
+      <node id="15">
+        <label>src/core/utils/featureutils.h</label>
+        <link refid="featureutils_8h_source"/>
+      </node>
+      <node id="2">
+        <label>src/core/utils/qfieldcloudutils.h</label>
+        <link refid="qfieldcloudutils_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>src/service/qfieldcloudservice.h</label>
+        <link refid="qfieldcloudservice_8h_source"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="classQFieldCloudProjectsModel" prot="public">QFieldCloudProjectsModel</innerclass>
+    <innerclass refid="classQFieldCloudProjectsFilterModel" prot="public">QFieldCloudProjectsFilterModel</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/***************************************************************************</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/><sp/><sp/><sp/>qfieldcloudprojectsmodel.h</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/><sp/><sp/><sp/>---------------------</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/><sp/><sp/><sp/>begin<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>January<sp/>2020</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/><sp/><sp/><sp/>copyright<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>(C)<sp/>2020<sp/>by<sp/>Matthias<sp/>Kuhn</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/><sp/><sp/><sp/>email<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>matthias<sp/>at<sp/>opengis<sp/>dot<sp/>ch</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>***************************************************************************</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*<sp/><sp/><sp/>This<sp/>program<sp/>is<sp/>free<sp/>software;<sp/>you<sp/>can<sp/>redistribute<sp/>it<sp/>and/or<sp/>modify<sp/><sp/>*</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>*<sp/><sp/><sp/>it<sp/>under<sp/>the<sp/>terms<sp/>of<sp/>the<sp/>GNU<sp/>General<sp/>Public<sp/>License<sp/>as<sp/>published<sp/>by<sp/><sp/>*</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>*<sp/><sp/><sp/>the<sp/>Free<sp/>Software<sp/>Foundation;<sp/>either<sp/>version<sp/>2<sp/>of<sp/>the<sp/>License,<sp/>or<sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*<sp/><sp/><sp/>(at<sp/>your<sp/>option)<sp/>any<sp/>later<sp/>version.<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/>***************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>QFIELDCLOUDPROJECTSMODEL_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>QFIELDCLOUDPROJECTSMODEL_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;qfieldcloudproject.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;qgsgpkgflusher.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QAbstractListModel&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QJsonArray&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QNetworkReply&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QPointer&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QSortFilterProxyModel&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QTimer&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">QNetworkRequest;</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classQFieldCloudConnection" kindref="compound">QFieldCloudConnection</ref>;</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classLayerObserver" kindref="compound">LayerObserver</ref>;</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">QgsMapLayer;</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38" refid="classQFieldCloudProjectsModel" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classQFieldCloudProjectsModel" kindref="compound">QFieldCloudProjectsModel</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>QAbstractListModel</highlight></codeline>
+<codeline lineno="39"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_OBJECT</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43" refid="classQFieldCloudProjectsModel_1ac5a78e909c40dae2d63f6c6b42fee6eb" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/><ref refid="classQFieldCloudConnection" kindref="compound">QFieldCloudConnection</ref><sp/>*<ref refid="classQFieldCloudProjectsModel_1ac5a78e909c40dae2d63f6c6b42fee6eb" kindref="member">cloudConnection</ref><sp/>READ<sp/><ref refid="classQFieldCloudProjectsModel_1ac5a78e909c40dae2d63f6c6b42fee6eb" kindref="member">cloudConnection</ref><sp/>WRITE<sp/><ref refid="classQFieldCloudProjectsModel_1af5a0343a0b050b47ab4373da3c2b4edc" kindref="member">setCloudConnection</ref><sp/>NOTIFY<sp/>cloudConnectionChanged<sp/>)</highlight></codeline>
+<codeline lineno="45" refid="classQFieldCloudProjectsModel_1a8729e3ccd675fd8725bda14f42867c4c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/><ref refid="classLayerObserver" kindref="compound">LayerObserver</ref><sp/>*<ref refid="classQFieldCloudProjectsModel_1a8729e3ccd675fd8725bda14f42867c4c" kindref="member">layerObserver</ref><sp/>READ<sp/><ref refid="classQFieldCloudProjectsModel_1a8729e3ccd675fd8725bda14f42867c4c" kindref="member">layerObserver</ref><sp/>WRITE<sp/><ref refid="classQFieldCloudProjectsModel_1ac135f84f71f9bea11e821d63b8c28889" kindref="member">setLayerObserver</ref><sp/>NOTIFY<sp/>layerObserverChanged<sp/>)</highlight></codeline>
+<codeline lineno="47" refid="classQFieldCloudProjectsModel_1a37521a4cecfefd4f83165714c8550566" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/><ref refid="classQgsGpkgFlusher" kindref="compound">QgsGpkgFlusher</ref><sp/>*<ref refid="classQFieldCloudProjectsModel_1a37521a4cecfefd4f83165714c8550566" kindref="member">gpkgFlusher</ref><sp/>READ<sp/><ref refid="classQFieldCloudProjectsModel_1a37521a4cecfefd4f83165714c8550566" kindref="member">gpkgFlusher</ref><sp/>WRITE<sp/><ref refid="classQFieldCloudProjectsModel_1a9a2fc93fb17d4f16c8c0211c3d4f7f8c" kindref="member">setGpkgFlusher</ref><sp/>NOTIFY<sp/>gpkgFlusherChanged<sp/>)</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50" refid="classQFieldCloudProjectsModel_1a354f946832fa1786cb6c2dbb089d7fbd" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classQFieldCloudProjectsModel_1a354f946832fa1786cb6c2dbb089d7fbd" kindref="member">isRefreshing</ref><sp/>READ<sp/><ref refid="classQFieldCloudProjectsModel_1a354f946832fa1786cb6c2dbb089d7fbd" kindref="member">isRefreshing</ref><sp/>NOTIFY<sp/>isRefreshingChanged<sp/>)</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight></codeline>
+<codeline lineno="53" refid="classQFieldCloudProjectsModel_1aebca57132313c306908ea73114c8f5c4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classQFieldCloudProjectsModel_1aebca57132313c306908ea73114c8f5c4" kindref="member">isCreating</ref><sp/>READ<sp/><ref refid="classQFieldCloudProjectsModel_1aebca57132313c306908ea73114c8f5c4" kindref="member">isCreating</ref><sp/>NOTIFY<sp/>isCreatingChanged<sp/>)</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight></codeline>
+<codeline lineno="56" refid="classQFieldCloudProjectsModel_1a5630cb2c1209791196ca7ab18323120f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/>QSet&lt;QString&gt;<sp/><ref refid="classQFieldCloudProjectsModel_1a5630cb2c1209791196ca7ab18323120f" kindref="member">busyProjectIds</ref><sp/>READ<sp/><ref refid="classQFieldCloudProjectsModel_1a5630cb2c1209791196ca7ab18323120f" kindref="member">busyProjectIds</ref><sp/>NOTIFY<sp/>busyProjectIdsChanged<sp/>)</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight></codeline>
+<codeline lineno="59" refid="classQFieldCloudProjectsModel_1ae5b856a7747b57b04136ebbc3f1f8100" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/>QString<sp/><ref refid="classQFieldCloudProjectsModel_1ae5b856a7747b57b04136ebbc3f1f8100" kindref="member">currentProjectId</ref><sp/>READ<sp/><ref refid="classQFieldCloudProjectsModel_1ae5b856a7747b57b04136ebbc3f1f8100" kindref="member">currentProjectId</ref><sp/>WRITE<sp/><ref refid="classQFieldCloudProjectsModel_1a4865d8ce067f7021b3663c28b9c21c14" kindref="member">setCurrentProjectId</ref><sp/>NOTIFY<sp/>currentProjectIdChanged<sp/>)</highlight></codeline>
+<codeline lineno="61" refid="classQFieldCloudProjectsModel_1a14803362230a386fefcc6107b24b656d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/><ref refid="classQFieldCloudProject" kindref="compound">QFieldCloudProject</ref><sp/>*<ref refid="classQFieldCloudProjectsModel_1a14803362230a386fefcc6107b24b656d" kindref="member">currentProject</ref><sp/>READ<sp/><ref refid="classQFieldCloudProjectsModel_1a14803362230a386fefcc6107b24b656d" kindref="member">currentProject</ref><sp/>NOTIFY<sp/>currentProjectChanged<sp/>)</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/>public:</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classenum" kindref="compound">enum</ref><sp/>ColumnRole</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>IdRole<sp/>=<sp/>Qt::UserRole<sp/>+<sp/>1,</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>OwnerRole,</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>PublicRole,</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>FeaturedRole,</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>NameRole,</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>DescriptionRole,</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>ModificationRole,</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>CheckoutRole,</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>StatusRole,</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>ProjectOutdatedRole,</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>ProjectFileOutdatedRole,</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>ErrorStatusRole,</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>ErrorStringRole,</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>DownloadProgressRole,</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>DownloadSizeRole,</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>PackagingStatusRole,</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>PackagedLayerErrorsRole,</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>PushDeltaProgressRole,</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>PushDeltaStatusRole,</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>PushDeltaStatusStringRole,</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>LocalDeltasCountRole,</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>LocalPathRole,</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>LastLocalExportedAtRole,</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>LastLocalPushDeltasRole,</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>UserRoleRole,</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>UserRoleOriginRole,</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>DeltaListRole</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight></codeline>
+<codeline lineno="96" refid="classQFieldCloudProjectsModel_1af62f8848782207c2d955bff7647efe6a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">enum<sp/>class</highlight><highlight class="normal"><sp/><ref refid="classQFieldCloudProjectsModel_1af62f8848782207c2d955bff7647efe6a" kindref="member">ProjectsRequestAttribute</ref></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>FetchPublicProjects<sp/>=<sp/>QNetworkRequest::User<sp/>+<sp/>1,</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>ProjectsFetchOffset<sp/>=<sp/>QNetworkRequest::User<sp/>+<sp/>2,</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>ResetModel<sp/>=<sp/>QNetworkRequest::User<sp/>+<sp/>3,</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>ProjectId<sp/>=<sp/>QNetworkRequest::User<sp/>+<sp/>4,</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"></highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_ENUM(<sp/>ColumnRole<sp/>)</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"></highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classQFieldCloudProjectsModel" kindref="compound">QFieldCloudProjectsModel</ref>();</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"></highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classQFieldCloudConnection" kindref="compound">QFieldCloudConnection</ref><sp/>*<ref refid="classQFieldCloudProjectsModel_1ac5a78e909c40dae2d63f6c6b42fee6eb" kindref="member">cloudConnection</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"></highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQFieldCloudProjectsModel_1af5a0343a0b050b47ab4373da3c2b4edc" kindref="member">setCloudConnection</ref>(<sp/><ref refid="classQFieldCloudConnection" kindref="compound">QFieldCloudConnection</ref><sp/>*<ref refid="classQFieldCloudProjectsModel_1ac5a78e909c40dae2d63f6c6b42fee6eb" kindref="member">cloudConnection</ref><sp/>);</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"></highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classLayerObserver" kindref="compound">LayerObserver</ref><sp/>*<ref refid="classQFieldCloudProjectsModel_1a8729e3ccd675fd8725bda14f42867c4c" kindref="member">layerObserver</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"></highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQFieldCloudProjectsModel_1ac135f84f71f9bea11e821d63b8c28889" kindref="member">setLayerObserver</ref>(<sp/><ref refid="classLayerObserver" kindref="compound">LayerObserver</ref><sp/>*<ref refid="classQFieldCloudProjectsModel_1a8729e3ccd675fd8725bda14f42867c4c" kindref="member">layerObserver</ref><sp/>);</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"></highlight></codeline>
+<codeline lineno="121" refid="classQFieldCloudProjectsModel_1ac7e1bdc1cd474a0ea6b25a91a6dc74e2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classQFieldCloudProjectsModel_1ac7e1bdc1cd474a0ea6b25a91a6dc74e2" kindref="member">isRefreshing</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>mIsRefreshing;<sp/>}</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"></highlight></codeline>
+<codeline lineno="124" refid="classQFieldCloudProjectsModel_1a1ef4b9d2b27068ca6577bfe92750339a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classQFieldCloudProjectsModel_1a1ef4b9d2b27068ca6577bfe92750339a" kindref="member">isCreating</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>mIsCreating;<sp/>}</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"></highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/><ref refid="classQFieldCloudProjectsModel_1ae5b856a7747b57b04136ebbc3f1f8100" kindref="member">currentProjectId</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"></highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQFieldCloudProjectsModel_1a4865d8ce067f7021b3663c28b9c21c14" kindref="member">setCurrentProjectId</ref>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;<ref refid="classQFieldCloudProjectsModel_1ae5b856a7747b57b04136ebbc3f1f8100" kindref="member">currentProjectId</ref><sp/>);</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"></highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classQFieldCloudProject" kindref="compound">QFieldCloudProject</ref><sp/>*<ref refid="classQFieldCloudProjectsModel_1a14803362230a386fefcc6107b24b656d" kindref="member">currentProject</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"></highlight></codeline>
+<codeline lineno="136" refid="classQFieldCloudProjectsModel_1a8b39c2419bb413495ad91f7f3f029d8a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classQgsGpkgFlusher" kindref="compound">QgsGpkgFlusher</ref><sp/>*<ref refid="classQFieldCloudProjectsModel_1a8b39c2419bb413495ad91f7f3f029d8a" kindref="member">gpkgFlusher</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>mGpkgFlusher;<sp/>}</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"></highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQFieldCloudProjectsModel_1a9a2fc93fb17d4f16c8c0211c3d4f7f8c" kindref="member">setGpkgFlusher</ref>(<sp/><ref refid="classQgsGpkgFlusher" kindref="compound">QgsGpkgFlusher</ref><sp/>*flusher<sp/>);</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"></highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/>QSet&lt;QString&gt;<sp/><ref refid="classQFieldCloudProjectsModel_1a5630cb2c1209791196ca7ab18323120f" kindref="member">busyProjectIds</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"></highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_INVOKABLE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQFieldCloudProjectsModel_1aa340107dd86eec6c5316fb6afe44b239" kindref="member">refreshProjectsList</ref>(<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>shouldResetModel<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>shouldFetchPublic<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>projectFetchOffset<sp/>=<sp/>0<sp/>);</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"></highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_INVOKABLE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQFieldCloudProjectsModel_1aeca51590428194f0fbebb7d9384bd66c" kindref="member">projectPush</ref>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;projectId,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>shouldDownloadUpdates<sp/>);</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"></highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_INVOKABLE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQFieldCloudProjectsModel_1ab43901067eca88e191350e8b9ecab92f" kindref="member">refreshProjectDeltaList</ref>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;projectId<sp/>);</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"></highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_INVOKABLE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQFieldCloudProjectsModel_1a4dce8afdd4b5d447c7a9ca6648d7ca55" kindref="member">removeLocalProject</ref>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;projectId<sp/>);</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"></highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_INVOKABLE<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classQFieldCloudProjectsModel_1aaff70c8f5bb2e7af7c888ddd291e58cb" kindref="member">revertLocalChangesFromCurrentProject</ref>();</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"></highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_INVOKABLE<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classQFieldCloudProjectsModel_1a9845f06e6639eaf3732a84f0e19652d0" kindref="member">discardLocalChangesFromCurrentProject</ref>();</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"></highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/>QHash&lt;int,<sp/>QByteArray&gt;<sp/><ref refid="classQFieldCloudProjectsModel_1a4d1c62ded4636840f0c2ec32e8464efc" kindref="member">roleNames</ref>()<sp/></highlight><highlight class="keyword">const<sp/>override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"></highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classQFieldCloudProjectsModel_1a0ccf808cba297c0746b402108d2d54c2" kindref="member">rowCount</ref>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QModelIndex<sp/>&amp;parent<sp/>)<sp/></highlight><highlight class="keyword">const<sp/>override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"></highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/><sp/><sp/>QVariant<sp/><ref refid="classQFieldCloudProjectsModel_1ac57bdf726af8d8c36202e09964d03e64" kindref="member">data</ref>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QModelIndex<sp/>&amp;index,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>role<sp/>)<sp/></highlight><highlight class="keyword">const<sp/>override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"></highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_INVOKABLE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQFieldCloudProjectsModel_1ac04cbf6d1786a243517857859e5207d3" kindref="member">projectPackageAndDownload</ref>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;projectId<sp/>);</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"></highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_INVOKABLE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQFieldCloudProjectsModel_1ab8b1af70d977c639f51610d20da1ec78" kindref="member">projectCancelDownload</ref>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;projectId<sp/>);</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"></highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_INVOKABLE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQFieldCloudProjectsModel_1aa6d7579d7b4aaec50013489d41d9a032" kindref="member">updateLocalizedDataPaths</ref>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;projectPath<sp/>);</highlight></codeline>
+<codeline lineno="184"><highlight class="normal"></highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_INVOKABLE<sp/><ref refid="classQFieldCloudProject" kindref="compound">QFieldCloudProject</ref><sp/>*<ref refid="classQFieldCloudProjectsModel_1a63a21a16301f6b94979bf28e79c19ad2" kindref="member">findProject</ref>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;projectId<sp/>)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="187"><highlight class="normal"></highlight></codeline>
+<codeline lineno="189"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_INVOKABLE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQFieldCloudProjectsModel_1a41ad4fd226ed5df96518c69b8d7bbda7" kindref="member">appendProject</ref>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;projectId<sp/>);</highlight></codeline>
+<codeline lineno="190"><highlight class="normal"></highlight></codeline>
+<codeline lineno="198"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_INVOKABLE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQFieldCloudProjectsModel_1a01dabe369847e6edfd45234c8a240e07" kindref="member">createProject</ref>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>name<sp/>);</highlight></codeline>
+<codeline lineno="199"><highlight class="normal"></highlight></codeline>
+<codeline lineno="200"><highlight class="normal"><sp/><sp/>signals:</highlight></codeline>
+<codeline lineno="201"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>cloudConnectionChanged();</highlight></codeline>
+<codeline lineno="202"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>layerObserverChanged();</highlight></codeline>
+<codeline lineno="203"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>isRefreshingChanged();</highlight></codeline>
+<codeline lineno="204"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>isCreatingChanged();</highlight></codeline>
+<codeline lineno="205"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>currentProjectIdChanged();</highlight></codeline>
+<codeline lineno="206"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>currentProjectChanged();</highlight></codeline>
+<codeline lineno="207"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>busyProjectIdsChanged();</highlight></codeline>
+<codeline lineno="208"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>gpkgFlusherChanged();</highlight></codeline>
+<codeline lineno="209"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>warning(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;message<sp/>);</highlight></codeline>
+<codeline lineno="210"><highlight class="normal"></highlight></codeline>
+<codeline lineno="211"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>projectCreated(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;projectId,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>hasError<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;errorString<sp/>=<sp/>QString()<sp/>);</highlight></codeline>
+<codeline lineno="212"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>projectAppended(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;projectId,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>hasError<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;errorString<sp/>=<sp/>QString()<sp/>);</highlight></codeline>
+<codeline lineno="213"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>projectDownloaded(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;projectId,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;projectName,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>hasError<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;errorString<sp/>=<sp/>QString()<sp/>);</highlight></codeline>
+<codeline lineno="214"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>pushFinished(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;projectId,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>isDownloadingProject,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>hasError<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;errorString<sp/>=<sp/>QString()<sp/>);</highlight></codeline>
+<codeline lineno="215"><highlight class="normal"></highlight></codeline>
+<codeline lineno="216"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>deltaListModelChanged();</highlight></codeline>
+<codeline lineno="217"><highlight class="normal"></highlight></codeline>
+<codeline lineno="218"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>projectUploaded(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;projectId<sp/>);</highlight></codeline>
+<codeline lineno="219"><highlight class="normal"></highlight></codeline>
+<codeline lineno="220"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/>slots:</highlight></codeline>
+<codeline lineno="221"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>connectionStatusChanged();</highlight></codeline>
+<codeline lineno="222"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>usernameChanged();</highlight></codeline>
+<codeline lineno="223"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>urlChanged();</highlight></codeline>
+<codeline lineno="224"><highlight class="normal"></highlight></codeline>
+<codeline lineno="225"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>projectListReceived();</highlight></codeline>
+<codeline lineno="226"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>projectReceived();</highlight></codeline>
+<codeline lineno="227"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>projectCreationReceived();</highlight></codeline>
+<codeline lineno="228"><highlight class="normal"></highlight></codeline>
+<codeline lineno="229"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="230"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setupProjectConnections(<sp/><ref refid="classQFieldCloudProject" kindref="compound">QFieldCloudProject</ref><sp/>*project<sp/>);</highlight></codeline>
+<codeline lineno="231"><highlight class="normal"></highlight></codeline>
+<codeline lineno="232"><highlight class="normal"><sp/><sp/><sp/><sp/>QModelIndex<sp/>findProjectIndex(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;projectId<sp/>)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="233"><highlight class="normal"></highlight></codeline>
+<codeline lineno="234"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>loadProjects(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QJsonArray<sp/>&amp;remoteProjects<sp/>=<sp/>QJsonArray(),<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>skipLocalProjects<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="235"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>insertProjects(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QList&lt;QFieldCloudProject<sp/>*&gt;<sp/>&amp;projects<sp/>);</highlight></codeline>
+<codeline lineno="236"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>resetProjects();</highlight></codeline>
+<codeline lineno="237"><highlight class="normal"></highlight></codeline>
+<codeline lineno="238"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/>QString<sp/>layerFileName(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QgsMapLayer<sp/>*layer<sp/>)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="239"><highlight class="normal"></highlight></codeline>
+<codeline lineno="240"><highlight class="normal"><sp/><sp/><sp/><sp/>QList&lt;QFieldCloudProject<sp/>*&gt;<sp/>mProjects;</highlight></codeline>
+<codeline lineno="241"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classQFieldCloudConnection" kindref="compound">QFieldCloudConnection</ref><sp/>*mCloudConnection<sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="242"><highlight class="normal"></highlight></codeline>
+<codeline lineno="243"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>mIsRefreshing<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="244"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>mIsCreating<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="245"><highlight class="normal"></highlight></codeline>
+<codeline lineno="246"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/>mCurrentProjectId;</highlight></codeline>
+<codeline lineno="247"><highlight class="normal"><sp/><sp/><sp/><sp/>QPointer&lt;QFieldCloudProject&gt;<sp/>mCurrentProject;</highlight></codeline>
+<codeline lineno="248"><highlight class="normal"></highlight></codeline>
+<codeline lineno="249"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classLayerObserver" kindref="compound">LayerObserver</ref><sp/>*mLayerObserver<sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="250"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classQgsGpkgFlusher" kindref="compound">QgsGpkgFlusher</ref><sp/>*mGpkgFlusher<sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="251"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/>mUsername;</highlight></codeline>
+<codeline lineno="252"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/>mUrl;</highlight></codeline>
+<codeline lineno="253"><highlight class="normal"></highlight></codeline>
+<codeline lineno="254"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>mProjectsPerFetch<sp/>=<sp/>250;</highlight></codeline>
+<codeline lineno="255"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="256"><highlight class="normal"></highlight></codeline>
+<codeline lineno="260" refid="classQFieldCloudProjectsFilterModel" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classQFieldCloudProjectsFilterModel" kindref="compound">QFieldCloudProjectsFilterModel</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>QSortFilterProxyModel</highlight></codeline>
+<codeline lineno="261"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="262"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_OBJECT</highlight></codeline>
+<codeline lineno="263"><highlight class="normal"></highlight></codeline>
+<codeline lineno="264"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/><ref refid="classQFieldCloudProjectsModel" kindref="compound">QFieldCloudProjectsModel</ref><sp/>*projectsModel<sp/>READ<sp/>projectsModel<sp/>WRITE<sp/><ref refid="classQFieldCloudProjectsFilterModel_1aada8170f8d088d1f753211eae4131c4b" kindref="member">setProjectsModel</ref><sp/>NOTIFY<sp/>projectsModelChanged<sp/>)</highlight></codeline>
+<codeline lineno="265"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/>ProjectsFilter<sp/>filter<sp/>READ<sp/>filter<sp/>WRITE<sp/><ref refid="classQFieldCloudProjectsFilterModel_1a83971ba1a02f3b2a7897f0c42ea3dd3e" kindref="member">setFilter</ref><sp/>NOTIFY<sp/>filterChanged<sp/>)</highlight></codeline>
+<codeline lineno="266"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>showLocalOnly<sp/>READ<sp/>showLocalOnly<sp/>WRITE<sp/><ref refid="classQFieldCloudProjectsFilterModel_1a800ff5f362ec2b3ea5f737178d8b1b7d" kindref="member">setShowLocalOnly</ref><sp/>NOTIFY<sp/>showLocalOnlyChanged<sp/>)</highlight></codeline>
+<codeline lineno="267"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/>QString<sp/>textFilter<sp/>READ<sp/>textFilter<sp/>WRITE<sp/><ref refid="classQFieldCloudProjectsFilterModel_1a6e52064109ddebe5ef4b0a1c59418ff0" kindref="member">setTextFilter</ref><sp/>NOTIFY<sp/>textFilterChanged<sp/>)</highlight></codeline>
+<codeline lineno="268"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>showInValidProjects<sp/>READ<sp/>showInValidProjects<sp/>WRITE<sp/><ref refid="classQFieldCloudProjectsFilterModel_1a595eb2f3abc7d7dc292806c12245ab67" kindref="member">setShowInValidProjects</ref><sp/>NOTIFY<sp/>showInValidProjectsChanged<sp/>)</highlight></codeline>
+<codeline lineno="269"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>showFeaturedOnTop<sp/>READ<sp/>showFeaturedOnTop<sp/>WRITE<sp/><ref refid="classQFieldCloudProjectsFilterModel_1aa690fcbb57cb2bca61e03c36dcdff05c" kindref="member">setShowFeaturedOnTop</ref><sp/>NOTIFY<sp/>showFeaturedOnTopChanged<sp/>)</highlight></codeline>
+<codeline lineno="270"><highlight class="normal"></highlight></codeline>
+<codeline lineno="271"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="272"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/>ProjectsFilter</highlight></codeline>
+<codeline lineno="273"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="274"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>PrivateProjects,</highlight></codeline>
+<codeline lineno="275"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>PublicProjects,</highlight></codeline>
+<codeline lineno="276"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="277"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_ENUM(<sp/>ProjectsFilter<sp/>)</highlight></codeline>
+<codeline lineno="278"><highlight class="normal"></highlight></codeline>
+<codeline lineno="279"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">explicit</highlight><highlight class="normal"><sp/><ref refid="classQFieldCloudProjectsFilterModel" kindref="compound">QFieldCloudProjectsFilterModel</ref>(<sp/>QObject<sp/>*parent<sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="280"><highlight class="normal"></highlight></codeline>
+<codeline lineno="284"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classQFieldCloudProjectsModel" kindref="compound">QFieldCloudProjectsModel</ref><sp/>*projectsModel()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="285"><highlight class="normal"></highlight></codeline>
+<codeline lineno="290"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQFieldCloudProjectsFilterModel_1aada8170f8d088d1f753211eae4131c4b" kindref="member">setProjectsModel</ref>(<sp/><ref refid="classQFieldCloudProjectsModel" kindref="compound">QFieldCloudProjectsModel</ref><sp/>*projectsModel<sp/>);</highlight></codeline>
+<codeline lineno="291"><highlight class="normal"></highlight></codeline>
+<codeline lineno="295"><highlight class="normal"><sp/><sp/><sp/><sp/>ProjectsFilter<sp/>filter()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="296"><highlight class="normal"></highlight></codeline>
+<codeline lineno="300"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQFieldCloudProjectsFilterModel_1a83971ba1a02f3b2a7897f0c42ea3dd3e" kindref="member">setFilter</ref>(<sp/>ProjectsFilter<sp/>filter<sp/>);</highlight></codeline>
+<codeline lineno="301"><highlight class="normal"></highlight></codeline>
+<codeline lineno="305"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>showLocalOnly()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="306"><highlight class="normal"></highlight></codeline>
+<codeline lineno="310"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQFieldCloudProjectsFilterModel_1a800ff5f362ec2b3ea5f737178d8b1b7d" kindref="member">setShowLocalOnly</ref>(<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>showLocalOnly<sp/>);</highlight></codeline>
+<codeline lineno="311"><highlight class="normal"></highlight></codeline>
+<codeline lineno="316"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQFieldCloudProjectsFilterModel_1a6e52064109ddebe5ef4b0a1c59418ff0" kindref="member">setTextFilter</ref>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;text<sp/>);</highlight></codeline>
+<codeline lineno="317"><highlight class="normal"></highlight></codeline>
+<codeline lineno="321"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/>textFilter()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="322"><highlight class="normal"></highlight></codeline>
+<codeline lineno="330"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQFieldCloudProjectsFilterModel_1a595eb2f3abc7d7dc292806c12245ab67" kindref="member">setShowInValidProjects</ref>(<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>showInValidProjects<sp/>);</highlight></codeline>
+<codeline lineno="331"><highlight class="normal"></highlight></codeline>
+<codeline lineno="336"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>showInValidProjects()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="337"><highlight class="normal"></highlight></codeline>
+<codeline lineno="341"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQFieldCloudProjectsFilterModel_1aa690fcbb57cb2bca61e03c36dcdff05c" kindref="member">setShowFeaturedOnTop</ref>(<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>showFeaturedOnTop<sp/>);</highlight></codeline>
+<codeline lineno="342"><highlight class="normal"></highlight></codeline>
+<codeline lineno="346"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>showFeaturedOnTop()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="347"><highlight class="normal"></highlight></codeline>
+<codeline lineno="348"><highlight class="normal"><sp/><sp/>signals:</highlight></codeline>
+<codeline lineno="349"><highlight class="normal"></highlight></codeline>
+<codeline lineno="350"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>projectsModelChanged();</highlight></codeline>
+<codeline lineno="351"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>filterChanged();</highlight></codeline>
+<codeline lineno="352"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>showLocalOnlyChanged();</highlight></codeline>
+<codeline lineno="353"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>textFilterChanged();</highlight></codeline>
+<codeline lineno="354"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>showInValidProjectsChanged();</highlight></codeline>
+<codeline lineno="355"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>showFeaturedOnTopChanged();</highlight></codeline>
+<codeline lineno="356"><highlight class="normal"></highlight></codeline>
+<codeline lineno="357"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="358"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>lessThan(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QModelIndex<sp/>&amp;sourceLeft,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QModelIndex<sp/>&amp;sourceRight<sp/>)<sp/></highlight><highlight class="keyword">const<sp/>override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="359"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>filterAcceptsRow(<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>source_row,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QModelIndex<sp/>&amp;source_parent<sp/>)<sp/></highlight><highlight class="keyword">const<sp/>override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="360"><highlight class="normal"></highlight></codeline>
+<codeline lineno="361"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="362"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classQFieldCloudProjectsModel" kindref="compound">QFieldCloudProjectsModel</ref><sp/>*mSourceModel<sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="363"><highlight class="normal"><sp/><sp/><sp/><sp/>ProjectsFilter<sp/>mFilter<sp/>=<sp/>PrivateProjects;</highlight></codeline>
+<codeline lineno="364"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>mShowLocalOnly<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="365"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>mShowInValidProjects<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="366"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>mShowFeaturedOnTop<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="367"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/>mTextFilter;</highlight></codeline>
+<codeline lineno="368"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="369"><highlight class="normal"></highlight></codeline>
+<codeline lineno="370"><highlight class="normal">Q_DECLARE_METATYPE(<sp/>QFieldCloudProjectsFilterModel::ProjectsFilter<sp/>)</highlight></codeline>
+<codeline lineno="371"><highlight class="normal"></highlight></codeline>
+<codeline lineno="372"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>QFIELDCLOUDPROJECTSMODEL_H</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="src/core/qfieldcloud/qfieldcloudprojectsmodel.h"/>
+  </compounddef>
+</doxygen>

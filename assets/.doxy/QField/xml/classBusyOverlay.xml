@@ -1,0 +1,162 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classBusyOverlay" kind="class" language="C++" prot="public">
+    <compoundname>BusyOverlay</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Rectangle</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classBusyOverlay_1a1748e0e079531f1b01266505b447e812" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias BusyOverlay::text</definition>
+        <argsstring></argsstring>
+        <name>text</name>
+        <qualifiedname>BusyOverlay::text</qualifiedname>
+        <read>dummyGetter_text_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/BusyOverlay.qml" line="12" column="1" bodyfile="src/qml/BusyOverlay.qml" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classBusyOverlay_1a0b81b4670f0f64c8091b58145f35733b" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias BusyOverlay::progress</definition>
+        <argsstring></argsstring>
+        <name>progress</name>
+        <qualifiedname>BusyOverlay::progress</qualifiedname>
+        <read>dummyGetter_progress_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/BusyOverlay.qml" line="14" column="1" bodyfile="src/qml/BusyOverlay.qml" bodystart="14" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classBusyOverlay_1aa9713580d7ca11048871b9730a410fa6" prot="private" static="no" mutable="no">
+        <type>var anchors</type>
+        <definition>var anchors BusyOverlay::fill</definition>
+        <argsstring></argsstring>
+        <name>fill</name>
+        <qualifiedname>BusyOverlay::fill</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/BusyOverlay.qml" line="16" column="12" bodyfile="src/qml/BusyOverlay.qml" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBusyOverlay_1af7cf094e320e813cfe8d596ee0605356" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var BusyOverlay::color</definition>
+        <argsstring></argsstring>
+        <name>color</name>
+        <qualifiedname>BusyOverlay::color</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/BusyOverlay.qml" line="17" column="5" bodyfile="src/qml/BusyOverlay.qml" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBusyOverlay_1a53772f1cb70ab1506cc9405df6cffc29" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var BusyOverlay::opacity</definition>
+        <argsstring></argsstring>
+        <name>opacity</name>
+        <qualifiedname>BusyOverlay::opacity</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/BusyOverlay.qml" line="18" column="5" bodyfile="src/qml/BusyOverlay.qml" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBusyOverlay_1a6678222dd79cd4155cf31194a2000733" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var BusyOverlay::visible</definition>
+        <argsstring></argsstring>
+        <name>visible</name>
+        <qualifiedname>BusyOverlay::visible</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/BusyOverlay.qml" line="19" column="5" bodyfile="src/qml/BusyOverlay.qml" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBusyOverlay_1a5b4ce8ccfdc2e1ef38a10bd1bb52dc18" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var BusyOverlay::state</definition>
+        <argsstring></argsstring>
+        <name>state</name>
+        <qualifiedname>BusyOverlay::state</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/BusyOverlay.qml" line="20" column="5" bodyfile="src/qml/BusyOverlay.qml" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBusyOverlay_1a782203510b77b52eb6a37a8c199727ab" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var BusyOverlay::states</definition>
+        <argsstring></argsstring>
+        <name>states</name>
+        <qualifiedname>BusyOverlay::states</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/BusyOverlay.qml" line="21" column="5" bodyfile="src/qml/BusyOverlay.qml" bodystart="21" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>BusyOverlay</label>
+        <link refid="classBusyOverlay"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Rectangle</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>BusyOverlay</label>
+        <link refid="classBusyOverlay"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Rectangle</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/qml/BusyOverlay.qml" line="9" column="1" bodyfile="src/qml/BusyOverlay.qml" bodystart="9" bodyend="22"/>
+    <listofallmembers>
+      <member refid="classBusyOverlay_1af7cf094e320e813cfe8d596ee0605356" prot="private" virt="non-virtual"><scope>BusyOverlay</scope><name>color</name></member>
+      <member refid="classBusyOverlay_1aa9713580d7ca11048871b9730a410fa6" prot="private" virt="non-virtual"><scope>BusyOverlay</scope><name>fill</name></member>
+      <member refid="classBusyOverlay_1a53772f1cb70ab1506cc9405df6cffc29" prot="private" virt="non-virtual"><scope>BusyOverlay</scope><name>opacity</name></member>
+      <member refid="classBusyOverlay_1a0b81b4670f0f64c8091b58145f35733b" prot="public" virt="non-virtual"><scope>BusyOverlay</scope><name>progress</name></member>
+      <member refid="classBusyOverlay_1a5b4ce8ccfdc2e1ef38a10bd1bb52dc18" prot="private" virt="non-virtual"><scope>BusyOverlay</scope><name>state</name></member>
+      <member refid="classBusyOverlay_1a782203510b77b52eb6a37a8c199727ab" prot="private" virt="non-virtual"><scope>BusyOverlay</scope><name>states</name></member>
+      <member refid="classBusyOverlay_1a1748e0e079531f1b01266505b447e812" prot="public" virt="non-virtual"><scope>BusyOverlay</scope><name>text</name></member>
+      <member refid="classBusyOverlay_1a6678222dd79cd4155cf31194a2000733" prot="private" virt="non-virtual"><scope>BusyOverlay</scope><name>visible</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

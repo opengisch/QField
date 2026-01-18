@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structPrintLayoutListModel_1_1PrintLayout" kind="struct" language="C++" prot="private">
+    <compoundname>PrintLayoutListModel::PrintLayout</compoundname>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structPrintLayoutListModel_1_1PrintLayout_1a267f55df5a008e0a683d71eecfb7c7db" prot="public" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString PrintLayoutListModel::PrintLayout::title</definition>
+        <argsstring></argsstring>
+        <name>title</name>
+        <qualifiedname>PrintLayoutListModel::PrintLayout::title</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/printlayoutlistmodel.h" line="55" column="17" bodyfile="src/core/printlayoutlistmodel.h" bodystart="55" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="structPrintLayoutListModel_1_1PrintLayout_1ab8102f9adb168fdb2a9958c9f410153b" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>PrintLayoutListModel::PrintLayout::PrintLayout</definition>
+        <argsstring>(const QString &amp;title)</argsstring>
+        <name>PrintLayout</name>
+        <qualifiedname>PrintLayoutListModel::PrintLayout::PrintLayout</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>title</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/printlayoutlistmodel.h" line="51" column="18" bodyfile="src/core/printlayoutlistmodel.h" bodystart="51" bodyend="53"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Struct of printLayout attributes (at the moment only for the title (name) used) </para>
+    </detaileddescription>
+    <location file="src/core/printlayoutlistmodel.h" line="49" column="5" bodyfile="src/core/printlayoutlistmodel.h" bodystart="50" bodyend="56"/>
+    <listofallmembers>
+      <member refid="structPrintLayoutListModel_1_1PrintLayout_1ab8102f9adb168fdb2a9958c9f410153b" prot="public" virt="non-virtual"><scope>PrintLayoutListModel::PrintLayout</scope><name>PrintLayout</name></member>
+      <member refid="structPrintLayoutListModel_1_1PrintLayout_1a267f55df5a008e0a683d71eecfb7c7db" prot="public" virt="non-virtual"><scope>PrintLayoutListModel::PrintLayout</scope><name>title</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

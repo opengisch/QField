@@ -1,0 +1,289 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="navigation_8h" kind="file" language="C++">
+    <compoundname>navigation.h</compoundname>
+    <includes refid="navigationmodel_8h" local="yes">navigationmodel.h</includes>
+    <includes refid="qgsquickmapsettings_8h" local="yes">qgsquickmapsettings.h</includes>
+    <includes local="no">QObject</includes>
+    <includes local="no">QSoundEffect</includes>
+    <includes local="no">QTimer</includes>
+    <includes local="no">qgsdistancearea.h</includes>
+    <includedby refid="locatormodelsuperbridge_8h" local="yes">src/core/locator/locatormodelsuperbridge.h</includedby>
+    <includedby refid="navigation_8cpp" local="yes">src/core/navigation.cpp</includedby>
+    <includedby refid="navigationmodel_8cpp" local="yes">src/core/navigationmodel.cpp</includedby>
+    <includedby refid="qgismobileapp_8cpp" local="yes">src/core/qgismobileapp.cpp</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>src/core/navigation.h</label>
+        <link refid="navigation_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>navigationmodel.h</label>
+        <link refid="navigationmodel_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>qgsquickmapsettings.h</label>
+        <link refid="qgsquickmapsettings_8h_source"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QAbstractListModel</label>
+      </node>
+      <node id="4">
+        <label>QObject</label>
+      </node>
+      <node id="15">
+        <label>QSoundEffect</label>
+      </node>
+      <node id="16">
+        <label>QTimer</label>
+      </node>
+      <node id="8">
+        <label>qfield_core_export.h</label>
+      </node>
+      <node id="5">
+        <label>qgsabstractgeometry.h</label>
+      </node>
+      <node id="6">
+        <label>qgscoordinatereferencesystem.h</label>
+      </node>
+      <node id="9">
+        <label>qgscoordinatetransformcontext.h</label>
+      </node>
+      <node id="17">
+        <label>qgsdistancearea.h</label>
+      </node>
+      <node id="10">
+        <label>qgsmaplayer.h</label>
+      </node>
+      <node id="11">
+        <label>qgsmapsettings.h</label>
+      </node>
+      <node id="12">
+        <label>qgsmapthemecollection.h</label>
+      </node>
+      <node id="13">
+        <label>qgspoint.h</label>
+      </node>
+      <node id="14">
+        <label>qgsrectangle.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>src/core/locator/locatormodelsuperbridge.h</label>
+        <link refid="locatormodelsuperbridge_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>src/core/locator/qfieldlocatorfilter.h</label>
+        <link refid="qfieldlocatorfilter_8h_source"/>
+      </node>
+      <node id="1">
+        <label>src/core/navigation.h</label>
+        <link refid="navigation_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="classNavigation" prot="public">Navigation</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/***************************************************************************</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/>navigation.h<sp/>-<sp/>Navigation</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"></highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>---------------------</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>begin<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>22.02.2022</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>copyright<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>(C)<sp/>2022<sp/>by<sp/>Mathieu<sp/>Pellerin</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>email<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>mathieu<sp/>(at)<sp/>opengis.ch</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>***************************************************************************</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>*<sp/><sp/><sp/>This<sp/>program<sp/>is<sp/>free<sp/>software;<sp/>you<sp/>can<sp/>redistribute<sp/>it<sp/>and/or<sp/>modify<sp/><sp/>*</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>*<sp/><sp/><sp/>it<sp/>under<sp/>the<sp/>terms<sp/>of<sp/>the<sp/>GNU<sp/>General<sp/>Public<sp/>License<sp/>as<sp/>published<sp/>by<sp/><sp/>*</highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*<sp/><sp/><sp/>the<sp/>Free<sp/>Software<sp/>Foundation;<sp/>either<sp/>version<sp/>2<sp/>of<sp/>the<sp/>License,<sp/>or<sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>*<sp/><sp/><sp/>(at<sp/>your<sp/>option)<sp/>any<sp/>later<sp/>version.<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="15"><highlight class="comment"><sp/>***************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>NAVIGATION_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NAVIGATION_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;navigationmodel.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;qgsquickmapsettings.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QObject&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QSoundEffect&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QTimer&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;qgsdistancearea.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="31" refid="classNavigation" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classNavigation" kindref="compound">Navigation</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>QObject</highlight></codeline>
+<codeline lineno="32"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_OBJECT</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref><sp/>*mapSettings<sp/>READ<sp/>mapSettings<sp/>WRITE<sp/><ref refid="classNavigation_1ad5ce06613391b2feaf9b5b4741735e26" kindref="member">setMapSettings</ref><sp/>NOTIFY<sp/>mapSettingsChanged<sp/>)</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/><ref refid="classNavigationModel" kindref="compound">NavigationModel</ref><sp/>*model<sp/>READ<sp/>model()<sp/>NOTIFY<sp/>modelChanged<sp/>)</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/>QgsPoint<sp/>location<sp/>READ<sp/>location<sp/>WRITE<sp/><ref refid="classNavigation_1aca9ee0cb2e6b1efc6917fdb9d851f563" kindref="member">setLocation</ref><sp/>NOTIFY<sp/>locationChanged<sp/>)</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/>QgsPoint<sp/>destination<sp/>READ<sp/>destination<sp/>WRITE<sp/><ref refid="classNavigation_1a5b000492cc1df18d4dbce5e47b6f20cb" kindref="member">setDestination</ref><sp/>NOTIFY<sp/>destinationChanged<sp/>)</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/>QString<sp/>destinationName<sp/>READ<sp/>destinationName<sp/>NOTIFY<sp/>destinationNameChanged<sp/>)</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/>QgsGeometry<sp/>path<sp/>READ<sp/>path<sp/>NOTIFY<sp/>detailsChanged<sp/>)</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classdistance" kindref="compound">distance</ref><sp/>READ<sp/><ref refid="classdistance" kindref="compound">distance</ref><sp/>NOTIFY<sp/>detailsChanged<sp/>)</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>verticalDistance<sp/>READ<sp/>verticalDistance<sp/>NOTIFY<sp/>detailsChanged<sp/>)</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/>Qgis::DistanceUnit<sp/>distanceUnits<sp/>READ<sp/>distanceUnits<sp/>NOTIFY<sp/>detailsChanged<sp/>)</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>bearing<sp/>READ<sp/>bearing<sp/>NOTIFY<sp/>detailsChanged<sp/>)</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>destinationFeatureCurrentVertex<sp/>READ<sp/>destinationFeatureCurrentVertex<sp/>NOTIFY<sp/>destinationFeatureCurrentVertexChanged<sp/>)</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>destinationFeatureVertexCount<sp/>READ<sp/>destinationFeatureVertexCount<sp/>NOTIFY<sp/>destinationFeatureVertexCountChanged<sp/>)</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>proximityAlarm<sp/>READ<sp/>proximityAlarm<sp/>WRITE<sp/><ref refid="classNavigation_1a8f7c45e3a02872f290d9aa21b4a31a7c" kindref="member">setProximityAlarm</ref><sp/>NOTIFY<sp/>proximityAlarmChanged<sp/>)</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>proximityAlarmThreshold<sp/>READ<sp/>proximityAlarmThreshold<sp/>WRITE<sp/><ref refid="classNavigation_1af5070872fe2e03681aab386cbd87e2ca" kindref="member">setProximityAlarmThreshold</ref><sp/>NOTIFY<sp/>proximityAlarmThresholdChanged<sp/>)</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>isActive<sp/>READ<sp/>isActive<sp/>NOTIFY<sp/>isActiveChanged<sp/>)</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classNavigation" kindref="compound">Navigation</ref>();</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classNavigation" kindref="compound">~Navigation</ref>();</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>isActive()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight></codeline>
+<codeline lineno="69" refid="classNavigation_1a87b2161b51751b6e34a312a68d90c129" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref><sp/>*<ref refid="classNavigation_1a87b2161b51751b6e34a312a68d90c129" kindref="member">mapSettings</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>mMapSettings;<sp/>}</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classNavigation_1ad5ce06613391b2feaf9b5b4741735e26" kindref="member">setMapSettings</ref>(<sp/><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref><sp/>*mapSettings<sp/>);</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight></codeline>
+<codeline lineno="79" refid="classNavigation_1aa8ee482406e2a5eef6a6dc6c4216448c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classNavigationModel" kindref="compound">NavigationModel</ref><sp/>*<ref refid="classNavigation_1aa8ee482406e2a5eef6a6dc6c4216448c" kindref="member">model</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>mModel.get();<sp/>}</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/>QgsPoint<sp/>location()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classNavigation_1aca9ee0cb2e6b1efc6917fdb9d851f563" kindref="member">setLocation</ref>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QgsPoint<sp/>&amp;<ref refid="classpoint" kindref="compound">point</ref><sp/>);</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/>QgsPoint<sp/>destination()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classNavigation_1a5b000492cc1df18d4dbce5e47b6f20cb" kindref="member">setDestination</ref>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QgsPoint<sp/>&amp;<ref refid="classpoint" kindref="compound">point</ref><sp/>);</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"></highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/>destinationName()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"></highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_INVOKABLE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classNavigation_1a4038ce2cd59710572c641e1a2bb94a60" kindref="member">setDestinationFeature</ref>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QgsFeature<sp/>&amp;feature,<sp/>QgsVectorLayer<sp/>*layer<sp/>);</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"></highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_INVOKABLE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classNavigation_1a6323e9a71af54c430054d2b2a41fadbe" kindref="member">clearDestinationFeature</ref>();</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"></highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_INVOKABLE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classNavigation_1a48f241bf1db28dc6e184873408a16da0" kindref="member">nextDestinationVertex</ref>();</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"></highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_INVOKABLE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classNavigation_1adfe9032695699da51bf0e543373ab3aa" kindref="member">previousDestinationVertex</ref>();</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"></highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>destinationFeatureCurrentVertex()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>destinationFeatureVertexCount()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"></highlight></codeline>
+<codeline lineno="148" refid="classNavigation_1a4e9a12b7fd09bf3985734445503284c2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>QgsGeometry<sp/><ref refid="classNavigation_1a4e9a12b7fd09bf3985734445503284c2" kindref="member">path</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>mPath;<sp/>}</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"></highlight></codeline>
+<codeline lineno="153" refid="classNavigation_1ac307e9f48b950529917f53e81a31b9c6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classNavigation_1ac307e9f48b950529917f53e81a31b9c6" kindref="member">distance</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>mDistance;<sp/>}</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"></highlight></codeline>
+<codeline lineno="159" refid="classNavigation_1a6adec0049b14e9df9584cd6b9b02e92c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classNavigation_1a6adec0049b14e9df9584cd6b9b02e92c" kindref="member">verticalDistance</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>mVerticalDistance;<sp/>}</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"></highlight></codeline>
+<codeline lineno="164" refid="classNavigation_1a66da6053bb3ac6ecd159371e3d3916fb" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Qgis::DistanceUnit<sp/><ref refid="classNavigation_1a66da6053bb3ac6ecd159371e3d3916fb" kindref="member">distanceUnits</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>mDa.lengthUnits();<sp/>}</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"></highlight></codeline>
+<codeline lineno="169" refid="classNavigation_1a827b4715e6eb7b777fd78feadc16862d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classNavigation_1a827b4715e6eb7b777fd78feadc16862d" kindref="member">bearing</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>mBearing;<sp/>}</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"></highlight></codeline>
+<codeline lineno="174" refid="classNavigation_1ad9ff5e3308203ea3bdbb541dfcbfaa24" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classNavigation_1ad9ff5e3308203ea3bdbb541dfcbfaa24" kindref="member">proximityAlarm</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>mProximityAlarm;<sp/>}</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"></highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classNavigation_1a8f7c45e3a02872f290d9aa21b4a31a7c" kindref="member">setProximityAlarm</ref>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>enabled<sp/>);</highlight></codeline>
+<codeline lineno="180"><highlight class="normal"></highlight></codeline>
+<codeline lineno="185" refid="classNavigation_1a76a139f13d3c3a55be603cee2412cc4e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classNavigation_1a76a139f13d3c3a55be603cee2412cc4e" kindref="member">proximityAlarmThreshold</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>mProximityAlarmThreshold;<sp/>}</highlight></codeline>
+<codeline lineno="186"><highlight class="normal"></highlight></codeline>
+<codeline lineno="193"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classNavigation_1af5070872fe2e03681aab386cbd87e2ca" kindref="member">setProximityAlarmThreshold</ref>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>&amp;threshold<sp/>);</highlight></codeline>
+<codeline lineno="194"><highlight class="normal"></highlight></codeline>
+<codeline lineno="198"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_INVOKABLE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classNavigation_1a2950c6caca499f4658880e174b6043ba" kindref="member">clear</ref>();</highlight></codeline>
+<codeline lineno="199"><highlight class="normal"></highlight></codeline>
+<codeline lineno="200"><highlight class="normal"><sp/><sp/>signals:</highlight></codeline>
+<codeline lineno="201"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>isActiveChanged();</highlight></codeline>
+<codeline lineno="202"><highlight class="normal"></highlight></codeline>
+<codeline lineno="203"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>mapSettingsChanged();</highlight></codeline>
+<codeline lineno="204"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>modelChanged();</highlight></codeline>
+<codeline lineno="205"><highlight class="normal"></highlight></codeline>
+<codeline lineno="206"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>locationChanged();</highlight></codeline>
+<codeline lineno="207"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>destinationChanged();</highlight></codeline>
+<codeline lineno="208"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>destinationNameChanged();</highlight></codeline>
+<codeline lineno="209"><highlight class="normal"></highlight></codeline>
+<codeline lineno="210"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>destinationFeatureCurrentVertexChanged();</highlight></codeline>
+<codeline lineno="211"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>destinationFeatureVertexCountChanged();</highlight></codeline>
+<codeline lineno="212"><highlight class="normal"></highlight></codeline>
+<codeline lineno="213"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>detailsChanged();</highlight></codeline>
+<codeline lineno="214"><highlight class="normal"></highlight></codeline>
+<codeline lineno="215"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>proximityAlarmChanged();</highlight></codeline>
+<codeline lineno="216"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>proximityAlarmThresholdChanged();</highlight></codeline>
+<codeline lineno="217"><highlight class="normal"></highlight></codeline>
+<codeline lineno="218"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/>slots:</highlight></codeline>
+<codeline lineno="219"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>crsChanged();</highlight></codeline>
+<codeline lineno="220"><highlight class="normal"></highlight></codeline>
+<codeline lineno="221"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="222"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>updateDetails();</highlight></codeline>
+<codeline lineno="223"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setDestinationFromCurrentVertex();</highlight></codeline>
+<codeline lineno="224"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>updateProximityAlarmState();</highlight></codeline>
+<codeline lineno="225"><highlight class="normal"></highlight></codeline>
+<codeline lineno="226"><highlight class="normal"><sp/><sp/><sp/><sp/>std::unique_ptr&lt;NavigationModel&gt;<sp/>mModel<sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="227"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref><sp/>*mMapSettings<sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="228"><highlight class="normal"><sp/><sp/><sp/><sp/>QgsPoint<sp/>mLocation;</highlight></codeline>
+<codeline lineno="229"><highlight class="normal"><sp/><sp/><sp/><sp/>QgsGeometry<sp/>mPath;</highlight></codeline>
+<codeline lineno="230"><highlight class="normal"><sp/><sp/><sp/><sp/>QgsDistanceArea<sp/>mDa;</highlight></codeline>
+<codeline lineno="231"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>mDistance<sp/>=<sp/>std::numeric_limits&lt;double&gt;::quiet_NaN();</highlight></codeline>
+<codeline lineno="232"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>mVerticalDistance<sp/>=<sp/>std::numeric_limits&lt;double&gt;::quiet_NaN();</highlight></codeline>
+<codeline lineno="233"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>mBearing<sp/>=<sp/>std::numeric_limits&lt;double&gt;::quiet_NaN();</highlight></codeline>
+<codeline lineno="234"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/>mDestinationName;</highlight></codeline>
+<codeline lineno="235"><highlight class="normal"></highlight></codeline>
+<codeline lineno="236"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/>mFeatureName;</highlight></codeline>
+<codeline lineno="237"><highlight class="normal"><sp/><sp/><sp/><sp/>QgsGeometry<sp/>mGeometry;</highlight></codeline>
+<codeline lineno="238"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>mCurrentVertex<sp/>=<sp/>-1;</highlight></codeline>
+<codeline lineno="239"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>mVertexCount<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="240"><highlight class="normal"></highlight></codeline>
+<codeline lineno="241"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>mProximityAlarm<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="242"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>mProximityAlarmThreshold<sp/>=<sp/>0.0;</highlight></codeline>
+<codeline lineno="243"><highlight class="normal"><sp/><sp/><sp/><sp/>QTimer<sp/>mProximityAlarmTimer;</highlight></codeline>
+<codeline lineno="244"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>mProximityAlarmInterval;</highlight></codeline>
+<codeline lineno="245"><highlight class="normal"><sp/><sp/><sp/><sp/>qint64<sp/>mLastProximityAlarm;</highlight></codeline>
+<codeline lineno="246"><highlight class="normal"><sp/><sp/><sp/><sp/>QSoundEffect<sp/>mProximitySound;</highlight></codeline>
+<codeline lineno="247"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="248"><highlight class="normal"></highlight></codeline>
+<codeline lineno="249"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>NAVIGATION_H</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="src/core/navigation.h"/>
+  </compounddef>
+</doxygen>

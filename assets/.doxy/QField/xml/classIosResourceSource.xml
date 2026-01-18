@@ -1,0 +1,259 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classIosResourceSource" kind="class" language="C++" prot="public">
+    <compoundname>IosResourceSource</compoundname>
+    <basecompoundref refid="classResourceSource" prot="public" virt="non-virtual">ResourceSource</basecompoundref>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classIosResourceSource_1abade7e7af7026a52b554637c01b176a5" prot="private" static="no" mutable="no">
+        <type>QQuickItem *</type>
+        <definition>QQuickItem* IosResourceSource::mParent</definition>
+        <argsstring></argsstring>
+        <name>mParent</name>
+        <qualifiedname>IosResourceSource::mParent</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/platforms/ios/iosresourcesource.h" line="41" column="16" bodyfile="src/core/platforms/ios/iosresourcesource.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classIosResourceSource_1a0af7e8248689e1da8cf9e97bd51a88d6" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString IosResourceSource::mPrefixPath</definition>
+        <argsstring></argsstring>
+        <name>mPrefixPath</name>
+        <qualifiedname>IosResourceSource::mPrefixPath</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/platforms/ios/iosresourcesource.h" line="42" column="13" bodyfile="src/core/platforms/ios/iosresourcesource.h" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classIosResourceSource_1ad6886e4b9b0b7f7b3278cce207dd0f82" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString IosResourceSource::mResourceFilePath</definition>
+        <argsstring></argsstring>
+        <name>mResourceFilePath</name>
+        <qualifiedname>IosResourceSource::mResourceFilePath</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/platforms/ios/iosresourcesource.h" line="43" column="13" bodyfile="src/core/platforms/ios/iosresourcesource.h" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classIosResourceSource_1ac9227b867316514caa98161623e1b54b" prot="private" static="no" mutable="no">
+        <type>CameraDelegateContainer *</type>
+        <definition>CameraDelegateContainer* IosResourceSource::mDelegate</definition>
+        <argsstring></argsstring>
+        <name>mDelegate</name>
+        <qualifiedname>IosResourceSource::mDelegate</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/platforms/ios/iosresourcesource.h" line="45" column="29" bodyfile="src/core/platforms/ios/iosresourcesource.h" bodystart="45" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classIosResourceSource_1ab8462fc3fe02d58f6728232e7cc0ae06" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>IosResourceSource::IosResourceSource</definition>
+        <argsstring>(const QString &amp;prefix=QString(), const QString &amp;resourceFilePath=QString(), QObject *parent=nullptr)</argsstring>
+        <name>IosResourceSource</name>
+        <qualifiedname>IosResourceSource::IosResourceSource</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>prefix</declname>
+          <defval>QString()</defval>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>resourceFilePath</declname>
+          <defval>QString()</defval>
+        </param>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/platforms/ios/iosresourcesource.h" line="26" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classIosResourceSource_1a70339e986505020bc874100bca4f5b35" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString IosResourceSource::resourceFilePath</definition>
+        <argsstring>() const</argsstring>
+        <name>resourceFilePath</name>
+        <qualifiedname>IosResourceSource::resourceFilePath</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/platforms/ios/iosresourcesource.h" line="28" column="13" bodyfile="src/core/platforms/ios/iosresourcesource.h" bodystart="28" bodyend="28"/>
+      </memberdef>
+      <memberdef kind="function" id="classIosResourceSource_1ac640364f513af4409ba4fddfdaa0781e" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString IosResourceSource::prefixPath</definition>
+        <argsstring>() const</argsstring>
+        <name>prefixPath</name>
+        <qualifiedname>IosResourceSource::prefixPath</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/platforms/ios/iosresourcesource.h" line="29" column="13" bodyfile="src/core/platforms/ios/iosresourcesource.h" bodystart="29" bodyend="29"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classIosResourceSource_1a302ebd4df88f9d791636ebaba780b2a4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void IosResourceSource::resourceReceived</definition>
+        <argsstring>(const QString &amp;path)</argsstring>
+        <name>resourceReceived</name>
+        <qualifiedname>IosResourceSource::resourceReceived</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>path</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/platforms/ios/iosresourcesource.h" line="32" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-slot">
+      <memberdef kind="slot" id="classIosResourceSource_1a439aecd9ee644f6bae9eb1d220aaea2c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void IosResourceSource::takePicture</definition>
+        <argsstring>()</argsstring>
+        <name>takePicture</name>
+        <qualifiedname>IosResourceSource::takePicture</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/platforms/ios/iosresourcesource.h" line="35" column="10"/>
+      </memberdef>
+      <memberdef kind="slot" id="classIosResourceSource_1a8ce6c176a48832dd52269871da043632" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void IosResourceSource::takeVideo</definition>
+        <argsstring>()</argsstring>
+        <name>takeVideo</name>
+        <qualifiedname>IosResourceSource::takeVideo</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/platforms/ios/iosresourcesource.h" line="36" column="10"/>
+      </memberdef>
+      <memberdef kind="slot" id="classIosResourceSource_1a7a512da3f977959b9af422ab4cf32459" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void IosResourceSource::pickGalleryPicture</definition>
+        <argsstring>()</argsstring>
+        <name>pickGalleryPicture</name>
+        <qualifiedname>IosResourceSource::pickGalleryPicture</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/platforms/ios/iosresourcesource.h" line="37" column="10"/>
+      </memberdef>
+      <memberdef kind="slot" id="classIosResourceSource_1abe664d4ea0e733fdb6601ad314154f4c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void IosResourceSource::pickGalleryVideo</definition>
+        <argsstring>()</argsstring>
+        <name>pickGalleryVideo</name>
+        <qualifiedname>IosResourceSource::pickGalleryVideo</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/platforms/ios/iosresourcesource.h" line="38" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>IosResourceSource</label>
+        <link refid="classIosResourceSource"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QObject</label>
+      </node>
+      <node id="2">
+        <label>ResourceSource</label>
+        <link refid="classResourceSource"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>IosResourceSource</label>
+        <link refid="classIosResourceSource"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QObject</label>
+      </node>
+      <node id="2">
+        <label>ResourceSource</label>
+        <link refid="classResourceSource"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/platforms/ios/iosresourcesource.h" line="21" column="1" bodyfile="src/core/platforms/ios/iosresourcesource.h" bodystart="22" bodyend="46"/>
+    <listofallmembers>
+      <member refid="classIosResourceSource_1ab8462fc3fe02d58f6728232e7cc0ae06" prot="public" virt="non-virtual"><scope>IosResourceSource</scope><name>IosResourceSource</name></member>
+      <member refid="classIosResourceSource_1ac9227b867316514caa98161623e1b54b" prot="private" virt="non-virtual"><scope>IosResourceSource</scope><name>mDelegate</name></member>
+      <member refid="classIosResourceSource_1abade7e7af7026a52b554637c01b176a5" prot="private" virt="non-virtual"><scope>IosResourceSource</scope><name>mParent</name></member>
+      <member refid="classIosResourceSource_1a0af7e8248689e1da8cf9e97bd51a88d6" prot="private" virt="non-virtual"><scope>IosResourceSource</scope><name>mPrefixPath</name></member>
+      <member refid="classIosResourceSource_1ad6886e4b9b0b7f7b3278cce207dd0f82" prot="private" virt="non-virtual"><scope>IosResourceSource</scope><name>mResourceFilePath</name></member>
+      <member refid="classIosResourceSource_1a7a512da3f977959b9af422ab4cf32459" prot="public" virt="non-virtual"><scope>IosResourceSource</scope><name>pickGalleryPicture</name></member>
+      <member refid="classIosResourceSource_1abe664d4ea0e733fdb6601ad314154f4c" prot="public" virt="non-virtual"><scope>IosResourceSource</scope><name>pickGalleryVideo</name></member>
+      <member refid="classIosResourceSource_1ac640364f513af4409ba4fddfdaa0781e" prot="public" virt="non-virtual"><scope>IosResourceSource</scope><name>prefixPath</name></member>
+      <member refid="classIosResourceSource_1a70339e986505020bc874100bca4f5b35" prot="public" virt="non-virtual"><scope>IosResourceSource</scope><name>resourceFilePath</name></member>
+      <member refid="classIosResourceSource_1a302ebd4df88f9d791636ebaba780b2a4" prot="public" virt="non-virtual"><scope>IosResourceSource</scope><name>resourceReceived</name></member>
+      <member refid="classResourceSource_1a619bb525c74553c331566eb13aa458bc" prot="public" virt="non-virtual"><scope>IosResourceSource</scope><name>ResourceSource</name></member>
+      <member refid="classIosResourceSource_1a439aecd9ee644f6bae9eb1d220aaea2c" prot="public" virt="non-virtual"><scope>IosResourceSource</scope><name>takePicture</name></member>
+      <member refid="classIosResourceSource_1a8ce6c176a48832dd52269871da043632" prot="public" virt="non-virtual"><scope>IosResourceSource</scope><name>takeVideo</name></member>
+      <member refid="classResourceSource_1a28122c523be31fb01217b8ddbd58a452" prot="public" virt="virtual"><scope>IosResourceSource</scope><name>~ResourceSource</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>
