@@ -57,6 +57,7 @@ ApplicationWindow {
   property double sceneBottomMargin: SafeArea.margins.bottom
   property double sceneLeftMargin: SafeArea.margins.left
   property double sceneRightMargin: SafeArea.margins.right
+  property bool show3DView: false
 
   onSceneLoadedChanged: {
     // This requires the scene to be fully loaded not to crash due to possibility of
@@ -642,6 +643,22 @@ ApplicationWindow {
       color: mapCanvas.mapSettings.backgroundColor
     }
 
+    Loader {
+      id: map3DViewLoader
+      anchors.fill: parent
+      active: mainWindow.show3DView
+      visible: active
+      z: 100
+
+      source: "qrc:/qml/3d/Map3DView.qml"
+
+      onLoaded: {
+        item.qgisProject = qgisProject;
+        item.bookmarkModel = bookmarkModel;
+        displayToast(qsTr("3D Map View loaded!"));
+      }
+    }
+
     GridRenderer {
       mapSettings: mapCanvas.mapSettings
       enabled: !gridDecoration.enabled
@@ -655,7 +672,7 @@ ApplicationWindow {
       id: mapCanvasMap
       objectName: "mapCanvas"
 
-      property bool isEnabled: !dashBoard.opened && !aboutDialog.visible && !welcomeScreen.visible && !qfieldSettings.visible && !qfieldLocalDataPickerScreen.visible && !qfieldCloudScreen.visible && !qfieldCloudPopup.visible && !codeReader.visible && !sketcher.visible && !overlayFeatureFormDrawer.opened && !rotateFeaturesToolbar.rotateFeaturesRequested
+      property bool isEnabled: !show3DView && !dashBoard.opened && !aboutDialog.visible && !welcomeScreen.visible && !qfieldSettings.visible && !qfieldLocalDataPickerScreen.visible && !qfieldCloudScreen.visible && !qfieldCloudPopup.visible && !codeReader.visible && !sketcher.visible && !overlayFeatureFormDrawer.opened && !rotateFeaturesToolbar.rotateFeaturesRequested
 
       interactive: isEnabled && !screenLocker.enabled && !snapToCommonAngleMenu.visible
       isMapRotationEnabled: qfieldSettings.enableMapRotation
@@ -2031,6 +2048,39 @@ ApplicationWindow {
       anchors.leftMargin: mainWindow.sceneLeftMargin + 4
       anchors.topMargin: 4
       spacing: 4
+
+      QfToolButton {
+        id: toggle3DButton
+        round: true
+        width: 48
+        height: 48
+        iconSource: Theme.getThemeVectorIcon("ic_3d_24dp")
+        iconColor: "white"
+        bgcolor: mainWindow.show3DView ? Theme.mainColor : Theme.darkGray
+
+        onClicked: {
+          mainWindow.show3DView = !mainWindow.show3DView;
+          displayToast(mainWindow.show3DView ? qsTr("3D View ON") : qsTr("3D View OFF"));
+        }
+      }
+
+      QfToolButton {
+        id: wireframeButton
+        visible: mainWindow.show3DView && map3DViewLoader.item
+        round: true
+        width: 48
+        height: 48
+        iconSource: Theme.getThemeVectorIcon("ic_3x3_grid_white_24dp")
+        iconColor: "white"
+        bgcolor: (map3DViewLoader.item && map3DViewLoader.item.wireframeMode) ? Theme.mainColor : Theme.darkGray
+
+        onClicked: {
+          if (map3DViewLoader.item) {
+            map3DViewLoader.item.wireframeMode = !map3DViewLoader.item.wireframeMode;
+            displayToast(map3DViewLoader.item.wireframeMode ? qsTr("Wireframe ON") : qsTr("Wireframe OFF"));
+          }
+        }
+      }
 
       QfToolButtonDrawer {
         name: "digitizingDrawer"

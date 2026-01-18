@@ -4,6 +4,9 @@ set(QFIELD_CORE_SRCS
     cogo/cogooperationsmodel.cpp
     cogo/cogoregistry.cpp
     platforms/platformutilities.cpp
+    quick3d/qgsquick3dterraingeometry.cpp
+    quick3d/qgsquick3dterrainprovider.cpp
+    quick3d/qgsquick3dmaptexturegenerator.cpp
     utils/coordinatereferencesystemutils.cpp
     utils/expressioncontextutils.cpp
     utils/featureutils.cpp
@@ -142,6 +145,9 @@ set(QFIELD_CORE_HDRS
     cogo/cogooperationsmodel.h
     cogo/cogoregistry.h
     platforms/platformutilities.h
+    quick3d/qgsquick3dterraingeometry.h
+    quick3d/qgsquick3dterrainprovider.h
+    quick3d/qgsquick3dmaptexturegenerator.h
     utils/coordinatereferencesystemutils.h
     utils/expressioncontextutils.h
     utils/featureutils.h
@@ -355,6 +361,7 @@ target_include_directories(
          ${CMAKE_SOURCE_DIR}/src/core/locator
          ${CMAKE_SOURCE_DIR}/src/core/platforms
          ${CMAKE_SOURCE_DIR}/src/core/qgsquick
+         ${CMAKE_SOURCE_DIR}/src/core/quick3d
          ${CMAKE_SOURCE_DIR}/src/core/utils
          ${CMAKE_SOURCE_DIR}/src/core/positioning
          ${CMAKE_SOURCE_DIR}/src/core/processing
