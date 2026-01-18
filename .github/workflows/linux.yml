@@ -113,7 +113,7 @@ jobs:
         run: |
           xvfb-run cmake --build build --config ${{ env.BUILD_TYPE }}
 
-      - uses: ZedThree/clang-tidy-review@v0.22.3
+      - uses: ZedThree/clang-tidy-review@v0.23.0
         id: review
         if: github.event_name == 'pull_request'
         with:
