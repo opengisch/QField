@@ -77,7 +77,7 @@ jobs:
           script: |
             function updateCommentSection(prComment, marker, body) {
               // Replace GitHub artifact links with public ones using nightly.link
-              body.replaceAll('https://github.com', 'https://nightly.link');
+              body = body.replaceAll('https://github.com', 'https://nightly.link');
 
               // Create a regular expression to match the section between start and end markers
               const sectionRegex = new RegExp(`(<!-- ====startsection ${marker}-->\\n)([\\s\\S]*?)(<!-- ====endsection ${marker}-->)`, 'm');
