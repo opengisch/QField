@@ -1,24 +1,41 @@
-<!-- <vector xmlns:android="http://schemas.android.com/apk/res/android" xmlns:aapt="http://schemas.android.com/aapt"
-    android:viewportWidth="512"
-    android:viewportHeight="512"
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
     android:width="512dp"
-    android:height="512dp">
-    <group
-        android:name="rotationGroup"
-        android:translateX="-3.251526"
-        android:translateY="1.627246">
-        <group
-            android:scaleX="1.227916"
-            android:scaleY="1.227916"
-            android:translateX="-55.03352"
-            android:translateY="-60.02895">
-            <path
-                android:pathData="M362.43 244.34L339.1 339.97 243.47 363.3 422.09 422.97Z"
-                android:fillColor="#000000" />
-            <path
-                android:pathData="M255.96 393.69c-36.77 0 -71.33 -14.32 -97.33 -40.31 -26 -26 -40.31 -60.56 -40.31 -97.33 0 -36.77 14.32 -71.33 40.31 -97.33 26 -26 60.56 -40.31 97.33 -40.31 36.77 0 71.33 14.32 97.33 40.31 26 26 40.31 60.56 40.31 97.33 0 7.78 -0.65 15.46 -1.91 22.99l26.56 79.53C437.03 328.91 447.9 293.75 447.9 256.05 447.9 150.04 361.96 64.09 255.94 64.09 149.92 64.09 64 150.03 64 256.04 64 362.05 149.94 448 255.96 448c37.83 0 73.1 -10.95 102.83 -29.84l-79.24 -26.47c-7.72 1.32 -15.61 2 -23.59 2z"
-                android:fillColor="#000000" />
-        </group>
-    </group>
+    android:height="512dp"
+    android:viewportWidth="512"
+    android:viewportHeight="512">
+
+    <!-- 방패 외곽 -->
+    <path
+        android:fillColor="#000000"
+        android:pathData="
+            M256,48
+            L96,112
+            V272
+            C96,360 176,432 256,464
+            C336,432 416,360 416,272
+            V112
+            Z" />
+
+    <!-- 내부 파형(재난/환경) -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="
+            M128,240
+            C160,220 192,260 224,240
+            C256,220 288,260 320,240
+            C352,220 384,260 416,240
+            V300
+            C416,350 336,410 256,440
+            C176,410 128,350 128,300
+            Z" />
+
+    <!-- 중앙 수직 축(안정/복원력) -->
+    <path
+        android:fillColor="#000000"
+        android:pathData="
+            M244,160
+            H268
+            V320
+            H244
+            Z" />
 </vector>
- -->
