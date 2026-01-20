@@ -720,7 +720,9 @@ void AttributeFormModelBase::synchronizeFieldValue( int fieldIndex, QVariant val
     QStandardItem *item = fieldIterator.key();
     const int fidx = fieldIterator.value();
     if ( fidx != fieldIndex )
+    {
       continue;
+    }
 
     item->setData( value, AttributeFormModel::AttributeValue );
   }
@@ -758,6 +760,9 @@ void AttributeFormModelBase::updateDefaultValues( int fieldIndex, QVector<int> u
     const QVariant updatedValue = mFeatureModel->data( mFeatureModel->index( fidx ), FeatureModel::AttributeValue );
     if ( success && updatedValue != previousValue )
     {
+      mExpressionContext.popScope();
+      mExpressionContext << QgsExpressionContextUtils::formScope( mFeatureModel->feature() );
+
       synchronizeFieldValue( fidx, updatedValue );
       if ( !updatedFields.contains( fidx ) )
       {
