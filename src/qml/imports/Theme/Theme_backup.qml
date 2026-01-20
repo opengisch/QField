@@ -6,7 +6,7 @@ QtObject {
   id: object
 
   property var darkThemeColors: {
-    "mainColor": "#002a50",
+    "mainColor": "#80cc28",
     "mainOverlayColor": "#ffffff",
     "mainBackgroundColor": "#303030",
     "mainBackgroundColorSemiOpaque": "#bb303030",
@@ -27,7 +27,7 @@ QtObject {
   }
 
   property var lightThemeColors: {
-    "mainColor": "#002a50",
+    "mainColor": "#80cc28",
     "mainOverlayColor": "#ffffff",
     "mainBackgroundColor": "#fafafa",
     "mainBackgroundColorSemiOpaque": "#bbfafafa",
@@ -49,7 +49,7 @@ QtObject {
 
   property bool darkTheme: false
 
-  property color mainColor: "#002a50"
+  property color mainColor: "#80cc28"
   property color mainColorSemiOpaque: "#bb80cc28"
   property color mainOverlayColor: "#ffffff"
 
@@ -97,7 +97,7 @@ QtObject {
 
   property color accuracyBad: "#c0392b"
   property color accuracyTolerated: "orange"
-  property color accuracyExcellent: "#002a50"
+  property color accuracyExcellent: "#80cc28"
 
   property color navigationColor: "#984ea3"
   property color navigationColorSemiOpaque: "#99984ea3"
@@ -105,7 +105,7 @@ QtObject {
 
   property color sensorBackgroundColor: "#33999999"
 
-  property color bookmarkDefault: "#002a50"
+  property color bookmarkDefault: "#80cc28"
   property color bookmarkOrange: "orange"
   property color bookmarkRed: "#c0392b"
   property color bookmarkBlue: "#64b5f6"
