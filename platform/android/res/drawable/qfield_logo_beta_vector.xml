@@ -1,41 +1,80 @@
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
     android:width="512dp"
     android:height="512dp"
     android:viewportWidth="512"
     android:viewportHeight="512">
 
-    <!-- 방패 외곽 -->
+    <!-- D 로고 with 화살표 - Splash Screen Icon -->
+    
+    <!-- 외곽 D 형태 (오른쪽 곡선) -->
     <path
-        android:fillColor="#000000"
         android:pathData="
-            M256,48
-            L96,112
-            V272
-            C96,360 176,432 256,464
-            C336,432 416,360 416,272
-            V112
-            Z" />
+            M170 100
+            L290 100
+            C385 100 430 165 430 256
+            C430 347 385 412 290 412
+            L170 412
+            L170 340
+            L280 340
+            C340 340 362 305 362 256
+            C362 207 340 172 280 172
+            L170 172
+            Z">
+        <aapt:attr name="android:fillColor">
+            <gradient
+                android:startX="170"
+                android:startY="100"
+                android:endX="430"
+                android:endY="412"
+                android:type="linear">
+                <item android:offset="0" android:color="#FF1E4D91"/>
+                <item android:offset="0.5" android:color="#FF3B7DB5"/>
+                <item android:offset="1" android:color="#FF5EC4D4"/>
+            </gradient>
+        </aapt:attr>
+    </path>
 
-    <!-- 내부 파형(재난/환경) -->
+    <!-- D 왼쪽 세로 줄기 -->
     <path
-        android:fillColor="#FFFFFF"
         android:pathData="
-            M128,240
-            C160,220 192,260 224,240
-            C256,220 288,260 320,240
-            C352,220 384,260 416,240
-            V300
-            C416,350 336,410 256,440
-            C176,410 128,350 128,300
-            Z" />
+            M170 172
+            L170 412
+            L102 412
+            L102 172
+            Z">
+        <aapt:attr name="android:fillColor">
+            <gradient
+                android:startX="102"
+                android:startY="172"
+                android:endX="170"
+                android:endY="412"
+                android:type="linear">
+                <item android:offset="0" android:color="#FF2B5FA3"/>
+                <item android:offset="1" android:color="#FF5EC4D4"/>
+            </gradient>
+        </aapt:attr>
+    </path>
 
-    <!-- 중앙 수직 축(안정/복원력) -->
+    <!-- 왼쪽 상단 화살표 (삼각형) -->
     <path
-        android:fillColor="#000000"
         android:pathData="
-            M244,160
-            H268
-            V320
-            H244
-            Z" />
+            M82 82
+            L170 172
+            L102 172
+            L102 100
+            Z">
+        <aapt:attr name="android:fillColor">
+            <gradient
+                android:startX="82"
+                android:startY="82"
+                android:endX="170"
+                android:endY="172"
+                android:type="linear">
+                <item android:offset="0" android:color="#FF5EC4D4"/>
+                <item android:offset="1" android:color="#FF4AA8C2"/>
+            </gradient>
+        </aapt:attr>
+    </path>
+
 </vector>
