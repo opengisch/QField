@@ -842,17 +842,16 @@ ApplicationWindow {
         if (isPieMenuRequest) {
           actionsPieMenu.identifiedCount = menuFeatureListModel.count;
           isPieMenuRequest = false;
-          return;
-        }
-        if (isMenuRequest) {
+        } else if (isMenuRequest) {
           canvasMenuFeatureListInstantiator.active = true;
-        }
-        if (qfieldSettings.autoOpenFormSingleIdentify && !isMenuRequest && !featureListForm.multiSelection && featureListForm.model.count === 1) {
-          featureListForm.selection.focusedItem = 0;
-          featureListForm.state = "FeatureForm";
-        }
-        if (qfieldSettings.autoZoomToIdentifiedFeature && !isMenuRequest && featureListForm.model.count > 0) {
-          featureListForm.extentController.zoomToAllFeatures();
+        } else {
+          if (qfieldSettings.autoOpenFormSingleIdentify && !featureListForm.multiSelection && featureListForm.model.count === 1) {
+            featureListForm.selection.focusedItem = 0;
+            featureListForm.state = "FeatureForm";
+          }
+          if (qfieldSettings.autoZoomToIdentifiedFeature && featureListForm.model.count > 0) {
+            featureListForm.extentController.zoomToAllFeatures();
+          }
         }
       }
     }
@@ -1131,12 +1130,6 @@ ApplicationWindow {
             identifyTool.isMenuRequest = false;
             identifyTool.isPieMenuRequest = false;
             identifyTool.identify(locationMarker.screenLocation);
-            if (qfieldSettings.autoOpenFormSingleIdentify) {
-              featureListForm.selection.focusedItem = 0;
-              featureListForm.state = "FeatureForm";
-            } else if (featureListForm.model.count > 0) {
-              featureListForm.state = "FeatureList";
-            }
             actionsPieMenu.close();
           }
         }
