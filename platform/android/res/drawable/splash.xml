@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <!-- (선택) 배경색 -->
+    <!-- 배경색 -->
     <item android:drawable="@android:color/white"/>
 
-    <!-- PNG 로고 -->
+    <!-- 가운데 PNG 로고 -->
     <item
-        android:width="192dp"
-        android:height="192dp"
         android:drawable="@drawable/qfield_logo_beta"
         android:gravity="center" />
 </layer-list>
