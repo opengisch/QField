@@ -224,8 +224,8 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
 
   // Set a nicer default hyperlink color to be used in QML Text items
   QPalette palette = app->palette();
-  palette.setColor( QPalette::Link, QColor( 128, 204, 40 ) );
-  palette.setColor( QPalette::LinkVisited, QColor( 128, 204, 40 ) );
+  palette.setColor( QPalette::Link, QColor( 0, 42, 80 ) );
+  palette.setColor( QPalette::LinkVisited, QColor( 0, 42, 80 ) );
   app->setPalette( palette );
 
   mUrlHandler.reset( new QFieldUrlHandler( mIface, this ) );
