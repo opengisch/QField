@@ -190,7 +190,8 @@ void QFieldCloudConnection::setUrl( const QString &url )
 
 QString QFieldCloudConnection::defaultUrl()
 {
-  return QStringLiteral( "https://app.qfield.cloud" );
+  return QStringLiteral( "https://qfield.mapinus.com" );
+  //return QStringLiteral( "https://app.qfield.cloud" );
 }
 
 QStringList QFieldCloudConnection::urls() const

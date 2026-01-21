@@ -261,7 +261,8 @@ Item {
       id: cloudRegisterLabel
       Layout.fillWidth: true
       Layout.topMargin: 16
-      text: qsTr('New user?') + ' <a href="https://app.qfield.cloud/accounts/signup/">' + qsTr('Register an account') + '</a>.'
+      text: qsTr('New user?') + ' <a href="https://qfield.mapinus.com/accounts/signup/">' + qsTr('Register an account') + '</a>.'
+      //text: qsTr('New user?') + ' <a href="https://app.qfield.cloud/accounts/signup/">' + qsTr('Register an account') + '</a>.'
       horizontalAlignment: Text.AlignHCenter
       font: Theme.defaultFont
       color: Theme.mainTextColor
