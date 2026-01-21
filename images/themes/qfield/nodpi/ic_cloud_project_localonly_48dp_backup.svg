@@ -2,7 +2,7 @@
 <svg width="64" height="64" version="1.1" viewBox="0 0 16.933 16.933" xmlns="http://www.w3.org/2000/svg">
  <g transform="translate(0 -280.07)">
   <path d="m12.7 292.37a4.113 4.113 0 0 0-4.101-4.101 4.1 4.1 0 0 0-3.973 3.101c-1.23 0.205-2.179 1.256-2.179 2.538a2.57 2.57 0 0 0 2.564 2.563h7.689c1.128 0 2.05-0.923 2.05-2.05 0-1.128-0.922-2.051-2.05-2.051z" fill="none" stroke="#fff" stroke-opacity=".5" stroke-width="1.0583"/>
-  <g transform="translate(0 -.258)" fill="none" stroke="#002a50" stroke-width=".397">
+  <g transform="translate(0 -.258)" fill="none" stroke="#80cc28" stroke-width=".397">
    <path d="m9.243 283.65-2.628-0.67-3.97 1.057v10.055l3.97-1.059 3.968 1.059 3.97-1.059v-6.085" stroke-linecap="round"/>
    <path d="m6.615 293.03v-10.054"/>
    <path d="m10.583 294.09v-7.144"/>
