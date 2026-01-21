@@ -127,13 +127,14 @@ jobs:
           cmake --build  "build" --target bundle --config ${{ env.BUILD_TYPE }}
           echo "ARTIFACT_PATHNAME=build/QField-x86_64.AppImage" >> $GITHUB_ENV
           echo "ARTIFACT_NAME=qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}-linux-x64.AppImage" >> $GITHUB_ENV
+          echo "ARTIFACT_PACKAGE_NAME=QField-dev-x64-linux-${{ env.BUILD_TYPE }}" >> $GITHUB_ENV
 
       - name: 📦 Upload package
         if: ${{ env.ARTIFACT_NAME != null }}
         uses: actions/upload-artifact@v6
         id: artifact-linux
         with:
-          name: "QField-dev-x64-linux-${{ env.BUILD_TYPE }}"
+          name: ${{ env.ARTIFACT_PACKAGE_NAME }}
           path: ${{ env.ARTIFACT_PATHNAME }}
 
       - name: 🧫 Test
@@ -214,6 +215,6 @@ jobs:
           marker: linux
           body: |
             ### 🐧 Linux AppImage builds
-            Download a [Linux AppImage build of this PR for testing](${{ steps.artifact-linux.outputs.artifact-url }}).
+            Download a [Linux AppImage build of this PR for testing](https://nightly.link/opengisch/QField/actions/runs/${{ github.run_id }}/${{ env.ARTIFACT_PACKAGE_NAME }}.zip).
             *(Built from commit ${{ github.event.pull_request.head.sha }})*
           pr: ${{ github.event.number }}

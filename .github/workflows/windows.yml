@@ -143,6 +143,7 @@ jobs:
           ARTIFACT_NAME=$(basename $ARTIFACT_PATHNAME)
           echo "ARTIFACT_PATHNAME=${ARTIFACT_PATHNAME}" >> $GITHUB_ENV
           echo "ARTIFACT_NAME=qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}-windows-x64.${INSTALLER_SUFFIX}" >> $GITHUB_ENV
+          echo "ARTIFACT_PACKAGE_NAME=QField-dev-x64-windows-static-${{ env.BUILD_TYPE }}" >> $GITHUB_ENV
 
           echo "artifact_name=${ARTIFACT_NAME}" >> "$GITHUB_OUTPUT"
 
@@ -176,7 +177,7 @@ jobs:
         uses: actions/upload-artifact@v6
         id: artifact-windows
         with:
-          name: "QField-dev-x64-windows-static-${{ env.BUILD_TYPE }}"
+          name: ${{ env.ARTIFACT_PACKAGE_NAME }}
           path: ${{ env.ARTIFACT_PATHNAME }}
 
       - name: 📊 Upload test report
@@ -226,7 +227,7 @@ jobs:
           marker: windows
           body: |
             ### 🪟 Windows builds
-            Download a [Windows build of this PR for testing](${{ steps.artifact-windows.outputs.artifact-url }}).
+            Download a [Windows build of this PR for testing](https://nightly.link/opengisch/QField/actions/runs/${{ github.run_id }}/${{ env.ARTIFACT_PACKAGE_NAME }}.zip).
             *(Built from commit ${{ github.event.pull_request.head.sha }})*
           pr: ${{ github.event.number }}
 
