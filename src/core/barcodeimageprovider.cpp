@@ -54,7 +54,8 @@ QImage BarcodeImageProvider::requestImage( const QString &id, QSize *size, const
   const QRgb black = qRgba( 0, 0, 0, 255 );
 
   const QRgb transparent = qRgba( 255, 255, 255, 0 );
-  const QRgb color = foregroundColor.isValid() ? foregroundColor.rgba() : qRgba( 0, 0, 0, 255 );
+  const QRgb color = qRgba( 0, 42, 80, 255 ); // #002a50
+  //const QRgb color = foregroundColor.isValid() ? foregroundColor.rgba() : qRgba( 0, 0, 0, 255 );
 
   for ( int y = 0; y < barcodeImage.height(); ++y )
   {
