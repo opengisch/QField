@@ -1339,7 +1339,7 @@ QgsFeatureIds FeatureModel::applyVertexModelTopography()
 
     QgsPointLocator loc( vectorLayer );
     const double searchTolerance = QgsTolerance::vertexSearchRadius( vectorLayer, mVertexModel->mapSettings()->mapSettings() );
-    for ( const VertexModel::VertexChange change : history )
+    for ( const VertexModel::VertexChange &change : history )
     {
       switch ( change.type )
       {
