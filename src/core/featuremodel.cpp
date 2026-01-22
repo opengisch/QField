@@ -1288,6 +1288,7 @@ QgsFeatureIds FeatureModel::applyVertexModelTopography()
   const QVector<QgsPoint> pointsAdded = mVertexModel->verticesAdded();
   const QVector<QPair<QgsPoint, QgsPoint>> pointsMoved = mVertexModel->verticesMoved();
   const QVector<QgsPoint> pointsDeleted = mVertexModel->verticesDeleted();
+  QList<VertexModel::VertexChange> history = mVertexModel->history( true );
 
   QgsRectangle bbox;
   const double searchRadius = mLayer ? QgsVectorLayerEditUtils::getTopologicalSearchRadius( mLayer ) : 0.0;
@@ -1336,28 +1337,40 @@ QgsFeatureIds FeatureModel::applyVertexModelTopography()
 
     vectorLayer->startEditing();
 
-    for ( const auto &point : pointsAdded )
-    {
-      vectorLayer->addTopologicalPoints( point );
-    }
-
     QgsPointLocator loc( vectorLayer );
-    const double tol = QgsTolerance::vertexSearchRadius( vectorLayer, mVertexModel->mapSettings()->mapSettings() );
-    for ( const auto &point : pointsMoved )
+    const double searchTolerance = QgsTolerance::vertexSearchRadius( vectorLayer, mVertexModel->mapSettings()->mapSettings() );
+    for ( const VertexModel::VertexChange change : history )
     {
-      QgsPointLocator::MatchList matches = loc.verticesInRect( point.first, tol );
-      for ( int i = 0; i < matches.size(); i++ )
+      switch ( change.type )
       {
-        vectorLayer->moveVertex( point.second, matches.at( i ).featureId(), matches.at( i ).vertexIndex() );
-      }
-    }
+        case VertexModel::VertexAddition:
+        {
+          vectorLayer->addTopologicalPoints( change.vertex.point );
+          break;
+        }
 
-    for ( const auto &point : pointsDeleted )
-    {
-      QgsPointLocator::MatchList matches = loc.verticesInRect( point, tol );
-      for ( int i = 0; i < matches.size(); i++ )
-      {
-        vectorLayer->deleteVertex( matches.at( i ).featureId(), matches.at( i ).vertexIndex() );
+        case VertexModel::VertexMove:
+        {
+          QgsPointLocator::MatchList matches = loc.verticesInRect( change.vertex.originalPoint, searchTolerance );
+          for ( int i = 0; i < matches.size(); i++ )
+          {
+            vectorLayer->moveVertex( change.vertex.point, matches.at( i ).featureId(), matches.at( i ).vertexIndex() );
+          }
+          break;
+        }
+
+        case VertexModel::VertexDeletion:
+        {
+          QgsPointLocator::MatchList matches = loc.verticesInRect( change.vertex.point, searchTolerance );
+          for ( int i = 0; i < matches.size(); i++ )
+          {
+            vectorLayer->deleteVertex( matches.at( i ).featureId(), matches.at( i ).vertexIndex() );
+          }
+          break;
+        }
+
+        case VertexModel::NoChange:
+          break;
       }
     }
 

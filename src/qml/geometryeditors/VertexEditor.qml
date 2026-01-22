@@ -91,8 +91,9 @@ GeometryEditorBase {
     bgcolor: !qfieldSettings.autoSave ? Theme.mainColor : Theme.toolButtonBackgroundColor
 
     onClicked: {
-      if (vertexEditorToolbar.currentVertexModified)
+      if (vertexEditorToolbar.currentVertexModified) {
         digitizingLogger.addCoordinate(featureModel.vertexModel.currentPoint);
+      }
       digitizingLogger.writeCoordinates();
       applyChanges(true);
       finished();

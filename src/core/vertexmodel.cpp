@@ -87,6 +87,36 @@ void VertexModel::setGeometry( const QgsGeometry &geometry )
   emit geometryTypeChanged();
 }
 
+QList<VertexModel::VertexChange> VertexModel::history( bool transformPoints, bool includeAvailableRedos ) const
+{
+  QList<VertexChange> history;
+  if ( !includeAvailableRedos && mHistory.size() > mHistoryIndex + 1 )
+  {
+    history = mHistory.mid( 0, mHistoryIndex );
+  }
+  else
+  {
+    history = mHistory;
+  }
+
+  if ( transformPoints )
+  {
+    for ( VertexChange &change : history )
+    {
+      if ( !change.vertex.originalPoint.isEmpty() )
+      {
+        change.vertex.originalPoint.transform( mTransform, Qgis::TransformDirection::Reverse );
+      }
+      if ( !change.vertex.point.isEmpty() )
+      {
+        change.vertex.point.transform( mTransform, Qgis::TransformDirection::Reverse );
+      }
+    }
+  }
+
+  return history;
+}
+
 void VertexModel::clearHistory()
 {
   mHistory.clear();
@@ -112,6 +142,10 @@ void VertexModel::addToHistory( VertexChangeType type )
   if ( mHistory.isEmpty() || mHistory.last().type != type || ( mHistory.last().type == VertexMove && mHistory.last().index != mCurrentIndex ) )
   {
     mHistory << VertexChange( type, mCurrentIndex, mVertices.at( mCurrentIndex ) );
+  }
+  else if ( mHistory.last().type == VertexMove && mHistory.last().index == mCurrentIndex )
+  {
+    mHistory.last().vertex.point = mVertices.at( mCurrentIndex ).point;
   }
 
   mHistoryIndex = mHistory.size() - 1;
@@ -182,7 +216,9 @@ void VertexModel::refreshGeometry()
       mTransform = QgsCoordinateTransform( mCrs, mMapSettings->destinationCrs(), mMapSettings->transformContext() );
       mTransform.setAllowFallbackTransforms( true );
       if ( mTransform.isValid() )
+      {
         geom.transform( mTransform );
+      }
     }
     catch ( QgsCsException &cs )
     {
@@ -695,10 +731,14 @@ QgsPoint VertexModel::currentPoint() const
 void VertexModel::setCurrentPoint( const QgsPoint &point )
 {
   if ( mCurrentIndex < 0 || mCurrentIndex >= mVertices.count() )
+  {
     return;
+  }
 
   if ( mMode == NoEditing )
+  {
     return;
+  }
 
   Vertex &vertex = mVertices[mCurrentIndex];
 
@@ -708,14 +748,18 @@ void VertexModel::setCurrentPoint( const QgsPoint &point )
   setDirty( true );
   beginResetModel();
 
-  addToHistory( mMode == AddVertex ? VertexAddition : VertexMove );
 
   if ( mMode == AddVertex )
   {
+    addToHistory( VertexAddition );
     vertex.originalPoint = vertex.point;
+    vertex.point = QgsPoint( point.x(), point.y() );
   }
-
-  vertex.point = QgsPoint( point.x(), point.y() );
+  else
+  {
+    vertex.point = QgsPoint( point.x(), point.y() );
+    addToHistory( VertexMove );
+  }
 
   if ( QgsWkbTypes::hasZ( mGeometryWkbType ) )
   {
