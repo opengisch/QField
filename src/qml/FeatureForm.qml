@@ -312,8 +312,13 @@ Page {
         id: qmlItem
 
         property string code: containerCode
+        property var obj: undefined
+
         onCodeChanged: {
-          var obj = Qt.createQmlObject(code, qmlItem, 'qmlContent');
+          if (obj !== undefined) {
+            obj.destroy();
+          }
+          obj = Qt.createQmlObject(code, qmlItem, 'qmlContent');
         }
 
         height: childrenRect.height
