@@ -122,5 +122,14 @@ void MessageLogModel::onMessageReceived( const QString &message, const QString &
 
   beginInsertRows( QModelIndex(), 0, 0 );
   mMessages.prepend( LogMessage( tag, message, level ) );
+  if ( tag == QLatin1String( "Plugin Manager" ) )
+  {
+    // Make plugin-related errors extra visible to the console
+    qInfo() << QStringLiteral( "%1: %2" ).arg( tag, message );
+  }
+  else
+  {
+    qDebug() << QStringLiteral( "%1: %2" ).arg( tag, message );
+  }
   endInsertRows();
 }
