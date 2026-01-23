@@ -9,8 +9,46 @@ import ".."
 EditorWidgetBase {
   id: valueRelation
 
-  height: (Number(config['AllowMulti']) !== 1 ? valueRelationCombobox.height : valueRelationListComponent.height) + 4
+  height: state === "toggleButtonsView" ? toggleButtons.height + 4 : (Number(config['AllowMulti']) !== 1 ? valueRelationCombobox.height : valueRelationListComponent.height) + 4
   enabled: true
+
+  readonly property int toggleButtonsThreshold: currentLayer && currentLayer.customProperty('QFieldSync/value_map_button_interface_threshold') !== undefined ? currentLayer.customProperty('QFieldSync/value_map_button_interface_threshold') : 0
+  property bool canUseToggleButtons: !listModel.allowMulti && !listModel.groupField && valueRelationCombobox.count > 0 && valueRelationCombobox.count < toggleButtonsThreshold
+
+  state: canUseToggleButtons ? "toggleButtonsView" : "defaultView"
+
+  states: [
+    State {
+      name: "toggleButtonsView"
+      PropertyChanges {
+        target: toggleButtons
+        visible: true
+      }
+      PropertyChanges {
+        target: valueRelationCombobox
+        visible: false
+      }
+      PropertyChanges {
+        target: valueRelationListComponent
+        visible: false
+      }
+    },
+    State {
+      name: "defaultView"
+      PropertyChanges {
+        target: toggleButtons
+        visible: false
+      }
+      PropertyChanges {
+        target: valueRelationCombobox
+        visible: !listModel.allowMulti
+      }
+      PropertyChanges {
+        target: valueRelationListComponent
+        visible: listModel.allowMulti
+      }
+    }
+  ]
 
   LayerResolver {
     id: layerResolver
@@ -46,6 +84,37 @@ EditorWidgetBase {
 
     onListUpdated: {
       valueChangeRequested(attributeValue, attributeValue === "");
+    }
+  }
+
+  QfToggleButtonGroup {
+    id: toggleButtons
+    anchors.left: parent.left
+    anchors.right: parent.right
+    visible: false
+
+    model: valueRelation.canUseToggleButtons ? listModel : null
+    textRole: "displayString"
+    editing: isEditing
+    editable: isEditable
+    enabled: isEnabled
+    allowDeselect: true
+
+    onItemCompleted: function (index, itemModel, selected) {
+      if (itemModel.checked) {
+        selectedIndex = index;
+      }
+    }
+
+    onItemSelected: function (index, itemModel) {
+      if (selectedIndex >= 0) {
+        const newValue = listModel.dataFromRowIndex(selectedIndex, FeatureListModel.KeyFieldRole);
+        valueChangeRequested(newValue, false);
+      }
+    }
+
+    onItemDeselected: {
+      valueChangeRequested("", listModel.addNull);
     }
   }
 
