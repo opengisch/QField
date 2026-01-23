@@ -11,6 +11,7 @@ Item {
   property var qgisProject
   property var bookmarkModel: null
   property bool wireframeMode: false
+  property var initialExtent
 
   QtObject {
     id: internal
@@ -27,17 +28,15 @@ Item {
   QgsQuick3DTerrainProvider {
     id: terrainProvider
     project: root.qgisProject
-    resolution: 64
+    extent: root.initialExtent
+    resolution: 64 * 10
 
     onTerrainDataReady: {
       const stats = terrainProvider.terrainStats();
       internal.minHeight = stats.minHeight || 0;
       internal.maxHeight = stats.maxHeight || 0;
 
-      const demExt = terrainProvider.demExtent;
-      if (demExt && demExt.width > 0 && demExt.height > 0) {
-        textureGenerator.extent = terrainProvider.demExtent;
-      }
+      textureGenerator.extent = root.initialExtent;
 
       loadTerrain();
     }
@@ -67,8 +66,8 @@ Item {
     }
 
     const stats = terrainProvider.terrainStats();
-    const extentWidth = terrainProvider.demExtent.width;
-    const extentHeight = terrainProvider.demExtent.height;
+    const extentWidth = terrainProvider.extent.width;
+    const extentHeight = terrainProvider.extent.height;
     const extentSize = Math.max(extentWidth, extentHeight);
 
     // Calculate terrain dimensions based on aspect ratio
@@ -237,13 +236,15 @@ Item {
 
   // Convert GIS coordinates to 3D scene coordinates
   function geoTo3D(geoX, geoY) {
-    const demExt = terrainProvider.demExtent;
-    if (!demExt || demExt.width <= 0 || demExt.height <= 0)
+    const extW = terrainProvider.extent.width;
+    const extH = terrainProvider.extent.height;
+
+    if (extW <= 0 || extH <= 0)
       return null;
 
-    // Normalize to 0-1 range within DEM extent
-    const nx = (geoX - demExt.x) / demExt.width;
-    const nz = (geoY - demExt.y) / demExt.height;
+    // Normalize to 0-1 range within extent
+    const nx = (geoX - terrainProvider.extent.xMinimum) / extW;
+    const nz = (geoY - terrainProvider.extent.yMinimum) / extH;
 
     if (nx < 0 || nx > 1 || nz < 0 || nz > 1) {
       return null;
@@ -253,13 +254,8 @@ Item {
     const x3d = (nx - 0.5) * internal.terrainWidth;
     const z3d = (0.5 - nz) * internal.terrainDepth;
 
-    // Get terrain height
-    const terrainHeight = terrainProvider.heightAt(geoX, geoY);
-    let y3d = 0;
-    if (!isNaN(terrainHeight) && terrainHeight > 0 && internal.heightScale > 0) {
-      y3d = (terrainHeight - internal.minHeight) * internal.heightScale;
-    }
-    y3d -= 5;
+    let y3d = terrainProvider.normalizedHeightAt(geoX, geoY);
+    y3d += 15;
 
     return Qt.vector3d(x3d, y3d, z3d);
   }

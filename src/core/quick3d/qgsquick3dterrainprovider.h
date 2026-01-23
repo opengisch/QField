@@ -18,8 +18,8 @@
 
 #include <QObject>
 #include <QPointer>
-#include <QRectF>
 #include <QVariantList>
+#include <qgsrectangle.h>
 
 class QgsProject;
 class QgsRasterLayer;
@@ -30,7 +30,7 @@ class QgsQuick3DTerrainProvider : public QObject
 
     Q_PROPERTY( QgsProject *project READ project WRITE setProject NOTIFY projectChanged )
     Q_PROPERTY( int resolution READ resolution WRITE setResolution NOTIFY resolutionChanged )
-    Q_PROPERTY( QRectF demExtent READ demExtent NOTIFY demExtentChanged )
+    Q_PROPERTY( QgsRectangle extent READ extent WRITE setExtent NOTIFY extentChanged )
     Q_PROPERTY( QVariantList normalizedData READ normalizedData NOTIFY normalizedDataChanged )
     Q_PROPERTY( int terrainBaseSize READ terrainBaseSize NOTIFY terrainBaseSizeChanged )
 
@@ -44,25 +44,27 @@ class QgsQuick3DTerrainProvider : public QObject
     int resolution() const;
     void setResolution( int resolution );
 
-    QRectF demExtent() const;
+    QgsRectangle extent() const;
+    void setExtent( const QgsRectangle &extent );
+
     QVariantList normalizedData() const;
     int terrainBaseSize() const;
 
     Q_INVOKABLE double heightAt( double x, double y ) const;
+    Q_INVOKABLE double normalizedHeightAt( double x, double y ) const;
     Q_INVOKABLE QVariantMap terrainStats() const;
     Q_INVOKABLE double calculateVisualExaggeration() const;
 
   signals:
     void projectChanged();
     void resolutionChanged();
-    void demExtentChanged();
+    void extentChanged();
     void terrainDataReady();
     void normalizedDataChanged();
     void terrainBaseSizeChanged();
 
   private:
     void updateTerrainProvider();
-    QRectF calcDemExtent() const;
     void calcData();
     double sampleHeightFromRaster( QgsRasterLayer *layer, double x, double y ) const;
 
@@ -71,8 +73,10 @@ class QgsQuick3DTerrainProvider : public QObject
     QPointer<QgsRasterLayer> mDemLayer;
     int mResolution = 64;
     double mTerrainBaseSize = 2000.0;
-    QRectF mDemExtent;
+    QgsRectangle mExtent;
     QVariantList mNormalizedData;
+    double mMinRealHeight;
+    double mMaxRealHeight;
 };
 
 #endif // QGSQUICK3DTERRAINPROVIDER_H

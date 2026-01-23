@@ -642,6 +642,7 @@ ApplicationWindow {
       onLoaded: {
         item.qgisProject = qgisProject;
         item.bookmarkModel = bookmarkModel;
+        item.initialExtent = mapCanvas.mapSettings.extent;  // Capture extent once
         displayToast(qsTr("3D Map View loaded!"));
       }
     }

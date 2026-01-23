@@ -18,8 +18,8 @@
 
 #include <QImage>
 #include <QObject>
-#include <QRectF>
 #include <QStandardPaths>
+#include <qgsrectangle.h>
 
 class QgsProject;
 class QgsMapRendererSequentialJob;
@@ -29,7 +29,7 @@ class QgsQuick3DMapTextureGenerator : public QObject
     Q_OBJECT
 
     Q_PROPERTY( QgsProject *project READ project WRITE setProject NOTIFY projectChanged )
-    Q_PROPERTY( QRectF extent READ extent WRITE setExtent NOTIFY extentChanged )
+    Q_PROPERTY( QgsRectangle extent READ extent WRITE setExtent NOTIFY extentChanged )
     Q_PROPERTY( QString textureFilePath READ textureFilePath NOTIFY textureFilePathChanged )
 
   public:
@@ -39,8 +39,8 @@ class QgsQuick3DMapTextureGenerator : public QObject
     QgsProject *project() const;
     void setProject( QgsProject *project );
 
-    QRectF extent() const;
-    void setExtent( const QRectF &extent );
+    QgsRectangle extent() const;
+    void setExtent( const QgsRectangle &extent );
 
     QString textureFilePath() const;
 
@@ -58,7 +58,7 @@ class QgsQuick3DMapTextureGenerator : public QObject
 
   private:
     QgsProject *mProject = nullptr;
-    QRectF mExtent;
+    QgsRectangle mExtent;
     int mTextureSize = 1024;
     QImage mRenderedImage;
     QString mTextureFilePath;

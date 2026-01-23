@@ -64,34 +64,24 @@ void QgsQuick3DTerrainProvider::setResolution( int resolution )
   emit resolutionChanged();
 }
 
-QRectF QgsQuick3DTerrainProvider::demExtent() const
+QgsRectangle QgsQuick3DTerrainProvider::extent() const
 {
-  return mDemExtent;
+  return mExtent;
 }
 
-QRectF QgsQuick3DTerrainProvider::calcDemExtent() const
+void QgsQuick3DTerrainProvider::setExtent( const QgsRectangle &extent )
 {
-  if ( !mDemLayer || !mDemLayer->isValid() )
+  if ( mExtent == extent )
+    return;
+
+  mExtent = extent;
+  emit extentChanged();
+
+  if ( mDemLayer && mDemLayer->isValid() )
   {
-    return QRectF();
+    calcData();
+    emit terrainDataReady();
   }
-
-  QgsRectangle layerExtent = mDemLayer->extent();
-
-  if ( mProject && mDemLayer->crs() != mProject->crs() )
-  {
-    const QgsCoordinateTransform transform( mDemLayer->crs(), mProject->crs(), mProject->transformContext() );
-    try
-    {
-      layerExtent = transform.transformBoundingBox( layerExtent );
-    }
-    catch ( const QgsCsException & )
-    {
-    }
-  }
-
-  return QRectF( layerExtent.xMinimum(), layerExtent.yMinimum(),
-                 layerExtent.width(), layerExtent.height() );
 }
 
 double QgsQuick3DTerrainProvider::heightAt( double x, double y ) const
@@ -115,9 +105,22 @@ QVariantList QgsQuick3DTerrainProvider::normalizedData() const
   return mNormalizedData;
 }
 
+double QgsQuick3DTerrainProvider::normalizedHeightAt( double x, double y ) const
+{
+  const double realHeight = heightAt( x, y );
+
+  // Apply same normalization as calcData()
+  const double extentSize = qMax( mExtent.width(), mExtent.height() );
+  const double realHeightScale = mTerrainBaseSize / extentSize;
+  const double visualExaggeration = calculateVisualExaggeration();
+  const double totalScale = realHeightScale * visualExaggeration;
+
+  return ( realHeight - mMinRealHeight ) * totalScale;
+}
+
 double QgsQuick3DTerrainProvider::calculateVisualExaggeration() const
 {
-  const double extentSize = qMax( mDemExtent.width(), mDemExtent.height() );
+  const double extentSize = qMax( mExtent.width(), mExtent.height() );
 
   if ( extentSize > 100000 )
     return 3;
@@ -134,7 +137,7 @@ void QgsQuick3DTerrainProvider::calcData()
   const int totalSize = mResolution * mResolution;
   mNormalizedData.clear();
   mNormalizedData.reserve( totalSize );
-  if ( mDemExtent.isEmpty() )
+  if ( mExtent.isEmpty() )
   {
     for ( int i = 0; i < totalSize; ++i )
     {
@@ -155,18 +158,18 @@ void QgsQuick3DTerrainProvider::calcData()
 
   QVariantList tmpData;
   tmpData.reserve( totalSize );
-  const double xStep = mDemExtent.width() / mResolution;
-  const double yStep = mDemExtent.height() / mResolution;
+  const double xStep = mExtent.width() / mResolution;
+  const double yStep = mExtent.height() / mResolution;
 
   // Collect raw heights
   for ( int row = 0; row < mResolution; ++row )
   {
     const int flippedRow = mResolution - 1 - row;
-    const double y = mDemExtent.top() + flippedRow * yStep;
+    const double y = mExtent.yMinimum() + flippedRow * yStep;
 
     for ( int col = 0; col < mResolution; ++col )
     {
-      const double x = mDemExtent.left() + col * xStep;
+      const double x = mExtent.xMinimum() + col * xStep;
       double height = sampleHeightFromRaster( mDemLayer, x, y );
 
       if ( std::isnan( height ) )
@@ -189,8 +192,12 @@ void QgsQuick3DTerrainProvider::calcData()
     maxH = qMax( maxH, h );
   }
 
+  // Store real height range for bookmark positioning
+  mMinRealHeight = minH;
+  mMaxRealHeight = maxH;
+
   // Calculate scaling factors
-  const double extentSize = qMax( mDemExtent.width(), mDemExtent.height() );
+  const double extentSize = qMax( mExtent.width(), mExtent.height() );
   const double realHeightScale = mTerrainBaseSize / extentSize;
   const double visualExaggeration = calculateVisualExaggeration();
   const double totalScale = realHeightScale * visualExaggeration;
@@ -245,7 +252,7 @@ QVariantMap QgsQuick3DTerrainProvider::terrainStats() const
   stats[QStringLiteral( "minHeight" )] = 0.0;
   stats[QStringLiteral( "maxHeight" )] = 0.0;
 
-  if ( mDemExtent.isEmpty() )
+  if ( mExtent.isEmpty() )
   {
     return stats;
   }
@@ -298,16 +305,15 @@ void QgsQuick3DTerrainProvider::updateTerrainProvider()
     if ( rasterLayer->bandCount() == 1 && !isOnlineLayer )
     {
       mDemLayer = rasterLayer;
+      break;
     }
   }
-  if ( mDemExtent.isEmpty() )
+
+  if ( mDemLayer && mDemLayer->isValid() && !mExtent.isEmpty() )
   {
-    mDemExtent = calcDemExtent();
+    calcData();
+    emit terrainDataReady();
   }
-
-  calcData();
-
-  emit terrainDataReady();
 }
 
 int QgsQuick3DTerrainProvider::terrainBaseSize() const
