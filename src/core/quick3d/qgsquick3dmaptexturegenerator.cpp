@@ -46,12 +46,12 @@ void QgsQuick3DMapTextureGenerator::setProject( QgsProject *project )
   emit projectChanged();
 }
 
-QRectF QgsQuick3DMapTextureGenerator::extent() const
+QgsRectangle QgsQuick3DMapTextureGenerator::extent() const
 {
   return mExtent;
 }
 
-void QgsQuick3DMapTextureGenerator::setExtent( const QRectF &extent )
+void QgsQuick3DMapTextureGenerator::setExtent( const QgsRectangle &extent )
 {
   if ( mExtent == extent )
     return;
@@ -111,23 +111,9 @@ void QgsQuick3DMapTextureGenerator::render()
     }
   }
 
-  // Determine render extent from DEM
-  QgsRectangle renderExtent;
-  if ( demLayer )
-  {
-    const QgsCoordinateTransform transform( demLayer->crs(), mProject->crs(), mProject->transformContext() );
-    renderExtent = transform.transformBoundingBox( demLayer->extent() );
-  }
-  else
-  {
-    renderExtent = QgsRectangle( mExtent.left(), mExtent.top(),
-                                 mExtent.left() + mExtent.width(),
-                                 mExtent.top() + mExtent.height() );
-  }
-
   // Calculate texture dimensions maintaining aspect ratio
-  const double width = renderExtent.width();
-  const double height = renderExtent.height();
+  const double width = mExtent.width();
+  const double height = mExtent.height();
   int texWidth, texHeight;
 
   if ( width >= height )
@@ -155,7 +141,7 @@ void QgsQuick3DMapTextureGenerator::render()
 
   QgsMapSettings mapSettings;
   mapSettings.setOutputSize( QSize( texWidth, texHeight ) );
-  mapSettings.setExtent( renderExtent );
+  mapSettings.setExtent( mExtent );
   mapSettings.setDestinationCrs( mProject->crs() );
   mapSettings.setTransformContext( mProject->transformContext() );
   mapSettings.setBackgroundColor( QColor( 80, 80, 80 ) );
