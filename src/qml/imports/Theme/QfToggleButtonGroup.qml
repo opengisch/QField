@@ -13,7 +13,7 @@ Item {
 
   property alias model: repeater.model
   property string textRole: "displayString"
-
+  property string checkedRole: ""
   property int selectedIndex: -1
   property bool editing: false
   property bool editable: true
@@ -23,6 +23,12 @@ Item {
    * setting selectedIndex to -1 and emitting the deselected() signal.
    */
   property bool allowDeselect: false
+
+  /**
+   * When true, multiple items can be selected, the checkedRole mdoel
+   * value will define whether a given index is selected or not.
+   */
+  property bool allowMultipleSelection: false
 
   /**
    * Minimum width for buttons to handle empty text gracefully
@@ -60,7 +66,7 @@ Item {
       delegate: Rectangle {
         id: toggleButton
 
-        property bool selected: toggleButtonGroup.selectedIndex === index
+        property bool selected: toggleButtonGroup.allowMultipleSelection ? model[toggleButtonGroup.checkedRole] : toggleButtonGroup.selectedIndex === index
         property string text: toggleButtonGroup.textRole ? (model[toggleButtonGroup.textRole] ?? "") : ""
 
         visible: text !== ""
@@ -98,12 +104,16 @@ Item {
           enabled: toggleButtonGroup.enabled
 
           onClicked: {
-            if (toggleButton.selected && toggleButtonGroup.allowDeselect) {
-              toggleButtonGroup.selectedIndex = -1;
-              toggleButtonGroup.itemDeselected();
+            if (toggleButtonGroup.allowMultipleSelection) {
+              model[toggleButtonGroup.checkedRole] = !model[toggleButtonGroup.checkedRole];
             } else {
-              toggleButtonGroup.selectedIndex = index;
-              toggleButtonGroup.itemSelected(index, model);
+              if (toggleButton.selected && toggleButtonGroup.allowDeselect) {
+                toggleButtonGroup.selectedIndex = -1;
+                toggleButtonGroup.itemDeselected();
+              } else {
+                toggleButtonGroup.selectedIndex = index;
+                toggleButtonGroup.itemSelected(index, model);
+              }
             }
           }
 
