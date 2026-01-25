@@ -1,4 +1,5 @@
 import QtQuick
+import QtQuick.Controls.Material
 import QtQuick.Controls.Material.impl
 import org.qfield
 import org.qgis
@@ -71,10 +72,10 @@ Item {
 
         visible: text !== ""
         width: visible ? Math.max(toggleButtonGroup.buttonMininumWidth, Math.min(flow.width - 16, innerText.implicitWidth + 16)) : 0
-        height: visible ? fontMetrics.height + 16 : 0
+        height: visible ? Material.textFieldHeight : 0
         radius: 4
         color: selected ? toggleButtonGroup.editable && toggleButtonGroup.editing ? Theme.mainColor : Theme.controlBorderColor : "transparent"
-        border.color: toggleButtonGroup.editing ? selected ? Theme.mainColor : Theme.secondaryTextColor : "transparent"
+        border.color: toggleButtonGroup.editing ? selected ? Theme.mainColor : mouseArea.containsMouse ? Material.primaryTextColor : Material.hintTextColor : "transparent"
         border.width: 1
 
         Behavior on color {
@@ -102,6 +103,7 @@ Item {
           id: mouseArea
           anchors.fill: parent
           enabled: toggleButtonGroup.enabled
+          hoverEnabled: true
 
           onClicked: {
             if (toggleButtonGroup.allowMultipleSelection) {
