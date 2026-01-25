@@ -1,8 +1,8 @@
 /***************************************************************************
-  qgsquick3dmaptexturegenerator.cpp - QgsQuick3DMapTextureGenerator
+  quick3dmaptexturegenerator.cpp - Quick3DMapTextureGenerator
 
  ---------------------
- begin                : 6.1.2026
+ begin                : 26.1.2026
  copyright            : (C) 2026 by Mohsen Dehghanzadeh
  email                : mohsen@opengis.ch
  ***************************************************************************
@@ -14,30 +14,29 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "qgsquick3dmaptexturegenerator.h"
+#include "quick3dmaptexturegenerator.h"
 
 #include <qgsmaprenderersequentialjob.h>
 #include <qgsmapsettings.h>
-#include <qgsproject.h>
 #include <qgsrasterlayer.h>
 
-int QgsQuick3DMapTextureGenerator::sInstanceCounter = 0;
+int Quick3DMapTextureGenerator::sInstanceCounter = 0;
 
-QgsQuick3DMapTextureGenerator::QgsQuick3DMapTextureGenerator( QObject *parent )
+Quick3DMapTextureGenerator::Quick3DMapTextureGenerator( QObject *parent )
   : QObject( parent )
 {
   const QString tempPath = QStandardPaths::writableLocation( QStandardPaths::TempLocation );
   mTextureFilePath = QStringLiteral( "%1/qfield_3d_texture_%2.png" ).arg( tempPath ).arg( ++sInstanceCounter );
 }
 
-QgsQuick3DMapTextureGenerator::~QgsQuick3DMapTextureGenerator() = default;
+Quick3DMapTextureGenerator::~Quick3DMapTextureGenerator() = default;
 
-QgsProject *QgsQuick3DMapTextureGenerator::project() const
+QgsProject *Quick3DMapTextureGenerator::project() const
 {
   return mProject;
 }
 
-void QgsQuick3DMapTextureGenerator::setProject( QgsProject *project )
+void Quick3DMapTextureGenerator::setProject( QgsProject *project )
 {
   if ( mProject == project )
     return;
@@ -46,12 +45,12 @@ void QgsQuick3DMapTextureGenerator::setProject( QgsProject *project )
   emit projectChanged();
 }
 
-QgsRectangle QgsQuick3DMapTextureGenerator::extent() const
+QgsRectangle Quick3DMapTextureGenerator::extent() const
 {
   return mExtent;
 }
 
-void QgsQuick3DMapTextureGenerator::setExtent( const QgsRectangle &extent )
+void Quick3DMapTextureGenerator::setExtent( const QgsRectangle &extent )
 {
   if ( mExtent == extent )
     return;
@@ -60,12 +59,12 @@ void QgsQuick3DMapTextureGenerator::setExtent( const QgsRectangle &extent )
   emit extentChanged();
 }
 
-QString QgsQuick3DMapTextureGenerator::textureFilePath() const
+QString Quick3DMapTextureGenerator::textureFilePath() const
 {
   return mTextureFilePath;
 }
 
-void QgsQuick3DMapTextureGenerator::render()
+void Quick3DMapTextureGenerator::render()
 {
   if ( !mProject || mExtent.isEmpty() )
     return;
@@ -78,7 +77,7 @@ void QgsQuick3DMapTextureGenerator::render()
 
   const QMap<QString, QgsMapLayer *> layers = mProject->mapLayers();
 
-  // Finding dem layer (same as QgsQuick3DTerrainProvider)
+  // Finding dem layer (same as Quick3DTerrainProvider)
   QgsRasterLayer *demLayer = nullptr;
   QList<QgsMapLayer *> layersToRender;
 
@@ -148,11 +147,11 @@ void QgsQuick3DMapTextureGenerator::render()
   mapSettings.setLayers( layersToRender );
 
   mRenderJob = std::make_unique<QgsMapRendererSequentialJob>( mapSettings );
-  connect( mRenderJob.get(), &QgsMapRendererSequentialJob::finished, this, &QgsQuick3DMapTextureGenerator::onRenderFinished );
+  connect( mRenderJob.get(), &QgsMapRendererSequentialJob::finished, this, &Quick3DMapTextureGenerator::onRenderFinished );
   mRenderJob->start();
 }
 
-void QgsQuick3DMapTextureGenerator::onRenderFinished()
+void Quick3DMapTextureGenerator::onRenderFinished()
 {
   if ( !mRenderJob )
   {

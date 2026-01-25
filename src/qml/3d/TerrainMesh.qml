@@ -34,7 +34,7 @@ Node {
   Model {
     id: terrainModel
 
-    geometry: QgsQuick3DTerrainGeometry {
+    geometry: Quick3DTerrainGeometry {
       id: terrainGeometry
     }
 

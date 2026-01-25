@@ -1,4 +1,5 @@
 import QtQuick
+import QtQuick.Controls
 import QtQuick3D
 import QtQuick3D.Helpers
 import org.qfield
@@ -12,37 +13,52 @@ Item {
   property var bookmarkModel: null
   property bool wireframeMode: false
   property var initialExtent
+  property bool isLoading: terrainProvider.isLoading
+  property int loadingProgress: terrainProvider.loadingProgress
 
   QtObject {
     id: internal
     property real terrainWidth: terrainProvider.terrainBaseSize
     property real terrainDepth: terrainProvider.terrainBaseSize
-    property real minHeight: 0
-    property real maxHeight: 0
     property real initialCameraY: 0
 
     // height scale for bookmark positioning
     property real heightScale: 1.0
+
+    // Adaptive resolution based on extent size
+    function calculateResolution() {
+      if (terrainProvider.hasDemLayer) {
+        return 64 * 10;
+      }
+
+      if (!root.initialExtent)
+        return 32;
+      const extentSize = Math.max(root.initialExtent.width, root.initialExtent.height);
+      // Smaller extent = higher resolution, larger extent = lower resolution
+      if (extentSize < 2000)
+        return 64;      // ~4096 samples
+      if (extentSize < 10000)
+        return 48;     // ~2304 samples
+      if (extentSize < 50000)
+        return 32;     // ~1024 samples
+      return 24;                              // ~576 samples for very large extents
+    }
   }
 
-  QgsQuick3DTerrainProvider {
+  Quick3DTerrainProvider {
     id: terrainProvider
     project: root.qgisProject
     extent: root.initialExtent
-    resolution: 64 * 10
+    resolution: internal.calculateResolution()
 
     onTerrainDataReady: {
-      const stats = terrainProvider.terrainStats();
-      internal.minHeight = stats.minHeight || 0;
-      internal.maxHeight = stats.maxHeight || 0;
-
       textureGenerator.extent = root.initialExtent;
 
       loadTerrain();
     }
   }
 
-  QgsQuick3DMapTextureGenerator {
+  Quick3DMapTextureGenerator {
     id: textureGenerator
     project: root.qgisProject
 
@@ -65,18 +81,16 @@ Item {
       return;
     }
 
-    const stats = terrainProvider.terrainStats();
     const extentWidth = terrainProvider.extent.width;
     const extentHeight = terrainProvider.extent.height;
     const extentSize = Math.max(extentWidth, extentHeight);
 
-    // Calculate terrain dimensions based on aspect ratio
     if (extentWidth >= extentHeight) {
       internal.terrainWidth = terrainProvider.terrainBaseSize;
       internal.terrainDepth = terrainProvider.terrainBaseSize * (extentHeight / extentWidth);
     } else {
-      internal.terrainWidth = terrainProvider.terrainBaseSize * (extentWidth / extentHeight);
       internal.terrainDepth = terrainProvider.terrainBaseSize;
+      internal.terrainWidth = terrainProvider.terrainBaseSize * (extentWidth / extentHeight);
     }
 
     // Calculate height scale for bookmark positioning
