@@ -12,10 +12,10 @@ Item {
   id: toggleButtonGroup
 
   property alias model: repeater.model
-  property string textRole: "displayString"
+  property string textRole: ""
   property string checkedRole: ""
   property int selectedIndex: -1
-  property bool editing: false
+  property bool editing: true
   property bool editable: true
 
   /**
@@ -33,7 +33,12 @@ Item {
   /**
    * Minimum width for buttons to handle empty text gracefully
    */
-  readonly property real buttonMinWidth: 48
+  property real buttonMininumWidth: 48
+
+  /**
+   * Spacing between buttons
+   */
+  property real buttonSpacing: 8
 
   /**
    * Emitted when user selects a button
@@ -48,29 +53,24 @@ Item {
    */
   signal itemDeselected
 
-  height: flow.height + flow.anchors.topMargin + flow.anchors.bottomMargin
+  height: flow.height
 
   Flow {
     id: flow
-    anchors.left: parent.left
-    anchors.right: parent.right
-    anchors.top: parent.top
-    anchors.topMargin: 6
-    anchors.bottomMargin: 6
-    spacing: 8
+    width: parent.width
+    spacing: toggleButtonGroup.buttonSpacing
 
     Repeater {
       id: repeater
-      model: toggleButtonGroup.model
 
       delegate: Rectangle {
         id: toggleButton
 
         property bool selected: toggleButtonGroup.allowMultipleSelection ? model[toggleButtonGroup.checkedRole] : toggleButtonGroup.selectedIndex === index
-        property string text: toggleButtonGroup.textRole ? (model[toggleButtonGroup.textRole] ?? "") : ""
+        property string text: modelData !== undefined ? modelData : toggleButtonGroup.textRole ? (model[toggleButtonGroup.textRole] ?? "") : ""
 
         visible: text !== ""
-        width: visible ? Math.max(toggleButtonGroup.buttonMinWidth, Math.min(flow.width - 16, innerText.implicitWidth + 16)) : 0
+        width: visible ? Math.max(toggleButtonGroup.buttonMininumWidth, Math.min(flow.width - 16, innerText.implicitWidth + 16)) : 0
         height: visible ? fontMetrics.height + 16 : 0
         radius: 4
         color: selected ? toggleButtonGroup.editable && toggleButtonGroup.editing ? Theme.mainColor : Theme.controlBorderColor : "transparent"

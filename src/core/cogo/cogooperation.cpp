@@ -209,7 +209,7 @@ QList<CogoParameter> CogoOperationPointAtIntersectionCircles::parameters( Qgis::
              << CogoParameter( QStringLiteral( "distance" ), QStringLiteral( "distance1" ), QObject::tr( "Circle #1: radius" ), COLOR_GROUP_1 )
              << CogoParameter( QStringLiteral( "point" ), QStringLiteral( "point2" ), QObject::tr( "Circle #2: point" ), COLOR_GROUP_2 )
              << CogoParameter( QStringLiteral( "distance" ), QStringLiteral( "distance2" ), QObject::tr( "Circle #2: radius" ), COLOR_GROUP_2 )
-             << CogoParameter( QStringLiteral( "enum" ), QStringLiteral( "candidate" ), QObject::tr( "Candidate" ), Qt::transparent, { { QStringLiteral( "options" ), QStringList() << QStringLiteral( "A" ) << QStringLiteral( "B" ) } } );
+             << CogoParameter( QStringLiteral( "enum" ), QStringLiteral( "candidate" ), QObject::tr( "Candidate" ), Qt::transparent, { { QStringLiteral( "options" ), QStringList() << QStringLiteral( "A" ) << QStringLiteral( "B" ) }, { QStringLiteral( "toggle" ), true } } );
   return parameters;
 }
 
