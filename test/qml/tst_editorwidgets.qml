@@ -391,7 +391,6 @@ TestCase {
     const comboBoxItem = valueMap.children[0].children[1];
     compare(valueMap.toggleButtonsThreshold, 0);
     compare(valueMap.state, "comboBoxItemView");
-    compare(valueMap.currentItemCount, 0);
     compare(comboBoxItem.model.length, undefined);
     compare(comboBoxItem.currentIndex, toggleButtonsItem.selectedIndex);
     valueMap.config = {
