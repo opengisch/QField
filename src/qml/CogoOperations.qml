@@ -91,13 +91,37 @@ Item {
         iconColor: cogoOperationSettings && cogoOperationSettings.name === Name ? Theme.mainColor : Theme.toolButtonColor
 
         onClicked: {
-          Qt.inputMethod.hide();
-          settings.setValue("/QField/CogoOperationLastUsed", Name);
-          cogoOperationSettings.name = Name;
-          cogoOperationSettings.title = DisplayName;
-          displayToast(DisplayName);
+          if (Qt.inputMethod.visible) {
+            Qt.inputMethod.hide();
+            inputTimer.name = Name;
+            inputTimer.title = DisplayName;
+            inputTimer.restart();
+          } else {
+            settings.setValue("/QField/CogoOperationLastUsed", Name);
+            cogoOperationSettings.name = Name;
+            cogoOperationSettings.title = DisplayName;
+            displayToast(DisplayName);
+          }
         }
       }
+    }
+  }
+
+  Timer {
+    id: inputTimer
+
+    property string name: ""
+    property string title: ""
+
+    interval: 300
+    running: false
+    repeat: false
+
+    onTriggered: {
+      settings.setValue("/QField/CogoOperationLastUsed", inputConnection.name);
+      cogoOperationSettings.name = inputConnection.name;
+      cogoOperationSettings.title = inputConnection.title;
+      displayToast(inputConnection.title);
     }
   }
 
