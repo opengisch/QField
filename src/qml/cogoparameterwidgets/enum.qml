@@ -29,7 +29,7 @@ CogoParameterWidgetBase {
 
       Label {
         Layout.fillWidth: true
-        color: Theme.secondaryTextColor
+        color: Theme.mainTextColor
         font: Theme.tipFont
         text: parameterLabel
       }
