@@ -1,8 +1,8 @@
 /***************************************************************************
-  qgsquick3dmaptexturegenerator.h - QgsQuick3DMapTextureGenerator
+  quick3dmaptexturegenerator.h - Quick3DMapTextureGenerator
 
  ---------------------
- begin                : 6.1.2026
+ begin                : 26.1.2026
  copyright            : (C) 2026 by Mohsen Dehghanzadeh
  email                : mohsen@opengis.ch
  ***************************************************************************
@@ -13,18 +13,18 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
-#ifndef QGSQUICK3DMAPTEXTUREGENERATOR_H
-#define QGSQUICK3DMAPTEXTUREGENERATOR_H
+#ifndef QUICK3DMAPTEXTUREGENERATOR_H
+#define QUICK3DMAPTEXTUREGENERATOR_H
 
 #include <QImage>
 #include <QObject>
 #include <QStandardPaths>
+#include <qgsproject.h>
 #include <qgsrectangle.h>
 
-class QgsProject;
 class QgsMapRendererSequentialJob;
 
-class QgsQuick3DMapTextureGenerator : public QObject
+class Quick3DMapTextureGenerator : public QObject
 {
     Q_OBJECT
 
@@ -33,8 +33,8 @@ class QgsQuick3DMapTextureGenerator : public QObject
     Q_PROPERTY( QString textureFilePath READ textureFilePath NOTIFY textureFilePathChanged )
 
   public:
-    explicit QgsQuick3DMapTextureGenerator( QObject *parent = nullptr );
-    ~QgsQuick3DMapTextureGenerator() override;
+    explicit Quick3DMapTextureGenerator( QObject *parent = nullptr );
+    ~Quick3DMapTextureGenerator() override;
 
     QgsProject *project() const;
     void setProject( QgsProject *project );
@@ -67,4 +67,4 @@ class QgsQuick3DMapTextureGenerator : public QObject
     static int sInstanceCounter;
 };
 
-#endif // QGSQUICK3DMAPTEXTUREGENERATOR_H
+#endif // QUICK3DMAPTEXTUREGENERATOR_H

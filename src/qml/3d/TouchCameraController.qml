@@ -150,6 +150,7 @@ Item {
   DragHandler {
     acceptedButtons: Qt.LeftButton
     acceptedDevices: PointerDevice.AllDevices
+    acceptedModifiers: Qt.NoModifier
 
     property point lastPoint: Qt.point(0, 0)
 
@@ -171,6 +172,43 @@ Item {
       root.pitch = clampPitch(pitch + dy * orbitSensitivity);
 
       lastPoint = centroid.position;
+      updateCameraPosition();
+    }
+  }
+
+  // Pinch to zoom (touch devices)
+  PinchHandler {
+    id: pinchHandler
+    target: null
+
+    property real lastScale: 1.0
+
+    onActiveChanged: {
+      if (active) {
+        lastScale = 1.0;
+      }
+    }
+
+    onScaleChanged: {
+      const scaleDelta = scale / lastScale;
+      root.distance = clampDistance(root.distance / scaleDelta);
+      lastScale = scale;
+      updateCameraPosition();
+    }
+
+    // Pan with translation
+    onTranslationChanged: function (delta) {
+      const panScale = root.distance * 0.0005;
+      const yawRad = root.yaw * Math.PI / 180.0;
+
+      // Right vector
+      const rightX = Math.cos(yawRad);
+      const rightZ = -Math.sin(yawRad);
+
+      root.targetX -= delta.x * panScale * rightX;
+      root.targetZ -= delta.x * panScale * rightZ;
+      root.targetY += delta.y * panScale;
+
       updateCameraPosition();
     }
   }

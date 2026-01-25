@@ -655,8 +655,67 @@ ApplicationWindow {
       onLoaded: {
         item.qgisProject = qgisProject;
         item.bookmarkModel = bookmarkModel;
-        item.initialExtent = mapCanvas.mapSettings.extent;  // Capture extent once
+        item.initialExtent = mapCanvas.mapSettings.visibleExtent; // OR mapCanvas.mapSettings.extent;
         displayToast(qsTr("3D Map View loaded!"));
+        loadingOverlay.visible = map3DViewLoader.active ? Qt.binding(q => {
+          return map3DViewLoader.item.isLoading;
+        }) : false;
+      }
+    }
+
+    Rectangle {
+      id: loadingOverlay
+      anchors.fill: parent
+      color: "#80000000"
+      visible: mainWindow.show3DView
+      z: 1000
+
+      Column {
+        anchors.centerIn: parent
+        spacing: 20
+
+        BusyIndicator {
+          anchors.horizontalCenter: parent.horizontalCenter
+          running: parent.parent.visible
+          width: 64
+          height: 64
+        }
+
+        Text {
+          anchors.horizontalCenter: parent.horizontalCenter
+          text: "Downloading terrain data..."
+          color: "white"
+          font.pixelSize: 16
+          font.bold: true
+        }
+
+        Rectangle {
+          anchors.horizontalCenter: parent.horizontalCenter
+          width: 200
+          height: 8
+          radius: 4
+          color: "#40ffffff"
+
+          Rectangle {
+            width: parent.width * (map3DViewLoader.item ? map3DViewLoader.item.loadingProgress / 100 : 0)
+            height: parent.height
+            radius: 4
+            color: Theme.mainColor
+
+            Behavior on width {
+              NumberAnimation {
+                duration: 200
+              }
+            }
+          }
+        }
+
+        Text {
+          anchors.horizontalCenter: parent.horizontalCenter
+          text: map3DViewLoader.item ? map3DViewLoader.item.loadingProgress + "%" : "0%"
+          color: "white"
+          font.pixelSize: 14
+        }
       }
     }
 
@@ -3133,6 +3192,7 @@ ApplicationWindow {
         shouldReturnHome = true;
       } else if (!shouldReturnHome) {
         openWelcomeScreen();
+        show3DView = false;
       }
     }
 

@@ -120,14 +120,14 @@
 #include "qgsgeometrywrapper.h"
 #include "qgsproviderregistry.h"
 #include "qgsprovidersublayerdetails.h"
-#include "qgsquick3dmaptexturegenerator.h"
-#include "qgsquick3dterraingeometry.h"
-#include "qgsquick3dterrainprovider.h"
 #include "qgsquickcoordinatetransformer.h"
 #include "qgsquickelevationprofilecanvas.h"
 #include "qgsquickmapcanvasmap.h"
 #include "qgsquickmapsettings.h"
 #include "qgsquickmaptransform.h"
+#include "quick3dmaptexturegenerator.h"
+#include "quick3dterraingeometry.h"
+#include "quick3dterrainprovider.h"
 #include "recentprojectlistmodel.h"
 #include "referencingfeaturelistmodel.h"
 #include "relationutils.h"
@@ -462,9 +462,9 @@ void QgisMobileapp::initDeclarative( QQmlEngine *engine )
   qmlRegisterType<QgsQuickMapTransform>( "org.qgis", 1, 0, "MapTransform" );
 
   // Register 3D QML types
-  qmlRegisterType<QgsQuick3DTerrainGeometry>( "org.qfield", 1, 0, "QgsQuick3DTerrainGeometry" );
-  qmlRegisterType<QgsQuick3DTerrainProvider>( "org.qfield", 1, 0, "QgsQuick3DTerrainProvider" );
-  qmlRegisterType<QgsQuick3DMapTextureGenerator>( "org.qfield", 1, 0, "QgsQuick3DMapTextureGenerator" );
+  qmlRegisterType<Quick3DTerrainGeometry>( "org.qfield", 1, 0, "Quick3DTerrainGeometry" );
+  qmlRegisterType<Quick3DTerrainProvider>( "org.qfield", 1, 0, "Quick3DTerrainProvider" );
+  qmlRegisterType<Quick3DMapTextureGenerator>( "org.qfield", 1, 0, "Quick3DMapTextureGenerator" );
 
   // Register QField QML types
   qRegisterMetaType<PlatformUtilities::Capabilities>( "PlatformUtilities::Capabilities" );

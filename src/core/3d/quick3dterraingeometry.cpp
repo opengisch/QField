@@ -1,8 +1,8 @@
 /***************************************************************************
-  qgsquick3dterraingeometry.cpp - QgsQuick3DTerrainGeometry
+  quick3dterraingeometry.cpp - Quick3DTerrainGeometry
 
  ---------------------
- begin                : 5.1.2026
+ begin                : 26.1.2026
  copyright            : (C) 2026 by Mohsen Dehghanzadeh
  email                : mohsen@opengis.ch
  ***************************************************************************
@@ -14,9 +14,9 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "qgsquick3dterraingeometry.h"
+#include "quick3dterraingeometry.h"
 
-QgsQuick3DTerrainGeometry::QgsQuick3DTerrainGeometry( QQuick3DObject *parent )
+Quick3DTerrainGeometry::Quick3DTerrainGeometry( QQuick3DObject *parent )
   : QQuick3DGeometry( parent )
 {
   mHeights.resize( mResolution * mResolution );
@@ -24,7 +24,7 @@ QgsQuick3DTerrainGeometry::QgsQuick3DTerrainGeometry( QQuick3DObject *parent )
   updateGeometry();
 }
 
-void QgsQuick3DTerrainGeometry::setResolution( int resolution )
+void Quick3DTerrainGeometry::setResolution( int resolution )
 {
   resolution = qBound( 2, resolution, 512 );
   if ( mResolution == resolution )
@@ -36,7 +36,7 @@ void QgsQuick3DTerrainGeometry::setResolution( int resolution )
   updateGeometry();
 }
 
-void QgsQuick3DTerrainGeometry::setTerrainWidth( float width )
+void Quick3DTerrainGeometry::setTerrainWidth( float width )
 {
   if ( width <= 0 )
     width = 1.0f;
@@ -50,7 +50,7 @@ void QgsQuick3DTerrainGeometry::setTerrainWidth( float width )
   updateGeometry();
 }
 
-void QgsQuick3DTerrainGeometry::setTerrainDepth( float depth )
+void Quick3DTerrainGeometry::setTerrainDepth( float depth )
 {
   if ( depth <= 0 )
     depth = 1.0f;
@@ -64,7 +64,7 @@ void QgsQuick3DTerrainGeometry::setTerrainDepth( float depth )
   updateGeometry();
 }
 
-void QgsQuick3DTerrainGeometry::setHeightData( const QVariantList &data )
+void Quick3DTerrainGeometry::setHeightData( const QVariantList &data )
 {
   mHeights.clear();
   mHeights.reserve( data.size() );
@@ -77,7 +77,7 @@ void QgsQuick3DTerrainGeometry::setHeightData( const QVariantList &data )
   updateGeometry();
 }
 
-float QgsQuick3DTerrainGeometry::getHeight( int x, int z ) const
+float Quick3DTerrainGeometry::getHeight( int x, int z ) const
 {
   if ( mHeights.isEmpty() )
     return 0.0f;
@@ -88,7 +88,7 @@ float QgsQuick3DTerrainGeometry::getHeight( int x, int z ) const
   return mHeights[z * mResolution + x];
 }
 
-QVector3D QgsQuick3DTerrainGeometry::calculateNormal( int x, int z ) const
+QVector3D Quick3DTerrainGeometry::calculateNormal( int x, int z ) const
 {
   const float hL = getHeight( x - 1, z );
   const float hR = getHeight( x + 1, z );
@@ -98,7 +98,7 @@ QVector3D QgsQuick3DTerrainGeometry::calculateNormal( int x, int z ) const
   return QVector3D( hL - hR, 2.0f / 1, hD - hU ).normalized();
 }
 
-void QgsQuick3DTerrainGeometry::updateGeometry()
+void Quick3DTerrainGeometry::updateGeometry()
 {
   if ( !mDirty )
     return;

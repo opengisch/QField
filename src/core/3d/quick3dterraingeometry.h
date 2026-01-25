@@ -1,8 +1,8 @@
 /***************************************************************************
-  qgsquick3dterraingeometry.h - QgsQuick3DTerrainGeometry
+  quick3dterraingeometry.h - Quick3DTerrainGeometry
 
  ---------------------
- begin                : 5.1.2026
+ begin                : 26.1.2026
  copyright            : (C) 2026 by Mohsen Dehghanzadeh
  email                : mohsen@opengis.ch
  ***************************************************************************
@@ -14,14 +14,14 @@
  *                                                                         *
  ***************************************************************************/
 
-#ifndef QGSQUICK3DTERRAINGEOMETRY_H
-#define QGSQUICK3DTERRAINGEOMETRY_H
+#ifndef QUICK3DTERRAINGEOMETRY_H
+#define QUICK3DTERRAINGEOMETRY_H
 
 #include <QQuick3DGeometry>
 #include <QVector3D>
 #include <QVector>
 
-class QgsQuick3DTerrainGeometry : public QQuick3DGeometry
+class Quick3DTerrainGeometry : public QQuick3DGeometry
 {
     Q_OBJECT
     QML_ELEMENT
@@ -32,7 +32,7 @@ class QgsQuick3DTerrainGeometry : public QQuick3DGeometry
     Q_PROPERTY( QVariantList heightData WRITE setHeightData NOTIFY heightDataChanged )
 
   public:
-    explicit QgsQuick3DTerrainGeometry( QQuick3DObject *parent = nullptr );
+    explicit Quick3DTerrainGeometry( QQuick3DObject *parent = nullptr );
 
     int resolution() const { return mResolution; }
     void setResolution( int resolution );
@@ -63,4 +63,4 @@ class QgsQuick3DTerrainGeometry : public QQuick3DGeometry
     bool mDirty = true;
 };
 
-#endif // QGSQUICK3DTERRAINGEOMETRY_H
+#endif // QUICK3DTERRAINGEOMETRY_H
