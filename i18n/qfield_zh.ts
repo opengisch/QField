@@ -2662,7 +2662,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Orientation</source>
-        <translation>方向</translation>
+        <translation>朝向</translation>
     </message>
     <message>
         <source>Details stamping disabled</source>
@@ -4392,6 +4392,26 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>When enabled, the map will automatically zoom to show all identified features, as well as the individual selected feature when the feature form is opened.</source>
         <translation>启用后，地图将自动缩放以显示所有已识别的要素，以及在打开要素表单时单个所选要素。</translation>
+    </message>
+    <message>
+        <source>Behavior when locked to position:</source>
+        <translation>锁定位置时的行为：</translation>
+    </message>
+    <message>
+        <source>Follow position only</source>
+        <translation>仅遵循位置</translation>
+    </message>
+    <message>
+        <source>Follow position and compass orientation</source>
+        <translation>遵循位置和指南针朝向</translation>
+    </message>
+    <message>
+        <source>Follow position and movement direction</source>
+        <translation>遵循位置和移动方向</translation>
+    </message>
+    <message>
+        <source>When the map canvas is following or locked to position, it can also rotate to match compass orientation or movement direction.</source>
+        <translation>当地图画布遵循或锁定到位置时，它也可以旋转以匹配指南针朝向或移动方向。</translation>
     </message>
 </context>
 <context>
@@ -6569,11 +6589,11 @@ project</source>
     </message>
     <message>
         <source>Map canvas locked to location and compass orientation</source>
-        <translation>地图画布已锁定到位置和指南针方向</translation>
+        <translation>地图画布已锁定到位置和指南针朝向</translation>
     </message>
     <message>
         <source>Map canvas follows location and compass orientation</source>
-        <translation>地图画布遵循位置和指南针方向</translation>
+        <translation>地图画布遵循位置和指南针朝向</translation>
     </message>
     <message>
         <source>Map canvas follows location</source>
@@ -6632,6 +6652,14 @@ to show actions</source>
     <message>
         <source>Positioning service has not yet received a valid location</source>
         <translation>定位服务未收到有效位置信息</translation>
+    </message>
+    <message>
+        <source>Map canvas locked to location and movement direction</source>
+        <translation>地图画布已锁定位置和移动方向</translation>
+    </message>
+    <message>
+        <source>Map canvas follows location and movement direction</source>
+        <translation>地图画布遵循位置和移动方向</translation>
     </message>
 </context>
 <context>
