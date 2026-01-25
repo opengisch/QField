@@ -14,11 +14,11 @@ EditorWidgetBase {
     right: parent.right
   }
 
-  property var currentKeyValue: value
-
   // Workaround to get a signal when the value has changed
+  property var currentKeyValue: value
   onCurrentKeyValueChanged: {
     comboBox.currentIndex = comboBox.model.keyToIndex(currentKeyValue);
+    toggleButtons.selectedIndex = toggleButtons.model.keyToIndex(currentKeyValue);
   }
 
   height: childrenRect.height
@@ -62,15 +62,15 @@ EditorWidgetBase {
   // Using the search and comboBox when there are less than X items in the dropdown proves to be poor UI on normally
   // sized and oriented phones. Some empirical tests proved 6 to be a good number for now.
   readonly property int toggleButtonsThreshold: currentLayer && currentLayer.customProperty('QFieldSync/value_map_button_interface_threshold') !== undefined ? currentLayer.customProperty('QFieldSync/value_map_button_interface_threshold') : 0
-  state: currentItemCount < toggleButtonsThreshold ? "toggleButtonsView" : "comboBoxItemView"
-
-  property real currentItemCount: comboBox.count
+  property bool useToggleButtons: comboBox.count < toggleButtonsThreshold
+  state: useToggleButtons ? "toggleButtonsView" : "comboBoxItemView"
 
   ValueMapModel {
     id: listModel
     filterCaseSensitivity: Qt.CaseInsensitive
     onMapChanged: {
       comboBox.currentIndex = keyToIndex(valueMap.currentKeyValue);
+      toggleButtons.selectedIndex = keyToIndex(valueMap.currentKeyValue);
     }
   }
 
@@ -85,17 +85,15 @@ EditorWidgetBase {
       Layout.fillWidth: true
       Layout.minimumHeight: toggleButtons.height
 
-      model: comboBox.model
+      model: listModel
       textRole: "value"
-      selectedIndex: comboBox.currentIndex
       editing: isEditing
       editable: isEditable
       enabled: isEnabled
       allowDeselect: false
 
       onItemSelected: function (index, itemModel) {
-        comboBox.currentIndex = selectedIndex;
-        valueChangeRequested(selectedIndex >= 0 ? itemModel.key : "", false);
+        valueChangeRequested(itemModel !== undefined ? itemModel.key : "", false);
       }
     }
 
