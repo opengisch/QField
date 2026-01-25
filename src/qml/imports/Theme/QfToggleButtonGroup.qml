@@ -11,7 +11,7 @@ import Theme
 Item {
   id: toggleButtonGroup
 
-  property var model: null
+  property alias model: repeater.model
   property string textRole: "displayString"
 
   property int selectedIndex: -1
@@ -35,14 +35,6 @@ Item {
    * \param modelData The model data for the selected item
    */
   signal itemSelected(int index, var modelData)
-
-  /**
-   * Emitted when an item is completed (delegate created).
-   * \param index The index of the completed item
-   * \param modelData The model data for the item
-   * \param selected Whether the item is currently selected
-   */
-  signal itemCompleted(int index, var modelData, bool selected)
 
   /**
    * Emitted when the user deselects the currently selected item (only when allowDeselect is true).
@@ -78,10 +70,6 @@ Item {
         color: selected ? toggleButtonGroup.editable && toggleButtonGroup.editing ? Theme.mainColor : Theme.controlBorderColor : "transparent"
         border.color: toggleButtonGroup.editing ? selected ? Theme.mainColor : Theme.secondaryTextColor : "transparent"
         border.width: 1
-
-        Component.onCompleted: {
-          toggleButtonGroup.itemCompleted(index, model, selected);
-        }
 
         Behavior on color {
           ColorAnimation {

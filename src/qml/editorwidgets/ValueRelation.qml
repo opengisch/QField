@@ -13,9 +13,8 @@ EditorWidgetBase {
   enabled: true
 
   readonly property int toggleButtonsThreshold: currentLayer && currentLayer.customProperty('QFieldSync/value_map_button_interface_threshold') !== undefined ? currentLayer.customProperty('QFieldSync/value_map_button_interface_threshold') : 0
-  property bool canUseToggleButtons: !listModel.allowMulti && !listModel.groupField && valueRelationCombobox.count > 0 && valueRelationCombobox.count < toggleButtonsThreshold
-
-  state: canUseToggleButtons ? "toggleButtonsView" : "defaultView"
+  property bool useToggleButtons: !listModel.allowMulti && !listModel.groupField && valueRelationCombobox.count < toggleButtonsThreshold
+  state: useToggleButtons ? "toggleButtonsView" : "defaultView"
 
   states: [
     State {
@@ -49,6 +48,14 @@ EditorWidgetBase {
       }
     }
   ]
+
+  // Workaround to get a signal when the value has changed
+  property var currentKeyValue: value
+  onCurrentKeyValueChanged: {
+    if (useToggleButtons) {
+      toggleButtons.selectedIndex = listModel.findKey(currentKeyValue);
+    }
+  }
 
   LayerResolver {
     id: layerResolver
@@ -85,6 +92,12 @@ EditorWidgetBase {
     onListUpdated: {
       valueChangeRequested(attributeValue, attributeValue === "");
     }
+
+    onModelReset: {
+      if (useToggleButtons) {
+        toggleButtons.selectedIndex = listModel.findKey(currentKeyValue);
+      }
+    }
   }
 
   QfToggleButtonGroup {
@@ -93,24 +106,15 @@ EditorWidgetBase {
     anchors.right: parent.right
     visible: false
 
-    model: valueRelation.canUseToggleButtons ? listModel : null
+    model: valueRelation.useToggleButtons ? listModel : null
     textRole: "displayString"
     editing: isEditing
     editable: isEditable
     enabled: isEnabled
     allowDeselect: true
 
-    onItemCompleted: function (index, itemModel, selected) {
-      if (itemModel.checked) {
-        selectedIndex = index;
-      }
-    }
-
     onItemSelected: function (index, itemModel) {
-      if (selectedIndex >= 0) {
-        const newValue = listModel.dataFromRowIndex(selectedIndex, FeatureListModel.KeyFieldRole);
-        valueChangeRequested(newValue, false);
-      }
+      valueChangeRequested(itemModel !== undefined ? itemModel.keyFieldValue : "", false);
     }
 
     onItemDeselected: {
