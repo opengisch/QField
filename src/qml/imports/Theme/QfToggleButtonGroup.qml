@@ -18,6 +18,7 @@ Item {
   property int selectedIndex: -1
   property bool editing: true
   property bool editable: true
+  property alias font: fontMetrics.font
 
   /**
    * When true, clicking on an already-selected button will deselect it,
@@ -90,13 +91,8 @@ Item {
           text: toggleButton.text
           elide: Text.ElideRight
           anchors.centerIn: parent
-          font: Theme.defaultFont
+          font: fontMetrics.font
           color: !toggleButtonGroup.editable && toggleButtonGroup.editing ? Theme.mainTextDisabledColor : selected && toggleButtonGroup.editing ? Theme.buttonTextColor : Theme.mainTextColor
-        }
-
-        FontMetrics {
-          id: fontMetrics
-          font: Theme.defaultFont
         }
 
         MouseArea {
@@ -130,5 +126,10 @@ Item {
         }
       }
     }
+  }
+
+  FontMetrics {
+    id: fontMetrics
+    font: Theme.defaultFont
   }
 }

@@ -40,6 +40,7 @@ CogoParameterWidgetBase {
       Layout.fillWidth: true
       visible: !!parameterConfiguration["toggle"]
       model: parameterConfiguration["options"]
+      font: Theme.tipFont
       buttonMininumWidth: parent.width / 2 - buttonSpacing
       selectedIndex: 0
 
