@@ -39,7 +39,9 @@ QgsProject *Quick3DMapTextureGenerator::project() const
 void Quick3DMapTextureGenerator::setProject( QgsProject *project )
 {
   if ( mProject == project )
+  {
     return;
+  }
 
   mProject = project;
   emit projectChanged();
@@ -53,7 +55,9 @@ QgsRectangle Quick3DMapTextureGenerator::extent() const
 void Quick3DMapTextureGenerator::setExtent( const QgsRectangle &extent )
 {
   if ( mExtent == extent )
+  {
     return;
+  }
 
   mExtent = extent;
   emit extentChanged();
@@ -67,7 +71,9 @@ QString Quick3DMapTextureGenerator::textureFilePath() const
 void Quick3DMapTextureGenerator::render()
 {
   if ( !mProject || mExtent.isEmpty() )
+  {
     return;
+  }
 
   if ( mRenderJob )
   {
