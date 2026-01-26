@@ -14,6 +14,7 @@ Item {
   property var initialExtent
   property bool isLoading: terrainProvider.isLoading
   property int loadingProgress: terrainProvider.loadingProgress
+  property color backgroundColor: "#FFFFFF"
 
   property var gnssPosition: null  // QgsPointXY
   property bool gnssActive: false
@@ -125,6 +126,7 @@ Item {
   }
 
   function playClosingAnimation(callback) {
+    cameraController.resetView();
     closingAnimation.callback = callback;
     closingAnimation.start();
   }
@@ -134,7 +136,7 @@ Item {
     anchors.fill: parent
 
     environment: SceneEnvironment {
-      clearColor: "#87CEEB"
+      clearColor: root.backgroundColor
       backgroundMode: SceneEnvironment.Color
       antialiasingMode: SceneEnvironment.MSAA
       antialiasingQuality: SceneEnvironment.High
