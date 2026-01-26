@@ -16,6 +16,7 @@ email                : mohsen@opengis.ch
 #ifndef QUICK3DTERRAINPROVIDER_H
 #define QUICK3DTERRAINPROVIDER_H
 
+#include <QFutureWatcher>
 #include <QObject>
 #include <QPointer>
 #include <QVariantList>
@@ -143,7 +144,11 @@ class Quick3DTerrainProvider : public QObject
 
   private:
     void updateTerrainProvider();
+
+    //! Calculates terrain heights asynchronously in a worker thread and normalizes the data
     void calcNormalizedData();
+
+    void onTerrainDataCalculated();
     double sampleHeightFromRaster( QgsRasterLayer *layer, double x, double y ) const;
     double sampleHeightFromTerrainProvider( double x, double y ) const;
 
@@ -159,6 +164,8 @@ class Quick3DTerrainProvider : public QObject
     double mMaxRealHeight = 0.0;
     bool mIsLoading = false;
     int mLoadingProgress = 0;
+    QFutureWatcher<QVector<double>> *mFutureWatcher = nullptr;
+    QAtomicInt mProgressCounter;
 };
 
 #endif // QUICK3DTERRAINPROVIDER_H
