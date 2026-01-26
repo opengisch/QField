@@ -18,6 +18,7 @@ Drawer {
   signal showCloudPopup
   signal showProjectFolder
   signal toggleMeasurementTool
+  signal toggle3DView
   signal returnHome
 
   property bool preventFromOpening: overlayFeatureFormDrawer.visible
@@ -132,6 +133,20 @@ Drawer {
             bgcolor: "transparent"
             onClicked: {
               toggleMeasurementTool();
+              highlighted = false;
+            }
+          }
+
+          QfToolButton {
+            id: view3DButton
+            objectName: "View3DButton"
+            anchors.verticalCenter: parent.verticalCenter
+            round: true
+            iconSource: Theme.getThemeVectorIcon("ic_3d_24dp")
+            iconColor: Theme.mainTextColor
+            bgcolor: "transparent"
+            onClicked: {
+              toggle3DView();
               highlighted = false;
             }
           }
