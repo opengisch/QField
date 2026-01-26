@@ -16,8 +16,8 @@
 
 #include "quick3dterrainprovider.h"
 
-#include <QCoreApplication>
-#include <QDebug>
+#include <QTimer>
+#include <QtConcurrent>
 #include <qgscoordinatetransform.h>
 #include <qgsproject.h>
 #include <qgsprojectelevationproperties.h>
@@ -30,7 +30,24 @@
 
 Quick3DTerrainProvider::Quick3DTerrainProvider( QObject *parent )
   : QObject( parent )
+  , mFutureWatcher( new QFutureWatcher<QVector<double>>( this ) )
 {
+  connect( mFutureWatcher, &QFutureWatcher<QVector<double>>::finished,
+           this, &Quick3DTerrainProvider::onTerrainDataCalculated );
+
+  QTimer *progressTimer = new QTimer( this );
+  connect( progressTimer, &QTimer::timeout, this, [this]() {
+    if ( mIsLoading )
+    {
+      const int progress = mProgressCounter.loadAcquire();
+      if ( progress != mLoadingProgress )
+      {
+        mLoadingProgress = progress;
+        emit loadingProgressChanged();
+      }
+    }
+  } );
+  progressTimer->start( 100 );
 }
 
 Quick3DTerrainProvider::~Quick3DTerrainProvider() = default;
@@ -125,11 +142,6 @@ double Quick3DTerrainProvider::heightAt( double x, double y ) const
 
 double Quick3DTerrainProvider::normalizedHeightAt( double x, double y ) const
 {
-  if ( mExtent.isEmpty() )
-  {
-    return 0.0;
-  }
-
   const double realHeight = heightAt( x, y );
   const double extentSize = qMax( mExtent.width(), mExtent.height() );
   const double scale = ( mTerrainBaseSize / extentSize ) * calculateVisualExaggeration();
@@ -154,7 +166,6 @@ void Quick3DTerrainProvider::calcNormalizedData()
 {
   const int totalSamples = mResolution * mResolution;
 
-  // Early exit for empty/invalid state
   if ( mExtent.isEmpty() || ( !mDemLayer && !mQgisTerrainProvider ) )
   {
     mNormalizedData.fill( 0.0, totalSamples );
@@ -163,69 +174,127 @@ void Quick3DTerrainProvider::calcNormalizedData()
     return;
   }
 
+  if ( mFutureWatcher->isRunning() )
+  {
+    mFutureWatcher->cancel();
+    mFutureWatcher->waitForFinished();
+  }
+
   mIsLoading = true;
   emit isLoadingChanged();
 
+  mProgressCounter.storeRelease( 0 );
   mLoadingProgress = 0;
   emit loadingProgressChanged();
 
-  // Sample heights - use (resolution-1) to cover full extent edge-to-edge
-  QVector<double> heights;
-  heights.reserve( totalSamples );
-
-  const double xStep = mExtent.width() / ( mResolution - 1 );
-  const double yStep = mExtent.height() / ( mResolution - 1 );
-
-  double lastValidHeight = 0.0;
-
-  for ( int row = 0; row < mResolution; ++row )
+  QgsAbstractTerrainProvider *terrainProviderClone = nullptr;
+  if ( mQgisTerrainProvider )
   {
-    for ( int col = 0; col < mResolution; ++col )
+    terrainProviderClone = mQgisTerrainProvider->clone();
+  }
+
+  QgsRasterLayer *demLayer = mDemLayer.data();
+  QgsProject *project = mProject;
+  QgsRectangle extent = mExtent;
+  int resolution = mResolution;
+  QAtomicInt *progressCounter = &mProgressCounter;
+
+  const QFuture<QVector<double>> future = QtConcurrent::run( [demLayer, terrainProviderClone, project, extent, resolution, progressCounter]() {
+    QVector<double> heights;
+
+    if ( terrainProviderClone )
     {
-      const double x = mExtent.xMinimum() + col * xStep;
-      const double y = mExtent.yMaximum() - row * yStep;
-      double h = heightAt( x, y );
-
-      if ( std::isnan( h ) )
-      {
-        h = lastValidHeight;
-      }
-      else
-      {
-        lastValidHeight = h;
-      }
-
-      heights.append( h );
+      terrainProviderClone->prepare();
     }
 
-    mLoadingProgress = ( row * mResolution * 100 ) / totalSamples;
-    emit loadingProgressChanged();
-  }
+    const int totalSamples = resolution * resolution;
+    heights.reserve( totalSamples );
 
-  // Find min/max
-  const std::pair<QVector<double>::const_iterator, QVector<double>::const_iterator> minmax = std::minmax_element( heights.begin(), heights.end() );
-  mMinRealHeight = *minmax.first;
-  mMaxRealHeight = *minmax.second;
+    const double xStep = extent.width() / ( resolution - 1 );
+    const double yStep = extent.height() / ( resolution - 1 );
 
-  // Normalize
-  const double extentSize = qMax( mExtent.width(), mExtent.height() );
-  const double scale = ( mTerrainBaseSize / extentSize ) * calculateVisualExaggeration();
+    double lastValidHeight = 0.0;
 
-  mNormalizedData.clear();
-  mNormalizedData.reserve( totalSamples );
-  for ( const double h : heights )
-  {
-    mNormalizedData.append( ( h - mMinRealHeight ) * scale );
-  }
+    for ( int row = 0; row < resolution; ++row )
+    {
+      for ( int col = 0; col < resolution; ++col )
+      {
+        const double x = extent.xMinimum() + col * xStep;
+        const double y = extent.yMaximum() - row * yStep;
+        double h = std::nan( "" );
 
-  mIsLoading = false;
-  emit isLoadingChanged();
+        // Try DEM layer first
+        if ( demLayer && demLayer->isValid() && demLayer->dataProvider() )
+        {
+          QgsPointXY point( x, y );
 
-  mLoadingProgress = 100;
-  emit loadingProgressChanged();
+          if ( project && demLayer->crs() != project->crs() )
+          {
+            try
+            {
+              const QgsCoordinateTransform transform( project->crs(), demLayer->crs(), project->transformContext() );
+              point = transform.transform( point );
+            }
+            catch ( const QgsCsException & )
+            {
+            }
+          }
 
-  emit normalizedDataChanged();
-  emit terrainDataReady();
+          if ( demLayer->extent().contains( point ) )
+          {
+            bool ok = false;
+            const double value = demLayer->dataProvider()->sample( point, 1, &ok );
+            if ( ok )
+            {
+              h = value;
+            }
+          }
+        }
+
+        // Fallback to terrain provider
+        if ( std::isnan( h ) && terrainProviderClone && project )
+        {
+          QgsPointXY point( x, y );
+
+          const QgsCoordinateReferenceSystem terrainCrs = terrainProviderClone->crs();
+          if ( terrainCrs.isValid() && terrainCrs != project->crs() )
+          {
+            try
+            {
+              const QgsCoordinateTransform transform( project->crs(), terrainCrs, project->transformContext() );
+              point = transform.transform( point );
+            }
+            catch ( const QgsCsException & )
+            {
+            }
+          }
+
+          h = terrainProviderClone->heightAt( point.x(), point.y() );
+        }
+
+        if ( std::isnan( h ) )
+        {
+          h = lastValidHeight;
+        }
+        else
+        {
+          lastValidHeight = h;
+        }
+
+        heights.append( h );
+      }
+
+      const int progress = ( row * resolution * 100 ) / totalSamples;
+      progressCounter->storeRelease( progress );
+    }
+
+    delete terrainProviderClone;
+    progressCounter->storeRelease( 100 );
+
+    return heights;
+  } );
+
+  mFutureWatcher->setFuture( future );
 }
 
 double Quick3DTerrainProvider::sampleHeightFromRaster( QgsRasterLayer *layer, double x, double y ) const
@@ -347,4 +416,37 @@ bool Quick3DTerrainProvider::isLoading() const
 int Quick3DTerrainProvider::loadingProgress() const
 {
   return mLoadingProgress;
+}
+
+void Quick3DTerrainProvider::onTerrainDataCalculated()
+{
+  if ( !mFutureWatcher->isFinished() )
+  {
+    return;
+  }
+
+  const QVector<double> heights = mFutureWatcher->result();
+
+  const std::pair<QVector<double>::const_iterator, QVector<double>::const_iterator> minmax = std::minmax_element( heights.begin(), heights.end() );
+  mMinRealHeight = *minmax.first;
+  mMaxRealHeight = *minmax.second;
+
+  const double extentSize = qMax( mExtent.width(), mExtent.height() );
+  const double scale = ( mTerrainBaseSize / extentSize ) * calculateVisualExaggeration();
+
+  mNormalizedData.clear();
+  mNormalizedData.reserve( heights.size() );
+  for ( const double h : heights )
+  {
+    mNormalizedData.append( ( h - mMinRealHeight ) * scale );
+  }
+
+  mIsLoading = false;
+  emit isLoadingChanged();
+
+  mLoadingProgress = 100;
+  emit loadingProgressChanged();
+
+  emit normalizedDataChanged();
+  emit terrainDataReady();
 }
