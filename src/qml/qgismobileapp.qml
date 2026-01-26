@@ -642,6 +642,7 @@ ApplicationWindow {
       onLoaded: {
         item.qgisProject = qgisProject;
         item.initialExtent = mapCanvas.mapSettings.visibleExtent;
+        item.backgroundColor = mapCanvas.mapSettings.backgroundColor;
 
         // Bind GNSS position updates
         item.gnssActive = Qt.binding(() => positionSource.active && positionSource.positionInformation && positionSource.positionInformation.latitudeValid);
@@ -682,25 +683,12 @@ ApplicationWindow {
           font.bold: true
         }
 
-        Rectangle {
+        ProgressBar {
           anchors.horizontalCenter: parent.horizontalCenter
           width: 200
-          height: 8
-          radius: 4
-          color: "#40ffffff"
-
-          Rectangle {
-            width: parent.width * (map3DViewLoader.item ? map3DViewLoader.item.loadingProgress / 100 : 0)
-            height: parent.height
-            radius: 4
-            color: Theme.mainColor
-
-            Behavior on width {
-              NumberAnimation {
-                duration: 200
-              }
-            }
-          }
+          height: 6
+          value: map3DViewLoader.item.loadingProgress / 100
+          visible: loadingOverlay.visible
         }
 
         Text {
