@@ -125,6 +125,11 @@ double Quick3DTerrainProvider::heightAt( double x, double y ) const
 
 double Quick3DTerrainProvider::normalizedHeightAt( double x, double y ) const
 {
+  if ( mExtent.isEmpty() )
+  {
+    return 0.0;
+  }
+
   const double realHeight = heightAt( x, y );
   const double extentSize = qMax( mExtent.width(), mExtent.height() );
   const double scale = ( mTerrainBaseSize / extentSize ) * calculateVisualExaggeration();

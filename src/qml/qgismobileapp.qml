@@ -648,12 +648,14 @@ ApplicationWindow {
         item.gnssActive = Qt.binding(() => positionSource.active && positionSource.positionInformation && positionSource.positionInformation.latitudeValid);
         item.gnssPosition = Qt.binding(() => positionSource.projectedPosition);
 
-        // Downloading overlay visibility
-        loadingOverlay.visible = map3DViewLoader.active ? Qt.binding(() => {
-          return map3DViewLoader.item ? map3DViewLoader.item.isLoading : false;
-        }) : false;
-
         displayToast(qsTr("3D Map View loaded!"));
+      }
+
+      onStatusChanged: {
+        if (status === Loader.Error) {
+          mainWindow.show3DView = false;
+          displayToast(qsTr("Failed to load 3D view!"));
+        }
       }
     }
 
@@ -661,7 +663,7 @@ ApplicationWindow {
       id: loadingOverlay
       anchors.fill: parent
       color: "#80000000"
-      visible: mainWindow.show3DView
+      visible: mainWindow.show3DView && map3DViewLoader.item && map3DViewLoader.item.isLoading
       z: 1000
 
       Column {
@@ -677,7 +679,7 @@ ApplicationWindow {
 
         Text {
           anchors.horizontalCenter: parent.horizontalCenter
-          text: "Downloading terrain data..."
+          text: qsTr("Downloading terrain data...")
           color: "white"
           font.pixelSize: 16
           font.bold: true
