@@ -28,7 +28,9 @@ void Quick3DTerrainGeometry::setResolution( int resolution )
 {
   resolution = qBound( 2, resolution, 512 );
   if ( mResolution == resolution )
+  {
     return;
+  }
 
   mResolution = resolution;
   mDirty = true;
@@ -39,10 +41,14 @@ void Quick3DTerrainGeometry::setResolution( int resolution )
 void Quick3DTerrainGeometry::setTerrainWidth( float width )
 {
   if ( width <= 0 )
+  {
     width = 1.0f;
+  }
 
   if ( qFuzzyCompare( mTerrainWidth, width ) )
+  {
     return;
+  }
 
   mTerrainWidth = width;
   mDirty = true;
@@ -53,10 +59,14 @@ void Quick3DTerrainGeometry::setTerrainWidth( float width )
 void Quick3DTerrainGeometry::setTerrainDepth( float depth )
 {
   if ( depth <= 0 )
+  {
     depth = 1.0f;
+  }
 
   if ( qFuzzyCompare( mTerrainDepth, depth ) )
+  {
     return;
+  }
 
   mTerrainDepth = depth;
   mDirty = true;
@@ -70,7 +80,9 @@ void Quick3DTerrainGeometry::setHeightData( const QVariantList &data )
   mHeights.reserve( data.size() );
 
   for ( const QVariant &v : data )
+  {
     mHeights.append( v.toFloat() );
+  }
 
   mDirty = true;
   emit heightDataChanged();
@@ -80,7 +92,9 @@ void Quick3DTerrainGeometry::setHeightData( const QVariantList &data )
 float Quick3DTerrainGeometry::getHeight( int x, int z ) const
 {
   if ( mHeights.isEmpty() )
+  {
     return 0.0f;
+  }
 
   x = qBound( 0, x, mResolution - 1 );
   z = qBound( 0, z, mResolution - 1 );
@@ -101,7 +115,9 @@ QVector3D Quick3DTerrainGeometry::calculateNormal( int x, int z ) const
 void Quick3DTerrainGeometry::updateGeometry()
 {
   if ( !mDirty )
+  {
     return;
+  }
 
   const int expectedSize = mResolution * mResolution;
   if ( mHeights.size() != expectedSize )

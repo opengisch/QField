@@ -35,36 +35,51 @@ Quick3DTerrainProvider::Quick3DTerrainProvider( QObject *parent )
 
 Quick3DTerrainProvider::~Quick3DTerrainProvider() = default;
 
-QgsProject *Quick3DTerrainProvider::project() const { return mProject; }
+QgsProject *Quick3DTerrainProvider::project() const
+{
+  return mProject;
+}
 
 void Quick3DTerrainProvider::setProject( QgsProject *project )
 {
   if ( mProject == project )
+  {
     return;
+  }
 
   mProject = project;
   emit projectChanged();
   updateTerrainProvider();
 }
 
-int Quick3DTerrainProvider::resolution() const { return mResolution; }
+int Quick3DTerrainProvider::resolution() const
+{
+  return mResolution;
+}
 
 void Quick3DTerrainProvider::setResolution( int resolution )
 {
   resolution = qBound( 8, resolution, 256 );
   if ( mResolution == resolution )
+  {
     return;
+  }
 
   mResolution = resolution;
   emit resolutionChanged();
 }
 
-QgsRectangle Quick3DTerrainProvider::extent() const { return mExtent; }
+QgsRectangle Quick3DTerrainProvider::extent() const
+{
+  return mExtent;
+}
 
 void Quick3DTerrainProvider::setExtent( const QgsRectangle &extent )
 {
   if ( mExtent == extent )
+  {
     return;
+  }
 
   mExtent = extent;
   emit extentChanged();
@@ -75,9 +90,15 @@ void Quick3DTerrainProvider::setExtent( const QgsRectangle &extent )
   }
 }
 
-QVariantList Quick3DTerrainProvider::normalizedData() const { return mNormalizedData; }
+QVariantList Quick3DTerrainProvider::normalizedData() const
+{
+  return mNormalizedData;
+}
 
-int Quick3DTerrainProvider::terrainBaseSize() const { return mTerrainBaseSize; }
+int Quick3DTerrainProvider::terrainBaseSize() const
+{
+  return mTerrainBaseSize;
+}
 
 double Quick3DTerrainProvider::heightAt( double x, double y ) const
 {
@@ -85,14 +106,18 @@ double Quick3DTerrainProvider::heightAt( double x, double y ) const
   {
     const double h = sampleHeightFromRaster( mDemLayer, x, y );
     if ( !std::isnan( h ) )
+    {
       return h;
+    }
   }
 
   if ( mQgisTerrainProvider )
   {
     const double h = sampleHeightFromTerrainProvider( x, y );
     if ( !std::isnan( h ) )
+    {
       return h;
+    }
   }
 
   return 0.0;
@@ -110,9 +135,13 @@ double Quick3DTerrainProvider::calculateVisualExaggeration() const
 {
   const double extentSize = qMax( mExtent.width(), mExtent.height() );
   if ( extentSize > 100000 )
+  {
     return 3.0;
+  }
   if ( extentSize > 50000 )
+  {
     return 2.0;
+  }
   return 1.0;
 }
 
@@ -153,9 +182,13 @@ void Quick3DTerrainProvider::calcNormalizedData()
       double h = heightAt( x, y );
 
       if ( std::isnan( h ) )
+      {
         h = lastValidHeight;
+      }
       else
+      {
         lastValidHeight = h;
+      }
 
       heights.append( h );
     }
@@ -165,9 +198,9 @@ void Quick3DTerrainProvider::calcNormalizedData()
   }
 
   // Find min/max
-  auto [minIt, maxIt] = std::minmax_element( heights.begin(), heights.end() );
-  mMinRealHeight = *minIt;
-  mMaxRealHeight = *maxIt;
+  const std::pair<QVector<double>::const_iterator, QVector<double>::const_iterator> minmax = std::minmax_element( heights.begin(), heights.end() );
+  mMinRealHeight = *minmax.first;
+  mMaxRealHeight = *minmax.second;
 
   // Normalize
   const double extentSize = qMax( mExtent.width(), mExtent.height() );
@@ -175,7 +208,7 @@ void Quick3DTerrainProvider::calcNormalizedData()
 
   mNormalizedData.clear();
   mNormalizedData.reserve( totalSamples );
-  for ( double h : heights )
+  for ( const double h : heights )
   {
     mNormalizedData.append( ( h - mMinRealHeight ) * scale );
   }
@@ -193,7 +226,9 @@ void Quick3DTerrainProvider::calcNormalizedData()
 double Quick3DTerrainProvider::sampleHeightFromRaster( QgsRasterLayer *layer, double x, double y ) const
 {
   if ( !layer || !layer->dataProvider() )
+  {
     return std::nan( "" );
+  }
 
   QgsPointXY point( x, y );
 
@@ -211,7 +246,9 @@ double Quick3DTerrainProvider::sampleHeightFromRaster( QgsRasterLayer *layer, do
   }
 
   if ( !layer->extent().contains( point ) )
+  {
     return std::nan( "" );
+  }
 
   bool ok = false;
   double value = layer->dataProvider()->sample( point, 1, &ok );
@@ -221,7 +258,9 @@ double Quick3DTerrainProvider::sampleHeightFromRaster( QgsRasterLayer *layer, do
 double Quick3DTerrainProvider::sampleHeightFromTerrainProvider( double x, double y ) const
 {
   if ( !mQgisTerrainProvider || !mProject )
+  {
     return std::nan( "" );
+  }
 
   QgsPointXY point( x, y );
 
@@ -245,7 +284,9 @@ double Quick3DTerrainProvider::sampleHeightFromTerrainProvider( double x, double
 void Quick3DTerrainProvider::updateTerrainProvider()
 {
   if ( !mProject )
+  {
     return;
+  }
 
   mDemLayer = nullptr;
   mQgisTerrainProvider.reset();
@@ -255,7 +296,9 @@ void Quick3DTerrainProvider::updateTerrainProvider()
   {
     QgsRasterLayer *raster = qobject_cast<QgsRasterLayer *>( layer );
     if ( !raster || !raster->isValid() )
+    {
       continue;
+    }
 
     const QString provider = raster->dataProvider() ? raster->dataProvider()->name() : QString();
     const bool isOnline = provider == QStringLiteral( "wms" ) || provider == QStringLiteral( "wmts" );
@@ -270,7 +313,7 @@ void Quick3DTerrainProvider::updateTerrainProvider()
   // Fallback to QGIS terrain provider
   if ( !mDemLayer )
   {
-    QgsAbstractTerrainProvider *terrain = mProject->elevationProperties()->terrainProvider();
+    QgsAbstractTerrainProvider *const terrain = mProject->elevationProperties()->terrainProvider();
     if ( terrain && terrain->type() != QStringLiteral( "flat" ) )
     {
       mQgisTerrainProvider.reset( terrain->clone() );
@@ -291,6 +334,12 @@ bool Quick3DTerrainProvider::hasDemLayer() const
   return mDemLayer && mDemLayer->isValid();
 }
 
-bool Quick3DTerrainProvider::isLoading() const { return mIsLoading; }
+bool Quick3DTerrainProvider::isLoading() const
+{
+  return mIsLoading;
+}
 
-int Quick3DTerrainProvider::loadingProgress() const { return mLoadingProgress; }
+int Quick3DTerrainProvider::loadingProgress() const
+{
+  return mLoadingProgress;
+}
