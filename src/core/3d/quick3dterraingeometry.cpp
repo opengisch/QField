@@ -161,8 +161,8 @@ void Quick3DTerrainGeometry::updateGeometry()
       *vptr++ = normal.y();
       *vptr++ = normal.z();
 
-      *vptr++ = static_cast<float>( x ) / ( mResolution - 1 );
-      *vptr++ = static_cast<float>( z ) / ( mResolution - 1 );
+      *vptr++ = static_cast<float>( x ) / qMax( 1, mResolution - 1 );
+      *vptr++ = static_cast<float>( z ) / qMax( 1, mResolution - 1 );
     }
   }
 

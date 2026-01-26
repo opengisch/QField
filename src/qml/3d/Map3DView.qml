@@ -23,7 +23,6 @@ Item {
     id: internal
     property real terrainWidth: terrainProvider.terrainBaseSize
     property real terrainDepth: terrainProvider.terrainBaseSize
-    property real initialCameraY: 0
 
     // Adaptive resolution based on extent size
     function calculateResolution() {
@@ -94,8 +93,6 @@ Item {
       internal.terrainDepth = terrainProvider.terrainBaseSize;
       internal.terrainWidth = terrainProvider.terrainBaseSize * (extentWidth / extentHeight);
     }
-    internal.initialCameraY = internal.maxHeight * 0.3;
-
     terrainMesh.heightData = heights;
     positionCameraForTerrain();
     textureGenerator.render();
@@ -107,7 +104,7 @@ Item {
     cameraController.distance = terrainDiagonal * 0.8;
     cameraController.pitch = 40;
     cameraController.yaw = 0;
-    cameraController.target = Qt.vector3d(0, internal.initialCameraY, 0);
+    cameraController.target = Qt.vector3d(0, 0, 0);
   }
 
   function playOpeningAnimation() {
@@ -118,7 +115,7 @@ Item {
     cameraController.distance = terrainDiagonal * 0.8;
     cameraController.pitch = 85;
     cameraController.yaw = 0;
-    cameraController.target = Qt.vector3d(0, internal.initialCameraY, 0);
+    cameraController.target = Qt.vector3d(0, 0, 0);
     cameraController.updateCameraPosition();
 
     // Animate to normal view

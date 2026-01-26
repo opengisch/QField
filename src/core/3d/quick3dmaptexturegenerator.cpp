@@ -29,7 +29,17 @@ Quick3DMapTextureGenerator::Quick3DMapTextureGenerator( QObject *parent )
   mTextureFilePath = QStringLiteral( "%1/qfield_3d_texture_%2.png" ).arg( tempPath ).arg( ++sInstanceCounter );
 }
 
-Quick3DMapTextureGenerator::~Quick3DMapTextureGenerator() = default;
+Quick3DMapTextureGenerator::~Quick3DMapTextureGenerator()
+{
+  if ( mRenderJob )
+  {
+    mRenderJob->cancel();
+  }
+  if ( QFile::exists( mTextureFilePath ) )
+  {
+    QFile::remove( mTextureFilePath );
+  }
+}
 
 QgsProject *Quick3DMapTextureGenerator::project() const
 {
