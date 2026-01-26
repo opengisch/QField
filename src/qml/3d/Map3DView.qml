@@ -10,20 +10,19 @@ Item {
   focus: true
 
   property var qgisProject
-  property var bookmarkModel: null
   property bool wireframeMode: false
   property var initialExtent
   property bool isLoading: terrainProvider.isLoading
   property int loadingProgress: terrainProvider.loadingProgress
+
+  property var gnssPosition: null  // QgsPointXY
+  property bool gnssActive: false
 
   QtObject {
     id: internal
     property real terrainWidth: terrainProvider.terrainBaseSize
     property real terrainDepth: terrainProvider.terrainBaseSize
     property real initialCameraY: 0
-
-    // height scale for bookmark positioning
-    property real heightScale: 1.0
 
     // Adaptive resolution based on extent size
     function calculateResolution() {
@@ -34,14 +33,13 @@ Item {
       if (!root.initialExtent)
         return 32;
       const extentSize = Math.max(root.initialExtent.width, root.initialExtent.height);
-      // Smaller extent = higher resolution, larger extent = lower resolution
       if (extentSize < 2000)
-        return 64;      // ~4096 samples
+        return 64;
       if (extentSize < 10000)
-        return 48;     // ~2304 samples
+        return 48;
       if (extentSize < 50000)
-        return 32;     // ~1024 samples
-      return 24;                              // ~576 samples for very large extents
+        return 32;
+      return 24;
     }
   }
 
@@ -55,6 +53,9 @@ Item {
       textureGenerator.extent = root.initialExtent;
 
       loadTerrain();
+
+      // Play opening animation after terrain is positioned
+      Qt.callLater(root.playOpeningAnimation);
     }
   }
 
@@ -92,12 +93,6 @@ Item {
       internal.terrainDepth = terrainProvider.terrainBaseSize;
       internal.terrainWidth = terrainProvider.terrainBaseSize * (extentWidth / extentHeight);
     }
-
-    // Calculate height scale for bookmark positioning
-    const realHeightScale = terrainProvider.terrainBaseSize / extentSize;
-    let visualExaggeration = terrainProvider.calculateVisualExaggeration();
-
-    internal.heightScale = realHeightScale * visualExaggeration;
     internal.initialCameraY = internal.maxHeight * 0.3;
 
     terrainMesh.heightData = heights;
@@ -112,6 +107,26 @@ Item {
     cameraController.pitch = 40;
     cameraController.yaw = 0;
     cameraController.target = Qt.vector3d(0, internal.initialCameraY, 0);
+  }
+
+  function playOpeningAnimation() {
+    const maxDimension = Math.max(internal.terrainWidth, internal.terrainDepth);
+    const terrainDiagonal = Math.sqrt(internal.terrainWidth * internal.terrainWidth + internal.terrainDepth * internal.terrainDepth);
+
+    // Start from top view (pitch=85)
+    cameraController.distance = terrainDiagonal * 0.8;
+    cameraController.pitch = 85;
+    cameraController.yaw = 0;
+    cameraController.target = Qt.vector3d(0, internal.initialCameraY, 0);
+    cameraController.updateCameraPosition();
+
+    // Animate to normal view
+    openingAnimation.start();
+  }
+
+  function playClosingAnimation(callback) {
+    closingAnimation.callback = callback;
+    closingAnimation.start();
   }
 
   View3D {
@@ -156,72 +171,59 @@ Item {
       satelliteTextureReady: textureGenerator.isReady
     }
 
-    // Bookmark markers
-    Repeater3D {
-      model: root.bookmarkModel
+    Node {
+      id: gnssMarker
+      visible: root.gnssActive && root.gnssPosition !== null
 
-      Node {
-        id: bookmarkNode
+      property var pos3d: {
+        if (!root.gnssPosition)
+          return null;
+        return root.geoTo3D(root.gnssPosition.x, root.gnssPosition.y);
+      }
 
-        required property int index
-        required property var model
+      position: pos3d || Qt.vector3d(0, 0, 0)
 
-        property string bmId: model.BookmarkId || ""
-        property string bmGroup: model.BookmarkGroup || ""
-        property color pinColor: root.getBookmarkColor(bmGroup)
+      // Outer pulsing ring
+      Model {
+        source: "#Sphere"
+        scale: Qt.vector3d(0.3, 0.05, 0.3)
+        position: Qt.vector3d(0, 0.02, 0)
 
-        property var pos3d: {
-          if (!root.bookmarkModel || !bmId)
-            return null;
-          const point = root.bookmarkModel.getBookmarkPoint(bmId);
-          if (!point)
-            return null;
-          return root.geoTo3D(point.x, point.y);
+        materials: PrincipledMaterial {
+          baseColor: "#4080ff"
+          opacity: 0.4
+          alphaMode: PrincipledMaterial.Blend
         }
 
-        visible: pos3d !== null
-        position: pos3d || Qt.vector3d(0, 0, 0)
+        SequentialAnimation on scale {
+          loops: Animation.Infinite // can we use Infinite? :)
+          running: gnssMarker.visible
 
-        // Invisible hit area (larger sphere for easier clicking)
-        Model {
-          objectName: "bookmark_" + bookmarkNode.bmId
-          source: "#Sphere"
-          scale: Qt.vector3d(0.5, 0.5, 0.5)
-          position: Qt.vector3d(0, 0.3, 0)
-          pickable: true
-          opacity: 0
-
-          materials: PrincipledMaterial {
-            baseColor: "transparent"
+          Vector3dAnimation {
+            from: Qt.vector3d(0.3, 0.05, 0.3)
+            to: Qt.vector3d(0.5, 0.05, 0.5)
+            duration: 1500
+            easing.type: Easing.InOutQuad
+          }
+          Vector3dAnimation {
+            from: Qt.vector3d(0.5, 0.05, 0.5)
+            to: Qt.vector3d(0.3, 0.05, 0.3)
+            duration: 1500
+            easing.type: Easing.InOutQuad
           }
         }
+      }
 
-        // Pin head (sphere)
-        Model {
-          id: pinHead
-          source: "#Sphere"
-          scale: Qt.vector3d(0.1, 0.1, 0.1)
-          position: Qt.vector3d(0, 0.3, 0)
+      // Main position sphere
+      Model {
+        source: "#Sphere"
+        scale: Qt.vector3d(0.15, 0.15, 0.15)
+        position: Qt.vector3d(0, 0.08, 0)
 
-          materials: PrincipledMaterial {
-            baseColor: bookmarkNode.pinColor
-            metalness: 0.4
-            roughness: 0.3
-          }
-        }
-
-        // Pin needle (cone)
-        Model {
-          source: "#Cone"
-          scale: Qt.vector3d(0.05, 0.2, 0.05)
-          position: Qt.vector3d(0, 0.1, 0)
-          eulerRotation: Qt.vector3d(180, 0, 0)
-
-          materials: PrincipledMaterial {
-            baseColor: Qt.darker(bookmarkNode.pinColor, 1.3)
-            metalness: 0.7
-            roughness: 0.2
-          }
+        materials: PrincipledMaterial {
+          baseColor: "#2060ff"
+          metalness: 0.6
+          roughness: 0.2
         }
       }
     }
@@ -231,18 +233,36 @@ Item {
     id: cameraController
     anchors.fill: parent
     camera: camera
+  }
 
-    onSingleTapped: function (x, y) {
-      const result = view3d.pick(x, y);
-      if (result.objectHit && result.objectHit.objectName && result.objectHit.objectName.startsWith("bookmark_")) {
-        const bookmarkId = result.objectHit.objectName.substring(9);
+  NumberAnimation {
+    id: openingAnimation
+    target: cameraController
+    property: "pitch"
+    from: 85
+    to: 40
+    duration: 1200
+    easing.type: Easing.InOutQuad
+  }
 
-        const point = root.bookmarkModel.getBookmarkPoint(bookmarkId);
-        if (point) {
-          const pos3d = root.geoTo3D(point.x, point.y);
-          if (pos3d) {
-            cameraController.lookAtPoint(pos3d, 300);
-          }
+  SequentialAnimation {
+    id: closingAnimation
+
+    property var callback: null
+
+    NumberAnimation {
+      target: cameraController
+      property: "pitch"
+      from: cameraController.pitch
+      to: 85
+      duration: 800
+      easing.type: Easing.InOutQuad
+    }
+
+    ScriptAction {
+      script: {
+        if (closingAnimation.callback) {
+          closingAnimation.callback();
         }
       }
     }
@@ -272,18 +292,5 @@ Item {
     y3d += 15;
 
     return Qt.vector3d(x3d, y3d, z3d);
-  }
-
-  function getBookmarkColor(group) {
-    switch (group) {
-    case 'red':
-      return Theme.bookmarkRed;
-    case 'orange':
-      return Theme.bookmarkOrange;
-    case 'blue':
-      return Theme.bookmarkBlue;
-    default:
-      return Theme.bookmarkDefault;
-    }
   }
 }

@@ -654,12 +654,18 @@ ApplicationWindow {
 
       onLoaded: {
         item.qgisProject = qgisProject;
-        item.bookmarkModel = bookmarkModel;
-        item.initialExtent = mapCanvas.mapSettings.visibleExtent; // OR mapCanvas.mapSettings.extent;
-        displayToast(qsTr("3D Map View loaded!"));
-        loadingOverlay.visible = map3DViewLoader.active ? Qt.binding(q => {
-          return map3DViewLoader.item.isLoading;
+        item.initialExtent = mapCanvas.mapSettings.visibleExtent;
+
+        // Bind GNSS position updates
+        item.gnssActive = Qt.binding(() => positionSource.active && positionSource.positionInformation && positionSource.positionInformation.latitudeValid);
+        item.gnssPosition = Qt.binding(() => positionSource.projectedPosition);
+
+        // Downloading overlay visibility
+        loadingOverlay.visible = map3DViewLoader.active ? Qt.binding(() => {
+          return map3DViewLoader.item ? map3DViewLoader.item.isLoading : false;
         }) : false;
+
+        displayToast(qsTr("3D Map View loaded!"));
       }
     }
 
@@ -2082,6 +2088,23 @@ ApplicationWindow {
       }
 
       QfActionButton {
+        id: close3DView
+        visible: mainWindow.show3DView
+        toolImage: Theme.getThemeVectorIcon("ic_3d_24dp")
+        toolText: qsTr('Close 3D view')
+
+        onClicked: {
+          if (map3DViewLoader.item && map3DViewLoader.item.playClosingAnimation) {
+            map3DViewLoader.item.playClosingAnimation(function () {
+              mainWindow.show3DView = false;
+            });
+          } else {
+            mainWindow.show3DView = false;
+          }
+        }
+      }
+
+      QfActionButton {
         id: closeGeometryEditorsTool
         visible: (stateMachine.state === "digitize" && geometryEditingVertexModel.vertexCount > 0)
         toolImage: geometryEditorsToolbar.image
@@ -2108,39 +2131,6 @@ ApplicationWindow {
       anchors.leftMargin: mainWindow.sceneLeftMargin + 4
       anchors.topMargin: 4
       spacing: 4
-
-      QfToolButton {
-        id: toggle3DButton
-        round: true
-        width: 48
-        height: 48
-        iconSource: Theme.getThemeVectorIcon("ic_3d_24dp")
-        iconColor: "white"
-        bgcolor: mainWindow.show3DView ? Theme.mainColor : Theme.darkGray
-
-        onClicked: {
-          mainWindow.show3DView = !mainWindow.show3DView;
-          displayToast(mainWindow.show3DView ? qsTr("3D View ON") : qsTr("3D View OFF"));
-        }
-      }
-
-      QfToolButton {
-        id: wireframeButton
-        visible: mainWindow.show3DView && map3DViewLoader.item
-        round: true
-        width: 48
-        height: 48
-        iconSource: Theme.getThemeVectorIcon("ic_3x3_grid_white_24dp")
-        iconColor: "white"
-        bgcolor: (map3DViewLoader.item && map3DViewLoader.item.wireframeMode) ? Theme.mainColor : Theme.darkGray
-
-        onClicked: {
-          if (map3DViewLoader.item) {
-            map3DViewLoader.item.wireframeMode = !map3DViewLoader.item.wireframeMode;
-            displayToast(map3DViewLoader.item.wireframeMode ? qsTr("Wireframe ON") : qsTr("Wireframe OFF"));
-          }
-        }
-      }
 
       QfToolButtonDrawer {
         name: "digitizingDrawer"
@@ -3210,6 +3200,17 @@ ApplicationWindow {
         cancelAlgorithmDialog.visible = true;
       } else {
         activateMeasurementMode();
+      }
+    }
+
+    onToggle3DView: {
+      dashBoard.close();
+      if (mainWindow.show3DView) {
+        map3DViewLoader.item.playClosingAnimation(function () {
+          mainWindow.show3DView = false;
+        });
+      } else {
+        mainWindow.show3DView = true;
       }
     }
 
