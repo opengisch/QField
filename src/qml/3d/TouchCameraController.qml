@@ -7,6 +7,7 @@ Item {
   required property PerspectiveCamera camera
 
   signal singleTapped(real x, real y)
+  signal userInteractionStarted
 
   property vector3d target: Qt.vector3d(0, 100, 0)
   property real distance: 2200
@@ -157,6 +158,7 @@ Item {
     onActiveChanged: {
       if (active) {
         lastPoint = centroid.position;
+        root.userInteractionStarted();
       }
     }
 
@@ -186,6 +188,7 @@ Item {
     onActiveChanged: {
       if (active) {
         lastScale = 1.0;
+        root.userInteractionStarted();
       }
     }
 
@@ -217,6 +220,7 @@ Item {
     acceptedDevices: PointerDevice.AllDevices
 
     onWheel: function (event) {
+      root.userInteractionStarted();
       root.distance = clampDistance(distance - event.angleDelta.y * 0.5);
       updateCameraPosition();
     }

@@ -8,6 +8,7 @@ import Theme
 Item {
   id: root
   focus: true
+  visible: !isLoading
 
   property var qgisProject
   property bool wireframeMode: false
@@ -18,6 +19,10 @@ Item {
 
   property var gnssPosition: null  // QgsPointXY
   property bool gnssActive: false
+  property real gnssSpeed: -1
+  property real gnssDirection: -1
+
+  signal cameraInteractionDetected  // Emitted when user manually moves camera
 
   QtObject {
     id: internal
@@ -137,10 +142,6 @@ Item {
       backgroundMode: SceneEnvironment.Color
       antialiasingMode: SceneEnvironment.MSAA
       antialiasingQuality: SceneEnvironment.High
-
-      debugSettings: DebugSettings {
-        wireframeEnabled: root.wireframeMode
-      }
     }
 
     PerspectiveCamera {
@@ -181,12 +182,14 @@ Item {
       }
 
       position: pos3d || Qt.vector3d(0, 0, 0)
+      eulerRotation: root.gnssSpeed > 0 && root.gnssDirection >= 0 ? Qt.vector3d(0, -root.gnssDirection, 0) : Qt.vector3d(0, 0, 0)
 
       // Outer pulsing ring
       Model {
         source: "#Sphere"
         scale: Qt.vector3d(0.3, 0.05, 0.3)
         position: Qt.vector3d(0, 0.02, 0)
+        pickable: true
 
         materials: PrincipledMaterial {
           baseColor: "#4080ff"
@@ -195,7 +198,7 @@ Item {
         }
 
         SequentialAnimation on scale {
-          loops: Animation.Infinite // can we use Infinite? :)
+          loops: Animation.Infinite
           running: gnssMarker.visible
 
           Vector3dAnimation {
@@ -213,11 +216,61 @@ Item {
         }
       }
 
-      // Main position sphere
+      // Movement arrow
+      Node {
+        visible: root.gnssSpeed > 0 && root.gnssDirection >= 0
+
+        // Arrow head
+        Model {
+          source: "#Cone"
+          scale: Qt.vector3d(0.2, 0.15, 0.2)
+          position: Qt.vector3d(0, 0.15, 0)
+          eulerRotation: Qt.vector3d(-90, 0, 0)
+          pickable: true
+
+          materials: PrincipledMaterial {
+            baseColor: "#2060ff"
+            metalness: 0.7
+            roughness: 0.1
+          }
+        }
+
+        // Arrow body
+        Model {
+          source: "#Cylinder"
+          scale: Qt.vector3d(0.08, 0.12, 0.08)
+          position: Qt.vector3d(0, 0.06, 0)
+          eulerRotation: Qt.vector3d(-90, 0, 0)
+          pickable: true
+
+          materials: PrincipledMaterial {
+            baseColor: "#2060ff"
+            metalness: 0.6
+            roughness: 0.2
+          }
+        }
+
+        Model {
+          source: "#Cone"
+          scale: Qt.vector3d(0.12, 0.05, 0.12)
+          position: Qt.vector3d(0, 0.0, 0)
+          eulerRotation: Qt.vector3d(90, 0, 0)
+          pickable: true
+
+          materials: PrincipledMaterial {
+            baseColor: "#4080ff"
+            metalness: 0.5
+            roughness: 0.3
+          }
+        }
+      }
+
       Model {
+        visible: !(root.gnssSpeed > 0 && root.gnssDirection >= 0)
         source: "#Sphere"
         scale: Qt.vector3d(0.15, 0.15, 0.15)
         position: Qt.vector3d(0, 0.08, 0)
+        pickable: true
 
         materials: PrincipledMaterial {
           baseColor: "#2060ff"
@@ -232,6 +285,18 @@ Item {
     id: cameraController
     anchors.fill: parent
     camera: camera
+    onSingleTapped: function (x, y) {
+      const pickResult = view3d.pick(x, y);
+      if (pickResult.objectHit) {
+        const pos3d = gnssMarker.pos3d;
+        if (pos3d) {
+          cameraController.lookAtPoint(pos3d, 500);
+        }
+      }
+    }
+    onUserInteractionStarted: {
+      root.cameraInteractionDetected();
+    }
   }
 
   NumberAnimation {
@@ -291,5 +356,9 @@ Item {
     y3d += 15;
 
     return Qt.vector3d(x3d, y3d, z3d);
+  }
+
+  function lookAtPoint(pos3d, distance) {
+    cameraController.lookAtPoint(pos3d, distance);
   }
 }

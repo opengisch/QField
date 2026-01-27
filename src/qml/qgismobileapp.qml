@@ -660,14 +660,44 @@ ApplicationWindow {
         // Bind GNSS position updates
         item.gnssActive = Qt.binding(() => positionSource.active && positionSource.positionInformation && positionSource.positionInformation.latitudeValid);
         item.gnssPosition = Qt.binding(() => positionSource.projectedPosition);
+        item.gnssSpeed = Qt.binding(() => positionSource.positionInformation && positionSource.positionInformation.speedValid ? positionSource.positionInformation.speed : -1);
+        item.gnssDirection = Qt.binding(() => positionSource.positionInformation && positionSource.positionInformation.directionValid ? positionSource.positionInformation.direction : -1);
 
-        displayToast(qsTr("3D Map View loaded!"));
+        // Connect camera interaction signal to deactivate soft lock
+        item.cameraInteractionDetected.connect(function () {
+          if (gnssButton.followActive) {
+            gnssButton.followActive = false;
+            displayToast(qsTr("3D camera unlocked"));
+          }
+        });
+
+        displayToast(qsTr("3D Map View loaded"));
       }
 
       onStatusChanged: {
         if (status === Loader.Error) {
           mainWindow.show3DView = false;
-          displayToast(qsTr("Failed to load 3D view!"));
+          displayToast(qsTr("Failed to load 3D view"));
+        }
+      }
+    }
+
+    Connections {
+      id: gnssMarker3DPositionUpdate
+      target: positionSource
+      enabled: gnssButton.followActive && mainWindow.show3DView && map3DViewLoader.item
+
+      property var pos3d: null
+
+      function onPositionInformationChanged() {
+        if (!gnssButton.followActive || !map3DViewLoader.item) {
+          return;
+        }
+
+        gnssMarker3DPositionUpdate.pos3d = map3DViewLoader.item.geoTo3D(positionSource.projectedPosition.x, positionSource.projectedPosition.y);
+
+        if (gnssMarker3DPositionUpdate.pos3d) {
+          map3DViewLoader.item.lookAtPoint(gnssMarker3DPositionUpdate.pos3d, 1000);
         }
       }
     }
