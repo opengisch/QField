@@ -1,0 +1,616 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="layerobserver_8cpp" kind="file" language="C++">
+    <compoundname>layerobserver.cpp</compoundname>
+    <includes refid="layerobserver_8h" local="yes">layerobserver.h</includes>
+    <includes refid="qfieldcloudutils_8h" local="yes">qfieldcloudutils.h</includes>
+    <includes local="no">QDebug</includes>
+    <includes local="no">QDir</includes>
+    <includes local="no">qgsfeature.h</includes>
+    <includes local="no">qgsfeatureiterator.h</includes>
+    <includes local="no">qgsfeaturerequest.h</includes>
+    <includes local="no">qgsmessagelog.h</includes>
+    <includes local="no">qgsvectorlayereditbuffer.h</includes>
+    <includes refid="appinterface_8h" local="no">appinterface.h</includes>
+    <incdepgraph>
+      <node id="35">
+        <label>appinterface.h</label>
+        <link refid="appinterface_8h_source"/>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="36" relation="include">
+        </childnode>
+        <childnode refid="37" relation="include">
+        </childnode>
+        <childnode refid="38" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>deltafilewrapper.h</label>
+        <link refid="deltafilewrapper_8h_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>src/core/qfieldcloud/layerobserver.cpp</label>
+        <link refid="layerobserver_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+        <childnode refid="32" relation="include">
+        </childnode>
+        <childnode refid="33" relation="include">
+        </childnode>
+        <childnode refid="34" relation="include">
+        </childnode>
+        <childnode refid="35" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>layerobserver.h</label>
+        <link refid="layerobserver_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="17">
+        <label>networkmanager.h</label>
+        <link refid="networkmanager_8h_source"/>
+        <childnode refid="18" relation="include">
+        </childnode>
+      </node>
+      <node id="19">
+        <label>networkreply.h</label>
+        <link refid="networkreply_8h_source"/>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+      </node>
+      <node id="16">
+        <label>qfieldcloudproject.h</label>
+        <link refid="qfieldcloudproject_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>qfieldcloudprojectsmodel.h</label>
+        <link refid="qfieldcloudprojectsmodel_8h_source"/>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+      </node>
+      <node id="24">
+        <label>qgsgpkgflusher.h</label>
+        <link refid="qgsgpkgflusher_8h_source"/>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>qfieldcloudutils.h</label>
+        <link refid="qfieldcloudutils_8h_source"/>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="26">
+        <label>QAbstractListModel</label>
+      </node>
+      <node id="29">
+        <label>QDebug</label>
+      </node>
+      <node id="30">
+        <label>QDir</label>
+      </node>
+      <node id="4">
+        <label>QJsonArray</label>
+      </node>
+      <node id="5">
+        <label>QJsonDocument</label>
+      </node>
+      <node id="6">
+        <label>QJsonObject</label>
+      </node>
+      <node id="10">
+        <label>QList</label>
+      </node>
+      <node id="20">
+        <label>QNetworkAccessManager</label>
+      </node>
+      <node id="21">
+        <label>QNetworkReply</label>
+      </node>
+      <node id="18">
+        <label>QObject</label>
+      </node>
+      <node id="36">
+        <label>QPointF</label>
+      </node>
+      <node id="11">
+        <label>QPointer</label>
+      </node>
+      <node id="37">
+        <label>QQmlComponent</label>
+      </node>
+      <node id="27">
+        <label>QSortFilterProxyModel</label>
+      </node>
+      <node id="38">
+        <label>QStandardItemModel</label>
+      </node>
+      <node id="25">
+        <label>QThread</label>
+      </node>
+      <node id="28">
+        <label>QTimer</label>
+      </node>
+      <node id="23">
+        <label>QVariantMap</label>
+      </node>
+      <node id="7">
+        <label>qgsfeature.h</label>
+      </node>
+      <node id="31">
+        <label>qgsfeatureiterator.h</label>
+      </node>
+      <node id="32">
+        <label>qgsfeaturerequest.h</label>
+      </node>
+      <node id="8">
+        <label>qgslogger.h</label>
+      </node>
+      <node id="12">
+        <label>qgsmaplayer.h</label>
+      </node>
+      <node id="33">
+        <label>qgsmessagelog.h</label>
+      </node>
+      <node id="22">
+        <label>qgsnetworkaccessmanager.h</label>
+      </node>
+      <node id="13">
+        <label>qgsproject.h</label>
+      </node>
+      <node id="9">
+        <label>qgsvectorlayer.h</label>
+      </node>
+      <node id="34">
+        <label>qgsvectorlayereditbuffer.h</label>
+      </node>
+    </incdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/***************************************************************************</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>layerobserver.cpp</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>-----------------</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/><sp/>begin<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>Apr<sp/>2020</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/><sp/>copyright<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>(C)<sp/>2020<sp/>by<sp/>Ivan<sp/>Ivanov</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/><sp/>email<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>ivan@opengis.ch</highlight></codeline>
+<codeline lineno="7"><highlight class="comment">***************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="comment">/***************************************************************************</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>*<sp/><sp/><sp/>This<sp/>program<sp/>is<sp/>free<sp/>software;<sp/>you<sp/>can<sp/>redistribute<sp/>it<sp/>and/or<sp/>modify<sp/><sp/>*</highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*<sp/><sp/><sp/>it<sp/>under<sp/>the<sp/>terms<sp/>of<sp/>the<sp/>GNU<sp/>General<sp/>Public<sp/>License<sp/>as<sp/>published<sp/>by<sp/><sp/>*</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>*<sp/><sp/><sp/>the<sp/>Free<sp/>Software<sp/>Foundation;<sp/>either<sp/>version<sp/>2<sp/>of<sp/>the<sp/>License,<sp/>or<sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/>*<sp/><sp/><sp/>(at<sp/>your<sp/>option)<sp/>any<sp/>later<sp/>version.<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="15"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="16"><highlight class="comment"><sp/>***************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;layerobserver.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;qfieldcloudutils.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QDebug&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QDir&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;qgsfeature.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;qgsfeatureiterator.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;qgsfeaturerequest.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;qgsmessagelog.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;qgsvectorlayereditbuffer.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;appinterface.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><ref refid="classLayerObserver_1ae1a75a29c37d90b0c6c165baeee4c961" kindref="member">LayerObserver::LayerObserver</ref>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QgsProject<sp/>*project<sp/>)</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/>:<sp/>mProject(<sp/>project<sp/>)</highlight></codeline>
+<codeline lineno="34"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/>connect(<sp/>mProject,<sp/>&amp;QgsProject::homePathChanged,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>&amp;LayerObserver::onHomePathChanged<sp/>);</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/>connect(<sp/>mProject,<sp/>&amp;QgsProject::layersAdded,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>&amp;LayerObserver::onLayersAdded<sp/>);</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>!project-&gt;fileName().isEmpty()<sp/>)</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/>onHomePathChanged();</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="42"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classLayerObserver_1a17b7c2b8b5478e7f54317676d703eeb1" kindref="member">LayerObserver::reset</ref>(<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>isHardReset<sp/>)</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="46"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>!mDeltaFileWrapper<sp/>)</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>isHardReset<sp/>)</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/>mDeltaFileWrapper-&gt;resetId();</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/>mDeltaFileWrapper-&gt;reset();</highlight></codeline>
+<codeline lineno="58"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><ref refid="classDeltaFileWrapper" kindref="compound">DeltaFileWrapper</ref><sp/>*LayerObserver::deltaFileWrapper()</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="62"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>mDeltaFileWrapper.data();</highlight></codeline>
+<codeline lineno="64"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classLayerObserver_1aefb9b21956ba8a1f975933155e828cae" kindref="member">LayerObserver::setDeltaFileWrapper</ref>(<sp/><ref refid="classDeltaFileWrapper" kindref="compound">DeltaFileWrapper</ref><sp/>*wrapper<sp/>)</highlight></codeline>
+<codeline lineno="68"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>mDeltaFileWrapper<sp/>==<sp/>wrapper<sp/>)</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/>mDeltaFileWrapper<sp/>=<sp/>wrapper;</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/>emit<sp/>deltaFileWrapperChanged();</highlight></codeline>
+<codeline lineno="76"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>LayerObserver::onHomePathChanged()</highlight></codeline>
+<codeline lineno="80"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>mProject-&gt;fileName().isEmpty()<sp/>)</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/>mObservedLayerIds.clear();</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>!<ref refid="classQFieldCloudUtils_1aef69d7fdf59d1f653d53ad5808487250" kindref="member">QFieldCloudUtils::getProjectId</ref>(<sp/>mProject-&gt;fileName()<sp/>).isEmpty()<sp/>)</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/>addLayerListeners();</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="92"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"></highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>LayerObserver::onLayersAdded(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QList&lt;QgsMapLayer<sp/>*&gt;<sp/>&amp;layers<sp/>)</highlight></codeline>
+<codeline lineno="95"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/>Q_UNUSED(<sp/>layers<sp/>);</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/>addLayerListeners();</highlight></codeline>
+<codeline lineno="98"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"></highlight></codeline>
+<codeline lineno="100"><highlight class="normal"></highlight></codeline>
+<codeline lineno="101"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>LayerObserver::onBeforeCommitChanges()</highlight></codeline>
+<codeline lineno="102"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/>QgsVectorLayer<sp/>*vl<sp/>=<sp/>qobject_cast&lt;QgsVectorLayer<sp/>*&gt;(<sp/>sender()<sp/>);</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/>QgsVectorLayerEditBuffer<sp/>*eb<sp/>=<sp/>vl-&gt;editBuffer();</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"></highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>!eb<sp/>)</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"></highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QgsFeatureIds<sp/>deletedFids<sp/>=<sp/>eb-&gt;deletedFeatureIds();</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QgsFeatureIds<sp/>changedGeometriesFids<sp/>=<sp/>qgis::listToSet(<sp/>eb-&gt;changedGeometries().keys()<sp/>);</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QgsFeatureIds<sp/>changedAttributesFids<sp/>=<sp/>qgis::listToSet(<sp/>eb-&gt;changedAttributeValues().keys()<sp/>);</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>NOTE<sp/>QgsFeatureIds<sp/>underlying<sp/>implementation<sp/>is<sp/>QSet,<sp/>so<sp/>no<sp/>need<sp/>to<sp/>check<sp/>if<sp/>the<sp/>QgsFeatureId<sp/>already<sp/>exists</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/>QgsFeatureIds<sp/>changedFids;</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"></highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QgsFeatureId<sp/>fid<sp/>:<sp/>deletedFids<sp/>)</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/>changedFids.insert(<sp/>fid<sp/>);</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"></highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QgsFeatureId<sp/>fid<sp/>:<sp/>changedGeometriesFids<sp/>)</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/>changedFids.insert(<sp/>fid<sp/>);</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"></highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QgsFeatureId<sp/>fid<sp/>:<sp/>changedAttributesFids<sp/>)</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/>changedFids.insert(<sp/>fid<sp/>);</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"></highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>NOTE<sp/>we<sp/>read<sp/>the<sp/>features<sp/>from<sp/>the<sp/>dataProvider<sp/>directly<sp/>as<sp/>we<sp/>want<sp/>to<sp/>access<sp/>the<sp/>old<sp/>values.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>If<sp/>we<sp/>use<sp/>the<sp/>layer,<sp/>we<sp/>get<sp/>the<sp/>values<sp/>from<sp/>the<sp/>edit<sp/>buffer.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/>QgsFeatureIterator<sp/>featuresIt<sp/>=<sp/>vl-&gt;dataProvider()-&gt;getFeatures(<sp/>QgsFeatureRequest(<sp/>changedFids<sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/>QgsChangedFeatures<sp/>changedFeatures;</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/>QgsFeature<sp/>f;</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"></highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>?<sp/>is<sp/>it<sp/>possible<sp/>to<sp/>use<sp/>the<sp/>iterator<sp/>in<sp/>a<sp/>less<sp/>ugly<sp/>way?<sp/>something<sp/>like<sp/>normal<sp/>`for<sp/>(<sp/>QgsFeature<sp/>&amp;f<sp/>:<sp/>it<sp/>)<sp/>{}`</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(<sp/>featuresIt.nextFeature(<sp/>f<sp/>)<sp/>)</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/>changedFeatures.insert(<sp/>f.id(),<sp/>f<sp/>);</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"></highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/>qDebug()<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;LayerObserver::onBeforeCommitChanges:<sp/>vl-&gt;id()=&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>vl-&gt;id()<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;sourcePkAttrPair=&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>changedFids;</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"></highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>NOTE<sp/>no<sp/>need<sp/>to<sp/>keep<sp/>track<sp/>of<sp/>added<sp/>features,<sp/>as<sp/>they<sp/>are<sp/>always<sp/>present<sp/>in<sp/>the<sp/>layer<sp/>after<sp/>commit</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/>mChangedFeatures.insert(<sp/>vl-&gt;id(),<sp/>changedFeatures<sp/>);</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/>mPatchedFids.insert(<sp/>vl-&gt;id(),<sp/>QgsFeatureIds()<sp/>);</highlight></codeline>
+<codeline lineno="147"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"></highlight></codeline>
+<codeline lineno="149"><highlight class="normal"></highlight></codeline>
+<codeline lineno="150"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>LayerObserver::onCommittedFeaturesAdded(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;localLayerId,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QgsFeatureList<sp/>&amp;addedFeatures<sp/>)</highlight></codeline>
+<codeline lineno="151"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>!mDeltaFileWrapper<sp/>||<sp/>mDeltaFileWrapper-&gt;isDeltaBeingApplied()<sp/>)</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"></highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QgsVectorLayer<sp/>*vl<sp/>=<sp/>qobject_cast&lt;QgsVectorLayer<sp/>*&gt;(<sp/>sender()<sp/>);</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>sourceLayerId<sp/>=<sp/><ref refid="classDeltaFileWrapper_1af10bd5d2c77efe285b134653cf6f54c0" kindref="member">DeltaFileWrapper::getSourceLayerId</ref>(<sp/>vl<sp/>);</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QPair&lt;int,<sp/>QString&gt;<sp/>localPkAttrPair<sp/>=<sp/><ref refid="classDeltaFileWrapper_1af4ce9a1251956e94b0b6762c134cf2f5" kindref="member">DeltaFileWrapper::getLocalPkAttribute</ref>(<sp/>vl<sp/>);</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QPair&lt;int,<sp/>QString&gt;<sp/>sourcePkAttrPair<sp/>=<sp/><ref refid="classDeltaFileWrapper_1a56b1a3c9715d2c07db3ff84ea458193f" kindref="member">DeltaFileWrapper::getSourcePkAttribute</ref>(<sp/>vl<sp/>);</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"></highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QgsFeature<sp/>&amp;newFeature<sp/>:<sp/>addedFeatures<sp/>)</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/>mDeltaFileWrapper-&gt;addCreate(<sp/>mProject,<sp/>localLayerId,<sp/>sourceLayerId,<sp/>localPkAttrPair.second,<sp/>sourcePkAttrPair.second,<sp/>newFeature<sp/>);</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="166"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"></highlight></codeline>
+<codeline lineno="168"><highlight class="normal"></highlight></codeline>
+<codeline lineno="169"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>LayerObserver::onCommittedFeaturesRemoved(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;localLayerId,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QgsFeatureIds<sp/>&amp;deletedFeatureIds<sp/>)</highlight></codeline>
+<codeline lineno="170"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>!mDeltaFileWrapper<sp/>||<sp/>mDeltaFileWrapper-&gt;isDeltaBeingApplied()<sp/>)</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"></highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/>QgsChangedFeatures<sp/>changedFeatures<sp/>=<sp/>mChangedFeatures.value(<sp/>localLayerId<sp/>);</highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QgsVectorLayer<sp/>*vl<sp/>=<sp/>qobject_cast&lt;QgsVectorLayer<sp/>*&gt;(<sp/>sender()<sp/>);</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>sourceLayerId<sp/>=<sp/><ref refid="classDeltaFileWrapper_1af10bd5d2c77efe285b134653cf6f54c0" kindref="member">DeltaFileWrapper::getSourceLayerId</ref>(<sp/>vl<sp/>);</highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QPair&lt;int,<sp/>QString&gt;<sp/>localPkAttrPair<sp/>=<sp/><ref refid="classDeltaFileWrapper_1af4ce9a1251956e94b0b6762c134cf2f5" kindref="member">DeltaFileWrapper::getLocalPkAttribute</ref>(<sp/>vl<sp/>);</highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QPair&lt;int,<sp/>QString&gt;<sp/>sourcePkAttrPair<sp/>=<sp/><ref refid="classDeltaFileWrapper_1a56b1a3c9715d2c07db3ff84ea458193f" kindref="member">DeltaFileWrapper::getSourcePkAttribute</ref>(<sp/>vl<sp/>);</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"></highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QgsFeatureId<sp/>&amp;fid<sp/>:<sp/>deletedFeatureIds<sp/>)</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_ASSERT(<sp/>changedFeatures.contains(<sp/>fid<sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="185"><highlight class="normal"></highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/><sp/><sp/>QgsFeature<sp/>oldFeature<sp/>=<sp/>changedFeatures.take(<sp/>fid<sp/>);</highlight></codeline>
+<codeline lineno="187"><highlight class="normal"></highlight></codeline>
+<codeline lineno="188"><highlight class="normal"><sp/><sp/><sp/><sp/>mDeltaFileWrapper-&gt;addDelete(<sp/>mProject,<sp/>localLayerId,<sp/>sourceLayerId,<sp/>localPkAttrPair.second,<sp/>sourcePkAttrPair.second,<sp/>oldFeature<sp/>);</highlight></codeline>
+<codeline lineno="189"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="190"><highlight class="normal"></highlight></codeline>
+<codeline lineno="191"><highlight class="normal"><sp/><sp/>mChangedFeatures.insert(<sp/>localLayerId,<sp/>changedFeatures<sp/>);</highlight></codeline>
+<codeline lineno="192"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="193"><highlight class="normal"></highlight></codeline>
+<codeline lineno="194"><highlight class="normal"></highlight></codeline>
+<codeline lineno="195"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>LayerObserver::onCommittedAttributeValuesChanges(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;localLayerId,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QgsChangedAttributesMap<sp/>&amp;changedAttributesValues<sp/>)</highlight></codeline>
+<codeline lineno="196"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="197"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>!mDeltaFileWrapper<sp/>||<sp/>mDeltaFileWrapper-&gt;isDeltaBeingApplied()<sp/>)</highlight></codeline>
+<codeline lineno="198"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="199"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="200"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="201"><highlight class="normal"></highlight></codeline>
+<codeline lineno="202"><highlight class="normal"><sp/><sp/>QgsVectorLayer<sp/>*vl<sp/>=<sp/>qobject_cast&lt;QgsVectorLayer<sp/>*&gt;(<sp/>sender()<sp/>);</highlight></codeline>
+<codeline lineno="203"><highlight class="normal"><sp/><sp/>QgsFeatureIds<sp/>patchedFids<sp/>=<sp/>mPatchedFids.value(<sp/>localLayerId<sp/>);</highlight></codeline>
+<codeline lineno="204"><highlight class="normal"><sp/><sp/>QgsChangedFeatures<sp/>changedFeatures<sp/>=<sp/>mChangedFeatures.value(<sp/>localLayerId<sp/>);</highlight></codeline>
+<codeline lineno="205"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QgsFeatureIds<sp/>changedAttributesValuesFids<sp/>=<sp/>qgis::listToSet(<sp/>changedAttributesValues.keys()<sp/>);</highlight></codeline>
+<codeline lineno="206"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>sourceLayerId<sp/>=<sp/><ref refid="classDeltaFileWrapper_1af10bd5d2c77efe285b134653cf6f54c0" kindref="member">DeltaFileWrapper::getSourceLayerId</ref>(<sp/>vl<sp/>);</highlight></codeline>
+<codeline lineno="207"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QPair&lt;int,<sp/>QString&gt;<sp/>localPkAttrPair<sp/>=<sp/><ref refid="classDeltaFileWrapper_1af4ce9a1251956e94b0b6762c134cf2f5" kindref="member">DeltaFileWrapper::getLocalPkAttribute</ref>(<sp/>vl<sp/>);</highlight></codeline>
+<codeline lineno="208"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QPair&lt;int,<sp/>QString&gt;<sp/>sourcePkAttrPair<sp/>=<sp/><ref refid="classDeltaFileWrapper_1a56b1a3c9715d2c07db3ff84ea458193f" kindref="member">DeltaFileWrapper::getSourcePkAttribute</ref>(<sp/>vl<sp/>);</highlight></codeline>
+<codeline lineno="209"><highlight class="normal"></highlight></codeline>
+<codeline lineno="210"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QgsFeatureId<sp/>fid<sp/>:<sp/>changedAttributesValuesFids<sp/>)</highlight></codeline>
+<codeline lineno="211"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="212"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>patchedFids.contains(<sp/>fid<sp/>)<sp/>)</highlight></codeline>
+<codeline lineno="213"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="214"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">continue</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="215"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="216"><highlight class="normal"></highlight></codeline>
+<codeline lineno="217"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_ASSERT(<sp/>changedFeatures.contains(<sp/>fid<sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="218"><highlight class="normal"></highlight></codeline>
+<codeline lineno="219"><highlight class="normal"><sp/><sp/><sp/><sp/>patchedFids.insert(<sp/>fid<sp/>);</highlight></codeline>
+<codeline lineno="220"><highlight class="normal"></highlight></codeline>
+<codeline lineno="221"><highlight class="normal"><sp/><sp/><sp/><sp/>QgsFeature<sp/>oldFeature<sp/>=<sp/>changedFeatures.take(<sp/>fid<sp/>);</highlight></codeline>
+<codeline lineno="222"><highlight class="normal"><sp/><sp/><sp/><sp/>QgsFeature<sp/>newFeature<sp/>=<sp/>vl-&gt;getFeature(<sp/>fid<sp/>);</highlight></codeline>
+<codeline lineno="223"><highlight class="normal"></highlight></codeline>
+<codeline lineno="224"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>vl-&gt;fields().indexOf(<sp/></highlight><highlight class="stringliteral">&quot;fid_1&quot;</highlight><highlight class="normal"><sp/>)<sp/>!=<sp/>-1<sp/>&amp;&amp;<sp/>localPkAttrPair.second<sp/>==<sp/>sourcePkAttrPair.second<sp/>&amp;&amp;<sp/>newFeature.attribute(<sp/></highlight><highlight class="stringliteral">&quot;fid&quot;</highlight><highlight class="normal"><sp/>)<sp/>!=<sp/>newFeature.attribute(<sp/></highlight><highlight class="stringliteral">&quot;fid_1&quot;</highlight><highlight class="normal"><sp/>)<sp/>)</highlight></codeline>
+<codeline lineno="225"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="226"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>mLocalAndSourcePkAttrAreEqual<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="227"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="228"><highlight class="normal"><sp/><sp/><sp/><sp/>mDeltaFileWrapper-&gt;addPatch(<sp/>mProject,<sp/>localLayerId,<sp/>sourceLayerId,<sp/>localPkAttrPair.second,<sp/>sourcePkAttrPair.second,<sp/>oldFeature,<sp/>newFeature<sp/>);</highlight></codeline>
+<codeline lineno="229"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="230"><highlight class="normal"></highlight></codeline>
+<codeline lineno="231"><highlight class="normal"><sp/><sp/>mPatchedFids.insert(<sp/>localLayerId,<sp/>patchedFids<sp/>);</highlight></codeline>
+<codeline lineno="232"><highlight class="normal"><sp/><sp/>mChangedFeatures.insert(<sp/>localLayerId,<sp/>changedFeatures<sp/>);</highlight></codeline>
+<codeline lineno="233"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="234"><highlight class="normal"></highlight></codeline>
+<codeline lineno="235"><highlight class="normal"></highlight></codeline>
+<codeline lineno="236"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>LayerObserver::onCommittedGeometriesChanges(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;localLayerId,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QgsGeometryMap<sp/>&amp;changedGeometries<sp/>)</highlight></codeline>
+<codeline lineno="237"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="238"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>!mDeltaFileWrapper<sp/>||<sp/>mDeltaFileWrapper-&gt;isDeltaBeingApplied()<sp/>)</highlight></codeline>
+<codeline lineno="239"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="240"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="241"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="242"><highlight class="normal"></highlight></codeline>
+<codeline lineno="243"><highlight class="normal"><sp/><sp/>QgsVectorLayer<sp/>*vl<sp/>=<sp/>qobject_cast&lt;QgsVectorLayer<sp/>*&gt;(<sp/>sender()<sp/>);</highlight></codeline>
+<codeline lineno="244"><highlight class="normal"><sp/><sp/>QgsFeatureIds<sp/>patchedFids<sp/>=<sp/>mPatchedFids.value(<sp/>localLayerId<sp/>);</highlight></codeline>
+<codeline lineno="245"><highlight class="normal"><sp/><sp/>QgsChangedFeatures<sp/>changedFeatures<sp/>=<sp/>mChangedFeatures.value(<sp/>localLayerId<sp/>);</highlight></codeline>
+<codeline lineno="246"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QgsFeatureIds<sp/>changedGeometriesFids<sp/>=<sp/>qgis::listToSet(<sp/>changedGeometries.keys()<sp/>);</highlight></codeline>
+<codeline lineno="247"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>sourceLayerId<sp/>=<sp/><ref refid="classDeltaFileWrapper_1af10bd5d2c77efe285b134653cf6f54c0" kindref="member">DeltaFileWrapper::getSourceLayerId</ref>(<sp/>vl<sp/>);</highlight></codeline>
+<codeline lineno="248"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QPair&lt;int,<sp/>QString&gt;<sp/>localPkAttrPair<sp/>=<sp/><ref refid="classDeltaFileWrapper_1af4ce9a1251956e94b0b6762c134cf2f5" kindref="member">DeltaFileWrapper::getLocalPkAttribute</ref>(<sp/>vl<sp/>);</highlight></codeline>
+<codeline lineno="249"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QPair&lt;int,<sp/>QString&gt;<sp/>sourcePkAttrPair<sp/>=<sp/><ref refid="classDeltaFileWrapper_1a56b1a3c9715d2c07db3ff84ea458193f" kindref="member">DeltaFileWrapper::getSourcePkAttribute</ref>(<sp/>vl<sp/>);</highlight></codeline>
+<codeline lineno="250"><highlight class="normal"></highlight></codeline>
+<codeline lineno="251"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QgsFeatureId<sp/>&amp;fid<sp/>:<sp/>changedGeometriesFids<sp/>)</highlight></codeline>
+<codeline lineno="252"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="253"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>patchedFids.contains(<sp/>fid<sp/>)<sp/>)</highlight></codeline>
+<codeline lineno="254"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="255"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">continue</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="256"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="257"><highlight class="normal"></highlight></codeline>
+<codeline lineno="258"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_ASSERT(<sp/>changedFeatures.contains(<sp/>fid<sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="259"><highlight class="normal"></highlight></codeline>
+<codeline lineno="260"><highlight class="normal"><sp/><sp/><sp/><sp/>patchedFids.insert(<sp/>fid<sp/>);</highlight></codeline>
+<codeline lineno="261"><highlight class="normal"></highlight></codeline>
+<codeline lineno="262"><highlight class="normal"><sp/><sp/><sp/><sp/>QgsFeature<sp/>oldFeature<sp/>=<sp/>changedFeatures.take(<sp/>fid<sp/>);</highlight></codeline>
+<codeline lineno="263"><highlight class="normal"><sp/><sp/><sp/><sp/>QgsFeature<sp/>newFeature<sp/>=<sp/>vl-&gt;getFeature(<sp/>fid<sp/>);</highlight></codeline>
+<codeline lineno="264"><highlight class="normal"></highlight></codeline>
+<codeline lineno="265"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>vl-&gt;fields().indexOf(<sp/></highlight><highlight class="stringliteral">&quot;fid_1&quot;</highlight><highlight class="normal"><sp/>)<sp/>!=<sp/>-1<sp/>&amp;&amp;<sp/>localPkAttrPair.second<sp/>==<sp/>sourcePkAttrPair.second<sp/>&amp;&amp;<sp/>newFeature.attribute(<sp/></highlight><highlight class="stringliteral">&quot;fid&quot;</highlight><highlight class="normal"><sp/>)<sp/>!=<sp/>newFeature.attribute(<sp/></highlight><highlight class="stringliteral">&quot;fid_1&quot;</highlight><highlight class="normal"><sp/>)<sp/>)</highlight></codeline>
+<codeline lineno="266"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="267"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>mLocalAndSourcePkAttrAreEqual<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="268"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="269"><highlight class="normal"><sp/><sp/><sp/><sp/>mDeltaFileWrapper-&gt;addPatch(<sp/>mProject,<sp/>localLayerId,<sp/>sourceLayerId,<sp/>localPkAttrPair.second,<sp/>sourcePkAttrPair.second,<sp/>oldFeature,<sp/>newFeature<sp/>);</highlight></codeline>
+<codeline lineno="270"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="271"><highlight class="normal"></highlight></codeline>
+<codeline lineno="272"><highlight class="normal"><sp/><sp/>mPatchedFids.insert(<sp/>localLayerId,<sp/>patchedFids<sp/>);</highlight></codeline>
+<codeline lineno="273"><highlight class="normal"><sp/><sp/>mChangedFeatures.insert(<sp/>localLayerId,<sp/>changedFeatures<sp/>);</highlight></codeline>
+<codeline lineno="274"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="275"><highlight class="normal"></highlight></codeline>
+<codeline lineno="276"><highlight class="normal"></highlight></codeline>
+<codeline lineno="277"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>LayerObserver::onEditingStopped()</highlight></codeline>
+<codeline lineno="278"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="279"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>!mDeltaFileWrapper<sp/>)</highlight></codeline>
+<codeline lineno="280"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="281"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="282"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="283"><highlight class="normal"></highlight></codeline>
+<codeline lineno="284"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QgsVectorLayer<sp/>*vl<sp/>=<sp/>qobject_cast&lt;QgsVectorLayer<sp/>*&gt;(<sp/>sender()<sp/>);</highlight></codeline>
+<codeline lineno="285"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>layerId<sp/>=<sp/>vl-&gt;id();</highlight></codeline>
+<codeline lineno="286"><highlight class="normal"></highlight></codeline>
+<codeline lineno="287"><highlight class="normal"><sp/><sp/>mPatchedFids.take(<sp/>layerId<sp/>);</highlight></codeline>
+<codeline lineno="288"><highlight class="normal"><sp/><sp/>mChangedFeatures.take(<sp/>layerId<sp/>);</highlight></codeline>
+<codeline lineno="289"><highlight class="normal"></highlight></codeline>
+<codeline lineno="290"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>!mDeltaFileWrapper-&gt;toFile()<sp/>)</highlight></codeline>
+<codeline lineno="291"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="292"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>TODO<sp/>somehow<sp/>indicate<sp/>the<sp/>user<sp/>that<sp/>writing<sp/>failed</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="293"><highlight class="normal"><sp/><sp/><sp/><sp/>QgsMessageLog::logMessage(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;Failed<sp/>writing<sp/>JSON<sp/>file&quot;</highlight><highlight class="normal"><sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="294"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="295"><highlight class="normal"></highlight></codeline>
+<codeline lineno="296"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>vl-&gt;source().contains(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;data.gpkg&quot;</highlight><highlight class="normal"><sp/>)<sp/>)<sp/>&amp;&amp;<sp/>mLocalAndSourcePkAttrAreEqual<sp/>)</highlight></codeline>
+<codeline lineno="297"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="298"><highlight class="normal"><sp/><sp/><sp/><sp/>AppInterface::instance()-&gt;sendLog(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;Called<sp/>LayerObserver::onEditingStopped!&quot;</highlight><highlight class="normal"><sp/>),<sp/>QString()<sp/>);</highlight></codeline>
+<codeline lineno="299"><highlight class="normal"><sp/><sp/><sp/><sp/>mLocalAndSourcePkAttrAreEqual<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="300"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="301"><highlight class="normal"></highlight></codeline>
+<codeline lineno="302"><highlight class="normal"><sp/><sp/>emit<sp/>layerEdited(<sp/>layerId<sp/>);</highlight></codeline>
+<codeline lineno="303"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="304"><highlight class="normal"></highlight></codeline>
+<codeline lineno="305"><highlight class="normal"></highlight></codeline>
+<codeline lineno="306"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>LayerObserver::addLayerListeners()</highlight></codeline>
+<codeline lineno="307"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="308"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QList&lt;QgsMapLayer<sp/>*&gt;<sp/>layers<sp/>=<sp/>mProject-&gt;mapLayers().values();</highlight></codeline>
+<codeline lineno="309"><highlight class="normal"></highlight></codeline>
+<codeline lineno="310"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>we<sp/>should<sp/>keep<sp/>track<sp/>only<sp/>of<sp/>the<sp/>layers<sp/>on<sp/>cloud<sp/>projects</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="311"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/><ref refid="classQFieldCloudUtils_1aef69d7fdf59d1f653d53ad5808487250" kindref="member">QFieldCloudUtils::getProjectId</ref>(<sp/>mProject-&gt;fileName()<sp/>).isEmpty()<sp/>)</highlight></codeline>
+<codeline lineno="312"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="313"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="314"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="315"><highlight class="normal"></highlight></codeline>
+<codeline lineno="316"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(<sp/>QgsMapLayer<sp/>*layer<sp/>:<sp/>layers<sp/>)</highlight></codeline>
+<codeline lineno="317"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="318"><highlight class="normal"><sp/><sp/><sp/><sp/>QgsVectorLayer<sp/>*vl<sp/>=<sp/>qobject_cast&lt;QgsVectorLayer<sp/>*&gt;(<sp/>layer<sp/>);</highlight></codeline>
+<codeline lineno="319"><highlight class="normal"></highlight></codeline>
+<codeline lineno="320"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>vl<sp/>)</highlight></codeline>
+<codeline lineno="321"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="322"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>mObservedLayerIds.contains(<sp/>vl-&gt;id()<sp/>)<sp/>)</highlight></codeline>
+<codeline lineno="323"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="324"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">continue</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="325"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="326"><highlight class="normal"></highlight></codeline>
+<codeline lineno="327"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>!vl-&gt;readOnly()<sp/>&amp;&amp;<sp/><ref refid="classQFieldCloudUtils_1a8769060abfce34af738bbe38bbbd03fd" kindref="member">QFieldCloudUtils::isCloudAction</ref>(<sp/>vl<sp/>)<sp/>)</highlight></codeline>
+<codeline lineno="328"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="329"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Ignore<sp/>all<sp/>layers<sp/>that<sp/>cannot<sp/>determine<sp/>a<sp/>primary<sp/>key<sp/>column</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="330"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/><ref refid="classDeltaFileWrapper_1af4ce9a1251956e94b0b6762c134cf2f5" kindref="member">DeltaFileWrapper::getLocalPkAttribute</ref>(<sp/>vl<sp/>).first<sp/>==<sp/>-1<sp/>)</highlight></codeline>
+<codeline lineno="331"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="332"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>QgsMessageLog::logMessage(<sp/>tr(<sp/></highlight><highlight class="stringliteral">&quot;Failed<sp/>to<sp/>find<sp/>a<sp/>local<sp/>primary<sp/>key<sp/>column<sp/>in<sp/>layer<sp/>\&quot;%1\&quot;&quot;</highlight><highlight class="normal"><sp/>).arg(<sp/>layer-&gt;name()<sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="333"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">continue</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="334"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="335"><highlight class="normal"></highlight></codeline>
+<codeline lineno="336"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/><ref refid="classDeltaFileWrapper_1a56b1a3c9715d2c07db3ff84ea458193f" kindref="member">DeltaFileWrapper::getSourcePkAttribute</ref>(<sp/>vl<sp/>).first<sp/>==<sp/>-1<sp/>)</highlight></codeline>
+<codeline lineno="337"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="338"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>QgsMessageLog::logMessage(<sp/>tr(<sp/></highlight><highlight class="stringliteral">&quot;Failed<sp/>to<sp/>find<sp/>a<sp/>source<sp/>primary<sp/>key<sp/>column<sp/>in<sp/>layer<sp/>\&quot;%1\&quot;&quot;</highlight><highlight class="normal"><sp/>).arg(<sp/>layer-&gt;name()<sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="339"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">continue</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="340"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="341"><highlight class="normal"></highlight></codeline>
+<codeline lineno="342"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>disconnect(<sp/>vl,<sp/>&amp;QgsVectorLayer::beforeCommitChanges,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>&amp;LayerObserver::onBeforeCommitChanges<sp/>);</highlight></codeline>
+<codeline lineno="343"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>disconnect(<sp/>vl,<sp/>&amp;QgsVectorLayer::committedFeaturesAdded,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>&amp;LayerObserver::onCommittedFeaturesAdded<sp/>);</highlight></codeline>
+<codeline lineno="344"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>disconnect(<sp/>vl,<sp/>&amp;QgsVectorLayer::committedFeaturesRemoved,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>&amp;LayerObserver::onCommittedFeaturesRemoved<sp/>);</highlight></codeline>
+<codeline lineno="345"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>disconnect(<sp/>vl,<sp/>&amp;QgsVectorLayer::committedAttributeValuesChanges,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>&amp;LayerObserver::onCommittedAttributeValuesChanges<sp/>);</highlight></codeline>
+<codeline lineno="346"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>disconnect(<sp/>vl,<sp/>&amp;QgsVectorLayer::committedGeometriesChanges,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>&amp;LayerObserver::onCommittedGeometriesChanges<sp/>);</highlight></codeline>
+<codeline lineno="347"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>TODO<sp/>use<sp/>the<sp/>future<sp/>&quot;afterCommitChanges&quot;<sp/>signal</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="348"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>disconnect(<sp/>vl,<sp/>&amp;QgsVectorLayer::editingStopped,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>&amp;LayerObserver::onEditingStopped<sp/>);</highlight></codeline>
+<codeline lineno="349"><highlight class="normal"></highlight></codeline>
+<codeline lineno="350"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>for<sp/>`cloud`<sp/>projects,<sp/>we<sp/>keep<sp/>track<sp/>of<sp/>any<sp/>change<sp/>that<sp/>has<sp/>occurred</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="351"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>connect(<sp/>vl,<sp/>&amp;QgsVectorLayer::beforeCommitChanges,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>&amp;LayerObserver::onBeforeCommitChanges<sp/>);</highlight></codeline>
+<codeline lineno="352"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>connect(<sp/>vl,<sp/>&amp;QgsVectorLayer::committedFeaturesAdded,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>&amp;LayerObserver::onCommittedFeaturesAdded<sp/>);</highlight></codeline>
+<codeline lineno="353"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>connect(<sp/>vl,<sp/>&amp;QgsVectorLayer::committedFeaturesRemoved,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>&amp;LayerObserver::onCommittedFeaturesRemoved<sp/>);</highlight></codeline>
+<codeline lineno="354"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>connect(<sp/>vl,<sp/>&amp;QgsVectorLayer::committedAttributeValuesChanges,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>&amp;LayerObserver::onCommittedAttributeValuesChanges<sp/>);</highlight></codeline>
+<codeline lineno="355"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>connect(<sp/>vl,<sp/>&amp;QgsVectorLayer::committedGeometriesChanges,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>&amp;LayerObserver::onCommittedGeometriesChanges<sp/>);</highlight></codeline>
+<codeline lineno="356"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>TODO<sp/>use<sp/>the<sp/>future<sp/>&quot;afterCommitChanges&quot;<sp/>signal</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="357"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>connect(<sp/>vl,<sp/>&amp;QgsVectorLayer::editingStopped,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>&amp;LayerObserver::onEditingStopped<sp/>);</highlight></codeline>
+<codeline lineno="358"><highlight class="normal"></highlight></codeline>
+<codeline lineno="359"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mObservedLayerIds.insert(<sp/>vl-&gt;id()<sp/>);</highlight></codeline>
+<codeline lineno="360"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="361"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="362"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="363"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="src/core/qfieldcloud/layerobserver.cpp"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,804 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classDistanceArea" kind="class" language="C++" prot="public">
+    <compoundname>DistanceArea</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QObject</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classDistanceArea_1ac2b930b0349c666f039741897fbbb6be" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classRubberbandModel" kindref="compound">RubberbandModel</ref> *</type>
+        <definition>RubberbandModel * DistanceArea::rubberbandModel</definition>
+        <argsstring></argsstring>
+        <name>rubberbandModel</name>
+        <qualifiedname>DistanceArea::rubberbandModel</qualifiedname>
+        <read>rubberbandModel</read>
+        <write>setRubberbandModel</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/distancearea.h" line="33" column="5" bodyfile="src/core/distancearea.h" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classDistanceArea_1ac652cb4272ca77c8445240fa0c6346ac" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QgsCoordinateReferenceSystem</type>
+        <definition>QgsCoordinateReferenceSystem DistanceArea::crs</definition>
+        <argsstring></argsstring>
+        <name>crs</name>
+        <qualifiedname>DistanceArea::crs</qualifiedname>
+        <read>crs</read>
+        <write>setCrs</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/distancearea.h" line="34" column="5" bodyfile="src/core/distancearea.h" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classDistanceArea_1a3d60fd38267ec958087b03a98c06d80b" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QgsProject *</type>
+        <definition>QgsProject * DistanceArea::project</definition>
+        <argsstring></argsstring>
+        <name>project</name>
+        <qualifiedname>DistanceArea::project</qualifiedname>
+        <read>project</read>
+        <write>setProject</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/distancearea.h" line="35" column="5" bodyfile="src/core/distancearea.h" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classDistanceArea_1aea2fc4b6640c70ccf023bb7ac3d9a5b0" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>qreal</type>
+        <definition>qreal DistanceArea::length</definition>
+        <argsstring></argsstring>
+        <name>length</name>
+        <qualifiedname>DistanceArea::length</qualifiedname>
+        <read>length</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/distancearea.h" line="37" column="5" bodyfile="src/core/distancearea.h" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classDistanceArea_1a4d4fe2d4d1f0b0d2c958e01ca510f1e0" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool DistanceArea::lengthValid</definition>
+        <argsstring></argsstring>
+        <name>lengthValid</name>
+        <qualifiedname>DistanceArea::lengthValid</qualifiedname>
+        <read>lengthValid</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/distancearea.h" line="38" column="5" bodyfile="src/core/distancearea.h" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classDistanceArea_1a9e251bcda58e1997a9a97c8ea0858dd1" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>qreal</type>
+        <definition>qreal DistanceArea::perimeter</definition>
+        <argsstring></argsstring>
+        <name>perimeter</name>
+        <qualifiedname>DistanceArea::perimeter</qualifiedname>
+        <read>perimeter</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/distancearea.h" line="39" column="5" bodyfile="src/core/distancearea.h" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classDistanceArea_1aacf8ff89af39b4da19182890141dc962" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool DistanceArea::perimeterValid</definition>
+        <argsstring></argsstring>
+        <name>perimeterValid</name>
+        <qualifiedname>DistanceArea::perimeterValid</qualifiedname>
+        <read>perimeterValid</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/distancearea.h" line="40" column="5" bodyfile="src/core/distancearea.h" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classDistanceArea_1aa5063cf70a64f64a7539e8abf0c44b43" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>qreal</type>
+        <definition>qreal DistanceArea::area</definition>
+        <argsstring></argsstring>
+        <name>area</name>
+        <qualifiedname>DistanceArea::area</qualifiedname>
+        <read>area</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/distancearea.h" line="41" column="5" bodyfile="src/core/distancearea.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classDistanceArea_1ad1c85f616a09db436b5f9a6b22eaa9cc" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool DistanceArea::areaValid</definition>
+        <argsstring></argsstring>
+        <name>areaValid</name>
+        <qualifiedname>DistanceArea::areaValid</qualifiedname>
+        <read>areaValid</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/distancearea.h" line="42" column="5" bodyfile="src/core/distancearea.h" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classDistanceArea_1a60a0096243252e0357a73b531b791e41" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>Qgis::DistanceUnit</type>
+        <definition>Qgis::DistanceUnit DistanceArea::lengthUnits</definition>
+        <argsstring></argsstring>
+        <name>lengthUnits</name>
+        <qualifiedname>DistanceArea::lengthUnits</qualifiedname>
+        <read>lengthUnits</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/distancearea.h" line="43" column="5" bodyfile="src/core/distancearea.h" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classDistanceArea_1a8cdd92a477cdafe54f5b5550e8bf35ae" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>Qgis::AreaUnit</type>
+        <definition>Qgis::AreaUnit DistanceArea::areaUnits</definition>
+        <argsstring></argsstring>
+        <name>areaUnits</name>
+        <qualifiedname>DistanceArea::areaUnits</qualifiedname>
+        <read>areaUnits</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/distancearea.h" line="44" column="5" bodyfile="src/core/distancearea.h" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classDistanceArea_1a9d323d418835207561a55e536b09ebc7" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>qreal</type>
+        <definition>qreal DistanceArea::segmentLength</definition>
+        <argsstring></argsstring>
+        <name>segmentLength</name>
+        <qualifiedname>DistanceArea::segmentLength</qualifiedname>
+        <read>segmentLength</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the length of the last segment </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/distancearea.h" line="49" column="5" bodyfile="src/core/distancearea.h" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classDistanceArea_1aad6f6d2e6ec66c3f8161e903d222ab16" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>qreal</type>
+        <definition>qreal DistanceArea::azimuth</definition>
+        <argsstring></argsstring>
+        <name>azimuth</name>
+        <qualifiedname>DistanceArea::azimuth</qualifiedname>
+        <read>azimuth</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the Cartesian azimuth (in degrees) between the second to last point and last point of the rubber band model (clockwise in degree, starting from north) </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/distancearea.h" line="55" column="5" bodyfile="src/core/distancearea.h" bodystart="55" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classDistanceArea_1aaec13bc02011b59989fccf5569720ee4" prot="private" static="no" mutable="no">
+        <type><ref refid="classRubberbandModel" kindref="compound">RubberbandModel</ref> *</type>
+        <definition>RubberbandModel* DistanceArea::mRubberbandModel</definition>
+        <argsstring></argsstring>
+        <name>mRubberbandModel</name>
+        <qualifiedname>DistanceArea::mRubberbandModel</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/distancearea.h" line="102" column="21" bodyfile="src/core/distancearea.h" bodystart="102" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classDistanceArea_1a06de9c94304fa20ac99d83e2f42932c8" prot="private" static="no" mutable="no">
+        <type>QgsCoordinateReferenceSystem</type>
+        <definition>QgsCoordinateReferenceSystem DistanceArea::mCrs</definition>
+        <argsstring></argsstring>
+        <name>mCrs</name>
+        <qualifiedname>DistanceArea::mCrs</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/distancearea.h" line="103" column="34" bodyfile="src/core/distancearea.h" bodystart="103" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classDistanceArea_1a4f88f61de8c85401d8d3c70352e9f975" prot="private" static="no" mutable="no">
+        <type>QgsProject *</type>
+        <definition>QgsProject* DistanceArea::mProject</definition>
+        <argsstring></argsstring>
+        <name>mProject</name>
+        <qualifiedname>DistanceArea::mProject</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/distancearea.h" line="104" column="16" bodyfile="src/core/distancearea.h" bodystart="104" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classDistanceArea_1a6317769b142cc49e50bb453f219b4d52" prot="private" static="no" mutable="no">
+        <type>QgsDistanceArea</type>
+        <definition>QgsDistanceArea DistanceArea::mDistanceArea</definition>
+        <argsstring></argsstring>
+        <name>mDistanceArea</name>
+        <qualifiedname>DistanceArea::mDistanceArea</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/distancearea.h" line="106" column="21" bodyfile="src/core/distancearea.h" bodystart="106" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classDistanceArea_1af45ea73c33a0b25d4bc6575ddee7f3d0" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>DistanceArea::DistanceArea</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>DistanceArea</name>
+        <qualifiedname>DistanceArea::DistanceArea</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/distancearea.h" line="58" column="14" bodyfile="src/core/distancearea.cpp" bodystart="26" bodyend="31"/>
+      </memberdef>
+      <memberdef kind="function" id="classDistanceArea_1afb922bfead2f4c23c630163a081e6b12" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>qreal</type>
+        <definition>qreal DistanceArea::length</definition>
+        <argsstring>() const</argsstring>
+        <name>length</name>
+        <qualifiedname>DistanceArea::length</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/distancearea.h" line="60" column="11" bodyfile="src/core/distancearea.cpp" bodystart="140" bodyend="156"/>
+      </memberdef>
+      <memberdef kind="function" id="classDistanceArea_1aacd9dc330d35a32ad5cc60baedb459fa" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool DistanceArea::lengthValid</definition>
+        <argsstring>() const</argsstring>
+        <name>lengthValid</name>
+        <qualifiedname>DistanceArea::lengthValid</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/distancearea.h" line="61" column="10" bodyfile="src/core/distancearea.cpp" bodystart="158" bodyend="176"/>
+      </memberdef>
+      <memberdef kind="function" id="classDistanceArea_1a7f0c348eeb737ce1c194e5dd9fcec6df" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>qreal</type>
+        <definition>qreal DistanceArea::perimeter</definition>
+        <argsstring>() const</argsstring>
+        <name>perimeter</name>
+        <qualifiedname>DistanceArea::perimeter</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/distancearea.h" line="62" column="11" bodyfile="src/core/distancearea.cpp" bodystart="178" bodyend="187"/>
+      </memberdef>
+      <memberdef kind="function" id="classDistanceArea_1a4540e9dbd31dc7256600afad35182552" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool DistanceArea::perimeterValid</definition>
+        <argsstring>() const</argsstring>
+        <name>perimeterValid</name>
+        <qualifiedname>DistanceArea::perimeterValid</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/distancearea.h" line="63" column="10" bodyfile="src/core/distancearea.cpp" bodystart="189" bodyend="207"/>
+      </memberdef>
+      <memberdef kind="function" id="classDistanceArea_1ae747894d9a1e098a1376ea187e0ea210" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>qreal</type>
+        <definition>qreal DistanceArea::area</definition>
+        <argsstring>() const</argsstring>
+        <name>area</name>
+        <qualifiedname>DistanceArea::area</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/distancearea.h" line="64" column="11" bodyfile="src/core/distancearea.cpp" bodystart="209" bodyend="225"/>
+      </memberdef>
+      <memberdef kind="function" id="classDistanceArea_1a97ef534ef1ec155934d128bdb0505955" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool DistanceArea::areaValid</definition>
+        <argsstring>() const</argsstring>
+        <name>areaValid</name>
+        <qualifiedname>DistanceArea::areaValid</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/distancearea.h" line="65" column="10" bodyfile="src/core/distancearea.cpp" bodystart="227" bodyend="246"/>
+      </memberdef>
+      <memberdef kind="function" id="classDistanceArea_1af16d15be97faf2ff309f75236ea9724e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>qreal</type>
+        <definition>qreal DistanceArea::segmentLength</definition>
+        <argsstring>() const</argsstring>
+        <name>segmentLength</name>
+        <qualifiedname>DistanceArea::segmentLength</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/distancearea.h" line="67" column="11" bodyfile="src/core/distancearea.cpp" bodystart="248" bodyend="276"/>
+      </memberdef>
+      <memberdef kind="function" id="classDistanceArea_1a6e1889ea96f44d0c751aae77b6bfbb46" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>qreal</type>
+        <definition>qreal DistanceArea::azimuth</definition>
+        <argsstring>() const</argsstring>
+        <name>azimuth</name>
+        <qualifiedname>DistanceArea::azimuth</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/distancearea.h" line="68" column="11" bodyfile="src/core/distancearea.cpp" bodystart="278" bodyend="291"/>
+      </memberdef>
+      <memberdef kind="function" id="classDistanceArea_1a779ddcf4a13bf8b6c46fa43d53b21bdf" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>Qgis::DistanceUnit</type>
+        <definition>Qgis::DistanceUnit DistanceArea::lengthUnits</definition>
+        <argsstring>() const</argsstring>
+        <name>lengthUnits</name>
+        <qualifiedname>DistanceArea::lengthUnits</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/distancearea.h" line="70" column="24" bodyfile="src/core/distancearea.cpp" bodystart="293" bodyend="296"/>
+      </memberdef>
+      <memberdef kind="function" id="classDistanceArea_1a3741c33c1dc924f4943363e8e790715d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>Qgis::AreaUnit</type>
+        <definition>Qgis::AreaUnit DistanceArea::areaUnits</definition>
+        <argsstring>() const</argsstring>
+        <name>areaUnits</name>
+        <qualifiedname>DistanceArea::areaUnits</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/distancearea.h" line="71" column="20" bodyfile="src/core/distancearea.cpp" bodystart="298" bodyend="301"/>
+      </memberdef>
+      <memberdef kind="function" id="classDistanceArea_1a34617492f65287ca93e1c63c045232ea" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QgsCoordinateReferenceSystem</type>
+        <definition>QgsCoordinateReferenceSystem DistanceArea::crs</definition>
+        <argsstring>() const</argsstring>
+        <name>crs</name>
+        <qualifiedname>DistanceArea::crs</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/distancearea.h" line="73" column="34" bodyfile="src/core/distancearea.cpp" bodystart="105" bodyend="108"/>
+      </memberdef>
+      <memberdef kind="function" id="classDistanceArea_1a57c0808222e0232ede00ddd3b2b73a6f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void DistanceArea::setCrs</definition>
+        <argsstring>(const QgsCoordinateReferenceSystem &amp;crs)</argsstring>
+        <name>setCrs</name>
+        <qualifiedname>DistanceArea::setCrs</qualifiedname>
+        <param>
+          <type>const QgsCoordinateReferenceSystem &amp;</type>
+          <declname>crs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/distancearea.h" line="74" column="10" bodyfile="src/core/distancearea.cpp" bodystart="110" bodyend="118"/>
+      </memberdef>
+      <memberdef kind="function" id="classDistanceArea_1afb6761fa1d0a4a3d52e891fc0b50a0aa" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classRubberbandModel" kindref="compound">RubberbandModel</ref> *</type>
+        <definition>RubberbandModel * DistanceArea::rubberbandModel</definition>
+        <argsstring>() const</argsstring>
+        <name>rubberbandModel</name>
+        <qualifiedname>DistanceArea::rubberbandModel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/distancearea.h" line="76" column="21" bodyfile="src/core/distancearea.cpp" bodystart="72" bodyend="75"/>
+      </memberdef>
+      <memberdef kind="function" id="classDistanceArea_1abf0b36b3b0523fc1760405ed7b419960" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void DistanceArea::setRubberbandModel</definition>
+        <argsstring>(RubberbandModel *rubberbandModel)</argsstring>
+        <name>setRubberbandModel</name>
+        <qualifiedname>DistanceArea::setRubberbandModel</qualifiedname>
+        <param>
+          <type><ref refid="classRubberbandModel" kindref="compound">RubberbandModel</ref> *</type>
+          <declname>rubberbandModel</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/distancearea.h" line="77" column="10" bodyfile="src/core/distancearea.cpp" bodystart="77" bodyend="103"/>
+      </memberdef>
+      <memberdef kind="function" id="classDistanceArea_1a234ba3acdd6d8cadc80c9809df65be3c" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QgsProject *</type>
+        <definition>QgsProject * DistanceArea::project</definition>
+        <argsstring>() const</argsstring>
+        <name>project</name>
+        <qualifiedname>DistanceArea::project</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/distancearea.h" line="79" column="16" bodyfile="src/core/distancearea.cpp" bodystart="49" bodyend="52"/>
+      </memberdef>
+      <memberdef kind="function" id="classDistanceArea_1ad9eae058f6c711a4167f7bef57d1636a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void DistanceArea::setProject</definition>
+        <argsstring>(QgsProject *project)</argsstring>
+        <name>setProject</name>
+        <qualifiedname>DistanceArea::setProject</qualifiedname>
+        <param>
+          <type>QgsProject *</type>
+          <declname>project</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/distancearea.h" line="80" column="10" bodyfile="src/core/distancearea.cpp" bodystart="54" bodyend="70"/>
+      </memberdef>
+      <memberdef kind="function" id="classDistanceArea_1a26812402653a2898bdd2965c8889ac3b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE double</type>
+        <definition>double DistanceArea::convertLengthMeansurement</definition>
+        <argsstring>(double length, Qgis::DistanceUnit toUnits) const</argsstring>
+        <name>convertLengthMeansurement</name>
+        <qualifiedname>DistanceArea::convertLengthMeansurement</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>length</declname>
+        </param>
+        <param>
+          <type>Qgis::DistanceUnit</type>
+          <declname>toUnits</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/distancearea.h" line="82" column="24" bodyfile="src/core/distancearea.cpp" bodystart="303" bodyend="306"/>
+      </memberdef>
+      <memberdef kind="function" id="classDistanceArea_1ab9e03dd9a9ddd7fd28cc7b354e04cd23" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE double</type>
+        <definition>double DistanceArea::convertAreaMeansurement</definition>
+        <argsstring>(double area, Qgis::AreaUnit toUnits) const</argsstring>
+        <name>convertAreaMeansurement</name>
+        <qualifiedname>DistanceArea::convertAreaMeansurement</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>area</declname>
+        </param>
+        <param>
+          <type>Qgis::AreaUnit</type>
+          <declname>toUnits</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/distancearea.h" line="83" column="24" bodyfile="src/core/distancearea.cpp" bodystart="308" bodyend="311"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classDistanceArea_1a0e27c3ff63cb6c0b4462ea066c7538a3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void DistanceArea::rubberbandModelChanged</definition>
+        <argsstring>()</argsstring>
+        <name>rubberbandModelChanged</name>
+        <qualifiedname>DistanceArea::rubberbandModelChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/distancearea.h" line="86" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classDistanceArea_1af8bc22c896ba02cd8cc33d6b24bb3a8c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void DistanceArea::crsChanged</definition>
+        <argsstring>()</argsstring>
+        <name>crsChanged</name>
+        <qualifiedname>DistanceArea::crsChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/distancearea.h" line="87" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classDistanceArea_1ab8b1c7f70b1e93d35ed57f88f7c297cb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void DistanceArea::projectChanged</definition>
+        <argsstring>()</argsstring>
+        <name>projectChanged</name>
+        <qualifiedname>DistanceArea::projectChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/distancearea.h" line="88" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classDistanceArea_1acabd8944f7c1b60780ebf2921b80d10a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void DistanceArea::lengthChanged</definition>
+        <argsstring>()</argsstring>
+        <name>lengthChanged</name>
+        <qualifiedname>DistanceArea::lengthChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/distancearea.h" line="90" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classDistanceArea_1a5402ebddcf50a9bd5b63f626d831f4e3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void DistanceArea::perimeterChanged</definition>
+        <argsstring>()</argsstring>
+        <name>perimeterChanged</name>
+        <qualifiedname>DistanceArea::perimeterChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/distancearea.h" line="91" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classDistanceArea_1ab84f8b01332b40e39c96c6ea5dfd2265" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void DistanceArea::areaChanged</definition>
+        <argsstring>()</argsstring>
+        <name>areaChanged</name>
+        <qualifiedname>DistanceArea::areaChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/distancearea.h" line="92" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classDistanceArea_1a045a8727e049083c17b1b4436433cd6b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void DistanceArea::segmentLengthChanged</definition>
+        <argsstring>()</argsstring>
+        <name>segmentLengthChanged</name>
+        <qualifiedname>DistanceArea::segmentLengthChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/distancearea.h" line="93" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classDistanceArea_1a1628879820a9382c45bc1521abd0cbd5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void DistanceArea::azimuthChanged</definition>
+        <argsstring>()</argsstring>
+        <name>azimuthChanged</name>
+        <qualifiedname>DistanceArea::azimuthChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/distancearea.h" line="94" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classDistanceArea_1aa57e778aa1b773b00be32f9141ce9ff1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void DistanceArea::lengthUnitsChanged</definition>
+        <argsstring>()</argsstring>
+        <name>lengthUnitsChanged</name>
+        <qualifiedname>DistanceArea::lengthUnitsChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/distancearea.h" line="95" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classDistanceArea_1ac4b7d151df1f649b2df2fead5cea9ea3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void DistanceArea::areaUnitsChanged</definition>
+        <argsstring>()</argsstring>
+        <name>areaUnitsChanged</name>
+        <qualifiedname>DistanceArea::areaUnitsChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/distancearea.h" line="96" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-slot">
+      <memberdef kind="slot" id="classDistanceArea_1afac9ccd207605a5e093f894ec5feec69" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void DistanceArea::init</definition>
+        <argsstring>()</argsstring>
+        <name>init</name>
+        <qualifiedname>DistanceArea::init</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/distancearea.h" line="99" column="10" bodyfile="src/core/distancearea.cpp" bodystart="33" bodyend="47"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>DistanceArea</label>
+        <link refid="classDistanceArea"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>DistanceArea</label>
+        <link refid="classDistanceArea"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/distancearea.h" line="29" column="1" bodyfile="src/core/distancearea.h" bodystart="30" bodyend="107"/>
+    <listofallmembers>
+      <member refid="classDistanceArea_1aa5063cf70a64f64a7539e8abf0c44b43" prot="public" virt="non-virtual"><scope>DistanceArea</scope><name>area</name></member>
+      <member refid="classDistanceArea_1ae747894d9a1e098a1376ea187e0ea210" prot="public" virt="non-virtual"><scope>DistanceArea</scope><name>area</name></member>
+      <member refid="classDistanceArea_1ab84f8b01332b40e39c96c6ea5dfd2265" prot="public" virt="non-virtual"><scope>DistanceArea</scope><name>areaChanged</name></member>
+      <member refid="classDistanceArea_1a8cdd92a477cdafe54f5b5550e8bf35ae" prot="public" virt="non-virtual"><scope>DistanceArea</scope><name>areaUnits</name></member>
+      <member refid="classDistanceArea_1a3741c33c1dc924f4943363e8e790715d" prot="public" virt="non-virtual"><scope>DistanceArea</scope><name>areaUnits</name></member>
+      <member refid="classDistanceArea_1ac4b7d151df1f649b2df2fead5cea9ea3" prot="public" virt="non-virtual"><scope>DistanceArea</scope><name>areaUnitsChanged</name></member>
+      <member refid="classDistanceArea_1ad1c85f616a09db436b5f9a6b22eaa9cc" prot="public" virt="non-virtual"><scope>DistanceArea</scope><name>areaValid</name></member>
+      <member refid="classDistanceArea_1a97ef534ef1ec155934d128bdb0505955" prot="public" virt="non-virtual"><scope>DistanceArea</scope><name>areaValid</name></member>
+      <member refid="classDistanceArea_1aad6f6d2e6ec66c3f8161e903d222ab16" prot="public" virt="non-virtual"><scope>DistanceArea</scope><name>azimuth</name></member>
+      <member refid="classDistanceArea_1a6e1889ea96f44d0c751aae77b6bfbb46" prot="public" virt="non-virtual"><scope>DistanceArea</scope><name>azimuth</name></member>
+      <member refid="classDistanceArea_1a1628879820a9382c45bc1521abd0cbd5" prot="public" virt="non-virtual"><scope>DistanceArea</scope><name>azimuthChanged</name></member>
+      <member refid="classDistanceArea_1ab9e03dd9a9ddd7fd28cc7b354e04cd23" prot="public" virt="non-virtual"><scope>DistanceArea</scope><name>convertAreaMeansurement</name></member>
+      <member refid="classDistanceArea_1a26812402653a2898bdd2965c8889ac3b" prot="public" virt="non-virtual"><scope>DistanceArea</scope><name>convertLengthMeansurement</name></member>
+      <member refid="classDistanceArea_1ac652cb4272ca77c8445240fa0c6346ac" prot="public" virt="non-virtual"><scope>DistanceArea</scope><name>crs</name></member>
+      <member refid="classDistanceArea_1a34617492f65287ca93e1c63c045232ea" prot="public" virt="non-virtual"><scope>DistanceArea</scope><name>crs</name></member>
+      <member refid="classDistanceArea_1af8bc22c896ba02cd8cc33d6b24bb3a8c" prot="public" virt="non-virtual"><scope>DistanceArea</scope><name>crsChanged</name></member>
+      <member refid="classDistanceArea_1af45ea73c33a0b25d4bc6575ddee7f3d0" prot="public" virt="non-virtual"><scope>DistanceArea</scope><name>DistanceArea</name></member>
+      <member refid="classDistanceArea_1afac9ccd207605a5e093f894ec5feec69" prot="private" virt="non-virtual"><scope>DistanceArea</scope><name>init</name></member>
+      <member refid="classDistanceArea_1aea2fc4b6640c70ccf023bb7ac3d9a5b0" prot="public" virt="non-virtual"><scope>DistanceArea</scope><name>length</name></member>
+      <member refid="classDistanceArea_1afb922bfead2f4c23c630163a081e6b12" prot="public" virt="non-virtual"><scope>DistanceArea</scope><name>length</name></member>
+      <member refid="classDistanceArea_1acabd8944f7c1b60780ebf2921b80d10a" prot="public" virt="non-virtual"><scope>DistanceArea</scope><name>lengthChanged</name></member>
+      <member refid="classDistanceArea_1a60a0096243252e0357a73b531b791e41" prot="public" virt="non-virtual"><scope>DistanceArea</scope><name>lengthUnits</name></member>
+      <member refid="classDistanceArea_1a779ddcf4a13bf8b6c46fa43d53b21bdf" prot="public" virt="non-virtual"><scope>DistanceArea</scope><name>lengthUnits</name></member>
+      <member refid="classDistanceArea_1aa57e778aa1b773b00be32f9141ce9ff1" prot="public" virt="non-virtual"><scope>DistanceArea</scope><name>lengthUnitsChanged</name></member>
+      <member refid="classDistanceArea_1a4d4fe2d4d1f0b0d2c958e01ca510f1e0" prot="public" virt="non-virtual"><scope>DistanceArea</scope><name>lengthValid</name></member>
+      <member refid="classDistanceArea_1aacd9dc330d35a32ad5cc60baedb459fa" prot="public" virt="non-virtual"><scope>DistanceArea</scope><name>lengthValid</name></member>
+      <member refid="classDistanceArea_1a06de9c94304fa20ac99d83e2f42932c8" prot="private" virt="non-virtual"><scope>DistanceArea</scope><name>mCrs</name></member>
+      <member refid="classDistanceArea_1a6317769b142cc49e50bb453f219b4d52" prot="private" virt="non-virtual"><scope>DistanceArea</scope><name>mDistanceArea</name></member>
+      <member refid="classDistanceArea_1a4f88f61de8c85401d8d3c70352e9f975" prot="private" virt="non-virtual"><scope>DistanceArea</scope><name>mProject</name></member>
+      <member refid="classDistanceArea_1aaec13bc02011b59989fccf5569720ee4" prot="private" virt="non-virtual"><scope>DistanceArea</scope><name>mRubberbandModel</name></member>
+      <member refid="classDistanceArea_1a9e251bcda58e1997a9a97c8ea0858dd1" prot="public" virt="non-virtual"><scope>DistanceArea</scope><name>perimeter</name></member>
+      <member refid="classDistanceArea_1a7f0c348eeb737ce1c194e5dd9fcec6df" prot="public" virt="non-virtual"><scope>DistanceArea</scope><name>perimeter</name></member>
+      <member refid="classDistanceArea_1a5402ebddcf50a9bd5b63f626d831f4e3" prot="public" virt="non-virtual"><scope>DistanceArea</scope><name>perimeterChanged</name></member>
+      <member refid="classDistanceArea_1aacf8ff89af39b4da19182890141dc962" prot="public" virt="non-virtual"><scope>DistanceArea</scope><name>perimeterValid</name></member>
+      <member refid="classDistanceArea_1a4540e9dbd31dc7256600afad35182552" prot="public" virt="non-virtual"><scope>DistanceArea</scope><name>perimeterValid</name></member>
+      <member refid="classDistanceArea_1a3d60fd38267ec958087b03a98c06d80b" prot="public" virt="non-virtual"><scope>DistanceArea</scope><name>project</name></member>
+      <member refid="classDistanceArea_1a234ba3acdd6d8cadc80c9809df65be3c" prot="public" virt="non-virtual"><scope>DistanceArea</scope><name>project</name></member>
+      <member refid="classDistanceArea_1ab8b1c7f70b1e93d35ed57f88f7c297cb" prot="public" virt="non-virtual"><scope>DistanceArea</scope><name>projectChanged</name></member>
+      <member refid="classDistanceArea_1ac2b930b0349c666f039741897fbbb6be" prot="public" virt="non-virtual"><scope>DistanceArea</scope><name>rubberbandModel</name></member>
+      <member refid="classDistanceArea_1afb6761fa1d0a4a3d52e891fc0b50a0aa" prot="public" virt="non-virtual"><scope>DistanceArea</scope><name>rubberbandModel</name></member>
+      <member refid="classDistanceArea_1a0e27c3ff63cb6c0b4462ea066c7538a3" prot="public" virt="non-virtual"><scope>DistanceArea</scope><name>rubberbandModelChanged</name></member>
+      <member refid="classDistanceArea_1a9d323d418835207561a55e536b09ebc7" prot="public" virt="non-virtual"><scope>DistanceArea</scope><name>segmentLength</name></member>
+      <member refid="classDistanceArea_1af16d15be97faf2ff309f75236ea9724e" prot="public" virt="non-virtual"><scope>DistanceArea</scope><name>segmentLength</name></member>
+      <member refid="classDistanceArea_1a045a8727e049083c17b1b4436433cd6b" prot="public" virt="non-virtual"><scope>DistanceArea</scope><name>segmentLengthChanged</name></member>
+      <member refid="classDistanceArea_1a57c0808222e0232ede00ddd3b2b73a6f" prot="public" virt="non-virtual"><scope>DistanceArea</scope><name>setCrs</name></member>
+      <member refid="classDistanceArea_1ad9eae058f6c711a4167f7bef57d1636a" prot="public" virt="non-virtual"><scope>DistanceArea</scope><name>setProject</name></member>
+      <member refid="classDistanceArea_1abf0b36b3b0523fc1760405ed7b419960" prot="public" virt="non-virtual"><scope>DistanceArea</scope><name>setRubberbandModel</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

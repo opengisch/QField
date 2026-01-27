@@ -1,0 +1,928 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="main_8cpp" kind="file" language="C++">
+    <compoundname>main.cpp</compoundname>
+    <includes refid="platformutilities_8h" local="yes">platformutilities.h</includes>
+    <includes local="yes">qfield.h</includes>
+    <includes refid="qgismobileapp_8h" local="yes">qgismobileapp.h</includes>
+    <includes refid="translatormanager_8h" local="yes">translatormanager.h</includes>
+    <includes local="no">qgsapplication.h</includes>
+    <includes local="no">qgsauthmanager.h</includes>
+    <includes local="no">qgslogger.h</includes>
+    <includes local="no">qgsprojutils.h</includes>
+    <includes local="no">qgsstyle.h</includes>
+    <includes local="no">QApplication</includes>
+    <includes local="no">QDialog</includes>
+    <includes local="no">QDir</includes>
+    <includes local="no">QEventLoop</includes>
+    <includes local="no">QLabel</includes>
+    <includes local="no">QLocale</includes>
+    <includes local="no">QMainWindow</includes>
+    <includes local="no">QSettings</includes>
+    <includes local="no">QStandardPaths</includes>
+    <includes local="no">QTranslator</includes>
+    <includes local="no">QtWebView/QtWebView</includes>
+    <includes local="no">proj.h</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>src/app/main.cpp</label>
+        <link refid="main_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="64" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="66" relation="include">
+        </childnode>
+        <childnode refid="67" relation="include">
+        </childnode>
+        <childnode refid="68" relation="include">
+        </childnode>
+        <childnode refid="69" relation="include">
+        </childnode>
+        <childnode refid="70" relation="include">
+        </childnode>
+        <childnode refid="71" relation="include">
+        </childnode>
+        <childnode refid="72" relation="include">
+        </childnode>
+        <childnode refid="73" relation="include">
+        </childnode>
+        <childnode refid="74" relation="include">
+        </childnode>
+        <childnode refid="75" relation="include">
+        </childnode>
+        <childnode refid="76" relation="include">
+        </childnode>
+        <childnode refid="63" relation="include">
+        </childnode>
+        <childnode refid="77" relation="include">
+        </childnode>
+        <childnode refid="78" relation="include">
+        </childnode>
+        <childnode refid="79" relation="include">
+        </childnode>
+        <childnode refid="80" relation="include">
+        </childnode>
+      </node>
+      <node id="16">
+        <label>appcoordinateoperationhandlers.h</label>
+        <link refid="appcoordinateoperationhandlers_8h_source"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+      </node>
+      <node id="19">
+        <label>bookmarkmodel.h</label>
+        <link refid="bookmarkmodel_8h_source"/>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+      </node>
+      <node id="30">
+        <label>clipboardmanager.h</label>
+        <link refid="clipboardmanager_8h_source"/>
+        <childnode refid="31" relation="include">
+        </childnode>
+        <childnode refid="32" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="33" relation="include">
+        </childnode>
+      </node>
+      <node id="35">
+        <label>cogooperation.h</label>
+        <link refid="cogooperation_8h_source"/>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="36" relation="include">
+        </childnode>
+        <childnode refid="44" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="45" relation="include">
+        </childnode>
+      </node>
+      <node id="34">
+        <label>cogoregistry.h</label>
+        <link refid="cogoregistry_8h_source"/>
+        <childnode refid="35" relation="include">
+        </childnode>
+        <childnode refid="46" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="47">
+        <label>drawingtemplatemodel.h</label>
+        <link refid="drawingtemplatemodel_8h_source"/>
+        <childnode refid="48" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>platformutilities.h</label>
+        <link refid="platformutilities_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="49">
+        <label>pluginmanager.h</label>
+        <link refid="pluginmanager_8h_source"/>
+        <childnode refid="50" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="53" relation="include">
+        </childnode>
+      </node>
+      <node id="50">
+        <label>pluginmodel.h</label>
+        <link refid="pluginmodel_8h_source"/>
+        <childnode refid="48" relation="include">
+        </childnode>
+        <childnode refid="51" relation="include">
+        </childnode>
+        <childnode refid="52" relation="include">
+        </childnode>
+      </node>
+      <node id="54">
+        <label>qfieldappauthrequesthandler.h</label>
+        <link refid="qfieldappauthrequesthandler_8h_source"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="55" relation="include">
+        </childnode>
+        <childnode refid="56" relation="include">
+        </childnode>
+      </node>
+      <node id="57">
+        <label>qfieldurlhandler.h</label>
+        <link refid="qfieldurlhandler_8h_source"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>qgismobileapp.h</label>
+        <link refid="qgismobileapp_8h_source"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="34" relation="include">
+        </childnode>
+        <childnode refid="47" relation="include">
+        </childnode>
+        <childnode refid="49" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="54" relation="include">
+        </childnode>
+        <childnode refid="57" relation="include">
+        </childnode>
+        <childnode refid="58" relation="include">
+        </childnode>
+        <childnode refid="60" relation="include">
+        </childnode>
+        <childnode refid="62" relation="include">
+        </childnode>
+      </node>
+      <node id="58">
+        <label>qgsgpkgflusher.h</label>
+        <link refid="qgsgpkgflusher_8h_source"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="59" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+      </node>
+      <node id="20">
+        <label>qgsquickmapsettings.h</label>
+        <link refid="qgsquickmapsettings_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+      </node>
+      <node id="36">
+        <label>rubberbandmodel.h</label>
+        <link refid="rubberbandmodel_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="37" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="38" relation="include">
+        </childnode>
+        <childnode refid="39" relation="include">
+        </childnode>
+        <childnode refid="40" relation="include">
+        </childnode>
+        <childnode refid="41" relation="include">
+        </childnode>
+        <childnode refid="42" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="43" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+      </node>
+      <node id="60">
+        <label>screendimmer.h</label>
+        <link refid="screendimmer_8h_source"/>
+        <childnode refid="61" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="62">
+        <label>settings.h</label>
+        <link refid="settings_8h_source"/>
+        <childnode refid="63" relation="include">
+        </childnode>
+      </node>
+      <node id="64">
+        <label>translatormanager.h</label>
+        <link refid="translatormanager_8h_source"/>
+        <childnode refid="65" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>viewstatus.h</label>
+        <link refid="viewstatus_8h_source"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="48">
+        <label>QAbstractListModel</label>
+      </node>
+      <node id="70">
+        <label>QApplication</label>
+      </node>
+      <node id="31">
+        <label>QClipboard</label>
+      </node>
+      <node id="44">
+        <label>QColor</label>
+      </node>
+      <node id="37">
+        <label>QDateTime</label>
+      </node>
+      <node id="71">
+        <label>QDialog</label>
+      </node>
+      <node id="72">
+        <label>QDir</label>
+      </node>
+      <node id="73">
+        <label>QEventLoop</label>
+      </node>
+      <node id="51">
+        <label>QFileInfo</label>
+      </node>
+      <node id="74">
+        <label>QLabel</label>
+      </node>
+      <node id="75">
+        <label>QLocale</label>
+      </node>
+      <node id="76">
+        <label>QMainWindow</label>
+      </node>
+      <node id="46">
+        <label>QMap</label>
+      </node>
+      <node id="32">
+        <label>QMimeData</label>
+      </node>
+      <node id="5">
+        <label>QObject</label>
+      </node>
+      <node id="6">
+        <label>QPermission</label>
+      </node>
+      <node id="38">
+        <label>QPointF</label>
+      </node>
+      <node id="39">
+        <label>QPointer</label>
+      </node>
+      <node id="53">
+        <label>QQmlEngine</label>
+      </node>
+      <node id="63">
+        <label>QSettings</label>
+      </node>
+      <node id="52">
+        <label>QSortFilterProxyModel</label>
+      </node>
+      <node id="77">
+        <label>QStandardPaths</label>
+      </node>
+      <node id="45">
+        <label>QString</label>
+      </node>
+      <node id="59">
+        <label>QThread</label>
+      </node>
+      <node id="61">
+        <label>QTimer</label>
+      </node>
+      <node id="78">
+        <label>QTranslator</label>
+      </node>
+      <node id="40">
+        <label>QVector</label>
+      </node>
+      <node id="10">
+        <label>QtQml/QQmlApplicationEngine</label>
+      </node>
+      <node id="79">
+        <label>QtWebView/QtWebView</label>
+      </node>
+      <node id="65">
+        <label>memory</label>
+      </node>
+      <node id="80">
+        <label>proj.h</label>
+      </node>
+      <node id="8">
+        <label>qfield.h</label>
+      </node>
+      <node id="3">
+        <label>qfield_core_export.h</label>
+      </node>
+      <node id="41">
+        <label>qgis.h</label>
+      </node>
+      <node id="42">
+        <label>qgsabstractgeometry.h</label>
+      </node>
+      <node id="11">
+        <label>qgsapplication.h</label>
+      </node>
+      <node id="66">
+        <label>qgsauthmanager.h</label>
+      </node>
+      <node id="27">
+        <label>qgsbookmarkmanager.h</label>
+      </node>
+      <node id="28">
+        <label>qgsbookmarkmodel.h</label>
+      </node>
+      <node id="12">
+        <label>qgsconfig.h</label>
+      </node>
+      <node id="17">
+        <label>qgscoordinatereferencesystem.h</label>
+      </node>
+      <node id="21">
+        <label>qgscoordinatetransformcontext.h</label>
+      </node>
+      <node id="55">
+        <label>qgscredentials.h</label>
+      </node>
+      <node id="18">
+        <label>qgsdatumtransform.h</label>
+      </node>
+      <node id="13">
+        <label>qgsexiftools.h</label>
+      </node>
+      <node id="33">
+        <label>qgsfeature.h</label>
+      </node>
+      <node id="7">
+        <label>qgsfield.h</label>
+      </node>
+      <node id="43">
+        <label>qgsgeometry.h</label>
+      </node>
+      <node id="67">
+        <label>qgslogger.h</label>
+      </node>
+      <node id="22">
+        <label>qgsmaplayer.h</label>
+      </node>
+      <node id="14">
+        <label>qgsmaplayerproxymodel.h</label>
+      </node>
+      <node id="23">
+        <label>qgsmapsettings.h</label>
+      </node>
+      <node id="24">
+        <label>qgsmapthemecollection.h</label>
+      </node>
+      <node id="56">
+        <label>qgsnetworkaccessmanager.h</label>
+      </node>
+      <node id="25">
+        <label>qgspoint.h</label>
+      </node>
+      <node id="68">
+        <label>qgsprojutils.h</label>
+      </node>
+      <node id="26">
+        <label>qgsrectangle.h</label>
+      </node>
+      <node id="69">
+        <label>qgsstyle.h</label>
+      </node>
+      <node id="15">
+        <label>qgsunittypes.h</label>
+      </node>
+      <node id="29">
+        <label>qobjectuniqueptr.h</label>
+      </node>
+    </incdepgraph>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="main_8cpp_1a523a6a02639de0b9e57428d1ef667d34" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void initGraphics</definition>
+        <argsstring>()</argsstring>
+        <name>initGraphics</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/main.cpp" line="62" column="6" bodyfile="src/app/main.cpp" bodystart="62" bodyend="78"/>
+      </memberdef>
+      <memberdef kind="function" id="main_8cpp_1a2a0bef3382c1ca61824e1b7b49b44e5c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void initAuthManager</definition>
+        <argsstring>(QgsAuthManager *authManager)</argsstring>
+        <name>initAuthManager</name>
+        <param>
+          <type>QgsAuthManager *</type>
+          <declname>authManager</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/main.cpp" line="80" column="6" bodyfile="src/app/main.cpp" bodystart="80" bodyend="113"/>
+      </memberdef>
+      <memberdef kind="function" id="main_8cpp_1a3c04138a5bfe5d72780bb7e82a18e627" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int main</definition>
+        <argsstring>(int argc, char **argv)</argsstring>
+        <name>main</name>
+        <param>
+          <type>int</type>
+          <declname>argc</declname>
+        </param>
+        <param>
+          <type>char **</type>
+          <declname>argv</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/main.cpp" line="115" column="5" bodyfile="src/app/main.cpp" bodystart="115" bodyend="375"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/***************************************************************************</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>main.cpp<sp/><sp/>-<sp/><sp/>main<sp/>for<sp/>qgis<sp/>mobileapp</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>based<sp/>on<sp/>src/browser/main.cpp</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>-------------------</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>begin<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>Wed<sp/>Apr<sp/>04<sp/>10:48:28<sp/>CET<sp/>2012</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>copyright<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>(C)<sp/>2012<sp/>by<sp/>Marco<sp/>Bernasocchi</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>email<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>marco@bernawebdesign.ch</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>***************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="comment">/***************************************************************************</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*<sp/><sp/><sp/>This<sp/>program<sp/>is<sp/>free<sp/>software;<sp/>you<sp/>can<sp/>redistribute<sp/>it<sp/>and/or<sp/>modify<sp/><sp/>*</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>*<sp/><sp/><sp/>it<sp/>under<sp/>the<sp/>terms<sp/>of<sp/>the<sp/>GNU<sp/>General<sp/>Public<sp/>License<sp/>as<sp/>published<sp/>by<sp/><sp/>*</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/>*<sp/><sp/><sp/>the<sp/>Free<sp/>Software<sp/>Foundation;<sp/>either<sp/>version<sp/>2<sp/>of<sp/>the<sp/>License,<sp/>or<sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="15"><highlight class="comment"><sp/>*<sp/><sp/><sp/>(at<sp/>your<sp/>option)<sp/>any<sp/>later<sp/>version.<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="16"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="17"><highlight class="comment"><sp/>***************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;platformutilities.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;qfield.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;qgismobileapp.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;translatormanager.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>WITH_SENTRY</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;sentry_wrapper.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>defined(<sp/>Q_OS_ANDROID<sp/>)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;qfieldcloudservice.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;qfieldpositioningservice.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;qgsapplication.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;qgsauthmanager.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;qgslogger.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;qgsprojutils.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;qgsstyle.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>WITH_SPIX</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;Spix/AnyRpcServer.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;Spix/QtQmlBot.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QApplication&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QDialog&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QDir&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QEventLoop&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QLabel&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QLocale&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QMainWindow&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QSettings&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QStandardPaths&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QTranslator&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QtWebView/QtWebView&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;proj.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>HAVE_STATIC_QCA_PLUGINS</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QtPlugin&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal">Q_IMPORT_PLUGIN(<sp/>opensslPlugin<sp/>)</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>initGraphics()</highlight></codeline>
+<codeline lineno="63"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/>QCoreApplication::setAttribute(<sp/>Qt::AA_DisableShaderDiskCache<sp/>);</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>WITH_SPIX</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Set<sp/>antialiasing<sp/>method<sp/>to<sp/>vertex<sp/>to<sp/>get<sp/>same<sp/>antialiasing<sp/>across<sp/>environments</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/>qputenv(<sp/></highlight><highlight class="stringliteral">&quot;QSG_ANTIALIASING_METHOD&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;vertex&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>not<sp/>defined(<sp/>Q_OS_ANDROID<sp/>)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Enables<sp/>antialiasing<sp/>in<sp/>QML<sp/>scenes</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Avoid<sp/>enabling<sp/>on<sp/>Android<sp/>OS<sp/>as<sp/>it<sp/>leads<sp/>to<sp/>serious<sp/>regressions<sp/>on<sp/>old<sp/>devices</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/>QSurfaceFormat<sp/>format;</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/>format.setSamples(<sp/>4<sp/>);</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/>QSurfaceFormat::setDefaultFormat(<sp/>format<sp/>);</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>initAuthManager(<sp/>QgsAuthManager<sp/>*authManager<sp/>)</highlight></codeline>
+<codeline lineno="81"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>Q_OS_LINUX</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/>authManager-&gt;setPasswordHelperEnabled(<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>authManager-&gt;verifyMasterPassword(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;qfield&quot;</highlight><highlight class="normal"><sp/>)<sp/>)<sp/>)</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>migrating<sp/>authentication<sp/>database</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/>authManager-&gt;setMasterPassword(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;qfield&quot;</highlight><highlight class="normal"><sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/>authManager-&gt;setPasswordHelperEnabled(<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/>QRandomGenerator<sp/>generator<sp/>=<sp/>QRandomGenerator::securelySeeded();</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/>pw;</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/>pw.resize(<sp/>32<sp/>);</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>sPwChars<sp/>=<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&amp;*()_-{}[]&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>pw.size();<sp/>++i<sp/>)</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>pw[i]<sp/>=<sp/>sPwChars.at(<sp/>generator.bounded(<sp/>0,<sp/>sPwChars.length()<sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"></highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/>authManager-&gt;resetMasterPassword(<sp/>pw,<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;qfield&quot;</highlight><highlight class="normal"><sp/>),<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/>authManager-&gt;passwordHelperSync();</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"></highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/>authManager-&gt;setPasswordHelperEnabled(<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>!authManager-&gt;masterPasswordHashInDatabase()<sp/>)</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>if<sp/>no<sp/>master<sp/>password<sp/>set<sp/>by<sp/>user<sp/>yet,<sp/>just<sp/>generate<sp/>a<sp/>new<sp/>one<sp/>and<sp/>store<sp/>it<sp/>in<sp/>the<sp/>system<sp/>keychain</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/>authManager-&gt;createAndStoreRandomMasterPasswordInKeyChain();</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"></highlight><highlight class="preprocessor">#else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/>authManager-&gt;setPasswordHelperEnabled(<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/>authManager-&gt;setMasterPassword(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;qfield&quot;</highlight><highlight class="normal"><sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"></highlight></codeline>
+<codeline lineno="115"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>main(<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>argc,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>**argv<sp/>)</highlight></codeline>
+<codeline lineno="116"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/>qputenv(<sp/></highlight><highlight class="stringliteral">&quot;QT_ANDROID_DISABLE_ACCESSIBILITY&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;1&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"></highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/>QCoreApplication::setOrganizationName(<sp/></highlight><highlight class="stringliteral">&quot;OPENGIS.ch&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/>QCoreApplication::setOrganizationDomain(<sp/></highlight><highlight class="stringliteral">&quot;opengis.ch&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/>QCoreApplication::setApplicationName(<sp/>qfield::appName<sp/>);</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"></highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/>Q_INIT_RESOURCE(<sp/>qml<sp/>);</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"></highlight></codeline>
+<codeline lineno="125"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>defined(<sp/>Q_OS_ANDROID<sp/>)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>argc<sp/>&gt;<sp/>1<sp/>)</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>strcmp(<sp/>argv[1],<sp/></highlight><highlight class="stringliteral">&quot;--cloudservice&quot;</highlight><highlight class="normal"><sp/>)<sp/>==<sp/>0<sp/>)</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>This<sp/>service<sp/>only<sp/>deals<sp/>with<sp/>background<sp/>attachment<sp/>uploads;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>it<sp/>will<sp/>terminate<sp/>once<sp/>all<sp/>uploads<sp/>are<sp/>done</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classQFieldCloudService" kindref="compound">QFieldCloudService</ref><sp/>service(<sp/>argc,<sp/>argv<sp/>);</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"></highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classPlatformUtilities" kindref="compound">PlatformUtilities</ref><sp/>*platformUtils<sp/>=<sp/>PlatformUtilities::instance();</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>platformUtils-&gt;<ref refid="classPlatformUtilities_1a1cfee700ad79b89f36364039eb3633e8" kindref="member">initSystem</ref>();</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"></highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Let&apos;s<sp/>make<sp/>sure<sp/>we<sp/>have<sp/>a<sp/>writable<sp/>path<sp/>for<sp/>the<sp/>QGIS<sp/>profile<sp/>on<sp/>every<sp/>platform</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>profilePath<sp/>=<sp/>platformUtils-&gt;<ref refid="classPlatformUtilities_1a0962a50953416044358e4d7f3e108d31" kindref="member">systemLocalDataLocation</ref>(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;profiles/default&quot;</highlight><highlight class="normal"><sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>QDir().mkdir(<sp/>profilePath<sp/>);</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"></highlight></codeline>
+<codeline lineno="141"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>RELATIVE_PREFIX_PATH</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>qputenv(<sp/></highlight><highlight class="stringliteral">&quot;SSL_CERT_FILE&quot;</highlight><highlight class="normal">,<sp/>QDir::toNativeSeparators(<sp/>PlatformUtilities::instance()-&gt;systemSharedDataLocation()<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;/cacert.pem&quot;</highlight><highlight class="normal"><sp/>).toLocal8Bit()<sp/>);</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>qputenv(<sp/></highlight><highlight class="stringliteral">&quot;GDAL_DATA&quot;</highlight><highlight class="normal">,<sp/>QDir::toNativeSeparators(<sp/>PlatformUtilities::instance()-&gt;systemSharedDataLocation()<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;/gdal&quot;</highlight><highlight class="normal"><sp/>).toLocal8Bit()<sp/>);</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="145"><highlight class="normal"></highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Workaround<sp/>QgsApplication::initQgis<sp/>crashing<sp/>adding<sp/>app<sp/>fonts</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>QDir<sp/>profileDir(<sp/>profilePath<sp/>);</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>profileDir.rename(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;fonts&quot;</highlight><highlight class="normal"><sp/>),<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;fonts-disabled&quot;</highlight><highlight class="normal"><sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"></highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>QgsApplication::init(<sp/>profilePath<sp/>);</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>QgsApplication::initQgis();</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>RELATIVE_PREFIX_PATH</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>QgsApplication::setPkgDataPath(<sp/>PlatformUtilities::instance()-&gt;systemSharedDataLocation()<sp/>+<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;/qgis&quot;</highlight><highlight class="normal"><sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>QgsApplication::createDatabase();</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>initAuthManager(<sp/>QgsApplication::authManager()<sp/>);</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"></highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>profileDir.rmdir(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;fonts&quot;</highlight><highlight class="normal"><sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>profileDir.rename(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;fonts-disabled&quot;</highlight><highlight class="normal"><sp/>),<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;fonts&quot;</highlight><highlight class="normal"><sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"></highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>service.initService();</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>service.exec();</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>strcmp(<sp/>argv[1],<sp/></highlight><highlight class="stringliteral">&quot;--positioningservice&quot;</highlight><highlight class="normal"><sp/>)<sp/>==<sp/>0<sp/>)</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classQFieldPositioningService" kindref="compound">QFieldPositioningService</ref><sp/>service(<sp/>argc,<sp/>argv<sp/>);</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>service.exec();</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="171"><highlight class="normal"></highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/>initGraphics();</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"></highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Read<sp/>settings,<sp/>use<sp/>a<sp/>dummy<sp/>app<sp/>to<sp/>get<sp/>access<sp/>to<sp/>QSettings</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/>QCoreApplication<sp/>*dummyApp<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>QCoreApplication(<sp/>argc,<sp/>argv<sp/>);</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QSettings<sp/>settings;</highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>customLanguage<sp/>=<sp/>settings.value(<sp/></highlight><highlight class="stringliteral">&quot;/customLanguage&quot;</highlight><highlight class="normal">,<sp/>QString()<sp/>).toString();</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"></highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/><ref refid="classPlatformUtilities" kindref="compound">PlatformUtilities</ref><sp/>*platformUtils<sp/>=<sp/>PlatformUtilities::instance();</highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/>platformUtils-&gt;<ref refid="classPlatformUtilities_1a1cfee700ad79b89f36364039eb3633e8" kindref="member">initSystem</ref>();</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"></highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Let&apos;s<sp/>make<sp/>sure<sp/>we<sp/>have<sp/>a<sp/>writable<sp/>path<sp/>for<sp/>the<sp/>QGIS<sp/>profile<sp/>on<sp/>every<sp/>platform</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>profilePath<sp/>=<sp/>platformUtils-&gt;<ref refid="classPlatformUtilities_1a0962a50953416044358e4d7f3e108d31" kindref="member">systemLocalDataLocation</ref>(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;profiles/default&quot;</highlight><highlight class="normal"><sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/>QDir().mkdir(<sp/>profilePath<sp/>);</highlight></codeline>
+<codeline lineno="185"><highlight class="normal"></highlight></codeline>
+<codeline lineno="186"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>WITH_SENTRY</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="187"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>enableSentry<sp/>=<sp/>settings.value(<sp/></highlight><highlight class="stringliteral">&quot;/enableInfoCollection&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal"><sp/>).toBool();</highlight></codeline>
+<codeline lineno="188"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>enableSentry<sp/>)</highlight></codeline>
+<codeline lineno="189"><highlight class="normal"><sp/><sp/><sp/><sp/>sentry_wrapper::init();</highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Make<sp/>sure<sp/>everything<sp/>flushes<sp/>when<sp/>exiting<sp/>the<sp/>app</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="191"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>sentryClose<sp/>=<sp/>qScopeGuard(<sp/>[]<sp/>{<sp/>sentry_wrapper::close();<sp/>}<sp/>);</highlight></codeline>
+<codeline lineno="192"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="193"><highlight class="normal"></highlight></codeline>
+<codeline lineno="194"><highlight class="normal"><sp/><sp/>QTranslator<sp/>*qfieldTranslator<sp/>=<sp/><ref refid="classTranslatorManager_1a7c7d29f5745c80eed5e78dceaa57d00b" kindref="member">TranslatorManager::instance</ref>()-&gt;<ref refid="classTranslatorManager_1ab885a2e08c5037c9bb03723d7b0c6eb8" kindref="member">qfieldTranslator</ref>();</highlight></codeline>
+<codeline lineno="195"><highlight class="normal"><sp/><sp/>QTranslator<sp/>*qtTranslator<sp/>=<sp/><ref refid="classTranslatorManager_1a7c7d29f5745c80eed5e78dceaa57d00b" kindref="member">TranslatorManager::instance</ref>()-&gt;<ref refid="classTranslatorManager_1a9a86d46538176b4774d2d2a9ec51dbd8" kindref="member">qtTranslator</ref>();</highlight></codeline>
+<codeline lineno="196"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>qfieldTranslatorLoaded<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="197"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>qtTranslatorLoaded<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="198"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>!customLanguage.isEmpty()<sp/>)</highlight></codeline>
+<codeline lineno="199"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="200"><highlight class="normal"><sp/><sp/><sp/><sp/>qfieldTranslatorLoaded<sp/>=<sp/>qfieldTranslator-&gt;load(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;qfield_%1&quot;</highlight><highlight class="normal"><sp/>).arg(<sp/>customLanguage<sp/>),<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;:/i18n/&quot;</highlight><highlight class="normal"><sp/>),<sp/></highlight><highlight class="stringliteral">&quot;_&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="201"><highlight class="normal"><sp/><sp/><sp/><sp/>qtTranslatorLoaded<sp/>=<sp/>qtTranslator-&gt;load(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;qt_%1&quot;</highlight><highlight class="normal"><sp/>).arg(<sp/>customLanguage<sp/>),<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;:/i18n/&quot;</highlight><highlight class="normal"><sp/>),<sp/></highlight><highlight class="stringliteral">&quot;_&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="202"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="203"><highlight class="normal"><sp/><sp/>dummyApp-&gt;installTranslator(<sp/>qtTranslator<sp/>);</highlight></codeline>
+<codeline lineno="204"><highlight class="normal"><sp/><sp/>dummyApp-&gt;installTranslator(<sp/>qfieldTranslator<sp/>);</highlight></codeline>
+<codeline lineno="205"><highlight class="normal"></highlight></codeline>
+<codeline lineno="206"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal"><sp/>dummyApp;</highlight></codeline>
+<codeline lineno="207"><highlight class="normal"></highlight></codeline>
+<codeline lineno="208"><highlight class="normal"><sp/><sp/>QtWebView::initialize();</highlight></codeline>
+<codeline lineno="209"><highlight class="normal"></highlight></codeline>
+<codeline lineno="210"><highlight class="normal"><sp/><sp/>QgsApplication<sp/>app(<sp/>argc,<sp/>argv,<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">,<sp/>profilePath,<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;mobile&quot;</highlight><highlight class="normal"><sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="211"><highlight class="normal"></highlight></codeline>
+<codeline lineno="212"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>!qfieldTranslatorLoaded<sp/>||<sp/>qfieldTranslator-&gt;isEmpty()<sp/>)</highlight></codeline>
+<codeline lineno="213"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="214"><highlight class="normal"><sp/><sp/><sp/><sp/>(<sp/>void<sp/>)<sp/>qfieldTranslator-&gt;load(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;qfield_%1&quot;</highlight><highlight class="normal"><sp/>).arg(<sp/>QLocale().name()<sp/>),<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;:/i18n/&quot;</highlight><highlight class="normal"><sp/>),<sp/></highlight><highlight class="stringliteral">&quot;_&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="215"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="216"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>!qtTranslatorLoaded<sp/>||<sp/>qtTranslator-&gt;isEmpty()<sp/>)</highlight></codeline>
+<codeline lineno="217"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="218"><highlight class="normal"><sp/><sp/><sp/><sp/>(<sp/>void<sp/>)<sp/>qtTranslator-&gt;load(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;qt_%1&quot;</highlight><highlight class="normal"><sp/>).arg(<sp/>QLocale().name()<sp/>),<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;:/i18n/&quot;</highlight><highlight class="normal"><sp/>),<sp/></highlight><highlight class="stringliteral">&quot;_&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="219"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="220"><highlight class="normal"></highlight></codeline>
+<codeline lineno="221"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>!customLanguage.isEmpty()<sp/>)</highlight></codeline>
+<codeline lineno="222"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="223"><highlight class="normal"><sp/><sp/><sp/><sp/>QLocale<sp/>customLocale(<sp/>customLanguage<sp/>);</highlight></codeline>
+<codeline lineno="224"><highlight class="normal"><sp/><sp/><sp/><sp/>QLocale::setDefault(<sp/>customLocale<sp/>);</highlight></codeline>
+<codeline lineno="225"><highlight class="normal"><sp/><sp/><sp/><sp/>QgsApplication::setTranslation(<sp/>customLanguage<sp/>);</highlight></codeline>
+<codeline lineno="226"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Set<sp/>locale<sp/>to<sp/>emit<sp/>QgsApplication&apos;s<sp/>localeChanged<sp/>signal</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="227"><highlight class="normal"><sp/><sp/><sp/><sp/>QgsApplication::setLocale(<sp/>QLocale()<sp/>);</highlight></codeline>
+<codeline lineno="228"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="229"><highlight class="normal"></highlight></codeline>
+<codeline lineno="230"><highlight class="normal"><sp/><sp/>QLocale<sp/>locale;</highlight></codeline>
+<codeline lineno="231"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>localeName<sp/>=<sp/>locale.name();</highlight></codeline>
+<codeline lineno="232"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>qsizetype<sp/>localeTagSeparator<sp/>=<sp/>localeName.indexOf(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;_&quot;</highlight><highlight class="normal"><sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="233"><highlight class="normal"><sp/><sp/>QgsApplication::settingsLocaleUserLocale-&gt;setValue(<sp/>localeName.mid(<sp/>0,<sp/>localeTagSeparator<sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="234"><highlight class="normal"></highlight></codeline>
+<codeline lineno="235"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>qfieldFontName(<sp/>qgetenv(<sp/></highlight><highlight class="stringliteral">&quot;QFIELD_FONT_NAME&quot;</highlight><highlight class="normal"><sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="236"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>!qfieldFontName.isEmpty()<sp/>)</highlight></codeline>
+<codeline lineno="237"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="238"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>qfieldFont(<sp/>qgetenv(<sp/></highlight><highlight class="stringliteral">&quot;QFIELD_FONT_TTF&quot;</highlight><highlight class="normal"><sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="239"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>qfieldFontSize<sp/>=<sp/>QString(<sp/>qgetenv(<sp/></highlight><highlight class="stringliteral">&quot;QFIELD_FONT_SIZE&quot;</highlight><highlight class="normal"><sp/>)<sp/>).toInt();</highlight></codeline>
+<codeline lineno="240"><highlight class="normal"><sp/><sp/><sp/><sp/>QFontDatabase::addApplicationFont(<sp/>qfieldFont<sp/>);</highlight></codeline>
+<codeline lineno="241"><highlight class="normal"><sp/><sp/><sp/><sp/>app.setFont(<sp/>QFont(<sp/>qfieldFontName,<sp/>qfieldFontSize<sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="242"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="243"><highlight class="normal"></highlight></codeline>
+<codeline lineno="244"><highlight class="normal"><sp/><sp/>QStringList<sp/>projSearchPaths<sp/>=<sp/>QgsProjUtils::searchPaths();</highlight></codeline>
+<codeline lineno="245"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>RELATIVE_PREFIX_PATH</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="246"><highlight class="normal"><sp/><sp/>qputenv(<sp/></highlight><highlight class="stringliteral">&quot;SSL_CERT_FILE&quot;</highlight><highlight class="normal">,<sp/>QDir::toNativeSeparators(<sp/>PlatformUtilities::instance()-&gt;systemSharedDataLocation()<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;/cacert.pem&quot;</highlight><highlight class="normal"><sp/>).toLocal8Bit()<sp/>);</highlight></codeline>
+<codeline lineno="247"><highlight class="normal"><sp/><sp/>qputenv(<sp/></highlight><highlight class="stringliteral">&quot;GDAL_DATA&quot;</highlight><highlight class="normal">,<sp/>QDir::toNativeSeparators(<sp/>PlatformUtilities::instance()-&gt;systemSharedDataLocation()<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;/gdal&quot;</highlight><highlight class="normal"><sp/>).toLocal8Bit()<sp/>);</highlight></codeline>
+<codeline lineno="248"><highlight class="normal"><sp/><sp/>projSearchPaths<sp/>&lt;&lt;<sp/>QDir::toNativeSeparators(<sp/>PlatformUtilities::instance()-&gt;systemSharedDataLocation()<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;/proj&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="249"><highlight class="normal"><sp/><sp/>qInfo()<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Proj<sp/>path:<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>projSearchPaths.constLast();</highlight></codeline>
+<codeline lineno="250"><highlight class="normal"></highlight><highlight class="preprocessor">#else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="251"><highlight class="normal"><sp/><sp/>app.setPrefixPath(<sp/>QGIS_PREFIX_PATH,<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="252"><highlight class="normal"><sp/><sp/>qInfo()<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Proj<sp/>path:<sp/>{System}&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="253"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="254"><highlight class="normal"></highlight></codeline>
+<codeline lineno="255"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>add<sp/>extra<sp/>proj<sp/>search<sp/>path<sp/>to<sp/>allow<sp/>copying<sp/>of<sp/>transformation<sp/>grid<sp/>files</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="256"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QStringList<sp/>dataDirs<sp/>=<sp/>PlatformUtilities::instance()-&gt;<ref refid="classPlatformUtilities_1af7ecac1a598bd45b4cf58f105faa792e" kindref="member">appDataDirs</ref>();</highlight></codeline>
+<codeline lineno="257"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;dataDir<sp/>:<sp/>dataDirs<sp/>)</highlight></codeline>
+<codeline lineno="258"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="259"><highlight class="normal"><sp/><sp/><sp/><sp/>projSearchPaths<sp/>&lt;&lt;<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;%1/proj/&quot;</highlight><highlight class="normal"><sp/>).arg(<sp/>dataDir<sp/>);</highlight></codeline>
+<codeline lineno="260"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="261"><highlight class="normal"></highlight></codeline>
+<codeline lineno="262"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>!projSearchPaths.isEmpty()<sp/>)</highlight></codeline>
+<codeline lineno="263"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="264"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>**newPaths<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*[projSearchPaths.count()];</highlight></codeline>
+<codeline lineno="265"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>projSearchPaths.count();<sp/>++i<sp/>)</highlight></codeline>
+<codeline lineno="266"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="267"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>newPaths[i]<sp/>=<sp/>strdup(<sp/>projSearchPaths.at(<sp/>i<sp/>).toUtf8().constData()<sp/>);</highlight></codeline>
+<codeline lineno="268"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="269"><highlight class="normal"><sp/><sp/><sp/><sp/>proj_context_set_search_paths(<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">int</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(<sp/>projSearchPaths.count()<sp/>),<sp/>newPaths<sp/>);</highlight></codeline>
+<codeline lineno="270"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>projSearchPaths.count();<sp/>++i<sp/>)</highlight></codeline>
+<codeline lineno="271"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="272"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>free(<sp/>newPaths[i]<sp/>);</highlight></codeline>
+<codeline lineno="273"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="274"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal">[]<sp/>newPaths;</highlight></codeline>
+<codeline lineno="275"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="276"><highlight class="normal"></highlight></codeline>
+<codeline lineno="277"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>defined(<sp/>Q_OS_ANDROID<sp/>)<sp/>||<sp/>defined(<sp/>Q_OS_IOS<sp/>)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="278"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;dataDir<sp/>:<sp/>dataDirs<sp/>)</highlight></codeline>
+<codeline lineno="279"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="280"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QFileInfo<sp/>pgServiceFileInfo(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;%1/pg_service.conf&quot;</highlight><highlight class="normal"><sp/>).arg(<sp/>dataDir<sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="281"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>pgServiceFileInfo.exists()<sp/>&amp;&amp;<sp/>pgServiceFileInfo.isReadable()<sp/>)</highlight></codeline>
+<codeline lineno="282"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="283"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>systemLocalDataPath<sp/>=<sp/>platformUtils-&gt;<ref refid="classPlatformUtilities_1a0962a50953416044358e4d7f3e108d31" kindref="member">systemLocalDataLocation</ref>(<sp/>QString()<sp/>);</highlight></codeline>
+<codeline lineno="284"><highlight class="normal"></highlight></codeline>
+<codeline lineno="285"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>QFile<sp/>pgServiceFile(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;%1/pg_service.conf&quot;</highlight><highlight class="normal"><sp/>).arg(<sp/>dataDir<sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="286"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>pgServiceFile.open(<sp/>QFile::ReadOnly<sp/>|<sp/>QFile::Text<sp/>);</highlight></codeline>
+<codeline lineno="287"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>QTextStream<sp/>textStream(<sp/>&amp;pgServiceFile<sp/>);</highlight></codeline>
+<codeline lineno="288"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>QString<sp/>psServiceFileContent<sp/>=<sp/>textStream.readAll();</highlight></codeline>
+<codeline lineno="289"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>pgServiceFile.close();</highlight></codeline>
+<codeline lineno="290"><highlight class="normal"></highlight></codeline>
+<codeline lineno="291"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QStringList<sp/>keys<sp/>=<sp/>QStringList()<sp/>&lt;&lt;<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;sslrootcert&quot;</highlight><highlight class="normal"><sp/>)<sp/>&lt;&lt;<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;sslcert&quot;</highlight><highlight class="normal"><sp/>)<sp/>&lt;&lt;<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;sslkey&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="292"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;key<sp/>:<sp/>keys<sp/>)</highlight></codeline>
+<codeline lineno="293"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="294"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QRegularExpression<sp/>rx(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;%1=(.*)&quot;</highlight><highlight class="normal"><sp/>).arg(<sp/>key<sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="295"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>QRegularExpressionMatchIterator<sp/>matchIt<sp/>=<sp/>rx.globalMatch(<sp/>psServiceFileContent<sp/>);</highlight></codeline>
+<codeline lineno="296"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(<sp/>matchIt.hasNext()<sp/>)</highlight></codeline>
+<codeline lineno="297"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="298"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QRegularExpressionMatch<sp/>match<sp/>=<sp/>matchIt.next();</highlight></codeline>
+<codeline lineno="299"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>fileName<sp/>=<sp/>match.captured(<sp/>1<sp/>).trimmed();</highlight></codeline>
+<codeline lineno="300"><highlight class="normal"></highlight></codeline>
+<codeline lineno="301"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Check<sp/>if<sp/>the<sp/>file<sp/>is<sp/>relative<sp/>to<sp/>the<sp/>pg_service.conf,<sp/>in<sp/>which<sp/>case<sp/>copy<sp/>to<sp/>user-owned<sp/>location,<sp/>use<sp/>absolute<sp/>path,<sp/>and<sp/>change<sp/>permissions</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="302"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>filePath<sp/>=<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;%1/%2&quot;</highlight><highlight class="normal"><sp/>).arg(<sp/>dataDir,<sp/>fileName<sp/>);</highlight></codeline>
+<codeline lineno="303"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QFileInfo<sp/>fileInfo(<sp/>filePath<sp/>);</highlight></codeline>
+<codeline lineno="304"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>QFileInfo::exists(<sp/>filePath<sp/>)<sp/>)</highlight></codeline>
+<codeline lineno="305"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="306"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>newFilePath<sp/>=<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;%1/%2&quot;</highlight><highlight class="normal"><sp/>).arg(<sp/>systemLocalDataPath,<sp/>fileName<sp/>);</highlight></codeline>
+<codeline lineno="307"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>QFileInfo::exists(<sp/>newFilePath<sp/>)<sp/>)</highlight></codeline>
+<codeline lineno="308"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="309"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>QFile<sp/>newFile(<sp/>newFilePath<sp/>);</highlight></codeline>
+<codeline lineno="310"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>newFile.remove();</highlight></codeline>
+<codeline lineno="311"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="312"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>QFile::copy(<sp/>filePath,<sp/>newFilePath<sp/>);</highlight></codeline>
+<codeline lineno="313"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>QFile::setPermissions(<sp/>newFilePath,<sp/>QFileDevice::ReadOwner<sp/>|<sp/>QFileDevice::WriteOwner<sp/>);</highlight></codeline>
+<codeline lineno="314"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>psServiceFileContent.replace(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;%1=%2&quot;</highlight><highlight class="normal"><sp/>).arg(<sp/>key,<sp/>match.captured(<sp/>1<sp/>)<sp/>),<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;%1=%2&quot;</highlight><highlight class="normal"><sp/>).arg(<sp/>key,<sp/>newFilePath<sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="315"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="316"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="317"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="318"><highlight class="normal"></highlight></codeline>
+<codeline lineno="319"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>localPgServiceFileName<sp/>=<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;%1/pg_service.conf&quot;</highlight><highlight class="normal"><sp/>).arg(<sp/>systemLocalDataPath<sp/>);</highlight></codeline>
+<codeline lineno="320"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>QFile<sp/>localPgServiceFile(<sp/>localPgServiceFileName<sp/>);</highlight></codeline>
+<codeline lineno="321"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>localPgServiceFile.open(<sp/>QFile::WriteOnly<sp/>);</highlight></codeline>
+<codeline lineno="322"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>localPgServiceFile.write(<sp/>psServiceFileContent.toUtf8()<sp/>);</highlight></codeline>
+<codeline lineno="323"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>localPgServiceFile.close();</highlight></codeline>
+<codeline lineno="324"><highlight class="normal"></highlight></codeline>
+<codeline lineno="325"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>setenv(<sp/></highlight><highlight class="stringliteral">&quot;PGSYSCONFDIR&quot;</highlight><highlight class="normal">,<sp/>systemLocalDataPath.toUtf8(),<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="326"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="327"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="328"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="329"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="330"><highlight class="normal"></highlight></codeline>
+<codeline lineno="331"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>WITH_SENTRY</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="332"><highlight class="normal"><sp/><sp/>sentry_wrapper::install_message_handler();</highlight></codeline>
+<codeline lineno="333"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="334"><highlight class="normal"><sp/><sp/>app.initQgis();</highlight></codeline>
+<codeline lineno="335"><highlight class="normal"><sp/><sp/>app.setThemeName(<sp/>settings.value(<sp/></highlight><highlight class="stringliteral">&quot;/Themes&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;default&quot;</highlight><highlight class="normal"><sp/>).toString()<sp/>);</highlight></codeline>
+<codeline lineno="336"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>RELATIVE_PREFIX_PATH</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="337"><highlight class="normal"><sp/><sp/>app.setPkgDataPath(<sp/>PlatformUtilities::instance()-&gt;systemSharedDataLocation()<sp/>+<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;/qgis&quot;</highlight><highlight class="normal"><sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="338"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="339"><highlight class="normal"><sp/><sp/>app.createDatabase();</highlight></codeline>
+<codeline lineno="340"><highlight class="normal"></highlight></codeline>
+<codeline lineno="341"><highlight class="normal"><sp/><sp/>initAuthManager(<sp/>QgsApplication::authManager()<sp/>);</highlight></codeline>
+<codeline lineno="342"><highlight class="normal"></highlight></codeline>
+<codeline lineno="343"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>!qfieldFontName.isEmpty()<sp/>)</highlight></codeline>
+<codeline lineno="344"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="345"><highlight class="normal"><sp/><sp/><sp/><sp/>QgsStyle<sp/>*defaultStyle<sp/>=<sp/>QgsStyle::defaultStyle();</highlight></codeline>
+<codeline lineno="346"><highlight class="normal"><sp/><sp/><sp/><sp/>QgsTextFormat<sp/>textFormat<sp/>=<sp/>defaultStyle-&gt;defaultTextFormat();</highlight></codeline>
+<codeline lineno="347"><highlight class="normal"><sp/><sp/><sp/><sp/>QFont<sp/>font<sp/>=<sp/>textFormat.font();</highlight></codeline>
+<codeline lineno="348"><highlight class="normal"><sp/><sp/><sp/><sp/>font.setFamily(<sp/>qfieldFontName<sp/>);</highlight></codeline>
+<codeline lineno="349"><highlight class="normal"><sp/><sp/><sp/><sp/>textFormat.setFont(<sp/>font<sp/>);</highlight></codeline>
+<codeline lineno="350"><highlight class="normal"><sp/><sp/><sp/><sp/>defaultStyle-&gt;addTextFormat(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;Default&quot;</highlight><highlight class="normal"><sp/>),<sp/>textFormat,<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="351"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="352"><highlight class="normal"></highlight></codeline>
+<codeline lineno="353"><highlight class="normal"><sp/><sp/>QSettings::setDefaultFormat(<sp/>QSettings::NativeFormat<sp/>);</highlight></codeline>
+<codeline lineno="354"><highlight class="normal"></highlight></codeline>
+<codeline lineno="355"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Set<sp/>up<sp/>the<sp/>QSettings<sp/>environment<sp/>must<sp/>be<sp/>done<sp/>after<sp/>qapp<sp/>is<sp/>created</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="356"><highlight class="normal"><sp/><sp/>QCoreApplication::setOrganizationName(<sp/></highlight><highlight class="stringliteral">&quot;OPENGIS.ch&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="357"><highlight class="normal"><sp/><sp/>QCoreApplication::setOrganizationDomain(<sp/></highlight><highlight class="stringliteral">&quot;opengis.ch&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="358"><highlight class="normal"><sp/><sp/>QCoreApplication::setApplicationName(<sp/>qfield::appName<sp/>);</highlight></codeline>
+<codeline lineno="359"><highlight class="normal"></highlight></codeline>
+<codeline lineno="360"><highlight class="normal"><sp/><sp/>app.installTranslator(<sp/>qtTranslator<sp/>);</highlight></codeline>
+<codeline lineno="361"><highlight class="normal"><sp/><sp/>app.installTranslator(<sp/>qfieldTranslator<sp/>);</highlight></codeline>
+<codeline lineno="362"><highlight class="normal"></highlight></codeline>
+<codeline lineno="363"><highlight class="normal"><sp/><sp/>qputenv(<sp/></highlight><highlight class="stringliteral">&quot;QT_QUICK_CONTROLS_STYLE&quot;</highlight><highlight class="normal">,<sp/>QByteArray(<sp/></highlight><highlight class="stringliteral">&quot;Material&quot;</highlight><highlight class="normal"><sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="364"><highlight class="normal"><sp/><sp/>qputenv(<sp/></highlight><highlight class="stringliteral">&quot;QT_QUICK_CONTROLS_MATERIAL_VARIANT&quot;</highlight><highlight class="normal">,<sp/>QByteArray(<sp/></highlight><highlight class="stringliteral">&quot;Dense&quot;</highlight><highlight class="normal"><sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="365"><highlight class="normal"></highlight></codeline>
+<codeline lineno="366"><highlight class="normal"><sp/><sp/><ref refid="classQgisMobileapp" kindref="compound">QgisMobileapp</ref><sp/>mApp(<sp/>&amp;app<sp/>);</highlight></codeline>
+<codeline lineno="367"><highlight class="normal"></highlight></codeline>
+<codeline lineno="368"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>WITH_SPIX</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="369"><highlight class="normal"><sp/><sp/>spix::AnyRpcServer<sp/>server;</highlight></codeline>
+<codeline lineno="370"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>bot<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>spix::QtQmlBot();</highlight></codeline>
+<codeline lineno="371"><highlight class="normal"><sp/><sp/>bot-&gt;runTestServer(<sp/>server<sp/>);</highlight></codeline>
+<codeline lineno="372"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="373"><highlight class="normal"></highlight></codeline>
+<codeline lineno="374"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>app.exec();</highlight></codeline>
+<codeline lineno="375"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="src/app/main.cpp"/>
+  </compounddef>
+</doxygen>

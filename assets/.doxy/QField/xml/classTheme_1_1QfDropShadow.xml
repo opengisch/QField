@@ -1,0 +1,156 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classTheme_1_1QfDropShadow" kind="class" language="C++" prot="public">
+    <compoundname>Theme::QfDropShadow</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">MultiEffect</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classTheme_1_1QfDropShadow_1a7f136235e37e4e704fde76dd496fb615" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int Theme::QfDropShadow::samples</definition>
+        <argsstring></argsstring>
+        <name>samples</name>
+        <qualifiedname>Theme::QfDropShadow::samples</qualifiedname>
+        <read>dummyGetter_samples_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfDropShadow.qml" line="9" column="1" bodyfile="src/qml/imports/Theme/QfDropShadow.qml" bodystart="9" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classTheme_1_1QfDropShadow_1acdc42b0870db75fe8c14b6328bb21d02" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int Theme::QfDropShadow::radius</definition>
+        <argsstring></argsstring>
+        <name>radius</name>
+        <qualifiedname>Theme::QfDropShadow::radius</qualifiedname>
+        <read>dummyGetter_radius_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfDropShadow.qml" line="11" column="1" bodyfile="src/qml/imports/Theme/QfDropShadow.qml" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classTheme_1_1QfDropShadow_1a2464a728b0d925dc02dce04fa8323402" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool Theme::QfDropShadow::transparentBorder</definition>
+        <argsstring></argsstring>
+        <name>transparentBorder</name>
+        <qualifiedname>Theme::QfDropShadow::transparentBorder</qualifiedname>
+        <read>dummyGetter_transparentBorder_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfDropShadow.qml" line="13" column="1" bodyfile="src/qml/imports/Theme/QfDropShadow.qml" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classTheme_1_1QfDropShadow_1a0cc8f1f2d3d50fc9c8152e7ea9ba98f0" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias Theme::QfDropShadow::color</definition>
+        <argsstring></argsstring>
+        <name>color</name>
+        <qualifiedname>Theme::QfDropShadow::color</qualifiedname>
+        <read>dummyGetter_color_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfDropShadow.qml" line="15" column="1" bodyfile="src/qml/imports/Theme/QfDropShadow.qml" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classTheme_1_1QfDropShadow_1a606ef50ce2966f28c7697f0f8aca3714" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias Theme::QfDropShadow::horizontalOffset</definition>
+        <argsstring></argsstring>
+        <name>horizontalOffset</name>
+        <qualifiedname>Theme::QfDropShadow::horizontalOffset</qualifiedname>
+        <read>dummyGetter_horizontalOffset_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfDropShadow.qml" line="17" column="1" bodyfile="src/qml/imports/Theme/QfDropShadow.qml" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classTheme_1_1QfDropShadow_1afeab3ca370f388c217f84afd33778ff5" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias Theme::QfDropShadow::verticalOffset</definition>
+        <argsstring></argsstring>
+        <name>verticalOffset</name>
+        <qualifiedname>Theme::QfDropShadow::verticalOffset</qualifiedname>
+        <read>dummyGetter_verticalOffset_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfDropShadow.qml" line="19" column="1" bodyfile="src/qml/imports/Theme/QfDropShadow.qml" bodystart="19" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classTheme_1_1QfDropShadow_1acfd64edd4fc5d3e4c0cdbe5f12cabb35" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var Theme::QfDropShadow::shadowEnabled</definition>
+        <argsstring></argsstring>
+        <name>shadowEnabled</name>
+        <qualifiedname>Theme::QfDropShadow::shadowEnabled</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfDropShadow.qml" line="21" column="5" bodyfile="src/qml/imports/Theme/QfDropShadow.qml" bodystart="21" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><bold>Import Statement</bold> <linebreak/>
+ <programlisting><codeline><highlight class="keyword">import</highlight><highlight class="normal"><sp/>Theme<sp/></highlight></codeline>
+</programlisting> <simplesect kind="version"><para>1.0 </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>MultiEffect</label>
+      </node>
+      <node id="1">
+        <label>Theme::QfDropShadow</label>
+        <link refid="classTheme_1_1QfDropShadow"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>MultiEffect</label>
+      </node>
+      <node id="1">
+        <label>Theme::QfDropShadow</label>
+        <link refid="classTheme_1_1QfDropShadow"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/qml/imports/Theme/QfDropShadow.qml" line="6" column="1" bodyfile="src/qml/imports/Theme/QfDropShadow.qml" bodystart="6" bodyend="22"/>
+    <listofallmembers>
+      <member refid="classTheme_1_1QfDropShadow_1a0cc8f1f2d3d50fc9c8152e7ea9ba98f0" prot="public" virt="non-virtual"><scope>Theme::QfDropShadow</scope><name>color</name></member>
+      <member refid="classTheme_1_1QfDropShadow_1a606ef50ce2966f28c7697f0f8aca3714" prot="public" virt="non-virtual"><scope>Theme::QfDropShadow</scope><name>horizontalOffset</name></member>
+      <member refid="classTheme_1_1QfDropShadow_1acdc42b0870db75fe8c14b6328bb21d02" prot="public" virt="non-virtual"><scope>Theme::QfDropShadow</scope><name>radius</name></member>
+      <member refid="classTheme_1_1QfDropShadow_1a7f136235e37e4e704fde76dd496fb615" prot="public" virt="non-virtual"><scope>Theme::QfDropShadow</scope><name>samples</name></member>
+      <member refid="classTheme_1_1QfDropShadow_1acfd64edd4fc5d3e4c0cdbe5f12cabb35" prot="private" virt="non-virtual"><scope>Theme::QfDropShadow</scope><name>shadowEnabled</name></member>
+      <member refid="classTheme_1_1QfDropShadow_1a2464a728b0d925dc02dce04fa8323402" prot="public" virt="non-virtual"><scope>Theme::QfDropShadow</scope><name>transparentBorder</name></member>
+      <member refid="classTheme_1_1QfDropShadow_1afeab3ca370f388c217f84afd33778ff5" prot="public" virt="non-virtual"><scope>Theme::QfDropShadow</scope><name>verticalOffset</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

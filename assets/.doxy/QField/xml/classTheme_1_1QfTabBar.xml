@@ -1,0 +1,170 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classTheme_1_1QfTabBar" kind="class" language="C++" prot="public">
+    <compoundname>Theme::QfTabBar</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">ListView</basecompoundref>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classTheme_1_1QfTabBar_1a80e31b6fc639ead4a7ce86913c0d592a" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var Theme::QfTabBar::orientation</definition>
+        <argsstring></argsstring>
+        <name>orientation</name>
+        <qualifiedname>Theme::QfTabBar::orientation</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfTabBar.qml" line="15" column="5" bodyfile="src/qml/imports/Theme/QfTabBar.qml" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTheme_1_1QfTabBar_1a9c4bb23416d8cdf86a39f67b5a505833" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var Theme::QfTabBar::highlightFollowsCurrentItem</definition>
+        <argsstring></argsstring>
+        <name>highlightFollowsCurrentItem</name>
+        <qualifiedname>Theme::QfTabBar::highlightFollowsCurrentItem</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfTabBar.qml" line="16" column="5" bodyfile="src/qml/imports/Theme/QfTabBar.qml" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTheme_1_1QfTabBar_1a7fcdc0d77f8f2a2e5dd27ddc9fd7da5d" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var Theme::QfTabBar::currentIndex</definition>
+        <argsstring></argsstring>
+        <name>currentIndex</name>
+        <qualifiedname>Theme::QfTabBar::currentIndex</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfTabBar.qml" line="17" column="5" bodyfile="src/qml/imports/Theme/QfTabBar.qml" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTheme_1_1QfTabBar_1a8654d3223634ad017616eb81a74eae2c" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var Theme::QfTabBar::highlight</definition>
+        <argsstring></argsstring>
+        <name>highlight</name>
+        <qualifiedname>Theme::QfTabBar::highlight</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfTabBar.qml" line="18" column="5" bodyfile="src/qml/imports/Theme/QfTabBar.qml" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTheme_1_1QfTabBar_1a17e777204d3746294ae3e37f384cb4cb" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var Theme::QfTabBar::delegate</definition>
+        <argsstring></argsstring>
+        <name>delegate</name>
+        <qualifiedname>Theme::QfTabBar::delegate</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfTabBar.qml" line="19" column="5" bodyfile="src/qml/imports/Theme/QfTabBar.qml" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTheme_1_1QfTabBar_1a9a4f84bb5332e37a7af0b968880ea19a" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var Theme::QfTabBar::onCurrentIndexChanged</definition>
+        <argsstring></argsstring>
+        <name>onCurrentIndexChanged</name>
+        <qualifiedname>Theme::QfTabBar::onCurrentIndexChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfTabBar.qml" line="20" column="5" bodyfile="src/qml/imports/Theme/QfTabBar.qml" bodystart="20" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classTheme_1_1QfTabBar_1acf5e82ed840599edc81217a893f307fa" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>real</type>
+        <definition>real Theme::QfTabBar::defaultHeight</definition>
+        <argsstring></argsstring>
+        <name>defaultHeight</name>
+        <qualifiedname>Theme::QfTabBar::defaultHeight</qualifiedname>
+        <read>dummyGetter_defaultHeight_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfTabBar.qml" line="23" column="1" bodyfile="src/qml/imports/Theme/QfTabBar.qml" bodystart="23" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classTheme_1_1QfTabBar_1a5cddabc3aec1032e9002d884e44cb279" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Theme::QfTabBar::clicked</definition>
+        <argsstring>()</argsstring>
+        <name>clicked</name>
+        <qualifiedname>Theme::QfTabBar::clicked</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfTabBar.qml" line="13" column="17"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><linebreak/>
+ <linebreak/>
+<bold>Import Statement</bold> <linebreak/>
+ <programlisting><codeline><highlight class="keyword">import</highlight><highlight class="normal"><sp/>Theme<sp/></highlight></codeline>
+</programlisting> <simplesect kind="version"><para>1.0 </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>ListView</label>
+      </node>
+      <node id="1">
+        <label>Theme::QfTabBar</label>
+        <link refid="classTheme_1_1QfTabBar"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>ListView</label>
+      </node>
+      <node id="1">
+        <label>Theme::QfTabBar</label>
+        <link refid="classTheme_1_1QfTabBar"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/qml/imports/Theme/QfTabBar.qml" line="10" column="1" bodyfile="src/qml/imports/Theme/QfTabBar.qml" bodystart="10" bodyend="24"/>
+    <listofallmembers>
+      <member refid="classTheme_1_1QfTabBar_1a5cddabc3aec1032e9002d884e44cb279" prot="public" virt="non-virtual"><scope>Theme::QfTabBar</scope><name>clicked</name></member>
+      <member refid="classTheme_1_1QfTabBar_1a7fcdc0d77f8f2a2e5dd27ddc9fd7da5d" prot="private" virt="non-virtual"><scope>Theme::QfTabBar</scope><name>currentIndex</name></member>
+      <member refid="classTheme_1_1QfTabBar_1acf5e82ed840599edc81217a893f307fa" prot="public" virt="non-virtual"><scope>Theme::QfTabBar</scope><name>defaultHeight</name></member>
+      <member refid="classTheme_1_1QfTabBar_1a17e777204d3746294ae3e37f384cb4cb" prot="private" virt="non-virtual"><scope>Theme::QfTabBar</scope><name>delegate</name></member>
+      <member refid="classTheme_1_1QfTabBar_1a8654d3223634ad017616eb81a74eae2c" prot="private" virt="non-virtual"><scope>Theme::QfTabBar</scope><name>highlight</name></member>
+      <member refid="classTheme_1_1QfTabBar_1a9c4bb23416d8cdf86a39f67b5a505833" prot="private" virt="non-virtual"><scope>Theme::QfTabBar</scope><name>highlightFollowsCurrentItem</name></member>
+      <member refid="classTheme_1_1QfTabBar_1a9a4f84bb5332e37a7af0b968880ea19a" prot="private" virt="non-virtual"><scope>Theme::QfTabBar</scope><name>onCurrentIndexChanged</name></member>
+      <member refid="classTheme_1_1QfTabBar_1a80e31b6fc639ead4a7ce86913c0d592a" prot="private" virt="non-virtual"><scope>Theme::QfTabBar</scope><name>orientation</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

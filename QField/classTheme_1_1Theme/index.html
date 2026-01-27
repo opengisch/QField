@@ -1,0 +1,2138 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>Class Theme::Theme - QField API Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="light-green" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#class-themetheme" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="QField API Documentation" class="md-header__button md-logo" aria-label="QField API Documentation" data-md-component="logo">
+      
+  <img src="../../assets/images/qfield_logo_white.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            QField API Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Class Theme::Theme
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="light-green" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.768 3.96zl-.002-.005a9 9 0 0 0-.218-.779c-.13-.394.21-.8.602-.67q.435.144.855.328l.01.005A10.002 10.002 0 0 1 12 22a10 10 0 0 1-9.162-5.985l-.004-.01a10 10 0 0 1-.329-.855c-.13-.392.277-.732.67-.602q.386.126.78.218l.004.002A9 9 0 0 0 14.999 6a9 9 0 0 0-.231-2.04M16.5 6c0 5.799-4.701 10.5-10.5 10.5q-.64 0-1.26-.075A8.5 8.5 0 1 0 16.425 4.74q.075.62.075 1.259Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 19a7 7 0 1 1 0-14 7 7 0 0 1 0 14m0-1.5a5.5 5.5 0 1 0 0-11 5.5 5.5 0 1 0 0 11m-5.657.157a.75.75 0 0 1 0 1.06l-1.768 1.768a.749.749 0 0 1-1.275-.326.75.75 0 0 1 .215-.734l1.767-1.768a.75.75 0 0 1 1.061 0M3.515 3.515a.75.75 0 0 1 1.06 0l1.768 1.768a.749.749 0 0 1-.326 1.275.75.75 0 0 1-.734-.215L3.515 4.575a.75.75 0 0 1 0-1.06M12 0a.75.75 0 0 1 .75.75v2.5a.75.75 0 0 1-1.5 0V.75A.75.75 0 0 1 12 0M4 12a.75.75 0 0 1-.75.75H.75a.75.75 0 0 1 0-1.5h2.5A.75.75 0 0 1 4 12m8 8a.75.75 0 0 1 .75.75v2.5a.75.75 0 0 1-1.5 0v-2.5A.75.75 0 0 1 12 20m12-8a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h2.5A.75.75 0 0 1 24 12m-6.343 5.657a.75.75 0 0 1 1.06 0l1.768 1.768a.75.75 0 0 1-.018 1.042.75.75 0 0 1-1.042.018l-1.768-1.767a.75.75 0 0 1 0-1.061m2.828-14.142a.75.75 0 0 1 0 1.06l-1.768 1.768a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l1.767-1.768a.75.75 0 0 1 1.061 0"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="QField API Documentation" class="md-nav__button md-logo" aria-label="QField API Documentation" data-md-component="logo">
+      
+  <img src="../../assets/images/qfield_logo_white.svg" alt="logo">
+
+    </a>
+    QField API Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../snippets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Code Snippets
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../group__core/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    C++ Classes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../group__qml/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    QML Items
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#public-properties" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Properties
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Functions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#detailed-description" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Detailed Description
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-properties-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Properties Documentation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Public Properties Documentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#property-accuracybad" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property accuracyBad
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-accuracyexcellent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property accuracyExcellent
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-accuracytolerated" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property accuracyTolerated
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-bookmarkblue" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property bookmarkBlue
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-bookmarkdefault" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property bookmarkDefault
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-bookmarkorange" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property bookmarkOrange
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-bookmarkred" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property bookmarkRed
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-buttontextcolor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property buttonTextColor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-cloudcolor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property cloudColor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-controlbackgroundalternatecolor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property controlBackgroundAlternateColor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-controlbackgroundcolor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property controlBackgroundColor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-controlbackgrounddisabledcolor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property controlBackgroundDisabledColor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-controlbordercolor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property controlBorderColor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-darkgray" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property darkGray
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-darkgraysemiopaque" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property darkGraySemiOpaque
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-darkpositioncolor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property darkPositionColor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-darkpositioncolorsemiopaque" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property darkPositionColorSemiOpaque
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-darkred" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property darkRed
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-darktheme" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property darkTheme
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-darkthemecolors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property darkThemeColors
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-defaultfont" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property defaultFont
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-errorcolor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property errorColor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-fontscale" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property fontScale
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-goodcolor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property goodColor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-gray" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property gray
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-groupboxbackgroundcolor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property groupBoxBackgroundColor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-groupboxsurfacecolor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property groupBoxSurfaceColor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-light" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property light
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-lightgray" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property lightGray
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-lightthemecolors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property lightThemeColors
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-lightestgray" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property lightestGray
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-lightestgraysemiopaque" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property lightestGraySemiOpaque
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-mainbackgroundcolor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property mainBackgroundColor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-mainbackgroundcolorsemiopaque" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property mainBackgroundColorSemiOpaque
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-maincolor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property mainColor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-maincolorsemiopaque" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property mainColorSemiOpaque
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-mainoverlaycolor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property mainOverlayColor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-maintextcolor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property mainTextColor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-maintextdisabledcolor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property mainTextDisabledColor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-menuitemcheckleftpadding" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property menuItemCheckLeftPadding
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-menuitemiconlessleftpadding" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property menuItemIconlessLeftPadding
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-menuitemleftpadding" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property menuItemLeftPadding
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-navigationbackgroundcolor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property navigationBackgroundColor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-navigationcolor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property navigationColor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-navigationcolorsemiopaque" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property navigationColorSemiOpaque
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-popupscreenedgehorizontalmargin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property popupScreenEdgeHorizontalMargin
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-popupscreenedgeverticalmargin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property popupScreenEdgeVerticalMargin
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-positionbackgroundcolor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property positionBackgroundColor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-positioncolor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property positionColor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-positioncolorsemiopaque" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property positionColorSemiOpaque
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-processingpreview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property processingPreview
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-resultfont" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property resultFont
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-scrollbarbackgroundcolor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property scrollBarBackgroundColor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-secondarytextcolor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property secondaryTextColor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-secondarytitlefont" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property secondaryTitleFont
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-sensorbackgroundcolor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property sensorBackgroundColor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-strongfont" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property strongFont
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-strongtipfont" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property strongTipFont
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-strongtitlefont" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property strongTitleFont
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-tinyfont" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property tinyFont
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-tipfont" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property tipFont
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-titlefont" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property titleFont
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-toolbuttonbackgroundcolor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property toolButtonBackgroundColor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-toolbuttonbackgroundsemiopaquecolor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property toolButtonBackgroundSemiOpaqueColor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-toolbuttoncolor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property toolButtonColor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-vertexcolor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property vertexColor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-vertexcolorsemiopaque" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property vertexColorSemiOpaque
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-vertexnewcolor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property vertexNewColor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-vertexnewcolorsemiopaque" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property vertexNewColorSemiOpaque
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-vertexselectedcolor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property vertexSelectedColor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-vertexselectedcolorsemiopaque" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property vertexSelectedColorSemiOpaque
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-warningcolor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property warningColor
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-functions-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Functions Documentation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Public Functions Documentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#function-applyappearance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function applyAppearance
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-applycolors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function applyColors
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-applyfontscale" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function applyFontScale
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-colortohtml" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function colorToHtml
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-getthemeicon" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function getThemeIcon
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-getthemevectoricon" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function getThemeVectorIcon
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-toinlinestyles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function toInlineStyles
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="class-themetheme">Class Theme::Theme</h1>
+<p><a href="../annotated/"><strong>ClassList</strong></a> <strong>&gt;</strong> <a href="../namespaceTheme/"><strong>Theme</strong></a> <strong>&gt;</strong> <a href="./"><strong>Theme</strong></a></p>
+<p><a href="#detailed-description">More...</a></p>
+<p>Inherits the following classes: QtQml::QtObject</p>
+<h2 id="public-properties">Public Properties</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Type</th>
+<th style="text-align: left;">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">property color</td>
+<td style="text-align: left;"><a href="./#property-accuracybad"><strong>accuracyBad</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property color</td>
+<td style="text-align: left;"><a href="./#property-accuracyexcellent"><strong>accuracyExcellent</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property color</td>
+<td style="text-align: left;"><a href="./#property-accuracytolerated"><strong>accuracyTolerated</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property color</td>
+<td style="text-align: left;"><a href="./#property-bookmarkblue"><strong>bookmarkBlue</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property color</td>
+<td style="text-align: left;"><a href="./#property-bookmarkdefault"><strong>bookmarkDefault</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property color</td>
+<td style="text-align: left;"><a href="./#property-bookmarkorange"><strong>bookmarkOrange</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property color</td>
+<td style="text-align: left;"><a href="./#property-bookmarkred"><strong>bookmarkRed</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property color</td>
+<td style="text-align: left;"><a href="./#property-buttontextcolor"><strong>buttonTextColor</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property color</td>
+<td style="text-align: left;"><a href="./#property-cloudcolor"><strong>cloudColor</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property color</td>
+<td style="text-align: left;"><a href="./#property-controlbackgroundalternatecolor"><strong>controlBackgroundAlternateColor</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property color</td>
+<td style="text-align: left;"><a href="./#property-controlbackgroundcolor"><strong>controlBackgroundColor</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property color</td>
+<td style="text-align: left;"><a href="./#property-controlbackgrounddisabledcolor"><strong>controlBackgroundDisabledColor</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property color</td>
+<td style="text-align: left;"><a href="./#property-controlbordercolor"><strong>controlBorderColor</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property color</td>
+<td style="text-align: left;"><a href="./#property-darkgray"><strong>darkGray</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property color</td>
+<td style="text-align: left;"><a href="./#property-darkgraysemiopaque"><strong>darkGraySemiOpaque</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property color</td>
+<td style="text-align: left;"><a href="./#property-darkpositioncolor"><strong>darkPositionColor</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property color</td>
+<td style="text-align: left;"><a href="./#property-darkpositioncolorsemiopaque"><strong>darkPositionColorSemiOpaque</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property color</td>
+<td style="text-align: left;"><a href="./#property-darkred"><strong>darkRed</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property bool</td>
+<td style="text-align: left;"><a href="./#property-darktheme"><strong>darkTheme</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property var</td>
+<td style="text-align: left;"><a href="./#property-darkthemecolors"><strong>darkThemeColors</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property font</td>
+<td style="text-align: left;"><a href="./#property-defaultfont"><strong>defaultFont</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property color</td>
+<td style="text-align: left;"><a href="./#property-errorcolor"><strong>errorColor</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property real</td>
+<td style="text-align: left;"><a href="./#property-fontscale"><strong>fontScale</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property color</td>
+<td style="text-align: left;"><a href="./#property-goodcolor"><strong>goodColor</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property color</td>
+<td style="text-align: left;"><a href="./#property-gray"><strong>gray</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property color</td>
+<td style="text-align: left;"><a href="./#property-groupboxbackgroundcolor"><strong>groupBoxBackgroundColor</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property color</td>
+<td style="text-align: left;"><a href="./#property-groupboxsurfacecolor"><strong>groupBoxSurfaceColor</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property color</td>
+<td style="text-align: left;"><a href="./#property-light"><strong>light</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property color</td>
+<td style="text-align: left;"><a href="./#property-lightgray"><strong>lightGray</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property var</td>
+<td style="text-align: left;"><a href="./#property-lightthemecolors"><strong>lightThemeColors</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property color</td>
+<td style="text-align: left;"><a href="./#property-lightestgray"><strong>lightestGray</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property color</td>
+<td style="text-align: left;"><a href="./#property-lightestgraysemiopaque"><strong>lightestGraySemiOpaque</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property color</td>
+<td style="text-align: left;"><a href="./#property-mainbackgroundcolor"><strong>mainBackgroundColor</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property color</td>
+<td style="text-align: left;"><a href="./#property-mainbackgroundcolorsemiopaque"><strong>mainBackgroundColorSemiOpaque</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property color</td>
+<td style="text-align: left;"><a href="./#property-maincolor"><strong>mainColor</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property color</td>
+<td style="text-align: left;"><a href="./#property-maincolorsemiopaque"><strong>mainColorSemiOpaque</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property color</td>
+<td style="text-align: left;"><a href="./#property-mainoverlaycolor"><strong>mainOverlayColor</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property color</td>
+<td style="text-align: left;"><a href="./#property-maintextcolor"><strong>mainTextColor</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property color</td>
+<td style="text-align: left;"><a href="./#property-maintextdisabledcolor"><strong>mainTextDisabledColor</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property int</td>
+<td style="text-align: left;"><a href="./#property-menuitemcheckleftpadding"><strong>menuItemCheckLeftPadding</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property int</td>
+<td style="text-align: left;"><a href="./#property-menuitemiconlessleftpadding"><strong>menuItemIconlessLeftPadding</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property int</td>
+<td style="text-align: left;"><a href="./#property-menuitemleftpadding"><strong>menuItemLeftPadding</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property color</td>
+<td style="text-align: left;"><a href="./#property-navigationbackgroundcolor"><strong>navigationBackgroundColor</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property color</td>
+<td style="text-align: left;"><a href="./#property-navigationcolor"><strong>navigationColor</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property color</td>
+<td style="text-align: left;"><a href="./#property-navigationcolorsemiopaque"><strong>navigationColorSemiOpaque</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property int</td>
+<td style="text-align: left;"><a href="./#property-popupscreenedgehorizontalmargin"><strong>popupScreenEdgeHorizontalMargin</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property int</td>
+<td style="text-align: left;"><a href="./#property-popupscreenedgeverticalmargin"><strong>popupScreenEdgeVerticalMargin</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property color</td>
+<td style="text-align: left;"><a href="./#property-positionbackgroundcolor"><strong>positionBackgroundColor</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property color</td>
+<td style="text-align: left;"><a href="./#property-positioncolor"><strong>positionColor</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property color</td>
+<td style="text-align: left;"><a href="./#property-positioncolorsemiopaque"><strong>positionColorSemiOpaque</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property color</td>
+<td style="text-align: left;"><a href="./#property-processingpreview"><strong>processingPreview</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property font</td>
+<td style="text-align: left;"><a href="./#property-resultfont"><strong>resultFont</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property color</td>
+<td style="text-align: left;"><a href="./#property-scrollbarbackgroundcolor"><strong>scrollBarBackgroundColor</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property color</td>
+<td style="text-align: left;"><a href="./#property-secondarytextcolor"><strong>secondaryTextColor</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property font</td>
+<td style="text-align: left;"><a href="./#property-secondarytitlefont"><strong>secondaryTitleFont</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property color</td>
+<td style="text-align: left;"><a href="./#property-sensorbackgroundcolor"><strong>sensorBackgroundColor</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property font</td>
+<td style="text-align: left;"><a href="./#property-strongfont"><strong>strongFont</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property font</td>
+<td style="text-align: left;"><a href="./#property-strongtipfont"><strong>strongTipFont</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property font</td>
+<td style="text-align: left;"><a href="./#property-strongtitlefont"><strong>strongTitleFont</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property font</td>
+<td style="text-align: left;"><a href="./#property-tinyfont"><strong>tinyFont</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property font</td>
+<td style="text-align: left;"><a href="./#property-tipfont"><strong>tipFont</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property font</td>
+<td style="text-align: left;"><a href="./#property-titlefont"><strong>titleFont</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property color</td>
+<td style="text-align: left;"><a href="./#property-toolbuttonbackgroundcolor"><strong>toolButtonBackgroundColor</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property color</td>
+<td style="text-align: left;"><a href="./#property-toolbuttonbackgroundsemiopaquecolor"><strong>toolButtonBackgroundSemiOpaqueColor</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property color</td>
+<td style="text-align: left;"><a href="./#property-toolbuttoncolor"><strong>toolButtonColor</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property color</td>
+<td style="text-align: left;"><a href="./#property-vertexcolor"><strong>vertexColor</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property color</td>
+<td style="text-align: left;"><a href="./#property-vertexcolorsemiopaque"><strong>vertexColorSemiOpaque</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property color</td>
+<td style="text-align: left;"><a href="./#property-vertexnewcolor"><strong>vertexNewColor</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property color</td>
+<td style="text-align: left;"><a href="./#property-vertexnewcolorsemiopaque"><strong>vertexNewColorSemiOpaque</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property color</td>
+<td style="text-align: left;"><a href="./#property-vertexselectedcolor"><strong>vertexSelectedColor</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property color</td>
+<td style="text-align: left;"><a href="./#property-vertexselectedcolorsemiopaque"><strong>vertexSelectedColorSemiOpaque</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property color</td>
+<td style="text-align: left;"><a href="./#property-warningcolor"><strong>warningColor</strong></a>  <br></td>
+</tr>
+</tbody>
+</table>
+<h2 id="public-functions">Public Functions</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Type</th>
+<th style="text-align: left;">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-applyappearance"><strong>applyAppearance</strong></a> (colors, baseAppearance) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-applycolors"><strong>applyColors</strong></a> (colors) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-applyfontscale"><strong>applyFontScale</strong></a> () <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-colortohtml"><strong>colorToHtml</strong></a> (color) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-getthemeicon"><strong>getThemeIcon</strong></a> (name) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-getthemevectoricon"><strong>getThemeVectorIcon</strong></a> (name) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-toinlinestyles"><strong>toInlineStyles</strong></a> (styleProperties) <br></td>
+</tr>
+</tbody>
+</table>
+<h2 id="detailed-description">Detailed Description</h2>
+<p><strong>Remark:</strong></p>
+<p>This component is a singleton </p>
+<p><strong>Import Statement</strong> </p>
+<pre><code class="language-C++">import Theme 
+</code></pre>
+<h2 id="public-properties-documentation">Public Properties Documentation</h2>
+<h3 id="property-accuracybad">property accuracyBad</h3>
+<pre><code class="language-C++">color Theme::Theme::accuracyBad;
+</code></pre>
+<hr>
+
+<h3 id="property-accuracyexcellent">property accuracyExcellent</h3>
+<pre><code class="language-C++">color Theme::Theme::accuracyExcellent;
+</code></pre>
+<hr>
+
+<h3 id="property-accuracytolerated">property accuracyTolerated</h3>
+<pre><code class="language-C++">color Theme::Theme::accuracyTolerated;
+</code></pre>
+<hr>
+
+<h3 id="property-bookmarkblue">property bookmarkBlue</h3>
+<pre><code class="language-C++">color Theme::Theme::bookmarkBlue;
+</code></pre>
+<hr>
+
+<h3 id="property-bookmarkdefault">property bookmarkDefault</h3>
+<pre><code class="language-C++">color Theme::Theme::bookmarkDefault;
+</code></pre>
+<hr>
+
+<h3 id="property-bookmarkorange">property bookmarkOrange</h3>
+<pre><code class="language-C++">color Theme::Theme::bookmarkOrange;
+</code></pre>
+<hr>
+
+<h3 id="property-bookmarkred">property bookmarkRed</h3>
+<pre><code class="language-C++">color Theme::Theme::bookmarkRed;
+</code></pre>
+<hr>
+
+<h3 id="property-buttontextcolor">property buttonTextColor</h3>
+<pre><code class="language-C++">color Theme::Theme::buttonTextColor;
+</code></pre>
+<hr>
+
+<h3 id="property-cloudcolor">property cloudColor</h3>
+<pre><code class="language-C++">color Theme::Theme::cloudColor;
+</code></pre>
+<hr>
+
+<h3 id="property-controlbackgroundalternatecolor">property controlBackgroundAlternateColor</h3>
+<pre><code class="language-C++">color Theme::Theme::controlBackgroundAlternateColor;
+</code></pre>
+<hr>
+
+<h3 id="property-controlbackgroundcolor">property controlBackgroundColor</h3>
+<pre><code class="language-C++">color Theme::Theme::controlBackgroundColor;
+</code></pre>
+<hr>
+
+<h3 id="property-controlbackgrounddisabledcolor">property controlBackgroundDisabledColor</h3>
+<pre><code class="language-C++">color Theme::Theme::controlBackgroundDisabledColor;
+</code></pre>
+<hr>
+
+<h3 id="property-controlbordercolor">property controlBorderColor</h3>
+<pre><code class="language-C++">color Theme::Theme::controlBorderColor;
+</code></pre>
+<hr>
+
+<h3 id="property-darkgray">property darkGray</h3>
+<pre><code class="language-C++">color Theme::Theme::darkGray;
+</code></pre>
+<hr>
+
+<h3 id="property-darkgraysemiopaque">property darkGraySemiOpaque</h3>
+<pre><code class="language-C++">color Theme::Theme::darkGraySemiOpaque;
+</code></pre>
+<hr>
+
+<h3 id="property-darkpositioncolor">property darkPositionColor</h3>
+<pre><code class="language-C++">color Theme::Theme::darkPositionColor;
+</code></pre>
+<hr>
+
+<h3 id="property-darkpositioncolorsemiopaque">property darkPositionColorSemiOpaque</h3>
+<pre><code class="language-C++">color Theme::Theme::darkPositionColorSemiOpaque;
+</code></pre>
+<hr>
+
+<h3 id="property-darkred">property darkRed</h3>
+<pre><code class="language-C++">color Theme::Theme::darkRed;
+</code></pre>
+<hr>
+
+<h3 id="property-darktheme">property darkTheme</h3>
+<pre><code class="language-C++">bool Theme::Theme::darkTheme;
+</code></pre>
+<hr>
+
+<h3 id="property-darkthemecolors">property darkThemeColors</h3>
+<pre><code class="language-C++">var Theme::Theme::darkThemeColors;
+</code></pre>
+<hr>
+
+<h3 id="property-defaultfont">property defaultFont</h3>
+<pre><code class="language-C++">font Theme::Theme::defaultFont;
+</code></pre>
+<hr>
+
+<h3 id="property-errorcolor">property errorColor</h3>
+<pre><code class="language-C++">color Theme::Theme::errorColor;
+</code></pre>
+<hr>
+
+<h3 id="property-fontscale">property fontScale</h3>
+<pre><code class="language-C++">real Theme::Theme::fontScale;
+</code></pre>
+<hr>
+
+<h3 id="property-goodcolor">property goodColor</h3>
+<pre><code class="language-C++">color Theme::Theme::goodColor;
+</code></pre>
+<hr>
+
+<h3 id="property-gray">property gray</h3>
+<pre><code class="language-C++">color Theme::Theme::gray;
+</code></pre>
+<hr>
+
+<h3 id="property-groupboxbackgroundcolor">property groupBoxBackgroundColor</h3>
+<pre><code class="language-C++">color Theme::Theme::groupBoxBackgroundColor;
+</code></pre>
+<hr>
+
+<h3 id="property-groupboxsurfacecolor">property groupBoxSurfaceColor</h3>
+<pre><code class="language-C++">color Theme::Theme::groupBoxSurfaceColor;
+</code></pre>
+<hr>
+
+<h3 id="property-light">property light</h3>
+<pre><code class="language-C++">color Theme::Theme::light;
+</code></pre>
+<hr>
+
+<h3 id="property-lightgray">property lightGray</h3>
+<pre><code class="language-C++">color Theme::Theme::lightGray;
+</code></pre>
+<hr>
+
+<h3 id="property-lightthemecolors">property lightThemeColors</h3>
+<pre><code class="language-C++">var Theme::Theme::lightThemeColors;
+</code></pre>
+<hr>
+
+<h3 id="property-lightestgray">property lightestGray</h3>
+<pre><code class="language-C++">color Theme::Theme::lightestGray;
+</code></pre>
+<hr>
+
+<h3 id="property-lightestgraysemiopaque">property lightestGraySemiOpaque</h3>
+<pre><code class="language-C++">color Theme::Theme::lightestGraySemiOpaque;
+</code></pre>
+<hr>
+
+<h3 id="property-mainbackgroundcolor">property mainBackgroundColor</h3>
+<pre><code class="language-C++">color Theme::Theme::mainBackgroundColor;
+</code></pre>
+<hr>
+
+<h3 id="property-mainbackgroundcolorsemiopaque">property mainBackgroundColorSemiOpaque</h3>
+<pre><code class="language-C++">color Theme::Theme::mainBackgroundColorSemiOpaque;
+</code></pre>
+<hr>
+
+<h3 id="property-maincolor">property mainColor</h3>
+<pre><code class="language-C++">color Theme::Theme::mainColor;
+</code></pre>
+<hr>
+
+<h3 id="property-maincolorsemiopaque">property mainColorSemiOpaque</h3>
+<pre><code class="language-C++">color Theme::Theme::mainColorSemiOpaque;
+</code></pre>
+<hr>
+
+<h3 id="property-mainoverlaycolor">property mainOverlayColor</h3>
+<pre><code class="language-C++">color Theme::Theme::mainOverlayColor;
+</code></pre>
+<hr>
+
+<h3 id="property-maintextcolor">property mainTextColor</h3>
+<pre><code class="language-C++">color Theme::Theme::mainTextColor;
+</code></pre>
+<hr>
+
+<h3 id="property-maintextdisabledcolor">property mainTextDisabledColor</h3>
+<pre><code class="language-C++">color Theme::Theme::mainTextDisabledColor;
+</code></pre>
+<hr>
+
+<h3 id="property-menuitemcheckleftpadding">property menuItemCheckLeftPadding</h3>
+<pre><code class="language-C++">int Theme::Theme::menuItemCheckLeftPadding;
+</code></pre>
+<p><strong>Remark:</strong></p>
+<p>This property is read-only </p>
+<hr>
+
+<h3 id="property-menuitemiconlessleftpadding">property menuItemIconlessLeftPadding</h3>
+<pre><code class="language-C++">int Theme::Theme::menuItemIconlessLeftPadding;
+</code></pre>
+<p><strong>Remark:</strong></p>
+<p>This property is read-only </p>
+<hr>
+
+<h3 id="property-menuitemleftpadding">property menuItemLeftPadding</h3>
+<pre><code class="language-C++">int Theme::Theme::menuItemLeftPadding;
+</code></pre>
+<p><strong>Remark:</strong></p>
+<p>This property is read-only </p>
+<hr>
+
+<h3 id="property-navigationbackgroundcolor">property navigationBackgroundColor</h3>
+<pre><code class="language-C++">color Theme::Theme::navigationBackgroundColor;
+</code></pre>
+<hr>
+
+<h3 id="property-navigationcolor">property navigationColor</h3>
+<pre><code class="language-C++">color Theme::Theme::navigationColor;
+</code></pre>
+<hr>
+
+<h3 id="property-navigationcolorsemiopaque">property navigationColorSemiOpaque</h3>
+<pre><code class="language-C++">color Theme::Theme::navigationColorSemiOpaque;
+</code></pre>
+<hr>
+
+<h3 id="property-popupscreenedgehorizontalmargin">property popupScreenEdgeHorizontalMargin</h3>
+<pre><code class="language-C++">int Theme::Theme::popupScreenEdgeHorizontalMargin;
+</code></pre>
+<p><strong>Remark:</strong></p>
+<p>This property is read-only </p>
+<hr>
+
+<h3 id="property-popupscreenedgeverticalmargin">property popupScreenEdgeVerticalMargin</h3>
+<pre><code class="language-C++">int Theme::Theme::popupScreenEdgeVerticalMargin;
+</code></pre>
+<p><strong>Remark:</strong></p>
+<p>This property is read-only </p>
+<hr>
+
+<h3 id="property-positionbackgroundcolor">property positionBackgroundColor</h3>
+<pre><code class="language-C++">color Theme::Theme::positionBackgroundColor;
+</code></pre>
+<hr>
+
+<h3 id="property-positioncolor">property positionColor</h3>
+<pre><code class="language-C++">color Theme::Theme::positionColor;
+</code></pre>
+<hr>
+
+<h3 id="property-positioncolorsemiopaque">property positionColorSemiOpaque</h3>
+<pre><code class="language-C++">color Theme::Theme::positionColorSemiOpaque;
+</code></pre>
+<hr>
+
+<h3 id="property-processingpreview">property processingPreview</h3>
+<pre><code class="language-C++">color Theme::Theme::processingPreview;
+</code></pre>
+<hr>
+
+<h3 id="property-resultfont">property resultFont</h3>
+<pre><code class="language-C++">font Theme::Theme::resultFont;
+</code></pre>
+<hr>
+
+<h3 id="property-scrollbarbackgroundcolor">property scrollBarBackgroundColor</h3>
+<pre><code class="language-C++">color Theme::Theme::scrollBarBackgroundColor;
+</code></pre>
+<hr>
+
+<h3 id="property-secondarytextcolor">property secondaryTextColor</h3>
+<pre><code class="language-C++">color Theme::Theme::secondaryTextColor;
+</code></pre>
+<hr>
+
+<h3 id="property-secondarytitlefont">property secondaryTitleFont</h3>
+<pre><code class="language-C++">font Theme::Theme::secondaryTitleFont;
+</code></pre>
+<hr>
+
+<h3 id="property-sensorbackgroundcolor">property sensorBackgroundColor</h3>
+<pre><code class="language-C++">color Theme::Theme::sensorBackgroundColor;
+</code></pre>
+<hr>
+
+<h3 id="property-strongfont">property strongFont</h3>
+<pre><code class="language-C++">font Theme::Theme::strongFont;
+</code></pre>
+<hr>
+
+<h3 id="property-strongtipfont">property strongTipFont</h3>
+<pre><code class="language-C++">font Theme::Theme::strongTipFont;
+</code></pre>
+<hr>
+
+<h3 id="property-strongtitlefont">property strongTitleFont</h3>
+<pre><code class="language-C++">font Theme::Theme::strongTitleFont;
+</code></pre>
+<hr>
+
+<h3 id="property-tinyfont">property tinyFont</h3>
+<pre><code class="language-C++">font Theme::Theme::tinyFont;
+</code></pre>
+<hr>
+
+<h3 id="property-tipfont">property tipFont</h3>
+<pre><code class="language-C++">font Theme::Theme::tipFont;
+</code></pre>
+<hr>
+
+<h3 id="property-titlefont">property titleFont</h3>
+<pre><code class="language-C++">font Theme::Theme::titleFont;
+</code></pre>
+<hr>
+
+<h3 id="property-toolbuttonbackgroundcolor">property toolButtonBackgroundColor</h3>
+<pre><code class="language-C++">color Theme::Theme::toolButtonBackgroundColor;
+</code></pre>
+<hr>
+
+<h3 id="property-toolbuttonbackgroundsemiopaquecolor">property toolButtonBackgroundSemiOpaqueColor</h3>
+<pre><code class="language-C++">color Theme::Theme::toolButtonBackgroundSemiOpaqueColor;
+</code></pre>
+<hr>
+
+<h3 id="property-toolbuttoncolor">property toolButtonColor</h3>
+<pre><code class="language-C++">color Theme::Theme::toolButtonColor;
+</code></pre>
+<hr>
+
+<h3 id="property-vertexcolor">property vertexColor</h3>
+<pre><code class="language-C++">color Theme::Theme::vertexColor;
+</code></pre>
+<hr>
+
+<h3 id="property-vertexcolorsemiopaque">property vertexColorSemiOpaque</h3>
+<pre><code class="language-C++">color Theme::Theme::vertexColorSemiOpaque;
+</code></pre>
+<hr>
+
+<h3 id="property-vertexnewcolor">property vertexNewColor</h3>
+<pre><code class="language-C++">color Theme::Theme::vertexNewColor;
+</code></pre>
+<hr>
+
+<h3 id="property-vertexnewcolorsemiopaque">property vertexNewColorSemiOpaque</h3>
+<pre><code class="language-C++">color Theme::Theme::vertexNewColorSemiOpaque;
+</code></pre>
+<hr>
+
+<h3 id="property-vertexselectedcolor">property vertexSelectedColor</h3>
+<pre><code class="language-C++">color Theme::Theme::vertexSelectedColor;
+</code></pre>
+<hr>
+
+<h3 id="property-vertexselectedcolorsemiopaque">property vertexSelectedColorSemiOpaque</h3>
+<pre><code class="language-C++">color Theme::Theme::vertexSelectedColorSemiOpaque;
+</code></pre>
+<hr>
+
+<h3 id="property-warningcolor">property warningColor</h3>
+<pre><code class="language-C++">color Theme::Theme::warningColor;
+</code></pre>
+<hr>
+<h2 id="public-functions-documentation">Public Functions Documentation</h2>
+<h3 id="function-applyappearance">function applyAppearance</h3>
+<pre><code class="language-C++">void Theme::Theme::applyAppearance (
+    colors,
+    baseAppearance
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-applycolors">function applyColors</h3>
+<pre><code class="language-C++">void Theme::Theme::applyColors (
+    colors
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-applyfontscale">function applyFontScale</h3>
+<pre><code class="language-C++">void Theme::Theme::applyFontScale () 
+</code></pre>
+<hr>
+
+<h3 id="function-colortohtml">function colorToHtml</h3>
+<pre><code class="language-C++">void Theme::Theme::colorToHtml (
+    color
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-getthemeicon">function getThemeIcon</h3>
+<pre><code class="language-C++">void Theme::Theme::getThemeIcon (
+    name
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-getthemevectoricon">function getThemeVectorIcon</h3>
+<pre><code class="language-C++">void Theme::Theme::getThemeVectorIcon (
+    name
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-toinlinestyles">function toInlineStyles</h3>
+<pre><code class="language-C++">void Theme::Theme::toInlineStyles (
+    styleProperties
+) 
+</code></pre>
+<hr>
+
+<hr />
+<p>The documentation for this class was generated from the following file <code>src/qml/imports/Theme/Theme.qml</code></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2023 <a href="https://OPENGIS.ch">OPENGIS.ch</a> -  <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank">CC-BY-SA 4.0</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

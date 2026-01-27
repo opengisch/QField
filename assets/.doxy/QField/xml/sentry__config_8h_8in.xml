@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="sentry__config_8h_8in" kind="file" language="C++">
+    <compoundname>sentry_config.h.in</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline><highlight class="normal">const<sp/>char<sp/>*sentryDsn<sp/>=<sp/>&quot;@SENTRY_DSN@&quot;;</highlight></codeline>
+<codeline><highlight class="normal">const<sp/>char<sp/>*sentryEnv<sp/>=<sp/>&quot;@SENTRY_ENV@&quot;;</highlight></codeline>
+    </programlisting>
+    <location file="src/sentry/sentry_config.h.in"/>
+  </compounddef>
+</doxygen>

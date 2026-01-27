@@ -1,0 +1,105 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structDeltaListModel_1_1Delta" kind="struct" language="C++" prot="public">
+    <compoundname>DeltaListModel::Delta</compoundname>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structDeltaListModel_1_1Delta_1ae2086d4d4cc669d868a14f0a0efd9d6f" prot="public" static="no" mutable="no">
+        <type>QUuid</type>
+        <definition>QUuid DeltaListModel::Delta::id</definition>
+        <argsstring></argsstring>
+        <name>id</name>
+        <qualifiedname>DeltaListModel::Delta::id</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/deltalistmodel.h" line="59" column="15" bodyfile="src/core/qfieldcloud/deltalistmodel.h" bodystart="59" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structDeltaListModel_1_1Delta_1a6ad2b88a4a957f74b944f71e9a0a2a34" prot="public" static="no" mutable="no">
+        <type>QUuid</type>
+        <definition>QUuid DeltaListModel::Delta::deltafileId</definition>
+        <argsstring></argsstring>
+        <name>deltafileId</name>
+        <qualifiedname>DeltaListModel::Delta::deltafileId</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/deltalistmodel.h" line="60" column="15" bodyfile="src/core/qfieldcloud/deltalistmodel.h" bodystart="60" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structDeltaListModel_1_1Delta_1a39c7d1d6f504bd8d1ccfae8a0b7488f1" prot="public" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString DeltaListModel::Delta::createdAt</definition>
+        <argsstring></argsstring>
+        <name>createdAt</name>
+        <qualifiedname>DeltaListModel::Delta::createdAt</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/deltalistmodel.h" line="61" column="17" bodyfile="src/core/qfieldcloud/deltalistmodel.h" bodystart="61" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structDeltaListModel_1_1Delta_1a106c57a39362e8d8bd7686c3db780a5b" prot="public" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString DeltaListModel::Delta::updatedAt</definition>
+        <argsstring></argsstring>
+        <name>updatedAt</name>
+        <qualifiedname>DeltaListModel::Delta::updatedAt</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/deltalistmodel.h" line="62" column="17" bodyfile="src/core/qfieldcloud/deltalistmodel.h" bodystart="62" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structDeltaListModel_1_1Delta_1a6cb0b10c67a3006f09f4c6164df6abeb" prot="public" static="no" mutable="no">
+        <type>Status</type>
+        <definition>Status DeltaListModel::Delta::status</definition>
+        <argsstring></argsstring>
+        <name>status</name>
+        <qualifiedname>DeltaListModel::Delta::status</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/deltalistmodel.h" line="63" column="16" bodyfile="src/core/qfieldcloud/deltalistmodel.h" bodystart="63" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structDeltaListModel_1_1Delta_1ab7ae9e51fc850edc77a8cf9ce527df89" prot="public" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString DeltaListModel::Delta::output</definition>
+        <argsstring></argsstring>
+        <name>output</name>
+        <qualifiedname>DeltaListModel::Delta::output</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/deltalistmodel.h" line="64" column="17" bodyfile="src/core/qfieldcloud/deltalistmodel.h" bodystart="64" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/core/qfieldcloud/deltalistmodel.h" line="57" column="5" bodyfile="src/core/qfieldcloud/deltalistmodel.h" bodystart="58" bodyend="65"/>
+    <listofallmembers>
+      <member refid="structDeltaListModel_1_1Delta_1a39c7d1d6f504bd8d1ccfae8a0b7488f1" prot="public" virt="non-virtual"><scope>DeltaListModel::Delta</scope><name>createdAt</name></member>
+      <member refid="structDeltaListModel_1_1Delta_1a6ad2b88a4a957f74b944f71e9a0a2a34" prot="public" virt="non-virtual"><scope>DeltaListModel::Delta</scope><name>deltafileId</name></member>
+      <member refid="structDeltaListModel_1_1Delta_1ae2086d4d4cc669d868a14f0a0efd9d6f" prot="public" virt="non-virtual"><scope>DeltaListModel::Delta</scope><name>id</name></member>
+      <member refid="structDeltaListModel_1_1Delta_1ab7ae9e51fc850edc77a8cf9ce527df89" prot="public" virt="non-virtual"><scope>DeltaListModel::Delta</scope><name>output</name></member>
+      <member refid="structDeltaListModel_1_1Delta_1a6cb0b10c67a3006f09f4c6164df6abeb" prot="public" virt="non-virtual"><scope>DeltaListModel::Delta</scope><name>status</name></member>
+      <member refid="structDeltaListModel_1_1Delta_1a106c57a39362e8d8bd7686c3db780a5b" prot="public" virt="non-virtual"><scope>DeltaListModel::Delta</scope><name>updatedAt</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

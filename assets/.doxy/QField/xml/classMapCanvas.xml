@@ -1,0 +1,786 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classMapCanvas" kind="class" language="C++" prot="public">
+    <compoundname>MapCanvas</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QtQuick::Item</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classMapCanvas_1a8ba6f2c3cd59ef5a02809dba5545a4d2" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQgsQuickMapCanvasMap" kindref="compound">QgsQuickMapCanvasMap</ref></type>
+        <definition>QgsQuickMapCanvasMap MapCanvas::mapCanvasWrapper</definition>
+        <argsstring></argsstring>
+        <name>mapCanvasWrapper</name>
+        <qualifiedname>MapCanvas::mapCanvasWrapper</qualifiedname>
+        <read>dummyGetter_mapCanvasWrapper_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/MapCanvas.qml" line="26" column="1" bodyfile="src/qml/MapCanvas.qml" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classMapCanvas_1a0622cf1283739b1fa24903873570b883" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref></type>
+        <definition>QgsQuickMapSettings MapCanvas::mapSettings</definition>
+        <argsstring></argsstring>
+        <name>mapSettings</name>
+        <qualifiedname>MapCanvas::mapSettings</qualifiedname>
+        <read>dummyGetter_mapSettings_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/MapCanvas.qml" line="28" column="1" bodyfile="src/qml/MapCanvas.qml" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classMapCanvas_1abd0b67d96988c8e7f693b97805cd0573" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>real</type>
+        <definition>real MapCanvas::bottomMargin</definition>
+        <argsstring></argsstring>
+        <name>bottomMargin</name>
+        <qualifiedname>MapCanvas::bottomMargin</qualifiedname>
+        <read>dummyGetter_bottomMargin_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/MapCanvas.qml" line="30" column="1" bodyfile="src/qml/MapCanvas.qml" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classMapCanvas_1a50a816a4d96f6c3a2123c6fdcc9d4c67" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>real</type>
+        <definition>real MapCanvas::rightMargin</definition>
+        <argsstring></argsstring>
+        <name>rightMargin</name>
+        <qualifiedname>MapCanvas::rightMargin</qualifiedname>
+        <read>dummyGetter_rightMargin_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/MapCanvas.qml" line="32" column="1" bodyfile="src/qml/MapCanvas.qml" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classMapCanvas_1a7e4be0088f9f46715a4f6ee7fb5ab1a6" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool MapCanvas::isRendering</definition>
+        <argsstring></argsstring>
+        <name>isRendering</name>
+        <qualifiedname>MapCanvas::isRendering</qualifiedname>
+        <read>dummyGetter_isRendering_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/MapCanvas.qml" line="34" column="1" bodyfile="src/qml/MapCanvas.qml" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classMapCanvas_1afbd45fae50bfbdf3ac19f0f622808ba2" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool MapCanvas::incrementalRendering</definition>
+        <argsstring></argsstring>
+        <name>incrementalRendering</name>
+        <qualifiedname>MapCanvas::incrementalRendering</qualifiedname>
+        <read>dummyGetter_incrementalRendering_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/MapCanvas.qml" line="36" column="1" bodyfile="src/qml/MapCanvas.qml" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classMapCanvas_1ac9e0b73dff240d76f9609057a909c4eb" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>real</type>
+        <definition>real MapCanvas::quality</definition>
+        <argsstring></argsstring>
+        <name>quality</name>
+        <qualifiedname>MapCanvas::quality</qualifiedname>
+        <read>dummyGetter_quality_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/MapCanvas.qml" line="38" column="1" bodyfile="src/qml/MapCanvas.qml" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classMapCanvas_1a8b84884052cb4ce250f05cd4bc826e31" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool MapCanvas::smooth</definition>
+        <argsstring></argsstring>
+        <name>smooth</name>
+        <qualifiedname>MapCanvas::smooth</qualifiedname>
+        <read>dummyGetter_smooth_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/MapCanvas.qml" line="40" column="1" bodyfile="src/qml/MapCanvas.qml" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classMapCanvas_1a41ac3fea96b15bc71475f1cd5b099c4d" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool MapCanvas::previewJobsEnabled</definition>
+        <argsstring></argsstring>
+        <name>previewJobsEnabled</name>
+        <qualifiedname>MapCanvas::previewJobsEnabled</qualifiedname>
+        <read>dummyGetter_previewJobsEnabled_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/MapCanvas.qml" line="42" column="1" bodyfile="src/qml/MapCanvas.qml" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classMapCanvas_1aeccc0f6526f9adcfcfbf012882c1a457" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>list&lt; int &gt;</type>
+        <definition>list&lt;int&gt; MapCanvas::previewJobsQuadrants</definition>
+        <argsstring></argsstring>
+        <name>previewJobsQuadrants</name>
+        <qualifiedname>MapCanvas::previewJobsQuadrants</qualifiedname>
+        <read>dummyGetter_previewJobsQuadrants_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/MapCanvas.qml" line="44" column="1" bodyfile="src/qml/MapCanvas.qml" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classMapCanvas_1a0ed8f527c524aa4becb4d8f4c6a2ad9c" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool MapCanvas::forceDeferredLayersRepaint</definition>
+        <argsstring></argsstring>
+        <name>forceDeferredLayersRepaint</name>
+        <qualifiedname>MapCanvas::forceDeferredLayersRepaint</qualifiedname>
+        <read>dummyGetter_forceDeferredLayersRepaint_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/MapCanvas.qml" line="46" column="1" bodyfile="src/qml/MapCanvas.qml" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classMapCanvas_1a27776083d2ff6aacd181244e4c33a4b2" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool MapCanvas::interactive</definition>
+        <argsstring></argsstring>
+        <name>interactive</name>
+        <qualifiedname>MapCanvas::interactive</qualifiedname>
+        <read>dummyGetter_interactive_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/MapCanvas.qml" line="48" column="1" bodyfile="src/qml/MapCanvas.qml" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classMapCanvas_1a6e26356e091ef0c58a24cabbb2df4138" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool MapCanvas::hovered</definition>
+        <argsstring></argsstring>
+        <name>hovered</name>
+        <qualifiedname>MapCanvas::hovered</qualifiedname>
+        <read>dummyGetter_hovered_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/MapCanvas.qml" line="50" column="1" bodyfile="src/qml/MapCanvas.qml" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classMapCanvas_1adb4eba78b7a70452f09310456877b7c2" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool MapCanvas::freehandDigitizing</definition>
+        <argsstring></argsstring>
+        <name>freehandDigitizing</name>
+        <qualifiedname>MapCanvas::freehandDigitizing</qualifiedname>
+        <read>dummyGetter_freehandDigitizing_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/MapCanvas.qml" line="52" column="1" bodyfile="src/qml/MapCanvas.qml" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classMapCanvas_1a6e78a88287d67c3608b9fc7ef1026112" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool MapCanvas::isMapRotationEnabled</definition>
+        <argsstring></argsstring>
+        <name>isMapRotationEnabled</name>
+        <qualifiedname>MapCanvas::isMapRotationEnabled</qualifiedname>
+        <read>dummyGetter_isMapRotationEnabled_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/MapCanvas.qml" line="54" column="1" bodyfile="src/qml/MapCanvas.qml" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classMapCanvas_1a062d2008c8960512a1b2a48fc848bb16" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool MapCanvas::pinched</definition>
+        <argsstring></argsstring>
+        <name>pinched</name>
+        <qualifiedname>MapCanvas::pinched</qualifiedname>
+        <read>dummyGetter_pinched_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="remark"><para>This property is read-only </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/MapCanvas.qml" line="57" column="1" bodyfile="src/qml/MapCanvas.qml" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classMapCanvas_1ab23694e1de38464864d874796d95e259" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool MapCanvas::jumping</definition>
+        <argsstring></argsstring>
+        <name>jumping</name>
+        <qualifiedname>MapCanvas::jumping</qualifiedname>
+        <read>dummyGetter_jumping_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="remark"><para>This property is read-only </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/MapCanvas.qml" line="60" column="1" bodyfile="src/qml/MapCanvas.qml" bodystart="60" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classMapCanvas_1aa424d85f3938bc22e7cb79dc23b927dd" prot="private" static="no" mutable="no">
+        <type>Item</type>
+        <definition>Item MapCanvas::jumpDetails</definition>
+        <argsstring></argsstring>
+        <name>jumpDetails</name>
+        <qualifiedname>MapCanvas::jumpDetails</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/MapCanvas.qml" line="108" column="6" bodyfile="src/qml/MapCanvas.qml" bodystart="108" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classMapCanvas_1a86817922cb80d0c69edb8e59457617ec" prot="private" static="no" mutable="no">
+        <type>MapCanvasMap</type>
+        <definition>MapCanvasMap MapCanvas::mapCanvasWrapper</definition>
+        <argsstring></argsstring>
+        <name>mapCanvasWrapper</name>
+        <qualifiedname>MapCanvas::mapCanvasWrapper</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/MapCanvas.qml" line="109" column="14" bodyfile="src/qml/MapCanvas.qml" bodystart="109" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classMapCanvas_1ad0a6b01eaafae3c0ec4942d8185cbff4" prot="private" static="no" mutable="no">
+        <type>TapHandler</type>
+        <definition>TapHandler MapCanvas::stylusTapHandler</definition>
+        <argsstring></argsstring>
+        <name>stylusTapHandler</name>
+        <qualifiedname>MapCanvas::stylusTapHandler</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/MapCanvas.qml" line="110" column="12" bodyfile="src/qml/MapCanvas.qml" bodystart="110" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classMapCanvas_1a2f2576ca63ad16a331147531c37d1146" prot="private" static="no" mutable="no">
+        <type>DragHandler</type>
+        <definition>DragHandler MapCanvas::stylusDragHandler</definition>
+        <argsstring></argsstring>
+        <name>stylusDragHandler</name>
+        <qualifiedname>MapCanvas::stylusDragHandler</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/MapCanvas.qml" line="111" column="13" bodyfile="src/qml/MapCanvas.qml" bodystart="111" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classMapCanvas_1a15b16efebb77887b8376c6a0d300eb5c" prot="private" static="no" mutable="no">
+        <type>Timer</type>
+        <definition>Timer MapCanvas::timer</definition>
+        <argsstring></argsstring>
+        <name>timer</name>
+        <qualifiedname>MapCanvas::timer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/MapCanvas.qml" line="112" column="7" bodyfile="src/qml/MapCanvas.qml" bodystart="112" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classMapCanvas_1a76675d7aaa3000302f873021c6ee22c6" prot="private" static="no" mutable="no">
+        <type>TapHandler</type>
+        <definition>TapHandler MapCanvas::mainTapHandler</definition>
+        <argsstring></argsstring>
+        <name>mainTapHandler</name>
+        <qualifiedname>MapCanvas::mainTapHandler</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/MapCanvas.qml" line="113" column="12" bodyfile="src/qml/MapCanvas.qml" bodystart="113" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classMapCanvas_1ae148972bde7bea1ae6da07785a3d7aee" prot="private" static="no" mutable="no">
+        <type>DragHandler</type>
+        <definition>DragHandler MapCanvas::mainDragHandler</definition>
+        <argsstring></argsstring>
+        <name>mainDragHandler</name>
+        <qualifiedname>MapCanvas::mainDragHandler</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/MapCanvas.qml" line="114" column="13" bodyfile="src/qml/MapCanvas.qml" bodystart="114" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classMapCanvas_1a76cf789ac75724ee9df8d26ab660b339" prot="private" static="no" mutable="no">
+        <type>DragHandler</type>
+        <definition>DragHandler MapCanvas::secondaryDragHandler</definition>
+        <argsstring></argsstring>
+        <name>secondaryDragHandler</name>
+        <qualifiedname>MapCanvas::secondaryDragHandler</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/MapCanvas.qml" line="115" column="13" bodyfile="src/qml/MapCanvas.qml" bodystart="115" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classMapCanvas_1a177114559d0787afeebfb18605f36d37" prot="private" static="no" mutable="no">
+        <type>PinchHandler</type>
+        <definition>PinchHandler MapCanvas::pinchHandler</definition>
+        <argsstring></argsstring>
+        <name>pinchHandler</name>
+        <qualifiedname>MapCanvas::pinchHandler</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/MapCanvas.qml" line="116" column="14" bodyfile="src/qml/MapCanvas.qml" bodystart="116" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classMapCanvas_1a657ceb0941a75c11e978bae3295b853e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void MapCanvas::clicked</definition>
+        <argsstring>(var point, var type)</argsstring>
+        <name>clicked</name>
+        <qualifiedname>MapCanvas::clicked</qualifiedname>
+        <param>
+          <type>var</type>
+          <declname>point</declname>
+        </param>
+        <param>
+          <type>var</type>
+          <declname>type</declname>
+        </param>
+        <briefdescription>
+<para>This signal is emitted independently of double tap / click. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/MapCanvas.qml" line="64" column="17"/>
+      </memberdef>
+      <memberdef kind="signal" id="classMapCanvas_1a5a1a0a620690f1d62067e40bd2568649" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void MapCanvas::rightClicked</definition>
+        <argsstring>(var point, var type)</argsstring>
+        <name>rightClicked</name>
+        <qualifiedname>MapCanvas::rightClicked</qualifiedname>
+        <param>
+          <type>var</type>
+          <declname>point</declname>
+        </param>
+        <param>
+          <type>var</type>
+          <declname>type</declname>
+        </param>
+        <briefdescription>
+<para>This signal is emitted when a right mouse/stylus click occurs. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/MapCanvas.qml" line="66" column="17"/>
+      </memberdef>
+      <memberdef kind="signal" id="classMapCanvas_1a54cf7dec0067f4c749fdc3a0914d7acc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void MapCanvas::confirmedClicked</definition>
+        <argsstring>(var point)</argsstring>
+        <name>confirmedClicked</name>
+        <qualifiedname>MapCanvas::confirmedClicked</qualifiedname>
+        <param>
+          <type>var</type>
+          <declname>point</declname>
+        </param>
+        <briefdescription>
+<para>This signal is only emitted if there is no double tap/click coming after a short delay. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/MapCanvas.qml" line="68" column="17"/>
+      </memberdef>
+      <memberdef kind="signal" id="classMapCanvas_1ac8e3e1c46e433cdce15bb83f46429cd1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void MapCanvas::longPressed</definition>
+        <argsstring>(var point, var type)</argsstring>
+        <name>longPressed</name>
+        <qualifiedname>MapCanvas::longPressed</qualifiedname>
+        <param>
+          <type>var</type>
+          <declname>point</declname>
+        </param>
+        <param>
+          <type>var</type>
+          <declname>type</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/MapCanvas.qml" line="70" column="17"/>
+      </memberdef>
+      <memberdef kind="signal" id="classMapCanvas_1af5e897bc18fe819456ab5dc905c17902" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void MapCanvas::longPressReleased</definition>
+        <argsstring>(var type)</argsstring>
+        <name>longPressReleased</name>
+        <qualifiedname>MapCanvas::longPressReleased</qualifiedname>
+        <param>
+          <type>var</type>
+          <declname>type</declname>
+        </param>
+        <briefdescription>
+<para>Emitted when a release happens after a long press. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/MapCanvas.qml" line="72" column="17"/>
+      </memberdef>
+      <memberdef kind="signal" id="classMapCanvas_1a39d8921de431f628cdc231ba8fc1d422" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void MapCanvas::aboutToWheelZoom</definition>
+        <argsstring>()</argsstring>
+        <name>aboutToWheelZoom</name>
+        <qualifiedname>MapCanvas::aboutToWheelZoom</qualifiedname>
+        <briefdescription>
+<para>Emitted when a zoom action is about to occur, allowing for pre-zoom adjustments. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/MapCanvas.qml" line="74" column="17"/>
+      </memberdef>
+      <memberdef kind="signal" id="classMapCanvas_1a9905f86812afe089e6addc2dbaa46c04" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void MapCanvas::doubleClicked</definition>
+        <argsstring>(var point, var type)</argsstring>
+        <name>doubleClicked</name>
+        <qualifiedname>MapCanvas::doubleClicked</qualifiedname>
+        <param>
+          <type>var</type>
+          <declname>point</declname>
+        </param>
+        <param>
+          <type>var</type>
+          <declname>type</declname>
+        </param>
+        <briefdescription>
+<para>This signal is emitted on a double tap. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/MapCanvas.qml" line="76" column="17"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classMapCanvas_1a8a9f5ec50c457ba1e59709c33a8164e9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void MapCanvas::freeze</definition>
+        <argsstring>(id)</argsstring>
+        <name>freeze</name>
+        <qualifiedname>MapCanvas::freeze</qualifiedname>
+        <param>
+          <type>id</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Freezes the map canvas refreshes.</para>
+<para>In case of repeated geometry changes (animated resizes, pinch, pan...) triggering refreshes all the time can cause severe performance impacts.</para>
+<para>If freeze is called, an internal counter is incremented and only when the counter is 0, refreshes will happen. It is therefore important to call <ref refid="classMapCanvas_1a8a9f5ec50c457ba1e59709c33a8164e9" kindref="member">freeze()</ref> and unfreeze() exactly the same number of times. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/MapCanvas.qml" line="88" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classMapCanvas_1a8c8cfd9733eb7eedf1ff6024d7766a33" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void MapCanvas::unfreeze</definition>
+        <argsstring>(id)</argsstring>
+        <name>unfreeze</name>
+        <qualifiedname>MapCanvas::unfreeze</qualifiedname>
+        <param>
+          <type>id</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/MapCanvas.qml" line="90" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classMapCanvas_1a0314f50def6503946fa0c10efa54588e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void MapCanvas::zoomIn</definition>
+        <argsstring>(point)</argsstring>
+        <name>zoomIn</name>
+        <qualifiedname>MapCanvas::zoomIn</qualifiedname>
+        <param>
+          <type><ref refid="classpoint" kindref="compound">point</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/MapCanvas.qml" line="92" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classMapCanvas_1a9dd7a24b3d3a83e22902b5512370c38d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void MapCanvas::zoomOut</definition>
+        <argsstring>(point)</argsstring>
+        <name>zoomOut</name>
+        <qualifiedname>MapCanvas::zoomOut</qualifiedname>
+        <param>
+          <type><ref refid="classpoint" kindref="compound">point</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/MapCanvas.qml" line="94" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classMapCanvas_1a75010ec89a4b860b81f661a9b726c1d8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void MapCanvas::refresh</definition>
+        <argsstring>(ignoreFreeze)</argsstring>
+        <name>refresh</name>
+        <qualifiedname>MapCanvas::refresh</qualifiedname>
+        <param>
+          <type>ignoreFreeze</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/MapCanvas.qml" line="96" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classMapCanvas_1a6ad5c3d8dd2d727925ab5cf483c77fe9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void MapCanvas::stopRendering</definition>
+        <argsstring>()</argsstring>
+        <name>stopRendering</name>
+        <qualifiedname>MapCanvas::stopRendering</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/MapCanvas.qml" line="98" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classMapCanvas_1aaa139406b236f7bfb94bf7d78a43654a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void MapCanvas::jumpTo</definition>
+        <argsstring>(point, scale=-1, rotation=-1, handleMargins=false, callback=null)</argsstring>
+        <name>jumpTo</name>
+        <qualifiedname>MapCanvas::jumpTo</qualifiedname>
+        <param>
+          <type><ref refid="classpoint" kindref="compound">point</ref></type>
+        </param>
+        <param>
+          <type>scale</type>
+          <defval>-1</defval>
+        </param>
+        <param>
+          <type>rotation</type>
+          <defval>-1</defval>
+        </param>
+        <param>
+          <type>handleMargins</type>
+          <defval>false</defval>
+        </param>
+        <param>
+          <type>callback</type>
+          <defval>null</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Smoothly animates the map to a new center point </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/MapCanvas.qml" line="102" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classMapCanvas_1a5c1933b9656955309d478e6e64f49370" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void MapCanvas::jumpToPosition</definition>
+        <argsstring>(positionSource, scale=-1, rotation=-1, handleMargins=false, callback=null)</argsstring>
+        <name>jumpToPosition</name>
+        <qualifiedname>MapCanvas::jumpToPosition</qualifiedname>
+        <param>
+          <type>positionSource</type>
+        </param>
+        <param>
+          <type>scale</type>
+          <defval>-1</defval>
+        </param>
+        <param>
+          <type>rotation</type>
+          <defval>-1</defval>
+        </param>
+        <param>
+          <type>handleMargins</type>
+          <defval>false</defval>
+        </param>
+        <param>
+          <type>callback</type>
+          <defval>null</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Jump and track a moving target </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/MapCanvas.qml" line="106" column="6"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>MapCanvas</label>
+        <link refid="classMapCanvas"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QtQuick::Item</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>MapCanvas</label>
+        <link refid="classMapCanvas"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QtQuick::Item</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/qml/MapCanvas.qml" line="23" column="1" bodyfile="src/qml/MapCanvas.qml" bodystart="23" bodyend="117"/>
+    <listofallmembers>
+      <member refid="classMapCanvas_1a39d8921de431f628cdc231ba8fc1d422" prot="public" virt="non-virtual"><scope>MapCanvas</scope><name>aboutToWheelZoom</name></member>
+      <member refid="classMapCanvas_1abd0b67d96988c8e7f693b97805cd0573" prot="public" virt="non-virtual"><scope>MapCanvas</scope><name>bottomMargin</name></member>
+      <member refid="classMapCanvas_1a657ceb0941a75c11e978bae3295b853e" prot="public" virt="non-virtual"><scope>MapCanvas</scope><name>clicked</name></member>
+      <member refid="classMapCanvas_1a54cf7dec0067f4c749fdc3a0914d7acc" prot="public" virt="non-virtual"><scope>MapCanvas</scope><name>confirmedClicked</name></member>
+      <member refid="classMapCanvas_1a9905f86812afe089e6addc2dbaa46c04" prot="public" virt="non-virtual"><scope>MapCanvas</scope><name>doubleClicked</name></member>
+      <member refid="classMapCanvas_1a0ed8f527c524aa4becb4d8f4c6a2ad9c" prot="public" virt="non-virtual"><scope>MapCanvas</scope><name>forceDeferredLayersRepaint</name></member>
+      <member refid="classMapCanvas_1adb4eba78b7a70452f09310456877b7c2" prot="public" virt="non-virtual"><scope>MapCanvas</scope><name>freehandDigitizing</name></member>
+      <member refid="classMapCanvas_1a8a9f5ec50c457ba1e59709c33a8164e9" prot="public" virt="non-virtual"><scope>MapCanvas</scope><name>freeze</name></member>
+      <member refid="classMapCanvas_1a6e26356e091ef0c58a24cabbb2df4138" prot="public" virt="non-virtual"><scope>MapCanvas</scope><name>hovered</name></member>
+      <member refid="classMapCanvas_1afbd45fae50bfbdf3ac19f0f622808ba2" prot="public" virt="non-virtual"><scope>MapCanvas</scope><name>incrementalRendering</name></member>
+      <member refid="classMapCanvas_1a27776083d2ff6aacd181244e4c33a4b2" prot="public" virt="non-virtual"><scope>MapCanvas</scope><name>interactive</name></member>
+      <member refid="classMapCanvas_1a6e78a88287d67c3608b9fc7ef1026112" prot="public" virt="non-virtual"><scope>MapCanvas</scope><name>isMapRotationEnabled</name></member>
+      <member refid="classMapCanvas_1a7e4be0088f9f46715a4f6ee7fb5ab1a6" prot="public" virt="non-virtual"><scope>MapCanvas</scope><name>isRendering</name></member>
+      <member refid="classMapCanvas_1aa424d85f3938bc22e7cb79dc23b927dd" prot="private" virt="non-virtual"><scope>MapCanvas</scope><name>jumpDetails</name></member>
+      <member refid="classMapCanvas_1ab23694e1de38464864d874796d95e259" prot="public" virt="non-virtual"><scope>MapCanvas</scope><name>jumping</name></member>
+      <member refid="classMapCanvas_1aaa139406b236f7bfb94bf7d78a43654a" prot="public" virt="non-virtual"><scope>MapCanvas</scope><name>jumpTo</name></member>
+      <member refid="classMapCanvas_1a5c1933b9656955309d478e6e64f49370" prot="public" virt="non-virtual"><scope>MapCanvas</scope><name>jumpToPosition</name></member>
+      <member refid="classMapCanvas_1ac8e3e1c46e433cdce15bb83f46429cd1" prot="public" virt="non-virtual"><scope>MapCanvas</scope><name>longPressed</name></member>
+      <member refid="classMapCanvas_1af5e897bc18fe819456ab5dc905c17902" prot="public" virt="non-virtual"><scope>MapCanvas</scope><name>longPressReleased</name></member>
+      <member refid="classMapCanvas_1ae148972bde7bea1ae6da07785a3d7aee" prot="private" virt="non-virtual"><scope>MapCanvas</scope><name>mainDragHandler</name></member>
+      <member refid="classMapCanvas_1a76675d7aaa3000302f873021c6ee22c6" prot="private" virt="non-virtual"><scope>MapCanvas</scope><name>mainTapHandler</name></member>
+      <member refid="classMapCanvas_1a8ba6f2c3cd59ef5a02809dba5545a4d2" prot="public" virt="non-virtual"><scope>MapCanvas</scope><name>mapCanvasWrapper</name></member>
+      <member refid="classMapCanvas_1a86817922cb80d0c69edb8e59457617ec" prot="private" virt="non-virtual"><scope>MapCanvas</scope><name>mapCanvasWrapper</name></member>
+      <member refid="classMapCanvas_1a0622cf1283739b1fa24903873570b883" prot="public" virt="non-virtual"><scope>MapCanvas</scope><name>mapSettings</name></member>
+      <member refid="classMapCanvas_1a062d2008c8960512a1b2a48fc848bb16" prot="public" virt="non-virtual"><scope>MapCanvas</scope><name>pinched</name></member>
+      <member refid="classMapCanvas_1a177114559d0787afeebfb18605f36d37" prot="private" virt="non-virtual"><scope>MapCanvas</scope><name>pinchHandler</name></member>
+      <member refid="classMapCanvas_1a41ac3fea96b15bc71475f1cd5b099c4d" prot="public" virt="non-virtual"><scope>MapCanvas</scope><name>previewJobsEnabled</name></member>
+      <member refid="classMapCanvas_1aeccc0f6526f9adcfcfbf012882c1a457" prot="public" virt="non-virtual"><scope>MapCanvas</scope><name>previewJobsQuadrants</name></member>
+      <member refid="classMapCanvas_1ac9e0b73dff240d76f9609057a909c4eb" prot="public" virt="non-virtual"><scope>MapCanvas</scope><name>quality</name></member>
+      <member refid="classMapCanvas_1a75010ec89a4b860b81f661a9b726c1d8" prot="public" virt="non-virtual"><scope>MapCanvas</scope><name>refresh</name></member>
+      <member refid="classMapCanvas_1a5a1a0a620690f1d62067e40bd2568649" prot="public" virt="non-virtual"><scope>MapCanvas</scope><name>rightClicked</name></member>
+      <member refid="classMapCanvas_1a50a816a4d96f6c3a2123c6fdcc9d4c67" prot="public" virt="non-virtual"><scope>MapCanvas</scope><name>rightMargin</name></member>
+      <member refid="classMapCanvas_1a76cf789ac75724ee9df8d26ab660b339" prot="private" virt="non-virtual"><scope>MapCanvas</scope><name>secondaryDragHandler</name></member>
+      <member refid="classMapCanvas_1a8b84884052cb4ce250f05cd4bc826e31" prot="public" virt="non-virtual"><scope>MapCanvas</scope><name>smooth</name></member>
+      <member refid="classMapCanvas_1a6ad5c3d8dd2d727925ab5cf483c77fe9" prot="public" virt="non-virtual"><scope>MapCanvas</scope><name>stopRendering</name></member>
+      <member refid="classMapCanvas_1a2f2576ca63ad16a331147531c37d1146" prot="private" virt="non-virtual"><scope>MapCanvas</scope><name>stylusDragHandler</name></member>
+      <member refid="classMapCanvas_1ad0a6b01eaafae3c0ec4942d8185cbff4" prot="private" virt="non-virtual"><scope>MapCanvas</scope><name>stylusTapHandler</name></member>
+      <member refid="classMapCanvas_1a15b16efebb77887b8376c6a0d300eb5c" prot="private" virt="non-virtual"><scope>MapCanvas</scope><name>timer</name></member>
+      <member refid="classMapCanvas_1a8c8cfd9733eb7eedf1ff6024d7766a33" prot="public" virt="non-virtual"><scope>MapCanvas</scope><name>unfreeze</name></member>
+      <member refid="classMapCanvas_1a0314f50def6503946fa0c10efa54588e" prot="public" virt="non-virtual"><scope>MapCanvas</scope><name>zoomIn</name></member>
+      <member refid="classMapCanvas_1a9dd7a24b3d3a83e22902b5512370c38d" prot="public" virt="non-virtual"><scope>MapCanvas</scope><name>zoomOut</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

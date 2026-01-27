@@ -1,0 +1,332 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="qgsquickmapcanvasmap_8h" kind="file" language="C++">
+    <compoundname>qgsquickmapcanvasmap.h</compoundname>
+    <includes refid="qgsquickmapsettings_8h" local="yes">qgsquickmapsettings.h</includes>
+    <includes local="no">QFutureSynchronizer</includes>
+    <includes local="no">QQuickItem</includes>
+    <includes local="no">QTimer</includes>
+    <includes local="no">qgsmapsettings.h</includes>
+    <includes local="no">qgspoint.h</includes>
+    <includes local="no">memory</includes>
+    <includedby refid="layertreemapcanvasbridge_8cpp" local="yes">src/core/layertreemapcanvasbridge.cpp</includedby>
+    <includedby refid="projectinfo_8h" local="yes">src/core/projectinfo.h</includedby>
+    <includedby refid="qgismobileapp_8cpp" local="yes">src/core/qgismobileapp.cpp</includedby>
+    <includedby refid="qgsquickmapcanvasmap_8cpp" local="yes">src/core/qgsquick/qgsquickmapcanvasmap.cpp</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>src/core/qgsquick/qgsquickmapcanvasmap.h</label>
+        <link refid="qgsquickmapcanvasmap_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>qgsquickmapsettings.h</label>
+        <link refid="qgsquickmapsettings_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>QFutureSynchronizer</label>
+      </node>
+      <node id="4">
+        <label>QObject</label>
+      </node>
+      <node id="12">
+        <label>QQuickItem</label>
+      </node>
+      <node id="13">
+        <label>QTimer</label>
+      </node>
+      <node id="14">
+        <label>memory</label>
+      </node>
+      <node id="3">
+        <label>qfield_core_export.h</label>
+      </node>
+      <node id="5">
+        <label>qgscoordinatetransformcontext.h</label>
+      </node>
+      <node id="6">
+        <label>qgsmaplayer.h</label>
+      </node>
+      <node id="7">
+        <label>qgsmapsettings.h</label>
+      </node>
+      <node id="8">
+        <label>qgsmapthemecollection.h</label>
+      </node>
+      <node id="9">
+        <label>qgspoint.h</label>
+      </node>
+      <node id="10">
+        <label>qgsrectangle.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>src/core/projectinfo.h</label>
+        <link refid="projectinfo_8h_source"/>
+      </node>
+      <node id="1">
+        <label>src/core/qgsquick/qgsquickmapcanvasmap.h</label>
+        <link refid="qgsquickmapcanvasmap_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="classQgsQuickMapCanvasMap" prot="public">QgsQuickMapCanvasMap</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/***************************************************************************</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/><sp/>qgsquickmapcanvasmap.h</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/><sp/>--------------------------------------</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/><sp/>Date<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>10.12.2014</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/><sp/>Copyright<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>(C)<sp/>2014<sp/>by<sp/>Matthias<sp/>Kuhn</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/><sp/>Email<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>matthias<sp/>(at)<sp/>opengis.ch</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>***************************************************************************</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*<sp/><sp/><sp/>This<sp/>program<sp/>is<sp/>free<sp/>software;<sp/>you<sp/>can<sp/>redistribute<sp/>it<sp/>and/or<sp/>modify<sp/><sp/>*</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>*<sp/><sp/><sp/>it<sp/>under<sp/>the<sp/>terms<sp/>of<sp/>the<sp/>GNU<sp/>General<sp/>Public<sp/>License<sp/>as<sp/>published<sp/>by<sp/><sp/>*</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>*<sp/><sp/><sp/>the<sp/>Free<sp/>Software<sp/>Foundation;<sp/>either<sp/>version<sp/>2<sp/>of<sp/>the<sp/>License,<sp/>or<sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*<sp/><sp/><sp/>(at<sp/>your<sp/>option)<sp/>any<sp/>later<sp/>version.<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/>***************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>QGSQUICKMAPCANVASMAP_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>QGSQUICKMAPCANVASMAP_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;qgsquickmapsettings.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QFutureSynchronizer&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QQuickItem&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QTimer&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;qgsmapsettings.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;qgspoint.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;memory&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">QgsMapRendererParallelJob;</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">QgsMapRendererQImageJob;</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">QgsMapRendererCache;</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">QgsLabelingResults;</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="48" refid="classQgsQuickMapCanvasMap" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classQgsQuickMapCanvasMap" kindref="compound">QgsQuickMapCanvasMap</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>QQuickItem</highlight></codeline>
+<codeline lineno="49"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_OBJECT</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight></codeline>
+<codeline lineno="60" refid="classQgsQuickMapCanvasMap_1aa64410b42a637f2440325637afba6194" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref><sp/>*<ref refid="classQgsQuickMapCanvasMap_1aa64410b42a637f2440325637afba6194" kindref="member">mapSettings</ref><sp/>READ<sp/><ref refid="classQgsQuickMapCanvasMap_1aa64410b42a637f2440325637afba6194" kindref="member">mapSettings</ref><sp/>)</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="65" refid="classQgsQuickMapCanvasMap_1affbe3a31aca7326c6b4804874ed60d16" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classQgsQuickMapCanvasMap_1affbe3a31aca7326c6b4804874ed60d16" kindref="member">bottomMargin</ref><sp/>READ<sp/><ref refid="classQgsQuickMapCanvasMap_1affbe3a31aca7326c6b4804874ed60d16" kindref="member">bottomMargin</ref><sp/>WRITE<sp/><ref refid="classQgsQuickMapCanvasMap_1ac937744b6d37418042ca5c5a41bf2327" kindref="member">setBottomMargin</ref><sp/>NOTIFY<sp/><ref refid="classQgsQuickMapCanvasMap_1a2e0be714645aa59409ab7ffdcf2bfc13" kindref="member">bottomMarginChanged</ref><sp/>)</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight></codeline>
+<codeline lineno="70" refid="classQgsQuickMapCanvasMap_1a8420caebe46026464a5dd0770007a8ee" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classQgsQuickMapCanvasMap_1a8420caebe46026464a5dd0770007a8ee" kindref="member">rightMargin</ref><sp/>READ<sp/><ref refid="classQgsQuickMapCanvasMap_1a8420caebe46026464a5dd0770007a8ee" kindref="member">rightMargin</ref><sp/>WRITE<sp/><ref refid="classQgsQuickMapCanvasMap_1aa36b4c21313dea28979134dffb8304cc" kindref="member">setRightMargin</ref><sp/>NOTIFY<sp/><ref refid="classQgsQuickMapCanvasMap_1ab5b7837ebd62420e2376467b2b61503e" kindref="member">rightMarginChanged</ref><sp/>)</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight></codeline>
+<codeline lineno="76" refid="classQgsQuickMapCanvasMap_1ae20c0bf4bf2917dc8def3c2e686f33d8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classQgsQuickMapCanvasMap_1ae20c0bf4bf2917dc8def3c2e686f33d8" kindref="member">freeze</ref><sp/>READ<sp/><ref refid="classQgsQuickMapCanvasMap_1ae20c0bf4bf2917dc8def3c2e686f33d8" kindref="member">freeze</ref><sp/>WRITE<sp/><ref refid="classQgsQuickMapCanvasMap_1aa50da5c99bfb27f108db89602a8d9667" kindref="member">setFreeze</ref><sp/>NOTIFY<sp/><ref refid="classQgsQuickMapCanvasMap_1a0f1d9944d4e1379896804b329ebbd61f" kindref="member">freezeChanged</ref><sp/>)</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight></codeline>
+<codeline lineno="83" refid="classQgsQuickMapCanvasMap_1a2f36d09a3f13acbb260144f34bfa3c9b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classQgsQuickMapCanvasMap_1a2f36d09a3f13acbb260144f34bfa3c9b" kindref="member">isRendering</ref><sp/>READ<sp/><ref refid="classQgsQuickMapCanvasMap_1a2f36d09a3f13acbb260144f34bfa3c9b" kindref="member">isRendering</ref><sp/>NOTIFY<sp/><ref refid="classQgsQuickMapCanvasMap_1af81a2d9df88d54193cc3ffeb4762ce1d" kindref="member">isRenderingChanged</ref><sp/>)</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight></codeline>
+<codeline lineno="90" refid="classQgsQuickMapCanvasMap_1a447994dc538c03f30d240a22e50f27ca" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classQgsQuickMapCanvasMap_1a447994dc538c03f30d240a22e50f27ca" kindref="member">mapUpdateInterval</ref><sp/>READ<sp/><ref refid="classQgsQuickMapCanvasMap_1a447994dc538c03f30d240a22e50f27ca" kindref="member">mapUpdateInterval</ref><sp/>WRITE<sp/><ref refid="classQgsQuickMapCanvasMap_1a4909cd89da1e9e3b8f944daf5b992e73" kindref="member">setMapUpdateInterval</ref><sp/>NOTIFY<sp/><ref refid="classQgsQuickMapCanvasMap_1acb75bf96c2eba82f3f7abc82601e6a8a" kindref="member">mapUpdateIntervalChanged</ref><sp/>)</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight></codeline>
+<codeline lineno="95" refid="classQgsQuickMapCanvasMap_1ad590287c0fe12d04281bfa6d15629590" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classQgsQuickMapCanvasMap_1ad590287c0fe12d04281bfa6d15629590" kindref="member">incrementalRendering</ref><sp/>READ<sp/><ref refid="classQgsQuickMapCanvasMap_1ad590287c0fe12d04281bfa6d15629590" kindref="member">incrementalRendering</ref><sp/>WRITE<sp/><ref refid="classQgsQuickMapCanvasMap_1a99f4035b31823f15261e200db2a33454" kindref="member">setIncrementalRendering</ref><sp/>NOTIFY<sp/><ref refid="classQgsQuickMapCanvasMap_1a4050a8b093899f6a62d5ebeb61205bf0" kindref="member">incrementalRenderingChanged</ref><sp/>)</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight></codeline>
+<codeline lineno="104" refid="classQgsQuickMapCanvasMap_1a585fde6b8928cc9e175e23e3822dd1c7" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classQgsQuickMapCanvasMap_1a585fde6b8928cc9e175e23e3822dd1c7" kindref="member">quality</ref><sp/>READ<sp/><ref refid="classQgsQuickMapCanvasMap_1a585fde6b8928cc9e175e23e3822dd1c7" kindref="member">quality</ref><sp/>WRITE<sp/><ref refid="classQgsQuickMapCanvasMap_1a40f3b1875cb8115eae2bea9616fc8ef0" kindref="member">setQuality</ref><sp/>NOTIFY<sp/><ref refid="classQgsQuickMapCanvasMap_1ac9c35a0dea51f0b0ffa1fdf780cfe281" kindref="member">qualityChanged</ref><sp/>)</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"></highlight></codeline>
+<codeline lineno="110" refid="classQgsQuickMapCanvasMap_1aeb94a9020d263cfb0f1341e3eff9f026" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classQgsQuickMapCanvasMap_1aeb94a9020d263cfb0f1341e3eff9f026" kindref="member">smooth</ref><sp/>READ<sp/><ref refid="classQgsQuickMapCanvasMap_1aeb94a9020d263cfb0f1341e3eff9f026" kindref="member">smooth</ref><sp/>WRITE<sp/><ref refid="classQgsQuickMapCanvasMap_1aa71b9b3da9b3aa43a22a3a69ef475e10" kindref="member">setSmooth</ref><sp/>NOTIFY<sp/><ref refid="classQgsQuickMapCanvasMap_1ac510cb18a0739ce5824e3556ae2d80ef" kindref="member">smoothChanged</ref><sp/>)</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"></highlight></codeline>
+<codeline lineno="115" refid="classQgsQuickMapCanvasMap_1a4e72427de4bbfa3f3e0478c10263fdfe" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classQgsQuickMapCanvasMap_1a4e72427de4bbfa3f3e0478c10263fdfe" kindref="member">forceDeferredLayersRepaint</ref><sp/>READ<sp/><ref refid="classQgsQuickMapCanvasMap_1a4e72427de4bbfa3f3e0478c10263fdfe" kindref="member">forceDeferredLayersRepaint</ref><sp/>WRITE<sp/><ref refid="classQgsQuickMapCanvasMap_1a96236c17773ff7bf57c32ab8ea42aa0c" kindref="member">setForceDeferredLayersRepaint</ref><sp/>NOTIFY<sp/><ref refid="classQgsQuickMapCanvasMap_1a39797160879f80be2f1d85e0fb602b49" kindref="member">forceDeferredLayersRepaintChanged</ref><sp/>)</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"></highlight></codeline>
+<codeline lineno="123" refid="classQgsQuickMapCanvasMap_1a088c641594062ad89b6fa82aae1d61a9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classQgsQuickMapCanvasMap_1a088c641594062ad89b6fa82aae1d61a9" kindref="member">previewJobsEnabled</ref><sp/>READ<sp/><ref refid="classQgsQuickMapCanvasMap_1a088c641594062ad89b6fa82aae1d61a9" kindref="member">previewJobsEnabled</ref><sp/>WRITE<sp/><ref refid="classQgsQuickMapCanvasMap_1ae82f94193ae11c540a5e466703fa5977" kindref="member">setPreviewJobsEnabled</ref><sp/>NOTIFY<sp/><ref refid="classQgsQuickMapCanvasMap_1af7821979d8ba00dd07e4100573fba6ca" kindref="member">previewJobsEnabledChanged</ref><sp/>)</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"></highlight></codeline>
+<codeline lineno="133" refid="classQgsQuickMapCanvasMap_1a3a5fd2330c22c91b319f18a153caca5c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/>QList&lt;</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">&gt;<sp/><ref refid="classQgsQuickMapCanvasMap_1a3a5fd2330c22c91b319f18a153caca5c" kindref="member">previewJobsQuadrants</ref><sp/>READ<sp/><ref refid="classQgsQuickMapCanvasMap_1a3a5fd2330c22c91b319f18a153caca5c" kindref="member">previewJobsQuadrants</ref><sp/>WRITE<sp/><ref refid="classQgsQuickMapCanvasMap_1aba7e7f4953a49a9717261fa68cca4766" kindref="member">setPreviewJobsQuadrants</ref><sp/>NOTIFY<sp/><ref refid="classQgsQuickMapCanvasMap_1a21d39b9579e47ed664e5f8d7b749037d" kindref="member">previewJobsQuadrantsChanged</ref><sp/>)</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"></highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/>public:</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/>explicit<sp/><ref refid="classQgsQuickMapCanvasMap" kindref="compound">QgsQuickMapCanvasMap</ref>(<sp/>QQuickItem<sp/>*parent<sp/>=<sp/></highlight><highlight class="keywordtype">nullptr</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/>~<ref refid="classQgsQuickMapCanvasMap" kindref="compound">QgsQuickMapCanvasMap</ref>();</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"></highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/>QSGNode<sp/>*updatePaintNode(<sp/>QSGNode<sp/>*oldNode,<sp/>QQuickItem::UpdatePaintNodeData<sp/>*<sp/>)<sp/>override;</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"></highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref><sp/>*<ref refid="classQgsQuickMapCanvasMap_1aa64410b42a637f2440325637afba6194" kindref="member">mapSettings</ref>()<sp/>const;</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"></highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classQgsQuickMapCanvasMap_1ae20c0bf4bf2917dc8def3c2e686f33d8" kindref="member">freeze</ref>()<sp/>const;</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"></highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQgsQuickMapCanvasMap_1aa50da5c99bfb27f108db89602a8d9667" kindref="member">setFreeze</ref>(<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classQgsQuickMapCanvasMap_1ae20c0bf4bf2917dc8def3c2e686f33d8" kindref="member">freeze</ref><sp/>);</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"></highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classQgsQuickMapCanvasMap_1a2f36d09a3f13acbb260144f34bfa3c9b" kindref="member">isRendering</ref>()<sp/>const;</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"></highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classQgsQuickMapCanvasMap_1a447994dc538c03f30d240a22e50f27ca" kindref="member">mapUpdateInterval</ref>()<sp/>const;</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"></highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQgsQuickMapCanvasMap_1a4909cd89da1e9e3b8f944daf5b992e73" kindref="member">setMapUpdateInterval</ref>(<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classQgsQuickMapCanvasMap_1a447994dc538c03f30d240a22e50f27ca" kindref="member">mapUpdateInterval</ref><sp/>);</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"></highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classQgsQuickMapCanvasMap_1ad590287c0fe12d04281bfa6d15629590" kindref="member">incrementalRendering</ref>()<sp/>const;</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"></highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQgsQuickMapCanvasMap_1a99f4035b31823f15261e200db2a33454" kindref="member">setIncrementalRendering</ref>(<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classQgsQuickMapCanvasMap_1ad590287c0fe12d04281bfa6d15629590" kindref="member">incrementalRendering</ref><sp/>);</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"></highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classQgsQuickMapCanvasMap_1a585fde6b8928cc9e175e23e3822dd1c7" kindref="member">quality</ref>()<sp/>const;</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"></highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQgsQuickMapCanvasMap_1a40f3b1875cb8115eae2bea9616fc8ef0" kindref="member">setQuality</ref>(<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classQgsQuickMapCanvasMap_1a585fde6b8928cc9e175e23e3822dd1c7" kindref="member">quality</ref><sp/>);</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"></highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classQgsQuickMapCanvasMap_1aeb94a9020d263cfb0f1341e3eff9f026" kindref="member">smooth</ref>()<sp/>const;</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"></highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQgsQuickMapCanvasMap_1aa71b9b3da9b3aa43a22a3a69ef475e10" kindref="member">setSmooth</ref>(<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classQgsQuickMapCanvasMap_1aeb94a9020d263cfb0f1341e3eff9f026" kindref="member">smooth</ref><sp/>);</highlight></codeline>
+<codeline lineno="177"><highlight class="normal"></highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classQgsQuickMapCanvasMap_1a4e72427de4bbfa3f3e0478c10263fdfe" kindref="member">forceDeferredLayersRepaint</ref>()<sp/>const;</highlight></codeline>
+<codeline lineno="180"><highlight class="normal"></highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQgsQuickMapCanvasMap_1a96236c17773ff7bf57c32ab8ea42aa0c" kindref="member">setForceDeferredLayersRepaint</ref>(<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>deferred<sp/>);</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"></highlight></codeline>
+<codeline lineno="185"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classQgsQuickMapCanvasMap_1affbe3a31aca7326c6b4804874ed60d16" kindref="member">bottomMargin</ref>()<sp/>const;</highlight></codeline>
+<codeline lineno="186"><highlight class="normal"></highlight></codeline>
+<codeline lineno="188"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQgsQuickMapCanvasMap_1ac937744b6d37418042ca5c5a41bf2327" kindref="member">setBottomMargin</ref>(<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classQgsQuickMapCanvasMap_1affbe3a31aca7326c6b4804874ed60d16" kindref="member">bottomMargin</ref><sp/>);</highlight></codeline>
+<codeline lineno="189"><highlight class="normal"></highlight></codeline>
+<codeline lineno="191"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classQgsQuickMapCanvasMap_1a8420caebe46026464a5dd0770007a8ee" kindref="member">rightMargin</ref>()<sp/>const;</highlight></codeline>
+<codeline lineno="192"><highlight class="normal"></highlight></codeline>
+<codeline lineno="194"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQgsQuickMapCanvasMap_1aa36b4c21313dea28979134dffb8304cc" kindref="member">setRightMargin</ref>(<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classQgsQuickMapCanvasMap_1a8420caebe46026464a5dd0770007a8ee" kindref="member">rightMargin</ref><sp/>);</highlight></codeline>
+<codeline lineno="195"><highlight class="normal"></highlight></codeline>
+<codeline lineno="197"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classQgsQuickMapCanvasMap_1a088c641594062ad89b6fa82aae1d61a9" kindref="member">previewJobsEnabled</ref>()<sp/>const;</highlight></codeline>
+<codeline lineno="198"><highlight class="normal"></highlight></codeline>
+<codeline lineno="200"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQgsQuickMapCanvasMap_1ae82f94193ae11c540a5e466703fa5977" kindref="member">setPreviewJobsEnabled</ref>(<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>enabled<sp/>);</highlight></codeline>
+<codeline lineno="201"><highlight class="normal"></highlight></codeline>
+<codeline lineno="203"><highlight class="normal"><sp/><sp/><sp/><sp/>QList&lt;</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">&gt;<sp/><ref refid="classQgsQuickMapCanvasMap_1a3a5fd2330c22c91b319f18a153caca5c" kindref="member">previewJobsQuadrants</ref>()<sp/>const;</highlight></codeline>
+<codeline lineno="204"><highlight class="normal"></highlight></codeline>
+<codeline lineno="206"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQgsQuickMapCanvasMap_1aba7e7f4953a49a9717261fa68cca4766" kindref="member">setPreviewJobsQuadrants</ref>(<sp/>const<sp/>QList&lt;</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">&gt;<sp/>&amp;quadrants<sp/>);</highlight></codeline>
+<codeline lineno="207"><highlight class="normal"></highlight></codeline>
+<codeline lineno="211" refid="classQgsQuickMapCanvasMap_1ad6e69245b7c313fcaa7a945b6e523884" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>QImage<sp/><ref refid="classQgsQuickMapCanvasMap_1ad6e69245b7c313fcaa7a945b6e523884" kindref="member">image</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>mImage;<sp/>}</highlight></codeline>
+<codeline lineno="212"><highlight class="normal"></highlight></codeline>
+<codeline lineno="213"><highlight class="normal"><sp/><sp/>signals:</highlight></codeline>
+<codeline lineno="214"><highlight class="normal"></highlight></codeline>
+<codeline lineno="218" refid="classQgsQuickMapCanvasMap_1a66904f66b936d44c033338b5c0043b32" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQgsQuickMapCanvasMap_1a66904f66b936d44c033338b5c0043b32" kindref="member">renderStarting</ref>();</highlight></codeline>
+<codeline lineno="219"><highlight class="normal"></highlight></codeline>
+<codeline lineno="223" refid="classQgsQuickMapCanvasMap_1a3b53e8a3eb3bdf4228c73a7bda60e7d5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQgsQuickMapCanvasMap_1a3b53e8a3eb3bdf4228c73a7bda60e7d5" kindref="member">mapCanvasRefreshed</ref>();</highlight></codeline>
+<codeline lineno="224"><highlight class="normal"></highlight></codeline>
+<codeline lineno="226" refid="classQgsQuickMapCanvasMap_1a0f1d9944d4e1379896804b329ebbd61f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQgsQuickMapCanvasMap_1a0f1d9944d4e1379896804b329ebbd61f" kindref="member">freezeChanged</ref>();</highlight></codeline>
+<codeline lineno="227"><highlight class="normal"></highlight></codeline>
+<codeline lineno="229" refid="classQgsQuickMapCanvasMap_1af81a2d9df88d54193cc3ffeb4762ce1d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQgsQuickMapCanvasMap_1af81a2d9df88d54193cc3ffeb4762ce1d" kindref="member">isRenderingChanged</ref>();</highlight></codeline>
+<codeline lineno="230"><highlight class="normal"></highlight></codeline>
+<codeline lineno="232" refid="classQgsQuickMapCanvasMap_1acb75bf96c2eba82f3f7abc82601e6a8a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQgsQuickMapCanvasMap_1acb75bf96c2eba82f3f7abc82601e6a8a" kindref="member">mapUpdateIntervalChanged</ref>();</highlight></codeline>
+<codeline lineno="233"><highlight class="normal"></highlight></codeline>
+<codeline lineno="235" refid="classQgsQuickMapCanvasMap_1a4050a8b093899f6a62d5ebeb61205bf0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQgsQuickMapCanvasMap_1a4050a8b093899f6a62d5ebeb61205bf0" kindref="member">incrementalRenderingChanged</ref>();</highlight></codeline>
+<codeline lineno="236"><highlight class="normal"></highlight></codeline>
+<codeline lineno="238" refid="classQgsQuickMapCanvasMap_1ac9c35a0dea51f0b0ffa1fdf780cfe281" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQgsQuickMapCanvasMap_1ac9c35a0dea51f0b0ffa1fdf780cfe281" kindref="member">qualityChanged</ref>();</highlight></codeline>
+<codeline lineno="239"><highlight class="normal"></highlight></codeline>
+<codeline lineno="241" refid="classQgsQuickMapCanvasMap_1a39797160879f80be2f1d85e0fb602b49" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQgsQuickMapCanvasMap_1a39797160879f80be2f1d85e0fb602b49" kindref="member">forceDeferredLayersRepaintChanged</ref>();</highlight></codeline>
+<codeline lineno="242"><highlight class="normal"></highlight></codeline>
+<codeline lineno="244" refid="classQgsQuickMapCanvasMap_1a2e0be714645aa59409ab7ffdcf2bfc13" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQgsQuickMapCanvasMap_1a2e0be714645aa59409ab7ffdcf2bfc13" kindref="member">bottomMarginChanged</ref>();</highlight></codeline>
+<codeline lineno="245"><highlight class="normal"></highlight></codeline>
+<codeline lineno="247" refid="classQgsQuickMapCanvasMap_1ab5b7837ebd62420e2376467b2b61503e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQgsQuickMapCanvasMap_1ab5b7837ebd62420e2376467b2b61503e" kindref="member">rightMarginChanged</ref>();</highlight></codeline>
+<codeline lineno="248"><highlight class="normal"></highlight></codeline>
+<codeline lineno="250" refid="classQgsQuickMapCanvasMap_1af7821979d8ba00dd07e4100573fba6ca" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQgsQuickMapCanvasMap_1af7821979d8ba00dd07e4100573fba6ca" kindref="member">previewJobsEnabledChanged</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="251"><highlight class="normal"></highlight></codeline>
+<codeline lineno="253" refid="classQgsQuickMapCanvasMap_1a21d39b9579e47ed664e5f8d7b749037d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQgsQuickMapCanvasMap_1a21d39b9579e47ed664e5f8d7b749037d" kindref="member">previewJobsQuadrantsChanged</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="254"><highlight class="normal"></highlight></codeline>
+<codeline lineno="256" refid="classQgsQuickMapCanvasMap_1ac510cb18a0739ce5824e3556ae2d80ef" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQgsQuickMapCanvasMap_1ac510cb18a0739ce5824e3556ae2d80ef" kindref="member">smoothChanged</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="257"><highlight class="normal"></highlight></codeline>
+<codeline lineno="258"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="259"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>geometryChange(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QRectF<sp/>&amp;newGeometry,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QRectF<sp/>&amp;oldGeometry<sp/>)<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="260"><highlight class="normal"></highlight></codeline>
+<codeline lineno="261"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>slots:</highlight></codeline>
+<codeline lineno="263"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQgsQuickMapCanvasMap_1a75a671b885c57cc1e941bf63ececacb9" kindref="member">stopRendering</ref>();</highlight></codeline>
+<codeline lineno="264"><highlight class="normal"></highlight></codeline>
+<codeline lineno="268"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQgsQuickMapCanvasMap_1a98ed8f15811735053e5fe5c83717db10" kindref="member">rotate</ref>(<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>degrees<sp/>);</highlight></codeline>
+<codeline lineno="269"><highlight class="normal"></highlight></codeline>
+<codeline lineno="273"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQgsQuickMapCanvasMap_1a6a49465b82c6afcda6fa51ed58be7d00" kindref="member">zoomByFactor</ref>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QPointF<sp/>center,<sp/>qreal<sp/>factor,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>handleMargins<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="274"><highlight class="normal"></highlight></codeline>
+<codeline lineno="278"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQgsQuickMapCanvasMap_1a95001a7ebaaea3c751be373f3730a5bd" kindref="member">zoomScale</ref>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QPointF<sp/>center,<sp/>qreal<sp/>scale,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>handleMargins<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="279"><highlight class="normal"></highlight></codeline>
+<codeline lineno="283"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQgsQuickMapCanvasMap_1a9a2487217e6f484508fcc54629d3921b" kindref="member">pan</ref>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QPointF<sp/>oldPos,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QPointF<sp/>newPos<sp/>);</highlight></codeline>
+<codeline lineno="284"><highlight class="normal"></highlight></codeline>
+<codeline lineno="289"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQgsQuickMapCanvasMap_1a7beaf62d3e84be0b25dc5021f6091144" kindref="member">refresh</ref>(<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>ignoreFreeze<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="290"><highlight class="normal"></highlight></codeline>
+<codeline lineno="291"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>startPreviewJobs();</highlight></codeline>
+<codeline lineno="292"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>stopPreviewJobs();</highlight></codeline>
+<codeline lineno="293"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>schedulePreviewJob(<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classnumber" kindref="compound">number</ref><sp/>);</highlight></codeline>
+<codeline lineno="294"><highlight class="normal"></highlight></codeline>
+<codeline lineno="295"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/>slots:</highlight></codeline>
+<codeline lineno="296"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>refreshMap();</highlight></codeline>
+<codeline lineno="297"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>renderJobUpdated();</highlight></codeline>
+<codeline lineno="298"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>renderJobFinished();</highlight></codeline>
+<codeline lineno="299"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>layerRepaintRequested(<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>deferred<sp/>);</highlight></codeline>
+<codeline lineno="300"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>startPreviewJob(<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classnumber" kindref="compound">number</ref><sp/>);</highlight></codeline>
+<codeline lineno="301"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>previewJobFinished();</highlight></codeline>
+<codeline lineno="302"><highlight class="normal"></highlight></codeline>
+<codeline lineno="303"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>onWindowChanged(<sp/>QQuickWindow<sp/>*window<sp/>);</highlight></codeline>
+<codeline lineno="304"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>onScreenChanged(<sp/>QScreen<sp/>*screen<sp/>);</highlight></codeline>
+<codeline lineno="305"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>onExtentChanged();</highlight></codeline>
+<codeline lineno="306"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>onRotationChanged();</highlight></codeline>
+<codeline lineno="307"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>onLayersChanged();</highlight></codeline>
+<codeline lineno="308"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>onTemporalStateChanged();</highlight></codeline>
+<codeline lineno="309"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>onZRangeChanged();</highlight></codeline>
+<codeline lineno="310"><highlight class="normal"></highlight></codeline>
+<codeline lineno="311"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="315"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>destroyJob(<sp/>QgsMapRendererJob<sp/>*job<sp/>);</highlight></codeline>
+<codeline lineno="316"><highlight class="normal"><sp/><sp/><sp/><sp/>QgsMapSettings<sp/>prepareMapSettings()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="317"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>updateTransform(<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>skipSmooth<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="318"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>zoomToFullExtent();</highlight></codeline>
+<codeline lineno="319"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>clearTemporalCache();</highlight></codeline>
+<codeline lineno="320"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>clearElevationCache();</highlight></codeline>
+<codeline lineno="321"><highlight class="normal"></highlight></codeline>
+<codeline lineno="322"><highlight class="normal"><sp/><sp/><sp/><sp/>std::unique_ptr&lt;QgsQuickMapSettings&gt;<sp/>mMapSettings;</highlight></codeline>
+<codeline lineno="323"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>mPinching<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="324"><highlight class="normal"><sp/><sp/><sp/><sp/>QPoint<sp/>mPinchStartPoint;</highlight></codeline>
+<codeline lineno="325"><highlight class="normal"><sp/><sp/><sp/><sp/>QgsMapRendererParallelJob<sp/>*mJob<sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="326"><highlight class="normal"><sp/><sp/><sp/><sp/>std::unique_ptr&lt;QgsMapRendererCache&gt;<sp/>mCache;</highlight></codeline>
+<codeline lineno="327"><highlight class="normal"><sp/><sp/><sp/><sp/>QgsLabelingResults<sp/>*mLabelingResults<sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="328"><highlight class="normal"><sp/><sp/><sp/><sp/>QImage<sp/>mImage;</highlight></codeline>
+<codeline lineno="329"><highlight class="normal"><sp/><sp/><sp/><sp/>QgsMapSettings<sp/>mImageMapSettings;</highlight></codeline>
+<codeline lineno="330"><highlight class="normal"><sp/><sp/><sp/><sp/>QTimer<sp/>mRefreshTimer;</highlight></codeline>
+<codeline lineno="331"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>mDirty<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="332"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>mFreeze<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="333"><highlight class="normal"><sp/><sp/><sp/><sp/>QList&lt;QMetaObject::Connection&gt;<sp/>mLayerConnections;</highlight></codeline>
+<codeline lineno="334"><highlight class="normal"><sp/><sp/><sp/><sp/>QTimer<sp/>mMapUpdateTimer;</highlight></codeline>
+<codeline lineno="335"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>mIncrementalRendering<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="336"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>mSilentRefresh<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="337"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>mDeferredRefreshPending<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="338"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>mQuality<sp/>=<sp/>1.0;</highlight></codeline>
+<codeline lineno="339"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>mSmooth<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="340"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>mForceDeferredLayersRepaint<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="341"><highlight class="normal"></highlight></codeline>
+<codeline lineno="342"><highlight class="normal"><sp/><sp/><sp/><sp/>QHash&lt;QString,<sp/>int&gt;<sp/>mLastLayerRenderTime;</highlight></codeline>
+<codeline lineno="343"><highlight class="normal"></highlight></codeline>
+<codeline lineno="344"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>mPreviewJobsEnabled<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="345"><highlight class="normal"><sp/><sp/><sp/><sp/>QList&lt;int&gt;<sp/>mPreviewJobsQuadrants<sp/>=<sp/>{<sp/>0,<sp/>1,<sp/>2,<sp/>3,<sp/>5,<sp/>6,<sp/>7,<sp/>8<sp/>};</highlight></codeline>
+<codeline lineno="346"><highlight class="normal"><sp/><sp/><sp/><sp/>QList&lt;QgsMapRendererQImageJob<sp/>*&gt;<sp/>mPreviewJobs;</highlight></codeline>
+<codeline lineno="347"><highlight class="normal"><sp/><sp/><sp/><sp/>QTimer<sp/>mPreviewTimer;</highlight></codeline>
+<codeline lineno="348"><highlight class="normal"><sp/><sp/><sp/><sp/>QMetaObject::Connection<sp/>mPreviewTimerConnection;</highlight></codeline>
+<codeline lineno="349"><highlight class="normal"><sp/><sp/><sp/><sp/>QMap&lt;int,<sp/>QImage&gt;<sp/>mPreviewImages;</highlight></codeline>
+<codeline lineno="350"><highlight class="normal"></highlight></codeline>
+<codeline lineno="351"><highlight class="normal"><sp/><sp/><sp/><sp/>QQuickWindow<sp/>*mWindow<sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="352"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="353"><highlight class="normal"></highlight></codeline>
+<codeline lineno="354"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>QGSQUICKMAPCANVASMAP_H</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="src/core/qgsquick/qgsquickmapcanvasmap.h"/>
+  </compounddef>
+</doxygen>

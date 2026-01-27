@@ -1,0 +1,299 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classMessageLogModel" kind="class" language="C++" prot="public">
+    <compoundname>MessageLogModel</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QAbstractListModel</basecompoundref>
+    <includes refid="messagelogmodel_8h" local="no">messagelogmodel.h</includes>
+    <innerclass refid="structMessageLogModel_1_1LogMessage" prot="private">MessageLogModel::LogMessage</innerclass>
+    <sectiondef kind="private-type">
+      <memberdef kind="enum" id="classMessageLogModel_1a08ce54be40a659a43924b149fea5ffdb" prot="private" static="no" strong="no">
+        <type></type>
+        <name>Roles</name>
+        <qualifiedname>MessageLogModel::Roles</qualifiedname>
+        <enumvalue id="classMessageLogModel_1a08ce54be40a659a43924b149fea5ffdba3d26e1cc919c23e32ff34fc7f66d7614" prot="private">
+          <name>MessageRole</name>
+          <initializer>= Qt::UserRole</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classMessageLogModel_1a08ce54be40a659a43924b149fea5ffdba63a7f2bf0e01d867f481cca3087f3622" prot="private">
+          <name>MessageTagRole</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classMessageLogModel_1a08ce54be40a659a43924b149fea5ffdba897648f998918ec7cd3eb336122e353e" prot="private">
+          <name>MessageLevelRole</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classMessageLogModel_1a08ce54be40a659a43924b149fea5ffdbad9b90a4f01cc2053462f60c2f67bc5a5" prot="private">
+          <name>MessageDateTimeRole</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/messagelogmodel.h" line="51" column="5" bodyfile="src/core/messagelogmodel.h" bodystart="52" bodyend="57"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classMessageLogModel_1a4c7247d90ee6ee9540242a1609639f1f" prot="private" static="no" mutable="no">
+        <type>QgsMessageLog *</type>
+        <definition>QgsMessageLog* MessageLogModel::mMessageLog</definition>
+        <argsstring></argsstring>
+        <name>mMessageLog</name>
+        <qualifiedname>MessageLogModel::mMessageLog</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/messagelogmodel.h" line="79" column="19" bodyfile="src/core/messagelogmodel.h" bodystart="79" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classMessageLogModel_1a5aff8f5a882a619028e52b7ef8e1a5a5" prot="private" static="no" mutable="no">
+        <type>QVector&lt; LogMessage &gt;</type>
+        <definition>QVector&lt;LogMessage&gt; MessageLogModel::mMessages</definition>
+        <argsstring></argsstring>
+        <name>mMessages</name>
+        <qualifiedname>MessageLogModel::mMessages</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/messagelogmodel.h" line="80" column="13" bodyfile="src/core/messagelogmodel.h" bodystart="80" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classMessageLogModel_1a92c826d7c21a3402b95110d69429cfc0" prot="private" static="no" mutable="no">
+        <type>QMap&lt; QString, QStringList &gt;</type>
+        <definition>QMap&lt;QString, QStringList&gt; MessageLogModel::mSuppressedFilters</definition>
+        <argsstring></argsstring>
+        <name>mSuppressedFilters</name>
+        <qualifiedname>MessageLogModel::mSuppressedFilters</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/messagelogmodel.h" line="81" column="10" bodyfile="src/core/messagelogmodel.h" bodystart="81" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classMessageLogModel_1aec3b0afe618622a3304a3c75207854db" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>MessageLogModel::MessageLogModel</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>MessageLogModel</name>
+        <qualifiedname>MessageLogModel::MessageLogModel</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/messagelogmodel.h" line="60" column="14" bodyfile="src/core/messagelogmodel.cpp" bodystart="21" bodyend="26"/>
+      </memberdef>
+      <memberdef kind="function" id="classMessageLogModel_1a621f5953fb1a74f243acb96e146d52cd" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QHash&lt; int, QByteArray &gt;</type>
+        <definition>QHash&lt; int, QByteArray &gt; MessageLogModel::roleNames</definition>
+        <argsstring>() const override</argsstring>
+        <name>roleNames</name>
+        <qualifiedname>MessageLogModel::roleNames</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/messagelogmodel.h" line="62" column="11" bodyfile="src/core/messagelogmodel.cpp" bodystart="28" bodyend="37"/>
+      </memberdef>
+      <memberdef kind="function" id="classMessageLogModel_1aaf7b39149e724563b65895a91a823911" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int MessageLogModel::rowCount</definition>
+        <argsstring>(const QModelIndex &amp;parent) const override</argsstring>
+        <name>rowCount</name>
+        <qualifiedname>MessageLogModel::rowCount</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>parent</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/messagelogmodel.h" line="64" column="9" bodyfile="src/core/messagelogmodel.cpp" bodystart="39" bodyend="43"/>
+      </memberdef>
+      <memberdef kind="function" id="classMessageLogModel_1a413f95c0aed80ecd6aaeff2df0c1ce91" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QVariant</type>
+        <definition>QVariant MessageLogModel::data</definition>
+        <argsstring>(const QModelIndex &amp;index, int role) const override</argsstring>
+        <name>data</name>
+        <qualifiedname>MessageLogModel::data</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>role</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/messagelogmodel.h" line="65" column="14" bodyfile="src/core/messagelogmodel.cpp" bodystart="45" bodyend="60"/>
+      </memberdef>
+      <memberdef kind="function" id="classMessageLogModel_1aa4dd9c5e6ba8d58b2cab11dbfcfb0594" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void MessageLogModel::suppress</definition>
+        <argsstring>(const QVariantMap &amp;filters)</argsstring>
+        <name>suppress</name>
+        <qualifiedname>MessageLogModel::suppress</qualifiedname>
+        <param>
+          <type>const QVariantMap &amp;</type>
+          <declname>filters</declname>
+        </param>
+        <briefdescription>
+<para>activates suppression of messages with specific tag and an expression </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/messagelogmodel.h" line="68" column="22" bodyfile="src/core/messagelogmodel.cpp" bodystart="62" bodyend="81"/>
+      </memberdef>
+      <memberdef kind="function" id="classMessageLogModel_1a41aa39dd95d520ee370deeaf10877b8f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void MessageLogModel::unsuppress</definition>
+        <argsstring>(const QVariantMap &amp;filters)</argsstring>
+        <name>unsuppress</name>
+        <qualifiedname>MessageLogModel::unsuppress</qualifiedname>
+        <param>
+          <type>const QVariantMap &amp;</type>
+          <declname>filters</declname>
+        </param>
+        <briefdescription>
+<para>deactivates suppression of messages with specific tag and an expression </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/messagelogmodel.h" line="70" column="22" bodyfile="src/core/messagelogmodel.cpp" bodystart="83" bodyend="100"/>
+      </memberdef>
+      <memberdef kind="function" id="classMessageLogModel_1a3de656e52974e0ddf28d154f6366ff3a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void MessageLogModel::clear</definition>
+        <argsstring>()</argsstring>
+        <name>clear</name>
+        <qualifiedname>MessageLogModel::clear</qualifiedname>
+        <briefdescription>
+<para>Clears any messages from the log. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/messagelogmodel.h" line="73" column="22" bodyfile="src/core/messagelogmodel.cpp" bodystart="102" bodyend="107"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-slot">
+      <memberdef kind="slot" id="classMessageLogModel_1a06e58722f60ba3a38c956e70ee996e3d" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void MessageLogModel::onMessageReceived</definition>
+        <argsstring>(const QString &amp;message, const QString &amp;tag, Qgis::MessageLevel level)</argsstring>
+        <name>onMessageReceived</name>
+        <qualifiedname>MessageLogModel::onMessageReceived</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>message</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>tag</declname>
+        </param>
+        <param>
+          <type>Qgis::MessageLevel</type>
+          <declname>level</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/messagelogmodel.h" line="76" column="10" bodyfile="src/core/messagelogmodel.cpp" bodystart="109" bodyend="135"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>This model will connect to the message log and publish any messages received from there. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>MessageLogModel</label>
+        <link refid="classMessageLogModel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QAbstractListModel</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>MessageLogModel</label>
+        <link refid="classMessageLogModel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QAbstractListModel</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/messagelogmodel.h" line="28" column="1" bodyfile="src/core/messagelogmodel.h" bodystart="29" bodyend="82"/>
+    <listofallmembers>
+      <member refid="classMessageLogModel_1a3de656e52974e0ddf28d154f6366ff3a" prot="public" virt="non-virtual"><scope>MessageLogModel</scope><name>clear</name></member>
+      <member refid="classMessageLogModel_1a413f95c0aed80ecd6aaeff2df0c1ce91" prot="public" virt="non-virtual"><scope>MessageLogModel</scope><name>data</name></member>
+      <member refid="classMessageLogModel_1a08ce54be40a659a43924b149fea5ffdbad9b90a4f01cc2053462f60c2f67bc5a5" prot="private" virt="non-virtual"><scope>MessageLogModel</scope><name>MessageDateTimeRole</name></member>
+      <member refid="classMessageLogModel_1a08ce54be40a659a43924b149fea5ffdba897648f998918ec7cd3eb336122e353e" prot="private" virt="non-virtual"><scope>MessageLogModel</scope><name>MessageLevelRole</name></member>
+      <member refid="classMessageLogModel_1aec3b0afe618622a3304a3c75207854db" prot="public" virt="non-virtual"><scope>MessageLogModel</scope><name>MessageLogModel</name></member>
+      <member refid="classMessageLogModel_1a08ce54be40a659a43924b149fea5ffdba3d26e1cc919c23e32ff34fc7f66d7614" prot="private" virt="non-virtual"><scope>MessageLogModel</scope><name>MessageRole</name></member>
+      <member refid="classMessageLogModel_1a08ce54be40a659a43924b149fea5ffdba63a7f2bf0e01d867f481cca3087f3622" prot="private" virt="non-virtual"><scope>MessageLogModel</scope><name>MessageTagRole</name></member>
+      <member refid="classMessageLogModel_1a4c7247d90ee6ee9540242a1609639f1f" prot="private" virt="non-virtual"><scope>MessageLogModel</scope><name>mMessageLog</name></member>
+      <member refid="classMessageLogModel_1a5aff8f5a882a619028e52b7ef8e1a5a5" prot="private" virt="non-virtual"><scope>MessageLogModel</scope><name>mMessages</name></member>
+      <member refid="classMessageLogModel_1a92c826d7c21a3402b95110d69429cfc0" prot="private" virt="non-virtual"><scope>MessageLogModel</scope><name>mSuppressedFilters</name></member>
+      <member refid="classMessageLogModel_1a06e58722f60ba3a38c956e70ee996e3d" prot="private" virt="non-virtual"><scope>MessageLogModel</scope><name>onMessageReceived</name></member>
+      <member refid="classMessageLogModel_1a621f5953fb1a74f243acb96e146d52cd" prot="public" virt="non-virtual"><scope>MessageLogModel</scope><name>roleNames</name></member>
+      <member refid="classMessageLogModel_1a08ce54be40a659a43924b149fea5ffdb" prot="private" virt="non-virtual"><scope>MessageLogModel</scope><name>Roles</name></member>
+      <member refid="classMessageLogModel_1aaf7b39149e724563b65895a91a823911" prot="public" virt="non-virtual"><scope>MessageLogModel</scope><name>rowCount</name></member>
+      <member refid="classMessageLogModel_1aa4dd9c5e6ba8d58b2cab11dbfcfb0594" prot="public" virt="non-virtual"><scope>MessageLogModel</scope><name>suppress</name></member>
+      <member refid="classMessageLogModel_1a41aa39dd95d520ee370deeaf10877b8f" prot="public" virt="non-virtual"><scope>MessageLogModel</scope><name>unsuppress</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>
