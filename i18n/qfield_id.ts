@@ -5598,7 +5598,7 @@ Cancel to make a minimal device scan instead.</translation>
     </message>
     <message>
         <source>Welcome back to QField.</source>
-        <translation>Welcome back to QField.</translation>
+        <translation>Welcome back to QField.22</translation>
     </message>
     <message>
         <source>Default project</source>
