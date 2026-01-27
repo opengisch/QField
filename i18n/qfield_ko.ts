@@ -5328,7 +5328,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Welcome back to QField.</source>
-        <translation>Welcome back to QField.</translation>
+        <translation>재난피해 현장조사 시스템에 오신 것을 환영합니다.</translation>
     </message>
     <message>
         <source>Default project</source>
