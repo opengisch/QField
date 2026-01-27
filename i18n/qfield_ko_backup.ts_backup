@@ -23,136 +23,132 @@
     </message>
     <message>
         <source>QField app directories</source>
-        <translation>QField 앱 디렉터리</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>QField app directory</source>
-        <translation>QField 앱 디렉터리</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>AbstractGnssReceiver</name>
     <message>
         <source>Connecting…</source>
-        <translation>연결 중…</translation>
+        <translation>Connecting…</translation>
     </message>
     <message>
         <source>Successfully connected</source>
-        <translation>성공적으로 연결됨</translation>
+        <translation>Successfully connected</translation>
     </message>
     <message>
         <source>Disconnected</source>
-        <translation>연결 해제됨</translation>
+        <translation>Disconnected</translation>
     </message>
     <message>
         <source>Socket state %1</source>
-        <translation>소켓 상태 %1</translation>
+        <translation>Socket state %1</translation>
     </message>
 </context>
-
 <context>
     <name>ActiveLayerFeaturesLocatorFilter</name>
     <message>
-        <source>Limit the search to the field '%1'</source>
-        <translation>검색을 '%1' 필드로 제한</translation>
+        <source>Limit the search to the field &apos;%1&apos;</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Open form</source>
-        <translation>폼 열기</translation>
+        <translation>Open form</translation>
     </message>
     <message>
         <source>Set feature as destination</source>
-        <translation>피처를 목적지로 설정</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Feature has no geometry</source>
-        <translation>피처에 도형이 없습니다</translation>
+        <translation>Feature has no geometry</translation>
     </message>
     <message>
         <source>Features from active layer</source>
-        <translation>활성 레이어의 피처</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>Returns a list of features from the active layer with matching attributes. Restricting matching to a single attribute is done by identifying its name prefixed with an '@'.</source>
-        <translation>속성이 일치하는 활성 레이어의 피처 목록을 반환합니다. '@' 접두사가 붙은 속성 이름을 지정하면 단일 속성으로 일치를 제한할 수 있습니다.</translation>
+        <source>Returns a list of features from the active layer with matching attributes. Restricting matching to a single attribute is done by identifying its name prefixed with an &apos;@&apos;.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
-
 <context>
     <name>AndroidProjectSource</name>
     <message>
         <source>File %1 does not exist</source>
-        <translation>%1 파일이 존재하지 않습니다</translation>
+        <translation>%1 파일이 없습니다</translation>
     </message>
 </context>
-
 <context>
     <name>AppMissingGridHandler</name>
     <message>
         <source>No transform available between %1 and %2</source>
-        <translation>%1과 %2 사이에 사용 가능한 변환이 없습니다</translation>
+        <translation>No transform available between %1 and %2</translation>
     </message>
     <message>
-        <source>This grid is part of the “&lt;i&gt;%1&lt;/i&gt;” package, available for download from &lt;a href="%2"&gt;%2&lt;/a&gt;.</source>
-        <translation>이 그리드는 “&lt;i&gt;%1&lt;/i&gt;” 패키지의 일부이며, &lt;a href="%2"&gt;%2&lt;/a&gt;에서 다운로드할 수 있습니다.</translation>
+        <source>This grid is part of the “&lt;i&gt;%1&lt;/i&gt;” package, available for download from &lt;a href=&quot;%2&quot;&gt;%2&lt;/a&gt;.</source>
+        <translation>This grid is part of the “&lt;i&gt;%1&lt;/i&gt;” package, available for download from &lt;a href=&quot;%2&quot;&gt;%2&lt;/a&gt;.</translation>
     </message>
     <message>
-        <source>This grid is available for download from &lt;a href="%1"&gt;%1&lt;/a&gt;.</source>
-        <translation>이 그리드는 &lt;a href="%1"&gt;%1&lt;/a&gt;에서 다운로드할 수 있습니다.</translation>
+        <source>This grid is available for download from &lt;a href=&quot;%1&quot;&gt;%1&lt;/a&gt;.</source>
+        <translation>This grid is available for download from &lt;a href=&quot;%1&quot;&gt;%1&lt;/a&gt;.</translation>
     </message>
     <message>
         <source>projection</source>
-        <translation>투영</translation>
+        <translation>projection</translation>
     </message>
     <message>
         <source>This transformation requires the grid file “%1”, which is not available for use on the system.</source>
-        <translation>이 변환에는 “%1” 그리드 파일이 필요하지만, 시스템에서 사용할 수 없습니다.</translation>
+        <translation>This transformation requires the grid file “%1”, which is not available for use on the system.</translation>
     </message>
     <message>
-        <source>This grid is part of the &lt;i&gt;%1&lt;/i&gt; package, available for download from &lt;a href="%2"&gt;%2&lt;/a&gt;.</source>
-        <translation>이 그리드는 &lt;i&gt;%1&lt;/i&gt; 패키지의 일부이며, &lt;a href="%2"&gt;%2&lt;/a&gt;에서 다운로드할 수 있습니다.</translation>
+        <source>This grid is part of the &lt;i&gt;%1&lt;/i&gt; package, available for download from &lt;a href=&quot;%2&quot;&gt;%2&lt;/a&gt;.</source>
+        <translation>This grid is part of the &lt;i&gt;%1&lt;/i&gt; package, available for download from &lt;a href=&quot;%2&quot;&gt;%2&lt;/a&gt;.</translation>
     </message>
     <message>
         <source>&lt;p&gt;Current transform “&lt;i&gt;%1&lt;/i&gt;” has an accuracy of %2 meters, while the preferred transformation “&lt;i&gt;%3&lt;/i&gt;” has accuracy %4 meters.&lt;/p&gt;</source>
-        <translation>&lt;p&gt;현재 변환 “&lt;i&gt;%1&lt;/i&gt;”의 정확도는 %2미터이며, 선호되는 변환 “&lt;i&gt;%3&lt;/i&gt;”의 정확도는 %4미터입니다.&lt;/p&gt;</translation>
+        <translation>&lt;p&gt;Current transform “&lt;i&gt;%1&lt;/i&gt;” has an accuracy of %2 meters, while the preferred transformation “&lt;i&gt;%3&lt;/i&gt;” has accuracy %4 meters.&lt;/p&gt;</translation>
     </message>
     <message>
         <source>&lt;p&gt;Current transform “&lt;i&gt;%1&lt;/i&gt;” has an unknown accuracy, while the preferred transformation “&lt;i&gt;%2&lt;/i&gt;” has accuracy %3 meters.&lt;/p&gt;</source>
-        <translation>&lt;p&gt;현재 변환 “&lt;i&gt;%1&lt;/i&gt;”의 정확도는 알 수 없으며, 선호되는 변환 “&lt;i&gt;%2&lt;/i&gt;”의 정확도는 %3미터입니다.&lt;/p&gt;</translation>
+        <translation>&lt;p&gt;Current transform “&lt;i&gt;%1&lt;/i&gt;” has an unknown accuracy, while the preferred transformation “&lt;i&gt;%2&lt;/i&gt;” has accuracy %3 meters.&lt;/p&gt;</translation>
     </message>
     <message>
         <source>&lt;p&gt;The preferred transform between &lt;i&gt;%1&lt;/i&gt; and &lt;i&gt;%2&lt;/i&gt; is not available for use on the system.&lt;/p&gt;</source>
-        <translation>&lt;p&gt;&lt;i&gt;%1&lt;/i&gt;과 &lt;i&gt;%2&lt;/i&gt; 사이의 선호되는 변환을 시스템에서 사용할 수 없습니다.&lt;/p&gt;</translation>
+        <translation>&lt;p&gt;The preferred transform between &lt;i&gt;%1&lt;/i&gt; and &lt;i&gt;%2&lt;/i&gt; is not available for use on the system.&lt;/p&gt;</translation>
     </message>
     <message>
-        <source>No transform is available between &lt;i&gt;%1&lt;/i&gt; and &lt;i&gt;%2&lt;/i&gt;.&lt;p style="color: red"&gt;%3&lt;/p&gt;</source>
-        <translation>&lt;i&gt;%1&lt;/i&gt;과 &lt;i&gt;%2&lt;/i&gt; 사이에 사용 가능한 변환이 없습니다.&lt;p style="color: red"&gt;%3&lt;/p&gt;</translation>
+        <source>No transform is available between &lt;i&gt;%1&lt;/i&gt; and &lt;i&gt;%2&lt;/i&gt;.&lt;p style=&quot;color: red&quot;&gt;%3&lt;/p&gt;</source>
+        <translation>No transform is available between &lt;i&gt;%1&lt;/i&gt; and &lt;i&gt;%2&lt;/i&gt;.&lt;p style=&quot;color: red&quot;&gt;%3&lt;/p&gt;</translation>
     </message>
     <message>
         <source>Cannot use project transform between %1 and %2</source>
-        <translation>%1과 %2 사이의 프로젝트 변환을 사용할 수 없습니다</translation>
+        <translation>Cannot use project transform between %1 and %2</translation>
     </message>
     <message>
         <source>Used a ballpark transform from %1 to %2</source>
-        <translation>%1에서 %2로의 대략적인 변환을 사용했습니다</translation>
+        <translation>Used a ballpark transform from %1 to %2</translation>
     </message>
 </context>
 <context>
     <name>AttributeFormModelBase</name>
     <message>
         <source>Expression constraint</source>
-        <translation>표현식 제약 조건</translation>
+        <translation>Expression constraint</translation>
     </message>
     <message>
         <source>Not NULL</source>
-        <translation>NULL 허용 안 함</translation>
+        <translation>Not NULL</translation>
     </message>
     <message>
         <source>Unique</source>
-        <translation>고유값</translation>
+        <translation>Unique</translation>
     </message>
 </context>
-
 <context>
     <name>BadLayerItem</name>
     <message>
@@ -193,38 +189,36 @@
 <context>
     <name>BluetoothDeviceChooser</name>
     <message>
-    <source>Positioning device in use:</source>
-    <translation type="vanished">사용 중인 위치 결정 장치:</translation>
+        <source>Positioning device in use:</source>
+        <translation type="vanished">Positioning device in use:</translation>
     </message>
     <message>
         <source>Scanning for paired devices</source>
-        <translation>페어링된 장치를 검색 중</translation>
+        <translation>Scanning for paired devices</translation>
     </message>
     <message>
         <source>Scanning failed: %1</source>
-        <translation>검색 실패: %1</translation>
+        <translation>Scanning failed: %1</translation>
     </message>
     <message>
         <source>Scanning done</source>
-        <translation>검색 완료</translation>
+        <translation>Scanning done</translation>
     </message>
     <message numerus="yes">
         <source>%n device(s) found</source>
-        <translation>
-            <numerusform>%n개의 장치를 찾았습니다</numerusform>
-        </translation>
+        <translation><numerusform>%n device(s) found</numerusform></translation>
     </message>
     <message>
         <source>Scanning canceled</source>
-        <translation>검색이 취소되었습니다</translation>
+        <translation>Scanning canceled</translation>
     </message>
     <message>
         <source>Scan</source>
-        <translation type="vanished">검색</translation>
+        <translation type="vanished">Scan</translation>
     </message>
     <message>
         <source>Make a full service discovery</source>
-        <translation type="vanished">전체 서비스 검색 수행</translation>
+        <translation type="vanished">Make a full service discovery</translation>
     </message>
     <message>
         <source>A full device scan can take longer. You really want to do it?
@@ -3389,7 +3383,7 @@ While you can still view and use the project, it is strongly recommended to rese
     <name>QFieldCloudScreen</name>
     <message>
         <source>QFieldCloud Projects</source>
-        <translation>QField 클라우드 프로젝트</translation>
+        <translation>QFieldCloud Projects</translation>
     </message>
     <message>
         <source>Disconnected from the cloud.</source>
@@ -5381,7 +5375,8 @@ projects</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Create new project</source>
+        <source>Create new
+project</source>
         <translation type="unfinished"/>
     </message>
 </context>
