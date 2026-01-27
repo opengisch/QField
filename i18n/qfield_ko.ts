@@ -5379,7 +5379,7 @@ projects</source>
         <source>Local projects and
  datasets</source>
         <translation type="unfinished"/>
-    </message>r
+    </message>
     <message>
         <source>Create new project</source>
         <translation type="unfinished"/>
