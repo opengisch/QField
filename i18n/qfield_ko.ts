@@ -3389,7 +3389,7 @@ While you can still view and use the project, it is strongly recommended to rese
     <name>QFieldCloudScreen</name>
     <message>
         <source>QFieldCloud Projects</source>
-        <translation>QField 클라우드 프로젝트</translation>
+        <translation>QFieldCloud projects</translation>
     </message>
     <message>
         <source>Disconnected from the cloud.</source>
@@ -5296,7 +5296,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>QFieldCloud projects</source>
-        <translation type="vanished">QField 클라우드 프로젝트</translation>
+        <translation type="vanished">QFieldCloud projects</translation>
     </message>
     <message>
         <source>Open local file</source>
