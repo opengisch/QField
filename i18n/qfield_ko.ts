@@ -5296,7 +5296,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>QFieldCloud projects</source>
-        <translation type="vanished">QFieldCloud projects</translation>
+        <translation type="vanished">QField 클라우드 프로젝트</translation>
     </message>
     <message>
         <source>Open local file</source>
@@ -5379,7 +5379,7 @@ projects</source>
         <source>Local projects and
  datasets</source>
         <translation type="unfinished"/>
-    </message>
+    </message>r
     <message>
         <source>Create new project</source>
         <translation type="unfinished"/>
