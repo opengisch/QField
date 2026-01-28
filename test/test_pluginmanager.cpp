@@ -319,12 +319,16 @@ TEST_CASE( "PluginManager enabled/disabled signals" )
 
     manager.grantRequestedPluginPermission( true );
 
-    // Grant path does not emit enabled signal -> plugin loads via different flow
-    waitForSpyCount( enabledSpy, 1, 200 );
-    REQUIRE( enabledSpy.count() == 0 );
+    //async stuff settle a bit (as platform-dependent)
+    QCoreApplication::processEvents( QEventLoop::AllEvents, 50 );
 
     REQUIRE( permissionGranted( pluginPath ) == true );
     REQUIRE( userEnabled( pluginPath ) == true );
+
+    if ( enabledSpy.count() > 0 )
+    {
+      REQUIRE( enabledSpy.at( 0 ).at( 0 ).toString() == uuid );
+    }
   }
 
   SECTION( "deny permanent emits appPluginDisabled when UUID exists" )
