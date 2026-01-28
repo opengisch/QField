@@ -21,7 +21,7 @@
 Quick3DTerrainGeometry::Quick3DTerrainGeometry( QQuick3DObject *parent )
   : QQuick3DGeometry( parent )
 {
-  mHeights.resize( mResolution * mResolution );
+  mHeights.resize( static_cast<qsizetype>( mResolution ) * mResolution );
   mHeights.fill( 0.0f );
   updateGeometry();
 }
@@ -134,7 +134,7 @@ void Quick3DTerrainGeometry::updateGeometry()
   const int stride = 8 * sizeof( float );
 
   QByteArray vertexData;
-  vertexData.resize( vertexCount * stride );
+  vertexData.resize( static_cast<qsizetype>( vertexCount ) * stride );
   float *vptr = reinterpret_cast<float *>( vertexData.data() );
 
   QByteArray indexData;
