@@ -16,6 +16,8 @@
 
 #include "quick3dterraingeometry.h"
 
+#include <algorithm>
+
 Quick3DTerrainGeometry::Quick3DTerrainGeometry( QQuick3DObject *parent )
   : QQuick3DGeometry( parent )
 {
@@ -161,8 +163,8 @@ void Quick3DTerrainGeometry::updateGeometry()
       *vptr++ = normal.y();
       *vptr++ = normal.z();
 
-      *vptr++ = static_cast<float>( x ) / qMax( 1, mResolution - 1 );
-      *vptr++ = static_cast<float>( z ) / qMax( 1, mResolution - 1 );
+      *vptr++ = static_cast<float>( x ) / std::max( 1, mResolution - 1 );
+      *vptr++ = static_cast<float>( z ) / std::max( 1, mResolution - 1 );
     }
   }
 
