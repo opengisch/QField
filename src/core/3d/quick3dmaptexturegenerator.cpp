@@ -20,6 +20,8 @@
 #include <qgsmapsettings.h>
 #include <qgsrasterlayer.h>
 
+#include <algorithm>
+
 int Quick3DMapTextureGenerator::sInstanceCounter = 0;
 
 Quick3DMapTextureGenerator::Quick3DMapTextureGenerator( QObject *parent )
@@ -94,7 +96,7 @@ void Quick3DMapTextureGenerator::render()
   const QMap<QString, QgsMapLayer *> layers = mProject->mapLayers();
 
   // Finding dem layer (same as Quick3DTerrainProvider)
-  QgsRasterLayer *demLayer = nullptr;
+  const QgsRasterLayer *demLayer = nullptr;
   QList<QgsMapLayer *> layersToRender;
 
   for ( QgsMapLayer *const layer : layers )
@@ -134,12 +136,12 @@ void Quick3DMapTextureGenerator::render()
   if ( width >= height )
   {
     texWidth = mTextureSize;
-    texHeight = qMax( 256, static_cast<int>( mTextureSize * height / width ) );
+    texHeight = std::max( 256, static_cast<int>( mTextureSize * height / width ) );
   }
   else
   {
     texHeight = mTextureSize;
-    texWidth = qMax( 256, static_cast<int>( mTextureSize * width / height ) );
+    texWidth = std::max( 256, static_cast<int>( mTextureSize * width / height ) );
   }
 
   // Generate fallback if no layers to render

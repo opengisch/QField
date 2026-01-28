@@ -143,14 +143,14 @@ double Quick3DTerrainProvider::heightAt( double x, double y ) const
 double Quick3DTerrainProvider::normalizedHeightAt( double x, double y ) const
 {
   const double realHeight = heightAt( x, y );
-  const double extentSize = qMax( mExtent.width(), mExtent.height() );
+  const double extentSize = std::max( mExtent.width(), mExtent.height() );
   const double scale = ( mTerrainBaseSize / extentSize ) * calculateVisualExaggeration();
   return ( realHeight - mMinRealHeight ) * scale;
 }
 
 double Quick3DTerrainProvider::calculateVisualExaggeration() const
 {
-  const double extentSize = qMax( mExtent.width(), mExtent.height() );
+  const double extentSize = std::max( mExtent.width(), mExtent.height() );
   if ( extentSize > 100000 )
   {
     return 3.0;
@@ -431,7 +431,7 @@ void Quick3DTerrainProvider::onTerrainDataCalculated()
   mMinRealHeight = *minmax.first;
   mMaxRealHeight = *minmax.second;
 
-  const double extentSize = qMax( mExtent.width(), mExtent.height() );
+  const double extentSize = std::max( mExtent.width(), mExtent.height() );
   const double scale = ( mTerrainBaseSize / extentSize ) * calculateVisualExaggeration();
 
   mNormalizedData.clear();
