@@ -237,6 +237,7 @@ void Quick3DTerrainProvider::calcNormalizedData()
             }
             catch ( const QgsCsException & )
             {
+              // Coordinate transformation failed, skip this point
             }
           }
 
@@ -266,6 +267,7 @@ void Quick3DTerrainProvider::calcNormalizedData()
             }
             catch ( const QgsCsException & )
             {
+              // Coordinate transformation failed, skip this point
             }
           }
 
