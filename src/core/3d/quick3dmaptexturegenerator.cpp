@@ -184,7 +184,7 @@ void Quick3DMapTextureGenerator::onRenderFinished()
   }
   else
   {
-    mRenderedImage = mRenderedImage.mirrored( false, true );
+    mRenderedImage = mRenderedImage.flipped( Qt::Vertical );
   }
 
   mRenderedImage.save( mTextureFilePath );

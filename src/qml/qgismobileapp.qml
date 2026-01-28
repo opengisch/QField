@@ -646,9 +646,17 @@ ApplicationWindow {
     Loader {
       id: map3DViewLoader
       anchors.fill: parent
-      active: mainWindow.show3DView
-      visible: active
+      active: opacity > 0 ? true : false
+      visible: opacity > 0 ? true : false
       z: 100
+      opacity: mainWindow.show3DView ? 1 : 0
+
+      Behavior on opacity {
+        NumberAnimation {
+          duration: 300
+          easing.type: Easing.Linear
+        }
+      }
 
       source: "qrc:/qml/3d/Map3DView.qml"
 
@@ -1956,7 +1964,7 @@ ApplicationWindow {
     }
 
     ScaleBar {
-      visible: qfieldSettings.showScaleBar
+      visible: qfieldSettings.showScaleBar && !mainWindow.show3DView
       mapSettings: mapCanvas.mapSettings
       anchors.left: parent.left
       anchors.bottom: parent.bottom
