@@ -57,6 +57,7 @@ ApplicationWindow {
   property double sceneBottomMargin: SafeArea.margins.bottom
   property double sceneLeftMargin: SafeArea.margins.left
   property double sceneRightMargin: SafeArea.margins.right
+  property bool show3DView: false
 
   onSceneLoadedChanged: {
     // This requires the scene to be fully loaded not to crash due to possibility of
@@ -642,6 +643,116 @@ ApplicationWindow {
       color: mapCanvas.mapSettings.backgroundColor
     }
 
+    Loader {
+      id: map3DViewLoader
+      anchors.fill: parent
+      active: opacity > 0 ? true : false
+      visible: opacity > 0 ? true : false
+      z: 100
+      opacity: mainWindow.show3DView ? 1 : 0
+
+      Behavior on opacity {
+        NumberAnimation {
+          duration: 300
+          easing.type: Easing.Linear
+        }
+      }
+
+      source: "qrc:/qml/3d/Map3DView.qml"
+
+      onLoaded: {
+        item.qgisProject = qgisProject;
+        item.initialExtent = mapCanvas.mapSettings.visibleExtent;
+        item.backgroundColor = mapCanvas.mapSettings.backgroundColor;
+
+        // Bind GNSS position updates
+        item.gnssActive = Qt.binding(() => positionSource.active && positionSource.positionInformation && positionSource.positionInformation.latitudeValid);
+        item.gnssPosition = Qt.binding(() => positionSource.projectedPosition);
+        item.gnssSpeed = Qt.binding(() => positionSource.positionInformation && positionSource.positionInformation.speedValid ? positionSource.positionInformation.speed : -1);
+        item.gnssDirection = Qt.binding(() => positionSource.positionInformation && positionSource.positionInformation.directionValid ? positionSource.positionInformation.direction : -1);
+
+        // Connect camera interaction signal to deactivate soft lock
+        item.cameraInteractionDetected.connect(function () {
+          if (gnssButton.followActive) {
+            gnssButton.followActive = false;
+            displayToast(qsTr("3D camera unlocked"));
+          }
+        });
+
+        displayToast(qsTr("3D Map View loaded"));
+      }
+
+      onStatusChanged: {
+        if (status === Loader.Error) {
+          mainWindow.show3DView = false;
+          displayToast(qsTr("Failed to load 3D view"));
+        }
+      }
+    }
+
+    Connections {
+      id: gnssMarker3DPositionUpdate
+      target: positionSource
+      enabled: gnssButton.followActive && mainWindow.show3DView && map3DViewLoader.item
+
+      property var pos3d: null
+
+      function onPositionInformationChanged() {
+        if (!gnssButton.followActive || !map3DViewLoader.item) {
+          return;
+        }
+
+        gnssMarker3DPositionUpdate.pos3d = map3DViewLoader.item.geoTo3D(positionSource.projectedPosition.x, positionSource.projectedPosition.y);
+
+        if (gnssMarker3DPositionUpdate.pos3d) {
+          map3DViewLoader.item.lookAtPoint(gnssMarker3DPositionUpdate.pos3d, 1000);
+        }
+      }
+    }
+
+    Rectangle {
+      id: loadingOverlay
+      anchors.fill: parent
+      color: "#80000000"
+      visible: mainWindow.show3DView && map3DViewLoader.item && map3DViewLoader.item.isLoading
+      z: 1000
+
+      Column {
+        anchors.centerIn: parent
+        spacing: 20
+
+        BusyIndicator {
+          anchors.horizontalCenter: parent.horizontalCenter
+          running: parent.parent.visible
+          width: 64
+          height: 64
+        }
+
+        Text {
+          anchors.horizontalCenter: parent.horizontalCenter
+          text: qsTr("Downloading terrain data...")
+          color: "white"
+          font.pixelSize: 16
+          font.bold: true
+        }
+
+        ProgressBar {
+          anchors.horizontalCenter: parent.horizontalCenter
+          width: 200
+          height: 6
+          value: map3DViewLoader.item.loadingProgress / 100
+          visible: loadingOverlay.visible
+        }
+
+        Text {
+          anchors.horizontalCenter: parent.horizontalCenter
+          text: map3DViewLoader.item ? map3DViewLoader.item.loadingProgress + "%" : "0%"
+          color: "white"
+          font.pixelSize: 14
+        }
+      }
+    }
+
     GridRenderer {
       mapSettings: mapCanvas.mapSettings
       enabled: !gridDecoration.enabled
@@ -655,7 +766,7 @@ ApplicationWindow {
       id: mapCanvasMap
       objectName: "mapCanvas"
 
-      property bool isEnabled: !dashBoard.opened && !aboutDialog.visible && !welcomeScreen.visible && !qfieldSettings.visible && !qfieldLocalDataPickerScreen.visible && !qfieldCloudScreen.visible && !qfieldCloudPopup.visible && !codeReader.visible && !sketcher.visible && !overlayFeatureFormDrawer.opened && !rotateFeaturesToolbar.rotateFeaturesRequested
+      property bool isEnabled: !show3DView && !dashBoard.opened && !aboutDialog.visible && !welcomeScreen.visible && !qfieldSettings.visible && !qfieldLocalDataPickerScreen.visible && !qfieldCloudScreen.visible && !qfieldCloudPopup.visible && !codeReader.visible && !sketcher.visible && !overlayFeatureFormDrawer.opened && !rotateFeaturesToolbar.rotateFeaturesRequested
 
       interactive: isEnabled && !screenLocker.enabled && !snapToCommonAngleMenu.visible
       isMapRotationEnabled: qfieldSettings.enableMapRotation
@@ -1853,7 +1964,7 @@ ApplicationWindow {
     }
 
     ScaleBar {
-      visible: qfieldSettings.showScaleBar
+      visible: qfieldSettings.showScaleBar && !mainWindow.show3DView
       mapSettings: mapCanvas.mapSettings
       anchors.left: parent.left
       anchors.bottom: parent.bottom
@@ -2002,6 +2113,23 @@ ApplicationWindow {
         toolText: qsTr('Close measure tool')
 
         onClicked: mainWindow.closeMeasureTool()
+      }
+
+      QfActionButton {
+        id: close3DView
+        visible: mainWindow.show3DView
+        toolImage: Theme.getThemeVectorIcon("ic_3d_24dp")
+        toolText: qsTr('Close 3D view')
+
+        onClicked: {
+          if (map3DViewLoader.item && map3DViewLoader.item.playClosingAnimation) {
+            map3DViewLoader.item.playClosingAnimation(function () {
+              mainWindow.show3DView = false;
+            });
+          } else {
+            mainWindow.show3DView = false;
+          }
+        }
       }
 
       QfActionButton {
@@ -3082,6 +3210,7 @@ ApplicationWindow {
         shouldReturnHome = true;
       } else if (!shouldReturnHome) {
         openWelcomeScreen();
+        show3DView = false;
       }
     }
 
@@ -3099,6 +3228,17 @@ ApplicationWindow {
         cancelAlgorithmDialog.visible = true;
       } else {
         activateMeasurementMode();
+      }
+    }
+
+    onToggle3DView: {
+      dashBoard.close();
+      if (mainWindow.show3DView) {
+        map3DViewLoader.item.playClosingAnimation(function () {
+          mainWindow.show3DView = false;
+        });
+      } else {
+        mainWindow.show3DView = true;
       }
     }
 
