@@ -243,6 +243,7 @@ class FeatureListModel : public QAbstractItemModel
         QgsFeatureId fid;
         double fuzzyScore = 0.0;
     };
+    Entry entryFromRow( int row );
 
     /**
        * Triggers a reload of the values from the layer.
@@ -271,6 +272,9 @@ class FeatureListModel : public QAbstractItemModel
     QPointer<AppExpressionContextScopesGenerator> mAppExpressionContextScopesGenerator;
 
     QTimer mReloadTimer;
+
+    friend class FeatureCheckListModel;
+    friend class FeatureCheckListModelBase;
 };
 
 #endif // FEATURELISTMODEL_H
