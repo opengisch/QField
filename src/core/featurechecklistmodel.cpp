@@ -285,7 +285,6 @@ FeatureCheckListModel::FeatureCheckListModel( QObject *parent )
   connect( mSourceModel, &FeatureCheckListModelBase::listUpdated, this, &FeatureCheckListModel::listUpdated );
 
   setSourceModel( mSourceModel );
-  setFilterCaseSensitivity( Qt::CaseInsensitive );
   setDynamicSortFilter( false );
   sort( 0 );
 }
@@ -458,15 +457,16 @@ QString FeatureCheckListModel::searchTerm() const
 
 void FeatureCheckListModel::setSearchTerm( const QString &searchTerm )
 {
+  QString loweredSearchTerm = searchTerm.toLower();
   if ( mSearchTerm == searchTerm )
   {
     return;
   }
-  mSearchTerm = searchTerm;
+
+  mSearchTerm = loweredSearchTerm;
   emit searchTermChanged();
 
   invalidate();
-  sort( 0 );
 }
 
 bool FeatureCheckListModel::sortCheckedFirst() const
@@ -507,22 +507,24 @@ bool FeatureCheckListModel::lessThan( const QModelIndex &left, const QModelIndex
     return left.row() < right.row();
   }
 
+  const FeatureListModel::Entry entryLeft = mSourceModel->entryFromRow( left.row() );
+  const FeatureListModel::Entry entryRight = mSourceModel->entryFromRow( right.row() );
+
   if ( !groupField().isEmpty() )
   {
-    const QString leftGroup = sourceModel()->data( left, FeatureListModel::GroupFieldRole ).toString();
-    const QString rightGroup = sourceModel()->data( right, FeatureListModel::GroupFieldRole ).toString();
-
-    if ( leftGroup.isEmpty() && !rightGroup.isEmpty() )
+    const bool entryLeftGroupIsNull = entryLeft.group.isNull();
+    const bool entryRightGroupIsNull = entryRight.group.isNull();
+    if ( entryLeftGroupIsNull && !entryRightGroupIsNull )
     {
       return true;
     }
-    else if ( !leftGroup.isEmpty() && rightGroup.isEmpty() )
+    else if ( !entryLeftGroupIsNull && entryRightGroupIsNull )
     {
       return false;
     }
-    else if ( leftGroup != rightGroup )
+    else if ( entryLeft.group != entryRight.group )
     {
-      return leftGroup < rightGroup;
+      return entryLeft.group < entryRight.group;
     }
   }
 
@@ -543,50 +545,48 @@ bool FeatureCheckListModel::lessThan( const QModelIndex &left, const QModelIndex
 
   if ( orderByValue() || !mSearchTerm.isEmpty() )
   {
-    const QString leftDisplay = sourceModel()->data( left, Qt::DisplayRole ).toString().toLower();
-    const QString rightDisplay = sourceModel()->data( right, Qt::DisplayRole ).toString().toLower();
     if ( !mSearchTerm.isEmpty() )
     {
-      const bool leftStartsWithSearchTerm = leftDisplay.startsWith( mSearchTerm.toLower() );
-      const bool rightStartsWithSearchTerm = rightDisplay.startsWith( mSearchTerm.toLower() );
+      const bool leftStartsWithSearchTerm = entryLeft.displayString.startsWith( mSearchTerm, Qt::CaseInsensitive );
+      const bool rightStartsWithSearchTerm = entryRight.displayString.startsWith( mSearchTerm, Qt::CaseInsensitive );
 
-      if ( rightStartsWithSearchTerm && !leftStartsWithSearchTerm )
-      {
-        return false;
-      }
-      else if ( !rightStartsWithSearchTerm && leftStartsWithSearchTerm )
+      if ( leftStartsWithSearchTerm && !rightStartsWithSearchTerm )
       {
         return true;
       }
+      else if ( !leftStartsWithSearchTerm && rightStartsWithSearchTerm )
+      {
+        return false;
+      }
 
-      const double leftFuzzyScore = calcFuzzyScore( leftDisplay, mSearchTerm.toLower() );
-      const double rightFuzzyScore = calcFuzzyScore( rightDisplay, mSearchTerm.toLower() );
+      const double leftFuzzyScore = calcFuzzyScore( entryLeft.displayString, mSearchTerm );
+      const double rightFuzzyScore = calcFuzzyScore( entryRight.displayString, mSearchTerm );
 
       if ( leftFuzzyScore != rightFuzzyScore )
       {
         return leftFuzzyScore > rightFuzzyScore;
       }
     }
+
     if ( orderByValue() )
     {
-      return leftDisplay < rightDisplay;
+      return entryLeft.displayString < entryRight.displayString;
     }
   }
 
   // Order By Key (as a fallback)
-  const QString leftKey = sourceModel()->data( left, FeatureListModel::KeyFieldRole ).toString().toLower();
-  const QString rightKey = sourceModel()->data( right, FeatureListModel::KeyFieldRole ).toString().toLower();
-
-  if ( leftKey.isEmpty() && !rightKey.isEmpty() )
+  const bool entryLeftKeyIsNull = entryLeft.key.isNull();
+  const bool entryRightKeyIsNull = entryRight.key.isNull();
+  if ( entryLeftKeyIsNull && !entryRightKeyIsNull )
   {
     return true;
   }
-  else if ( !leftKey.isEmpty() && rightKey.isEmpty() )
+  else if ( !entryLeftKeyIsNull && entryRightKeyIsNull )
   {
     return false;
   }
 
-  return leftKey < rightKey;
+  return entryLeft.key < entryRight.key;
 }
 
 double FeatureCheckListModel::calcFuzzyScore( const QString &displayString, const QString &searchTerm ) const

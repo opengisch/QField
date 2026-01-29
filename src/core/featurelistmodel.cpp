@@ -403,6 +403,7 @@ void FeatureListModel::processFeatureList()
   {
     entries.append( Entry( gatheredEntry.value, gatheredEntry.identifierFields.at( 0 ), gatheredEntry.identifierFields.at( 1 ), gatheredEntry.featureId ) );
   }
+
   if ( mOrderByValue || !mGroupField.isEmpty() )
   {
     std::sort( entries.begin(), entries.end(), [this]( const Entry &entry1, const Entry &entry2 ) {
@@ -420,12 +421,18 @@ void FeatureListModel::processFeatureList()
       {
         return entry1.group < entry2.group;
       }
+
       return entry1.displayString.toLower() < entry2.displayString.toLower();
     } );
   }
   beginResetModel();
   mEntries = entries;
   endResetModel();
+}
+
+FeatureListModel::Entry FeatureListModel::entryFromRow( int row )
+{
+  return row < 0 || row >= mEntries.size() ? FeatureListModel::Entry() : mEntries.at( row );
 }
 
 void FeatureListModel::reloadLayer()
