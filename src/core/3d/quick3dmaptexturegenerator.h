@@ -16,6 +16,8 @@
 #ifndef QUICK3DMAPTEXTUREGENERATOR_H
 #define QUICK3DMAPTEXTUREGENERATOR_H
 
+#include "qgsquickmapsettings.h"
+
 #include <QImage>
 #include <QObject>
 #include <QStandardPaths>
@@ -39,10 +41,10 @@ class Quick3DMapTextureGenerator : public QObject
 {
     Q_OBJECT
 
-    //! The project from which to render map layers
-    Q_PROPERTY( QgsProject *project READ project WRITE setProject NOTIFY projectChanged )
+    //! The map settings from which to get layers, extent, and output size for rendering
+    Q_PROPERTY( QgsQuickMapSettings *mapSettings READ mapSettings WRITE setMapSettings NOTIFY mapSettingsChanged )
 
-    //! Geographic extent to render for texture generation
+    //! Optional custom extent to render. If not set, uses mapSettings extent
     Q_PROPERTY( QgsRectangle extent READ extent WRITE setExtent NOTIFY extentChanged )
 
     //! File path to the generated texture image (readonly)
@@ -53,16 +55,16 @@ class Quick3DMapTextureGenerator : public QObject
     explicit Quick3DMapTextureGenerator( QObject *parent = nullptr );
     ~Quick3DMapTextureGenerator() override;
 
-    //! Returns the project from which to render map layers.
-    QgsProject *project() const;
+    //! Returns the map settings from which to get layers.
+    QgsQuickMapSettings *mapSettings() const;
 
-    //! Sets the project.
-    void setProject( QgsProject *project );
+    //! Sets the map settings.
+    void setMapSettings( QgsQuickMapSettings *mapSettings );
 
-    //! Returns the geographic extent to render.
+    //! Returns the custom extent for rendering.
     QgsRectangle extent() const;
 
-    //! Sets the extent.
+    //! Sets a custom extent for rendering. If empty, uses mapSettings extent.
     void setExtent( const QgsRectangle &extent );
 
     //! Returns the file path to the generated texture image.
@@ -75,11 +77,8 @@ class Quick3DMapTextureGenerator : public QObject
     Q_INVOKABLE void render();
 
   signals:
-    void projectChanged();
+    void mapSettingsChanged();
     void extentChanged();
-
-    //! Emitted when texture size changes
-    void textureSizeChanged();
 
     //! Emitted when texture rendering is complete and file is ready
     void ready();
@@ -90,9 +89,8 @@ class Quick3DMapTextureGenerator : public QObject
     void onRenderFinished();
 
   private:
-    QgsProject *mProject = nullptr;
+    QgsQuickMapSettings *mMapSettings = nullptr;
     QgsRectangle mExtent;
-    int mTextureSize = 1024;
     QImage mRenderedImage;
     QString mTextureFilePath;
     std::unique_ptr<QgsMapRendererSequentialJob> mRenderJob;

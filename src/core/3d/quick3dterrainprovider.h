@@ -16,6 +16,8 @@ email                : mohsen@opengis.ch
 #ifndef QUICK3DTERRAINPROVIDER_H
 #define QUICK3DTERRAINPROVIDER_H
 
+#include "qgsquickmapsettings.h"
+
 #include <QFutureWatcher>
 #include <QObject>
 #include <QPointer>
@@ -48,11 +50,14 @@ class Quick3DTerrainProvider : public QObject
     //! The project from which to read the terrain configuration and DEM layer
     Q_PROPERTY( QgsProject *project READ project WRITE setProject NOTIFY projectChanged )
 
-    //! Number of height samples per terrain axis, determines terrain mesh density
-    Q_PROPERTY( int resolution READ resolution WRITE setResolution NOTIFY resolutionChanged )
+    //! The map settings from which to get extent for terrain generation
+    Q_PROPERTY( QgsQuickMapSettings *mapSettings READ mapSettings WRITE setMapSettings NOTIFY mapSettingsChanged )
 
-    //! Geographic extent for which to retrieve terrain data
-    Q_PROPERTY( QgsRectangle extent READ extent WRITE setExtent NOTIFY extentChanged )
+    //! Number of height samples per terrain axis
+    Q_PROPERTY( int resolution READ resolution NOTIFY resolutionChanged )
+
+    //! Geographic extent used for terrain data
+    Q_PROPERTY( QgsRectangle extent READ extent NOTIFY extentChanged )
 
     //! Normalized height data array [0.0-1.0] for terrain mesh generation
     Q_PROPERTY( QVariantList normalizedData READ normalizedData NOTIFY normalizedDataChanged )
@@ -80,17 +85,17 @@ class Quick3DTerrainProvider : public QObject
     //! Sets the project.
     void setProject( QgsProject *project );
 
+    //! Returns the map settings.
+    QgsQuickMapSettings *mapSettings() const;
+
+    //! Sets the map settings.
+    void setMapSettings( QgsQuickMapSettings *mapSettings );
+
     //! Returns the number of height samples per terrain axis.
     int resolution() const;
 
-    //! Sets the resolution.
-    void setResolution( int resolution );
-
     //! Returns the geographic extent for terrain data retrieval.
     QgsRectangle extent() const;
-
-    //! Sets the extent.
-    void setExtent( const QgsRectangle &extent );
 
     //! Returns the normalized height data array [0.0-1.0].
     QVariantList normalizedData() const;
@@ -131,6 +136,7 @@ class Quick3DTerrainProvider : public QObject
 
   signals:
     void projectChanged();
+    void mapSettingsChanged();
     void resolutionChanged();
     void extentChanged();
 
@@ -144,6 +150,8 @@ class Quick3DTerrainProvider : public QObject
 
   private:
     void updateTerrainProvider();
+    void updateFromMapSettings();
+    int calculateResolution() const;
 
     //! Calculates terrain heights asynchronously in a worker thread and normalizes the data
     void calcNormalizedData();
@@ -154,6 +162,7 @@ class Quick3DTerrainProvider : public QObject
 
   private:
     QgsProject *mProject = nullptr;
+    QgsQuickMapSettings *mMapSettings = nullptr;
     QPointer<QgsRasterLayer> mDemLayer;
     std::unique_ptr<QgsAbstractTerrainProvider> mQgisTerrainProvider;
     int mResolution = 32;

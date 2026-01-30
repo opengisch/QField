@@ -11,11 +11,10 @@ Item {
   visible: !isLoading
 
   property var qgisProject
+  property alias mapSettings: terrainProvider.mapSettings
   property bool wireframeMode: false
-  property var initialExtent
   property bool isLoading: terrainProvider.isLoading
   property int loadingProgress: terrainProvider.loadingProgress
-  property color backgroundColor: "#FFFFFF"
 
   property var gnssPosition: null  // QgsPointXY
   property bool gnssActive: false
@@ -28,35 +27,13 @@ Item {
     id: internal
     property real terrainWidth: terrainProvider.terrainBaseSize
     property real terrainDepth: terrainProvider.terrainBaseSize
-
-    // Adaptive resolution based on extent size
-    function calculateResolution() {
-      if (terrainProvider.hasDemLayer) {
-        return 64 * 10;
-      }
-
-      if (!root.initialExtent)
-        return 32;
-      const extentSize = Math.max(root.initialExtent.width, root.initialExtent.height);
-      if (extentSize < 2000)
-        return 64;
-      if (extentSize < 10000)
-        return 48;
-      if (extentSize < 50000)
-        return 32;
-      return 24;
-    }
   }
 
   Quick3DTerrainProvider {
     id: terrainProvider
     project: root.qgisProject
-    extent: root.initialExtent
-    resolution: internal.calculateResolution()
 
     onTerrainDataReady: {
-      textureGenerator.extent = root.initialExtent;
-
       loadTerrain();
 
       // Play opening animation after terrain is positioned
@@ -66,7 +43,8 @@ Item {
 
   Quick3DMapTextureGenerator {
     id: textureGenerator
-    project: root.qgisProject
+    mapSettings: root.mapSettings
+    extent: terrainProvider.extent
 
     property bool isReady: false
 
@@ -138,7 +116,7 @@ Item {
     anchors.fill: parent
 
     environment: SceneEnvironment {
-      clearColor: root.backgroundColor
+      clearColor: root.mapSettings ? root.mapSettings.backgroundColor : "#FFFFFF"
       backgroundMode: SceneEnvironment.Color
       antialiasingMode: SceneEnvironment.MSAA
       antialiasingQuality: SceneEnvironment.High

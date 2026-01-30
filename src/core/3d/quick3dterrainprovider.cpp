@@ -14,6 +14,7 @@
  *                                                                         *
  ***************************************************************************/
 
+#include "qgsquickmapsettings.h"
 #include "quick3dterrainprovider.h"
 
 #include <QTimer>
@@ -69,21 +70,32 @@ void Quick3DTerrainProvider::setProject( QgsProject *project )
   updateTerrainProvider();
 }
 
-int Quick3DTerrainProvider::resolution() const
+QgsQuickMapSettings *Quick3DTerrainProvider::mapSettings() const
 {
-  return mResolution;
+  return mMapSettings;
 }
 
-void Quick3DTerrainProvider::setResolution( int resolution )
+void Quick3DTerrainProvider::setMapSettings( QgsQuickMapSettings *mapSettings )
 {
-  resolution = qBound( 8, resolution, 256 );
-  if ( mResolution == resolution )
+  if ( mMapSettings == mapSettings )
   {
     return;
   }
 
-  mResolution = resolution;
-  emit resolutionChanged();
+  if ( mMapSettings )
+  {
+    disconnect( mMapSettings, nullptr, this, nullptr );
+  }
+
+  mMapSettings = mapSettings;
+  emit mapSettingsChanged();
+
+  updateFromMapSettings();
+}
+
+int Quick3DTerrainProvider::resolution() const
+{
+  return mResolution;
 }
 
 QgsRectangle Quick3DTerrainProvider::extent() const
@@ -91,20 +103,93 @@ QgsRectangle Quick3DTerrainProvider::extent() const
   return mExtent;
 }
 
-void Quick3DTerrainProvider::setExtent( const QgsRectangle &extent )
+void Quick3DTerrainProvider::updateFromMapSettings()
 {
-  if ( mExtent == extent )
+  if ( !mMapSettings )
   {
     return;
   }
 
-  mExtent = extent;
-  emit extentChanged();
+  QgsRectangle visibleExtent = mMapSettings->visibleExtent();
 
-  if ( ( mDemLayer && mDemLayer->isValid() ) || mQgisTerrainProvider )
+  // If we have a DEM layer, intersect with its extent to only show areas with data
+  if ( mDemLayer && mDemLayer->isValid() )
+  {
+    QgsRectangle demExtent = mDemLayer->extent();
+
+    // Transform DEM extent to project CRS if needed
+    if ( mProject && mDemLayer->crs() != mProject->crs() )
+    {
+      try
+      {
+        QgsCoordinateTransform transform( mDemLayer->crs(), mProject->crs(), mProject->transformContext() );
+        demExtent = transform.transformBoundingBox( demExtent );
+      }
+      catch ( const QgsCsException & )
+      {
+        // Keep original DEM extent if transform fails
+      }
+    }
+
+    QgsRectangle intersection = visibleExtent.intersect( demExtent );
+    if ( !intersection.isEmpty() )
+    {
+      const double pixelWidth = demExtent.width() / 1000.0;
+      const double pixelHeight = demExtent.height() / 1000.0;
+      intersection = QgsRectangle(
+        intersection.xMinimum() + pixelWidth,
+        intersection.yMinimum() + pixelHeight,
+        intersection.xMaximum() - pixelWidth,
+        intersection.yMaximum() - pixelHeight );
+
+      visibleExtent = intersection;
+    }
+  }
+
+  bool changed = false;
+
+  if ( mExtent != visibleExtent )
+  {
+    mExtent = visibleExtent;
+    emit extentChanged();
+    changed = true;
+  }
+
+  const int newResolution = calculateResolution();
+  if ( mResolution != newResolution )
+  {
+    mResolution = newResolution;
+    emit resolutionChanged();
+    changed = true;
+  }
+
+  if ( changed && ( ( mDemLayer && mDemLayer->isValid() ) || mQgisTerrainProvider ) )
   {
     calcNormalizedData();
   }
+}
+
+int Quick3DTerrainProvider::calculateResolution() const
+{
+  if ( mExtent.isEmpty() )
+  {
+    return 32;
+  }
+
+  const double extentSize = std::max( mExtent.width(), mExtent.height() );
+
+  if ( mDemLayer && mDemLayer->isValid() )
+  {
+    return 64 * 5;
+  }
+
+  if ( extentSize < 2000 )
+    return 64;
+  if ( extentSize < 10000 )
+    return 48;
+  if ( extentSize < 50000 )
+    return 32;
+  return 24;
 }
 
 QVariantList Quick3DTerrainProvider::normalizedData() const
@@ -227,6 +312,7 @@ void Quick3DTerrainProvider::calcNormalizedData()
         if ( demLayer && demLayer->isValid() && demLayer->dataProvider() )
         {
           QgsPointXY point( x, y );
+          QgsRectangle layerExtent = demLayer->extent();
 
           if ( project && demLayer->crs() != project->crs() )
           {
@@ -241,7 +327,7 @@ void Quick3DTerrainProvider::calcNormalizedData()
             }
           }
 
-          if ( demLayer->extent().contains( point ) )
+          if ( layerExtent.contains( point ) )
           {
             bool ok = false;
             const double value = demLayer->dataProvider()->sample( point, 1, &ok );
