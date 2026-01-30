@@ -23,7 +23,6 @@
 #include <QFileInfo>
 #include <QList>
 #include <QObject>
-#include <QScopedPointer>
 #include <QStringList>
 #include <QVariantMap>
 #include <QtWebDAV/qwebdav.h>
