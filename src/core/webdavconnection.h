@@ -28,6 +28,8 @@
 #include <QtWebDAV/qwebdav.h>
 #include <QtWebDAV/qwebdavdirparser.h>
 
+#include <memory>
+
 class QLockFile;
 
 /**
@@ -259,6 +261,23 @@ class WebdavConnection : public QObject
     ///! Computes the common path between two given paths.
     QString getCommonPath( const QString &addressA, const QString &addressB );
 
+    static const QString &webdavConfigFileName();
+    static const QString &webdavLockFileName();
+
+    static bool isInHiddenDotFolder( const QString &relativePath );
+    static QString ensureTrailingSlash( QString path );
+    static QString findWebdavRootForPath( const QString &path );
+
+    bool readWebdavConfig( const QString &rootPath, QVariantMap &outConfig, QString &outError ) const;
+    static QByteArray computeLocalSignature( const QString &rootPath );
+
+    bool uploadPathsInternal( const QStringList &localPaths, bool requireConfirmation, bool autoUpload, bool force, QString *outError );
+
+    void beginUpload( bool requireConfirmation );
+
+    bool tryLockUpload( const QString &root, QString *outError );
+    void unlockUpload();
+
     QString mUrl;
     QString mUsername;
     QString mPassword;
@@ -293,7 +312,8 @@ class WebdavConnection : public QObject
     bool mAutoUploadActive = false;
     QString mAutoUploadRoot;
     QByteArray mAutoUploadSignature;
-    std::unique_ptr<QLockFile> mAutoUploadLock;
+    QString mAutoUploadSignatureRoot;
+    std::unique_ptr<QLockFile> mUploadLock;
 };
 
 #endif // WEBDAVCONNECTION_H
