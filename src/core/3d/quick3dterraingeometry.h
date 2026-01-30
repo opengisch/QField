@@ -18,6 +18,7 @@
 #define QUICK3DTERRAINGEOMETRY_H
 
 #include <QQuick3DGeometry>
+#include <QSize>
 #include <QVector3D>
 #include <QVector>
 
@@ -37,8 +38,8 @@ class Quick3DTerrainGeometry : public QQuick3DGeometry
     Q_OBJECT
     QML_ELEMENT
 
-    //! Number of vertices per terrain axis, determines mesh detail level
-    Q_PROPERTY( int resolution READ resolution WRITE setResolution NOTIFY resolutionChanged )
+    //! Grid dimensions (width x height) for terrain vertices
+    Q_PROPERTY( QSize gridSize READ gridSize WRITE setGridSize NOTIFY gridSizeChanged )
 
     //! Width of the terrain mesh in 3D scene units
     Q_PROPERTY( float terrainWidth READ terrainWidth WRITE setTerrainWidth NOTIFY terrainWidthChanged )
@@ -53,11 +54,11 @@ class Quick3DTerrainGeometry : public QQuick3DGeometry
     //! Creates a new terrain geometry
     explicit Quick3DTerrainGeometry( QQuick3DObject *parent = nullptr );
 
-    //! Returns the number of vertices per terrain axis.
-    int resolution() const { return mResolution; }
+    //! Returns the grid dimensions.
+    QSize gridSize() const { return mGridSize; }
 
-    //! Sets the resolution.
-    void setResolution( int resolution );
+    //! Sets the grid dimensions.
+    void setGridSize( const QSize &size );
 
     //! Returns the width of the terrain mesh in 3D scene units.
     float terrainWidth() const { return mTerrainWidth; }
@@ -75,7 +76,7 @@ class Quick3DTerrainGeometry : public QQuick3DGeometry
     void setHeightData( const QVariantList &data );
 
   signals:
-    void resolutionChanged();
+    void gridSizeChanged();
     void terrainWidthChanged();
     void terrainDepthChanged();
     void heightDataChanged();
@@ -96,7 +97,7 @@ class Quick3DTerrainGeometry : public QQuick3DGeometry
     QVector3D calculateNormal( int x, int z ) const;
     float getHeight( int x, int z ) const;
 
-    int mResolution = 64;
+    QSize mGridSize = QSize( 64, 64 );
     float mTerrainWidth = 1000.0f;
     float mTerrainDepth = 1000.0f;
     QVector<float> mHeights;

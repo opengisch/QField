@@ -14,14 +14,13 @@ Item {
   property alias mapSettings: terrainProvider.mapSettings
   property bool wireframeMode: false
   property bool isLoading: terrainProvider.isLoading
-  property int loadingProgress: terrainProvider.loadingProgress
 
-  property var gnssPosition: null  // QgsPointXY
+  property var gnssPosition: null
   property bool gnssActive: false
   property real gnssSpeed: -1
   property real gnssDirection: -1
 
-  signal cameraInteractionDetected  // Emitted when user manually moves camera
+  signal cameraInteractionDetected
 
   QtObject {
     id: internal
@@ -35,8 +34,6 @@ Item {
 
     onTerrainDataReady: {
       loadTerrain();
-
-      // Play opening animation after terrain is positioned
       Qt.callLater(root.playOpeningAnimation);
     }
   }
@@ -52,7 +49,6 @@ Item {
     textureData: textureData
   }
 
-  // Load normalized terrain data from C++
   function loadTerrain() {
     const heights = terrainProvider.normalizedData;
     if (heights.length === 0) {
@@ -76,7 +72,6 @@ Item {
   }
 
   function positionCameraForTerrain() {
-    const maxDimension = Math.max(internal.terrainWidth, internal.terrainDepth);
     const terrainDiagonal = Math.sqrt(internal.terrainWidth * internal.terrainWidth + internal.terrainDepth * internal.terrainDepth);
     cameraController.distance = terrainDiagonal * 0.8;
     cameraController.pitch = 40;
@@ -85,17 +80,12 @@ Item {
   }
 
   function playOpeningAnimation() {
-    const maxDimension = Math.max(internal.terrainWidth, internal.terrainDepth);
     const terrainDiagonal = Math.sqrt(internal.terrainWidth * internal.terrainWidth + internal.terrainDepth * internal.terrainDepth);
-
-    // Start from top view (pitch=85)
     cameraController.distance = terrainDiagonal * 0.8;
     cameraController.pitch = 85;
     cameraController.yaw = 0;
     cameraController.target = Qt.vector3d(0, 0, 0);
     cameraController.updateCameraPosition();
-
-    // Animate to normal view
     openingAnimation.start();
   }
 
@@ -136,7 +126,7 @@ Item {
 
     TerrainMesh {
       id: terrainMesh
-      resolution: terrainProvider.resolution
+      gridSize: terrainProvider.gridSize
       terrainWidth: internal.terrainWidth
       terrainDepth: internal.terrainDepth
       satelliteTexture: satelliteTexture
@@ -156,7 +146,6 @@ Item {
       position: pos3d || Qt.vector3d(0, 0, 0)
       eulerRotation: root.gnssSpeed > 0 && root.gnssDirection >= 0 ? Qt.vector3d(0, -root.gnssDirection, 0) : Qt.vector3d(0, 0, 0)
 
-      // Outer pulsing ring
       Model {
         source: "#Sphere"
         scale: Qt.vector3d(0.3, 0.05, 0.3)
@@ -188,11 +177,9 @@ Item {
         }
       }
 
-      // Movement arrow
       Node {
         visible: root.gnssSpeed > 0 && root.gnssDirection >= 0
 
-        // Arrow head
         Model {
           source: "#Cone"
           scale: Qt.vector3d(0.2, 0.15, 0.2)
@@ -207,7 +194,6 @@ Item {
           }
         }
 
-        // Arrow body
         Model {
           source: "#Cylinder"
           scale: Qt.vector3d(0.08, 0.12, 0.08)
@@ -304,7 +290,6 @@ Item {
     }
   }
 
-  // Convert GIS coordinates to 3D scene coordinates
   function geoTo3D(geoX, geoY) {
     const extW = terrainProvider.extent.width;
     const extH = terrainProvider.extent.height;
@@ -312,7 +297,6 @@ Item {
     if (extW <= 0 || extH <= 0)
       return null;
 
-    // Normalize to 0-1 range within extent
     const nx = (geoX - terrainProvider.extent.xMinimum) / extW;
     const nz = (geoY - terrainProvider.extent.yMinimum) / extH;
 
@@ -320,7 +304,6 @@ Item {
       return null;
     }
 
-    // Convert to 3D coordinates (centered at origin)
     const x3d = (nx - 0.5) * internal.terrainWidth;
     const z3d = (0.5 - nz) * internal.terrainDepth;
 

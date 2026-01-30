@@ -5,7 +5,7 @@ import org.qfield
 Node {
   id: root
 
-  property alias resolution: terrainGeometry.resolution
+  property alias gridSize: terrainGeometry.gridSize
   property alias terrainWidth: terrainGeometry.terrainWidth
   property alias terrainDepth: terrainGeometry.terrainDepth
   property alias heightData: terrainGeometry.heightData
