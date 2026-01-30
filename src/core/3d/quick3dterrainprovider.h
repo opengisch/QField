@@ -21,6 +21,7 @@ email                : mohsen@opengis.ch
 #include <QFutureWatcher>
 #include <QObject>
 #include <QPointer>
+#include <QSize>
 #include <QVariantList>
 #include <qgsproject.h>
 #include <qgsrectangle.h>
@@ -53,8 +54,8 @@ class Quick3DTerrainProvider : public QObject
     //! The map settings from which to get extent for terrain generation
     Q_PROPERTY( QgsQuickMapSettings *mapSettings READ mapSettings WRITE setMapSettings NOTIFY mapSettingsChanged )
 
-    //! Number of height samples per terrain axis
-    Q_PROPERTY( int resolution READ resolution NOTIFY resolutionChanged )
+    //! Grid dimensions (width x height) for terrain sampling
+    Q_PROPERTY( QSize gridSize READ gridSize NOTIFY gridSizeChanged )
 
     //! Geographic extent used for terrain data
     Q_PROPERTY( QgsRectangle extent READ extent NOTIFY extentChanged )
@@ -70,9 +71,6 @@ class Quick3DTerrainProvider : public QObject
 
     //! Whether terrain data is currently being loaded
     Q_PROPERTY( bool isLoading READ isLoading NOTIFY isLoadingChanged )
-
-    //! Loading progress percentage (0-100) for online terrain providers
-    Q_PROPERTY( int loadingProgress READ loadingProgress NOTIFY loadingProgressChanged )
 
   public:
     //! Creates a new terrain provider
@@ -91,8 +89,8 @@ class Quick3DTerrainProvider : public QObject
     //! Sets the map settings.
     void setMapSettings( QgsQuickMapSettings *mapSettings );
 
-    //! Returns the number of height samples per terrain axis.
-    int resolution() const;
+    //! Returns the grid dimensions for terrain sampling.
+    QSize gridSize() const;
 
     //! Returns the geographic extent for terrain data retrieval.
     QgsRectangle extent() const;
@@ -108,9 +106,6 @@ class Quick3DTerrainProvider : public QObject
 
     //! Returns TRUE if terrain data is currently being loaded.
     bool isLoading() const;
-
-    //! Returns the loading progress percentage (0-100).
-    int loadingProgress() const;
 
     /**
      * Returns the real height value at the specified map coordinates.
@@ -137,7 +132,7 @@ class Quick3DTerrainProvider : public QObject
   signals:
     void projectChanged();
     void mapSettingsChanged();
-    void resolutionChanged();
+    void gridSizeChanged();
     void extentChanged();
 
     //! Emitted when terrain data has been successfully loaded and is ready for use
@@ -146,12 +141,11 @@ class Quick3DTerrainProvider : public QObject
     void normalizedDataChanged();
     void hasDemLayerChanged();
     void isLoadingChanged();
-    void loadingProgressChanged();
 
   private:
     void updateTerrainProvider();
     void updateFromMapSettings();
-    int calculateResolution() const;
+    void calculateResolution();
 
     //! Calculates terrain heights asynchronously in a worker thread and normalizes the data
     void calcNormalizedData();
@@ -165,16 +159,14 @@ class Quick3DTerrainProvider : public QObject
     QgsQuickMapSettings *mMapSettings = nullptr;
     QPointer<QgsRasterLayer> mDemLayer;
     std::unique_ptr<QgsAbstractTerrainProvider> mQgisTerrainProvider;
-    int mResolution = 32;
+    QSize mGridSize = QSize( 32, 32 );
     double mTerrainBaseSize = 2000.0;
     QgsRectangle mExtent;
     QVariantList mNormalizedData;
     double mMinRealHeight = 0.0;
     double mMaxRealHeight = 0.0;
     bool mIsLoading = false;
-    int mLoadingProgress = 0;
     QFutureWatcher<QVector<double>> *mFutureWatcher = nullptr;
-    QAtomicInt mProgressCounter;
 };
 
 #endif // QUICK3DTERRAINPROVIDER_H

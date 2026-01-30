@@ -729,25 +729,10 @@ ApplicationWindow {
 
         Text {
           anchors.horizontalCenter: parent.horizontalCenter
-          text: qsTr("Downloading terrain data...")
+          text: qsTr("Loading terrain...")
           color: "white"
           font.pixelSize: 16
           font.bold: true
-        }
-
-        ProgressBar {
-          anchors.horizontalCenter: parent.horizontalCenter
-          width: 200
-          height: 6
-          value: map3DViewLoader.item.loadingProgress / 100
-          visible: loadingOverlay.visible
-        }
-
-        Text {
-          anchors.horizontalCenter: parent.horizontalCenter
-          text: map3DViewLoader.item ? map3DViewLoader.item.loadingProgress + "%" : "0%"
-          color: "white"
-          font.pixelSize: 14
         }
       }
     }

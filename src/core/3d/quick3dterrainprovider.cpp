@@ -17,7 +17,6 @@
 #include "qgsquickmapsettings.h"
 #include "quick3dterrainprovider.h"
 
-#include <QTimer>
 #include <QtConcurrent>
 #include <qgscoordinatetransform.h>
 #include <qgsproject.h>
@@ -36,20 +35,6 @@ Quick3DTerrainProvider::Quick3DTerrainProvider( QObject *parent )
 {
   connect( mFutureWatcher, &QFutureWatcher<QVector<double>>::finished,
            this, &Quick3DTerrainProvider::onTerrainDataCalculated );
-
-  QTimer *progressTimer = new QTimer( this );
-  connect( progressTimer, &QTimer::timeout, this, [this]() {
-    if ( mIsLoading )
-    {
-      const int progress = mProgressCounter.loadAcquire();
-      if ( progress != mLoadingProgress )
-      {
-        mLoadingProgress = progress;
-        emit loadingProgressChanged();
-      }
-    }
-  } );
-  progressTimer->start( 100 );
 }
 
 Quick3DTerrainProvider::~Quick3DTerrainProvider() = default;
@@ -94,9 +79,9 @@ void Quick3DTerrainProvider::setMapSettings( QgsQuickMapSettings *mapSettings )
   updateFromMapSettings();
 }
 
-int Quick3DTerrainProvider::resolution() const
+QSize Quick3DTerrainProvider::gridSize() const
 {
-  return mResolution;
+  return mGridSize;
 }
 
 QgsRectangle Quick3DTerrainProvider::extent() const
@@ -128,7 +113,6 @@ void Quick3DTerrainProvider::updateFromMapSettings()
       }
       catch ( const QgsCsException & )
       {
-        // Keep original DEM extent if transform fails
       }
     }
 
@@ -156,13 +140,7 @@ void Quick3DTerrainProvider::updateFromMapSettings()
     changed = true;
   }
 
-  const int newResolution = calculateResolution();
-  if ( mResolution != newResolution )
-  {
-    mResolution = newResolution;
-    emit resolutionChanged();
-    changed = true;
-  }
+  calculateResolution();
 
   if ( changed && ( ( mDemLayer && mDemLayer->isValid() ) || mQgisTerrainProvider ) )
   {
@@ -170,27 +148,41 @@ void Quick3DTerrainProvider::updateFromMapSettings()
   }
 }
 
-int Quick3DTerrainProvider::calculateResolution() const
+void Quick3DTerrainProvider::calculateResolution()
 {
   if ( mExtent.isEmpty() )
   {
-    return 32;
+    if ( mGridSize != QSize( 32, 32 ) )
+    {
+      mGridSize = QSize( 32, 32 );
+      emit gridSizeChanged();
+    }
+    return;
   }
 
-  const double extentSize = std::max( mExtent.width(), mExtent.height() );
+  int baseResolution = 320;
 
-  if ( mDemLayer && mDemLayer->isValid() )
+  const double extentWidth = mExtent.width();
+  const double extentHeight = mExtent.height();
+  int newWidth, newHeight;
+
+  if ( extentWidth >= extentHeight )
   {
-    return 64 * 5;
+    newWidth = baseResolution;
+    newHeight = std::max( 16, static_cast<int>( baseResolution * ( extentHeight / extentWidth ) ) );
+  }
+  else
+  {
+    newHeight = baseResolution;
+    newWidth = std::max( 16, static_cast<int>( baseResolution * ( extentWidth / extentHeight ) ) );
   }
 
-  if ( extentSize < 2000 )
-    return 64;
-  if ( extentSize < 10000 )
-    return 48;
-  if ( extentSize < 50000 )
-    return 32;
-  return 24;
+  QSize newGridSize( newWidth, newHeight );
+  if ( mGridSize != newGridSize )
+  {
+    mGridSize = newGridSize;
+    emit gridSizeChanged();
+  }
 }
 
 QVariantList Quick3DTerrainProvider::normalizedData() const
@@ -250,11 +242,9 @@ double Quick3DTerrainProvider::calculateVisualExaggeration() const
 
 void Quick3DTerrainProvider::calcNormalizedData()
 {
-  const int totalSamples = mResolution * mResolution;
-
   if ( mExtent.isEmpty() || ( !mDemLayer && !mQgisTerrainProvider ) )
   {
-    mNormalizedData.fill( 0.0, totalSamples );
+    mNormalizedData.fill( 0.0, mGridSize.width() * mGridSize.height() );
     emit normalizedDataChanged();
     emit terrainDataReady();
     return;
@@ -268,99 +258,78 @@ void Quick3DTerrainProvider::calcNormalizedData()
 
   mIsLoading = true;
   emit isLoadingChanged();
-  mProgressCounter.storeRelease( 0 );
-  mLoadingProgress = 0;
-  emit loadingProgressChanged();
 
-  QgsAbstractTerrainProvider *terrainProviderClone = mQgisTerrainProvider ? mQgisTerrainProvider->clone() : nullptr;
-  QgsRasterLayer *demLayer = mDemLayer.data();
-  QgsProject *project = mProject;
-  QgsRectangle extent = mExtent;
-  int resolution = mResolution;
-  QAtomicInt *progressCounter = &mProgressCounter;
+  QgsRasterDataProvider *provider = nullptr;
+  QgsCoordinateReferenceSystem rasterCrs;
+  double scale = 1.0;
+  double offset = 0.0;
 
-  const QFuture<QVector<double>> future = QtConcurrent::run( [demLayer, terrainProviderClone, project, extent, resolution, progressCounter]() {
-    QVector<double> heights( resolution * resolution, 0.0 );
-
-    progressCounter->storeRelease( 10 );
-
-    // Option 1: Use local DEM layer with raster block API
-    if ( demLayer && demLayer->isValid() && demLayer->dataProvider() )
+  if ( mDemLayer && mDemLayer->isValid() && mDemLayer->dataProvider() )
+  {
+    provider = mDemLayer->dataProvider()->clone();
+    rasterCrs = mDemLayer->crs();
+  }
+  else if ( mQgisTerrainProvider )
+  {
+    QgsRasterDemTerrainProvider *demProvider = dynamic_cast<QgsRasterDemTerrainProvider *>( mQgisTerrainProvider.get() );
+    if ( demProvider && demProvider->layer() && demProvider->layer()->dataProvider() )
     {
-      QgsRectangle blockExtent = extent;
-      if ( project && demLayer->crs() != project->crs() )
+      provider = demProvider->layer()->dataProvider()->clone();
+      rasterCrs = demProvider->layer()->crs();
+      scale = demProvider->scale();
+      offset = demProvider->offset();
+    }
+  }
+
+  if ( !provider )
+  {
+    mNormalizedData.fill( 0.0, mGridSize.width() * mGridSize.height() );
+    emit normalizedDataChanged();
+    emit terrainDataReady();
+    mIsLoading = false;
+    emit isLoadingChanged();
+    return;
+  }
+
+  QgsRectangle extent = mExtent;
+  QSize gridSize = mGridSize;
+  QgsCoordinateReferenceSystem projectCrs = mProject ? mProject->crs() : QgsCoordinateReferenceSystem();
+  QgsCoordinateTransformContext transformContext = mProject ? mProject->transformContext() : QgsCoordinateTransformContext();
+
+  QFuture<QVector<double>> future = QtConcurrent::run( [provider, extent, gridSize, rasterCrs, projectCrs, transformContext, scale, offset]() {
+    QVector<double> heights( gridSize.width() * gridSize.height(), 0.0 );
+
+    QgsRectangle blockExtent = extent;
+    if ( rasterCrs.isValid() && projectCrs.isValid() && rasterCrs != projectCrs )
+    {
+      try
       {
-        try
-        {
-          QgsCoordinateTransform transform( project->crs(), demLayer->crs(), project->transformContext() );
-          blockExtent = transform.transformBoundingBox( extent );
-        }
-        catch ( const QgsCsException & )
-        {
-        }
+        QgsCoordinateTransform transform( projectCrs, rasterCrs, transformContext );
+        blockExtent = transform.transformBoundingBox( extent );
       }
-
-      std::unique_ptr<QgsRasterBlock> block( demLayer->dataProvider()->block( 1, blockExtent, resolution, resolution ) );
-      progressCounter->storeRelease( 80 );
-
-      if ( block && block->isValid() )
+      catch ( const QgsCsException & )
       {
-        for ( int i = 0; i < resolution * resolution; ++i )
+      }
+    }
+
+    std::unique_ptr<QgsRasterBlock> block( provider->block( 1, blockExtent, gridSize.width(), gridSize.height() ) );
+    if ( block && block->isValid() )
+    {
+      for ( int row = 0; row < gridSize.height(); ++row )
+      {
+        for ( int col = 0; col < gridSize.width(); ++col )
         {
           bool isNoData = false;
-          const double value = block->valueAndNoData( i / resolution, i % resolution, isNoData );
+          double value = block->valueAndNoData( row, col, isNoData );
           if ( !isNoData && !std::isnan( value ) )
           {
-            heights[i] = value;
+            heights[row * gridSize.width() + col] = value * scale + offset;
           }
         }
       }
     }
-    // Option 2: Use online terrain provider
-    else if ( terrainProviderClone && project )
-    {
-      terrainProviderClone->prepare();
 
-      const double xStep = extent.width() / ( resolution - 1 );
-      const double yStep = extent.height() / ( resolution - 1 );
-
-      QgsCoordinateTransform transform;
-      const QgsCoordinateReferenceSystem terrainCrs = terrainProviderClone->crs();
-      if ( terrainCrs.isValid() && terrainCrs != project->crs() )
-      {
-        transform = QgsCoordinateTransform( project->crs(), terrainCrs, project->transformContext() );
-      }
-
-      for ( int row = 0; row < resolution; ++row )
-      {
-        for ( int col = 0; col < resolution; ++col )
-        {
-          QgsPointXY point( extent.xMinimum() + col * xStep, extent.yMaximum() - row * yStep );
-
-          if ( transform.isValid() )
-          {
-            try
-            {
-              point = transform.transform( point );
-            }
-            catch ( const QgsCsException & )
-            {
-              continue;
-            }
-          }
-
-          const double h = terrainProviderClone->heightAt( point.x(), point.y() );
-          if ( !std::isnan( h ) )
-          {
-            heights[row * resolution + col] = h;
-          }
-        }
-        progressCounter->storeRelease( 10 + ( row * 80 ) / resolution );
-      }
-    }
-
-    delete terrainProviderClone;
-    progressCounter->storeRelease( 100 );
+    delete provider;
     return heights;
   } );
 
@@ -435,7 +404,6 @@ void Quick3DTerrainProvider::updateTerrainProvider()
   mDemLayer = nullptr;
   mQgisTerrainProvider.reset();
 
-  // Find DEM layer (single-band local raster)
   for ( QgsMapLayer *layer : mProject->mapLayers() )
   {
     QgsRasterLayer *raster = qobject_cast<QgsRasterLayer *>( layer );
@@ -454,7 +422,6 @@ void Quick3DTerrainProvider::updateTerrainProvider()
     }
   }
 
-  // Fallback to QGIS terrain provider
   if ( !mDemLayer )
   {
     QgsAbstractTerrainProvider *const terrain = mProject->elevationProperties()->terrainProvider();
@@ -483,11 +450,6 @@ bool Quick3DTerrainProvider::isLoading() const
   return mIsLoading;
 }
 
-int Quick3DTerrainProvider::loadingProgress() const
-{
-  return mLoadingProgress;
-}
-
 void Quick3DTerrainProvider::onTerrainDataCalculated()
 {
   if ( !mFutureWatcher->isFinished() )
@@ -513,9 +475,6 @@ void Quick3DTerrainProvider::onTerrainDataCalculated()
 
   mIsLoading = false;
   emit isLoadingChanged();
-
-  mLoadingProgress = 100;
-  emit loadingProgressChanged();
 
   emit normalizedDataChanged();
   emit terrainDataReady();

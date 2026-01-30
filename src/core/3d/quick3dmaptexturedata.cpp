@@ -102,12 +102,10 @@ void Quick3DMapTextureData::render()
     return;
   }
 
-  // Use custom extent if set, otherwise use mapSettings extent
   if ( !mExtent.isEmpty() )
   {
     renderSettings.setExtent( mExtent );
 
-    // Adjust output size to match the aspect ratio of the custom extent
     const QSize originalSize = renderSettings.outputSize();
     const double extentAspectRatio = mExtent.width() / mExtent.height();
     const int baseSize = std::max( originalSize.width(), originalSize.height() );
@@ -126,7 +124,6 @@ void Quick3DMapTextureData::render()
     renderSettings.setOutputSize( QSize( newWidth, newHeight ) );
   }
 
-  // Generate fallback if no layers to render
   if ( renderSettings.layers().isEmpty() )
   {
     const QSize outputSize = renderSettings.outputSize();
@@ -159,7 +156,6 @@ void Quick3DMapTextureData::onRenderFinished()
 
 void Quick3DMapTextureData::updateTextureData( const QImage &image )
 {
-  // Convert to RGBA8888 format for Qt Quick 3D
   QImage rgbaImage = image.convertToFormat( QImage::Format_RGBA8888 );
 
   setSize( rgbaImage.size() );

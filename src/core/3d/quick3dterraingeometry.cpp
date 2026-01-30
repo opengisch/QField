@@ -21,22 +21,22 @@
 Quick3DTerrainGeometry::Quick3DTerrainGeometry( QQuick3DObject *parent )
   : QQuick3DGeometry( parent )
 {
-  mHeights.resize( static_cast<qsizetype>( mResolution ) * mResolution );
+  mHeights.resize( static_cast<qsizetype>( mGridSize.width() ) * mGridSize.height() );
   mHeights.fill( 0.0f );
   updateGeometry();
 }
 
-void Quick3DTerrainGeometry::setResolution( int resolution )
+void Quick3DTerrainGeometry::setGridSize( const QSize &size )
 {
-  resolution = qBound( 2, resolution, 512 );
-  if ( mResolution == resolution )
+  QSize boundedSize( qBound( 2, size.width(), 512 ), qBound( 2, size.height(), 512 ) );
+  if ( mGridSize == boundedSize )
   {
     return;
   }
 
-  mResolution = resolution;
+  mGridSize = boundedSize;
   mDirty = true;
-  emit resolutionChanged();
+  emit gridSizeChanged();
   updateGeometry();
 }
 
@@ -98,10 +98,13 @@ float Quick3DTerrainGeometry::getHeight( int x, int z ) const
     return 0.0f;
   }
 
-  x = qBound( 0, x, mResolution - 1 );
-  z = qBound( 0, z, mResolution - 1 );
+  const int gridWidth = mGridSize.width();
+  const int gridHeight = mGridSize.height();
 
-  return mHeights[z * mResolution + x];
+  x = qBound( 0, x, gridWidth - 1 );
+  z = qBound( 0, z, gridHeight - 1 );
+
+  return mHeights[z * gridWidth + x];
 }
 
 QVector3D Quick3DTerrainGeometry::calculateNormal( int x, int z ) const
@@ -121,7 +124,10 @@ void Quick3DTerrainGeometry::updateGeometry()
     return;
   }
 
-  const int expectedSize = mResolution * mResolution;
+  const int gridWidth = mGridSize.width();
+  const int gridHeight = mGridSize.height();
+  const int expectedSize = gridWidth * gridHeight;
+
   if ( mHeights.size() != expectedSize )
   {
     mHeights.resize( expectedSize );
@@ -129,7 +135,7 @@ void Quick3DTerrainGeometry::updateGeometry()
   }
 
   const int vertexCount = expectedSize;
-  const int triangleCount = ( mResolution - 1 ) * ( mResolution - 1 ) * 2;
+  const int triangleCount = ( gridWidth - 1 ) * ( gridHeight - 1 ) * 2;
   const int indexCount = triangleCount * 3;
   const int stride = 8 * sizeof( float );
 
@@ -141,14 +147,14 @@ void Quick3DTerrainGeometry::updateGeometry()
   indexData.resize( indexCount * sizeof( quint32 ) );
   quint32 *iptr = reinterpret_cast<quint32 *>( indexData.data() );
 
-  const float cellWidth = mTerrainWidth / ( mResolution - 1 );
-  const float cellDepth = mTerrainDepth / ( mResolution - 1 );
+  const float cellWidth = mTerrainWidth / ( gridWidth - 1 );
+  const float cellDepth = mTerrainDepth / ( gridHeight - 1 );
   const float halfWidth = mTerrainWidth / 2.0f;
   const float halfDepth = mTerrainDepth / 2.0f;
 
-  for ( int z = 0; z < mResolution; ++z )
+  for ( int z = 0; z < gridHeight; ++z )
   {
-    for ( int x = 0; x < mResolution; ++x )
+    for ( int x = 0; x < gridWidth; ++x )
     {
       const float px = x * cellWidth - halfWidth;
       const float py = getHeight( x, z );
@@ -163,18 +169,18 @@ void Quick3DTerrainGeometry::updateGeometry()
       *vptr++ = normal.y();
       *vptr++ = normal.z();
 
-      *vptr++ = static_cast<float>( x ) / std::max( 1, mResolution - 1 );
-      *vptr++ = static_cast<float>( z ) / std::max( 1, mResolution - 1 );
+      *vptr++ = static_cast<float>( x ) / std::max( 1, gridWidth - 1 );
+      *vptr++ = static_cast<float>( z ) / std::max( 1, gridHeight - 1 );
     }
   }
 
-  for ( int z = 0; z < mResolution - 1; ++z )
+  for ( int z = 0; z < gridHeight - 1; ++z )
   {
-    for ( int x = 0; x < mResolution - 1; ++x )
+    for ( int x = 0; x < gridWidth - 1; ++x )
     {
-      const quint32 topLeft = z * mResolution + x;
+      const quint32 topLeft = z * gridWidth + x;
       const quint32 topRight = topLeft + 1;
-      const quint32 bottomLeft = topLeft + mResolution;
+      const quint32 bottomLeft = topLeft + gridWidth;
       const quint32 bottomRight = bottomLeft + 1;
 
       *iptr++ = topLeft;
