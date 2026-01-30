@@ -22,11 +22,11 @@ email                : mohsen@opengis.ch
 #include <QObject>
 #include <QPointer>
 #include <QVariantList>
+#include <qgsproject.h>
 #include <qgsrectangle.h>
 
 #include <memory>
 
-class QgsProject;
 class QgsRasterLayer;
 class QgsAbstractTerrainProvider;
 
