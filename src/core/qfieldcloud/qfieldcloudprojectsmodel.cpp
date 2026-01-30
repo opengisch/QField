@@ -131,6 +131,7 @@ void QFieldCloudProjectsModel::setCurrentProjectId( const QString &currentProjec
   mLayerObserver->setDeltaFileWrapper( mCurrentProject ? mCurrentProject->deltaFileWrapper() : nullptr );
 
   emit currentProjectIdChanged();
+  emit currentProjectChanged();
 }
 
 QFieldCloudProject *QFieldCloudProjectsModel::currentProject() const
