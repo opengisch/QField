@@ -14,6 +14,7 @@
  *                                                                         *
  ***************************************************************************/
 
+#include "qgsquick/qgsquickmapsettings.h"
 #include "quick3dmaptexturegenerator.h"
 
 #include <qgsmaprenderersequentialjob.h>
@@ -43,20 +44,31 @@ Quick3DMapTextureGenerator::~Quick3DMapTextureGenerator()
   }
 }
 
-QgsProject *Quick3DMapTextureGenerator::project() const
+QgsQuickMapSettings *Quick3DMapTextureGenerator::mapSettings() const
 {
-  return mProject;
+  return mMapSettings;
 }
 
-void Quick3DMapTextureGenerator::setProject( QgsProject *project )
+void Quick3DMapTextureGenerator::setMapSettings( QgsQuickMapSettings *mapSettings )
 {
-  if ( mProject == project )
+  if ( mMapSettings == mapSettings )
   {
     return;
   }
 
-  mProject = project;
-  emit projectChanged();
+  if ( mMapSettings )
+  {
+    disconnect( mMapSettings, &QgsQuickMapSettings::layersChanged, this, &Quick3DMapTextureGenerator::render );
+  }
+
+  mMapSettings = mapSettings;
+
+  if ( mMapSettings )
+  {
+    connect( mMapSettings, &QgsQuickMapSettings::layersChanged, this, &Quick3DMapTextureGenerator::render );
+  }
+
+  emit mapSettingsChanged();
 }
 
 QgsRectangle Quick3DMapTextureGenerator::extent() const
@@ -82,7 +94,7 @@ QString Quick3DMapTextureGenerator::textureFilePath() const
 
 void Quick3DMapTextureGenerator::render()
 {
-  if ( !mProject || mExtent.isEmpty() )
+  if ( !mMapSettings )
   {
     return;
   }
@@ -93,61 +105,41 @@ void Quick3DMapTextureGenerator::render()
     mRenderJob.reset();
   }
 
-  const QMap<QString, QgsMapLayer *> layers = mProject->mapLayers();
-
-  // Finding dem layer (same as Quick3DTerrainProvider)
-  const QgsRasterLayer *demLayer = nullptr;
-  QList<QgsMapLayer *> layersToRender;
-
-  for ( QgsMapLayer *const layer : layers )
+  QgsMapSettings renderSettings = mMapSettings->mapSettings();
+  if ( !renderSettings.hasValidSettings() )
   {
-    if ( !layer || !layer->isValid() || layer->type() != Qgis::LayerType::Raster )
-    {
-      continue;
-    }
-
-    QgsRasterLayer *const rasterLayer = qobject_cast<QgsRasterLayer *>( layer );
-    if ( !rasterLayer )
-    {
-      continue;
-    }
-
-    const QString providerName = rasterLayer->dataProvider() ? rasterLayer->dataProvider()->name() : QString();
-    const bool isOnlineLayer = providerName == QStringLiteral( "wms" ) || providerName == QStringLiteral( "wmts" );
-
-    if ( rasterLayer->bandCount() == 1 && !isOnlineLayer )
-    {
-      if ( !demLayer )
-      {
-        demLayer = rasterLayer;
-      }
-    }
-    else if ( rasterLayer->bandCount() > 1 || isOnlineLayer )
-    {
-      layersToRender.append( layer );
-    }
+    return;
   }
 
-  // Calculate texture dimensions maintaining aspect ratio
-  const double width = mExtent.width();
-  const double height = mExtent.height();
-  int texWidth, texHeight;
+  // Use custom extent if set, otherwise use mapSettings extent
+  if ( !mExtent.isEmpty() )
+  {
+    renderSettings.setExtent( mExtent );
 
-  if ( width >= height )
-  {
-    texWidth = mTextureSize;
-    texHeight = std::max( 256, static_cast<int>( mTextureSize * height / width ) );
-  }
-  else
-  {
-    texHeight = mTextureSize;
-    texWidth = std::max( 256, static_cast<int>( mTextureSize * width / height ) );
+    // Adjust output size to match the aspect ratio of the custom extent
+    const QSize originalSize = renderSettings.outputSize();
+    const double extentAspectRatio = mExtent.width() / mExtent.height();
+    const int baseSize = std::max( originalSize.width(), originalSize.height() );
+
+    int newWidth, newHeight;
+    if ( extentAspectRatio >= 1.0 )
+    {
+      newWidth = baseSize;
+      newHeight = static_cast<int>( baseSize / extentAspectRatio );
+    }
+    else
+    {
+      newHeight = baseSize;
+      newWidth = static_cast<int>( baseSize * extentAspectRatio );
+    }
+    renderSettings.setOutputSize( QSize( newWidth, newHeight ) );
   }
 
   // Generate fallback if no layers to render
-  if ( layersToRender.isEmpty() )
+  if ( renderSettings.layers().isEmpty() )
   {
-    mRenderedImage = QImage( texWidth, texHeight, QImage::Format_RGB32 );
+    const QSize outputSize = renderSettings.outputSize();
+    mRenderedImage = QImage( outputSize, QImage::Format_RGB32 );
     mRenderedImage.fill( QColor( 100, 140, 100 ) );
     mRenderedImage.save( mTextureFilePath );
 
@@ -156,15 +148,7 @@ void Quick3DMapTextureGenerator::render()
     return;
   }
 
-  QgsMapSettings mapSettings;
-  mapSettings.setOutputSize( QSize( texWidth, texHeight ) );
-  mapSettings.setExtent( mExtent );
-  mapSettings.setDestinationCrs( mProject->crs() );
-  mapSettings.setTransformContext( mProject->transformContext() );
-  mapSettings.setBackgroundColor( QColor( 80, 80, 80 ) );
-  mapSettings.setLayers( layersToRender );
-
-  mRenderJob = std::make_unique<QgsMapRendererSequentialJob>( mapSettings );
+  mRenderJob = std::make_unique<QgsMapRendererSequentialJob>( renderSettings );
   connect( mRenderJob.get(), &QgsMapRendererSequentialJob::finished, this, &Quick3DMapTextureGenerator::onRenderFinished );
   mRenderJob->start();
 }
@@ -179,12 +163,7 @@ void Quick3DMapTextureGenerator::onRenderFinished()
   mRenderedImage = mRenderJob->renderedImage();
   mRenderJob.reset();
 
-  if ( mRenderedImage.isNull() )
-  {
-    mRenderedImage = QImage( mTextureSize, mTextureSize, QImage::Format_RGB32 );
-    mRenderedImage.fill( QColor( 100, 140, 100 ) );
-  }
-  else
+  if ( !mRenderedImage.isNull() )
   {
     mRenderedImage = mRenderedImage.flipped( Qt::Vertical );
   }

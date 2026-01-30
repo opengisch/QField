@@ -662,8 +662,7 @@ ApplicationWindow {
 
       onLoaded: {
         item.qgisProject = qgisProject;
-        item.initialExtent = mapCanvas.mapSettings.visibleExtent;
-        item.backgroundColor = mapCanvas.mapSettings.backgroundColor;
+        item.mapSettings = mapCanvas.mapSettings;
 
         // Bind GNSS position updates
         item.gnssActive = Qt.binding(() => positionSource.active && positionSource.positionInformation && positionSource.positionInformation.latitudeValid);
