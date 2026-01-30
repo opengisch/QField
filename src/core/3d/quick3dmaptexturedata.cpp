@@ -1,8 +1,8 @@
 /***************************************************************************
-  quick3dmaptexturegenerator.cpp - Quick3DMapTextureGenerator
+  quick3dmaptexturedata.cpp - Quick3DMapTextureData
 
  ---------------------
- begin                : 26.1.2026
+ begin                : 30.1.2026
  copyright            : (C) 2026 by Mohsen Dehghanzadeh
  email                : mohsen@opengis.ch
  ***************************************************************************
@@ -15,41 +15,32 @@
  ***************************************************************************/
 
 #include "qgsquick/qgsquickmapsettings.h"
-#include "quick3dmaptexturegenerator.h"
+#include "quick3dmaptexturedata.h"
 
 #include <qgsmaprenderersequentialjob.h>
 #include <qgsmapsettings.h>
-#include <qgsrasterlayer.h>
 
 #include <algorithm>
 
-int Quick3DMapTextureGenerator::sInstanceCounter = 0;
-
-Quick3DMapTextureGenerator::Quick3DMapTextureGenerator( QObject *parent )
-  : QObject( parent )
+Quick3DMapTextureData::Quick3DMapTextureData( QQuick3DObject *parent )
+  : QQuick3DTextureData( parent )
 {
-  const QString tempPath = QStandardPaths::writableLocation( QStandardPaths::TempLocation );
-  mTextureFilePath = QStringLiteral( "%1/qfield_3d_texture_%2.png" ).arg( tempPath ).arg( ++sInstanceCounter );
 }
 
-Quick3DMapTextureGenerator::~Quick3DMapTextureGenerator()
+Quick3DMapTextureData::~Quick3DMapTextureData()
 {
   if ( mRenderJob )
   {
     mRenderJob->cancel();
   }
-  if ( QFile::exists( mTextureFilePath ) )
-  {
-    QFile::remove( mTextureFilePath );
-  }
 }
 
-QgsQuickMapSettings *Quick3DMapTextureGenerator::mapSettings() const
+QgsQuickMapSettings *Quick3DMapTextureData::mapSettings() const
 {
   return mMapSettings;
 }
 
-void Quick3DMapTextureGenerator::setMapSettings( QgsQuickMapSettings *mapSettings )
+void Quick3DMapTextureData::setMapSettings( QgsQuickMapSettings *mapSettings )
 {
   if ( mMapSettings == mapSettings )
   {
@@ -58,25 +49,25 @@ void Quick3DMapTextureGenerator::setMapSettings( QgsQuickMapSettings *mapSetting
 
   if ( mMapSettings )
   {
-    disconnect( mMapSettings, &QgsQuickMapSettings::layersChanged, this, &Quick3DMapTextureGenerator::render );
+    disconnect( mMapSettings, &QgsQuickMapSettings::layersChanged, this, &Quick3DMapTextureData::render );
   }
 
   mMapSettings = mapSettings;
 
   if ( mMapSettings )
   {
-    connect( mMapSettings, &QgsQuickMapSettings::layersChanged, this, &Quick3DMapTextureGenerator::render );
+    connect( mMapSettings, &QgsQuickMapSettings::layersChanged, this, &Quick3DMapTextureData::render );
   }
 
   emit mapSettingsChanged();
 }
 
-QgsRectangle Quick3DMapTextureGenerator::extent() const
+QgsRectangle Quick3DMapTextureData::extent() const
 {
   return mExtent;
 }
 
-void Quick3DMapTextureGenerator::setExtent( const QgsRectangle &extent )
+void Quick3DMapTextureData::setExtent( const QgsRectangle &extent )
 {
   if ( mExtent == extent )
   {
@@ -87,12 +78,12 @@ void Quick3DMapTextureGenerator::setExtent( const QgsRectangle &extent )
   emit extentChanged();
 }
 
-QString Quick3DMapTextureGenerator::textureFilePath() const
+bool Quick3DMapTextureData::isReady() const
 {
-  return mTextureFilePath;
+  return mReady;
 }
 
-void Quick3DMapTextureGenerator::render()
+void Quick3DMapTextureData::render()
 {
   if ( !mMapSettings )
   {
@@ -139,36 +130,49 @@ void Quick3DMapTextureGenerator::render()
   if ( renderSettings.layers().isEmpty() )
   {
     const QSize outputSize = renderSettings.outputSize();
-    mRenderedImage = QImage( outputSize, QImage::Format_RGB32 );
-    mRenderedImage.fill( QColor( 100, 140, 100 ) );
-    mRenderedImage.save( mTextureFilePath );
-
-    emit ready();
-    emit textureFilePathChanged();
+    QImage fallbackImage( outputSize, QImage::Format_RGBA8888 );
+    fallbackImage.fill( QColor( 100, 140, 100 ) );
+    updateTextureData( fallbackImage );
     return;
   }
 
   mRenderJob = std::make_unique<QgsMapRendererSequentialJob>( renderSettings );
-  connect( mRenderJob.get(), &QgsMapRendererSequentialJob::finished, this, &Quick3DMapTextureGenerator::onRenderFinished );
+  connect( mRenderJob.get(), &QgsMapRendererSequentialJob::finished, this, &Quick3DMapTextureData::onRenderFinished );
   mRenderJob->start();
 }
 
-void Quick3DMapTextureGenerator::onRenderFinished()
+void Quick3DMapTextureData::onRenderFinished()
 {
   if ( !mRenderJob )
   {
     return;
   }
 
-  mRenderedImage = mRenderJob->renderedImage();
+  QImage renderedImage = mRenderJob->renderedImage();
   mRenderJob.reset();
 
-  if ( !mRenderedImage.isNull() )
+  if ( !renderedImage.isNull() )
   {
-    mRenderedImage = mRenderedImage.flipped( Qt::Vertical );
+    updateTextureData( renderedImage );
   }
+}
 
-  mRenderedImage.save( mTextureFilePath );
-  emit ready();
-  emit textureFilePathChanged();
+void Quick3DMapTextureData::updateTextureData( const QImage &image )
+{
+  // Convert to RGBA8888 format for Qt Quick 3D
+  QImage rgbaImage = image.convertToFormat( QImage::Format_RGBA8888 );
+
+  setSize( rgbaImage.size() );
+  setFormat( QQuick3DTextureData::RGBA8 );
+  setHasTransparency( true );
+
+  const int dataSize = rgbaImage.sizeInBytes();
+  QByteArray textureData( reinterpret_cast<const char *>( rgbaImage.constBits() ), dataSize );
+  setTextureData( textureData );
+
+  if ( !mReady )
+  {
+    mReady = true;
+    emit readyChanged();
+  }
 }

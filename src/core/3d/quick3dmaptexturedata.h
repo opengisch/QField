@@ -1,8 +1,8 @@
 /***************************************************************************
-  quick3dmaptexturegenerator.h - Quick3DMapTextureGenerator
+  quick3dmaptexturedata.h - Quick3DMapTextureData
 
  ---------------------
- begin                : 26.1.2026
+ begin                : 30.1.2026
  copyright            : (C) 2026 by Mohsen Dehghanzadeh
  email                : mohsen@opengis.ch
  ***************************************************************************
@@ -13,33 +13,31 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
-#ifndef QUICK3DMAPTEXTUREGENERATOR_H
-#define QUICK3DMAPTEXTUREGENERATOR_H
+#ifndef QUICK3DMAPTEXTUREDATA_H
+#define QUICK3DMAPTEXTUREDATA_H
 
 #include "qgsquickmapsettings.h"
 
 #include <QImage>
-#include <QObject>
-#include <QStandardPaths>
-#include <qgsproject.h>
+#include <QtQuick3D/QQuick3DTextureData>
 #include <qgsrectangle.h>
 
 class QgsMapRendererSequentialJob;
 
 /**
- * Generates a 2D map texture from project layers for use as terrain surface material.
+ * Provides in-memory texture data from rendered map layers for 3D terrain visualization.
  *
- * This class renders the map canvas view to an image file, which is then applied as
- * a texture on the 3D terrain mesh. The rendering respects the project's layer visibility,
- * symbology, and styling, providing a photorealistic texture for terrain visualization.
+ * This class inherits from QQuick3DTextureData to provide texture data directly in memory,
+ * avoiding the need for temporary files. The map is rendered using QGIS rendering engine
+ * and the result is exposed as texture data for Qt Quick 3D.
  *
- * \note QML Type: Quick3DMapTextureGenerator
+ * \note QML Type: Quick3DMapTextureData
  * \ingroup core
- *
  */
-class Quick3DMapTextureGenerator : public QObject
+class Quick3DMapTextureData : public QQuick3DTextureData
 {
     Q_OBJECT
+    QML_ELEMENT
 
     //! The map settings from which to get layers, extent, and output size for rendering
     Q_PROPERTY( QgsQuickMapSettings *mapSettings READ mapSettings WRITE setMapSettings NOTIFY mapSettingsChanged )
@@ -47,13 +45,13 @@ class Quick3DMapTextureGenerator : public QObject
     //! Optional custom extent to render. If not set, uses mapSettings extent
     Q_PROPERTY( QgsRectangle extent READ extent WRITE setExtent NOTIFY extentChanged )
 
-    //! File path to the generated texture image (readonly)
-    Q_PROPERTY( QString textureFilePath READ textureFilePath NOTIFY textureFilePathChanged )
+    //! Whether the texture data is ready to use
+    Q_PROPERTY( bool ready READ isReady NOTIFY readyChanged )
 
   public:
-    //! Creates a new map texture generator
-    explicit Quick3DMapTextureGenerator( QObject *parent = nullptr );
-    ~Quick3DMapTextureGenerator() override;
+    //! Creates a new map texture data provider
+    explicit Quick3DMapTextureData( QQuick3DObject *parent = nullptr );
+    ~Quick3DMapTextureData() override;
 
     //! Returns the map settings from which to get layers.
     QgsQuickMapSettings *mapSettings() const;
@@ -67,35 +65,35 @@ class Quick3DMapTextureGenerator : public QObject
     //! Sets a custom extent for rendering. If empty, uses mapSettings extent.
     void setExtent( const QgsRectangle &extent );
 
-    //! Returns the file path to the generated texture image.
-    QString textureFilePath() const;
+    //! Returns whether the texture data is ready to use.
+    bool isReady() const;
 
     /**
      * Starts the asynchronous map rendering process.
-     * The ready() signal is emitted when rendering completes.
+     * The readyChanged signal is emitted when rendering completes.
      */
     Q_INVOKABLE void render();
 
   signals:
+    //! Emitted when map settings changes
     void mapSettingsChanged();
+
+    //! Emitted when extent changes
     void extentChanged();
 
-    //! Emitted when texture rendering is complete and file is ready
-    void ready();
-
-    void textureFilePathChanged();
+    //! Emitted when texture rendering is complete and data is ready
+    void readyChanged();
 
   private slots:
     void onRenderFinished();
 
   private:
+    void updateTextureData( const QImage &image );
+
     QgsQuickMapSettings *mMapSettings = nullptr;
     QgsRectangle mExtent;
-    QImage mRenderedImage;
-    QString mTextureFilePath;
     std::unique_ptr<QgsMapRendererSequentialJob> mRenderJob;
-
-    static int sInstanceCounter;
+    bool mReady = false;
 };
 
-#endif // QUICK3DMAPTEXTUREGENERATOR_H
+#endif // QUICK3DMAPTEXTUREDATA_H

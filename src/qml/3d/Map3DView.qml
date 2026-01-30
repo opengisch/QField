@@ -41,21 +41,15 @@ Item {
     }
   }
 
-  Quick3DMapTextureGenerator {
-    id: textureGenerator
+  Quick3DMapTextureData {
+    id: textureData
     mapSettings: root.mapSettings
     extent: terrainProvider.extent
-
-    property bool isReady: false
-
-    onReady: {
-      satelliteTexture.source = "file://" + textureFilePath;
-      textureGenerator.isReady = true;
-    }
   }
 
   Texture {
     id: satelliteTexture
+    textureData: textureData
   }
 
   // Load normalized terrain data from C++
@@ -78,7 +72,7 @@ Item {
     }
     terrainMesh.heightData = heights;
     positionCameraForTerrain();
-    textureGenerator.render();
+    textureData.render();
   }
 
   function positionCameraForTerrain() {
@@ -146,7 +140,7 @@ Item {
       terrainWidth: internal.terrainWidth
       terrainDepth: internal.terrainDepth
       satelliteTexture: satelliteTexture
-      satelliteTextureReady: textureGenerator.isReady
+      satelliteTextureReady: textureData.ready
     }
 
     Node {
