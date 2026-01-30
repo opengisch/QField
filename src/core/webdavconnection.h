@@ -33,8 +33,8 @@
 class QLockFile;
 
 /**
- * The webdav connection objects allows for connection to and push/pull
- * operations of content.
+ * The WebDAV connection object allows connecting to a WebDAV endpoint and performing
+ * push/pull operations for imported content.
  * \ingroup core
  */
 class WebdavConnection : public QObject
@@ -174,15 +174,23 @@ class WebdavConnection : public QObject
     Q_INVOKABLE void downloadPath( const QString &localPath );
 
     /**
-     * Upload one or more file and/or folder to a WebDAV endpoint tied to the imported remote path.
-     * \a localPaths a list of files and folder parented to a local path within which a remote path was imported into
-     * \note This is not a synchronization process; files removed locally will *not* be removed
-     * remotely. Furthermore, all files modified locally will overwrite remotely-stored files.
+     * Uploads one or more local files and/or folders to the WebDAV endpoint associated with a project
+     * previously imported via WebDAV. The provided \a localPaths must all belong to the same imported
+     * project (i.e. share the same WebDAV configuration); otherwise no upload is started and lastError()
+     * is set.
+     *
+     * \note This is not a synchronization process; files removed locally will not be removed remotely.
+     * Modified local files will overwrite their remote versions. Hidden dot-folders are ignored, and the
+     * WebDAV configuration and lock files are never uploaded.
+     *
+     * Before the upload starts, confirmationRequested() is emitted so the UI can ask the user to confirm.
+     * Call confirmRequest() to proceed or cancelRequest() to abort.
      */
     Q_INVOKABLE void uploadPaths( const QStringList &localPaths );
 
     /**
-     * Launches a requested download or upload operation.
+     * Launches a requested download or upload operation after the user has confirmed they want to proceed.
+     * This is typically called in response to confirmationRequested().
      * \see confirmationRequested
      * \see isDownloadingPath
      * \see isUploadingPath
@@ -190,7 +198,8 @@ class WebdavConnection : public QObject
     Q_INVOKABLE void confirmRequest();
 
     /**
-     * Cancels a requested download or upload operation.
+     * Cancels a requested download or upload operation. If an upload is active, the per-project upload lock
+     * is released. For automatic uploads, uploadFinished() is emitted with a failure status.
      * \see confirmationRequested
      * \see isDownloadingPath
      * \see isUploadingPath
@@ -198,11 +207,14 @@ class WebdavConnection : public QObject
     Q_INVOKABLE void cancelRequest();
 
     /**
-     * Requests an auto-upload for the WebDAV imported project that contains \a projectPath.
-     * - skips if busy
-     * - skips if not a WebDAV imported project
-     * - skips if locked (per-project lock file next to json config)
-     * - skips if unchanged (unless force == true)
+     * Requests an automatic upload for the WebDAV imported project that contains \a projectPath. This is intended
+     * for background or scheduled upload workflows and will not prompt the user for credentials. The upload is
+     * skipped if the project is not WebDAV imported, if another upload is already running for the same project
+     * (upload lock), if no stored password is available, or if no local changes are detected since the last
+     * successful automatic upload (unless \a force is TRUE).
+     *
+     * If the upload does not start, uploadSkipped() is emitted with the reason. If it starts, uploadFinished()
+     * is emitted when the upload completes.
      */
     Q_INVOKABLE void requestUpload( const QString &projectPath, bool force = false );
 
