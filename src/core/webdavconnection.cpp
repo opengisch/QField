@@ -215,7 +215,9 @@ void WebdavConnection::setupConnection()
 void WebdavConnection::fetchAvailablePaths( const QString &remotePath )
 {
   if ( mUrl.isEmpty() || mUsername.isEmpty() || ( mPassword.isEmpty() && mStoredPassword.isEmpty() ) )
+  {
     return;
+  }
 
   setupConnection();
 
@@ -290,7 +292,9 @@ void WebdavConnection::processDirParserFinished()
       {
         if ( item.isDir() )
         {
-          localDir.mkpath( item.path().mid( mProcessRemotePath.size() ) );
+          const QString normalizedRemote = ensureTrailingSlash( mProcessRemotePath );
+          const QString rel = item.path().mid( normalizedRemote.size() ); // no leading '/'
+          localDir.mkpath( rel );
         }
         else
         {
@@ -355,7 +359,9 @@ void WebdavConnection::processDirParserFinished()
         {
           const QString rel = item.path().mid( normalizedRemotePath.size() );
           if ( isInHiddenDotFolder( rel ) )
+          {
             continue;
+          }
 
           QFileInfo fileInfo( mProcessLocalPath + item.path().mid( normalizedRemotePath.size() ) );
           if ( fileInfo.exists() )
@@ -403,13 +409,13 @@ void WebdavConnection::processDirParserFinished()
         if ( !remoteDirs.contains( remoteDir ) && !mWebdavMkDirs.contains( remoteDir ) )
         {
           const QStringList parts = remoteDir.mid( normalizedRemotePath.size() ).split( "/", Qt::SkipEmptyParts );
-          QString cur = normalizedRemotePath;
-          for ( const QString &p : parts )
+          QString currentPath = normalizedRemotePath;
+          for ( const QString &part : parts )
           {
-            cur += p + "/";
-            if ( !remoteDirs.contains( cur ) && !mWebdavMkDirs.contains( cur ) )
+            currentPath += part + "/";
+            if ( !remoteDirs.contains( currentPath ) && !mWebdavMkDirs.contains( currentPath ) )
             {
-              mWebdavMkDirs << cur;
+              mWebdavMkDirs << currentPath;
             }
           }
         }
@@ -463,6 +469,7 @@ void WebdavConnection::getWebdavItems()
         QFile file( mProcessLocalPath + itemPath.mid( mProcessRemotePath.size() ) );
         if ( file.exists() )
         {
+          // Remove pre-existing file
           file.remove();
         }
 
@@ -472,6 +479,7 @@ void WebdavConnection::getWebdavItems()
         temporaryFile->close();
         delete temporaryFile;
 
+        // Attach last modified date value coming from the server (cannot be done via QTemporaryFile)
         file.open( QFile::Append );
         file.setFileTime( itemLastModified, QFileDevice::FileModificationTime );
         file.setFileTime( itemLastModified, QFileDevice::FileAccessTime );
@@ -846,7 +854,9 @@ void WebdavConnection::downloadPath( const QString &localPath )
   {
     remoteChildrenPath.prepend( dir.dirName() );
     if ( !dir.cdUp() )
+    {
       break;
+    }
 
     webdavConfigurationExists = dir.exists( "qfield_webdav_configuration.json" );
   }
@@ -908,14 +918,14 @@ bool WebdavConnection::uploadPathsInternal( const QStringList &localPaths, bool 
 
   // Find config root from first path (and ensure all paths match it)
   QString configRoot;
-  QVariantMap cfg;
-  QString cfgErr;
+  QVariantMap webdavConfiguration;
+  QString webdavConfigurationErr;
 
-  bool cfgLoaded = false;
+  bool webdavConfigurationLoaded = false;
 
-  for ( const QString &p : localPaths )
+  for ( const QString &localPath : localPaths )
   {
-    QFileInfo fi( QDir::cleanPath( p ) );
+    QFileInfo fi( QDir::cleanPath( localPath ) );
     const QString fileLocalPath = fi.isFile() ? fi.absolutePath() : fi.absoluteFilePath();
 
     QDir dir( fileLocalPath );
@@ -930,7 +940,7 @@ bool WebdavConnection::uploadPathsInternal( const QStringList &localPaths, bool 
       }
     }
 
-    if ( !cfgLoaded )
+    if ( !webdavConfigurationLoaded )
     {
       if ( !dir.exists( webdavConfigFileName() ) )
       {
@@ -945,24 +955,24 @@ bool WebdavConnection::uploadPathsInternal( const QStringList &localPaths, bool 
         return false;
       }
 
-      if ( !readWebdavConfig( configRoot, cfg, cfgErr ) )
+      if ( !readWebdavConfig( configRoot, webdavConfiguration, webdavConfigurationErr ) )
       {
-        return fail( cfgErr );
+        return fail( webdavConfigurationErr );
       }
 
-      const QString cfgUrl = cfg.value( QStringLiteral( "url" ) ).toString();
-      const QString cfgUser = cfg.value( QStringLiteral( "username" ) ).toString();
-      QString cfgRemote = cfg.value( QStringLiteral( "remote_path" ) ).toString();
+      const QString webdavConfigurationUrl = webdavConfiguration.value( QStringLiteral( "url" ) ).toString();
+      const QString webdavConfigurationUser = webdavConfiguration.value( QStringLiteral( "username" ) ).toString();
+      QString webdavConfigurationRemote = webdavConfiguration.value( QStringLiteral( "remote_path" ) ).toString();
 
-      if ( cfgUrl.isEmpty() || cfgUser.isEmpty() || cfgRemote.isEmpty() )
+      if ( webdavConfigurationUrl.isEmpty() || webdavConfigurationUser.isEmpty() || webdavConfigurationRemote.isEmpty() )
       {
         return fail( tr( "WebDAV config is missing required fields." ) );
       }
 
-      cfgRemote = ensureTrailingSlash( cfgRemote );
+      webdavConfigurationRemote = ensureTrailingSlash( webdavConfigurationRemote );
 
-      setUrl( cfgUrl );
-      setUsername( cfgUser );
+      setUrl( webdavConfigurationUrl );
+      setUsername( webdavConfigurationUser );
       setStorePassword( isPasswordStored() );
 
       // auto-upload must not pop UI for password
@@ -974,13 +984,13 @@ bool WebdavConnection::uploadPathsInternal( const QStringList &localPaths, bool 
       // compute final remote base for this selection
       if ( !remoteChildrenPath.isEmpty() )
       {
-        cfgRemote = ensureTrailingSlash( cfgRemote + remoteChildrenPath.join( "/" ) + "/" );
+        webdavConfigurationRemote = ensureTrailingSlash( webdavConfigurationRemote + remoteChildrenPath.join( "/" ) + "/" );
       }
 
-      mProcessRemotePath = cfgRemote;
+      mProcessRemotePath = webdavConfigurationRemote;
       mProcessLocalPath = fileLocalPath;
 
-      cfgLoaded = true;
+      webdavConfigurationLoaded = true;
     }
     else
     {
@@ -990,7 +1000,7 @@ bool WebdavConnection::uploadPathsInternal( const QStringList &localPaths, bool 
         return fail( tr( "Selected items belong to different WebDAV projects." ) );
       }
 
-      QString newRemotePath = ensureTrailingSlash( cfg.value( QStringLiteral( "remote_path" ) ).toString() );
+      QString newRemotePath = ensureTrailingSlash( webdavConfiguration.value( QStringLiteral( "remote_path" ) ).toString() );
       if ( !remoteChildrenPath.isEmpty() )
       {
         newRemotePath = ensureTrailingSlash( newRemotePath + remoteChildrenPath.join( "/" ) + "/" );
@@ -1265,7 +1275,9 @@ bool WebdavConnection::isInHiddenDotFolder( const QString &relativePath )
 QString WebdavConnection::ensureTrailingSlash( QString path )
 {
   if ( !path.endsWith( QLatin1Char( '/' ) ) )
+  {
     path += QLatin1Char( '/' );
+  }
   return path;
 }
 
