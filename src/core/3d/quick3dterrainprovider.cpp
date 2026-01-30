@@ -22,6 +22,7 @@
 #include <qgscoordinatetransform.h>
 #include <qgsproject.h>
 #include <qgsprojectelevationproperties.h>
+#include <qgsrasterblock.h>
 #include <qgsrasterdataprovider.h>
 #include <qgsrasterlayer.h>
 #include <qgsterrainprovider.h>
@@ -267,17 +268,11 @@ void Quick3DTerrainProvider::calcNormalizedData()
 
   mIsLoading = true;
   emit isLoadingChanged();
-
   mProgressCounter.storeRelease( 0 );
   mLoadingProgress = 0;
   emit loadingProgressChanged();
 
-  QgsAbstractTerrainProvider *terrainProviderClone = nullptr;
-  if ( mQgisTerrainProvider )
-  {
-    terrainProviderClone = mQgisTerrainProvider->clone();
-  }
-
+  QgsAbstractTerrainProvider *terrainProviderClone = mQgisTerrainProvider ? mQgisTerrainProvider->clone() : nullptr;
   QgsRasterLayer *demLayer = mDemLayer.data();
   QgsProject *project = mProject;
   QgsRectangle extent = mExtent;
@@ -285,100 +280,87 @@ void Quick3DTerrainProvider::calcNormalizedData()
   QAtomicInt *progressCounter = &mProgressCounter;
 
   const QFuture<QVector<double>> future = QtConcurrent::run( [demLayer, terrainProviderClone, project, extent, resolution, progressCounter]() {
-    QVector<double> heights;
+    QVector<double> heights( resolution * resolution, 0.0 );
 
-    if ( terrainProviderClone )
+    progressCounter->storeRelease( 10 );
+
+    // Option 1: Use local DEM layer with raster block API
+    if ( demLayer && demLayer->isValid() && demLayer->dataProvider() )
     {
-      terrainProviderClone->prepare();
-    }
-
-    const int totalSamples = resolution * resolution;
-    heights.reserve( totalSamples );
-
-    const double xStep = extent.width() / ( resolution - 1 );
-    const double yStep = extent.height() / ( resolution - 1 );
-
-    double lastValidHeight = 0.0;
-
-    for ( int row = 0; row < resolution; ++row )
-    {
-      for ( int col = 0; col < resolution; ++col )
+      QgsRectangle blockExtent = extent;
+      if ( project && demLayer->crs() != project->crs() )
       {
-        const double x = extent.xMinimum() + col * xStep;
-        const double y = extent.yMaximum() - row * yStep;
-        double h = std::nan( "" );
-
-        // Try DEM layer first
-        if ( demLayer && demLayer->isValid() && demLayer->dataProvider() )
+        try
         {
-          QgsPointXY point( x, y );
-          QgsRectangle layerExtent = demLayer->extent();
-
-          if ( project && demLayer->crs() != project->crs() )
-          {
-            try
-            {
-              const QgsCoordinateTransform transform( project->crs(), demLayer->crs(), project->transformContext() );
-              point = transform.transform( point );
-            }
-            catch ( const QgsCsException & )
-            {
-              // Coordinate transformation failed, skip this point
-            }
-          }
-
-          if ( layerExtent.contains( point ) )
-          {
-            bool ok = false;
-            const double value = demLayer->dataProvider()->sample( point, 1, &ok );
-            if ( ok )
-            {
-              h = value;
-            }
-          }
+          QgsCoordinateTransform transform( project->crs(), demLayer->crs(), project->transformContext() );
+          blockExtent = transform.transformBoundingBox( extent );
         }
-
-        // Fallback to terrain provider
-        if ( std::isnan( h ) && terrainProviderClone && project )
+        catch ( const QgsCsException & )
         {
-          QgsPointXY point( x, y );
-
-          const QgsCoordinateReferenceSystem terrainCrs = terrainProviderClone->crs();
-          if ( terrainCrs.isValid() && terrainCrs != project->crs() )
-          {
-            try
-            {
-              const QgsCoordinateTransform transform( project->crs(), terrainCrs, project->transformContext() );
-              point = transform.transform( point );
-            }
-            catch ( const QgsCsException & )
-            {
-              // Coordinate transformation failed, skip this point
-            }
-          }
-
-          h = terrainProviderClone->heightAt( point.x(), point.y() );
         }
-
-        if ( std::isnan( h ) )
-        {
-          h = lastValidHeight;
-        }
-        else
-        {
-          lastValidHeight = h;
-        }
-
-        heights.append( h );
       }
 
-      const int progress = ( row * resolution * 100 ) / totalSamples;
-      progressCounter->storeRelease( progress );
+      std::unique_ptr<QgsRasterBlock> block( demLayer->dataProvider()->block( 1, blockExtent, resolution, resolution ) );
+      progressCounter->storeRelease( 80 );
+
+      if ( block && block->isValid() )
+      {
+        for ( int i = 0; i < resolution * resolution; ++i )
+        {
+          bool isNoData = false;
+          const double value = block->valueAndNoData( i / resolution, i % resolution, isNoData );
+          if ( !isNoData && !std::isnan( value ) )
+          {
+            heights[i] = value;
+          }
+        }
+      }
+    }
+    // Option 2: Use online terrain provider
+    else if ( terrainProviderClone && project )
+    {
+      terrainProviderClone->prepare();
+
+      const double xStep = extent.width() / ( resolution - 1 );
+      const double yStep = extent.height() / ( resolution - 1 );
+
+      QgsCoordinateTransform transform;
+      const QgsCoordinateReferenceSystem terrainCrs = terrainProviderClone->crs();
+      if ( terrainCrs.isValid() && terrainCrs != project->crs() )
+      {
+        transform = QgsCoordinateTransform( project->crs(), terrainCrs, project->transformContext() );
+      }
+
+      for ( int row = 0; row < resolution; ++row )
+      {
+        for ( int col = 0; col < resolution; ++col )
+        {
+          QgsPointXY point( extent.xMinimum() + col * xStep, extent.yMaximum() - row * yStep );
+
+          if ( transform.isValid() )
+          {
+            try
+            {
+              point = transform.transform( point );
+            }
+            catch ( const QgsCsException & )
+            {
+              continue;
+            }
+          }
+
+          const double h = terrainProviderClone->heightAt( point.x(), point.y() );
+          if ( !std::isnan( h ) )
+          {
+            heights[row * resolution + col] = h;
+          }
+        }
+        progressCounter->storeRelease( 10 + ( row * 80 ) / resolution );
+      }
     }
 
     delete terrainProviderClone;
     progressCounter->storeRelease( 100 );
-
     return heights;
   } );
 
