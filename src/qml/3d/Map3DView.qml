@@ -47,6 +47,8 @@ Item {
   Texture {
     id: satelliteTexture
     textureData: textureData
+    generateMipmaps: true
+    mipFilter: Texture.Linear
   }
 
   function loadTerrain() {

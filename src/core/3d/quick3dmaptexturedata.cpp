@@ -106,9 +106,10 @@ void Quick3DMapTextureData::render()
   {
     renderSettings.setExtent( mExtent );
 
-    const QSize originalSize = renderSettings.outputSize();
     const double extentAspectRatio = mExtent.width() / mExtent.height();
-    const int baseSize = std::max( originalSize.width(), originalSize.height() );
+    const double extentSize = std::max( mExtent.width(), mExtent.height() );
+    const double metersPerPixel = 0.5;
+    int baseSize = qBound( 1024, static_cast<int>( extentSize / metersPerPixel ), 4096 );
 
     int newWidth, newHeight;
     if ( extentAspectRatio >= 1.0 )
