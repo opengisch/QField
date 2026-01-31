@@ -1,0 +1,370 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classDrawingTemplateModel" kind="class" language="C++" prot="public">
+    <compoundname>DrawingTemplateModel</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QAbstractListModel</basecompoundref>
+    <innerclass refid="structDrawingTemplateModel_1_1Template" prot="private">DrawingTemplateModel::Template</innerclass>
+    <sectiondef kind="public-type">
+      <memberdef kind="enum" id="classDrawingTemplateModel_1a76e727d1461d2df8fba0b3d5e0ae6b4f" prot="public" static="no" strong="no">
+        <type></type>
+        <name>TemplateType</name>
+        <qualifiedname>DrawingTemplateModel::TemplateType</qualifiedname>
+        <enumvalue id="classDrawingTemplateModel_1a76e727d1461d2df8fba0b3d5e0ae6b4fa32807d5918ca484f08385e4d5746f8ab" prot="public">
+          <name>AppTemplate</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classDrawingTemplateModel_1a76e727d1461d2df8fba0b3d5e0ae6b4fa35c7fd043fd061d6753ab25f49b8955e" prot="public">
+          <name>ProjectTemplate</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/drawingtemplatemodel.h" line="39" column="5" bodyfile="src/core/drawingtemplatemodel.h" bodystart="40" bodyend="43"/>
+      </memberdef>
+      <memberdef kind="enum" id="classDrawingTemplateModel_1aa92c01ce58ed2e0442428a9cfd6b25d9" prot="public" static="no" strong="no">
+        <type></type>
+        <name>Role</name>
+        <qualifiedname>DrawingTemplateModel::Role</qualifiedname>
+        <enumvalue id="classDrawingTemplateModel_1aa92c01ce58ed2e0442428a9cfd6b25d9ad60bb610284f1d33836a8d0605dd5cb6" prot="public">
+          <name>TemplateTypeRole</name>
+          <initializer>= Qt::UserRole</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classDrawingTemplateModel_1aa92c01ce58ed2e0442428a9cfd6b25d9a773753409502df0ec203bb366b5d0726" prot="public">
+          <name>TemplateTitleRole</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classDrawingTemplateModel_1aa92c01ce58ed2e0442428a9cfd6b25d9a583dc0a0aa53c634959980bcaa3d7cd6" prot="public">
+          <name>TemplatePathRole</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/drawingtemplatemodel.h" line="45" column="5" bodyfile="src/core/drawingtemplatemodel.h" bodystart="46" bodyend="50"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classDrawingTemplateModel_1a3d52e95fdbfdb1c8aa014029091e3aa7" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString DrawingTemplateModel::projectFilePath</definition>
+        <argsstring></argsstring>
+        <name>projectFilePath</name>
+        <qualifiedname>DrawingTemplateModel::projectFilePath</qualifiedname>
+        <read>projectFilePath</read>
+        <write>setProjectFilePath</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This property holds the project file path where project templates will be looked for. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/drawingtemplatemodel.h" line="31" column="5" bodyfile="src/core/drawingtemplatemodel.h" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classDrawingTemplateModel_1a06a51ff05ac0a621b0c3bcaf70412bfc" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool DrawingTemplateModel::hasProjectTemplate</definition>
+        <argsstring></argsstring>
+        <name>hasProjectTemplate</name>
+        <qualifiedname>DrawingTemplateModel::hasProjectTemplate</qualifiedname>
+        <read>hasProjectTemplate</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This property holds whether the model contains project templates. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/drawingtemplatemodel.h" line="36" column="5" bodyfile="src/core/drawingtemplatemodel.h" bodystart="36" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classDrawingTemplateModel_1a41882bb92f0fc08591483353aafcafa7" prot="private" static="no" mutable="no">
+        <type>QList&lt; Template &gt;</type>
+        <definition>QList&lt;Template&gt; DrawingTemplateModel::mTemplates</definition>
+        <argsstring></argsstring>
+        <name>mTemplates</name>
+        <qualifiedname>DrawingTemplateModel::mTemplates</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/drawingtemplatemodel.h" line="92" column="11" bodyfile="src/core/drawingtemplatemodel.h" bodystart="92" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classDrawingTemplateModel_1aaf8ebf49d97b679b927edafe9cb7f92e" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString DrawingTemplateModel::mProjectFilePath</definition>
+        <argsstring></argsstring>
+        <name>mProjectFilePath</name>
+        <qualifiedname>DrawingTemplateModel::mProjectFilePath</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/drawingtemplatemodel.h" line="94" column="13" bodyfile="src/core/drawingtemplatemodel.h" bodystart="94" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classDrawingTemplateModel_1ad0e3c9cc41a172e39cdab04b15ce7941" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool DrawingTemplateModel::mHasProjectTemplate</definition>
+        <argsstring></argsstring>
+        <name>mHasProjectTemplate</name>
+        <qualifiedname>DrawingTemplateModel::mHasProjectTemplate</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/drawingtemplatemodel.h" line="95" column="10" bodyfile="src/core/drawingtemplatemodel.h" bodystart="95" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classDrawingTemplateModel_1a5e74a0b0d0ee685ce6a9cbd2ddf6d25c" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>DrawingTemplateModel::DrawingTemplateModel</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>DrawingTemplateModel</name>
+        <qualifiedname>DrawingTemplateModel::DrawingTemplateModel</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/drawingtemplatemodel.h" line="53" column="14" bodyfile="src/core/drawingtemplatemodel.cpp" bodystart="24" bodyend="28"/>
+      </memberdef>
+      <memberdef kind="function" id="classDrawingTemplateModel_1a54cb5d41fd27905c7229178b5374e054" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString DrawingTemplateModel::projectFilePath</definition>
+        <argsstring>() const</argsstring>
+        <name>projectFilePath</name>
+        <qualifiedname>DrawingTemplateModel::projectFilePath</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This property holds the project file path where project templates will be looked for.   </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/drawingtemplatemodel.h" line="56" column="13" bodyfile="src/core/drawingtemplatemodel.cpp" bodystart="128" bodyend="131"/>
+      </memberdef>
+      <memberdef kind="function" id="classDrawingTemplateModel_1ad0f2367214677cb8b296307b06f1a93a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void DrawingTemplateModel::setProjectFilePath</definition>
+        <argsstring>(const QString &amp;path)</argsstring>
+        <name>setProjectFilePath</name>
+        <qualifiedname>DrawingTemplateModel::setProjectFilePath</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>path</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This property holds the project file path where project templates will be looked for.   </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/drawingtemplatemodel.h" line="59" column="10" bodyfile="src/core/drawingtemplatemodel.cpp" bodystart="133" bodyend="144"/>
+      </memberdef>
+      <memberdef kind="function" id="classDrawingTemplateModel_1ad7b85c6090ab13ac4d8b52a1790af5d0" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool DrawingTemplateModel::hasProjectTemplate</definition>
+        <argsstring>() const</argsstring>
+        <name>hasProjectTemplate</name>
+        <qualifiedname>DrawingTemplateModel::hasProjectTemplate</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This property holds whether the model contains project templates.   </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/drawingtemplatemodel.h" line="62" column="10" bodyfile="src/core/drawingtemplatemodel.cpp" bodystart="146" bodyend="149"/>
+      </memberdef>
+      <memberdef kind="function" id="classDrawingTemplateModel_1aa4a2d72900094159f6ecaee8e6a738b1" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QHash&lt; int, QByteArray &gt;</type>
+        <definition>QHash&lt; int, QByteArray &gt; DrawingTemplateModel::roleNames</definition>
+        <argsstring>() const override</argsstring>
+        <name>roleNames</name>
+        <qualifiedname>DrawingTemplateModel::roleNames</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/drawingtemplatemodel.h" line="64" column="11" bodyfile="src/core/drawingtemplatemodel.cpp" bodystart="30" bodyend="38"/>
+      </memberdef>
+      <memberdef kind="function" id="classDrawingTemplateModel_1a694c3677b0ac4f8c6b26eaf3d9e970fe" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int DrawingTemplateModel::rowCount</definition>
+        <argsstring>(const QModelIndex &amp;parent) const override</argsstring>
+        <name>rowCount</name>
+        <qualifiedname>DrawingTemplateModel::rowCount</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>parent</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/drawingtemplatemodel.h" line="66" column="9" bodyfile="src/core/drawingtemplatemodel.cpp" bodystart="103" bodyend="106"/>
+      </memberdef>
+      <memberdef kind="function" id="classDrawingTemplateModel_1a49b92eb3648691cae064fb592fd99dad" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QVariant</type>
+        <definition>QVariant DrawingTemplateModel::data</definition>
+        <argsstring>(const QModelIndex &amp;index, int role) const override</argsstring>
+        <name>data</name>
+        <qualifiedname>DrawingTemplateModel::data</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>role</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/drawingtemplatemodel.h" line="67" column="14" bodyfile="src/core/drawingtemplatemodel.cpp" bodystart="108" bodyend="126"/>
+      </memberdef>
+      <memberdef kind="function" id="classDrawingTemplateModel_1abf996f93991b7c99b155c80b728e4112" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void DrawingTemplateModel::reloadModel</definition>
+        <argsstring>()</argsstring>
+        <name>reloadModel</name>
+        <qualifiedname>DrawingTemplateModel::reloadModel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Reloads the drawing template model. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/drawingtemplatemodel.h" line="72" column="22" bodyfile="src/core/drawingtemplatemodel.cpp" bodystart="40" bodyend="101"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classDrawingTemplateModel_1a4f7c6fa2875c6718280ba9d27715652b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void DrawingTemplateModel::projectFilePathChanged</definition>
+        <argsstring>()</argsstring>
+        <name>projectFilePathChanged</name>
+        <qualifiedname>DrawingTemplateModel::projectFilePathChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/drawingtemplatemodel.h" line="75" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classDrawingTemplateModel_1abb37bb7c7a69bcaf76c2f3224663f469" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void DrawingTemplateModel::hasProjectTemplateChanged</definition>
+        <argsstring>()</argsstring>
+        <name>hasProjectTemplateChanged</name>
+        <qualifiedname>DrawingTemplateModel::hasProjectTemplateChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/drawingtemplatemodel.h" line="76" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>DrawingTemplateModel</label>
+        <link refid="classDrawingTemplateModel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QAbstractListModel</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>DrawingTemplateModel</label>
+        <link refid="classDrawingTemplateModel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QAbstractListModel</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/drawingtemplatemodel.h" line="24" column="1" bodyfile="src/core/drawingtemplatemodel.h" bodystart="25" bodyend="96"/>
+    <listofallmembers>
+      <member refid="classDrawingTemplateModel_1a76e727d1461d2df8fba0b3d5e0ae6b4fa32807d5918ca484f08385e4d5746f8ab" prot="public" virt="non-virtual"><scope>DrawingTemplateModel</scope><name>AppTemplate</name></member>
+      <member refid="classDrawingTemplateModel_1a49b92eb3648691cae064fb592fd99dad" prot="public" virt="non-virtual"><scope>DrawingTemplateModel</scope><name>data</name></member>
+      <member refid="classDrawingTemplateModel_1a5e74a0b0d0ee685ce6a9cbd2ddf6d25c" prot="public" virt="non-virtual"><scope>DrawingTemplateModel</scope><name>DrawingTemplateModel</name></member>
+      <member refid="classDrawingTemplateModel_1a06a51ff05ac0a621b0c3bcaf70412bfc" prot="public" virt="non-virtual"><scope>DrawingTemplateModel</scope><name>hasProjectTemplate</name></member>
+      <member refid="classDrawingTemplateModel_1ad7b85c6090ab13ac4d8b52a1790af5d0" prot="public" virt="non-virtual"><scope>DrawingTemplateModel</scope><name>hasProjectTemplate</name></member>
+      <member refid="classDrawingTemplateModel_1abb37bb7c7a69bcaf76c2f3224663f469" prot="public" virt="non-virtual"><scope>DrawingTemplateModel</scope><name>hasProjectTemplateChanged</name></member>
+      <member refid="classDrawingTemplateModel_1ad0e3c9cc41a172e39cdab04b15ce7941" prot="private" virt="non-virtual"><scope>DrawingTemplateModel</scope><name>mHasProjectTemplate</name></member>
+      <member refid="classDrawingTemplateModel_1aaf8ebf49d97b679b927edafe9cb7f92e" prot="private" virt="non-virtual"><scope>DrawingTemplateModel</scope><name>mProjectFilePath</name></member>
+      <member refid="classDrawingTemplateModel_1a41882bb92f0fc08591483353aafcafa7" prot="private" virt="non-virtual"><scope>DrawingTemplateModel</scope><name>mTemplates</name></member>
+      <member refid="classDrawingTemplateModel_1a3d52e95fdbfdb1c8aa014029091e3aa7" prot="public" virt="non-virtual"><scope>DrawingTemplateModel</scope><name>projectFilePath</name></member>
+      <member refid="classDrawingTemplateModel_1a54cb5d41fd27905c7229178b5374e054" prot="public" virt="non-virtual"><scope>DrawingTemplateModel</scope><name>projectFilePath</name></member>
+      <member refid="classDrawingTemplateModel_1a4f7c6fa2875c6718280ba9d27715652b" prot="public" virt="non-virtual"><scope>DrawingTemplateModel</scope><name>projectFilePathChanged</name></member>
+      <member refid="classDrawingTemplateModel_1a76e727d1461d2df8fba0b3d5e0ae6b4fa35c7fd043fd061d6753ab25f49b8955e" prot="public" virt="non-virtual"><scope>DrawingTemplateModel</scope><name>ProjectTemplate</name></member>
+      <member refid="classDrawingTemplateModel_1abf996f93991b7c99b155c80b728e4112" prot="public" virt="non-virtual"><scope>DrawingTemplateModel</scope><name>reloadModel</name></member>
+      <member refid="classDrawingTemplateModel_1aa92c01ce58ed2e0442428a9cfd6b25d9" prot="public" virt="non-virtual"><scope>DrawingTemplateModel</scope><name>Role</name></member>
+      <member refid="classDrawingTemplateModel_1aa4a2d72900094159f6ecaee8e6a738b1" prot="public" virt="non-virtual"><scope>DrawingTemplateModel</scope><name>roleNames</name></member>
+      <member refid="classDrawingTemplateModel_1a694c3677b0ac4f8c6b26eaf3d9e970fe" prot="public" virt="non-virtual"><scope>DrawingTemplateModel</scope><name>rowCount</name></member>
+      <member refid="classDrawingTemplateModel_1ad0f2367214677cb8b296307b06f1a93a" prot="public" virt="non-virtual"><scope>DrawingTemplateModel</scope><name>setProjectFilePath</name></member>
+      <member refid="classDrawingTemplateModel_1aa92c01ce58ed2e0442428a9cfd6b25d9a583dc0a0aa53c634959980bcaa3d7cd6" prot="public" virt="non-virtual"><scope>DrawingTemplateModel</scope><name>TemplatePathRole</name></member>
+      <member refid="classDrawingTemplateModel_1aa92c01ce58ed2e0442428a9cfd6b25d9a773753409502df0ec203bb366b5d0726" prot="public" virt="non-virtual"><scope>DrawingTemplateModel</scope><name>TemplateTitleRole</name></member>
+      <member refid="classDrawingTemplateModel_1a76e727d1461d2df8fba0b3d5e0ae6b4f" prot="public" virt="non-virtual"><scope>DrawingTemplateModel</scope><name>TemplateType</name></member>
+      <member refid="classDrawingTemplateModel_1aa92c01ce58ed2e0442428a9cfd6b25d9ad60bb610284f1d33836a8d0605dd5cb6" prot="public" virt="non-virtual"><scope>DrawingTemplateModel</scope><name>TemplateTypeRole</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

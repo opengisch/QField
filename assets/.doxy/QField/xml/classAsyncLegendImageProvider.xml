@@ -1,0 +1,148 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classAsyncLegendImageProvider" kind="class" language="C++" prot="public">
+    <compoundname>AsyncLegendImageProvider</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QQuickAsyncImageProvider</basecompoundref>
+    <includes refid="legendimageprovider_8h" local="no">legendimageprovider.h</includes>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classAsyncLegendImageProvider_1afb799d164f625300829d35f6853af016" prot="private" static="no" mutable="no">
+        <type>QPointer&lt; QgsLayerTreeModel &gt;</type>
+        <definition>QPointer&lt;QgsLayerTreeModel&gt; AsyncLegendImageProvider::mLayerTreeModel</definition>
+        <argsstring></argsstring>
+        <name>mLayerTreeModel</name>
+        <qualifiedname>AsyncLegendImageProvider::mLayerTreeModel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/legendimageprovider.h" line="85" column="14" bodyfile="src/core/legendimageprovider.h" bodystart="85" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classAsyncLegendImageProvider_1ae3f5f2afbeaf9e9534626d324c9ec95d" prot="private" static="no" mutable="no">
+        <type>QPointer&lt; QgsLayerTree &gt;</type>
+        <definition>QPointer&lt;QgsLayerTree&gt; AsyncLegendImageProvider::mRootNode</definition>
+        <argsstring></argsstring>
+        <name>mRootNode</name>
+        <qualifiedname>AsyncLegendImageProvider::mRootNode</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/legendimageprovider.h" line="86" column="14" bodyfile="src/core/legendimageprovider.h" bodystart="86" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classAsyncLegendImageProvider_1a999c5f2e79302f00a7ee1077f1868dba" prot="private" static="no" mutable="no">
+        <type>QPointer&lt; <ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref> &gt;</type>
+        <definition>QPointer&lt;QgsQuickMapSettings&gt; AsyncLegendImageProvider::mMapSettings</definition>
+        <argsstring></argsstring>
+        <name>mMapSettings</name>
+        <qualifiedname>AsyncLegendImageProvider::mMapSettings</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/legendimageprovider.h" line="88" column="14" bodyfile="src/core/legendimageprovider.h" bodystart="88" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classAsyncLegendImageProvider_1aa83725216b7e6653c4a4add5c423fcb5" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>AsyncLegendImageProvider::AsyncLegendImageProvider</definition>
+        <argsstring>(QgsLayerTreeModel *layerTreeModel)</argsstring>
+        <name>AsyncLegendImageProvider</name>
+        <qualifiedname>AsyncLegendImageProvider::AsyncLegendImageProvider</qualifiedname>
+        <param>
+          <type>QgsLayerTreeModel *</type>
+          <declname>layerTreeModel</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/legendimageprovider.h" line="78" column="14" bodyfile="src/core/legendimageprovider.cpp" bodystart="140" bodyend="144"/>
+      </memberdef>
+      <memberdef kind="function" id="classAsyncLegendImageProvider_1ac31e31b5988070bdd474122abbecbcf4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>QQuickImageResponse *</type>
+        <definition>QQuickImageResponse * AsyncLegendImageProvider::requestImageResponse</definition>
+        <argsstring>(const QString &amp;id, const QSize &amp;requestedSize) override</argsstring>
+        <name>requestImageResponse</name>
+        <qualifiedname>AsyncLegendImageProvider::requestImageResponse</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>id</declname>
+        </param>
+        <param>
+          <type>const QSize &amp;</type>
+          <declname>requestedSize</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/legendimageprovider.h" line="80" column="25" bodyfile="src/core/legendimageprovider.cpp" bodystart="151" bodyend="179"/>
+      </memberdef>
+      <memberdef kind="function" id="classAsyncLegendImageProvider_1a4863827a2c2d97d633b4219224d91978" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void AsyncLegendImageProvider::setMapSettings</definition>
+        <argsstring>(QgsQuickMapSettings *mapSettings)</argsstring>
+        <name>setMapSettings</name>
+        <qualifiedname>AsyncLegendImageProvider::setMapSettings</qualifiedname>
+        <param>
+          <type><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref> *</type>
+          <declname>mapSettings</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/legendimageprovider.h" line="82" column="10" bodyfile="src/core/legendimageprovider.cpp" bodystart="146" bodyend="149"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>This class prepares asynchrnous legend images requests. Used for online WMS and AMS layers. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>AsyncLegendImageProvider</label>
+        <link refid="classAsyncLegendImageProvider"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QQuickAsyncImageProvider</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>AsyncLegendImageProvider</label>
+        <link refid="classAsyncLegendImageProvider"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QQuickAsyncImageProvider</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/legendimageprovider.h" line="75" column="1" bodyfile="src/core/legendimageprovider.h" bodystart="76" bodyend="89"/>
+    <listofallmembers>
+      <member refid="classAsyncLegendImageProvider_1aa83725216b7e6653c4a4add5c423fcb5" prot="public" virt="non-virtual"><scope>AsyncLegendImageProvider</scope><name>AsyncLegendImageProvider</name></member>
+      <member refid="classAsyncLegendImageProvider_1afb799d164f625300829d35f6853af016" prot="private" virt="non-virtual"><scope>AsyncLegendImageProvider</scope><name>mLayerTreeModel</name></member>
+      <member refid="classAsyncLegendImageProvider_1a999c5f2e79302f00a7ee1077f1868dba" prot="private" virt="non-virtual"><scope>AsyncLegendImageProvider</scope><name>mMapSettings</name></member>
+      <member refid="classAsyncLegendImageProvider_1ae3f5f2afbeaf9e9534626d324c9ec95d" prot="private" virt="non-virtual"><scope>AsyncLegendImageProvider</scope><name>mRootNode</name></member>
+      <member refid="classAsyncLegendImageProvider_1ac31e31b5988070bdd474122abbecbcf4" prot="public" virt="non-virtual"><scope>AsyncLegendImageProvider</scope><name>requestImageResponse</name></member>
+      <member refid="classAsyncLegendImageProvider_1a4863827a2c2d97d633b4219224d91978" prot="public" virt="non-virtual"><scope>AsyncLegendImageProvider</scope><name>setMapSettings</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

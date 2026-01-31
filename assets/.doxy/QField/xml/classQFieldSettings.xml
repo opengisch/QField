@@ -1,0 +1,1146 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQFieldSettings" kind="class" language="C++" prot="public">
+    <compoundname>QFieldSettings</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Page</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQFieldSettings_1a21646a87fddb423c82da2366db00481e" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias QFieldSettings::currentPanel</definition>
+        <argsstring></argsstring>
+        <name>currentPanel</name>
+        <qualifiedname>QFieldSettings::currentPanel</qualifiedname>
+        <read>dummyGetter_currentPanel_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldSettings.qml" line="15" column="1" bodyfile="src/qml/QFieldSettings.qml" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQFieldSettings_1aefc171c7d3eb59ef8608b7cfe4f0c8e6" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias QFieldSettings::showScaleBar</definition>
+        <argsstring></argsstring>
+        <name>showScaleBar</name>
+        <qualifiedname>QFieldSettings::showScaleBar</qualifiedname>
+        <read>dummyGetter_showScaleBar_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldSettings.qml" line="17" column="1" bodyfile="src/qml/QFieldSettings.qml" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQFieldSettings_1a5c99a4b0f2ef306ce06cd3c17ef30dec" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias QFieldSettings::showZoomControls</definition>
+        <argsstring></argsstring>
+        <name>showZoomControls</name>
+        <qualifiedname>QFieldSettings::showZoomControls</qualifiedname>
+        <read>dummyGetter_showZoomControls_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldSettings.qml" line="19" column="1" bodyfile="src/qml/QFieldSettings.qml" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQFieldSettings_1a9827bc67230fbc915f4d12276033d708" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias QFieldSettings::fullScreenIdentifyView</definition>
+        <argsstring></argsstring>
+        <name>fullScreenIdentifyView</name>
+        <qualifiedname>QFieldSettings::fullScreenIdentifyView</qualifiedname>
+        <read>dummyGetter_fullScreenIdentifyView_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldSettings.qml" line="21" column="1" bodyfile="src/qml/QFieldSettings.qml" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQFieldSettings_1a03a83e9e47f4c4228b74be955a93d8d1" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias QFieldSettings::locatorKeepScale</definition>
+        <argsstring></argsstring>
+        <name>locatorKeepScale</name>
+        <qualifiedname>QFieldSettings::locatorKeepScale</qualifiedname>
+        <read>dummyGetter_locatorKeepScale_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldSettings.qml" line="23" column="1" bodyfile="src/qml/QFieldSettings.qml" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQFieldSettings_1aa808ad62544a6705db294efe2123cd8d" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias QFieldSettings::autoOpenFormSingleIdentify</definition>
+        <argsstring></argsstring>
+        <name>autoOpenFormSingleIdentify</name>
+        <qualifiedname>QFieldSettings::autoOpenFormSingleIdentify</qualifiedname>
+        <read>dummyGetter_autoOpenFormSingleIdentify_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldSettings.qml" line="25" column="1" bodyfile="src/qml/QFieldSettings.qml" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQFieldSettings_1aa590598eaa0a15b5e5b5e28fad8aeb0b" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias QFieldSettings::autoZoomToIdentifiedFeature</definition>
+        <argsstring></argsstring>
+        <name>autoZoomToIdentifiedFeature</name>
+        <qualifiedname>QFieldSettings::autoZoomToIdentifiedFeature</qualifiedname>
+        <read>dummyGetter_autoZoomToIdentifiedFeature_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldSettings.qml" line="27" column="1" bodyfile="src/qml/QFieldSettings.qml" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQFieldSettings_1a41d7383babc368f52528b3b1cfe1c0ee" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias QFieldSettings::numericalDigitizingInformation</definition>
+        <argsstring></argsstring>
+        <name>numericalDigitizingInformation</name>
+        <qualifiedname>QFieldSettings::numericalDigitizingInformation</qualifiedname>
+        <read>dummyGetter_numericalDigitizingInformation_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldSettings.qml" line="29" column="1" bodyfile="src/qml/QFieldSettings.qml" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQFieldSettings_1a1fd110367b92ea59a3c46254108cbaee" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias QFieldSettings::showBookmarks</definition>
+        <argsstring></argsstring>
+        <name>showBookmarks</name>
+        <qualifiedname>QFieldSettings::showBookmarks</qualifiedname>
+        <read>dummyGetter_showBookmarks_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldSettings.qml" line="31" column="1" bodyfile="src/qml/QFieldSettings.qml" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQFieldSettings_1a4e5c8c04444b3a9340c01746647f39bc" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias QFieldSettings::nativeCamera2</definition>
+        <argsstring></argsstring>
+        <name>nativeCamera2</name>
+        <qualifiedname>QFieldSettings::nativeCamera2</qualifiedname>
+        <read>dummyGetter_nativeCamera2_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldSettings.qml" line="33" column="1" bodyfile="src/qml/QFieldSettings.qml" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQFieldSettings_1a6ba87823c7597a7b27efaf58fa44e58c" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias QFieldSettings::digitizingVolumeKeys</definition>
+        <argsstring></argsstring>
+        <name>digitizingVolumeKeys</name>
+        <qualifiedname>QFieldSettings::digitizingVolumeKeys</qualifiedname>
+        <read>dummyGetter_digitizingVolumeKeys_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldSettings.qml" line="35" column="1" bodyfile="src/qml/QFieldSettings.qml" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQFieldSettings_1a7a80fee0d55679ac5971c566bcf1149d" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias QFieldSettings::autoSave</definition>
+        <argsstring></argsstring>
+        <name>autoSave</name>
+        <qualifiedname>QFieldSettings::autoSave</qualifiedname>
+        <read>dummyGetter_autoSave_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldSettings.qml" line="37" column="1" bodyfile="src/qml/QFieldSettings.qml" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQFieldSettings_1a56edc058d330a98b9deba53abf6420a7" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias QFieldSettings::fingerTapDigitizing</definition>
+        <argsstring></argsstring>
+        <name>fingerTapDigitizing</name>
+        <qualifiedname>QFieldSettings::fingerTapDigitizing</qualifiedname>
+        <read>dummyGetter_fingerTapDigitizing_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldSettings.qml" line="39" column="1" bodyfile="src/qml/QFieldSettings.qml" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQFieldSettings_1ab6d49fcc05af0f4165eae58036bc7f61" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias QFieldSettings::mouseAsTouchScreen</definition>
+        <argsstring></argsstring>
+        <name>mouseAsTouchScreen</name>
+        <qualifiedname>QFieldSettings::mouseAsTouchScreen</qualifiedname>
+        <read>dummyGetter_mouseAsTouchScreen_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldSettings.qml" line="41" column="1" bodyfile="src/qml/QFieldSettings.qml" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQFieldSettings_1a2b283f509f1de05283f469eacb74cce5" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias QFieldSettings::enableInfoCollection</definition>
+        <argsstring></argsstring>
+        <name>enableInfoCollection</name>
+        <qualifiedname>QFieldSettings::enableInfoCollection</qualifiedname>
+        <read>dummyGetter_enableInfoCollection_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldSettings.qml" line="43" column="1" bodyfile="src/qml/QFieldSettings.qml" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQFieldSettings_1aa63faf55347f26be25f816a05c1301a4" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias QFieldSettings::enableMapRotation</definition>
+        <argsstring></argsstring>
+        <name>enableMapRotation</name>
+        <qualifiedname>QFieldSettings::enableMapRotation</qualifiedname>
+        <read>dummyGetter_enableMapRotation_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldSettings.qml" line="45" column="1" bodyfile="src/qml/QFieldSettings.qml" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQFieldSettings_1ace1d35a31ddd8232195f42a166af903b" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias QFieldSettings::quality</definition>
+        <argsstring></argsstring>
+        <name>quality</name>
+        <qualifiedname>QFieldSettings::quality</qualifiedname>
+        <read>dummyGetter_quality_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldSettings.qml" line="47" column="1" bodyfile="src/qml/QFieldSettings.qml" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQFieldSettings_1a7706d272f3aa7d5eea34c53f82ec36a1" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias QFieldSettings::previewJobsEnabled</definition>
+        <argsstring></argsstring>
+        <name>previewJobsEnabled</name>
+        <qualifiedname>QFieldSettings::previewJobsEnabled</qualifiedname>
+        <read>dummyGetter_previewJobsEnabled_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldSettings.qml" line="49" column="1" bodyfile="src/qml/QFieldSettings.qml" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQFieldSettings_1af6797815a0be9bf745065622a724d333" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias QFieldSettings::snapToCommonAngleIsEnabled</definition>
+        <argsstring></argsstring>
+        <name>snapToCommonAngleIsEnabled</name>
+        <qualifiedname>QFieldSettings::snapToCommonAngleIsEnabled</qualifiedname>
+        <read>dummyGetter_snapToCommonAngleIsEnabled_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldSettings.qml" line="51" column="1" bodyfile="src/qml/QFieldSettings.qml" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQFieldSettings_1a681d4d4c7191c38df3768a06d6437e76" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias QFieldSettings::snapToCommonAngleIsRelative</definition>
+        <argsstring></argsstring>
+        <name>snapToCommonAngleIsRelative</name>
+        <qualifiedname>QFieldSettings::snapToCommonAngleIsRelative</qualifiedname>
+        <read>dummyGetter_snapToCommonAngleIsRelative_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldSettings.qml" line="53" column="1" bodyfile="src/qml/QFieldSettings.qml" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQFieldSettings_1a6fda793750ce38e7fdab9c41cdb62dac" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias QFieldSettings::snapToCommonAngleDegrees</definition>
+        <argsstring></argsstring>
+        <name>snapToCommonAngleDegrees</name>
+        <qualifiedname>QFieldSettings::snapToCommonAngleDegrees</qualifiedname>
+        <read>dummyGetter_snapToCommonAngleDegrees_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldSettings.qml" line="55" column="1" bodyfile="src/qml/QFieldSettings.qml" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQFieldSettings_1ad77a7208e3736e31a01b514a922d2507" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias QFieldSettings::snapToCommonAngleTolerance</definition>
+        <argsstring></argsstring>
+        <name>snapToCommonAngleTolerance</name>
+        <qualifiedname>QFieldSettings::snapToCommonAngleTolerance</qualifiedname>
+        <read>dummyGetter_snapToCommonAngleTolerance_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldSettings.qml" line="57" column="1" bodyfile="src/qml/QFieldSettings.qml" bodystart="57" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQFieldSettings_1a4cc038507cd3b43b1b6a80af6a4987eb" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QFieldSettings::leftPadding</definition>
+        <argsstring></argsstring>
+        <name>leftPadding</name>
+        <qualifiedname>QFieldSettings::leftPadding</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldSettings.qml" line="59" column="5" bodyfile="src/qml/QFieldSettings.qml" bodystart="59" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldSettings_1a9b242e677b14c1c2754e64220316fa85" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QFieldSettings::rightPadding</definition>
+        <argsstring></argsstring>
+        <name>rightPadding</name>
+        <qualifiedname>QFieldSettings::rightPadding</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldSettings.qml" line="60" column="5" bodyfile="src/qml/QFieldSettings.qml" bodystart="60" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldSettings_1aa80bc96ff8f416a74ac3cef93c4bbf68" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QFieldSettings::visible</definition>
+        <argsstring></argsstring>
+        <name>visible</name>
+        <qualifiedname>QFieldSettings::visible</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldSettings.qml" line="61" column="5" bodyfile="src/qml/QFieldSettings.qml" bodystart="61" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldSettings_1a7e3d548000c820c28e82704b34f3584a" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QFieldSettings::focus</definition>
+        <argsstring></argsstring>
+        <name>focus</name>
+        <qualifiedname>QFieldSettings::focus</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldSettings.qml" line="62" column="5" bodyfile="src/qml/QFieldSettings.qml" bodystart="62" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldSettings_1a503708fa53637d12697e83e145962f3a" prot="private" static="no" mutable="no">
+        <type>var Component</type>
+        <definition>var Component QFieldSettings::onCompleted</definition>
+        <argsstring></argsstring>
+        <name>onCompleted</name>
+        <qualifiedname>QFieldSettings::onCompleted</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldSettings.qml" line="63" column="14" bodyfile="src/qml/QFieldSettings.qml" bodystart="63" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldSettings_1ad484f1ee3fd289512d6e1c47a373fc94" prot="private" static="no" mutable="no">
+        <type><ref refid="classSettings" kindref="compound">Settings</ref></type>
+        <definition>Settings QFieldSettings::registry</definition>
+        <argsstring></argsstring>
+        <name>registry</name>
+        <qualifiedname>QFieldSettings::registry</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldSettings.qml" line="68" column="10" bodyfile="src/qml/QFieldSettings.qml" bodystart="68" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldSettings_1af8e8f32e10f5f4f74100b072236c5b52" prot="private" static="no" mutable="no">
+        <type>ListModel</type>
+        <definition>ListModel QFieldSettings::canvasSettingsModel</definition>
+        <argsstring></argsstring>
+        <name>canvasSettingsModel</name>
+        <qualifiedname>QFieldSettings::canvasSettingsModel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldSettings.qml" line="69" column="11" bodyfile="src/qml/QFieldSettings.qml" bodystart="69" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldSettings_1a1e31ea6286ea141767ca1bc33b8b19e6" prot="private" static="no" mutable="no">
+        <type>ListModel</type>
+        <definition>ListModel QFieldSettings::digitizingEditingSettingsModel</definition>
+        <argsstring></argsstring>
+        <name>digitizingEditingSettingsModel</name>
+        <qualifiedname>QFieldSettings::digitizingEditingSettingsModel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldSettings.qml" line="70" column="11" bodyfile="src/qml/QFieldSettings.qml" bodystart="70" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldSettings_1a09b9961911948665b58a28cc2a54551a" prot="private" static="no" mutable="no">
+        <type>ListModel</type>
+        <definition>ListModel QFieldSettings::interfaceSettingsModel</definition>
+        <argsstring></argsstring>
+        <name>interfaceSettingsModel</name>
+        <qualifiedname>QFieldSettings::interfaceSettingsModel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldSettings.qml" line="71" column="11" bodyfile="src/qml/QFieldSettings.qml" bodystart="71" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldSettings_1ae81cbbccb70bebb1d59cc343cc751695" prot="private" static="no" mutable="no">
+        <type>ListModel</type>
+        <definition>ListModel QFieldSettings::advancedSettingsModel</definition>
+        <argsstring></argsstring>
+        <name>advancedSettingsModel</name>
+        <qualifiedname>QFieldSettings::advancedSettingsModel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldSettings.qml" line="72" column="11" bodyfile="src/qml/QFieldSettings.qml" bodystart="72" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldSettings_1a1cd9c7c78c85d28a8fe83d790499783a" prot="private" static="no" mutable="no">
+        <type>ColumnLayout</type>
+        <definition>ColumnLayout QFieldSettings::barColumn</definition>
+        <argsstring></argsstring>
+        <name>barColumn</name>
+        <qualifiedname>QFieldSettings::barColumn</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldSettings.qml" line="73" column="14" bodyfile="src/qml/QFieldSettings.qml" bodystart="73" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldSettings_1af58a66a00e7e6489ec238df1645472c4" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfTabBar" kindref="compound">QfTabBar</ref></type>
+        <definition>QfTabBar QFieldSettings::bar</definition>
+        <argsstring></argsstring>
+        <name>bar</name>
+        <qualifiedname>QFieldSettings::bar</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldSettings.qml" line="74" column="10" bodyfile="src/qml/QFieldSettings.qml" bodystart="74" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldSettings_1a93ab2ea0a735917dd439debc2e8deb85" prot="private" static="no" mutable="no">
+        <type>Component</type>
+        <definition>Component QFieldSettings::listItem</definition>
+        <argsstring></argsstring>
+        <name>listItem</name>
+        <qualifiedname>QFieldSettings::listItem</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldSettings.qml" line="75" column="11" bodyfile="src/qml/QFieldSettings.qml" bodystart="75" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldSettings_1a1db9229b786d057ebb450b57eaa52ad1" prot="private" static="no" mutable="no">
+        <type>Row</type>
+        <definition>Row QFieldSettings::line</definition>
+        <argsstring></argsstring>
+        <name>line</name>
+        <qualifiedname>QFieldSettings::line</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldSettings.qml" line="76" column="5" bodyfile="src/qml/QFieldSettings.qml" bodystart="76" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldSettings_1a9ed89c2e869f08a5e9bd10d9fde366c3" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfSwitch" kindref="compound">QfSwitch</ref></type>
+        <definition>QfSwitch QFieldSettings::toggle</definition>
+        <argsstring></argsstring>
+        <name>toggle</name>
+        <qualifiedname>QFieldSettings::toggle</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldSettings.qml" line="77" column="10" bodyfile="src/qml/QFieldSettings.qml" bodystart="77" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldSettings_1ab7c392a01a0c5a88e4013dd7be6f4f00" prot="private" static="no" mutable="no">
+        <type>SwipeView</type>
+        <definition>SwipeView QFieldSettings::swipeView</definition>
+        <argsstring></argsstring>
+        <name>swipeView</name>
+        <qualifiedname>QFieldSettings::swipeView</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldSettings.qml" line="78" column="11" bodyfile="src/qml/QFieldSettings.qml" bodystart="78" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldSettings_1a7d6a71db0d25bb21faabea260b07669b" prot="private" static="no" mutable="no">
+        <type>ColumnLayout</type>
+        <definition>ColumnLayout QFieldSettings::generalSettingsGrid</definition>
+        <argsstring></argsstring>
+        <name>generalSettingsGrid</name>
+        <qualifiedname>QFieldSettings::generalSettingsGrid</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldSettings.qml" line="79" column="14" bodyfile="src/qml/QFieldSettings.qml" bodystart="79" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldSettings_1ab35fcb137ce3de4d076ebb33dec71963" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfComboBox" kindref="compound">QfComboBox</ref></type>
+        <definition>QfComboBox QFieldSettings::renderingQualityComboBox</definition>
+        <argsstring></argsstring>
+        <name>renderingQualityComboBox</name>
+        <qualifiedname>QFieldSettings::renderingQualityComboBox</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldSettings.qml" line="80" column="12" bodyfile="src/qml/QFieldSettings.qml" bodystart="80" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldSettings_1ae6fd2c672899ad63a71612681683fddb" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton QFieldSettings::showSearchBarSettings</definition>
+        <argsstring></argsstring>
+        <name>showSearchBarSettings</name>
+        <qualifiedname>QFieldSettings::showSearchBarSettings</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldSettings.qml" line="81" column="14" bodyfile="src/qml/QFieldSettings.qml" bodystart="81" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldSettings_1adf7963741e9bbee117d4aeac36d309a9" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton QFieldSettings::showPluginManagerSettings</definition>
+        <argsstring></argsstring>
+        <name>showPluginManagerSettings</name>
+        <qualifiedname>QFieldSettings::showPluginManagerSettings</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldSettings.qml" line="82" column="14" bodyfile="src/qml/QFieldSettings.qml" bodystart="82" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldSettings_1ad2357dcaed4bfc53db4e6a6c23cce06f" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfSlider" kindref="compound">QfSlider</ref></type>
+        <definition>QfSlider QFieldSettings::slider</definition>
+        <argsstring></argsstring>
+        <name>slider</name>
+        <qualifiedname>QFieldSettings::slider</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldSettings.qml" line="83" column="10" bodyfile="src/qml/QFieldSettings.qml" bodystart="83" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldSettings_1acd4130c7e623d271feb0037e3272eb37" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfComboBox" kindref="compound">QfComboBox</ref></type>
+        <definition>QfComboBox QFieldSettings::appearanceComboBox</definition>
+        <argsstring></argsstring>
+        <name>appearanceComboBox</name>
+        <qualifiedname>QFieldSettings::appearanceComboBox</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldSettings.qml" line="84" column="12" bodyfile="src/qml/QFieldSettings.qml" bodystart="84" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldSettings_1a24ddd6a52a3fde9eb50a85958dca6e8e" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfComboBox" kindref="compound">QfComboBox</ref></type>
+        <definition>QfComboBox QFieldSettings::fontScaleComboBox</definition>
+        <argsstring></argsstring>
+        <name>fontScaleComboBox</name>
+        <qualifiedname>QFieldSettings::fontScaleComboBox</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldSettings.qml" line="85" column="12" bodyfile="src/qml/QFieldSettings.qml" bodystart="85" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldSettings_1a8a778f54f34dba8689a6bdfa22ab9933" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfComboBox" kindref="compound">QfComboBox</ref></type>
+        <definition>QfComboBox QFieldSettings::languageComboBox</definition>
+        <argsstring></argsstring>
+        <name>languageComboBox</name>
+        <qualifiedname>QFieldSettings::languageComboBox</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldSettings.qml" line="86" column="12" bodyfile="src/qml/QFieldSettings.qml" bodystart="86" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldSettings_1abecf9556a859264a96a97145e569f0d3" prot="private" static="no" mutable="no">
+        <type>ColumnLayout</type>
+        <definition>ColumnLayout QFieldSettings::positioningGrid</definition>
+        <argsstring></argsstring>
+        <name>positioningGrid</name>
+        <qualifiedname>QFieldSettings::positioningGrid</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldSettings.qml" line="87" column="14" bodyfile="src/qml/QFieldSettings.qml" bodystart="87" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldSettings_1aa05798d7ecfb953ed1b8003850efc436" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfComboBox" kindref="compound">QfComboBox</ref></type>
+        <definition>QfComboBox QFieldSettings::positioningDeviceComboBox</definition>
+        <argsstring></argsstring>
+        <name>positioningDeviceComboBox</name>
+        <qualifiedname>QFieldSettings::positioningDeviceComboBox</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldSettings.qml" line="88" column="12" bodyfile="src/qml/QFieldSettings.qml" bodystart="88" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldSettings_1a645aa0ed7e00b33c7fef42db7a5d4fb8" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfButton" kindref="compound">QfButton</ref></type>
+        <definition>QfButton QFieldSettings::connectButton</definition>
+        <argsstring></argsstring>
+        <name>connectButton</name>
+        <qualifiedname>QFieldSettings::connectButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldSettings.qml" line="89" column="10" bodyfile="src/qml/QFieldSettings.qml" bodystart="89" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldSettings_1abfe77754705b9e23dfba8418e3ac4a3a" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfSwitch" kindref="compound">QfSwitch</ref></type>
+        <definition>QfSwitch QFieldSettings::showPositionInformation</definition>
+        <argsstring></argsstring>
+        <name>showPositionInformation</name>
+        <qualifiedname>QFieldSettings::showPositionInformation</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldSettings.qml" line="90" column="10" bodyfile="src/qml/QFieldSettings.qml" bodystart="90" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldSettings_1a3261015b2332e32ace0617909b08330a" prot="private" static="no" mutable="no">
+        <type>Label</type>
+        <definition>Label QFieldSettings::positionFollowModeLabel</definition>
+        <argsstring></argsstring>
+        <name>positionFollowModeLabel</name>
+        <qualifiedname>QFieldSettings::positionFollowModeLabel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldSettings.qml" line="91" column="7" bodyfile="src/qml/QFieldSettings.qml" bodystart="91" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldSettings_1a551d799b89ac7f57869aa417f1fad180" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfComboBox" kindref="compound">QfComboBox</ref></type>
+        <definition>QfComboBox QFieldSettings::positionFollowModeComboBox</definition>
+        <argsstring></argsstring>
+        <name>positionFollowModeComboBox</name>
+        <qualifiedname>QFieldSettings::positionFollowModeComboBox</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldSettings.qml" line="92" column="12" bodyfile="src/qml/QFieldSettings.qml" bodystart="92" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldSettings_1a878fcd390a9fec0bbf80c40cf1c73940" prot="private" static="no" mutable="no">
+        <type>Label</type>
+        <definition>Label QFieldSettings::positionFollowModeTipLabel</definition>
+        <argsstring></argsstring>
+        <name>positionFollowModeTipLabel</name>
+        <qualifiedname>QFieldSettings::positionFollowModeTipLabel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldSettings.qml" line="93" column="7" bodyfile="src/qml/QFieldSettings.qml" bodystart="93" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldSettings_1a30b6df41e1e34974d7fa5ac3ad6a4ef3" prot="private" static="no" mutable="no">
+        <type>Label</type>
+        <definition>Label QFieldSettings::measureLabel</definition>
+        <argsstring></argsstring>
+        <name>measureLabel</name>
+        <qualifiedname>QFieldSettings::measureLabel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldSettings.qml" line="94" column="7" bodyfile="src/qml/QFieldSettings.qml" bodystart="94" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldSettings_1af2bf37b32d782705c998b5cb33a2c07f" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfComboBox" kindref="compound">QfComboBox</ref></type>
+        <definition>QfComboBox QFieldSettings::measureComboBox</definition>
+        <argsstring></argsstring>
+        <name>measureComboBox</name>
+        <qualifiedname>QFieldSettings::measureComboBox</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldSettings.qml" line="95" column="12" bodyfile="src/qml/QFieldSettings.qml" bodystart="95" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldSettings_1a74a43c88ce9e78683f089474d63de7b2" prot="private" static="no" mutable="no">
+        <type>Label</type>
+        <definition>Label QFieldSettings::measureTipLabel</definition>
+        <argsstring></argsstring>
+        <name>measureTipLabel</name>
+        <qualifiedname>QFieldSettings::measureTipLabel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldSettings.qml" line="96" column="7" bodyfile="src/qml/QFieldSettings.qml" bodystart="96" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldSettings_1ae7e71e5ce8d436e2d9da539e04a5bba5" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfSwitch" kindref="compound">QfSwitch</ref></type>
+        <definition>QfSwitch QFieldSettings::accuracyIndicator</definition>
+        <argsstring></argsstring>
+        <name>accuracyIndicator</name>
+        <qualifiedname>QFieldSettings::accuracyIndicator</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldSettings.qml" line="97" column="10" bodyfile="src/qml/QFieldSettings.qml" bodystart="97" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldSettings_1ad80dc6e7d8862d0301a0e658e748b86d" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfTextField" kindref="compound">QfTextField</ref></type>
+        <definition>QfTextField QFieldSettings::accuracyBadInput</definition>
+        <argsstring></argsstring>
+        <name>accuracyBadInput</name>
+        <qualifiedname>QFieldSettings::accuracyBadInput</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldSettings.qml" line="98" column="13" bodyfile="src/qml/QFieldSettings.qml" bodystart="98" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldSettings_1a1356f393189f8bb26bb4dd1702829fea" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfTextField" kindref="compound">QfTextField</ref></type>
+        <definition>QfTextField QFieldSettings::accuracyExcellentInput</definition>
+        <argsstring></argsstring>
+        <name>accuracyExcellentInput</name>
+        <qualifiedname>QFieldSettings::accuracyExcellentInput</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldSettings.qml" line="99" column="13" bodyfile="src/qml/QFieldSettings.qml" bodystart="99" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldSettings_1ab5b3a8933d155101f4e2406ee0809c7a" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfSwitch" kindref="compound">QfSwitch</ref></type>
+        <definition>QfSwitch QFieldSettings::accuracyRequirement</definition>
+        <argsstring></argsstring>
+        <name>accuracyRequirement</name>
+        <qualifiedname>QFieldSettings::accuracyRequirement</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldSettings.qml" line="100" column="10" bodyfile="src/qml/QFieldSettings.qml" bodystart="100" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldSettings_1a1287230f2a1f1401cd34b133b6bd7ef2" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfSwitch" kindref="compound">QfSwitch</ref></type>
+        <definition>QfSwitch QFieldSettings::averagedPositioning</definition>
+        <argsstring></argsstring>
+        <name>averagedPositioning</name>
+        <qualifiedname>QFieldSettings::averagedPositioning</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldSettings.qml" line="101" column="10" bodyfile="src/qml/QFieldSettings.qml" bodystart="101" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldSettings_1afce4a5e1eb817952547ec4667ff6859e" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfTextField" kindref="compound">QfTextField</ref></type>
+        <definition>QfTextField QFieldSettings::averagedPositioningMinimumCount</definition>
+        <argsstring></argsstring>
+        <name>averagedPositioningMinimumCount</name>
+        <qualifiedname>QFieldSettings::averagedPositioningMinimumCount</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldSettings.qml" line="102" column="13" bodyfile="src/qml/QFieldSettings.qml" bodystart="102" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldSettings_1ab42faf5139df872f65a40d0431354b78" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfSwitch" kindref="compound">QfSwitch</ref></type>
+        <definition>QfSwitch QFieldSettings::averagedPositioningAutomaticEnd</definition>
+        <argsstring></argsstring>
+        <name>averagedPositioningAutomaticEnd</name>
+        <qualifiedname>QFieldSettings::averagedPositioningAutomaticEnd</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldSettings.qml" line="103" column="10" bodyfile="src/qml/QFieldSettings.qml" bodystart="103" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldSettings_1aeb3578ac830d629259300e6be2e9de20" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfSwitch" kindref="compound">QfSwitch</ref></type>
+        <definition>QfSwitch QFieldSettings::antennaHeightActivated</definition>
+        <argsstring></argsstring>
+        <name>antennaHeightActivated</name>
+        <qualifiedname>QFieldSettings::antennaHeightActivated</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldSettings.qml" line="104" column="10" bodyfile="src/qml/QFieldSettings.qml" bodystart="104" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldSettings_1aa65b823a261c70050d134f8dda9caa42" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfTextField" kindref="compound">QfTextField</ref></type>
+        <definition>QfTextField QFieldSettings::antennaHeightInput</definition>
+        <argsstring></argsstring>
+        <name>antennaHeightInput</name>
+        <qualifiedname>QFieldSettings::antennaHeightInput</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldSettings.qml" line="105" column="13" bodyfile="src/qml/QFieldSettings.qml" bodystart="105" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldSettings_1adb9af2b11727b9dde64b7ae878cc66eb" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfSwitch" kindref="compound">QfSwitch</ref></type>
+        <definition>QfSwitch QFieldSettings::skipAltitudeCorrectionSwitch</definition>
+        <argsstring></argsstring>
+        <name>skipAltitudeCorrectionSwitch</name>
+        <qualifiedname>QFieldSettings::skipAltitudeCorrectionSwitch</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldSettings.qml" line="106" column="10" bodyfile="src/qml/QFieldSettings.qml" bodystart="106" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldSettings_1af1e9c33317ca33dbd3fee43817e6cb33" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfComboBox" kindref="compound">QfComboBox</ref></type>
+        <definition>QfComboBox QFieldSettings::verticalGridShiftComboBox</definition>
+        <argsstring></argsstring>
+        <name>verticalGridShiftComboBox</name>
+        <qualifiedname>QFieldSettings::verticalGridShiftComboBox</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldSettings.qml" line="107" column="12" bodyfile="src/qml/QFieldSettings.qml" bodystart="107" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldSettings_1a71f0e521a3cfda9cdbdd72d01b8063c8" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfSwitch" kindref="compound">QfSwitch</ref></type>
+        <definition>QfSwitch QFieldSettings::positionLogging</definition>
+        <argsstring></argsstring>
+        <name>positionLogging</name>
+        <qualifiedname>QFieldSettings::positionLogging</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldSettings.qml" line="108" column="10" bodyfile="src/qml/QFieldSettings.qml" bodystart="108" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldSettings_1a56d9027be95de97df167187573b758e9" prot="private" static="no" mutable="no">
+        <type><ref refid="classVariableEditor" kindref="compound">VariableEditor</ref></type>
+        <definition>VariableEditor QFieldSettings::variableEditor</definition>
+        <argsstring></argsstring>
+        <name>variableEditor</name>
+        <qualifiedname>QFieldSettings::variableEditor</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldSettings.qml" line="109" column="16" bodyfile="src/qml/QFieldSettings.qml" bodystart="109" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldSettings_1a480b83aba112fa6ab035b0cb1377cb99" prot="private" static="no" mutable="no">
+        <type><ref refid="classPositioningDeviceSettings" kindref="compound">PositioningDeviceSettings</ref></type>
+        <definition>PositioningDeviceSettings QFieldSettings::positioningDeviceSettings</definition>
+        <argsstring></argsstring>
+        <name>positioningDeviceSettings</name>
+        <qualifiedname>QFieldSettings::positioningDeviceSettings</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldSettings.qml" line="110" column="27" bodyfile="src/qml/QFieldSettings.qml" bodystart="110" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classQFieldSettings_1a4bcbb9e40fff0f2ded8b426494a832a7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QFieldSettings::finished</definition>
+        <argsstring>()</argsstring>
+        <name>finished</name>
+        <qualifiedname>QFieldSettings::finished</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldSettings.qml" line="13" column="17"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQFieldSettings_1ac92b120b59f51a15db48d077ff377442" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QFieldSettings::reset</definition>
+        <argsstring>()</argsstring>
+        <name>reset</name>
+        <qualifiedname>QFieldSettings::reset</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldSettings.qml" line="66" column="6"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>Page</label>
+      </node>
+      <node id="1">
+        <label>QFieldSettings</label>
+        <link refid="classQFieldSettings"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>Page</label>
+      </node>
+      <node id="1">
+        <label>QFieldSettings</label>
+        <link refid="classQFieldSettings"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/qml/QFieldSettings.qml" line="10" column="1" bodyfile="src/qml/QFieldSettings.qml" bodystart="10" bodyend="111"/>
+    <listofallmembers>
+      <member refid="classQFieldSettings_1ad80dc6e7d8862d0301a0e658e748b86d" prot="private" virt="non-virtual"><scope>QFieldSettings</scope><name>accuracyBadInput</name></member>
+      <member refid="classQFieldSettings_1a1356f393189f8bb26bb4dd1702829fea" prot="private" virt="non-virtual"><scope>QFieldSettings</scope><name>accuracyExcellentInput</name></member>
+      <member refid="classQFieldSettings_1ae7e71e5ce8d436e2d9da539e04a5bba5" prot="private" virt="non-virtual"><scope>QFieldSettings</scope><name>accuracyIndicator</name></member>
+      <member refid="classQFieldSettings_1ab5b3a8933d155101f4e2406ee0809c7a" prot="private" virt="non-virtual"><scope>QFieldSettings</scope><name>accuracyRequirement</name></member>
+      <member refid="classQFieldSettings_1ae81cbbccb70bebb1d59cc343cc751695" prot="private" virt="non-virtual"><scope>QFieldSettings</scope><name>advancedSettingsModel</name></member>
+      <member refid="classQFieldSettings_1aeb3578ac830d629259300e6be2e9de20" prot="private" virt="non-virtual"><scope>QFieldSettings</scope><name>antennaHeightActivated</name></member>
+      <member refid="classQFieldSettings_1aa65b823a261c70050d134f8dda9caa42" prot="private" virt="non-virtual"><scope>QFieldSettings</scope><name>antennaHeightInput</name></member>
+      <member refid="classQFieldSettings_1acd4130c7e623d271feb0037e3272eb37" prot="private" virt="non-virtual"><scope>QFieldSettings</scope><name>appearanceComboBox</name></member>
+      <member refid="classQFieldSettings_1aa808ad62544a6705db294efe2123cd8d" prot="public" virt="non-virtual"><scope>QFieldSettings</scope><name>autoOpenFormSingleIdentify</name></member>
+      <member refid="classQFieldSettings_1a7a80fee0d55679ac5971c566bcf1149d" prot="public" virt="non-virtual"><scope>QFieldSettings</scope><name>autoSave</name></member>
+      <member refid="classQFieldSettings_1aa590598eaa0a15b5e5b5e28fad8aeb0b" prot="public" virt="non-virtual"><scope>QFieldSettings</scope><name>autoZoomToIdentifiedFeature</name></member>
+      <member refid="classQFieldSettings_1a1287230f2a1f1401cd34b133b6bd7ef2" prot="private" virt="non-virtual"><scope>QFieldSettings</scope><name>averagedPositioning</name></member>
+      <member refid="classQFieldSettings_1ab42faf5139df872f65a40d0431354b78" prot="private" virt="non-virtual"><scope>QFieldSettings</scope><name>averagedPositioningAutomaticEnd</name></member>
+      <member refid="classQFieldSettings_1afce4a5e1eb817952547ec4667ff6859e" prot="private" virt="non-virtual"><scope>QFieldSettings</scope><name>averagedPositioningMinimumCount</name></member>
+      <member refid="classQFieldSettings_1af58a66a00e7e6489ec238df1645472c4" prot="private" virt="non-virtual"><scope>QFieldSettings</scope><name>bar</name></member>
+      <member refid="classQFieldSettings_1a1cd9c7c78c85d28a8fe83d790499783a" prot="private" virt="non-virtual"><scope>QFieldSettings</scope><name>barColumn</name></member>
+      <member refid="classQFieldSettings_1af8e8f32e10f5f4f74100b072236c5b52" prot="private" virt="non-virtual"><scope>QFieldSettings</scope><name>canvasSettingsModel</name></member>
+      <member refid="classQFieldSettings_1a645aa0ed7e00b33c7fef42db7a5d4fb8" prot="private" virt="non-virtual"><scope>QFieldSettings</scope><name>connectButton</name></member>
+      <member refid="classQFieldSettings_1a21646a87fddb423c82da2366db00481e" prot="public" virt="non-virtual"><scope>QFieldSettings</scope><name>currentPanel</name></member>
+      <member refid="classQFieldSettings_1a1e31ea6286ea141767ca1bc33b8b19e6" prot="private" virt="non-virtual"><scope>QFieldSettings</scope><name>digitizingEditingSettingsModel</name></member>
+      <member refid="classQFieldSettings_1a6ba87823c7597a7b27efaf58fa44e58c" prot="public" virt="non-virtual"><scope>QFieldSettings</scope><name>digitizingVolumeKeys</name></member>
+      <member refid="classQFieldSettings_1a2b283f509f1de05283f469eacb74cce5" prot="public" virt="non-virtual"><scope>QFieldSettings</scope><name>enableInfoCollection</name></member>
+      <member refid="classQFieldSettings_1aa63faf55347f26be25f816a05c1301a4" prot="public" virt="non-virtual"><scope>QFieldSettings</scope><name>enableMapRotation</name></member>
+      <member refid="classQFieldSettings_1a56edc058d330a98b9deba53abf6420a7" prot="public" virt="non-virtual"><scope>QFieldSettings</scope><name>fingerTapDigitizing</name></member>
+      <member refid="classQFieldSettings_1a4bcbb9e40fff0f2ded8b426494a832a7" prot="public" virt="non-virtual"><scope>QFieldSettings</scope><name>finished</name></member>
+      <member refid="classQFieldSettings_1a7e3d548000c820c28e82704b34f3584a" prot="private" virt="non-virtual"><scope>QFieldSettings</scope><name>focus</name></member>
+      <member refid="classQFieldSettings_1a24ddd6a52a3fde9eb50a85958dca6e8e" prot="private" virt="non-virtual"><scope>QFieldSettings</scope><name>fontScaleComboBox</name></member>
+      <member refid="classQFieldSettings_1a9827bc67230fbc915f4d12276033d708" prot="public" virt="non-virtual"><scope>QFieldSettings</scope><name>fullScreenIdentifyView</name></member>
+      <member refid="classQFieldSettings_1a7d6a71db0d25bb21faabea260b07669b" prot="private" virt="non-virtual"><scope>QFieldSettings</scope><name>generalSettingsGrid</name></member>
+      <member refid="classQFieldSettings_1a09b9961911948665b58a28cc2a54551a" prot="private" virt="non-virtual"><scope>QFieldSettings</scope><name>interfaceSettingsModel</name></member>
+      <member refid="classQFieldSettings_1a8a778f54f34dba8689a6bdfa22ab9933" prot="private" virt="non-virtual"><scope>QFieldSettings</scope><name>languageComboBox</name></member>
+      <member refid="classQFieldSettings_1a4cc038507cd3b43b1b6a80af6a4987eb" prot="private" virt="non-virtual"><scope>QFieldSettings</scope><name>leftPadding</name></member>
+      <member refid="classQFieldSettings_1a1db9229b786d057ebb450b57eaa52ad1" prot="private" virt="non-virtual"><scope>QFieldSettings</scope><name>line</name></member>
+      <member refid="classQFieldSettings_1a93ab2ea0a735917dd439debc2e8deb85" prot="private" virt="non-virtual"><scope>QFieldSettings</scope><name>listItem</name></member>
+      <member refid="classQFieldSettings_1a03a83e9e47f4c4228b74be955a93d8d1" prot="public" virt="non-virtual"><scope>QFieldSettings</scope><name>locatorKeepScale</name></member>
+      <member refid="classQFieldSettings_1af2bf37b32d782705c998b5cb33a2c07f" prot="private" virt="non-virtual"><scope>QFieldSettings</scope><name>measureComboBox</name></member>
+      <member refid="classQFieldSettings_1a30b6df41e1e34974d7fa5ac3ad6a4ef3" prot="private" virt="non-virtual"><scope>QFieldSettings</scope><name>measureLabel</name></member>
+      <member refid="classQFieldSettings_1a74a43c88ce9e78683f089474d63de7b2" prot="private" virt="non-virtual"><scope>QFieldSettings</scope><name>measureTipLabel</name></member>
+      <member refid="classQFieldSettings_1ab6d49fcc05af0f4165eae58036bc7f61" prot="public" virt="non-virtual"><scope>QFieldSettings</scope><name>mouseAsTouchScreen</name></member>
+      <member refid="classQFieldSettings_1a4e5c8c04444b3a9340c01746647f39bc" prot="public" virt="non-virtual"><scope>QFieldSettings</scope><name>nativeCamera2</name></member>
+      <member refid="classQFieldSettings_1a41d7383babc368f52528b3b1cfe1c0ee" prot="public" virt="non-virtual"><scope>QFieldSettings</scope><name>numericalDigitizingInformation</name></member>
+      <member refid="classQFieldSettings_1a503708fa53637d12697e83e145962f3a" prot="private" virt="non-virtual"><scope>QFieldSettings</scope><name>onCompleted</name></member>
+      <member refid="classQFieldSettings_1a551d799b89ac7f57869aa417f1fad180" prot="private" virt="non-virtual"><scope>QFieldSettings</scope><name>positionFollowModeComboBox</name></member>
+      <member refid="classQFieldSettings_1a3261015b2332e32ace0617909b08330a" prot="private" virt="non-virtual"><scope>QFieldSettings</scope><name>positionFollowModeLabel</name></member>
+      <member refid="classQFieldSettings_1a878fcd390a9fec0bbf80c40cf1c73940" prot="private" virt="non-virtual"><scope>QFieldSettings</scope><name>positionFollowModeTipLabel</name></member>
+      <member refid="classQFieldSettings_1aa05798d7ecfb953ed1b8003850efc436" prot="private" virt="non-virtual"><scope>QFieldSettings</scope><name>positioningDeviceComboBox</name></member>
+      <member refid="classQFieldSettings_1a480b83aba112fa6ab035b0cb1377cb99" prot="private" virt="non-virtual"><scope>QFieldSettings</scope><name>positioningDeviceSettings</name></member>
+      <member refid="classQFieldSettings_1abecf9556a859264a96a97145e569f0d3" prot="private" virt="non-virtual"><scope>QFieldSettings</scope><name>positioningGrid</name></member>
+      <member refid="classQFieldSettings_1a71f0e521a3cfda9cdbdd72d01b8063c8" prot="private" virt="non-virtual"><scope>QFieldSettings</scope><name>positionLogging</name></member>
+      <member refid="classQFieldSettings_1a7706d272f3aa7d5eea34c53f82ec36a1" prot="public" virt="non-virtual"><scope>QFieldSettings</scope><name>previewJobsEnabled</name></member>
+      <member refid="classQFieldSettings_1ace1d35a31ddd8232195f42a166af903b" prot="public" virt="non-virtual"><scope>QFieldSettings</scope><name>quality</name></member>
+      <member refid="classQFieldSettings_1ad484f1ee3fd289512d6e1c47a373fc94" prot="private" virt="non-virtual"><scope>QFieldSettings</scope><name>registry</name></member>
+      <member refid="classQFieldSettings_1ab35fcb137ce3de4d076ebb33dec71963" prot="private" virt="non-virtual"><scope>QFieldSettings</scope><name>renderingQualityComboBox</name></member>
+      <member refid="classQFieldSettings_1ac92b120b59f51a15db48d077ff377442" prot="public" virt="non-virtual"><scope>QFieldSettings</scope><name>reset</name></member>
+      <member refid="classQFieldSettings_1a9b242e677b14c1c2754e64220316fa85" prot="private" virt="non-virtual"><scope>QFieldSettings</scope><name>rightPadding</name></member>
+      <member refid="classQFieldSettings_1a1fd110367b92ea59a3c46254108cbaee" prot="public" virt="non-virtual"><scope>QFieldSettings</scope><name>showBookmarks</name></member>
+      <member refid="classQFieldSettings_1adf7963741e9bbee117d4aeac36d309a9" prot="private" virt="non-virtual"><scope>QFieldSettings</scope><name>showPluginManagerSettings</name></member>
+      <member refid="classQFieldSettings_1abfe77754705b9e23dfba8418e3ac4a3a" prot="private" virt="non-virtual"><scope>QFieldSettings</scope><name>showPositionInformation</name></member>
+      <member refid="classQFieldSettings_1aefc171c7d3eb59ef8608b7cfe4f0c8e6" prot="public" virt="non-virtual"><scope>QFieldSettings</scope><name>showScaleBar</name></member>
+      <member refid="classQFieldSettings_1ae6fd2c672899ad63a71612681683fddb" prot="private" virt="non-virtual"><scope>QFieldSettings</scope><name>showSearchBarSettings</name></member>
+      <member refid="classQFieldSettings_1a5c99a4b0f2ef306ce06cd3c17ef30dec" prot="public" virt="non-virtual"><scope>QFieldSettings</scope><name>showZoomControls</name></member>
+      <member refid="classQFieldSettings_1adb9af2b11727b9dde64b7ae878cc66eb" prot="private" virt="non-virtual"><scope>QFieldSettings</scope><name>skipAltitudeCorrectionSwitch</name></member>
+      <member refid="classQFieldSettings_1ad2357dcaed4bfc53db4e6a6c23cce06f" prot="private" virt="non-virtual"><scope>QFieldSettings</scope><name>slider</name></member>
+      <member refid="classQFieldSettings_1a6fda793750ce38e7fdab9c41cdb62dac" prot="public" virt="non-virtual"><scope>QFieldSettings</scope><name>snapToCommonAngleDegrees</name></member>
+      <member refid="classQFieldSettings_1af6797815a0be9bf745065622a724d333" prot="public" virt="non-virtual"><scope>QFieldSettings</scope><name>snapToCommonAngleIsEnabled</name></member>
+      <member refid="classQFieldSettings_1a681d4d4c7191c38df3768a06d6437e76" prot="public" virt="non-virtual"><scope>QFieldSettings</scope><name>snapToCommonAngleIsRelative</name></member>
+      <member refid="classQFieldSettings_1ad77a7208e3736e31a01b514a922d2507" prot="public" virt="non-virtual"><scope>QFieldSettings</scope><name>snapToCommonAngleTolerance</name></member>
+      <member refid="classQFieldSettings_1ab7c392a01a0c5a88e4013dd7be6f4f00" prot="private" virt="non-virtual"><scope>QFieldSettings</scope><name>swipeView</name></member>
+      <member refid="classQFieldSettings_1a9ed89c2e869f08a5e9bd10d9fde366c3" prot="private" virt="non-virtual"><scope>QFieldSettings</scope><name>toggle</name></member>
+      <member refid="classQFieldSettings_1a56d9027be95de97df167187573b758e9" prot="private" virt="non-virtual"><scope>QFieldSettings</scope><name>variableEditor</name></member>
+      <member refid="classQFieldSettings_1af1e9c33317ca33dbd3fee43817e6cb33" prot="private" virt="non-virtual"><scope>QFieldSettings</scope><name>verticalGridShiftComboBox</name></member>
+      <member refid="classQFieldSettings_1aa80bc96ff8f416a74ac3cef93c4bbf68" prot="private" virt="non-virtual"><scope>QFieldSettings</scope><name>visible</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

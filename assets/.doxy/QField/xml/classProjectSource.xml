@@ -1,0 +1,113 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classProjectSource" kind="class" language="C++" prot="public">
+    <compoundname>ProjectSource</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QObject</basecompoundref>
+    <derivedcompoundref refid="classAndroidProjectSource" prot="public" virt="non-virtual">AndroidProjectSource</derivedcompoundref>
+    <derivedcompoundref refid="classIosProjectSource" prot="public" virt="non-virtual">IosProjectSource</derivedcompoundref>
+    <includes refid="projectsource_8h" local="no">projectsource.h</includes>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classProjectSource_1ae95256cbdacb3dc494a7fe7926594405" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>ProjectSource::ProjectSource</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>ProjectSource</name>
+        <qualifiedname>ProjectSource::ProjectSource</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/projectsource.h" line="40" column="14" bodyfile="src/core/projectsource.cpp" bodystart="21" bodyend="24"/>
+      </memberdef>
+      <memberdef kind="function" id="classProjectSource_1a9a0471d0ea2af0e23e1c3d22cab84326" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual ProjectSource::~ProjectSource</definition>
+        <argsstring>()=default</argsstring>
+        <name>~ProjectSource</name>
+        <qualifiedname>ProjectSource::~ProjectSource</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/projectsource.h" line="42" column="13"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classProjectSource_1a2dea7b551dd13f5f0c1f51fcd57215ad" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ProjectSource::projectOpened</definition>
+        <argsstring>(const QString &amp;path)</argsstring>
+        <name>projectOpened</name>
+        <qualifiedname>ProjectSource::projectOpened</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>path</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This signal communicates, when a project has been opened. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/projectsource.h" line="48" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>This class represents an ongoing open project intent. It will notify the system with the <ref refid="classProjectSource_1a2dea7b551dd13f5f0c1f51fcd57215ad" kindref="member">projectOpened()</ref> signal once the user has selected a project to open.</para>
+<para>The path can either be a QGIS project file (.qgs, .qgz) or a supported vector/raster dataset. The latter will trigger the creation of a project within which the dataset will be loaded.</para>
+<para>The default implementation does nothing. You probably want to have a look at the <ref refid="classAndroidProjectSource" kindref="compound">AndroidProjectSource</ref> subclass. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="3">
+        <label>AndroidProjectSource</label>
+        <link refid="classAndroidProjectSource"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>IosProjectSource</label>
+        <link refid="classIosProjectSource"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>ProjectSource</label>
+        <link refid="classProjectSource"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>ProjectSource</label>
+        <link refid="classProjectSource"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/projectsource.h" line="36" column="1" bodyfile="src/core/projectsource.h" bodystart="37" bodyend="49"/>
+    <listofallmembers>
+      <member refid="classProjectSource_1a2dea7b551dd13f5f0c1f51fcd57215ad" prot="public" virt="non-virtual"><scope>ProjectSource</scope><name>projectOpened</name></member>
+      <member refid="classProjectSource_1ae95256cbdacb3dc494a7fe7926594405" prot="public" virt="non-virtual"><scope>ProjectSource</scope><name>ProjectSource</name></member>
+      <member refid="classProjectSource_1a9a0471d0ea2af0e23e1c3d22cab84326" prot="public" virt="virtual"><scope>ProjectSource</scope><name>~ProjectSource</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

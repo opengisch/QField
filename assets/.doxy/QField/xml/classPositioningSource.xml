@@ -1,0 +1,1321 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classPositioningSource" kind="class" language="C++" prot="public">
+    <compoundname>PositioningSource</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QObject</basecompoundref>
+    <includes refid="positioningsource_8h" local="no">positioningsource.h</includes>
+    <sectiondef kind="public-type">
+      <memberdef kind="enum" id="classPositioningSource_1a62f663f81745744d9748c017a05d125f" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>ElevationCorrectionMode</name>
+        <qualifiedname>PositioningSource::ElevationCorrectionMode</qualifiedname>
+        <enumvalue id="classPositioningSource_1a62f663f81745744d9748c017a05d125fa6adf97f83acf6453d4a6a4b1070f3754" prot="public">
+          <name>None</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classPositioningSource_1a62f663f81745744d9748c017a05d125fa08a8cfb130fc01df934745d5b8f28faf" prot="public">
+          <name>OrthometricFromDevice</name>
+          <briefdescription>
+<para>Elevation is used as it comes from the device. For most devices including Android internal this is ellipsoidic. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classPositioningSource_1a62f663f81745744d9748c017a05d125fac50ae5869f6f5dd61f02fc24f4dccf11" prot="public">
+          <name>OrthometricFromGeoidFile</name>
+          <briefdescription>
+<para>Apply the geoid correction provided by the device. Available only for external devices. </para>
+          </briefdescription>
+          <detaileddescription>
+<para>Apply the geoid correction from a geoid file. </para>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Elevation correction modes </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioningsource.h" line="61" column="5" bodyfile="src/core/positioning/positioningsource.h" bodystart="62" bodyend="66"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classPositioningSource_1a10b829d8cf92dc562bd5236d1fbc37d9" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool PositioningSource::active</definition>
+        <argsstring></argsstring>
+        <name>active</name>
+        <qualifiedname>PositioningSource::active</qualifiedname>
+        <read>active</read>
+        <write>setActive</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioningsource.h" line="36" column="5" bodyfile="src/core/positioning/positioningsource.h" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classPositioningSource_1ae98a5e523517b62d7bcfa050cf714979" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool PositioningSource::valid</definition>
+        <argsstring></argsstring>
+        <name>valid</name>
+        <qualifiedname>PositioningSource::valid</qualifiedname>
+        <read>valid</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioningsource.h" line="37" column="5" bodyfile="src/core/positioning/positioningsource.h" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classPositioningSource_1a4c25b5445c95764ba2051397dfb3de0c" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString PositioningSource::deviceId</definition>
+        <argsstring></argsstring>
+        <name>deviceId</name>
+        <qualifiedname>PositioningSource::deviceId</qualifiedname>
+        <read>deviceId</read>
+        <write>setDeviceId</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioningsource.h" line="39" column="5" bodyfile="src/core/positioning/positioningsource.h" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classPositioningSource_1a91554206d46735c78785dd01b47dbd64" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classGnssPositionDetails" kindref="compound">GnssPositionDetails</ref></type>
+        <definition>GnssPositionDetails PositioningSource::deviceDetails</definition>
+        <argsstring></argsstring>
+        <name>deviceDetails</name>
+        <qualifiedname>PositioningSource::deviceDetails</qualifiedname>
+        <read>deviceDetails</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioningsource.h" line="40" column="5" bodyfile="src/core/positioning/positioningsource.h" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classPositioningSource_1a2ea385d73df9d5273d67c8021f09d7c2" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString PositioningSource::deviceLastError</definition>
+        <argsstring></argsstring>
+        <name>deviceLastError</name>
+        <qualifiedname>PositioningSource::deviceLastError</qualifiedname>
+        <read>deviceLastError</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioningsource.h" line="41" column="5" bodyfile="src/core/positioning/positioningsource.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classPositioningSource_1ae08e6f37cef29292a6eb6b2c025aefbe" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QAbstractSocket::SocketState</type>
+        <definition>QAbstractSocket::SocketState PositioningSource::deviceSocketState</definition>
+        <argsstring></argsstring>
+        <name>deviceSocketState</name>
+        <qualifiedname>PositioningSource::deviceSocketState</qualifiedname>
+        <read>deviceSocketState</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioningsource.h" line="42" column="5" bodyfile="src/core/positioning/positioningsource.h" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classPositioningSource_1a36dbab891699dd510627cc01cfac68e7" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString PositioningSource::deviceSocketStateString</definition>
+        <argsstring></argsstring>
+        <name>deviceSocketStateString</name>
+        <qualifiedname>PositioningSource::deviceSocketStateString</qualifiedname>
+        <read>deviceSocketStateString</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioningsource.h" line="43" column="5" bodyfile="src/core/positioning/positioningsource.h" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classPositioningSource_1afbc2772dcd3c910d526b87b644fe9423" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classGnssPositionInformation" kindref="compound">GnssPositionInformation</ref></type>
+        <definition>GnssPositionInformation PositioningSource::positionInformation</definition>
+        <argsstring></argsstring>
+        <name>positionInformation</name>
+        <qualifiedname>PositioningSource::positionInformation</qualifiedname>
+        <read>positionInformation</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioningsource.h" line="45" column="5" bodyfile="src/core/positioning/positioningsource.h" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classPositioningSource_1aa9d9c70158dc24c1fb259da32b3e489e" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classPositioningSource_1a62f663f81745744d9748c017a05d125f" kindref="member">ElevationCorrectionMode</ref></type>
+        <definition>ElevationCorrectionMode PositioningSource::elevationCorrectionMode</definition>
+        <argsstring></argsstring>
+        <name>elevationCorrectionMode</name>
+        <qualifiedname>PositioningSource::elevationCorrectionMode</qualifiedname>
+        <read>elevationCorrectionMode</read>
+        <write>setElevationCorrectionMode</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioningsource.h" line="47" column="5" bodyfile="src/core/positioning/positioningsource.h" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classPositioningSource_1a6c5b92d120f8269b2b80670147145267" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double PositioningSource::antennaHeight</definition>
+        <argsstring></argsstring>
+        <name>antennaHeight</name>
+        <qualifiedname>PositioningSource::antennaHeight</qualifiedname>
+        <read>antennaHeight</read>
+        <write>setAntennaHeight</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioningsource.h" line="48" column="5" bodyfile="src/core/positioning/positioningsource.h" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classPositioningSource_1a21add2ea6ec20a9b8301aa8c92479ef0" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double PositioningSource::orientation</definition>
+        <argsstring></argsstring>
+        <name>orientation</name>
+        <qualifiedname>PositioningSource::orientation</qualifiedname>
+        <read>orientation</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioningsource.h" line="50" column="5" bodyfile="src/core/positioning/positioningsource.h" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classPositioningSource_1addbc8fdc2356f012bd943ccd93dc80c4" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool PositioningSource::logging</definition>
+        <argsstring></argsstring>
+        <name>logging</name>
+        <qualifiedname>PositioningSource::logging</qualifiedname>
+        <read>logging</read>
+        <write>setLogging</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioningsource.h" line="52" column="5" bodyfile="src/core/positioning/positioningsource.h" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classPositioningSource_1a0a3caf9e38b6b10fb2848fc654106486" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString PositioningSource::loggingPath</definition>
+        <argsstring></argsstring>
+        <name>loggingPath</name>
+        <qualifiedname>PositioningSource::loggingPath</qualifiedname>
+        <read>loggingPath</read>
+        <write>setLoggingPath</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioningsource.h" line="53" column="5" bodyfile="src/core/positioning/positioningsource.h" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classPositioningSource_1aa72c52ac4128868bc703c2b17ba1287b" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool PositioningSource::backgroundMode</definition>
+        <argsstring></argsstring>
+        <name>backgroundMode</name>
+        <qualifiedname>PositioningSource::backgroundMode</qualifiedname>
+        <read>backgroundMode</read>
+        <write>setBackgroundMode</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioningsource.h" line="55" column="5" bodyfile="src/core/positioning/positioningsource.h" bodystart="55" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="classPositioningSource_1a5850c93dc2277759525cf5f15224cb9d" prot="public" static="yes" mutable="no">
+        <type>QString</type>
+        <definition>QString PositioningSource::backgroundFilePath</definition>
+        <argsstring></argsstring>
+        <name>backgroundFilePath</name>
+        <qualifiedname>PositioningSource::backgroundFilePath</qualifiedname>
+        <initializer>= QStringLiteral( &quot;%1/positioning.background&quot; ).arg( QStandardPaths::writableLocation( QStandardPaths::AppDataLocation ) )</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioningsource.h" line="214" column="20" bodyfile="src/core/positioning/positioningsource.h" bodystart="214" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classPositioningSource_1abaaaea581e5c39f9fa8bfa70e236c3d8" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool PositioningSource::mActive</definition>
+        <argsstring></argsstring>
+        <name>mActive</name>
+        <qualifiedname>PositioningSource::mActive</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioningsource.h" line="245" column="10" bodyfile="src/core/positioning/positioningsource.h" bodystart="245" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPositioningSource_1a2371ccead8b602b8430acd97f270a5bf" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString PositioningSource::mDeviceId</definition>
+        <argsstring></argsstring>
+        <name>mDeviceId</name>
+        <qualifiedname>PositioningSource::mDeviceId</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioningsource.h" line="247" column="13" bodyfile="src/core/positioning/positioningsource.h" bodystart="247" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPositioningSource_1a3e4674ac6d7221fc844771aaee0c3b73" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool PositioningSource::mValid</definition>
+        <argsstring></argsstring>
+        <name>mValid</name>
+        <qualifiedname>PositioningSource::mValid</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioningsource.h" line="248" column="10" bodyfile="src/core/positioning/positioningsource.h" bodystart="248" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPositioningSource_1af5c157ec743006081066fdf340a74cd0" prot="private" static="no" mutable="no">
+        <type><ref refid="classGnssPositionInformation" kindref="compound">GnssPositionInformation</ref></type>
+        <definition>GnssPositionInformation PositioningSource::mPositionInformation</definition>
+        <argsstring></argsstring>
+        <name>mPositionInformation</name>
+        <qualifiedname>PositioningSource::mPositionInformation</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioningsource.h" line="250" column="29" bodyfile="src/core/positioning/positioningsource.h" bodystart="250" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPositioningSource_1a307802b4287eb4c0dedae1c2de61dcac" prot="private" static="no" mutable="no">
+        <type><ref refid="classPositioningSource_1a62f663f81745744d9748c017a05d125f" kindref="member">ElevationCorrectionMode</ref></type>
+        <definition>ElevationCorrectionMode PositioningSource::mElevationCorrectionMode</definition>
+        <argsstring></argsstring>
+        <name>mElevationCorrectionMode</name>
+        <qualifiedname>PositioningSource::mElevationCorrectionMode</qualifiedname>
+        <initializer>= ElevationCorrectionMode::None</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioningsource.h" line="252" column="29" bodyfile="src/core/positioning/positioningsource.h" bodystart="252" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPositioningSource_1a9782af36410e52e3a573bf0d3ec1c08c" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double PositioningSource::mAntennaHeight</definition>
+        <argsstring></argsstring>
+        <name>mAntennaHeight</name>
+        <qualifiedname>PositioningSource::mAntennaHeight</qualifiedname>
+        <initializer>= 0.0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioningsource.h" line="253" column="12" bodyfile="src/core/positioning/positioningsource.h" bodystart="253" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPositioningSource_1a6a16562bcbc7b01e7c59a111fba51966" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool PositioningSource::mLogging</definition>
+        <argsstring></argsstring>
+        <name>mLogging</name>
+        <qualifiedname>PositioningSource::mLogging</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioningsource.h" line="255" column="10" bodyfile="src/core/positioning/positioningsource.h" bodystart="255" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPositioningSource_1a35a21db7dc58ecfe197e17bbe195b909" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString PositioningSource::mLoggingPath</definition>
+        <argsstring></argsstring>
+        <name>mLoggingPath</name>
+        <qualifiedname>PositioningSource::mLoggingPath</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioningsource.h" line="256" column="13" bodyfile="src/core/positioning/positioningsource.h" bodystart="256" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPositioningSource_1a5303fdff7dba143d3c153e2c888baaed" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool PositioningSource::mBackgroundMode</definition>
+        <argsstring></argsstring>
+        <name>mBackgroundMode</name>
+        <qualifiedname>PositioningSource::mBackgroundMode</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioningsource.h" line="258" column="10" bodyfile="src/core/positioning/positioningsource.h" bodystart="258" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPositioningSource_1abe438ac00606c228ae5f34e469b5c1c5" prot="private" static="no" mutable="no">
+        <type>std::unique_ptr&lt; <ref refid="classAbstractGnssReceiver" kindref="compound">AbstractGnssReceiver</ref> &gt;</type>
+        <definition>std::unique_ptr&lt;AbstractGnssReceiver&gt; PositioningSource::mReceiver</definition>
+        <argsstring></argsstring>
+        <name>mReceiver</name>
+        <qualifiedname>PositioningSource::mReceiver</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioningsource.h" line="260" column="21" bodyfile="src/core/positioning/positioningsource.h" bodystart="260" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPositioningSource_1ad3974b9cfda954585d949ba11efafce3" prot="private" static="no" mutable="no">
+        <type>QCompass</type>
+        <definition>QCompass PositioningSource::mCompass</definition>
+        <argsstring></argsstring>
+        <name>mCompass</name>
+        <qualifiedname>PositioningSource::mCompass</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioningsource.h" line="262" column="14" bodyfile="src/core/positioning/positioningsource.h" bodystart="262" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPositioningSource_1aeba51b06f8b9f51455117eefd16118cf" prot="private" static="no" mutable="no">
+        <type>QTimer</type>
+        <definition>QTimer PositioningSource::mCompassTimer</definition>
+        <argsstring></argsstring>
+        <name>mCompassTimer</name>
+        <qualifiedname>PositioningSource::mCompassTimer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioningsource.h" line="263" column="12" bodyfile="src/core/positioning/positioningsource.h" bodystart="263" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPositioningSource_1ad6ed79663e7ea9beb685c488426a026c" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double PositioningSource::mOrientation</definition>
+        <argsstring></argsstring>
+        <name>mOrientation</name>
+        <qualifiedname>PositioningSource::mOrientation</qualifiedname>
+        <initializer>= std::numeric_limits&lt;double&gt;::quiet_NaN()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioningsource.h" line="264" column="12" bodyfile="src/core/positioning/positioningsource.h" bodystart="264" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classPositioningSource_1afde3d6a425a9b987bf183063a499e9a1" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>PositioningSource::PositioningSource</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>PositioningSource</name>
+        <qualifiedname>PositioningSource::PositioningSource</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioningsource.h" line="69" column="14" bodyfile="src/core/positioning/positioningsource.cpp" bodystart="35" bodyend="45"/>
+      </memberdef>
+      <memberdef kind="function" id="classPositioningSource_1a9190526abd0462b9abef1ddddbb8239b" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual PositioningSource::~PositioningSource</definition>
+        <argsstring>()=default</argsstring>
+        <name>~PositioningSource</name>
+        <qualifiedname>PositioningSource::~PositioningSource</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioningsource.h" line="70" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="classPositioningSource_1abd4625c91161289e9281ed310a0280b7" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool PositioningSource::active</definition>
+        <argsstring>() const</argsstring>
+        <name>active</name>
+        <qualifiedname>PositioningSource::active</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns TRUE when positioning is active. <simplesect kind="see"><para><ref refid="classPositioningSource_1a9827641ee81f340cd16c1e33aa8f20c2" kindref="member">setActive</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioningsource.h" line="76" column="10" bodyfile="src/core/positioning/positioningsource.h" bodystart="76" bodyend="76"/>
+      </memberdef>
+      <memberdef kind="function" id="classPositioningSource_1a9827641ee81f340cd16c1e33aa8f20c2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PositioningSource::setActive</definition>
+        <argsstring>(bool active)</argsstring>
+        <name>setActive</name>
+        <qualifiedname>PositioningSource::setActive</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>active</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the positioning <emphasis>active</emphasis> status. <simplesect kind="see"><para>active </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioningsource.h" line="82" column="10" bodyfile="src/core/positioning/positioningsource.cpp" bodystart="47" bodyend="83"/>
+      </memberdef>
+      <memberdef kind="function" id="classPositioningSource_1ac15c9c1c27118245c5335c8023190aab" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool PositioningSource::valid</definition>
+        <argsstring>() const</argsstring>
+        <name>valid</name>
+        <qualifiedname>PositioningSource::valid</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns TRUE when the positioning device is valid. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioningsource.h" line="87" column="10" bodyfile="src/core/positioning/positioningsource.h" bodystart="87" bodyend="87"/>
+      </memberdef>
+      <memberdef kind="function" id="classPositioningSource_1afe6601aa1c0c7361ed486b7e87edcde6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PositioningSource::setValid</definition>
+        <argsstring>(bool valid)</argsstring>
+        <name>setValid</name>
+        <qualifiedname>PositioningSource::setValid</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>valid</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets whether the positioning device is valid. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioningsource.h" line="92" column="10" bodyfile="src/core/positioning/positioningsource.cpp" bodystart="96" bodyend="104"/>
+      </memberdef>
+      <memberdef kind="function" id="classPositioningSource_1aba215f8c9aa2b75d68ade87083a310ba" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>Q_INVOKABLE QString</type>
+        <definition>Q_INVOKABLE QString PositioningSource::deviceId</definition>
+        <argsstring>() const</argsstring>
+        <name>deviceId</name>
+        <qualifiedname>PositioningSource::deviceId</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the current positioning device <emphasis>id</emphasis> used to fetch position information. <simplesect kind="see"><para>setDevice </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioningsource.h" line="98" column="25" bodyfile="src/core/positioning/positioningsource.h" bodystart="98" bodyend="98"/>
+      </memberdef>
+      <memberdef kind="function" id="classPositioningSource_1ad32db944b023a5e379ca914e37df4332" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PositioningSource::setDeviceId</definition>
+        <argsstring>(const QString &amp;id)</argsstring>
+        <name>setDeviceId</name>
+        <qualifiedname>PositioningSource::setDeviceId</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the positioning device <emphasis>id</emphasis> used to fetch position information. <simplesect kind="note"><para>A blank string will connect the internal positioning device; bluetooth addresses will trigger an NMEA connection to external devices. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioningsource.h" line="105" column="10" bodyfile="src/core/positioning/positioningsource.cpp" bodystart="85" bodyend="94"/>
+      </memberdef>
+      <memberdef kind="function" id="classPositioningSource_1aa17f0bc5e82d4da39ff58cd14f4d3b18" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classAbstractGnssReceiver" kindref="compound">AbstractGnssReceiver</ref> *</type>
+        <definition>AbstractGnssReceiver * PositioningSource::device</definition>
+        <argsstring>() const</argsstring>
+        <name>device</name>
+        <qualifiedname>PositioningSource::device</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the current positioning device. <simplesect kind="see"><para>deviceId </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioningsource.h" line="111" column="26" bodyfile="src/core/positioning/positioningsource.h" bodystart="111" bodyend="111"/>
+      </memberdef>
+      <memberdef kind="function" id="classPositioningSource_1af9aae1a83dd8b4f3cd6b8c6703d70bdf" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classGnssPositionDetails" kindref="compound">GnssPositionDetails</ref></type>
+        <definition>GnssPositionDetails PositioningSource::deviceDetails</definition>
+        <argsstring>() const</argsstring>
+        <name>deviceDetails</name>
+        <qualifiedname>PositioningSource::deviceDetails</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns extra details (such as hdop, vdop, pdop) provided by the positioning device. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioningsource.h" line="116" column="25" bodyfile="src/core/positioning/positioningsource.h" bodystart="116" bodyend="116"/>
+      </memberdef>
+      <memberdef kind="function" id="classPositioningSource_1a15706732df97840b3e20870ac712e1e5" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString PositioningSource::deviceLastError</definition>
+        <argsstring>() const</argsstring>
+        <name>deviceLastError</name>
+        <qualifiedname>PositioningSource::deviceLastError</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns positioning device&apos;s last error string. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioningsource.h" line="121" column="13" bodyfile="src/core/positioning/positioningsource.h" bodystart="121" bodyend="121"/>
+      </memberdef>
+      <memberdef kind="function" id="classPositioningSource_1af0130ebca6255be0a6215c56bcc58c1f" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QAbstractSocket::SocketState</type>
+        <definition>QAbstractSocket::SocketState PositioningSource::deviceSocketState</definition>
+        <argsstring>() const</argsstring>
+        <name>deviceSocketState</name>
+        <qualifiedname>PositioningSource::deviceSocketState</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns positioning device&apos;s socket state. <simplesect kind="see"><para>deviceSocketStateString </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioningsource.h" line="127" column="34" bodyfile="src/core/positioning/positioningsource.h" bodystart="127" bodyend="127"/>
+      </memberdef>
+      <memberdef kind="function" id="classPositioningSource_1addd3048b663b3fd1859f03880014d937" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString PositioningSource::deviceSocketStateString</definition>
+        <argsstring>() const</argsstring>
+        <name>deviceSocketStateString</name>
+        <qualifiedname>PositioningSource::deviceSocketStateString</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns a string representation of the positioning device&apos;s socket state. <simplesect kind="see"><para>deviceSocketState </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioningsource.h" line="133" column="13" bodyfile="src/core/positioning/positioningsource.h" bodystart="133" bodyend="133"/>
+      </memberdef>
+      <memberdef kind="function" id="classPositioningSource_1ae749478792c5f6c68a1282ee2fd123c5" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classGnssPositionInformation" kindref="compound">GnssPositionInformation</ref></type>
+        <definition>GnssPositionInformation PositioningSource::positionInformation</definition>
+        <argsstring>() const</argsstring>
+        <name>positionInformation</name>
+        <qualifiedname>PositioningSource::positionInformation</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns a <ref refid="classGnssPositionInformation" kindref="compound">GnssPositionInformation</ref> position information object. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioningsource.h" line="138" column="29" bodyfile="src/core/positioning/positioningsource.h" bodystart="138" bodyend="138"/>
+      </memberdef>
+      <memberdef kind="function" id="classPositioningSource_1a95e754f9237675f3fdfc1284935f3232" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classPositioningSource_1a62f663f81745744d9748c017a05d125f" kindref="member">ElevationCorrectionMode</ref></type>
+        <definition>ElevationCorrectionMode PositioningSource::elevationCorrectionMode</definition>
+        <argsstring>() const</argsstring>
+        <name>elevationCorrectionMode</name>
+        <qualifiedname>PositioningSource::elevationCorrectionMode</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the current elevation correction mode. <simplesect kind="note"><para>Some modes depends on device capabilities. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioningsource.h" line="144" column="29" bodyfile="src/core/positioning/positioningsource.h" bodystart="144" bodyend="144"/>
+      </memberdef>
+      <memberdef kind="function" id="classPositioningSource_1aa79bbe508d752674e70a4c2fd6b09815" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PositioningSource::setElevationCorrectionMode</definition>
+        <argsstring>(ElevationCorrectionMode elevationCorrectionMode)</argsstring>
+        <name>setElevationCorrectionMode</name>
+        <qualifiedname>PositioningSource::setElevationCorrectionMode</qualifiedname>
+        <param>
+          <type><ref refid="classPositioningSource_1a62f663f81745744d9748c017a05d125f" kindref="member">ElevationCorrectionMode</ref></type>
+          <declname>elevationCorrectionMode</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the current elevation correction mode. <simplesect kind="note"><para>Some modes depends on device capabilities. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioningsource.h" line="150" column="10" bodyfile="src/core/positioning/positioningsource.cpp" bodystart="183" bodyend="191"/>
+      </memberdef>
+      <memberdef kind="function" id="classPositioningSource_1a74011e22b6cc3a9f40a9a8b1ae69ff6f" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double PositioningSource::antennaHeight</definition>
+        <argsstring>() const</argsstring>
+        <name>antennaHeight</name>
+        <qualifiedname>PositioningSource::antennaHeight</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the GNSS device antenna height. This should be the pole height + sensore phase height. <simplesect kind="note"><para>When IMU is active this value is ignored as the device does the correction internally. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioningsource.h" line="156" column="12" bodyfile="src/core/positioning/positioningsource.h" bodystart="156" bodyend="156"/>
+      </memberdef>
+      <memberdef kind="function" id="classPositioningSource_1aaed841a43c0263dae405d9762055b399" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PositioningSource::setAntennaHeight</definition>
+        <argsstring>(double antennaHeight)</argsstring>
+        <name>setAntennaHeight</name>
+        <qualifiedname>PositioningSource::setAntennaHeight</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>antennaHeight</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the GNSS device antenna height. This should be the pole height + sensore phase height. <simplesect kind="note"><para>When IMU is active this value is ignored as the device does the correction internally. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioningsource.h" line="162" column="10" bodyfile="src/core/positioning/positioningsource.cpp" bodystart="193" bodyend="201"/>
+      </memberdef>
+      <memberdef kind="function" id="classPositioningSource_1a80bebb8caee88165723a6a989e8f2668" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double PositioningSource::orientation</definition>
+        <argsstring>() const</argsstring>
+        <name>orientation</name>
+        <qualifiedname>PositioningSource::orientation</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the current device orientation </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioningsource.h" line="167" column="12" bodyfile="src/core/positioning/positioningsource.h" bodystart="167" bodyend="167"/>
+      </memberdef>
+      <memberdef kind="function" id="classPositioningSource_1a6f37d1bfceb465a7790ba65c7cf87502" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool PositioningSource::logging</definition>
+        <argsstring>() const</argsstring>
+        <name>logging</name>
+        <qualifiedname>PositioningSource::logging</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns whether GNSS devices will log their incoming position stream into a logfile. <simplesect kind="note"><para>Requires a device type with logging capability </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioningsource.h" line="173" column="10" bodyfile="src/core/positioning/positioningsource.h" bodystart="173" bodyend="173"/>
+      </memberdef>
+      <memberdef kind="function" id="classPositioningSource_1a32276b7faf9555eb7c75ba326b706ccd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PositioningSource::setLogging</definition>
+        <argsstring>(bool logging)</argsstring>
+        <name>setLogging</name>
+        <qualifiedname>PositioningSource::setLogging</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>logging</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets whether GNSS devices will log their incoming position stream into a logfile. <simplesect kind="note"><para>Requires a device type with logging capability </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioningsource.h" line="179" column="10" bodyfile="src/core/positioning/positioningsource.cpp" bodystart="106" bodyend="126"/>
+      </memberdef>
+      <memberdef kind="function" id="classPositioningSource_1a5ee1ab752b5688f134ff4de4e16cc7ff" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString PositioningSource::loggingPath</definition>
+        <argsstring>() const</argsstring>
+        <name>loggingPath</name>
+        <qualifiedname>PositioningSource::loggingPath</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the path where GNSS devices will log their incoming position stream into logfiles. <simplesect kind="note"><para>Requires a device type with logging capability </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioningsource.h" line="185" column="13" bodyfile="src/core/positioning/positioningsource.h" bodystart="185" bodyend="185"/>
+      </memberdef>
+      <memberdef kind="function" id="classPositioningSource_1a6f1a2ddfddd8cef265628483cb351a41" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PositioningSource::setLoggingPath</definition>
+        <argsstring>(const QString &amp;path)</argsstring>
+        <name>setLoggingPath</name>
+        <qualifiedname>PositioningSource::setLoggingPath</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>path</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the path where GNSS devices will log their incoming position stream into logfiles. <simplesect kind="note"><para>Requires a device type with logging capability </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioningsource.h" line="191" column="10" bodyfile="src/core/positioning/positioningsource.cpp" bodystart="128" bodyend="141"/>
+      </memberdef>
+      <memberdef kind="function" id="classPositioningSource_1a06e83a37744f91154ac5f6ebf07ebed2" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool PositioningSource::backgroundMode</definition>
+        <argsstring>() const</argsstring>
+        <name>backgroundMode</name>
+        <qualifiedname>PositioningSource::backgroundMode</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns TRUE if the background mode is active. When activated, position information details will not be signaled but instead saved to disk until deactivated. <simplesect kind="see"><para><ref refid="classPositioningSource_1ad0c381059fd7b217930d072f02eda031" kindref="member">getBackgroundPositionInformation()</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioningsource.h" line="198" column="10" bodyfile="src/core/positioning/positioningsource.h" bodystart="198" bodyend="198"/>
+      </memberdef>
+      <memberdef kind="function" id="classPositioningSource_1aefba69cda0d5ff126b0e914866875cdf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PositioningSource::setBackgroundMode</definition>
+        <argsstring>(bool backgroundMode)</argsstring>
+        <name>setBackgroundMode</name>
+        <qualifiedname>PositioningSource::setBackgroundMode</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>backgroundMode</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets whether the background mode is active. When activated, position information details will not be signaled but instead saved to disk until deactivated. <simplesect kind="see"><para><ref refid="classPositioningSource_1ad0c381059fd7b217930d072f02eda031" kindref="member">getBackgroundPositionInformation()</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioningsource.h" line="205" column="10" bodyfile="src/core/positioning/positioningsource.cpp" bodystart="143" bodyend="160"/>
+      </memberdef>
+      <memberdef kind="function" id="classPositioningSource_1ad0c381059fd7b217930d072f02eda031" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QList&lt; <ref refid="classGnssPositionInformation" kindref="compound">GnssPositionInformation</ref> &gt;</type>
+        <definition>QList&lt; GnssPositionInformation &gt; PositioningSource::getBackgroundPositionInformation</definition>
+        <argsstring>() const</argsstring>
+        <name>getBackgroundPositionInformation</name>
+        <qualifiedname>PositioningSource::getBackgroundPositionInformation</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns a list of position information collected while background mode is active. <simplesect kind="see"><para>backgroundMode() </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classPositioningSource_1aefba69cda0d5ff126b0e914866875cdf" kindref="member">setBackgroundMode()</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioningsource.h" line="212" column="23" bodyfile="src/core/positioning/positioningsource.cpp" bodystart="162" bodyend="181"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classPositioningSource_1a34226b12d875271929083ef61347af4b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PositioningSource::activeChanged</definition>
+        <argsstring>()</argsstring>
+        <name>activeChanged</name>
+        <qualifiedname>PositioningSource::activeChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioningsource.h" line="217" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classPositioningSource_1aced4df447acb76072df692f077f0d955" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PositioningSource::validChanged</definition>
+        <argsstring>()</argsstring>
+        <name>validChanged</name>
+        <qualifiedname>PositioningSource::validChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioningsource.h" line="218" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classPositioningSource_1a216298fe0c10f433c729b7ba0918df91" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PositioningSource::deviceIdChanged</definition>
+        <argsstring>()</argsstring>
+        <name>deviceIdChanged</name>
+        <qualifiedname>PositioningSource::deviceIdChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioningsource.h" line="219" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classPositioningSource_1a624baf64f0f97646a6f7ee11c084736e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PositioningSource::deviceChanged</definition>
+        <argsstring>()</argsstring>
+        <name>deviceChanged</name>
+        <qualifiedname>PositioningSource::deviceChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioningsource.h" line="220" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classPositioningSource_1a298f1f39ce5cd666763af07ba6b604db" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PositioningSource::deviceLastErrorChanged</definition>
+        <argsstring>()</argsstring>
+        <name>deviceLastErrorChanged</name>
+        <qualifiedname>PositioningSource::deviceLastErrorChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioningsource.h" line="221" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classPositioningSource_1aae0f9869670acd07da4bac9fbc2a9bac" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PositioningSource::deviceSocketStateChanged</definition>
+        <argsstring>()</argsstring>
+        <name>deviceSocketStateChanged</name>
+        <qualifiedname>PositioningSource::deviceSocketStateChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioningsource.h" line="222" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classPositioningSource_1a10696d24eb8247efd80d87c1fee9cd5c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PositioningSource::deviceSocketStateStringChanged</definition>
+        <argsstring>()</argsstring>
+        <name>deviceSocketStateStringChanged</name>
+        <qualifiedname>PositioningSource::deviceSocketStateStringChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioningsource.h" line="223" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classPositioningSource_1aecf9ab459d5e41e8386d884b31de3371" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PositioningSource::positionInformationChanged</definition>
+        <argsstring>()</argsstring>
+        <name>positionInformationChanged</name>
+        <qualifiedname>PositioningSource::positionInformationChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioningsource.h" line="224" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classPositioningSource_1ac387550c95b2c797733457963ba07df8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PositioningSource::elevationCorrectionModeChanged</definition>
+        <argsstring>()</argsstring>
+        <name>elevationCorrectionModeChanged</name>
+        <qualifiedname>PositioningSource::elevationCorrectionModeChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioningsource.h" line="225" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classPositioningSource_1a44a0fb1e03ed232e2bf57686f530124b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PositioningSource::antennaHeightChanged</definition>
+        <argsstring>()</argsstring>
+        <name>antennaHeightChanged</name>
+        <qualifiedname>PositioningSource::antennaHeightChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioningsource.h" line="226" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classPositioningSource_1acb526796d35b2f239c6e753f4ecd07ac" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PositioningSource::orientationChanged</definition>
+        <argsstring>()</argsstring>
+        <name>orientationChanged</name>
+        <qualifiedname>PositioningSource::orientationChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioningsource.h" line="227" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classPositioningSource_1a377492c22979e115c37807b9f054d9c2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PositioningSource::loggingChanged</definition>
+        <argsstring>()</argsstring>
+        <name>loggingChanged</name>
+        <qualifiedname>PositioningSource::loggingChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioningsource.h" line="228" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classPositioningSource_1ab0dbb1d94eb32de990d3c825c87fec7a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PositioningSource::loggingPathChanged</definition>
+        <argsstring>()</argsstring>
+        <name>loggingPathChanged</name>
+        <qualifiedname>PositioningSource::loggingPathChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioningsource.h" line="229" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classPositioningSource_1abb60f5714b884532af355ba1ebb827cd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PositioningSource::backgroundModeChanged</definition>
+        <argsstring>()</argsstring>
+        <name>backgroundModeChanged</name>
+        <qualifiedname>PositioningSource::backgroundModeChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioningsource.h" line="230" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-slot">
+      <memberdef kind="slot" id="classPositioningSource_1a0d73e9d4f41b68ba0bd32250db65eb36" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PositioningSource::triggerConnectDevice</definition>
+        <argsstring>()</argsstring>
+        <name>triggerConnectDevice</name>
+        <qualifiedname>PositioningSource::triggerConnectDevice</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioningsource.h" line="234" column="10" bodyfile="src/core/positioning/positioningsource.cpp" bodystart="366" bodyend="372"/>
+      </memberdef>
+      <memberdef kind="slot" id="classPositioningSource_1aa3124c3e491b6ef48046108324a70da0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PositioningSource::triggerDisconnectDevice</definition>
+        <argsstring>()</argsstring>
+        <name>triggerDisconnectDevice</name>
+        <qualifiedname>PositioningSource::triggerDisconnectDevice</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioningsource.h" line="235" column="10" bodyfile="src/core/positioning/positioningsource.cpp" bodystart="374" bodyend="380"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-slot">
+      <memberdef kind="slot" id="classPositioningSource_1ad8d190023fc2b93807341de86084e118" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PositioningSource::lastGnssPositionInformationChanged</definition>
+        <argsstring>(const GnssPositionInformation &amp;lastGnssPositionInformation)</argsstring>
+        <name>lastGnssPositionInformationChanged</name>
+        <qualifiedname>PositioningSource::lastGnssPositionInformationChanged</qualifiedname>
+        <param>
+          <type>const <ref refid="classGnssPositionInformation" kindref="compound">GnssPositionInformation</ref> &amp;</type>
+          <declname>lastGnssPositionInformation</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioningsource.h" line="239" column="10" bodyfile="src/core/positioning/positioningsource.cpp" bodystart="294" bodyend="342"/>
+      </memberdef>
+      <memberdef kind="slot" id="classPositioningSource_1aa3e5ac415b0ab2b0fb909bca575c3d94" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PositioningSource::processCompassReading</definition>
+        <argsstring>()</argsstring>
+        <name>processCompassReading</name>
+        <qualifiedname>PositioningSource::processCompassReading</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioningsource.h" line="240" column="10" bodyfile="src/core/positioning/positioningsource.cpp" bodystart="344" bodyend="364"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classPositioningSource_1a5037eb2ca572d0d93e8e1eec2049f931" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PositioningSource::setupDevice</definition>
+        <argsstring>()</argsstring>
+        <name>setupDevice</name>
+        <qualifiedname>PositioningSource::setupDevice</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioningsource.h" line="243" column="10" bodyfile="src/core/positioning/positioningsource.cpp" bodystart="203" bodyend="292"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>This class connects to GNSS devices (internal or bluetooth NMEA) and provides positioning details. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>PositioningSource</label>
+        <link refid="classPositioningSource"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>PositioningSource</label>
+        <link refid="classPositioningSource"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/positioning/positioningsource.h" line="32" column="1" bodyfile="src/core/positioning/positioningsource.h" bodystart="33" bodyend="265"/>
+    <listofallmembers>
+      <member refid="classPositioningSource_1a10b829d8cf92dc562bd5236d1fbc37d9" prot="public" virt="non-virtual"><scope>PositioningSource</scope><name>active</name></member>
+      <member refid="classPositioningSource_1abd4625c91161289e9281ed310a0280b7" prot="public" virt="non-virtual"><scope>PositioningSource</scope><name>active</name></member>
+      <member refid="classPositioningSource_1a34226b12d875271929083ef61347af4b" prot="public" virt="non-virtual"><scope>PositioningSource</scope><name>activeChanged</name></member>
+      <member refid="classPositioningSource_1a6c5b92d120f8269b2b80670147145267" prot="public" virt="non-virtual"><scope>PositioningSource</scope><name>antennaHeight</name></member>
+      <member refid="classPositioningSource_1a74011e22b6cc3a9f40a9a8b1ae69ff6f" prot="public" virt="non-virtual"><scope>PositioningSource</scope><name>antennaHeight</name></member>
+      <member refid="classPositioningSource_1a44a0fb1e03ed232e2bf57686f530124b" prot="public" virt="non-virtual"><scope>PositioningSource</scope><name>antennaHeightChanged</name></member>
+      <member refid="classPositioningSource_1a5850c93dc2277759525cf5f15224cb9d" prot="public" virt="non-virtual"><scope>PositioningSource</scope><name>backgroundFilePath</name></member>
+      <member refid="classPositioningSource_1aa72c52ac4128868bc703c2b17ba1287b" prot="public" virt="non-virtual"><scope>PositioningSource</scope><name>backgroundMode</name></member>
+      <member refid="classPositioningSource_1a06e83a37744f91154ac5f6ebf07ebed2" prot="public" virt="non-virtual"><scope>PositioningSource</scope><name>backgroundMode</name></member>
+      <member refid="classPositioningSource_1abb60f5714b884532af355ba1ebb827cd" prot="public" virt="non-virtual"><scope>PositioningSource</scope><name>backgroundModeChanged</name></member>
+      <member refid="classPositioningSource_1aa17f0bc5e82d4da39ff58cd14f4d3b18" prot="public" virt="non-virtual"><scope>PositioningSource</scope><name>device</name></member>
+      <member refid="classPositioningSource_1a624baf64f0f97646a6f7ee11c084736e" prot="public" virt="non-virtual"><scope>PositioningSource</scope><name>deviceChanged</name></member>
+      <member refid="classPositioningSource_1a91554206d46735c78785dd01b47dbd64" prot="public" virt="non-virtual"><scope>PositioningSource</scope><name>deviceDetails</name></member>
+      <member refid="classPositioningSource_1af9aae1a83dd8b4f3cd6b8c6703d70bdf" prot="public" virt="non-virtual"><scope>PositioningSource</scope><name>deviceDetails</name></member>
+      <member refid="classPositioningSource_1a4c25b5445c95764ba2051397dfb3de0c" prot="public" virt="non-virtual"><scope>PositioningSource</scope><name>deviceId</name></member>
+      <member refid="classPositioningSource_1aba215f8c9aa2b75d68ade87083a310ba" prot="public" virt="non-virtual"><scope>PositioningSource</scope><name>deviceId</name></member>
+      <member refid="classPositioningSource_1a216298fe0c10f433c729b7ba0918df91" prot="public" virt="non-virtual"><scope>PositioningSource</scope><name>deviceIdChanged</name></member>
+      <member refid="classPositioningSource_1a2ea385d73df9d5273d67c8021f09d7c2" prot="public" virt="non-virtual"><scope>PositioningSource</scope><name>deviceLastError</name></member>
+      <member refid="classPositioningSource_1a15706732df97840b3e20870ac712e1e5" prot="public" virt="non-virtual"><scope>PositioningSource</scope><name>deviceLastError</name></member>
+      <member refid="classPositioningSource_1a298f1f39ce5cd666763af07ba6b604db" prot="public" virt="non-virtual"><scope>PositioningSource</scope><name>deviceLastErrorChanged</name></member>
+      <member refid="classPositioningSource_1ae08e6f37cef29292a6eb6b2c025aefbe" prot="public" virt="non-virtual"><scope>PositioningSource</scope><name>deviceSocketState</name></member>
+      <member refid="classPositioningSource_1af0130ebca6255be0a6215c56bcc58c1f" prot="public" virt="non-virtual"><scope>PositioningSource</scope><name>deviceSocketState</name></member>
+      <member refid="classPositioningSource_1aae0f9869670acd07da4bac9fbc2a9bac" prot="public" virt="non-virtual"><scope>PositioningSource</scope><name>deviceSocketStateChanged</name></member>
+      <member refid="classPositioningSource_1a36dbab891699dd510627cc01cfac68e7" prot="public" virt="non-virtual"><scope>PositioningSource</scope><name>deviceSocketStateString</name></member>
+      <member refid="classPositioningSource_1addd3048b663b3fd1859f03880014d937" prot="public" virt="non-virtual"><scope>PositioningSource</scope><name>deviceSocketStateString</name></member>
+      <member refid="classPositioningSource_1a10696d24eb8247efd80d87c1fee9cd5c" prot="public" virt="non-virtual"><scope>PositioningSource</scope><name>deviceSocketStateStringChanged</name></member>
+      <member refid="classPositioningSource_1a62f663f81745744d9748c017a05d125f" prot="public" virt="non-virtual"><scope>PositioningSource</scope><name>ElevationCorrectionMode</name></member>
+      <member refid="classPositioningSource_1aa9d9c70158dc24c1fb259da32b3e489e" prot="public" virt="non-virtual"><scope>PositioningSource</scope><name>elevationCorrectionMode</name></member>
+      <member refid="classPositioningSource_1a95e754f9237675f3fdfc1284935f3232" prot="public" virt="non-virtual"><scope>PositioningSource</scope><name>elevationCorrectionMode</name></member>
+      <member refid="classPositioningSource_1ac387550c95b2c797733457963ba07df8" prot="public" virt="non-virtual"><scope>PositioningSource</scope><name>elevationCorrectionModeChanged</name></member>
+      <member refid="classPositioningSource_1ad0c381059fd7b217930d072f02eda031" prot="public" virt="non-virtual"><scope>PositioningSource</scope><name>getBackgroundPositionInformation</name></member>
+      <member refid="classPositioningSource_1ad8d190023fc2b93807341de86084e118" prot="private" virt="non-virtual"><scope>PositioningSource</scope><name>lastGnssPositionInformationChanged</name></member>
+      <member refid="classPositioningSource_1addbc8fdc2356f012bd943ccd93dc80c4" prot="public" virt="non-virtual"><scope>PositioningSource</scope><name>logging</name></member>
+      <member refid="classPositioningSource_1a6f37d1bfceb465a7790ba65c7cf87502" prot="public" virt="non-virtual"><scope>PositioningSource</scope><name>logging</name></member>
+      <member refid="classPositioningSource_1a377492c22979e115c37807b9f054d9c2" prot="public" virt="non-virtual"><scope>PositioningSource</scope><name>loggingChanged</name></member>
+      <member refid="classPositioningSource_1a0a3caf9e38b6b10fb2848fc654106486" prot="public" virt="non-virtual"><scope>PositioningSource</scope><name>loggingPath</name></member>
+      <member refid="classPositioningSource_1a5ee1ab752b5688f134ff4de4e16cc7ff" prot="public" virt="non-virtual"><scope>PositioningSource</scope><name>loggingPath</name></member>
+      <member refid="classPositioningSource_1ab0dbb1d94eb32de990d3c825c87fec7a" prot="public" virt="non-virtual"><scope>PositioningSource</scope><name>loggingPathChanged</name></member>
+      <member refid="classPositioningSource_1abaaaea581e5c39f9fa8bfa70e236c3d8" prot="private" virt="non-virtual"><scope>PositioningSource</scope><name>mActive</name></member>
+      <member refid="classPositioningSource_1a9782af36410e52e3a573bf0d3ec1c08c" prot="private" virt="non-virtual"><scope>PositioningSource</scope><name>mAntennaHeight</name></member>
+      <member refid="classPositioningSource_1a5303fdff7dba143d3c153e2c888baaed" prot="private" virt="non-virtual"><scope>PositioningSource</scope><name>mBackgroundMode</name></member>
+      <member refid="classPositioningSource_1ad3974b9cfda954585d949ba11efafce3" prot="private" virt="non-virtual"><scope>PositioningSource</scope><name>mCompass</name></member>
+      <member refid="classPositioningSource_1aeba51b06f8b9f51455117eefd16118cf" prot="private" virt="non-virtual"><scope>PositioningSource</scope><name>mCompassTimer</name></member>
+      <member refid="classPositioningSource_1a2371ccead8b602b8430acd97f270a5bf" prot="private" virt="non-virtual"><scope>PositioningSource</scope><name>mDeviceId</name></member>
+      <member refid="classPositioningSource_1a307802b4287eb4c0dedae1c2de61dcac" prot="private" virt="non-virtual"><scope>PositioningSource</scope><name>mElevationCorrectionMode</name></member>
+      <member refid="classPositioningSource_1a6a16562bcbc7b01e7c59a111fba51966" prot="private" virt="non-virtual"><scope>PositioningSource</scope><name>mLogging</name></member>
+      <member refid="classPositioningSource_1a35a21db7dc58ecfe197e17bbe195b909" prot="private" virt="non-virtual"><scope>PositioningSource</scope><name>mLoggingPath</name></member>
+      <member refid="classPositioningSource_1ad6ed79663e7ea9beb685c488426a026c" prot="private" virt="non-virtual"><scope>PositioningSource</scope><name>mOrientation</name></member>
+      <member refid="classPositioningSource_1af5c157ec743006081066fdf340a74cd0" prot="private" virt="non-virtual"><scope>PositioningSource</scope><name>mPositionInformation</name></member>
+      <member refid="classPositioningSource_1abe438ac00606c228ae5f34e469b5c1c5" prot="private" virt="non-virtual"><scope>PositioningSource</scope><name>mReceiver</name></member>
+      <member refid="classPositioningSource_1a3e4674ac6d7221fc844771aaee0c3b73" prot="private" virt="non-virtual"><scope>PositioningSource</scope><name>mValid</name></member>
+      <member refid="classPositioningSource_1a21add2ea6ec20a9b8301aa8c92479ef0" prot="public" virt="non-virtual"><scope>PositioningSource</scope><name>orientation</name></member>
+      <member refid="classPositioningSource_1a80bebb8caee88165723a6a989e8f2668" prot="public" virt="non-virtual"><scope>PositioningSource</scope><name>orientation</name></member>
+      <member refid="classPositioningSource_1acb526796d35b2f239c6e753f4ecd07ac" prot="public" virt="non-virtual"><scope>PositioningSource</scope><name>orientationChanged</name></member>
+      <member refid="classPositioningSource_1afbc2772dcd3c910d526b87b644fe9423" prot="public" virt="non-virtual"><scope>PositioningSource</scope><name>positionInformation</name></member>
+      <member refid="classPositioningSource_1ae749478792c5f6c68a1282ee2fd123c5" prot="public" virt="non-virtual"><scope>PositioningSource</scope><name>positionInformation</name></member>
+      <member refid="classPositioningSource_1aecf9ab459d5e41e8386d884b31de3371" prot="public" virt="non-virtual"><scope>PositioningSource</scope><name>positionInformationChanged</name></member>
+      <member refid="classPositioningSource_1afde3d6a425a9b987bf183063a499e9a1" prot="public" virt="non-virtual"><scope>PositioningSource</scope><name>PositioningSource</name></member>
+      <member refid="classPositioningSource_1aa3e5ac415b0ab2b0fb909bca575c3d94" prot="private" virt="non-virtual"><scope>PositioningSource</scope><name>processCompassReading</name></member>
+      <member refid="classPositioningSource_1a9827641ee81f340cd16c1e33aa8f20c2" prot="public" virt="non-virtual"><scope>PositioningSource</scope><name>setActive</name></member>
+      <member refid="classPositioningSource_1aaed841a43c0263dae405d9762055b399" prot="public" virt="non-virtual"><scope>PositioningSource</scope><name>setAntennaHeight</name></member>
+      <member refid="classPositioningSource_1aefba69cda0d5ff126b0e914866875cdf" prot="public" virt="non-virtual"><scope>PositioningSource</scope><name>setBackgroundMode</name></member>
+      <member refid="classPositioningSource_1ad32db944b023a5e379ca914e37df4332" prot="public" virt="non-virtual"><scope>PositioningSource</scope><name>setDeviceId</name></member>
+      <member refid="classPositioningSource_1aa79bbe508d752674e70a4c2fd6b09815" prot="public" virt="non-virtual"><scope>PositioningSource</scope><name>setElevationCorrectionMode</name></member>
+      <member refid="classPositioningSource_1a32276b7faf9555eb7c75ba326b706ccd" prot="public" virt="non-virtual"><scope>PositioningSource</scope><name>setLogging</name></member>
+      <member refid="classPositioningSource_1a6f1a2ddfddd8cef265628483cb351a41" prot="public" virt="non-virtual"><scope>PositioningSource</scope><name>setLoggingPath</name></member>
+      <member refid="classPositioningSource_1a5037eb2ca572d0d93e8e1eec2049f931" prot="private" virt="non-virtual"><scope>PositioningSource</scope><name>setupDevice</name></member>
+      <member refid="classPositioningSource_1afe6601aa1c0c7361ed486b7e87edcde6" prot="public" virt="non-virtual"><scope>PositioningSource</scope><name>setValid</name></member>
+      <member refid="classPositioningSource_1a0d73e9d4f41b68ba0bd32250db65eb36" prot="public" virt="non-virtual"><scope>PositioningSource</scope><name>triggerConnectDevice</name></member>
+      <member refid="classPositioningSource_1aa3124c3e491b6ef48046108324a70da0" prot="public" virt="non-virtual"><scope>PositioningSource</scope><name>triggerDisconnectDevice</name></member>
+      <member refid="classPositioningSource_1ae98a5e523517b62d7bcfa050cf714979" prot="public" virt="non-virtual"><scope>PositioningSource</scope><name>valid</name></member>
+      <member refid="classPositioningSource_1ac15c9c1c27118245c5335c8023190aab" prot="public" virt="non-virtual"><scope>PositioningSource</scope><name>valid</name></member>
+      <member refid="classPositioningSource_1aced4df447acb76072df692f077f0d955" prot="public" virt="non-virtual"><scope>PositioningSource</scope><name>validChanged</name></member>
+      <member refid="classPositioningSource_1a9190526abd0462b9abef1ddddbb8239b" prot="public" virt="virtual"><scope>PositioningSource</scope><name>~PositioningSource</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>
