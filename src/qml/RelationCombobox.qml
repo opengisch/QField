@@ -113,7 +113,7 @@ Item {
         anchors.top: searchBar.bottom
         model: featureListModel
         width: parent.width
-        height: searchFeaturePopup.height - searchBar.height - 50
+        height: searchFeaturePopup.height - searchBar.height - 60
         clip: true
         ScrollBar.vertical: QfScrollBar {}
         section.property: featureListModel ? featureListModel.groupField != "" ? "groupFieldValue" : "" : ""
