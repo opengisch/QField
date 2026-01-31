@@ -16,7 +16,7 @@ Item {
   property alias deviceInterval: interval.text
 
   function generateName() {
-    return deviceFilePath + ' (' + deviceInterval + ' ms)';
+    return FileUtils.fileName(deviceFilePath) + ' (' + deviceInterval + ' ms)';
   }
 
   function setSettings(settings) {
