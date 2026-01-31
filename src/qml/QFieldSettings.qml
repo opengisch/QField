@@ -741,7 +741,7 @@ Page {
                 property variant languageCodes: undefined
                 property string currentLanguageCode: undefined
 
-                onCurrentIndexChanged: {
+                onActivated: {
                   if (currentLanguageCode != undefined) {
                     settings.setValue("customLanguage", languageCodes[currentIndex]);
                     languageTip.visible = languageCodes[currentIndex] !== currentLanguageCode;
@@ -940,14 +940,19 @@ Page {
                     }
                   }
 
+                  property bool loaded: false
+
                   onCurrentIndexChanged: {
-                    var modelIndex = positioningDeviceModel.index(currentIndex, 0);
-                    positioningSettings.positioningDevice = positioningDeviceModel.data(modelIndex, PositioningDeviceModel.DeviceId);
-                    positioningSettings.positioningDeviceName = positioningDeviceModel.data(modelIndex, PositioningDeviceModel.DeviceName);
+                    if (loaded && currentIndex !== -1) {
+                      const modelIndex = positioningDeviceModel.index(currentIndex, 0);
+                      positioningSettings.positioningDevice = positioningDeviceModel.data(modelIndex, PositioningDeviceModel.DeviceId);
+                      positioningSettings.positioningDeviceName = positioningDeviceModel.data(modelIndex, PositioningDeviceModel.DeviceName);
+                    }
                   }
 
                   Component.onCompleted: {
-                    currentIndex = positioningDeviceModel.findIndexFromDeviceId(settings.value('positioningDevice', ''));
+                    currentIndex = positioningDeviceModel.findIndexFromDeviceId(positioningSettings.positioningDevice);
+                    loaded = true;
                   }
                 }
               }
@@ -1644,7 +1649,6 @@ Page {
       }
       var index = positioningDeviceModel.addDevice(type, name, settings);
       positioningDeviceComboBox.currentIndex = index;
-      positioningDeviceComboBox.onCurrentIndexChanged();
     }
   }
 
