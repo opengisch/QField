@@ -57,7 +57,7 @@ void PositioningDeviceModel::reloadModel()
   {
     settings.beginGroup( deviceKeys.at( i ) );
     mDevices << Device( static_cast<Type>( settings.value( QStringLiteral( "type" ), InternalDevice ).toInt() ),
-                        deviceKeys.at( i ),
+                        QUrl::fromPercentEncoding( deviceKeys.at( i ).toLatin1() ),
                         settings.value( QStringLiteral( "settings" ), QVariantMap() ).toMap() );
     settings.endGroup();
   }
@@ -113,7 +113,7 @@ int PositioningDeviceModel::addDevice( const Type &type, const QString &name, co
     uniqueName = QStringLiteral( "%1 %2" ).arg( name, QString::number( ++suffix ) );
   }
 
-  settings.beginGroup( uniqueName );
+  settings.beginGroup( QUrl::toPercentEncoding( uniqueName ) );
   settings.setValue( "type", static_cast<int>( type ) );
   settings.setValue( "settings", deviceSettings );
   settings.endGroup();
