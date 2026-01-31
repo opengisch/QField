@@ -444,16 +444,22 @@ void Tracker::rubberbandModelVertexCountChanged()
     {
       if ( ( geometryType == Qgis::GeometryType::Line && vertexCount > 2 ) || ( geometryType == Qgis::GeometryType::Polygon && vertexCount > 3 ) )
       {
-        mFeatureModel->applyGeometry();
         if ( ( geometryType == Qgis::GeometryType::Line && vertexCount == 3 ) || ( geometryType == Qgis::GeometryType::Polygon && vertexCount == 4 ) )
         {
+          mFeatureModel->applyGeometry();
           mFeatureModel->create();
           mFeature = mFeatureModel->feature();
           emit featureCreated();
         }
         else
         {
-          mFeatureModel->save();
+          const qint64 currentMSecsSinceEpoch = QDateTime::currentMSecsSinceEpoch();
+          if ( currentMSecsSinceEpoch - mLastFeatureModelSaveMSSecsSinceEpoch > 10000 )
+          {
+            mFeatureModel->applyGeometry();
+            mFeatureModel->save();
+            mLastFeatureModelSaveMSSecsSinceEpoch = currentMSecsSinceEpoch;
+          }
         }
       }
     }
