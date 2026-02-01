@@ -461,6 +461,7 @@ void Tracker::rubberbandModelVertexCountChanged()
         if ( ( geometryType == Qgis::GeometryType::Line && vertexCount == 3 ) || ( geometryType == Qgis::GeometryType::Polygon && vertexCount == 4 ) )
         {
           mFeatureModel->applyGeometry();
+          // We must flush the buffer on feature creation to get the proper feature ID
           mFeatureModel->create();
           mFeature = mFeatureModel->feature();
           emit featureCreated();
