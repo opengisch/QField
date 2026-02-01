@@ -1145,49 +1145,52 @@ bool FeatureModel::create( bool flushBuffer )
         applyGeometryTopography( mFeature.geometry() );
       }
 
-      if ( commit( !wasEditing ) )
+      if ( flushBuffer )
       {
-        QgsFeature feat;
-        if ( mLayer->getFeatures( QgsFeatureRequest().setFilterFid( createdFeatureId ) ).nextFeature( feat ) )
+        if ( commit( !wasEditing ) )
         {
-          setFeature( feat );
-
-          if ( hasRelations )
+          QgsFeature feat;
+          if ( mLayer->getFeatures( QgsFeatureRequest().setFilterFid( createdFeatureId ) ).nextFeature( feat ) )
           {
-            // Revisit relations in need of attribute updates
-            for ( const QPair<QgsRelation, QgsFeatureRequest> &revisitRelation : std::as_const( revisitRelations ) )
-            {
-              const QList<QgsRelation::FieldPair> fieldPairs = revisitRelation.first.fieldPairs();
-              revisitRelation.first.referencingLayer()->startEditing();
-              QgsFeatureIterator it = revisitRelation.first.referencingLayer()->getFeatures( revisitRelation.second );
-              QgsFeature childFeature;
-              while ( it.nextFeature( childFeature ) )
-              {
-                for ( const QgsRelation::FieldPair &fieldPair : fieldPairs )
-                {
-                  childFeature.setAttribute( fieldPair.referencingField(), feat.attribute( fieldPair.referencedField() ) );
-                }
-                revisitRelation.first.referencingLayer()->updateFeature( childFeature );
-              }
-              revisitRelation.first.referencingLayer()->commitChanges();
-            }
+            setFeature( feat );
 
-            // We need to update default values after creation to insure expression relying on relation children compute properly
-            updateDefaultValues();
-            save();
+            if ( hasRelations )
+            {
+              // Revisit relations in need of attribute updates
+              for ( const QPair<QgsRelation, QgsFeatureRequest> &revisitRelation : std::as_const( revisitRelations ) )
+              {
+                const QList<QgsRelation::FieldPair> fieldPairs = revisitRelation.first.fieldPairs();
+                revisitRelation.first.referencingLayer()->startEditing();
+                QgsFeatureIterator it = revisitRelation.first.referencingLayer()->getFeatures( revisitRelation.second );
+                QgsFeature childFeature;
+                while ( it.nextFeature( childFeature ) )
+                {
+                  for ( const QgsRelation::FieldPair &fieldPair : fieldPairs )
+                  {
+                    childFeature.setAttribute( fieldPair.referencingField(), feat.attribute( fieldPair.referencedField() ) );
+                  }
+                  revisitRelation.first.referencingLayer()->updateFeature( childFeature );
+                }
+                revisitRelation.first.referencingLayer()->commitChanges();
+              }
+
+              // We need to update default values after creation to insure expression relying on relation children compute properly
+              updateDefaultValues();
+              save();
+            }
+          }
+          else
+          {
+            QgsMessageLog::logMessage( tr( "Layer \"%1\" has been commited but the newly created feature %2 could not be fetched" ).arg( mLayer->name() ).arg( mFeature.id() ), QStringLiteral( "QField" ), Qgis::Critical );
+            isSuccess = false;
           }
         }
         else
         {
-          QgsMessageLog::logMessage( tr( "Layer \"%1\" has been commited but the newly created feature %2 could not be fetched" ).arg( mLayer->name() ).arg( mFeature.id() ), QStringLiteral( "QField" ), Qgis::Critical );
+          const QString msgs = mLayer->commitErrors().join( QStringLiteral( "\n" ) );
+          QgsMessageLog::logMessage( tr( "Layer \"%1\" cannot be commited with the newly created feature %2. Reason:\n%3" ).arg( mLayer->name() ).arg( mFeature.id() ).arg( msgs ), QStringLiteral( "QField" ), Qgis::Critical );
           isSuccess = false;
         }
-      }
-      else
-      {
-        const QString msgs = mLayer->commitErrors().join( QStringLiteral( "\n" ) );
-        QgsMessageLog::logMessage( tr( "Layer \"%1\" cannot be commited with the newly created feature %2. Reason:\n%3" ).arg( mLayer->name() ).arg( mFeature.id() ).arg( msgs ), QStringLiteral( "QField" ), Qgis::Critical );
-        isSuccess = false;
       }
     }
     else
