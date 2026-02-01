@@ -167,9 +167,13 @@ void Quick3DMapTextureData::updateTextureData( const QImage &image )
   QByteArray textureData( reinterpret_cast<const char *>( rgbaImage.constBits() ), dataSize );
   setTextureData( textureData );
 
-  if ( !mReady )
+  // Force Qt Quick 3D to reload the texture by toggling ready state
+  if ( mReady )
   {
-    mReady = true;
+    mReady = false;
     emit readyChanged();
   }
+  
+  mReady = true;
+  emit readyChanged();
 }
