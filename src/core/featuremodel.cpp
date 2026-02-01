@@ -1211,7 +1211,7 @@ bool FeatureModel::create( bool flushBuffer )
 
 bool FeatureModel::deleteFeature()
 {
-  return LayerUtils::deleteFeature( mProject, mLayer, mFeature.id(), false );
+  return LayerUtils::deleteFeature( mProject, mLayer, mFeature.id(), true );
 }
 
 bool FeatureModel::commit( bool stopEditing )
