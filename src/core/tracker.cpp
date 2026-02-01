@@ -440,7 +440,7 @@ void Tracker::rubberbandModelVertexCountChanged()
   }
 
   const qint64 currentMSecsSinceEpoch = QDateTime::currentMSecsSinceEpoch();
-  bool flushBuffer = !mIsReplaying && currentMSecsSinceEpoch - mLastFeatureModelSaveMSSecsSinceEpoch > 10000;
+  bool flushBuffer = !mIsReplaying && currentMSecsSinceEpoch - mLastFeatureModelSaveMSSecsSinceEpoch > 15000;
 
   const Qgis::GeometryType geometryType = mRubberbandModel->geometryType();
   const int vertexCount = mRubberbandModel->vertexCount();
