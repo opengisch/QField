@@ -256,6 +256,8 @@ void Tracker::start( const GnssPositionInformation &positionInformation, const Q
   mIsActive = true;
   emit isActiveChanged();
 
+  mFeatureModel->layer()->startEditing();
+
   if ( mMinimumDistance > 0 || mTimeInterval > 0 || !mSensorCapture )
   {
     connect( mRubberbandModel, &RubberbandModel::currentCoordinateChanged, this, &Tracker::positionReceived );
@@ -294,6 +296,8 @@ void Tracker::stop()
 {
   //track last position
   trackPosition();
+
+  mFeatureModel->layer()->commitChanges();
 
   mIsActive = false;
   emit isActiveChanged();
@@ -363,6 +367,8 @@ void Tracker::replayPositionInformationList( const QList<GnssPositionInformation
   mIsReplaying = true;
   emit isReplayingChanged();
 
+  mFeatureModel->layer()->startEditing();
+
   const Qgis::GeometryType geometryType = mRubberbandModel->geometryType();
   const bool isPointGeometry = geometryType == Qgis::GeometryType::Point;
   mFeatureModel->setBatchMode( isPointGeometry );
@@ -389,15 +395,18 @@ void Tracker::replayPositionInformationList( const QList<GnssPositionInformation
     mFeatureModel->applyGeometry();
     if ( mFeature.id() == FID_NULL )
     {
-      mFeatureModel->create();
+      mFeatureModel->create( false );
       mFeature = mFeatureModel->feature();
       emit featureCreated();
     }
     else
     {
-      mFeatureModel->save();
+      mFeatureModel->save( false );
     }
   }
+
+  // Flush editing buffer
+  mFeatureModel->layer()->commitChanges();
 
   mIsReplaying = false;
   emit isReplayingChanged();
@@ -426,7 +435,12 @@ void Tracker::suspendUntilReplay()
 void Tracker::rubberbandModelVertexCountChanged()
 {
   if ( ( !mIsActive && !mIsReplaying ) || mRubberbandModel->vertexCount() == 0 )
+  {
     return;
+  }
+
+  const qint64 currentMSecsSinceEpoch = QDateTime::currentMSecsSinceEpoch();
+  bool flushBuffer = !mIsReplaying && currentMSecsSinceEpoch - mLastFeatureModelSaveMSSecsSinceEpoch > 15000;
 
   const Qgis::GeometryType geometryType = mRubberbandModel->geometryType();
   const int vertexCount = mRubberbandModel->vertexCount();
@@ -435,7 +449,7 @@ void Tracker::rubberbandModelVertexCountChanged()
     mFeatureModel->applyGeometry();
     mFeatureModel->resetFeatureId();
     mFeatureModel->resetAttributes( true );
-    mFeatureModel->create();
+    mFeatureModel->create( flushBuffer );
   }
   else
   {
@@ -444,19 +458,26 @@ void Tracker::rubberbandModelVertexCountChanged()
     {
       if ( ( geometryType == Qgis::GeometryType::Line && vertexCount > 2 ) || ( geometryType == Qgis::GeometryType::Polygon && vertexCount > 3 ) )
       {
-        mFeatureModel->applyGeometry();
         if ( ( geometryType == Qgis::GeometryType::Line && vertexCount == 3 ) || ( geometryType == Qgis::GeometryType::Polygon && vertexCount == 4 ) )
         {
+          mFeatureModel->applyGeometry();
+          // We must flush the buffer on feature creation to get the proper feature ID
           mFeatureModel->create();
           mFeature = mFeatureModel->feature();
           emit featureCreated();
         }
         else
         {
-          mFeatureModel->save();
+          mFeatureModel->applyGeometry();
+          mFeatureModel->save( flushBuffer );
         }
       }
     }
+  }
+
+  if ( flushBuffer )
+  {
+    mLastFeatureModelSaveMSSecsSinceEpoch = currentMSecsSinceEpoch;
   }
 }
 

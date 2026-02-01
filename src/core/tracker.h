@@ -200,6 +200,7 @@ class Tracker : public QObject
 
     RubberbandModel *mRubberbandModel = nullptr;
     FeatureModel *mFeatureModel = nullptr;
+    qint64 mLastFeatureModelSaveMSSecsSinceEpoch = 0;
 
     double mTimeInterval = 0.0;
     double mMinimumDistance = 0.0;
