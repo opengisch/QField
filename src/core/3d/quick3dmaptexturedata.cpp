@@ -17,6 +17,7 @@
 #include "qgsquick/qgsquickmapsettings.h"
 #include "quick3dmaptexturedata.h"
 
+#include <qgsmaplayer.h>
 #include <qgsmaprenderersequentialjob.h>
 #include <qgsmapsettings.h>
 
@@ -52,11 +53,23 @@ void Quick3DMapTextureData::setMapSettings( QgsQuickMapSettings *mapSettings )
     disconnect( mMapSettings, &QgsQuickMapSettings::layersChanged, this, &Quick3DMapTextureData::render );
   }
 
+  for ( const QMetaObject::Connection &conn : std::as_const( mLayerConnections ) )
+  {
+    disconnect( conn );
+  }
+  mLayerConnections.clear();
+
   mMapSettings = mapSettings;
 
   if ( mMapSettings )
   {
     connect( mMapSettings, &QgsQuickMapSettings::layersChanged, this, &Quick3DMapTextureData::render );
+    
+    const QList<QgsMapLayer *> layers = mMapSettings->layers();
+    for ( const QgsMapLayer *layer : layers )
+    {
+      mLayerConnections << connect( layer, &QgsMapLayer::repaintRequested, this, &Quick3DMapTextureData::render );
+    }
   }
 
   emit mapSettingsChanged();

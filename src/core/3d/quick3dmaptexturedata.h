@@ -94,6 +94,7 @@ class Quick3DMapTextureData : public QQuick3DTextureData
     QgsRectangle mExtent;
     std::unique_ptr<QgsMapRendererSequentialJob> mRenderJob;
     bool mReady = false;
+    QVector<QMetaObject::Connection> mLayerConnections;
 };
 
 #endif // QUICK3DMAPTEXTUREDATA_H
