@@ -351,10 +351,12 @@ bool LayerUtils::addFeature( QgsVectorLayer *layer, QgsFeature feature )
   return false;
 }
 
-bool LayerUtils::deleteFeature( QgsProject *project, QgsVectorLayer *layer, const QgsFeatureId fid, bool shouldWriteChanges )
+bool LayerUtils::deleteFeature( QgsProject *project, QgsVectorLayer *layer, const QgsFeatureId fid, bool flushBuffer )
 {
   if ( !project )
+  {
     return false;
+  }
 
   if ( !layer )
   {
@@ -362,21 +364,13 @@ bool LayerUtils::deleteFeature( QgsProject *project, QgsVectorLayer *layer, cons
     return false;
   }
 
-  if ( !shouldWriteChanges )
+  const bool wasEditing = layer->editBuffer();
+  if ( !wasEditing && !layer->startEditing() )
   {
-    if ( !layer->startEditing() || !layer->editBuffer() )
-    {
-      QgsMessageLog::logMessage( tr( "Cannot start editing" ), "QField", Qgis::Warning );
-      return false;
-    }
+    QgsMessageLog::logMessage( tr( "Cannot start editing" ), "QField", Qgis::Warning );
+    return false;
   }
-  else
-  {
-    if ( !layer->editBuffer() )
-    {
-      return false;
-    }
-  }
+  flushBuffer = flushBuffer || !wasEditing;
 
   bool isSuccess = true;
 
@@ -384,10 +378,10 @@ bool LayerUtils::deleteFeature( QgsProject *project, QgsVectorLayer *layer, cons
   QgsVectorLayer::DeleteContext deleteContext( true, project );
   if ( layer->deleteFeature( fid, &deleteContext ) )
   {
-    if ( !shouldWriteChanges )
+    if ( flushBuffer )
     {
       // commit changes
-      if ( !layer->commitChanges() )
+      if ( !layer->commitChanges( !wasEditing ) )
       {
         const QString msgs = layer->commitErrors().join( QStringLiteral( "\n" ) );
         QgsMessageLog::logMessage( tr( "Cannot commit deletion of feature %2 in layer \"%1\". Reason:\n%3" ).arg( layer->name() ).arg( fid ).arg( msgs ), QStringLiteral( "QField" ), Qgis::Warning );
@@ -405,7 +399,9 @@ bool LayerUtils::deleteFeature( QgsProject *project, QgsVectorLayer *layer, cons
         QgsVectorLayer *vl = *it;
 
         if ( vl == layer )
+        {
           continue;
+        }
 
         if ( !vl->commitChanges() )
         {
@@ -420,22 +416,24 @@ bool LayerUtils::deleteFeature( QgsProject *project, QgsVectorLayer *layer, cons
   else
   {
     QgsMessageLog::logMessage( tr( "Cannot delete feature %1" ).arg( fid ), "QField", Qgis::Warning );
-
     isSuccess = false;
   }
 
-  if ( !shouldWriteChanges )
+  if ( !flushBuffer && !isSuccess )
   {
-    if ( !isSuccess )
-    {
-      const QList<QgsVectorLayer *> constHandledLayers = deleteContext.handledLayers();
-      for ( QgsVectorLayer *vl : constHandledLayers )
-        if ( vl != layer )
-          if ( !vl->rollBack() )
-            QgsMessageLog::logMessage( tr( "Cannot rollback layer changes in layer %1" ).arg( vl->name() ), "QField", Qgis::Critical );
+    const QList<QgsVectorLayer *> constHandledLayers = deleteContext.handledLayers();
+    for ( QgsVectorLayer *vl : constHandledLayers )
+      if ( vl != layer )
+      {
+        if ( !vl->rollBack() )
+        {
+          QgsMessageLog::logMessage( tr( "Cannot rollback layer changes in layer %1" ).arg( vl->name() ), "QField", Qgis::Critical );
+        }
+      }
 
-      if ( !layer->rollBack() )
-        QgsMessageLog::logMessage( tr( "Cannot rollback layer changes in layer %1" ).arg( layer->name() ), "QField", Qgis::Critical );
+    if ( !layer->rollBack() )
+    {
+      QgsMessageLog::logMessage( tr( "Cannot rollback layer changes in layer %1" ).arg( layer->name() ), "QField", Qgis::Critical );
     }
   }
 
@@ -456,7 +454,8 @@ QgsFeature LayerUtils::duplicateFeature( QgsVectorLayer *layer, QgsFeature featu
     return QgsFeature();
   }
 
-  if ( !layer->startEditing() || !layer->editBuffer() )
+  const bool wasEditing = layer->editBuffer();
+  if ( !wasEditing && !layer->startEditing() )
   {
     QgsMessageLog::logMessage( tr( "Cannot start editing" ), "QField", Qgis::Warning );
     return QgsFeature();
@@ -484,7 +483,7 @@ QgsFeature LayerUtils::duplicateFeature( QgsVectorLayer *layer, QgsFeature featu
   const auto duplicateFeatureContextLayers = duplicateFeatureContext.layers();
 
   // commit changes
-  if ( !layer->commitChanges() )
+  if ( !layer->commitChanges( !wasEditing ) )
   {
     const QString msgs = layer->commitErrors().join( QStringLiteral( "\n" ) );
     QgsMessageLog::logMessage( tr( "Cannot add new feature in layer \"%1\". Reason:\n%2" ).arg( layer->name(), msgs ), "QField", Qgis::Warning );
