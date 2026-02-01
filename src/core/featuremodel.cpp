@@ -622,10 +622,12 @@ QgsExpressionContext FeatureModel::createExpressionContext() const
   return expressionContext;
 }
 
-bool FeatureModel::save()
+bool FeatureModel::save( bool flushBuffer )
 {
   if ( !mLayer )
+  {
     return false;
+  }
 
   bool isSuccess = true;
 
@@ -639,6 +641,9 @@ bool FeatureModel::save()
   }
   else
   {
+    const bool wasEditing = isEditing();
+    flushBuffer = flushBuffer || !wasEditing;
+
     if ( !startEditing() )
     {
       isSuccess = false;
@@ -653,26 +658,31 @@ bool FeatureModel::save()
 
         QgsFeature temporaryFeature = mFeature;
         if ( !mLayer->updateFeature( temporaryFeature, true ) )
-          QgsMessageLog::logMessage( tr( "Cannot update feature" ), QStringLiteral( "QField" ), Qgis::Warning );
-
-        isSuccess &= commit();
-        if ( isSuccess )
         {
-          QgsFeature modifiedFeature;
-          if ( mLayer->getFeatures( QgsFeatureRequest().setFilterFid( mFeature.id() ) ).nextFeature( modifiedFeature ) )
+          QgsMessageLog::logMessage( tr( "Cannot update feature" ), QStringLiteral( "QField" ), Qgis::Warning );
+        }
+
+        if ( flushBuffer )
+        {
+          isSuccess &= commit( !wasEditing );
+          if ( isSuccess )
           {
-            if ( modifiedFeature != mFeature )
+            QgsFeature modifiedFeature;
+            if ( mLayer->getFeatures( QgsFeatureRequest().setFilterFid( mFeature.id() ) ).nextFeature( modifiedFeature ) )
             {
-              setFeature( modifiedFeature );
+              if ( modifiedFeature != mFeature )
+              {
+                setFeature( modifiedFeature );
+              }
+              else
+              {
+                emit featureUpdated();
+              }
             }
             else
             {
-              emit featureUpdated();
+              QgsMessageLog::logMessage( tr( "Feature %1 could not be fetched after commit" ).arg( mFeature.id() ), QStringLiteral( "QField" ), Qgis::Warning );
             }
-          }
-          else
-          {
-            QgsMessageLog::logMessage( tr( "Feature %1 could not be fetched after commit" ).arg( mFeature.id() ), QStringLiteral( "QField" ), Qgis::Warning );
           }
         }
         break;
@@ -698,7 +708,11 @@ bool FeatureModel::save()
             QgsMessageLog::logMessage( tr( "Cannot update feature" ), QStringLiteral( "QField" ), Qgis::Warning );
           }
         }
-        isSuccess &= commit();
+
+        if ( flushBuffer )
+        {
+          isSuccess &= commit( !wasEditing );
+        }
       }
     }
   }
@@ -1051,17 +1065,22 @@ void FeatureModel::setBatchMode( bool batchMode )
   {
     if ( mBatchMode )
     {
-      mLayer->startEditing();
+      mBatchModeWasEditing = isEditing();
+      if ( !mBatchModeWasEditing )
+      {
+        mLayer->startEditing();
+      }
     }
     else
     {
-      mLayer->commitChanges();
+      mLayer->commitChanges( !mBatchModeWasEditing );
     }
   }
 
   emit batchModeChanged();
 }
-bool FeatureModel::create()
+
+bool FeatureModel::create( bool flushBuffer )
 {
   if ( !mLayer || mFeatureAdditionLocked )
     return false;
@@ -1083,7 +1102,9 @@ bool FeatureModel::create()
   }
   else
   {
-    if ( !startEditing() )
+    const bool wasEditing = isEditing();
+
+    if ( !wasEditing && !startEditing() )
     {
       QgsMessageLog::logMessage( tr( "Cannot start editing on layer \"%1\" to create feature %2" ).arg( mLayer->name() ).arg( mFeature.id() ), QStringLiteral( "QField" ), Qgis::Critical );
       return false;
@@ -1116,6 +1137,7 @@ bool FeatureModel::create()
       }
     }
 
+    flushBuffer = flushBuffer || !wasEditing || hasRelations;
     if ( mLayer->addFeature( mFeature ) )
     {
       if ( mProject && mProject->topologicalEditing() && !mFeature.geometry().isEmpty() )
@@ -1123,7 +1145,7 @@ bool FeatureModel::create()
         applyGeometryTopography( mFeature.geometry() );
       }
 
-      if ( commit() )
+      if ( commit( !wasEditing ) )
       {
         QgsFeature feat;
         if ( mLayer->getFeatures( QgsFeatureRequest().setFilterFid( createdFeatureId ) ).nextFeature( feat ) )
@@ -1192,9 +1214,9 @@ bool FeatureModel::deleteFeature()
   return LayerUtils::deleteFeature( mProject, mLayer, mFeature.id(), false );
 }
 
-bool FeatureModel::commit()
+bool FeatureModel::commit( bool stopEditing )
 {
-  if ( !mLayer->commitChanges() )
+  if ( !mLayer->commitChanges( stopEditing ) )
   {
     QgsMessageLog::logMessage( tr( "Could not save changes. Rolling back." ), QStringLiteral( "QField" ), Qgis::Critical );
     mLayer->rollBack();
@@ -1206,11 +1228,18 @@ bool FeatureModel::commit()
   }
 }
 
+bool FeatureModel::isEditing() const
+{
+  return mLayer->editBuffer();
+}
+
 bool FeatureModel::startEditing()
 {
   // Already an edit session active
-  if ( mLayer->editBuffer() )
+  if ( isEditing() )
+  {
     return true;
+  }
 
   if ( !mLayer->startEditing() )
   {
