@@ -1145,10 +1145,8 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation>Layer &quot;%1&quot; has been commited but the newly created feature %2 could not be fetched</translation>
     </message>
     <message>
-        <source>Layer &quot;%1&quot; cannot be commited with the newly created feature %2. Reason:
-%3</source>
-        <translation>Layer &quot;%1&quot; cannot be commited with the newly created feature %2. Reason:
-%3</translation>
+        <source>Layer &quot;%1&quot; cannot be commited with the newly created feature %2. Reason:%3</source>
+        <translation>Layer &quot;%1&quot; cannot be commited with the newly created feature %2. Reason:%3</translation>
     </message>
     <message>
         <source>Feature %2 could not be added in layer &quot;%1&quot;</source>
