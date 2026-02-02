@@ -510,7 +510,7 @@ Page {
 
             Repeater {
               //model: [qsTr("QFieldCloud\nprojects"), qsTr("Local projects and\n datasets"), qsTr("Create new\nproject")]
-              model: [qsTr("QFieldCloud\nprojects"), qsTr("로컬 프로젝트\n 및 데이터"), qsTr("Create new\nproject")]
+              model: [qsTr("클라우드\n프로젝트"), qsTr("로컬 프로젝트\n 및 데이터"), qsTr("새 프로젝트\n만들기")]
 
               delegate: Text {
                 Layout.preferredWidth: welcomeActions.width / 3
@@ -524,7 +524,8 @@ Page {
 
           Text {
             id: recentText
-            text: qsTr("Recent Projects")
+            //text: qsTr("Recent Projects")
+            text: qsTr("최근 실행한 프로젝트")
             font.pointSize: Theme.tipFont.pointSize
             font.bold: true
             color: Theme.mainTextColor
