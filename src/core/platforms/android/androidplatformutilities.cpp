@@ -99,7 +99,8 @@ void AndroidPlatformUtilities::afterUpdate()
       auto activity = qtAndroidContext();
       if ( activity.isValid() )
       {
-        QJniObject messageJni = QJniObject::fromString( QObject::tr( "Please wait while QField installation finalizes." ) );
+        //QJniObject messageJni = QJniObject::fromString( QObject::tr( "Please wait while QField installation finalizes." ) );
+        QJniObject messageJni = QJniObject::fromString( QObject::tr( "QField 설치를 완료하는 중입니다. 잠시만 기다려 주세요." ) );
         activity.callMethod<void>( "showBlockingProgressDialog", "(Ljava/lang/String;)V", messageJni.object<jstring>() );
       }
     } );

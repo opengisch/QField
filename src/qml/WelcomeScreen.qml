@@ -383,7 +383,8 @@ Page {
               Layout.margins: 6
               Layout.topMargin: 12
               Layout.maximumWidth: collectionView.width - 12
-              text: qsTr("To improve stability for everyone, QField collects and sends anonymized metrics.")
+              //text: qsTr("To improve stability for everyone, QField collects and sends anonymized metrics.")
+              text: qsTr("모든 사용자의 안정성을 향상시키기 위해 익명화된 사용 통계를 수집하여 전송합니다.")
               font: Theme.defaultFont
               color: Theme.mainTextColor
               horizontalAlignment: Text.AlignHCenter
@@ -400,7 +401,8 @@ Page {
                 leftPadding: 10
                 rightPadding: 10
 
-                text: qsTr('I agree')
+                //text: qsTr('I agree')
+                text: qsTr('동의함')
 
                 onClicked: {
                   qfieldSettings.enableInfoCollection = true;
@@ -414,7 +416,8 @@ Page {
                 leftPadding: 10
                 rightPadding: 10
 
-                text: qsTr('I prefer not')
+                //text: qsTr('I prefer not')
+                text: qsTr('동의하지 않음')
                 bgcolor: "transparent"
                 color: Theme.mainColor
 
@@ -737,7 +740,8 @@ Page {
               wrapMode: Text.WordWrap
               color: Theme.mainTextColor
 
-              text: registry.defaultProject != '' ? qsTr('Load default project on launch') : qsTr('Load last opened project on launch')
+              //text: registry.defaultProject != '' ? qsTr('Load default project on launch') : qsTr('Load last opened project on launch')
+              text: registry.defaultProject != '' ? qsTr('앱 실행 시 기본 프로젝트 불러오기') : qsTr('앱 실행 시 마지막으로 열었던 프로젝트 불러오기')
 
               MouseArea {
                 anchors.fill: parent
