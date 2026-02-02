@@ -219,8 +219,8 @@ Item {
 
     QfButton {
       Layout.fillWidth: true
-      text: cloudConnection.status == QFieldCloudConnection.LoggedIn ? qsTr("Sign out") : cloudConnection.status == QFieldCloudConnection.Connecting ? qsTr("Signing in, please wait") : qsTr("Sign in")
-      //text: cloudConnection.status == QFieldCloudConnection.LoggedIn ? qsTr("로그아웃) : cloudConnection.status == QFieldCloudConnection.Connecting ? qsTr("로그인중입니다.") : qsTr("로그인")
+      //text: cloudConnection.status == QFieldCloudConnection.LoggedIn ? qsTr("Sign out") : cloudConnection.status == QFieldCloudConnection.Connecting ? qsTr("Signing in, please wait") : qsTr("Sign in")
+      text: cloudConnection.status == QFieldCloudConnection.LoggedIn ? qsTr("로그아웃") : cloudConnection.status == QFieldCloudConnection.Connecting ? qsTr("로그인중입니다.") : qsTr("로그인")
       enabled: cloudConnection.status != QFieldCloudConnection.Connecting
       visible: qfieldCloudLogin.hasCredentialsAuthentication || cloudConnection.status != QFieldCloudConnection.Disconnected
 
