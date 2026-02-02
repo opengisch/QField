@@ -30,7 +30,7 @@ Page {
 
   header: QfPageHeader {
     //title: projectFolderView ? qsTr("Project Folder") : qsTr("Local Projects & Datasets")
-    title: projectFolderView ? qsTr("Project Folder") : qsTr("로컬 프로젝트 및 데이터")
+    title: projectFolderView ? qsTr("Project Folder") : qsTr("로컬 프로젝트\n 및 데이터")
 
     showBackButton: true
     showApplyButton: false

@@ -20,7 +20,8 @@ Page {
   rightPadding: mainWindow.sceneRightMargin
 
   header: QfPageHeader {
-    title: qsTr("QFieldCloud Projects")
+    //title: qsTr("QFieldCloud Projects")
+    title: qsTr("클라우드 프로젝트 \n불러오기")
 
     showBackButton: true
     showApplyButton: false

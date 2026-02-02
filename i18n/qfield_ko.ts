@@ -5379,7 +5379,7 @@ projects</source>
     </message>
     <message>
         <source>Create new project</source>
-        <translation type="unfinished"/>
+        <translation>새 프로젝트 만들기</translation>
     </message>
 </context>
 <context>
