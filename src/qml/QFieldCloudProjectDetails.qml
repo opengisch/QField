@@ -111,7 +111,8 @@ ColumnLayout {
             font: Theme.strongFont
             color: Theme.mainTextColor
 
-            text: qsTr("Owner")
+            //text: qsTr("Owner")
+            text: qsTr("소유자")
           }
 
           Text {
@@ -135,7 +136,8 @@ ColumnLayout {
             font: Theme.strongFont
             color: Theme.mainTextColor
 
-            text: qsTr("Creation date")
+            //text: qsTr("Creation date")
+            text: qsTr("생성일")
           }
 
           Text {
@@ -159,7 +161,8 @@ ColumnLayout {
             font: Theme.strongFont
             color: Theme.mainTextColor
 
-            text: qsTr("Latest update date")
+            //text: qsTr("Latest update date")
+            text: qsTr("최종 수정일")
           }
 
           Text {
@@ -202,7 +205,8 @@ ColumnLayout {
             wrapMode: Text.WordWrap
             horizontalAlignment: Text.AlignHCenter
 
-            text: qsTr("This QR code can be scanned for users with the appropriate access to download and open this project")
+            //text: qsTr("This QR code can be scanned for users with the appropriate access to download and open this project")
+            text: qsTr("이 QR 코드는 해당 프로젝트에 접근 권한이 있는 사용자가 스캔하여 프로젝트를 다운로드하고 열 수 있습니다.")
           }
         }
       }
@@ -268,7 +272,8 @@ ColumnLayout {
           }
         }
       }
-      return qsTr("Download project");
+      //return qsTr("Download project");
+      return qsTr("프로젝트 다운로드");
     }
     visible: cloudProject != undefined && cloudProject.localPath === ""
     enabled: cloudProject != undefined && cloudProject.status !== QFieldCloudProject.ProjectStatus.Downloading

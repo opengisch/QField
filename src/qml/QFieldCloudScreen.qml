@@ -75,7 +75,8 @@ Page {
           qsTr('Connecting to the cloud.');
           break;
         case 2:
-          qsTr('Greetings <strong>%1</strong>.').arg(cloudConnection.username);
+          //qsTr('Greetings <strong>%1</strong>.').arg(cloudConnection.username);
+          qsTr('<strong>%1</strong>님 안녕하세요.').arg(cloudConnection.username);
           break;
         }
         wrapMode: Text.WordWrap
@@ -192,7 +193,8 @@ Page {
 
         QfTabBar {
           id: filterBar
-          model: [qsTr("My Projects"), qsTr("Community")]
+          //model: [qsTr("My Projects"), qsTr("Community")]
+          model: [qsTr("내 프로젝트"), qsTr("커뮤니티 프로젝트")]
           Layout.fillWidth: true
           Layout.preferredHeight: defaultHeight
         }
@@ -425,7 +427,8 @@ Page {
                             status = UserRoleOrigin === "public" ? qsTr('Available locally') : qsTr('Available locally, missing on the cloud');
                             break;
                           case QFieldCloudProject.RemoteCheckout:
-                            status = qsTr('Available on the cloud');
+                            //status = qsTr('Available on the cloud');
+                            status = qsTr('클라우드에서 사용 가능');
                             break;
                           case QFieldCloudProject.LocalAndRemoteCheckout:
                             status = qsTr('Available locally');
@@ -653,7 +656,8 @@ Page {
     }
 
     MenuItem {
-      text: qsTr('Show invalid projects')
+      //text: qsTr('Show invalid projects')
+      text: qsTr('유효하지 않은 프로젝트 표시')
       font: Theme.defaultFont
       height: 48
       leftPadding: Theme.menuItemLeftPadding
