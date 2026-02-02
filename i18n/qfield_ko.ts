@@ -3612,7 +3612,6 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <source>Local Projects &amp; Datasets</source>
         <translation>로컬 프로젝트 및 데이터</translation>
-        /* <translation type="unfinished"/> */
     </message>
     <message>
         <source>Folders</source>
@@ -5377,7 +5376,6 @@ projects</source>
     <message>
         <source>Local projects and datasets</source>
         <translation>로컬 프로젝트 및 데이터</translation>
-        /* <translation type="unfinished"/> */
     </message>
     <message>
         <source>Create new project</source>
