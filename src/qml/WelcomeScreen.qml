@@ -509,7 +509,8 @@ Page {
             }
 
             Repeater {
-              model: [qsTr("QFieldCloud\nprojects"), qsTr("Local projects and\n datasets"), qsTr("Create new\nproject")]
+              //model: [qsTr("QFieldCloud\nprojects"), qsTr("Local projects and\n datasets"), qsTr("Create new\nproject")]
+              model: [qsTr("QFieldCloud\nprojects"), qsTr("로컬 프로젝트 및 데이터"), qsTr("Create new\nproject")]
 
               delegate: Text {
                 Layout.preferredWidth: welcomeActions.width / 3
