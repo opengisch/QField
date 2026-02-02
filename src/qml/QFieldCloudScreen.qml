@@ -75,8 +75,8 @@ Page {
           qsTr('Connecting to the cloud.');
           break;
         case 2:
-          qsTr('Greetings <strong>%1</strong>.').arg(cloudConnection.username);
-          //qsTr('<strong>%1</strong>님 안녕하세요.').arg(cloudConnection.username);
+          //qsTr('Greetings <strong>%1</strong>.').arg(cloudConnection.username);
+          qsTr('<strong>%1</strong>님 안녕하세요.').arg(cloudConnection.username);
           break;
         }
         wrapMode: Text.WordWrap
