@@ -64,7 +64,7 @@ void Quick3DMapTextureData::setMapSettings( QgsQuickMapSettings *mapSettings )
   if ( mMapSettings )
   {
     connect( mMapSettings, &QgsQuickMapSettings::layersChanged, this, &Quick3DMapTextureData::render );
-    
+
     const QList<QgsMapLayer *> layers = mMapSettings->layers();
     for ( const QgsMapLayer *layer : layers )
     {
@@ -186,7 +186,7 @@ void Quick3DMapTextureData::updateTextureData( const QImage &image )
     mReady = false;
     emit readyChanged();
   }
-  
+
   mReady = true;
   emit readyChanged();
 }
