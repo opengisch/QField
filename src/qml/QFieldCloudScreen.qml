@@ -588,7 +588,8 @@ Page {
           QfButton {
             id: refreshProjectsListBtn
             Layout.fillWidth: true
-            text: qsTr("Refresh projects list")
+            //text: qsTr("Refresh projects list")
+            text: qsTr("프로젝트 목록 새로고침")
             enabled: cloudConnection.status === QFieldCloudConnection.LoggedIn && cloudConnection.state === QFieldCloudConnection.Idle && cloudProjectsModel.busyProjectIds.length === 0
             onClicked: {
               refreshProjectsList(true, filterBar.currentIndex !== 0);
@@ -631,7 +632,8 @@ Page {
     x: parent.width - width - 8
 
     MenuItem {
-      text: cloudConnection.status == QFieldCloudConnection.LoggedIn ? qsTr('Sign out') : qsTr('Sign in')
+      //text: cloudConnection.status == QFieldCloudConnection.LoggedIn ? qsTr('Sign out') : qsTr('Sign in')
+      text: cloudConnection.status == QFieldCloudConnection.LoggedIn ? qsTr('로그아웃') : qsTr('로그인')
       font: Theme.defaultFont
       height: 48
       leftPadding: Theme.menuItemLeftPadding
