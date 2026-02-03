@@ -350,7 +350,20 @@ void FeatureListModel::gatherFeatureList()
                                  ? QgsExpression::quotedColumnRef( mDisplayValueField )
                                  : QStringLiteral( " ( %1 ) " ).arg( mCurrentLayer->displayExpression() );
 
-  if ( !mFilterExpression.isEmpty() )
+  QString searchTermExpression;
+  if ( !mSearchTerm.isEmpty() )
+  {
+    QString escapedSearchTerm = QgsExpression::quotedValue( mSearchTerm ).replace( QRegularExpression( QStringLiteral( "^'|'$" ) ), QString( "" ) );
+    searchTermExpression = QStringLiteral( " %1 ILIKE '%%2%' " ).arg( fieldDisplayString, escapedSearchTerm );
+
+    const QStringList searchTermParts = escapedSearchTerm.split( QRegularExpression( QStringLiteral( "\\s+" ) ), Qt::SkipEmptyParts );
+    for ( const QString &searchTermPart : searchTermParts )
+    {
+      searchTermExpression += QStringLiteral( " OR %1 ILIKE '%%2%' " ).arg( fieldDisplayString, searchTermPart );
+    }
+  }
+
+  if ( !searchTermExpression.isEmpty() || !mFilterExpression.isEmpty() )
   {
     QgsExpressionContext filterContext = QgsExpressionContext( QgsExpressionContextUtils::globalProjectLayerScopes( mCurrentLayer ) );
 
@@ -370,6 +383,18 @@ void FeatureListModel::gatherFeatureList()
 
     request.setExpressionContext( filterContext );
     request.setFilterExpression( mFilterExpression );
+    if ( mFilterExpression.isEmpty() )
+    {
+      request.setFilterExpression( QStringLiteral( " (%1) " ).arg( searchTermExpression ) );
+    }
+    else if ( searchTermExpression.isEmpty() )
+    {
+      request.setFilterExpression( mFilterExpression );
+    }
+    else
+    {
+      request.setFilterExpression( QStringLiteral( " (%1) AND (%2) " ).arg( mFilterExpression, searchTermExpression ) );
+    }
   }
 
   cleanupGatherer();
@@ -401,30 +426,71 @@ void FeatureListModel::processFeatureList()
 
   for ( const FeatureExpressionValuesGatherer::Entry &gatheredEntry : gatheredEntries )
   {
-    entries.append( Entry( gatheredEntry.value, gatheredEntry.identifierFields.at( 0 ), gatheredEntry.identifierFields.at( 1 ), gatheredEntry.featureId ) );
+    Entry entry( Entry( gatheredEntry.value, gatheredEntry.identifierFields.at( 0 ), gatheredEntry.identifierFields.at( 1 ), gatheredEntry.featureId ) );
+
+    if ( !mSearchTerm.isEmpty() )
+    {
+      entry.fuzzyScore = StringUtils::calcFuzzyScore( entry.displayString, mSearchTerm );
+      if ( entry.fuzzyScore == 0 )
+      {
+        continue;
+      }
+    }
+
+    entries.append( entry );
   }
 
-  if ( mOrderByValue || !mGroupField.isEmpty() )
-  {
-    std::sort( entries.begin(), entries.end(), [this]( const Entry &entry1, const Entry &entry2 ) {
-      if ( entry1.key.isNull() && !entry2.key.isNull() )
+  std::sort( entries.begin(), entries.end(), [this]( const Entry &entry1, const Entry &entry2 ) {
+    if ( entry1.key.isNull() && !entry2.key.isNull() )
+    {
+      return true;
+    }
+
+    if ( !entry1.key.isNull() && entry2.key.isNull() )
+    {
+      return false;
+    }
+
+    if ( !mGroupField.isEmpty() && entry1.group != entry2.group )
+    {
+      return entry1.group < entry2.group;
+    }
+
+    if ( !mSearchTerm.isEmpty() )
+    {
+      const bool entry1StartsWithSearchTerm = entry1.displayString.toLower().startsWith( mSearchTerm );
+      const bool entry2StartsWithSearchTerm = entry2.displayString.toLower().startsWith( mSearchTerm );
+      if ( entry1StartsWithSearchTerm && !entry2StartsWithSearchTerm )
       {
         return true;
       }
 
-      if ( !entry1.key.isNull() && entry2.key.isNull() )
+      if ( !entry1StartsWithSearchTerm && entry2StartsWithSearchTerm )
       {
         return false;
       }
+    }
 
-      if ( !mGroupField.isEmpty() && entry1.group != entry2.group )
-      {
-        return entry1.group < entry2.group;
-      }
-
+    if ( mOrderByValue )
+    {
       return entry1.displayString.toLower() < entry2.displayString.toLower();
-    } );
-  }
+    }
+
+    // Order By Key (as a fallback)
+    const bool entry1KeyIsNull = entry1.key.isNull();
+    const bool entry2KeyIsNull = entry2.key.isNull();
+    if ( entry1KeyIsNull && !entry2KeyIsNull )
+    {
+      return true;
+    }
+    else if ( !entry1KeyIsNull && entry2KeyIsNull )
+    {
+      return false;
+    }
+
+    return entry1.key < entry2.key;
+  } );
+
   beginResetModel();
   mEntries = entries;
   endResetModel();
@@ -491,6 +557,22 @@ void FeatureListModel::setFilterExpression( const QString &filterExpression )
   mFilterExpression = filterExpression;
   reloadLayer();
   emit filterExpressionChanged();
+}
+
+QString FeatureListModel::searchTerm() const
+{
+  return mSearchTerm;
+}
+
+void FeatureListModel::setSearchTerm( const QString &searchTerm )
+{
+  const QString lowerSearchTerm = searchTerm.toLower();
+  if ( mSearchTerm == lowerSearchTerm )
+    return;
+
+  mSearchTerm = lowerSearchTerm;
+  reloadLayer();
+  emit searchTermChanged();
 }
 
 QgsFeature FeatureListModel::currentFormFeature() const
