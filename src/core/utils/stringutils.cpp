@@ -77,6 +77,14 @@ bool StringUtils::fuzzyMatch( const QString &source, const QString &term )
            : false;
 }
 
+double StringUtils::calcFuzzyScore( const QString &string, const QString &searchTerm )
+{
+  double fuzzyScore = 0.0;
+  fuzzyScore = StringUtils::fuzzyMatch( string, searchTerm ) ? 0.5 : 0;
+  fuzzyScore += QgsStringUtils::fuzzyScore( string, searchTerm ) * 0.5;
+  return fuzzyScore;
+};
+
 QString StringUtils::pointInformation( const QgsPoint &point, const QgsCoordinateReferenceSystem &crs )
 {
   QString firstSuffix;
