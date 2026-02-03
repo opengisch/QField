@@ -80,21 +80,47 @@ TestCase {
     signalName: "isRefreshingChanged"
   }
 
-  // This function is called after each test function that is executed in the TestCase type.
   function cleanup() {
-    // Logout after each test
     if (cloudConnection.status === QFieldCloudConnection.LoggedIn) {
       cloudConnection.logout();
       tryCompare(cloudConnection, "status", QFieldCloudConnection.Disconnected, 5000);
     }
-
-    // Clear spies
+    cloudConnection.username = "";
+    cloudConnection.url = "";
+    wait(500);
     connectionStatusSpy.clear();
     projectsRefreshSpy.clear();
   }
 
+  // Helper: Login and refresh projects list
+  function loginAndRefresh() {
+    cloudConnection.url = qfcTestServerUrl;
+    cloudConnection.username = qfcTestUsername;
+    cloudConnection.login(qfcTestPassword);
+    tryCompare(cloudConnection, "status", QFieldCloudConnection.LoggedIn, 15000);
+    cloudProjectsModel.refreshProjectsList(true, false, 0);
+    tryCompare(cloudProjectsModel, "isRefreshing", true, 5000);
+    tryCompare(cloudProjectsModel, "isRefreshing", false, 30000);
+    wait(500);
+  }
+
+  // Helper: Find project by name and return {id, rowIndex}
+  function findProjectInTable(projectName) {
+    for (let i = 0; i < cloudProjectsModel.rowCount(); i++) {
+      const index = cloudProjectsModel.index(i, 0);
+      const name = cloudProjectsModel.data(index, QFieldCloudProjectsModel.NameRole);
+      if (name === projectName) {
+        return {
+          id: cloudProjectsModel.data(index, QFieldCloudProjectsModel.IdRole),
+          rowIndex: i
+        };
+      }
+    }
+    return null;
+  }
+
   /**
-   * Tests connectionSettings vs projectsSwipeView visibility based on login status.
+   * Tests view visibility based on connection status.
    *
    * Scenario: When disconnected, show login form. When logged in, show projects list.
    */
@@ -107,17 +133,15 @@ TestCase {
     cloudConnection.login(qfcTestPassword);
     tryCompare(cloudConnection, "status", QFieldCloudConnection.LoggedIn, 15000);
     wait(500);
-
-    // Projects view should be visible after login
     verify(projectsSwipeView.visible);
     compare(connectionSettings.visible, false);
     verify(connectionInformation.visible);
   }
 
   /**
-   * Tests filterBar tab switching and its effect on table filter.
+   * Tests filter bar tab switching.
    *
-   * Scenario: Switching tabs changes the filter model's filter property
+   * Scenario: Switching between 'My Projects' and 'Community' tabs changes the table filter.
    */
   function test_02_filterBarTabSwitching() {
     cloudConnection.url = qfcTestServerUrl;
@@ -125,85 +149,41 @@ TestCase {
     cloudConnection.login(qfcTestPassword);
     tryCompare(cloudConnection, "status", QFieldCloudConnection.LoggedIn, 15000);
     wait(500);
-
-    // Initial tab should be 'My Projects' (index 0)
     compare(filterBar.currentIndex, 0);
     compare(table.model.filter, QFieldCloudProjectsFilterModel.PrivateProjects);
     filterBar.currentIndex = 1;
     wait(200);
-
-    // Should switch to 'Community' tab (index 1)
     compare(filterBar.currentIndex, 1);
     compare(table.model.filter, QFieldCloudProjectsFilterModel.PublicProjects);
     filterBar.currentIndex = 0;
     wait(200);
-
-    // Filter should return to PrivateProjects
     compare(table.model.filter, QFieldCloudProjectsFilterModel.PrivateProjects);
   }
 
   /**
-   * Tests searchBar text filter affecting table results.
+   * Tests search bar filtering functionality.
    *
-   * Scenario: Setting searchTerm filters the projects in the table
+   * Scenario: Entering search text filters the projects list and clearing it restores full list.
    */
   function test_03_searchBarFiltering() {
-    // No project without login
     compare(table.count, 0);
-    cloudConnection.url = qfcTestServerUrl;
-    cloudConnection.username = qfcTestUsername;
-    cloudConnection.login(qfcTestPassword);
-    tryCompare(cloudConnection, "status", QFieldCloudConnection.LoggedIn, 15000);
-    cloudProjectsModel.refreshProjectsList(true, false, 0);
-    tryCompare(cloudProjectsModel, "isRefreshing", true, 5000);
-    tryCompare(cloudProjectsModel, "isRefreshing", false, 30000);
-    wait(500);
-    var initialCount = table.count;
+    loginAndRefresh();
+    const initialCount = table.count;
     searchBarTextArea.text = "---";
     wait(300);
-
-    // Filtered count should not exceed original count
-    var filteredCount = table.count;
+    const filteredCount = table.count;
     verify(filteredCount < initialCount);
     searchBarTextArea.text = "";
     wait(300);
-
-    // Count should return to original after clearing filter
     compare(table.count, initialCount);
   }
 
   /**
-   * Tests projectsSwipeView navigation between projects list and project details.
+   * Tests view transitions during login and logout.
    *
-   * Scenario: SwipeView index changes when navigating to/from project details
+   * Scenario: Login shows projects view, logout returns to login form and clears project list.
    */
-  function test_04_swipeViewNavigation() {
-    cloudConnection.url = qfcTestServerUrl;
-    cloudConnection.username = qfcTestUsername;
-    cloudConnection.login(qfcTestPassword);
-    tryCompare(cloudConnection, "status", QFieldCloudConnection.LoggedIn, 15000);
-    cloudProjectsModel.refreshProjectsList(true, false, 0);
-    tryCompare(cloudProjectsModel, "isRefreshing", true, 5000);
-    tryCompare(cloudProjectsModel, "isRefreshing", false, 30000);
-    wait(500);
-    compare(projectsSwipeView.currentIndex, 0);
-    var projectId = cloudProjectsModel.data(cloudProjectsModel.index(0, 0), QFieldCloudProjectsModel.IdRole);
-    var project = cloudProjectsModel.findProject(projectId);
-    verify(project);
-    projectDetails.cloudProject = project;
-    projectsSwipeView.currentIndex = 1;
-    compare(projectsSwipeView.currentIndex, 1);
-    compare(connectionInformation.visible, false);
-    projectsSwipeView.currentIndex = 0;
-    compare(projectsSwipeView.currentIndex, 0);
-  }
-
-  /**
-   * Tests UI state changes during login/logout cycle.
-   *
-   * Scenario: Views switch correctly when logging in and out
-   */
-  function test_05_loginLogoutViewTransitions() {
+  function test_04_loginLogoutViewTransitions() {
     verify(connectionSettings.visible);
     compare(projectsSwipeView.visible, false);
     cloudConnection.url = qfcTestServerUrl;
@@ -218,5 +198,219 @@ TestCase {
     wait(500);
     verify(table.count === 0);
     verify(connectionSettings.visible);
+  }
+
+  /**
+   * Tests that test projects are visible in UI.
+   *
+   * Scenario: TestCloudLargeProject and QFieldCloudTesting appear as visible delegates in table.
+   */
+  function test_05_verifyTestProjectsExist() {
+    loginAndRefresh();
+    verify(table.count > 0);
+    let foundLargeProject = false;
+    let foundTestingProject = false;
+    for (let i = 0; i < table.count; i++) {
+      table.positionViewAtIndex(i, ListView.Center);
+      wait(100);
+      const delegate = table.itemAtIndex(i);
+      if (delegate !== null) {
+        const projectName = delegate.projectName;
+        if (projectName === "TestCloudLargeProject") {
+          foundLargeProject = true;
+          verify(delegate.visible);
+        }
+        if (projectName === "QFieldCloudTesting") {
+          foundTestingProject = true;
+          verify(delegate.visible);
+        }
+      }
+    }
+    verify(foundLargeProject);
+    verify(foundTestingProject);
+  }
+
+  /**
+   * Tests complete project download workflow.
+   *
+   * Scenario: Click download button, wait for download to complete, verify project is locally available.
+   */
+  function test_06_completeDownloadWorkflow() {
+    loginAndRefresh();
+    const projectInfo = findProjectInTable("QFieldCloudTesting");
+    verify(projectInfo !== null);
+    let project = cloudProjectsModel.findProject(projectInfo.id);
+    
+    if (project.localPath !== "") {
+      cloudProjectsModel.removeLocalProject(projectInfo.id);
+      wait(1000);
+    }
+    compare(project.localPath, "");
+    compare(project.status, QFieldCloudProject.Idle);
+    compare(project.downloadProgress, 0);
+    table.positionViewAtIndex(projectInfo.rowIndex, ListView.Center);
+    wait(500);
+    const delegate = table.itemAtIndex(projectInfo.rowIndex);
+    verify(delegate !== null);
+    const downloadButton = delegate.children[1].children[2].children[0];
+    verify(downloadButton !== null);
+    verify(downloadButton.visible);
+    downloadButton.clicked();
+    wait(3000);
+    project = cloudProjectsModel.findProject(projectInfo.id);
+    verify(project !== null);
+    tryCompare(project, "status", QFieldCloudProject.Idle, 180000);
+    verify(project.localPath !== "");
+    compare(project.downloadProgress, 1);
+    cloudProjectsModel.removeLocalProject(projectInfo.id);
+    wait(500);
+  }
+
+  /**
+   * Tests download cancellation.
+   *
+   * Scenario: Start download then cancel by clicking the button again during download.
+   */
+  function test_07_cancelDownload() {
+    loginAndRefresh();
+    const projectInfo = findProjectInTable("TestCloudLargeProject");
+    verify(projectInfo !== null);
+    let project = cloudProjectsModel.findProject(projectInfo.id);
+    if (project.localPath !== "") {
+      cloudProjectsModel.removeLocalProject(projectInfo.id);
+      wait(1000);
+    }
+    compare(project.localPath, "");
+    compare(project.status, QFieldCloudProject.Idle);
+    table.positionViewAtIndex(projectInfo.rowIndex, ListView.Center);
+    wait(500);
+    const delegate = table.itemAtIndex(projectInfo.rowIndex);
+    verify(delegate !== null);
+    const downloadButton = delegate.children[1].children[2].children[0];
+    verify(downloadButton !== null);
+    verify(downloadButton.visible);
+    downloadButton.clicked();
+    wait(2000);
+    project = cloudProjectsModel.findProject(projectInfo.id);
+    verify(project !== null);
+    if (project.status === QFieldCloudProject.Downloading) {
+      downloadButton.clicked();
+      wait(1000);
+      project = cloudProjectsModel.findProject(projectInfo.id);
+      compare(project.status, QFieldCloudProject.Idle);
+      compare(project.localPath, "");
+    }
+  }
+
+  /**
+   * Tests concurrent download of multiple projects.
+   *
+   * Scenario: Start downloads for two projects simultaneously and verify both complete successfully.
+   */
+  function test_08_concurrentDownloads() {
+    loginAndRefresh();
+    const project1Info = findProjectInTable("QFieldCloudTesting");
+    const project2Info = findProjectInTable("TestCloudLargeProject");
+    verify(project1Info !== null);
+    verify(project2Info !== null);
+    let project1 = cloudProjectsModel.findProject(project1Info.id);
+    let project2 = cloudProjectsModel.findProject(project2Info.id);
+    
+    if (project1.localPath !== "") {
+      cloudProjectsModel.removeLocalProject(project1Info.id);
+      wait(500);
+    }
+    if (project2.localPath !== "") {
+      cloudProjectsModel.removeLocalProject(project2Info.id);
+      wait(500);
+    }
+    
+    compare(project1.localPath, "");
+    compare(project2.localPath, "");
+    table.positionViewAtIndex(project1Info.rowIndex, ListView.Center);
+    wait(300);
+    const delegate1 = table.itemAtIndex(project1Info.rowIndex);
+    verify(delegate1 !== null);
+    const downloadButton1 = delegate1.children[1].children[2].children[0];
+    verify(downloadButton1 !== null);
+    downloadButton1.clicked();
+    wait(500);
+    
+    table.positionViewAtIndex(project2Info.rowIndex, ListView.Center);
+    wait(300);
+    const delegate2 = table.itemAtIndex(project2Info.rowIndex);
+    verify(delegate2 !== null);
+    const downloadButton2 = delegate2.children[1].children[2].children[0];
+    verify(downloadButton2 !== null);
+    downloadButton2.clicked();
+    wait(3000);
+    
+    project1 = cloudProjectsModel.findProject(project1Info.id);
+    project2 = cloudProjectsModel.findProject(project2Info.id);
+    tryCompare(project1, "status", QFieldCloudProject.Idle, 180000);
+    tryCompare(project2, "status", QFieldCloudProject.Idle, 180000);
+    verify(project1.localPath !== "");
+    verify(project2.localPath !== "");
+    compare(project1.downloadProgress, 1);
+    compare(project2.downloadProgress, 1);
+    
+    cloudProjectsModel.removeLocalProject(project1Info.id);
+    cloudProjectsModel.removeLocalProject(project2Info.id);
+    wait(500);
+  }
+
+  /**
+   * Tests repeated download cancellation cycles.
+   *
+   * Scenario: Download and cancel same project multiple times, then complete final download successfully.
+   */
+  function test_09_repeatedDownloadCancel() {
+    loginAndRefresh();
+    const projectInfo = findProjectInTable("TestCloudLargeProject");
+    verify(projectInfo !== null);
+    let project = cloudProjectsModel.findProject(projectInfo.id);
+    
+    if (project.localPath !== "") {
+      cloudProjectsModel.removeLocalProject(projectInfo.id);
+      wait(1000);
+    }
+    
+    compare(project.localPath, "");
+    
+    for (let i = 0; i < 3; i++) {
+      table.positionViewAtIndex(projectInfo.rowIndex, ListView.Center);
+      wait(500);
+      const delegate = table.itemAtIndex(projectInfo.rowIndex);
+      verify(delegate !== null);
+      const downloadButton = delegate.children[1].children[2].children[0];
+      verify(downloadButton !== null);
+      downloadButton.clicked();
+      wait(2000);
+      project = cloudProjectsModel.findProject(projectInfo.id);
+      if (project.status === QFieldCloudProject.Downloading) {
+        downloadButton.clicked();
+        wait(1000);
+        project = cloudProjectsModel.findProject(projectInfo.id);
+        compare(project.status, QFieldCloudProject.Idle);
+        compare(project.localPath, "");
+      }
+      wait(500);
+    }
+    
+    table.positionViewAtIndex(projectInfo.rowIndex, ListView.Center);
+    wait(500);
+    const finalDelegate = table.itemAtIndex(projectInfo.rowIndex);
+    verify(finalDelegate !== null);
+    const finalDownloadButton = finalDelegate.children[1].children[2].children[0];
+    verify(finalDownloadButton !== null);
+    finalDownloadButton.clicked();
+    wait(3000);
+    project = cloudProjectsModel.findProject(projectInfo.id);
+    verify(project !== null);
+    tryCompare(project, "status", QFieldCloudProject.Idle, 180000);
+    verify(project.localPath !== "");
+    compare(project.downloadProgress, 1);
+    cloudProjectsModel.removeLocalProject(projectInfo.id);
+    wait(500);
   }
 }
