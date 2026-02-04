@@ -112,7 +112,8 @@ Rectangle {
     font: Theme.tinyFont
     horizontalAlignment: Text.AlignHCenter
     wrapMode: Text.WordWrap
-    text: elevationProfileCanvas.isRendering ? qsTr('Rendering elevation profile…') : qsTr('Digitize a path to render the elevation profile')
+    //text: elevationProfileCanvas.isRendering ? qsTr('Rendering elevation profile…') : qsTr('Digitize a path to render the elevation profile')
+    text: elevationProfileCanvas.isRendering ? qsTr('고도 프로파일 생성 중…') : qsTr('고도 프로파일을 생성하려면 경로를 그려주세요.')
     style: Text.Outline
     styleColor: Theme.mainBackgroundColorSemiOpaque
   }

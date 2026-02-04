@@ -356,7 +356,8 @@ Popup {
             Layout.bottomMargin: 20
             font: Theme.tipFont
             color: Theme.mainTextColor
-            text: cloudProjectsModel.isCreating || (cloudProjectCreationConnection.target && cloudProjectCreationConnection.target.status === QFieldCloudProject.Uploading) ? qsTr('Uploading the current project to QFieldCloud.') : qsTr('The current project is not stored on QFieldCloud.')
+            //text: cloudProjectsModel.isCreating || (cloudProjectCreationConnection.target && cloudProjectCreationConnection.target.status === QFieldCloudProject.Uploading) ? qsTr('Uploading the current project to QFieldCloud.') : qsTr('The current project is not stored on QFieldCloud.')
+            text: cloudProjectsModel.isCreating || (cloudProjectCreationConnection.target && cloudProjectCreationConnection.target.status === QFieldCloudProject.Uploading) ? qsTr('현재 프로젝트를 QFieldCloud에 업로드하는 중입니다.') : qsTr('현재 프로젝트는 QFieldCloud에 저장되어 있지 않습니다.')
             wrapMode: Text.WordWrap
             horizontalAlignment: Text.AlignHCenter
           }
@@ -372,7 +373,8 @@ Popup {
                   return qsTr("Cloudifying project");
                 }
               }
-              return qsTr('Cloudify!');
+              //return qsTr('Cloudify!');
+              return qsTr('클라우드로 저장');
             }
             enabled: !cloudProjectsModel.isCreating && !cloudProjectCreationConnection.target
             progressValue: cloudProjectCreationConnection.target ? cloudProjectCreationConnection.target.uploadProgress : 0
@@ -389,7 +391,8 @@ Popup {
             Layout.fillWidth: true
             font: Theme.tipFont
             color: Theme.secondaryTextColor
-            text: qsTr('Storing projects on QFieldCloud offers seamless synchronization, offline editing, and team management.<br><br>') + ' <a href="https://qfield.cloud/">' + qsTr('Learn more about QFieldCloud') + '</a>.'
+            //text: qsTr('Storing projects on QFieldCloud offers seamless synchronization, offline editing, and team management.<br><br>') + ' <a href="https://qfield.cloud/">' + qsTr('Learn more about QFieldCloud') + '</a>.'
+            text: qsTr('QFieldCloud에 프로젝트를 저장하면 동기화, 오프라인 편집, 팀 관리 기능을 사용할 수 있습니다.')
             textFormat: Text.RichText
             wrapMode: Text.WordWrap
             horizontalAlignment: Text.AlignHCenter

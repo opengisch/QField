@@ -284,16 +284,19 @@ ApplicationWindow {
     case 'browse':
       projectInfo.stateMode = mode;
       platformUtilities.setHandleVolumeKeys(false);
-      displayToast(qsTr('You are now in browse mode'));
+      //displayToast(qsTr('You are now in browse mode'));
+      displayToast(qsTr('보기 모드로 전환되었습니다'));
       break;
     case 'digitize':
       projectInfo.stateMode = mode;
       platformUtilities.setHandleVolumeKeys(qfieldSettings.digitizingVolumeKeys);
       dashBoard.ensureEditableLayerSelected();
       if (dashBoard.activeLayer) {
-        displayToast(qsTr('You are now in digitize mode on layer %1').arg(dashBoard.activeLayer.name));
+        //displayToast(qsTr('You are now in digitize mode on layer %1').arg(dashBoard.activeLayer.name));
+        displayToast(qsTr('%1 레이어에서 편집 모드로 전환되었습니다').arg(dashBoard.activeLayer.name));
       } else {
-        displayToast(qsTr('You are now in digitize mode'));
+        //displayToast(qsTr('You are now in digitize mode'));
+        displayToast(qsTr('편집 모드로 전환되었습니다'));
       }
       break;
     case 'measure':
@@ -1984,7 +1987,8 @@ ApplicationWindow {
         id: closeMeasureTool
         visible: stateMachine.state === 'measure'
         toolImage: Theme.getThemeVectorIcon("ic_measurement_black_24dp")
-        toolText: qsTr('Close measure tool')
+        //toolText: qsTr('Close measure tool')
+        toolText: qsTr('측정 도구 닫기')
 
         onClicked: mainWindow.closeMeasureTool()
       }
@@ -3092,7 +3096,8 @@ ApplicationWindow {
         printMenu.popup(p.x, p.y);
       } else {
         mainMenu.close();
-        displayToast(qsTr('Printing...'));
+        //displayToast(qsTr('Printing...'));
+        displayToast(qsTr('PDF 생성 중…'));
         printMenu.printName = layoutListInstantiator.count === 1 ? layoutListInstantiator.model.titleAt(0) : "";
         printMenu.printTimer.restart();
       }
@@ -3470,7 +3475,8 @@ ApplicationWindow {
 
         onTriggered: {
           highlighted = false;
-          displayToast(qsTr('Printing...'));
+          //displayToast(qsTr('Printing...'));
+          displayToast(qsTr('PDF 생성 중…'));
           printMenu.printName = Title;
           printMenu.printTimer.restart();
         }

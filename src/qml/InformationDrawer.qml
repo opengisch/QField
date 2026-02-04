@@ -111,7 +111,8 @@ Item {
     QfOverlayContainer {
       visible: stateMachine.state === 'measure' && elevationProfileButton.elevationProfileActive
 
-      title: qsTr("Elevation profile")
+      //title: qsTr("Elevation profile")
+      title: qsTr("고도 프로파일")
 
       ElevationProfile {
         id: elevationProfile

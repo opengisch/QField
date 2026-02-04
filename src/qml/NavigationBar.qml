@@ -887,7 +887,8 @@ Rectangle {
         leftPadding: Theme.menuItemLeftPadding
 
         onTriggered: {
-          displayToast(qsTr('Printing...'));
+          //displayToast(qsTr('Printing...'));
+          displayToast(qsTr('PDF 생성 중…'));
           atlasMenu.printName = Title;
           atlasMenu.printTimer.restart();
         }
@@ -927,7 +928,8 @@ Rectangle {
     if (atlasListInstantiator.model.rowCount() > 1) {
       atlasMenu.popup(menuButton.x + menuButton.width - atlasMenu.width, menuButton.y);
     } else {
-      displayToast(qsTr('Printing...'));
+      //displayToast(qsTr('Printing...'));
+      displayToast(qsTr('PDF 생성 중…'));
       atlasMenu.printName = atlasListInstantiator.model.titleAt(0);
       atlasMenu.printTimer.restart();
     }
