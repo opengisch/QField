@@ -16,9 +16,12 @@ Popup {
   property var steps: []
   property int targetMargins: 5
   property int index: 0
-  property string finishText: qsTr("Finish")
-  property string nextText: qsTr("Next")
-  property string previousText: qsTr("Previous")
+  //property string finishText: qsTr("Finish")
+  property string finishText: qsTr("완료")
+  //property string nextText: qsTr("Next")
+  property string nextText: qsTr("다음")
+  //property string previousText: qsTr("Previous")
+  property string previousText: qsTr("이전")
 
   signal guideFinished
 

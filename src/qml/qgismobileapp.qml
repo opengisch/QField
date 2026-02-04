@@ -5178,20 +5178,26 @@ ApplicationWindow {
     steps: [
       {
         "type": "information",
-        "title": qsTr("Dashboard"),
-        "description": qsTr("This button opens the dashboard. With the dashboard you can interact with the legend and map theme, or start digitizing by activating the editing mode. Long-pressing the button gives you immediate access to the main menu."),
+        //"title": qsTr("Dashboard"),
+        "title": qsTr("대시보드"),
+        "description": qsTr("이 버튼을 탭하면 대시보드가 열립니다. 대시보드에서 범례와 지도 테마를 설정하고, 편집 모드를 활성화해 지도 편집을 시작할 수 있습니다. 버튼을 길게 누르면 메인 메뉴가 바로 열립니다."),
+        //"description": qsTr("This button opens the dashboard. With the dashboard you can interact with the legend and map theme, or start digitizing by activating the editing mode. Long-pressing the button gives you immediate access to the main menu."),
         "target": () => [menuButton]
       },
       {
         "type": "information",
-        "title": qsTr("Positioning"),
-        "description": qsTr("This button toggles the positioning system. When enabled, a position marker will appear top of the map. Long-pressing the button will open the positioning menu where additional functionalities can be explored."),
+        //"title": qsTr("Positioning"),
+        "title": qsTr("위치"),
+        //"description": qsTr("This button toggles the positioning system. When enabled, a position marker will appear top of the map. Long-pressing the button will open the positioning menu where additional functionalities can be explored."),
+        "description": qsTr("이 버튼을 누르면 위치 기능이 켜지거나 꺼집니다. 활성화되면 지도 상단에 현재 위치가 표시됩니다. 길게 누르면 위치 메뉴가 열립니다."),
         "target": () => [gnssButton]
       },
       {
         "type": "information",
-        "title": qsTr("Search"),
-        "description": qsTr("The search bar provides you with a quick way to find features within your project, jump to a typed latitude and longitude point, and much more."),
+        //"title": qsTr("Search"),
+        "title": qsTr("검색"),
+        //"description": qsTr("The search bar provides you with a quick way to find features within your project, jump to a typed latitude and longitude point, and much more."),
+        "description": qsTr("검색창을 사용하면 프로젝트 내 항목을 빠르게 검색하거나, 입력한 위도·경도 위치로 바로 이동하는 등 다양한 작업을 할 수 있습니다."),
         "target": () => [locatorItem]
       }
     ]
