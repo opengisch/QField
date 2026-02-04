@@ -85,8 +85,8 @@ Popup {
               qsTr('Connecting to the cloud.');
               break;
             case QFieldCloudConnection.LoggedIn:
-              qsTr('Greetings <strong>%1</strong>.').arg(cloudConnection.username);
-              //qsTr('<strong>%1</strong>님 안녕하세요.').arg(cloudConnection.username);
+              //qsTr('Greetings <strong>%1</strong>.').arg(cloudConnection.username);
+              qsTr('<strong>%1</strong>님 안녕하세요.').arg(cloudConnection.username);
               break;
             }
             wrapMode: Text.WordWrap
@@ -429,7 +429,8 @@ Popup {
           QfButton {
             id: syncButton
             Layout.fillWidth: true
-            text: qsTr('Synchronize')
+            //text: qsTr('Synchronize')
+            text: qsTr('동기화')
             visible: cloudProjectsModel.layerObserver.deltaFileWrapper && !cloudProjectsModel.layerObserver.deltaFileWrapper.hasError
             enabled: !!(cloudProjectsModel.currentProject && cloudProjectsModel.currentProject.status === QFieldCloudProject.Idle) && cloudProjectsModel.layerObserver.deltaFileWrapper && !cloudProjectsModel.layerObserver.deltaFileWrapper.hasError
             icon.source: Theme.getThemeVectorIcon('ic_cloud_synchronize_24dp')
@@ -452,7 +453,8 @@ Popup {
           QfButton {
             id: pushButton
             Layout.fillWidth: true
-            text: qsTr('Push changes')
+            //text: qsTr('Push changes')
+            text: qsTr('변경사항 업로드')
             visible: cloudProjectsModel.layerObserver.deltaFileWrapper && !cloudProjectsModel.layerObserver.deltaFileWrapper.hasError
             enabled: !!(cloudProjectsModel.currentProject && cloudProjectsModel.currentProject.status === QFieldCloudProject.Idle) && cloudProjectsModel.layerObserver.deltaFileWrapper && cloudProjectsModel.layerObserver.deltaFileWrapper.count > 0 && !cloudProjectsModel.layerObserver.deltaFileWrapper.hasError
             icon.source: Theme.getThemeVectorIcon('ic_cloud_upload_24dp')

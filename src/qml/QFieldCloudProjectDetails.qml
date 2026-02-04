@@ -231,7 +231,8 @@ ColumnLayout {
             return qsTr("Synchronizing");
           }
         }
-        return qsTr('Synchronize');
+        return qsTr('동기화');
+        //return qsTr('Synchronize');
       }
       visible: true
       enabled: cloudProject != undefined && cloudProject.deltaFileWrapper !== undefined && cloudProject.status === QFieldCloudProject.Idle && !cloudProject.deltaFileWrapper.hasError
@@ -246,7 +247,8 @@ ColumnLayout {
       Layout.fillWidth: true
       Layout.preferredWidth: 1
       enabled: cloudProject != undefined && cloudProject.deltaFileWrapper !== undefined && cloudProject.deltasCount > 0 && cloudProject.status === QFieldCloudProject.Idle && !cloudProject.deltaFileWrapper.hasError
-      text: qsTr('Push changes')
+      //text: qsTr('Push changes')
+      text: qsTr('변경사항 업로드')
       visible: true
 
       onClicked: {

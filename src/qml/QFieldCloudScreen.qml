@@ -203,7 +203,7 @@ Page {
           id: searchBar
           Layout.fillWidth: true
           Layout.preferredHeight: 41
-          placeHolderText: qsTr("Search for project")
+          placeHolderText: qsTr("프로젝트 검색")
         }
 
         Item {
@@ -714,7 +714,8 @@ Page {
       height: visible ? 48 : 0
       leftPadding: Theme.menuItemLeftPadding
 
-      text: qsTr("Synchronize")
+      //text: qsTr("Synchronize")
+      text: qsTr("동기화")
       onTriggered: {
         cloudProjectsModel.projectPush(projectActions.projectId, true);
       }
@@ -739,7 +740,8 @@ Page {
       leftPadding: Theme.menuItemLeftPadding
       enabled: projectActions.localDeltasCount > 0
 
-      text: qsTr("Push changes")
+      //text: qsTr("Push changes")
+      text: qsTr("변경사항 업로드")
       onTriggered: {
         cloudProjectsModel.projectPush(projectActions.projectId, false);
       }

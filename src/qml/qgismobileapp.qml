@@ -4723,11 +4723,14 @@ ApplicationWindow {
 
     onStatusChanged: {
       if (cloudConnection.status === QFieldCloudConnection.Disconnected && previousStatus === QFieldCloudConnection.LoggedIn) {
-        displayToast(qsTr('Signed out'));
+        //displayToast(qsTr('Signed out'));
+        displayToast(qsTr('로그아웃'));
       } else if (cloudConnection.status === QFieldCloudConnection.Connecting) {
-        displayToast(qsTr('Connecting...'));
+        //displayToast(qsTr('Connecting...'));
+        displayToast(qsTr('연결중...'));
       } else if (cloudConnection.status === QFieldCloudConnection.LoggedIn) {
-        displayToast(qsTr('Signed in'));
+        //displayToast(qsTr('Signed in'));
+        displayToast(qsTr('로그인'));
         if (QFieldCloudUtils.hasPendingAttachments(cloudConnection.username)) {
           // Go ahead and upload pending attachments in the background
           platformUtilities.uploadPendingAttachments(cloudConnection);
