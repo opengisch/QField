@@ -268,9 +268,11 @@ ColumnLayout {
           return qsTr("QFieldCloud is packaging project, hold tight");
         } else {
           if (cloudProject.downloadProgress > 0) {
-            return qsTr("Downloading project") + " (%1%)".arg(Math.round(cloudProject.downloadProgress * 100));
+            //return qsTr("Downloading project") + " (%1%)".arg(Math.round(cloudProject.downloadProgress * 100));
+            return qsTr("프로젝트 다운로드 중...") + " (%1%)".arg(Math.round(cloudProject.downloadProgress * 100));
           } else {
-            return qsTr("Downloading project");
+            //return qsTr("Downloading project");
+            return qsTr("프로젝트 다운로드 중...");
           }
         }
       }
@@ -282,7 +284,8 @@ ColumnLayout {
 
     onClicked: {
       if (cloudProject != undefined) {
-        displayToast(qsTr("Downloading project %1").arg(cloudProject.name));
+        //displayToast(qsTr("Downloading project %1").arg(cloudProject.name));
+        displayToast(qsTr("프로젝트 다운로드 중... %1").arg(cloudProject.name));
         cloudProjectsModel.projectPackageAndDownload(cloudProject.id);
       }
     }

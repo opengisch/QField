@@ -382,7 +382,8 @@ Page {
                     leftPadding: 3
                     text: {
                       if (cloudConnection.status !== QFieldCloudConnection.LoggedIn) {
-                        return qsTr('Available locally');
+                        //return qsTr('Available locally');
+                        return qsTr('기기에 저장되어 있습니다');
                       } else {
                         var status = '';
 
@@ -424,14 +425,16 @@ Page {
                         if (!status) {
                           switch (Checkout) {
                           case QFieldCloudProject.LocalCheckout:
-                            status = UserRoleOrigin === "public" ? qsTr('Available locally') : qsTr('Available locally, missing on the cloud');
+                            //status = UserRoleOrigin === "public" ? qsTr('Available locally') : qsTr('Available locally, missing on the cloud');
+                            status = UserRoleOrigin === "public" ? qsTr('기기에 저장되어 있습니다') : qsTr('Available locally, missing on the cloud');
                             break;
                           case QFieldCloudProject.RemoteCheckout:
                             //status = qsTr('Available on the cloud');
-                            status = qsTr('클라우드에서 사용 가능');
+                            status = qsTr('클라우드에서 저장되어있습니다. 로컬로 다운로드 후 사용해주세요.');
                             break;
                           case QFieldCloudProject.LocalAndRemoteCheckout:
-                            status = qsTr('Available locally');
+                            //status = qsTr('Available locally');
+                            status = qsTr('기기에 저장되어 있습니다');
                             if (ProjectOutdated) {
                               status += qsTr(', updated data available on the cloud');
                             }
@@ -767,7 +770,8 @@ Page {
       height: visible ? 48 : 0
       leftPadding: Theme.menuItemLeftPadding
 
-      text: qsTr("Remove Stored Project")
+      //text: qsTr("Remove Stored Project")
+      text: qsTr("저장된 프로젝트 삭제")
       onTriggered: {
         confirmRemoveDialog.open();
       }
@@ -785,7 +789,8 @@ Page {
       height: visible ? 48 : 0
       leftPadding: Theme.menuItemLeftPadding
 
-      text: qsTr("View Project Details")
+      //text: qsTr("View Project Details")
+      text: qsTr("프로젝트 상세 보기")
       onTriggered: {
         projectDetails.cloudProject = cloudProjectsModel.findProject(projectActions.projectId);
         projectsSwipeView.currentIndex = 1;
@@ -799,7 +804,8 @@ Page {
       height: visible ? 48 : 0
       leftPadding: Theme.menuItemLeftPadding
 
-      text: qsTr("View Project Folder")
+      //text: qsTr("View Project Folder")
+      text: qsTr("프로젝트 폴더 보기")
       onTriggered: {
         qfieldCloudScreen.viewProjectFolder(projectActions.projectLocalPath);
       }
@@ -814,7 +820,8 @@ Page {
     Label {
       width: parent.width
       wrapMode: Text.WordWrap
-      text: qsTr("Are you sure you want to remove `%1`?").arg(projectActions.projectName)
+      //text: qsTr("Are you sure you want to remove `%1`?").arg(projectActions.projectName)
+      text: qsTr("`%1`을 제거하시겠습니까?").arg(projectActions.projectName)
     }
     onAccepted: {
       cloudProjectsModel.removeLocalProject(projectActions.projectId);

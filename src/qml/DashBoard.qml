@@ -459,7 +459,8 @@ Drawer {
         height: 48
         icon.source: Theme.getThemeVectorIcon("ic_home_black_24dp")
         font: Theme.defaultFont
-        text: qsTr("Return home")
+        //text: qsTr("Return home")
+        text: qsTr("홈으로 돌아가기")
 
         onClicked: returnHome()
       }
