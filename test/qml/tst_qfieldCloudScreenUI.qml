@@ -240,7 +240,7 @@ TestCase {
     const projectInfo = findProjectInTable("QFieldCloudTesting");
     verify(projectInfo !== null);
     let project = cloudProjectsModel.findProject(projectInfo.id);
-    
+
     if (project.localPath !== "") {
       cloudProjectsModel.removeLocalProject(projectInfo.id);
       wait(1000);
@@ -315,7 +315,7 @@ TestCase {
     verify(project2Info !== null);
     let project1 = cloudProjectsModel.findProject(project1Info.id);
     let project2 = cloudProjectsModel.findProject(project2Info.id);
-    
+
     if (project1.localPath !== "") {
       cloudProjectsModel.removeLocalProject(project1Info.id);
       wait(500);
@@ -324,7 +324,7 @@ TestCase {
       cloudProjectsModel.removeLocalProject(project2Info.id);
       wait(500);
     }
-    
+
     compare(project1.localPath, "");
     compare(project2.localPath, "");
     table.positionViewAtIndex(project1Info.rowIndex, ListView.Center);
@@ -335,7 +335,7 @@ TestCase {
     verify(downloadButton1 !== null);
     downloadButton1.clicked();
     wait(500);
-    
+
     table.positionViewAtIndex(project2Info.rowIndex, ListView.Center);
     wait(300);
     const delegate2 = table.itemAtIndex(project2Info.rowIndex);
@@ -344,7 +344,7 @@ TestCase {
     verify(downloadButton2 !== null);
     downloadButton2.clicked();
     wait(3000);
-    
+
     project1 = cloudProjectsModel.findProject(project1Info.id);
     project2 = cloudProjectsModel.findProject(project2Info.id);
     tryCompare(project1, "status", QFieldCloudProject.Idle, 180000);
@@ -353,7 +353,7 @@ TestCase {
     verify(project2.localPath !== "");
     compare(project1.downloadProgress, 1);
     compare(project2.downloadProgress, 1);
-    
+
     cloudProjectsModel.removeLocalProject(project1Info.id);
     cloudProjectsModel.removeLocalProject(project2Info.id);
     wait(500);
@@ -369,14 +369,14 @@ TestCase {
     const projectInfo = findProjectInTable("TestCloudLargeProject");
     verify(projectInfo !== null);
     let project = cloudProjectsModel.findProject(projectInfo.id);
-    
+
     if (project.localPath !== "") {
       cloudProjectsModel.removeLocalProject(projectInfo.id);
       wait(1000);
     }
-    
+
     compare(project.localPath, "");
-    
+
     for (let i = 0; i < 3; i++) {
       table.positionViewAtIndex(projectInfo.rowIndex, ListView.Center);
       wait(500);
@@ -396,7 +396,7 @@ TestCase {
       }
       wait(500);
     }
-    
+
     table.positionViewAtIndex(projectInfo.rowIndex, ListView.Center);
     wait(500);
     const finalDelegate = table.itemAtIndex(projectInfo.rowIndex);
