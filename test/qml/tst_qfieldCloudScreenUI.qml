@@ -104,19 +104,27 @@ TestCase {
     wait(500);
   }
 
-  // Helper: Find project by name and return {id, rowIndex}
-  function findProjectInTable(projectName) {
+  // Helper: Prepare project for download by clearing local data
+  function prepareProjectForDownload(projectName) {
+    let projectInfo = null;
     for (let i = 0; i < cloudProjectsModel.rowCount(); i++) {
       const index = cloudProjectsModel.index(i, 0);
       const name = cloudProjectsModel.data(index, QFieldCloudProjectsModel.NameRole);
       if (name === projectName) {
-        return {
+        projectInfo = {
           id: cloudProjectsModel.data(index, QFieldCloudProjectsModel.IdRole),
           rowIndex: i
         };
+        break;
       }
     }
-    return null;
+    verify(projectInfo !== null);
+    const project = cloudProjectsModel.findProject(projectInfo.id);
+    if (project.localPath !== "") {
+      cloudProjectsModel.removeLocalProject(projectInfo.id);
+      wait(1000);
+    }
+    return projectInfo;
   }
 
   /**
@@ -237,14 +245,8 @@ TestCase {
    */
   function test_06_completeDownloadWorkflow() {
     loginAndRefresh();
-    const projectInfo = findProjectInTable("QFieldCloudTesting");
-    verify(projectInfo !== null);
+    const projectInfo = prepareProjectForDownload("QFieldCloudTesting");
     let project = cloudProjectsModel.findProject(projectInfo.id);
-
-    if (project.localPath !== "") {
-      cloudProjectsModel.removeLocalProject(projectInfo.id);
-      wait(1000);
-    }
     compare(project.localPath, "");
     compare(project.status, QFieldCloudProject.Idle);
     compare(project.downloadProgress, 0);
@@ -273,13 +275,8 @@ TestCase {
    */
   function test_07_cancelDownload() {
     loginAndRefresh();
-    const projectInfo = findProjectInTable("TestCloudLargeProject");
-    verify(projectInfo !== null);
+    const projectInfo = prepareProjectForDownload("TestCloudLargeProject");
     let project = cloudProjectsModel.findProject(projectInfo.id);
-    if (project.localPath !== "") {
-      cloudProjectsModel.removeLocalProject(projectInfo.id);
-      wait(1000);
-    }
     compare(project.localPath, "");
     compare(project.status, QFieldCloudProject.Idle);
     table.positionViewAtIndex(projectInfo.rowIndex, ListView.Center);
@@ -290,16 +287,15 @@ TestCase {
     verify(downloadButton !== null);
     verify(downloadButton.visible);
     downloadButton.clicked();
-    wait(2000);
+    wait(1000);
     project = cloudProjectsModel.findProject(projectInfo.id);
     verify(project !== null);
-    if (project.status === QFieldCloudProject.Downloading) {
-      downloadButton.clicked();
-      wait(1000);
-      project = cloudProjectsModel.findProject(projectInfo.id);
-      compare(project.status, QFieldCloudProject.Idle);
-      compare(project.localPath, "");
-    }
+    tryCompare(project, "status", QFieldCloudProject.Downloading, 5000);
+    downloadButton.clicked();
+    wait(1000);
+    project = cloudProjectsModel.findProject(projectInfo.id);
+    compare(project.status, QFieldCloudProject.Idle);
+    compare(project.localPath, "");
   }
 
   /**
@@ -309,22 +305,11 @@ TestCase {
    */
   function test_08_concurrentDownloads() {
     loginAndRefresh();
-    const project1Info = findProjectInTable("QFieldCloudTesting");
-    const project2Info = findProjectInTable("TestCloudLargeProject");
-    verify(project1Info !== null);
-    verify(project2Info !== null);
+    const project1Info = prepareProjectForDownload("QFieldCloudTesting");
+    const project2Info = prepareProjectForDownload("TestCloudLargeProject");
+
     let project1 = cloudProjectsModel.findProject(project1Info.id);
     let project2 = cloudProjectsModel.findProject(project2Info.id);
-
-    if (project1.localPath !== "") {
-      cloudProjectsModel.removeLocalProject(project1Info.id);
-      wait(500);
-    }
-    if (project2.localPath !== "") {
-      cloudProjectsModel.removeLocalProject(project2Info.id);
-      wait(500);
-    }
-
     compare(project1.localPath, "");
     compare(project2.localPath, "");
     table.positionViewAtIndex(project1Info.rowIndex, ListView.Center);
@@ -366,34 +351,33 @@ TestCase {
    */
   function test_09_repeatedDownloadCancel() {
     loginAndRefresh();
-    const projectInfo = findProjectInTable("TestCloudLargeProject");
-    verify(projectInfo !== null);
+    const projectInfo = prepareProjectForDownload("TestCloudLargeProject");
     let project = cloudProjectsModel.findProject(projectInfo.id);
-
-    if (project.localPath !== "") {
-      cloudProjectsModel.removeLocalProject(projectInfo.id);
-      wait(1000);
-    }
 
     compare(project.localPath, "");
 
     for (let i = 0; i < 3; i++) {
       table.positionViewAtIndex(projectInfo.rowIndex, ListView.Center);
       wait(500);
-      const delegate = table.itemAtIndex(projectInfo.rowIndex);
+      let delegate = table.itemAtIndex(projectInfo.rowIndex);
       verify(delegate !== null);
-      const downloadButton = delegate.children[1].children[2].children[0];
+      let downloadButton = delegate.children[1].children[2].children[0];
       verify(downloadButton !== null);
       downloadButton.clicked();
-      wait(2000);
+      wait(1000);
       project = cloudProjectsModel.findProject(projectInfo.id);
-      if (project.status === QFieldCloudProject.Downloading) {
-        downloadButton.clicked();
-        wait(1000);
-        project = cloudProjectsModel.findProject(projectInfo.id);
-        compare(project.status, QFieldCloudProject.Idle);
-        compare(project.localPath, "");
-      }
+      tryCompare(project, "status", QFieldCloudProject.Downloading, 5000);
+      table.positionViewAtIndex(projectInfo.rowIndex, ListView.Center);
+      wait(200);
+      delegate = table.itemAtIndex(projectInfo.rowIndex);
+      verify(delegate !== null);
+      downloadButton = delegate.children[1].children[2].children[0];
+      verify(downloadButton !== null);
+      downloadButton.clicked();
+      wait(1000);
+      project = cloudProjectsModel.findProject(projectInfo.id);
+      compare(project.status, QFieldCloudProject.Idle);
+      compare(project.localPath, "");
       wait(500);
     }
 
