@@ -524,7 +524,8 @@ Page {
               anchors.fill: parent
               anchors.margins: 20
               visible: cloudConnection.status === QFieldCloudConnection.LoggedIn && parent.count === 0 && filterBar.currentIndex === 0
-              text: cloudProjectsModel.isRefreshing ? qsTr("Refreshing projects list") : qsTr("No cloud projects found. To get started, %1read the documentation%2.").arg("<a href=\"https://docs.qfield.org/get-started/tutorials/get-started-qfc/\">").arg("</a>")
+              //text: cloudProjectsModel.isRefreshing ? qsTr("Refreshing projects list") : qsTr("No cloud projects found. To get started, %1read the documentation%2.").arg("<a href=\"https://docs.qfield.org/get-started/tutorials/get-started-qfc/\">").arg("</a>")
+              text: cloudProjectsModel.isRefreshing ? qsTr("프로젝트 목록 업데이트 중...") : qsTr("No cloud projects found. To get started, %1read the documentation%2.").arg("<a href=\"https://docs.qfield.org/get-started/tutorials/get-started-qfc/\">").arg("</a>")
               font: Theme.defaultFont
               wrapMode: Text.WordWrap
               horizontalAlignment: Text.AlignHCenter
@@ -888,7 +889,8 @@ Page {
       return;
     }
     cloudProjectsModel.refreshProjectsList(shouldResetModel, shouldFetchPublic);
-    displayToast(qsTr("Refreshing projects list"));
+    //displayToast(qsTr("Refreshing projects list"));
+    displayToast(qsTr("프로젝트 목록 업데이트 중..."));
   }
 
   function prepareProjectRequest(details) {

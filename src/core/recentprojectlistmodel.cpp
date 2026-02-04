@@ -80,9 +80,9 @@ void RecentProjectListModel::reloadModel()
   // add/update sample projects
   const bool recentProjectsAdded = settings.value( QStringLiteral( "QField/recentProjectsAdded" ), false ).toBool();
   const QList<RecentProject> sampleProjects {
-    RecentProject( LocalProject, QStringLiteral( "Bee Farming Sample Project" ), QStringLiteral( "/bees.qgz" ), true ),
-    RecentProject( LocalProject, QStringLiteral( "Wasterwater Management Sample Project" ), QStringLiteral( "/wastewater.qgz" ), true ),
-    RecentProject( LocalProject, QStringLiteral( "Live QField Users Survey" ), QStringLiteral( "/live_qfield_users_survey.qgs" ), true ) };
+    /* RecentProject( LocalProject, QStringLiteral( "Bee Farming Sample Project" ), QStringLiteral( "/bees.qgz" ), true ), */
+    /* RecentProject( LocalProject, QStringLiteral( "Wasterwater Management Sample Project" ), QStringLiteral( "/wastewater.qgz" ), true ), */
+    /* RecentProject( LocalProject, QStringLiteral( "Live QField Users Survey" ), QStringLiteral( "/live_qfield_users_survey.qgs" ), true ) }; */
   for ( const RecentProject &sampleProject : sampleProjects )
   {
     bool recentProjectsContainsSampleProject = false;

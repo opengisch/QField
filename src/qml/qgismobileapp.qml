@@ -4754,7 +4754,7 @@ ApplicationWindow {
     gpkgFlusher: gpkgFlusherAlias
 
     onProjectDownloaded: function (projectId, projectName, hasError, errorString) {
-      return hasError ? displayToast(qsTr("Project %1 failed to download").arg(projectName), 'error') : displayToast(qsTr("Project %1 successfully downloaded, it's now available to open").arg(projectName));
+      return hasError ? displayToast(qsTr("Project %1 failed to download").arg(projectName), 'error') : displayToast(qsTr("%1 프로젝트가 성공적으로 다운로드되었습니다.").arg(projectName));
     }
 
     onPushFinished: function (projectId, isDownloadingProject, hasError, errorString) {
