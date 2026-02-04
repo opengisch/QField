@@ -273,21 +273,41 @@ class WebdavConnection : public QObject
     ///! Computes the common path between two given paths.
     QString getCommonPath( const QString &addressA, const QString &addressB );
 
-    static const QString &webdavConfigFileName();
-    static const QString &webdavLockFileName();
+    //! Returns TRUE if the relative path is inside a hidden dot-folder.
+    bool isInHiddenDotFolder( const QString &relativePath ) const;
 
-    static bool isInHiddenDotFolder( const QString &relativePath );
-    static QString ensureTrailingSlash( QString path );
-    static QString findWebdavRootForPath( const QString &path );
+    //! Ensures the path ends with a trailing slash.
+    QString ensureTrailingSlash( QString path ) const;
 
-    bool readWebdavConfig( const QString &rootPath, QVariantMap &outConfig, QString &outError ) const;
-    static QByteArray computeLocalSignature( const QString &rootPath );
+    //! Finds the WebDAV project root by walking up from the given path.
+    QString findWebdavRootForPath( const QString &path ) const;
 
-    bool uploadPathsInternal( const QStringList &localPaths, bool requireConfirmation, bool autoUpload, bool force, QString *outError );
+    /**
+     * Reads and parses the WebDAV config JSON stored at on rootPath.
+     * On failure returns FALSE and sets the errorMessage.
+     */
+    bool readWebdavConfig( const QString &rootPath, QVariantMap &outConfig, QString &errorMessage ) const;
 
+    /**
+     * Computes a deterministic signature of the local project tree under on rootPath.
+     *
+     * The signature is based on each file's relative path, size, and modification time
+     * (not file contents). Hidden dot-folders are ignored, and the WebDAV configuration
+     * and lock files are excluded.
+     *
+     * Used to detect local changes for auto-upload.
+     */
+    QByteArray computeLocalSignature( const QString &rootPath ) const;
+
+
+    //! Resolves the WebDAV config root for the given localPaths, loads and validates the WebDAV configuration
+    bool uploadPathsInternal( const QStringList &localPaths, bool requireConfirmation, bool autoUpload, bool force, QString *errorMessage );
+
+    //! Initializes upload progress state and transitions into "uploading" mode.
     void beginUpload( bool requireConfirmation );
 
-    bool tryLockUpload( const QString &root, QString *outError );
+    //! per-project upload lock
+    bool tryLockUpload( const QString &root, QString *errorMessage );
     void unlockUpload();
 
     QString mUrl;

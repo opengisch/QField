@@ -37,6 +37,9 @@
 
 #include <algorithm>
 
+#define WEBDAV_CONFIGURATION_FILENAME QStringLiteral( "qfield_webdav_configuration.json" )
+#define WEBDAV_LOCK_FILENAME QStringLiteral( "qfield_webdav_configuration.lock" )
+
 WebdavConnection::WebdavConnection( QObject *parent )
   : QObject( parent )
 {
@@ -406,6 +409,7 @@ void WebdavConnection::processDirParserFinished()
 
         remoteDir = ensureTrailingSlash( remoteDir );
 
+        // Insure the path exists remotely
         if ( !remoteDirs.contains( remoteDir ) && !mWebdavMkDirs.contains( remoteDir ) )
         {
           const QStringList parts = remoteDir.mid( normalizedRemotePath.size() ).split( "/", Qt::SkipEmptyParts );
@@ -424,8 +428,8 @@ void WebdavConnection::processDirParserFinished()
       }
 
       std::sort( mWebdavMkDirs.begin(), mWebdavMkDirs.end(), []( const QString &first, const QString &second ) {
-        const int dfirst = first.count( QLatin1Char( '/' ) );
-        const int dsecond = second.count( QLatin1Char( '/' ) );
+        const qsizetype dfirst = first.count( QLatin1Char( '/' ) );
+        const qsizetype dsecond = second.count( QLatin1Char( '/' ) );
         return dfirst == dsecond ? first < second : dfirst < dsecond;
       } );
       mWebdavMkDirs.removeDuplicates();
@@ -505,7 +509,7 @@ void WebdavConnection::getWebdavItems()
       webdavConfiguration[QStringLiteral( "remote_path" )] = mProcessRemotePath;
 
       QJsonDocument jsonDocument = QJsonDocument::fromVariant( webdavConfiguration );
-      QFile jsonFile( QStringLiteral( "%1qfield_webdav_configuration.json" ).arg( mProcessLocalPath ) );
+      QFile jsonFile( QDir( mProcessLocalPath ).filePath( WEBDAV_CONFIGURATION_FILENAME ) );
       jsonFile.open( QFile::WriteOnly );
       jsonFile.write( jsonDocument.toJson() );
       jsonFile.close();
@@ -590,7 +594,7 @@ QVariantMap WebdavConnection::importHistory()
   QMap<QString, QVariantMap> importedFolders;
   QDir importedProjectsDir( QStringLiteral( "%1/Imported Projects/" ).arg( PlatformUtilities::instance()->applicationDirectory() ) );
   QDirIterator it( importedProjectsDir.absolutePath(),
-                   QStringList() << QStringLiteral( "qfield_webdav_configuration.json" ),
+                   QStringList() << WEBDAV_CONFIGURATION_FILENAME,
                    QDir::Files,
                    QDirIterator::Subdirectories );
 
@@ -848,7 +852,7 @@ void WebdavConnection::importPath( const QString &remotePath, const QString &loc
 void WebdavConnection::downloadPath( const QString &localPath )
 {
   QDir dir( localPath );
-  bool webdavConfigurationExists = dir.exists( "qfield_webdav_configuration.json" );
+  bool webdavConfigurationExists = dir.exists( WEBDAV_CONFIGURATION_FILENAME );
   QStringList remoteChildrenPath;
   while ( !webdavConfigurationExists )
   {
@@ -858,12 +862,12 @@ void WebdavConnection::downloadPath( const QString &localPath )
       break;
     }
 
-    webdavConfigurationExists = dir.exists( "qfield_webdav_configuration.json" );
+    webdavConfigurationExists = dir.exists( WEBDAV_CONFIGURATION_FILENAME );
   }
 
   if ( webdavConfigurationExists )
   {
-    QFile webdavConfigurationFile( dir.absolutePath() + QDir::separator() + QStringLiteral( "qfield_webdav_configuration.json" ) );
+    QFile webdavConfigurationFile( dir.absoluteFilePath( WEBDAV_CONFIGURATION_FILENAME ) );
     webdavConfigurationFile.open( QFile::ReadOnly );
     QJsonDocument jsonDocument = QJsonDocument::fromJson( webdavConfigurationFile.readAll() );
     if ( !jsonDocument.isEmpty() )
@@ -893,12 +897,12 @@ void WebdavConnection::downloadPath( const QString &localPath )
   }
 }
 
-bool WebdavConnection::uploadPathsInternal( const QStringList &localPaths, bool requireConfirmation, bool autoUpload, bool force, QString *outError )
+bool WebdavConnection::uploadPathsInternal( const QStringList &localPaths, bool requireConfirmation, bool autoUpload, bool force, QString *errorMessage )
 {
   auto fail = [&]( const QString &msg ) -> bool {
-    if ( outError )
+    if ( errorMessage )
     {
-      *outError = msg;
+      *errorMessage = msg;
     }
     unlockUpload();
     return false;
@@ -931,7 +935,7 @@ bool WebdavConnection::uploadPathsInternal( const QStringList &localPaths, bool 
     QDir dir( fileLocalPath );
     QStringList remoteChildrenPath;
 
-    while ( !dir.exists( webdavConfigFileName() ) )
+    while ( !dir.exists( WEBDAV_CONFIGURATION_FILENAME ) )
     {
       remoteChildrenPath.prepend( dir.dirName() );
       if ( !dir.cdUp() )
@@ -942,7 +946,7 @@ bool WebdavConnection::uploadPathsInternal( const QStringList &localPaths, bool 
 
     if ( !webdavConfigurationLoaded )
     {
-      if ( !dir.exists( webdavConfigFileName() ) )
+      if ( !dir.exists( WEBDAV_CONFIGURATION_FILENAME ) )
       {
         return fail( tr( "Not a WebDAV imported project." ) );
       }
@@ -950,7 +954,7 @@ bool WebdavConnection::uploadPathsInternal( const QStringList &localPaths, bool 
       configRoot = dir.absolutePath();
 
       // lock applies to BOTH auto upload and 3-dot upload
-      if ( !tryLockUpload( configRoot, outError ) )
+      if ( !tryLockUpload( configRoot, errorMessage ) )
       {
         return false;
       }
@@ -1003,7 +1007,7 @@ bool WebdavConnection::uploadPathsInternal( const QStringList &localPaths, bool 
       QString newRemotePath = ensureTrailingSlash( webdavConfiguration.value( QStringLiteral( "remote_path" ) ).toString() );
       if ( !remoteChildrenPath.isEmpty() )
       {
-        newRemotePath = ensureTrailingSlash( newRemotePath + remoteChildrenPath.join( "/" ) + "/" );
+        newRemotePath = ensureTrailingSlash( newRemotePath + remoteChildrenPath.join( "/" ) );
       }
 
       mProcessRemotePath = getCommonPath( newRemotePath, mProcessRemotePath );
@@ -1021,7 +1025,7 @@ bool WebdavConnection::uploadPathsInternal( const QStringList &localPaths, bool 
         const QFileInfo itemFi = it.fileInfo();
 
         const QString name = itemFi.fileName();
-        if ( name == webdavConfigFileName() || name == webdavLockFileName() )
+        if ( name == WEBDAV_CONFIGURATION_FILENAME || name == WEBDAV_LOCK_FILENAME )
         {
           continue;
         }
@@ -1038,7 +1042,7 @@ bool WebdavConnection::uploadPathsInternal( const QStringList &localPaths, bool 
     else
     {
       const QString name = fi.fileName();
-      if ( name != webdavConfigFileName() && name != webdavLockFileName() )
+      if ( name != WEBDAV_CONFIGURATION_FILENAME && name != WEBDAV_LOCK_FILENAME )
       {
         const QString rel = base.relativeFilePath( fi.absoluteFilePath() );
         if ( !isInHiddenDotFolder( rel ) )
@@ -1075,7 +1079,7 @@ bool WebdavConnection::uploadPathsInternal( const QStringList &localPaths, bool 
 void WebdavConnection::uploadPaths( const QStringList &localPaths )
 {
   QString err;
-  if ( !uploadPathsInternal( localPaths, /*requireConfirmation*/ true, /*autoUpload*/ false, /*force*/ false, &err ) )
+  if ( !uploadPathsInternal( localPaths, true, false, false, &err ) )
   {
     if ( !err.isEmpty() )
     {
@@ -1187,7 +1191,7 @@ void WebdavConnection::requestUpload( const QString &projectPath, bool force )
   }
 
   QString reason;
-  if ( !uploadPathsInternal( QStringList() << root, /*requireConfirmation*/ false, /*autoUpload*/ true, force, &reason ) )
+  if ( !uploadPathsInternal( QStringList() << root, false, true, force, &reason ) )
   {
     emit uploadSkipped( reason.isEmpty() ? tr( "Upload skipped." ) : reason );
   }
@@ -1197,26 +1201,26 @@ bool WebdavConnection::hasWebdavConfiguration( const QString &path )
 {
   const QFileInfo fileInfo( path );
   QDir dir( fileInfo.isFile() ? fileInfo.absolutePath() : fileInfo.absoluteFilePath() );
-  bool webdavConfigurationExists = dir.exists( "qfield_webdav_configuration.json" );
+  bool webdavConfigurationExists = dir.exists( WEBDAV_CONFIGURATION_FILENAME );
   while ( !webdavConfigurationExists && dir.cdUp() )
   {
-    webdavConfigurationExists = dir.exists( "qfield_webdav_configuration.json" );
+    webdavConfigurationExists = dir.exists( WEBDAV_CONFIGURATION_FILENAME );
   }
   return webdavConfigurationExists;
 }
 
-bool WebdavConnection::tryLockUpload( const QString &root, QString *outError )
+bool WebdavConnection::tryLockUpload( const QString &root, QString *errorMessage )
 {
   unlockUpload();
 
-  mUploadLock.reset( new QLockFile( root + QDir::separator() + webdavLockFileName() ) );
+  mUploadLock.reset( new QLockFile( root + QDir::separator() + WEBDAV_LOCK_FILENAME ) );
   mUploadLock->setStaleLockTime( 0 );
 
   if ( !mUploadLock->tryLock( 0 ) )
   {
-    if ( outError )
+    if ( errorMessage )
     {
-      *outError = tr( "Upload is locked by another process." );
+      *errorMessage = tr( "Upload is locked by another process." );
     }
     mUploadLock.reset();
     return false;
@@ -1255,24 +1259,12 @@ void WebdavConnection::beginUpload( bool requireConfirmation )
   }
 }
 
-const QString &WebdavConnection::webdavConfigFileName()
-{
-  static const QString s = QStringLiteral( "qfield_webdav_configuration.json" );
-  return s;
-}
-
-const QString &WebdavConnection::webdavLockFileName()
-{
-  static const QString s = QStringLiteral( "qfield_webdav_configuration.lock" );
-  return s;
-}
-
-bool WebdavConnection::isInHiddenDotFolder( const QString &relativePath )
+bool WebdavConnection::isInHiddenDotFolder( const QString &relativePath ) const
 {
   return relativePath.startsWith( QLatin1Char( '.' ) ) || relativePath.contains( QStringLiteral( "/." ) );
 }
 
-QString WebdavConnection::ensureTrailingSlash( QString path )
+QString WebdavConnection::ensureTrailingSlash( QString path ) const
 {
   if ( !path.endsWith( QLatin1Char( '/' ) ) )
   {
@@ -1281,12 +1273,12 @@ QString WebdavConnection::ensureTrailingSlash( QString path )
   return path;
 }
 
-QString WebdavConnection::findWebdavRootForPath( const QString &path )
+QString WebdavConnection::findWebdavRootForPath( const QString &path ) const
 {
   QFileInfo fi( QDir::cleanPath( path ) );
   QDir dir( fi.isFile() ? fi.absolutePath() : fi.absoluteFilePath() );
 
-  while ( !dir.exists( webdavConfigFileName() ) )
+  while ( !dir.exists( WEBDAV_CONFIGURATION_FILENAME ) )
   {
     if ( !dir.cdUp() )
     {
@@ -1297,12 +1289,12 @@ QString WebdavConnection::findWebdavRootForPath( const QString &path )
   return dir.absolutePath();
 }
 
-bool WebdavConnection::readWebdavConfig( const QString &rootPath, QVariantMap &outConfig, QString &outError ) const
+bool WebdavConnection::readWebdavConfig( const QString &rootPath, QVariantMap &outConfig, QString &errorMessage ) const
 {
-  QFile f( rootPath + QDir::separator() + webdavConfigFileName() );
+  QFile f( rootPath + QDir::separator() + WEBDAV_CONFIGURATION_FILENAME );
   if ( !f.open( QFile::ReadOnly ) )
   {
-    outError = tr( "Failed to read WebDAV config file." );
+    errorMessage = tr( "Failed to read WebDAV config file." );
     return false;
   }
 
@@ -1312,7 +1304,7 @@ bool WebdavConnection::readWebdavConfig( const QString &rootPath, QVariantMap &o
 
   if ( e.error != QJsonParseError::NoError || doc.isNull() )
   {
-    outError = tr( "Invalid WebDAV config JSON." );
+    errorMessage = tr( "Invalid WebDAV config JSON." );
     return false;
   }
 
@@ -1320,7 +1312,7 @@ bool WebdavConnection::readWebdavConfig( const QString &rootPath, QVariantMap &o
   return true;
 }
 
-QByteArray WebdavConnection::computeLocalSignature( const QString &rootPath )
+QByteArray WebdavConnection::computeLocalSignature( const QString &rootPath ) const
 {
   if ( rootPath.isEmpty() )
   {
@@ -1337,7 +1329,7 @@ QByteArray WebdavConnection::computeLocalSignature( const QString &rootPath )
     const QFileInfo fi = it.fileInfo();
 
     const QString name = fi.fileName();
-    if ( name == webdavConfigFileName() || name == webdavLockFileName() )
+    if ( name == WEBDAV_CONFIGURATION_FILENAME || name == WEBDAV_LOCK_FILENAME )
     {
       continue;
     }
@@ -1363,3 +1355,6 @@ QByteArray WebdavConnection::computeLocalSignature( const QString &rootPath )
 
   return hash.result();
 }
+
+#undef WEBDAV_CONFIGURATION_FILENAME
+#undef WEBDAV_LOCK_FILENAME
