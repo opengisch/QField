@@ -5221,38 +5221,50 @@ ApplicationWindow {
     steps: [
       {
         "type": "information",
-        "title": qsTr("Digitizing toggle"),
-        "description": qsTr("Switch between browse and digitize modes. Browse mode focuses on delivering the best experience viewing the map and its features, while digitize mode enables you to create features and edit geometries."),
+        //"title": qsTr("Digitizing toggle"),
+        "title": qsTr("지도 편집 전환"),
+        //"description": qsTr("Switch between browse and digitize modes. Browse mode focuses on delivering the best experience viewing the map and its features, while digitize mode enables you to create features and edit geometries."),
+        "description": qsTr("지도 보기와 편집 모드를 전환합니다. 보기 모드에서는 지도와 정보를 확인할 수 있고, 편집 모드에서는 지도를 직접 수정할 수 있습니다."),
         "target": () => [iface.findItemByObjectName('ModeSwitch')]
       },
       {
         "type": "information",
-        "title": qsTr("Legend"),
-        "description": qsTr("The legend shows map layers and allows you to toggle visibility and opacity properties by <b>long-pressing on a layer to open a properties popup</b>. The popup offers additional functionalities such as zooming to layer extent and displaying features contained within vector layers."),
+        //"title": qsTr("Legend"),
+        "title": qsTr("범례"),
+        //"description": qsTr("The legend shows map layers and allows you to toggle visibility and opacity properties by <b>long-pressing on a layer to open a properties popup</b>. The popup offers additional functionalities such as zooming to layer extent and displaying features contained within vector layers."),
+        "description": qsTr("범례에서 지도 레이어를 확인하고 표시 여부를 설정할 수 있습니다. <b>레이어를 길게 누르면 속성 팝업이 열리며</b>, 투명도 조절, 레이어 영역으로 확대, 벡터 레이어에 포함된 항목 표시 등의 기능을 사용할 수 있습니다."),
         "target": () => [iface.findItemByObjectName('Legend')]
       },
       {
         "type": "information",
-        "title": qsTr("Measurement"),
-        "description": qsTr("Toggle the measurement tool to calculate distances and areas on the map."),
+        //"title": qsTr("Measurement"),
+        "title": qsTr("측정"),
+        //"description": qsTr("Toggle the measurement tool to calculate distances and areas on the map."),
+        "description": qsTr("측정 도구를 사용해 지도에서 거리와 면적을 측정할 수 있습니다."),
         "target": () => [iface.findItemByObjectName('MeasurementButton')]
       },
       {
         "type": "information",
-        "title": qsTr("Print"),
-        "description": qsTr("Export the map canvas to PDF using configured project print and atlas layouts."),
+        //"title": qsTr("Print"),
+        "title": qsTr("인쇄"),
+        //"description": qsTr("Export the map canvas to PDF using configured project print and atlas layouts."),
+        "description": qsTr("프로젝트에 설정된 인쇄 및 아틀라스 레이아웃을 사용해 지도를 PDF로 저장할 수 있습니다."),
         "target": () => [iface.findItemByObjectName('PrintItemButton')]
       },
       {
         "type": "information",
-        "title": qsTr("QFieldCloud"),
-        "description": qsTr("Push changes, synchronize or revert changes to and from QFieldCloud when a cloud project is opened."),
+        //"title": qsTr("QFieldCloud"),
+        "title": qsTr("클라우드"),
+        //"description": qsTr("Push changes, synchronize or revert changes to and from QFieldCloud when a cloud project is opened."),
+        "description": qsTr("클라우드 프로젝트를 열면 QFieldCloud로 변경사항을 업로드하거나 동기화하고, 이전 상태로 되돌릴 수 있습니다."),
         "target": () => [iface.findItemByObjectName('CloudButton')]
       },
       {
         "type": "information",
-        "title": qsTr("Project folder"),
-        "description": qsTr("Open the project folder to access project files, data sources, and related documents. Useful for managing project resources, manually uploading data to QFieldCloud, and sharing datasets, attachments, and layouts."),
+        //"title": qsTr("Project folder"),
+        "title": qsTr("프로젝트 폴더"),
+        //"description": qsTr("Open the project folder to access project files, data sources, and related documents. Useful for managing project resources, manually uploading data to QFieldCloud, and sharing datasets, attachments, and layouts."),
+        "description": qsTr("프로젝트 폴더를 열어 파일, 데이터 소스, 관련 문서를 확인할 수 있습니다. 프로젝트 리소스 관리, QFieldCloud로 데이터 수동 업로드, 데이터셋과 첨부파일 및 레이아웃 공유에 활용할 수 있습니다."),
         "target": () => [iface.findItemByObjectName('ProjectFolderButton')]
       }
     ]
