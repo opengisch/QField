@@ -33,8 +33,7 @@ Quick3DTerrainProvider::Quick3DTerrainProvider( QObject *parent )
   : QObject( parent )
   , mFutureWatcher( new QFutureWatcher<QVector<double>>( this ) )
 {
-  connect( mFutureWatcher, &QFutureWatcher<QVector<double>>::finished,
-           this, &Quick3DTerrainProvider::onTerrainDataCalculated );
+  connect( mFutureWatcher, &QFutureWatcher<QVector<double>>::finished, this, &Quick3DTerrainProvider::onTerrainDataCalculated );
 }
 
 Quick3DTerrainProvider::~Quick3DTerrainProvider() = default;
@@ -53,6 +52,7 @@ void Quick3DTerrainProvider::setProject( QgsProject *project )
 
   mProject = project;
   emit projectChanged();
+
   updateTerrainProvider();
 }
 
@@ -66,11 +66,6 @@ void Quick3DTerrainProvider::setMapSettings( QgsQuickMapSettings *mapSettings )
   if ( mMapSettings == mapSettings )
   {
     return;
-  }
-
-  if ( mMapSettings )
-  {
-    disconnect( mMapSettings, nullptr, this, nullptr );
   }
 
   mMapSettings = mapSettings;
@@ -91,58 +86,60 @@ QgsRectangle Quick3DTerrainProvider::extent() const
 
 void Quick3DTerrainProvider::updateFromMapSettings()
 {
-  if ( !mMapSettings )
+  if ( !mMapSettings || !mProject )
   {
     return;
   }
 
   QgsRectangle visibleExtent = mMapSettings->visibleExtent();
 
-  // If we have a DEM layer, intersect with its extent to only show areas with data
-  if ( mDemLayer && mDemLayer->isValid() )
+  if ( mTerrainProvider )
   {
-    QgsRectangle demExtent = mDemLayer->extent();
-
-    // Transform DEM extent to project CRS if needed
-    if ( mProject && mDemLayer->crs() != mProject->crs() )
+    QgsMapLayer *terrainLayer = nullptr;
+    if ( QgsRasterDemTerrainProvider *rasterDemTerrainProvider = dynamic_cast<QgsRasterDemTerrainProvider *>( mTerrainProvider.get() ) )
     {
-      try
-      {
-        QgsCoordinateTransform transform( mDemLayer->crs(), mProject->crs(), mProject->transformContext() );
-        demExtent = transform.transformBoundingBox( demExtent );
-      }
-      catch ( const QgsCsException & )
-      {
-      }
+      terrainLayer = rasterDemTerrainProvider->layer();
+    }
+    else if ( QgsMeshTerrainProvider *meshTerrainProvider = dynamic_cast<QgsMeshTerrainProvider *>( mTerrainProvider.get() ) )
+    {
+      terrainLayer = meshTerrainProvider->layer();
     }
 
-    QgsRectangle intersection = visibleExtent.intersect( demExtent );
-    if ( !intersection.isEmpty() )
+    if ( terrainLayer && terrainLayer->isValid() )
     {
-      const double pixelWidth = demExtent.width() / 1000.0;
-      const double pixelHeight = demExtent.height() / 1000.0;
-      intersection = QgsRectangle(
-        intersection.xMinimum() + pixelWidth,
-        intersection.yMinimum() + pixelHeight,
-        intersection.xMaximum() - pixelWidth,
-        intersection.yMaximum() - pixelHeight );
+      QgsRectangle terrainExtent = terrainLayer->extent();
 
-      visibleExtent = intersection;
+      if ( terrainLayer->crs() != mProject->crs() )
+      {
+        try
+        {
+          QgsCoordinateTransform transform( terrainLayer->crs(), mProject->crs(), mProject->transformContext() );
+          terrainExtent = transform.transformBoundingBox( terrainExtent );
+        }
+        catch ( const QgsCsException & )
+        {
+          terrainExtent = QgsRectangle();
+        }
+      }
+
+      QgsRectangle intersection = visibleExtent.intersect( terrainExtent );
+      if ( !intersection.isEmpty() )
+      {
+        visibleExtent = intersection;
+      }
     }
   }
 
-  bool changed = false;
-
-  if ( mExtent != visibleExtent )
+  bool changed = mExtent != visibleExtent;
+  if ( changed )
   {
     mExtent = visibleExtent;
     emit extentChanged();
-    changed = true;
   }
 
   calculateResolution();
 
-  if ( changed && ( ( mDemLayer && mDemLayer->isValid() ) || mQgisTerrainProvider ) )
+  if ( changed && mTerrainProvider )
   {
     calcNormalizedData();
   }
@@ -197,16 +194,7 @@ int Quick3DTerrainProvider::terrainBaseSize() const
 
 double Quick3DTerrainProvider::heightAt( double x, double y ) const
 {
-  if ( mDemLayer && mDemLayer->isValid() )
-  {
-    const double h = sampleHeightFromRaster( mDemLayer, x, y );
-    if ( !std::isnan( h ) )
-    {
-      return h;
-    }
-  }
-
-  if ( mQgisTerrainProvider )
+  if ( mTerrainProvider )
   {
     const double h = sampleHeightFromTerrainProvider( x, y );
     if ( !std::isnan( h ) )
@@ -242,7 +230,7 @@ double Quick3DTerrainProvider::calculateVisualExaggeration() const
 
 void Quick3DTerrainProvider::calcNormalizedData()
 {
-  if ( mExtent.isEmpty() || ( !mDemLayer && !mQgisTerrainProvider ) )
+  if ( mExtent.isEmpty() || !mTerrainProvider )
   {
     mNormalizedData.fill( 0.0, mGridSize.width() * mGridSize.height() );
     emit normalizedDataChanged();
@@ -259,35 +247,42 @@ void Quick3DTerrainProvider::calcNormalizedData()
   mIsLoading = true;
   emit isLoadingChanged();
 
-  QgsRasterDataProvider *provider = nullptr;
-  QgsCoordinateReferenceSystem rasterCrs;
+  QgsAbstractTerrainProvider *terrainProvider;
+  QgsCoordinateReferenceSystem terrainCrs;
+  QgsRasterDataProvider *rasterProvider = nullptr;
   double scale = 1.0;
   double offset = 0.0;
 
-  if ( mDemLayer && mDemLayer->isValid() && mDemLayer->dataProvider() )
+  if ( mTerrainProvider )
   {
-    provider = mDemLayer->dataProvider()->clone();
-    rasterCrs = mDemLayer->crs();
-  }
-  else if ( mQgisTerrainProvider )
-  {
-    QgsRasterDemTerrainProvider *demProvider = dynamic_cast<QgsRasterDemTerrainProvider *>( mQgisTerrainProvider.get() );
-    if ( demProvider && demProvider->layer() && demProvider->layer()->dataProvider() )
+    terrainCrs = mTerrainProvider->crs();
+    scale = mTerrainProvider->scale();
+    offset = mTerrainProvider->offset();
+
+    if ( QgsRasterDemTerrainProvider *rasterDemProvider = dynamic_cast<QgsRasterDemTerrainProvider *>( mTerrainProvider.get() ) )
     {
-      provider = demProvider->layer()->dataProvider()->clone();
-      rasterCrs = demProvider->layer()->crs();
-      scale = demProvider->scale();
-      offset = demProvider->offset();
+      QgsRasterLayer *layer = rasterDemProvider->layer();
+      if ( layer && layer->dataProvider() )
+      {
+        rasterProvider = layer->dataProvider()->clone();
+      }
+    }
+    else
+    {
+      terrainProvider = mTerrainProvider->clone();
+      terrainProvider->prepare();
     }
   }
 
-  if ( !provider )
+  if ( !rasterProvider && !terrainProvider )
   {
     mNormalizedData.fill( 0.0, mGridSize.width() * mGridSize.height() );
     emit normalizedDataChanged();
     emit terrainDataReady();
+
     mIsLoading = false;
     emit isLoadingChanged();
+
     return;
   }
 
@@ -296,15 +291,15 @@ void Quick3DTerrainProvider::calcNormalizedData()
   QgsCoordinateReferenceSystem projectCrs = mProject ? mProject->crs() : QgsCoordinateReferenceSystem();
   QgsCoordinateTransformContext transformContext = mProject ? mProject->transformContext() : QgsCoordinateTransformContext();
 
-  QFuture<QVector<double>> future = QtConcurrent::run( [provider, extent, gridSize, rasterCrs, projectCrs, transformContext, scale, offset]() {
+  QFuture<QVector<double>> future = QtConcurrent::run( [terrainProvider, rasterProvider, extent, gridSize, terrainCrs, projectCrs, transformContext, scale, offset]() {
     QVector<double> heights( gridSize.width() * gridSize.height(), 0.0 );
 
     QgsRectangle blockExtent = extent;
-    if ( rasterCrs.isValid() && projectCrs.isValid() && rasterCrs != projectCrs )
+    if ( terrainCrs.isValid() && projectCrs.isValid() && terrainCrs != projectCrs )
     {
       try
       {
-        QgsCoordinateTransform transform( projectCrs, rasterCrs, transformContext );
+        QgsCoordinateTransform transform( projectCrs, terrainCrs, transformContext );
         blockExtent = transform.transformBoundingBox( extent );
       }
       catch ( const QgsCsException & )
@@ -312,72 +307,59 @@ void Quick3DTerrainProvider::calcNormalizedData()
       }
     }
 
-    std::unique_ptr<QgsRasterBlock> block( provider->block( 1, blockExtent, gridSize.width(), gridSize.height() ) );
-    if ( block && block->isValid() )
+    if ( rasterProvider )
+    {
+      std::unique_ptr<QgsRasterBlock> block( rasterProvider->block( 1, blockExtent, gridSize.width(), gridSize.height() ) );
+      if ( block && block->isValid() )
+      {
+        for ( int row = 0; row < gridSize.height(); ++row )
+        {
+          for ( int col = 0; col < gridSize.width(); ++col )
+          {
+            bool isNoData = false;
+            double value = block->valueAndNoData( row, col, isNoData );
+            if ( !isNoData && !std::isnan( value ) )
+            {
+              heights[row * gridSize.width() + col] = value * scale + offset;
+            }
+          }
+        }
+      }
+      delete rasterProvider;
+    }
+    else if ( terrainProvider )
     {
       for ( int row = 0; row < gridSize.height(); ++row )
       {
         for ( int col = 0; col < gridSize.width(); ++col )
         {
-          bool isNoData = false;
-          double value = block->valueAndNoData( row, col, isNoData );
-          if ( !isNoData && !std::isnan( value ) )
+          const double x = extent.xMinimum() + extent.width() / gridSize.width() * col;
+          const double y = extent.xMinimum() - extent.height() / gridSize.height() * row;
+          double value = terrainProvider->heightAt( x, y );
+          if ( !std::isnan( value ) )
           {
             heights[row * gridSize.width() + col] = value * scale + offset;
           }
         }
       }
+      delete terrainProvider;
     }
 
-    delete provider;
     return heights;
   } );
 
   mFutureWatcher->setFuture( future );
 }
 
-double Quick3DTerrainProvider::sampleHeightFromRaster( QgsRasterLayer *layer, double x, double y ) const
-{
-  if ( !layer || !layer->dataProvider() )
-  {
-    return std::nan( "" );
-  }
-
-  QgsPointXY point( x, y );
-
-  if ( mProject && layer->crs() != mProject->crs() )
-  {
-    try
-    {
-      QgsCoordinateTransform transform( mProject->crs(), layer->crs(), mProject->transformContext() );
-      point = transform.transform( point );
-    }
-    catch ( const QgsCsException & )
-    {
-      return std::nan( "" );
-    }
-  }
-
-  if ( !layer->extent().contains( point ) )
-  {
-    return std::nan( "" );
-  }
-
-  bool ok = false;
-  double value = layer->dataProvider()->sample( point, 1, &ok );
-  return ok ? value : std::nan( "" );
-}
-
 double Quick3DTerrainProvider::sampleHeightFromTerrainProvider( double x, double y ) const
 {
-  if ( !mQgisTerrainProvider || !mProject )
+  if ( !mTerrainProvider || !mProject )
   {
-    return std::nan( "" );
+    return std::numeric_limits<double>::quiet_NaN();
   }
 
   QgsPointXY point( x, y );
-
-  const QgsCoordinateReferenceSystem terrainCrs = mQgisTerrainProvider->crs();
+  const QgsCoordinateReferenceSystem terrainCrs = mTerrainProvider->crs();
   if ( terrainCrs.isValid() && terrainCrs != mProject->crs() )
   {
     try
@@ -387,62 +369,33 @@ double Quick3DTerrainProvider::sampleHeightFromTerrainProvider( double x, double
     }
     catch ( const QgsCsException & )
     {
-      return std::nan( "" );
+      return std::numeric_limits<double>::quiet_NaN();
     }
   }
 
-  return mQgisTerrainProvider->heightAt( point.x(), point.y() );
+  return mTerrainProvider->heightAt( point.x(), point.y() );
 }
 
 void Quick3DTerrainProvider::updateTerrainProvider()
 {
+  mTerrainProvider.reset();
+
   if ( !mProject )
   {
     return;
   }
 
-  mDemLayer = nullptr;
-  mQgisTerrainProvider.reset();
-
-  for ( QgsMapLayer *layer : mProject->mapLayers() )
+  QgsAbstractTerrainProvider *const terrain = mProject->elevationProperties()->terrainProvider();
+  if ( terrain && terrain->type() != QStringLiteral( "flat" ) )
   {
-    QgsRasterLayer *raster = qobject_cast<QgsRasterLayer *>( layer );
-    if ( !raster || !raster->isValid() )
-    {
-      continue;
-    }
-
-    const QString provider = raster->dataProvider() ? raster->dataProvider()->name() : QString();
-    const bool isOnline = provider == QStringLiteral( "wms" ) || provider == QStringLiteral( "wmts" );
-
-    if ( raster->bandCount() == 1 && !isOnline )
-    {
-      mDemLayer = raster;
-      break;
-    }
+    mTerrainProvider.reset( terrain->clone() );
+    mTerrainProvider->prepare();
   }
 
-  if ( !mDemLayer )
-  {
-    QgsAbstractTerrainProvider *const terrain = mProject->elevationProperties()->terrainProvider();
-    if ( terrain && terrain->type() != QStringLiteral( "flat" ) )
-    {
-      mQgisTerrainProvider.reset( terrain->clone() );
-      mQgisTerrainProvider->prepare();
-    }
-  }
-
-  emit hasDemLayerChanged();
-
-  if ( ( mDemLayer || mQgisTerrainProvider ) && !mExtent.isEmpty() )
+  if ( mTerrainProvider && !mExtent.isEmpty() )
   {
     calcNormalizedData();
   }
-}
-
-bool Quick3DTerrainProvider::hasDemLayer() const
-{
-  return mDemLayer && mDemLayer->isValid();
 }
 
 bool Quick3DTerrainProvider::isLoading() const

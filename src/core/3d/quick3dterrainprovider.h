@@ -66,9 +66,6 @@ class Quick3DTerrainProvider : public QObject
     //! Base size of the terrain in map units, used for scaling calculations
     Q_PROPERTY( int terrainBaseSize READ terrainBaseSize CONSTANT )
 
-    //! Whether a DEM layer is available in the project
-    Q_PROPERTY( bool hasDemLayer READ hasDemLayer NOTIFY hasDemLayerChanged )
-
     //! Whether terrain data is currently being loaded
     Q_PROPERTY( bool isLoading READ isLoading NOTIFY isLoadingChanged )
 
@@ -100,9 +97,6 @@ class Quick3DTerrainProvider : public QObject
 
     //! Returns the base size of the terrain in map units.
     int terrainBaseSize() const;
-
-    //! Returns TRUE if a DEM layer is available in the project.
-    bool hasDemLayer() const;
 
     //! Returns TRUE if terrain data is currently being loaded.
     bool isLoading() const;
@@ -139,7 +133,6 @@ class Quick3DTerrainProvider : public QObject
     void terrainDataReady();
 
     void normalizedDataChanged();
-    void hasDemLayerChanged();
     void isLoadingChanged();
 
   private:
@@ -151,20 +144,24 @@ class Quick3DTerrainProvider : public QObject
     void calcNormalizedData();
 
     void onTerrainDataCalculated();
-    double sampleHeightFromRaster( QgsRasterLayer *layer, double x, double y ) const;
     double sampleHeightFromTerrainProvider( double x, double y ) const;
 
   private:
     QgsProject *mProject = nullptr;
     QgsQuickMapSettings *mMapSettings = nullptr;
-    QPointer<QgsRasterLayer> mDemLayer;
-    std::unique_ptr<QgsAbstractTerrainProvider> mQgisTerrainProvider;
+
+    std::unique_ptr<QgsAbstractTerrainProvider> mTerrainProvider;
+
+    QgsRectangle mExtent;
+    QSize mOutputSize;
+
     QSize mGridSize = QSize( 32, 32 );
     double mTerrainBaseSize = 2000.0;
-    QgsRectangle mExtent;
     QVariantList mNormalizedData;
+
     double mMinRealHeight = 0.0;
     double mMaxRealHeight = 0.0;
+
     bool mIsLoading = false;
     QFutureWatcher<QVector<double>> *mFutureWatcher = nullptr;
 };
