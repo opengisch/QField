@@ -6,8 +6,7 @@ Node {
   id: root
 
   property alias gridSize: terrainGeometry.gridSize
-  property alias terrainWidth: terrainGeometry.terrainWidth
-  property alias terrainDepth: terrainGeometry.terrainDepth
+  property alias size: terrainGeometry.size
   property alias heightData: terrainGeometry.heightData
 
   property var satelliteTexture: null

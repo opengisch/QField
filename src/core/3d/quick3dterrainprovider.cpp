@@ -84,6 +84,11 @@ QgsRectangle Quick3DTerrainProvider::extent() const
   return mExtent;
 }
 
+QSizeF Quick3DTerrainProvider::size() const
+{
+  return mSize;
+}
+
 void Quick3DTerrainProvider::updateFromMapSettings()
 {
   if ( !mMapSettings || !mProject )
@@ -91,6 +96,10 @@ void Quick3DTerrainProvider::updateFromMapSettings()
     return;
   }
 
+  QgsRectangle visibleExtent = mMapSettings->visibleExtent();
+  QSizeF visibleSize = QSize( visibleExtent.width() * mMapSettings->mapSettings().mapUnitsPerPixel(), visibleExtent.height() * mMapSettings->mapSettings().mapUnitsPerPixel() );
+
+#if 0
   QgsRectangle visibleExtent = mMapSettings->visibleExtent();
 
   if ( mTerrainProvider )
@@ -129,11 +138,20 @@ void Quick3DTerrainProvider::updateFromMapSettings()
       }
     }
   }
+#endif
 
   bool changed = mExtent != visibleExtent;
   if ( changed )
   {
     mExtent = visibleExtent;
+    if ( mExtent.width() >= mExtent.height() )
+    {
+      mSize = QSizeF( mBaseSize, mExtent.height() * mBaseSize / mExtent.width() );
+    }
+    else
+    {
+      mSize = QSizeF( mExtent.width() * mBaseSize / mExtent.height(), mBaseSize );
+    }
     emit extentChanged();
   }
 
@@ -149,9 +167,9 @@ void Quick3DTerrainProvider::calculateResolution()
 {
   if ( mExtent.isEmpty() )
   {
-    if ( mGridSize != QSize( 32, 32 ) )
+    if ( mGridSize != QSize( 64, 64 ) )
     {
-      mGridSize = QSize( 32, 32 );
+      mGridSize = QSize( 64, 64 );
       emit gridSizeChanged();
     }
     return;
@@ -159,22 +177,22 @@ void Quick3DTerrainProvider::calculateResolution()
 
   int baseResolution = 320;
 
-  const double extentWidth = mExtent.width();
-  const double extentHeight = mExtent.height();
-  int newWidth, newHeight;
+  const double width = mSize.width();
+  const double height = mSize.height();
+  int newGridWidth, newGridHeight;
 
-  if ( extentWidth >= extentHeight )
+  if ( width >= height )
   {
-    newWidth = baseResolution;
-    newHeight = std::max( 16, static_cast<int>( baseResolution * ( extentHeight / extentWidth ) ) );
+    newGridWidth = baseResolution;
+    newGridHeight = std::max( 16, static_cast<int>( baseResolution * ( height / width ) ) );
   }
   else
   {
-    newHeight = baseResolution;
-    newWidth = std::max( 16, static_cast<int>( baseResolution * ( extentWidth / extentHeight ) ) );
+    newGridWidth = std::max( 16, static_cast<int>( baseResolution * ( width / height ) ) );
+    newGridHeight = baseResolution;
   }
 
-  QSize newGridSize( newWidth, newHeight );
+  QSize newGridSize( newGridWidth, newGridHeight );
   if ( mGridSize != newGridSize )
   {
     mGridSize = newGridSize;
@@ -185,11 +203,6 @@ void Quick3DTerrainProvider::calculateResolution()
 QVariantList Quick3DTerrainProvider::normalizedData() const
 {
   return mNormalizedData;
-}
-
-int Quick3DTerrainProvider::terrainBaseSize() const
-{
-  return mTerrainBaseSize;
 }
 
 double Quick3DTerrainProvider::heightAt( double x, double y ) const
@@ -210,7 +223,7 @@ double Quick3DTerrainProvider::normalizedHeightAt( double x, double y ) const
 {
   const double realHeight = heightAt( x, y );
   const double extentSize = std::max( mExtent.width(), mExtent.height() );
-  const double scale = ( mTerrainBaseSize / extentSize ) * calculateVisualExaggeration();
+  const double scale = ( mBaseSize / extentSize ) * calculateVisualExaggeration();
   return ( realHeight - mMinRealHeight ) * scale;
 }
 
@@ -417,7 +430,7 @@ void Quick3DTerrainProvider::onTerrainDataCalculated()
   mMaxRealHeight = *minmax.second;
 
   const double extentSize = std::max( mExtent.width(), mExtent.height() );
-  const double scale = ( mTerrainBaseSize / extentSize ) * calculateVisualExaggeration();
+  const double scale = ( mBaseSize / extentSize ) * calculateVisualExaggeration();
 
   mNormalizedData.clear();
   mNormalizedData.reserve( heights.size() );

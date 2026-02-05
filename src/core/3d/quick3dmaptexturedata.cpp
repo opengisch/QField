@@ -98,7 +98,7 @@ bool Quick3DMapTextureData::isReady() const
 
 void Quick3DMapTextureData::render()
 {
-  if ( !mMapSettings )
+  if ( !mMapSettings || mExtent.isEmpty() )
   {
     return;
   }
@@ -117,25 +117,16 @@ void Quick3DMapTextureData::render()
 
   if ( !mExtent.isEmpty() )
   {
+    renderSettings.setRotation( 0 );
     renderSettings.setExtent( mExtent );
 
-    const double extentAspectRatio = mExtent.width() / mExtent.height();
-    const double extentSize = std::max( mExtent.width(), mExtent.height() );
-    const double metersPerPixel = 0.5;
-    int baseSize = qBound( 1024, static_cast<int>( extentSize / metersPerPixel ), 4096 );
 
-    int newWidth, newHeight;
-    if ( extentAspectRatio >= 1.0 )
-    {
-      newWidth = baseSize;
-      newHeight = static_cast<int>( baseSize / extentAspectRatio );
-    }
-    else
-    {
-      newHeight = baseSize;
-      newWidth = static_cast<int>( baseSize * extentAspectRatio );
-    }
-    renderSettings.setOutputSize( QSize( newWidth, newHeight ) );
+    const double dpi = 150.0;
+    const double mupp = mMapSettings->mapSettings().mapUnitsPerPixel();
+    const int outputWidth = mExtent.width() / mupp * ( dpi / 96 );
+    const int outputHeight = mExtent.height() / mupp * ( dpi / 96 );
+    renderSettings.setOutputSize( QSize( outputWidth, outputHeight ) );
+    renderSettings.setOutputDpi( 150.0 );
   }
 
   if ( renderSettings.layers().isEmpty() )

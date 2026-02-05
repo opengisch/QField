@@ -62,7 +62,7 @@ class Quick3DMapTextureData : public QQuick3DTextureData
     //! Returns the custom extent for rendering.
     QgsRectangle extent() const;
 
-    //! Sets a custom extent for rendering. If empty, uses mapSettings extent.
+    //! Sets a custom extent for rendering.
     void setExtent( const QgsRectangle &extent );
 
     //! Returns whether the texture data is ready to use.

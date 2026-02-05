@@ -40,39 +40,17 @@ void Quick3DTerrainGeometry::setGridSize( const QSize &size )
   updateGeometry();
 }
 
-void Quick3DTerrainGeometry::setTerrainWidth( float width )
+void Quick3DTerrainGeometry::setSize( QSizeF size )
 {
-  if ( width <= 0 )
-  {
-    width = 1.0f;
-  }
-
-  if ( qFuzzyCompare( mTerrainWidth, width ) )
+  if ( mSize == size )
   {
     return;
   }
 
-  mTerrainWidth = width;
+  mSize = size;
+  emit sizeChanged();
+
   mDirty = true;
-  emit terrainWidthChanged();
-  updateGeometry();
-}
-
-void Quick3DTerrainGeometry::setTerrainDepth( float depth )
-{
-  if ( depth <= 0 )
-  {
-    depth = 1.0f;
-  }
-
-  if ( qFuzzyCompare( mTerrainDepth, depth ) )
-  {
-    return;
-  }
-
-  mTerrainDepth = depth;
-  mDirty = true;
-  emit terrainDepthChanged();
   updateGeometry();
 }
 
@@ -147,10 +125,10 @@ void Quick3DTerrainGeometry::updateGeometry()
   indexData.resize( indexCount * sizeof( quint32 ) );
   quint32 *iptr = reinterpret_cast<quint32 *>( indexData.data() );
 
-  const float cellWidth = mTerrainWidth / ( gridWidth - 1 );
-  const float cellDepth = mTerrainDepth / ( gridHeight - 1 );
-  const float halfWidth = mTerrainWidth / 2.0f;
-  const float halfDepth = mTerrainDepth / 2.0f;
+  const float cellWidth = mSize.width() / ( gridWidth - 1 );
+  const float cellDepth = mSize.height() / ( gridHeight - 1 );
+  const float halfWidth = mSize.width() / 2.0f;
+  const float halfDepth = mSize.height() / 2.0f;
 
   for ( int z = 0; z < gridHeight; ++z )
   {

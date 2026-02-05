@@ -60,11 +60,11 @@ class Quick3DTerrainProvider : public QObject
     //! Geographic extent used for terrain data
     Q_PROPERTY( QgsRectangle extent READ extent NOTIFY extentChanged )
 
+    //! Size of the terrain
+    Q_PROPERTY( QSizeF size READ size NOTIFY extentChanged )
+
     //! Normalized height data array [0.0-1.0] for terrain mesh generation
     Q_PROPERTY( QVariantList normalizedData READ normalizedData NOTIFY normalizedDataChanged )
-
-    //! Base size of the terrain in map units, used for scaling calculations
-    Q_PROPERTY( int terrainBaseSize READ terrainBaseSize CONSTANT )
 
     //! Whether terrain data is currently being loaded
     Q_PROPERTY( bool isLoading READ isLoading NOTIFY isLoadingChanged )
@@ -92,11 +92,10 @@ class Quick3DTerrainProvider : public QObject
     //! Returns the geographic extent for terrain data retrieval.
     QgsRectangle extent() const;
 
+    QSizeF size() const;
+
     //! Returns the normalized height data array [0.0-1.0].
     QVariantList normalizedData() const;
-
-    //! Returns the base size of the terrain in map units.
-    int terrainBaseSize() const;
 
     //! Returns TRUE if terrain data is currently being loaded.
     bool isLoading() const;
@@ -153,10 +152,10 @@ class Quick3DTerrainProvider : public QObject
     std::unique_ptr<QgsAbstractTerrainProvider> mTerrainProvider;
 
     QgsRectangle mExtent;
-    QSize mOutputSize;
+    QSizeF mSize;
+    double mBaseSize = 2000.0;
 
-    QSize mGridSize = QSize( 32, 32 );
-    double mTerrainBaseSize = 2000.0;
+    QSize mGridSize = QSize( 64, 64 );
     QVariantList mNormalizedData;
 
     double mMinRealHeight = 0.0;

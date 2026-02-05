@@ -661,7 +661,6 @@ ApplicationWindow {
       source: "qrc:/qml/3d/Map3DView.qml"
 
       onLoaded: {
-        item.qgisProject = qgisProject;
         item.mapSettings = mapCanvas.mapSettings;
 
         // Bind GNSS position updates

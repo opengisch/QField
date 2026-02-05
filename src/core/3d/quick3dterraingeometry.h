@@ -42,10 +42,7 @@ class Quick3DTerrainGeometry : public QQuick3DGeometry
     Q_PROPERTY( QSize gridSize READ gridSize WRITE setGridSize NOTIFY gridSizeChanged )
 
     //! Width of the terrain mesh in 3D scene units
-    Q_PROPERTY( float terrainWidth READ terrainWidth WRITE setTerrainWidth NOTIFY terrainWidthChanged )
-
-    //! Depth of the terrain mesh in 3D scene units
-    Q_PROPERTY( float terrainDepth READ terrainDepth WRITE setTerrainDepth NOTIFY terrainDepthChanged )
+    Q_PROPERTY( QSizeF size READ size WRITE setSize NOTIFY sizeChanged )
 
     //! Height data array for terrain elevation values
     Q_PROPERTY( QVariantList heightData WRITE setHeightData NOTIFY heightDataChanged )
@@ -61,24 +58,17 @@ class Quick3DTerrainGeometry : public QQuick3DGeometry
     void setGridSize( const QSize &size );
 
     //! Returns the width of the terrain mesh in 3D scene units.
-    float terrainWidth() const { return mTerrainWidth; }
+    QSizeF size() const { return mSize; }
 
     //! Sets the terrain width.
-    void setTerrainWidth( float width );
-
-    //! Returns the depth of the terrain mesh in 3D scene units.
-    float terrainDepth() const { return mTerrainDepth; }
-
-    //! Sets the terrain depth.
-    void setTerrainDepth( float depth );
+    void setSize( QSizeF size );
 
     //! Sets the height data array.
     void setHeightData( const QVariantList &data );
 
   signals:
     void gridSizeChanged();
-    void terrainWidthChanged();
-    void terrainDepthChanged();
+    void sizeChanged();
     void heightDataChanged();
 
   private:
@@ -98,8 +88,8 @@ class Quick3DTerrainGeometry : public QQuick3DGeometry
     float getHeight( int x, int z ) const;
 
     QSize mGridSize = QSize( 64, 64 );
-    float mTerrainWidth = 1000.0f;
-    float mTerrainDepth = 1000.0f;
+    QSizeF mSize;
+
     QVector<float> mHeights;
     bool mDirty = true;
 };

@@ -6,14 +6,13 @@ import org.qfield
 import Theme
 
 Item {
-  id: root
+  id: map3DView
   focus: true
   visible: !isLoading
 
-  property var qgisProject
   property alias mapSettings: terrainProvider.mapSettings
-  property bool wireframeMode: false
   property bool isLoading: terrainProvider.isLoading
+  property bool wireframeMode: false
 
   property var gnssPosition: null
   property bool gnssActive: false
@@ -24,23 +23,24 @@ Item {
 
   QtObject {
     id: internal
-    property real terrainWidth: terrainProvider.terrainBaseSize
-    property real terrainDepth: terrainProvider.terrainBaseSize
+    property real terrainWidth: terrainProvider.size.width
+    property real terrainDepth: terrainProvider.size.height
   }
 
   Quick3DTerrainProvider {
     id: terrainProvider
-    project: root.qgisProject
+    project: qgisProject
+    mapSettings: map3DView.mapSettings
 
     onTerrainDataReady: {
       loadTerrain();
-      Qt.callLater(root.playOpeningAnimation);
+      Qt.callLater(map3DView.playOpeningAnimation);
     }
   }
 
   Quick3DMapTextureData {
     id: textureData
-    mapSettings: root.mapSettings
+    mapSettings: map3DView.mapSettings
     extent: terrainProvider.extent
   }
 
@@ -57,17 +57,6 @@ Item {
       return;
     }
 
-    const extentWidth = terrainProvider.extent.width;
-    const extentHeight = terrainProvider.extent.height;
-    const extentSize = Math.max(extentWidth, extentHeight);
-
-    if (extentWidth >= extentHeight) {
-      internal.terrainWidth = terrainProvider.terrainBaseSize;
-      internal.terrainDepth = terrainProvider.terrainBaseSize * (extentHeight / extentWidth);
-    } else {
-      internal.terrainDepth = terrainProvider.terrainBaseSize;
-      internal.terrainWidth = terrainProvider.terrainBaseSize * (extentWidth / extentHeight);
-    }
     terrainMesh.heightData = heights;
     positionCameraForTerrain();
     textureData.render();
@@ -102,7 +91,7 @@ Item {
     anchors.fill: parent
 
     environment: SceneEnvironment {
-      clearColor: root.mapSettings ? root.mapSettings.backgroundColor : "#FFFFFF"
+      clearColor: map3DView.mapSettings ? map3DView.mapSettings.backgroundColor : "#FFFFFF"
       backgroundMode: SceneEnvironment.Color
       antialiasingMode: SceneEnvironment.MSAA
       antialiasingQuality: SceneEnvironment.High
@@ -129,24 +118,23 @@ Item {
     TerrainMesh {
       id: terrainMesh
       gridSize: terrainProvider.gridSize
-      terrainWidth: internal.terrainWidth
-      terrainDepth: internal.terrainDepth
+      size: terrainProvider.size
       satelliteTexture: satelliteTexture
       satelliteTextureReady: textureData.ready
     }
 
     Node {
       id: gnssMarker
-      visible: root.gnssActive && root.gnssPosition !== null
+      visible: map3DView.gnssActive && map3DView.gnssPosition !== null
 
       property var pos3d: {
-        if (!root.gnssPosition)
+        if (!map3DView.gnssPosition)
           return null;
-        return root.geoTo3D(root.gnssPosition.x, root.gnssPosition.y);
+        return map3DView.geoTo3D(map3DView.gnssPosition.x, map3DView.gnssPosition.y);
       }
 
       position: pos3d || Qt.vector3d(0, 0, 0)
-      eulerRotation: root.gnssSpeed > 0 && root.gnssDirection >= 0 ? Qt.vector3d(0, -root.gnssDirection, 0) : Qt.vector3d(0, 0, 0)
+      eulerRotation: map3DView.gnssSpeed > 0 && map3DView.gnssDirection >= 0 ? Qt.vector3d(0, -map3DView.gnssDirection, 0) : Qt.vector3d(0, 0, 0)
 
       Model {
         source: "#Sphere"
@@ -180,7 +168,7 @@ Item {
       }
 
       Node {
-        visible: root.gnssSpeed > 0 && root.gnssDirection >= 0
+        visible: map3DView.gnssSpeed > 0 && map3DView.gnssDirection >= 0
 
         Model {
           source: "#Cone"
@@ -226,7 +214,7 @@ Item {
       }
 
       Model {
-        visible: !(root.gnssSpeed > 0 && root.gnssDirection >= 0)
+        visible: !(map3DView.gnssSpeed > 0 && map3DView.gnssDirection >= 0)
         source: "#Sphere"
         scale: Qt.vector3d(0.15, 0.15, 0.15)
         position: Qt.vector3d(0, 0.08, 0)
@@ -255,7 +243,7 @@ Item {
       }
     }
     onUserInteractionStarted: {
-      root.cameraInteractionDetected();
+      map3DView.cameraInteractionDetected();
     }
   }
 
