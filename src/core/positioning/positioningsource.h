@@ -54,6 +54,7 @@ class PositioningSource : public QObject
     Q_PROPERTY( QString loggingPath READ loggingPath WRITE setLoggingPath NOTIFY loggingPathChanged )
 
     Q_PROPERTY( bool backgroundMode READ backgroundMode WRITE setBackgroundMode NOTIFY backgroundModeChanged )
+
     Q_PROPERTY( bool enableNtripClient READ enableNtripClient WRITE setEnableNtripClient NOTIFY enableNtripClientChanged )
     Q_PROPERTY( QString ntripHost READ ntripHost WRITE setNtripHost NOTIFY ntripHostChanged )
     Q_PROPERTY( int ntripPort READ ntripPort WRITE setNtripPort NOTIFY ntripPortChanged )
@@ -354,6 +355,7 @@ class PositioningSource : public QObject
     QString mLoggingPath;
 
     bool mBackgroundMode = false;
+
     bool mEnableNtripClient = false;
     QString mNtripHost;
     int mNtripPort = 2101;
