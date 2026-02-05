@@ -16,7 +16,8 @@ Page {
   signal triggerProjectLoad(string title, string path)
 
   header: QfPageHeader {
-    title: qsTr("Create a new project")
+    //title: qsTr("Create a new project")
+    title: qsTr("새 프로젝트 만들기")
 
     showBackButton: true
     showApplyButton: false
@@ -43,7 +44,8 @@ Page {
       spacing: 10
 
       Label {
-        text: qsTr("This page will guide you through the creation of a simple project through simple configuration toggles. For more advanced needs, we advise you to create projects in QGIS using QFieldSync.")
+        //text: qsTr("This page will guide you through the creation of a simple project through simple configuration toggles. For more advanced needs, we advise you to create projects in QGIS using QFieldSync.")
+        text: qsTr("이 페이지에서는 간단한 설정을 통해 기본 프로젝트를 만드는 방법을 안내합니다. 보다 고급 기능이 필요한 경우, QGIS에서 QFieldSync를 사용해 프로젝트를 생성하는 것을 권장합니다.")
         font: Theme.defaultFont
         color: Theme.mainTextColor
         wrapMode: Text.WordWrap
@@ -55,13 +57,14 @@ Page {
         width: parent.width
         height: 50
         font: Theme.defaultFont
-        placeholderText: qsTr("New project name")
+        placeholderText: qsTr("새 프로젝트 이름")
         text: ""
       }
 
       QfExpandableGroupBox {
         id: baseMapExpandablePanel
-        title: qsTr("Select your basemap")
+        //title: qsTr("Select your basemap")
+        title: qsTr("기본 배경지도 선택")
         width: parent.width
         checked: true
         interactive: false
@@ -75,7 +78,8 @@ Page {
           spacing: 10
 
           Label {
-            text: qsTr("Choose a basemap for your project. Pick from the available options or provide your own custom URL.")
+            //text: qsTr("Choose a basemap for your project. Pick from the available options or provide your own custom URL.")
+            text: qsTr("프로젝트에 사용할 기본 지도를 선택하세요. 제공된 옵션 중에서 선택하거나 사용자 지정 URL을 입력할 수 있습니다.")
             font: Theme.defaultFont
             color: Theme.secondaryTextColor
             wrapMode: Text.WordWrap
@@ -89,32 +93,59 @@ Page {
             orientation: ListView.Horizontal
             spacing: 10
             model: [
-              {
-                "icon": "qrc:/pictures/pictures/colorful.jpg",
-                "name": "colorful",
-                "displayName": qsTr("Colorful")
-              },
-              {
-                "icon": "qrc:/pictures/pictures/dark.jpg",
-                "name": "darkgray",
-                "displayName": qsTr("Darkgray")
-              },
-              {
-                "icon": "qrc:/pictures/pictures/lightgray.jpg",
-                "name": "lightgray",
-                "displayName": qsTr("Lightgray")
-              },
-              {
-                "icon": "",
-                "name": "blank",
-                "displayName": qsTr("Blank")
-              },
-              {
-                "icon": "",
-                "name": "custom",
-                "displayName": qsTr("Custom")
-              }
-            ]
+            {
+              "icon": "qrc:/pictures/pictures/colorful.jpg",
+              "name": "colorful",
+              "displayName": qsTr("컬러")
+            },
+            {
+              "icon": "qrc:/pictures/pictures/dark.jpg",
+              "name": "darkgray",
+              "displayName": qsTr("다크")
+            },
+            {
+              "icon": "qrc:/pictures/pictures/lightgray.jpg",
+              "name": "lightgray",
+              "displayName": qsTr("라이트")
+            },
+            {
+              "icon": "",
+              "name": "blank",
+              "displayName": qsTr("없음")
+            },
+            {
+              "icon": "",
+              "name": "custom",
+              "displayName": qsTr("사용자 지정")
+            }
+          ]
+            //model: [
+            //  {
+            //    "icon": "qrc:/pictures/pictures/colorful.jpg",
+            //    "name": "colorful",
+            //    "displayName": qsTr("Colorful")
+            //  },
+            //  {
+            //    "icon": "qrc:/pictures/pictures/dark.jpg",
+            //    "name": "darkgray",
+            //    "displayName": qsTr("Darkgray")
+            //  },
+            //  {
+            //    "icon": "qrc:/pictures/pictures/lightgray.jpg",
+            //    "name": "lightgray",
+            //    "displayName": qsTr("Lightgray")
+            //  },
+            //  {
+            //    "icon": "",
+            //    "name": "blank",
+            //    "displayName": qsTr("Blank")
+            //  },
+            //  {
+            //    "icon": "",
+            //    "name": "custom",
+            //    "displayName": qsTr("Custom")
+            //  }
+            //]
 
             clip: true
 
@@ -176,7 +207,8 @@ Page {
 
       QfExpandableGroupBox {
         id: takeNotesGroupBox
-        title: qsTr("Take notes?")
+        //title: qsTr("Take notes?")
+        title: qsTr("메모할까요?")
         width: parent.width
         checked: true
         icon: Theme.getThemeVectorIcon("ic_marker_white_24dp")
@@ -188,7 +220,8 @@ Page {
           anchors.right: parent.right
 
           Label {
-            text: qsTr("Quickly capture notes with date, time, and comments. Optionally, attach multimedia items such as images and videos to enrich your notes.")
+            //text: qsTr("Quickly capture notes with date, time, and comments. Optionally, attach multimedia items such as images and videos to enrich your notes.")
+            text: qsTr("날짜, 시간, 메모 내용을 빠르게 기록할 수 있습니다. 필요하면 사진이나 동영상 같은 미디어 파일을 첨부해 메모를 더 풍부하게 만들 수 있습니다.")
             font: Theme.defaultFont
             color: Theme.secondaryTextColor
             wrapMode: Text.WordWrap
@@ -197,7 +230,7 @@ Page {
 
           CheckBox {
             id: takeMediaCheckBox
-            text: qsTr("Take image and video attachments")
+            text: qsTr("사진 및 동영상 첨부하기")
             font: Theme.defaultFont
             indicator.height: 16
             indicator.width: 16
@@ -215,7 +248,8 @@ Page {
 
       QfExpandableGroupBox {
         id: trackPositionGroupBox
-        title: qsTr("Track your position?")
+        //title: qsTr("Track your position?")
+        title: qsTr("이동 경로를 기록할까요?")
         width: parent.width
         checked: false
         icon: Theme.getThemeVectorIcon("directions_walk_24dp")
@@ -227,7 +261,8 @@ Page {
           anchors.right: parent.right
 
           Label {
-            text: qsTr("Record your location every second, along with date and time, to keep a precise track of your movements.")
+            //text: qsTr("Record your location every second, along with date and time, to keep a precise track of your movements.")
+            text: qsTr("현재 위치를 1초마다 날짜와 시간과 함께 기록해 이동 경로를 정확하게 남길 수 있습니다.")
             font: Theme.defaultFont
             color: Theme.secondaryTextColor
             wrapMode: Text.WordWrap
@@ -236,7 +271,8 @@ Page {
 
           CheckBox {
             id: autoTrackPositionCheckBox
-            text: qsTr("Begin tracking automatically")
+            //text: qsTr("Begin tracking automatically")
+            text: qsTr("자동으로 기록 시작")
             font: Theme.defaultFont
             indicator.height: 16
             indicator.width: 16
@@ -254,7 +290,8 @@ Page {
 
       QfExpandableGroupBox {
         id: qfieldCloudGroupBox
-        title: qsTr("Backup & collaborate?")
+        //title: qsTr("Backup & collaborate?")
+        title: qsTr("백업하고 협업할까요?")
         width: parent.width
         checked: false
         icon: Theme.getThemeVectorIcon("ic_cloud_active_24dp")
@@ -264,7 +301,8 @@ Page {
           width: parent.width
 
           Label {
-            text: qsTr("QFieldCloud allows to synchronize and merge the data collected by your team in QField. From small individual projects to large data collection campaigns. ") + "<a href=\"https://qfield.cloud/\">" + qsTr("Learn more about QFieldCloud here") + "</a>."
+            //text: qsTr("QFieldCloud allows to synchronize and merge the data collected by your team in QField. From small individual projects to large data collection campaigns. ") + "<a href=\"https://qfield.cloud/\">" + qsTr("Learn more about QFieldCloud here") + "</a>."
+            text: qsTr("QFieldCloud를 사용하면 QField에서 수집한 팀 데이터를 동기화하고 병합할 수 있습니다. 개인 프로젝트부터 대규모 데이터 수집 작업까지 지원합니다.")
             font: Theme.defaultFont
             color: Theme.secondaryTextColor
             wrapMode: Text.WordWrap
@@ -298,7 +336,8 @@ Page {
       anchors.margins: 10
       bgcolor: Theme.mainColor
 
-      text: qsTr("Create Project")
+      //text: qsTr("Create Project")
+      text: qsTr("프로젝트 생성")
 
       onClicked: {
         if (projectName.text === "") {
