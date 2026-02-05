@@ -30,7 +30,7 @@ Page {
 
   header: QfPageHeader {
     //title: projectFolderView ? qsTr("Project Folder") : qsTr("Local Projects & Datasets")
-    title: projectFolderView ? qsTr("Project Folder") : qsTr("로컬 프로젝트\n 및 데이터")
+    title: projectFolderView ? qsTr("프로젝트 폴더") : qsTr("로컬 프로젝트\n 및 데이터")
 
     showBackButton: true
     showApplyButton: false
@@ -478,7 +478,8 @@ Page {
         height: enabled ? 48 : 0
         leftPadding: Theme.menuItemLeftPadding
 
-        text: qsTr("View file")
+        //text: qsTr("View file")
+        text: qsTr("파일 보기")
         onTriggered: {
           platformUtilities.open(itemMenu.itemPath);
         }
@@ -495,7 +496,8 @@ Page {
         height: enabled ? 48 : 0
         leftPadding: Theme.menuItemLeftPadding
 
-        text: qsTr("Send to...")
+        //text: qsTr("Send to...")
+        text: qsTr("파일 보내기")
         onTriggered: {
           platformUtilities.sendDatasetTo(itemMenu.itemPath);
         }
@@ -511,7 +513,8 @@ Page {
         height: enabled ? 48 : 0
         leftPadding: Theme.menuItemLeftPadding
 
-        text: qsTr("Push to QFieldCloud")
+        //text: qsTr("Push to QFieldCloud")
+        text: qsTr("Cloud로 업로드")
         onTriggered: {
           pushFilesToQFieldCloudConnection.enabled = true;
           pushFilesToQFieldCloudConnection.sendingMultiple = true;
@@ -529,7 +532,8 @@ Page {
         height: enabled ? 48 : 0
         leftPadding: Theme.menuItemLeftPadding
 
-        text: qsTr("Export to folder...")
+        //text: qsTr("Export to folder...")
+        text: qsTr("폴더로 내보내기...")
         onTriggered: {
           platformUtilities.exportDatasetTo(itemMenu.itemPath);
         }
@@ -546,7 +550,8 @@ Page {
         height: enabled ? 48 : 0
         leftPadding: Theme.menuItemLeftPadding
 
-        text: !itemMenu.itemIsFavorite ? qsTr("Add to favorites") : qsTr("Remove from favorites")
+        //text: !itemMenu.itemIsFavorite ? qsTr("Add to favorites") : qsTr("Remove from favorites")
+        text: !itemMenu.itemIsFavorite ? qsTr("즐겨찾기에 추가") : qsTr("즐겨찾기에서 제거")
         onTriggered: {
           if (!itemMenu.itemIsFavorite) {
             localFilesModel.addToFavorites(itemMenu.itemPath);
@@ -573,7 +578,8 @@ Page {
         height: enabled ? 48 : 0
         leftPadding: Theme.menuItemLeftPadding
 
-        text: qsTr("Export to folder...")
+        //text: qsTr("Export to folder...")
+        text: qsTr("폴더로 내보내기...")
         onTriggered: {
           platformUtilities.exportFolderTo(itemMenu.itemPath);
         }
@@ -589,7 +595,8 @@ Page {
         height: enabled ? 48 : 0
         leftPadding: Theme.menuItemLeftPadding
 
-        text: qsTr("Send compressed folder to...")
+        //text: qsTr("Send compressed folder to...")
+        text: qsTr("압축된 폴더 보내기...")
         onTriggered: {
           platformUtilities.sendCompressedFolderTo(itemMenu.itemPath);
         }

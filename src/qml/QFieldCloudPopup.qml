@@ -197,7 +197,8 @@ Popup {
             switch (status) {
             case QFieldCloudProject.Downloading:
               if (packagingStatus === QFieldCloudProject.PackagingBusyStatus) {
-                return qsTr('QFieldCloud is packaging the latest data just for you; this might take some time, please hold tight');
+                //return qsTr('QFieldCloud is packaging the latest data just for you; this might take some time, please hold tight');
+                return qsTr('QFieldCloud에서 최신 데이터를 패키징하고 있습니다. 다소 시간이 걸릴 수 있으니 잠시만 기다려 주세요.');
               } else {
                 if (packagingStatus === QFieldCloudProject.PackagingFinishedStatus || downloadProgress > 0.0) {
                   if (downloadBytesTotal > 0) {
@@ -368,9 +369,11 @@ Popup {
             text: {
               if (!enabled) {
                 if (cloudProjectCreationConnection.target && cloudProjectCreationConnection.target.uploadProgress > 0) {
-                  return qsTr("Cloudifying project") + " (%1%)".arg(Math.round(cloudProjectCreationConnection.target.uploadProgress * 100));
+                  //return qsTr("Cloudifying project") + " (%1%)".arg(Math.round(cloudProjectCreationConnection.target.uploadProgress * 100));
+                  return qsTr("프로젝트를 클라우드로 저장하는 중…") + " (%1%)".arg(Math.round(cloudProjectCreationConnection.target.uploadProgress * 100));
                 } else {
-                  return qsTr("Cloudifying project");
+                  //return qsTr("Cloudifying project");
+                  return qsTr("프로젝트를 클라우드로 저장하는 중…");
                 }
               }
               //return qsTr('Cloudify!');

@@ -393,7 +393,8 @@ Page {
                           break;
                         case QFieldCloudProject.Downloading:
                           if (PackagingStatus === QFieldCloudProject.PackagingBusyStatus) {
-                            status = qsTr('QFieldCloud is packaging the latest data just for you; this might take some time, please hold tight');
+                            //status = qsTr('QFieldCloud is packaging the latest data just for you; this might take some time, please hold tight');
+                            status = qsTr('QFieldCloud에서 최신 데이터를 패키징하고 있습니다. 다소 시간이 걸릴 수 있으니 잠시만 기다려 주세요.');
                           } else {
                             if (PackagingStatus === QFieldCloudProject.PackagingFinishedStatus || DownloadProgress > 0.0) {
                               if (DownloadSize > 0) {

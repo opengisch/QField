@@ -293,7 +293,7 @@ ApplicationWindow {
       dashBoard.ensureEditableLayerSelected();
       if (dashBoard.activeLayer) {
         //displayToast(qsTr('You are now in digitize mode on layer %1').arg(dashBoard.activeLayer.name));
-        displayToast(qsTr('%1 레이어에서 편집 모드로 전환되었습니다').arg(dashBoard.activeLayer.name));
+        displayToast(qsTr('편집 모드로 전환되었습니다').arg(dashBoard.activeLayer.name));
       } else {
         //displayToast(qsTr('You are now in digitize mode'));
         displayToast(qsTr('편집 모드로 전환되었습니다'));
@@ -302,7 +302,8 @@ ApplicationWindow {
     case 'measure':
       platformUtilities.setHandleVolumeKeys(qfieldSettings.digitizingVolumeKeys);
       informationDrawer.elevationProfile.populateLayersFromProject();
-      displayToast(qsTr('You are now in measure mode'));
+      //displayToast(qsTr('You are now in measure mode'));
+      displayToast(qsTr('측정 모드로 전환되었습니다'));
       break;
     }
   }
@@ -2064,7 +2065,7 @@ ApplicationWindow {
 
           onClicked: {
             digitizingToolbar.cogoEnabled = !digitizingToolbar.cogoEnabled;
-            displayToast(digitizingToolbar.cogoEnabled ? qsTr("COGO digitizing turned on") : qsTr("COGO digitizing turned off"));
+            displayToast(digitizingToolbar.cogoEnabled ? qsTr("정밀 편집 기능이 활성화되었습니다") : qsTr("정밀 편집 기능이 비활성화되었습니다"));
           }
         }
 
