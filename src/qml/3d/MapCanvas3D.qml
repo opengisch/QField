@@ -252,7 +252,7 @@ Item {
     const terrainDiagonal = Math.sqrt(Math.pow(mapTerrainProvider.size.width, 2) + Math.pow(mapTerrainProvider.size.height, 2));
     cameraController.distance = terrainDiagonal * 0.8;
     cameraController.pitch = 85;
-    cameraController.yaw = 0;
+    cameraController.yaw = mapArea.mapSettings.rotation;
     cameraController.target = Qt.vector3d(0, 0, 0);
     cameraController.updateCameraPosition();
     openingAnimation.start();
@@ -268,7 +268,7 @@ Item {
     const terrainDiagonal = Math.sqrt(Math.pow(mapTerrainProvider.size.width, 2) + Math.pow(mapTerrainProvider.size.height, 2));
     cameraController.distance = terrainDiagonal * 0.8;
     cameraController.pitch = 40;
-    cameraController.yaw = 0;
+    cameraController.yaw = mapArea.mapSettings.rotation;
     cameraController.target = Qt.vector3d(0, 0, 0);
   }
 

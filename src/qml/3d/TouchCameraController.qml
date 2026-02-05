@@ -10,9 +10,14 @@ Item {
   signal userInteractionStarted
 
   property vector3d target: Qt.vector3d(0, 100, 0)
-  property real distance: 2200
+
+  property real distance: root.defaultDistance
   property real yaw: 0
   property real pitch: 40
+
+  property real defaultDistance: 2200
+  property real defaultYaw: 0
+  property real defaultPitch: 40
 
   property real minDistance: 100
   property real maxDistance: 10000
@@ -48,7 +53,7 @@ Item {
   }
 
   function resetView() {
-    flyTo(Qt.vector3d(0, 100, 0), 2200, 0, 40);
+    flyTo(Qt.vector3d(0, 100, 0), root.defaultDistance, root.defaultYaw, root.defaultPitch);
   }
 
   function zoomToFit(center, radius) {
@@ -84,9 +89,9 @@ Item {
     property real toTargetX: 0
     property real toTargetY: 100
     property real toTargetZ: 0
-    property real toDistance: 2200
-    property real toYaw: 0
-    property real toPitch: 40
+    property real toDistance: root.defaultDistance
+    property real toYaw: root.defaultYaw
+    property real toPitch: root.defaultPitch
 
     NumberAnimation {
       target: root
