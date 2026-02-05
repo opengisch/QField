@@ -44,8 +44,10 @@ class GotoLocatorFilter : public QgsLocatorFilter
     explicit GotoLocatorFilter( LocatorModelSuperBridge *locatorBridge, QObject *parent = nullptr );
     GotoLocatorFilter *clone() const override;
     QString name() const override { return QStringLiteral( "goto" ); }
-    QString displayName() const override { return tr( "Go to coordinate" ); }
-    QString description() const override { return tr( "Returns a point from a pair of X and Y coordinates - or WGS84 latitude and longitude - typed in the search bar." ); }
+    //QString displayName() const override { return tr( "Go to coordinate" ); }
+    QString displayName() const override { return tr( "좌표로 이동" ); }
+    //QString description() const override { return tr( "Returns a point from a pair of X and Y coordinates - or WGS84 latitude and longitude - typed in the search bar." ); }
+    QString description() const override { return tr( "검색창에 입력한 X·Y 좌표 또는 WGS84 위도·경도 위치로 이동합니다." ); }
     Priority priority() const override { return Medium; }
     QString prefix() const override { return QStringLiteral( "go" ); }
     QgsLocatorFilter::Flags flags() const override { return QgsLocatorFilter::FlagFast; }

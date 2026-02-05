@@ -42,8 +42,10 @@ class BookmarkLocatorFilter : public QgsLocatorFilter
     explicit BookmarkLocatorFilter( LocatorModelSuperBridge *locatorBridge, QObject *parent = nullptr );
     BookmarkLocatorFilter *clone() const override;
     QString name() const override { return QStringLiteral( "bookmarks" ); }
-    QString displayName() const override { return tr( "Spatial bookmarks" ); }
-    QString description() const override { return tr( "Returns a list of user and currently open project bookmarks with matching names." ); }
+    //QString displayName() const override { return tr( "Spatial bookmarks" ); }
+    QString displayName() const override { return tr( "공간 북마크" ); }
+    //QString description() const override { return tr( "Returns a list of user and currently open project bookmarks with matching names." ); }
+    QString description() const override { return tr( "이름이 같은 사용자 북마크와 현재 프로젝트의 북마크를 찾아 목록으로 보여줍니다." ); }
     Priority priority() const override { return Highest; }
     QString prefix() const override { return QStringLiteral( "b" ); }
     QgsLocatorFilter::Flags flags() const override { return QgsLocatorFilter::FlagFast; }

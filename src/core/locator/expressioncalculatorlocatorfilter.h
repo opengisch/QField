@@ -43,8 +43,10 @@ class ExpressionCalculatorLocatorFilter : public QgsLocatorFilter
     explicit ExpressionCalculatorLocatorFilter( LocatorModelSuperBridge *locatorBridge, QObject *parent = nullptr );
     ExpressionCalculatorLocatorFilter *clone() const override;
     QString name() const override { return QStringLiteral( "calculator" ); }
-    QString displayName() const override { return tr( "Calculator" ); }
-    QString description() const override { return tr( "Returns the value of an expression typed in the search bar." ); }
+    //QString displayName() const override { return tr( "Calculator" ); }
+    QString displayName() const override { return tr( "계산기" ); }
+    //QString description() const override { return tr( "Returns the value of an expression typed in the search bar." ); }
+    QString description() const override { return tr( "검색창에 입력한 수식을 계산해 결과를 보여줍니다." ); }
     Priority priority() const override { return Highest; }
     QString prefix() const override { return QStringLiteral( "=" ); }
     QgsLocatorFilter::Flags flags() const override { return QgsLocatorFilter::FlagFast; }

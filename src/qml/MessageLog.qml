@@ -22,7 +22,8 @@ Page {
   rightPadding: mainWindow.sceneRightMargin
 
   header: QfPageHeader {
-    title: qsTr('Message Logs')
+    //title: qsTr('Message Logs')
+    title: qsTr('메시지 기록')
 
     showBackButton: true
     showApplyButton: false
@@ -120,7 +121,8 @@ Page {
     }
 
     QfButton {
-      text: qsTr("Log runtime profiler")
+      //text: qsTr("Log runtime profiler")
+      text: qsTr("실행 중 성능 기록")
       Layout.fillWidth: true
 
       onClicked: {
@@ -129,12 +131,14 @@ Page {
     }
 
     QfButton {
-      text: qsTr("Clear message log")
+      //text: qsTr("Clear message log")
+      text: qsTr("메시지 기록 삭제")
       Layout.fillWidth: true
 
       onClicked: {
         table.model.clear();
-        displayToast(qsTr("Message log cleared"));
+        //displayToast(qsTr("Message log cleared"));
+        displayToast(qsTr("메시지 기록을 삭제했습니다"));
         messageLog.finished();
       }
     }
@@ -142,7 +146,8 @@ Page {
     QfButton {
       id: submitLog
       Layout.fillWidth: true
-      text: qsTr("Send application log")
+      //text: qsTr("Send application log")
+      text: qsTr("애플리케이션 로그 보내기")
       visible: qfieldSettings.enableInfoCollection && platformUtilities.capabilities & PlatformUtilities.SentryFramework
 
       onClicked: {

@@ -515,7 +515,8 @@ QfPopup {
           id: decodedText
           Layout.fillWidth: true
 
-          text: codeReader.decodedString !== '' ? codeReader.decodedString : qsTr('Center your device on a code')
+          //text: codeReader.decodedString !== '' ? codeReader.decodedString : qsTr('Center your device on a code')
+          text: codeReader.decodedString !== '' ? codeReader.decodedString : qsTr('코드를 화면 중앙에 맞추세요')
           font: Theme.tipFont
           color: Theme.mainTextColor
           horizontalAlignment: Text.AlignLeft

@@ -3187,7 +3187,8 @@ ApplicationWindow {
         height: 48
         width: parent.width / 2
         anchors.left: parent.left
-        text: qsTr("Undo")
+        //text: qsTr("Undo")
+        text: qsTr("실행 취소")
         icon.source: Theme.getThemeVectorIcon("ic_undo_black_24dp")
         leftPadding: Theme.menuItemLeftPadding
 
@@ -3213,7 +3214,8 @@ ApplicationWindow {
         height: 48
         width: parent.width / 2
         anchors.right: parent.right
-        text: qsTr("Redo")
+        //text: qsTr("Redo")
+        text: qsTr("다시 실행")
         icon.source: Theme.getThemeVectorIcon("ic_redo_black_24dp")
 
         contentItem: IconLabel {
@@ -3286,7 +3288,10 @@ ApplicationWindow {
           sensorMenu.popup(mainMenu.x, mainMenu.y + sensorItem.y);
         } else {
           mainMenu.close();
-          toast.show(qsTr('No sensor available'), 'info', qsTr('Learn more'), function () {
+          //toast.show(qsTr('No sensor available'), 'info', qsTr('Learn more'), function () {
+          //  Qt.openUrlExternally('https://docs.qfield.org/how-to/advanced-how-tos/sensors/');
+          //});
+          toast.show(qsTr('사용 가능한 센서가 없습니다'), 'info', qsTr('자세히 알아보기'), function () {
             Qt.openUrlExternally('https://docs.qfield.org/how-to/advanced-how-tos/sensors/');
           });
         }
@@ -3315,7 +3320,7 @@ ApplicationWindow {
     }
 
     MenuItem {
-      text: qsTr("Message Log")
+      text: qsTr("메시지 기록")
 
       font: Theme.defaultFont
       height: 48
@@ -3343,7 +3348,8 @@ ApplicationWindow {
     }
 
     MenuItem {
-      text: qsTr("Lock Screen")
+      //text: qsTr("Lock Screen")
+      text: qsTr("화면 잠금")
 
       font: Theme.defaultFont
       icon.source: Theme.getThemeVectorIcon("ic_lock_black_24dp")
@@ -3362,7 +3368,8 @@ ApplicationWindow {
     }
 
     MenuItem {
-      text: qsTr("About QField")
+      //text: qsTr("About QField")
+      text: qsTr("QField 정보")
 
       font: Theme.defaultFont
       icon.source: Theme.getThemeVectorIcon("ic_qfield_black_24dp")
@@ -3383,7 +3390,8 @@ ApplicationWindow {
     property alias printTimer: timer
     property alias printName: timer.printName
 
-    title: qsTr("Sensors")
+    //title: qsTr("Sensors")
+    title: qsTr("센서")
 
     topMargin: sceneTopMargin
     bottomMargin: sceneBottomMargin
@@ -3643,7 +3651,8 @@ ApplicationWindow {
     }
 
     MenuItem {
-      text: qsTr('Lock Screen')
+      //text: qsTr('Lock Screen')
+      text: qsTr('화면 잠금')
 
       font: Theme.defaultFont
       icon.source: Theme.getThemeVectorIcon("ic_lock_black_24dp")

@@ -42,8 +42,10 @@ class HelpLocatorFilter : public QgsLocatorFilter
     explicit HelpLocatorFilter( LocatorModelSuperBridge *locatorBridge, QObject *parent = nullptr );
     HelpLocatorFilter *clone() const override;
     QString name() const override { return QStringLiteral( "optionpages" ); }
-    QString displayName() const override { return tr( "QField Documentation" ); }
-    QString description() const override { return tr( "Returns QField documentation pages matching terms." ); }
+    //QString displayName() const override { return tr( "QField Documentation" ); }
+    QString displayName() const override { return tr( "QField 문서" ); }
+    //QString description() const override { return tr( "Returns QField documentation pages matching terms." ); }
+    QString description() const override { return tr( "검색어에 해당하는 QField 문서 페이지를 제공합니다." ); }
     Priority priority() const override { return Medium; }
     QString prefix() const override { return QStringLiteral( "?" ); }
 

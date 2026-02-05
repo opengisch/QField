@@ -60,8 +60,10 @@ class FeaturesLocatorFilter : public QgsLocatorFilter
     explicit FeaturesLocatorFilter( LocatorModelSuperBridge *locatorBridge, QObject *parent = nullptr );
     FeaturesLocatorFilter *clone() const override;
     QString name() const override { return QStringLiteral( "allfeatures" ); }
-    QString displayName() const override { return tr( "Features in all layers" ); }
-    QString description() const override { return tr( "Returns a list of features accross all searchable layers with matching display name." ); }
+    //QString displayName() const override { return tr( "Features in all layers" ); }
+    QString displayName() const override { return tr( "전체 레이어 항목" ); }
+    //QString description() const override { return tr( "Returns a list of features accross all searchable layers with matching display name." ); }
+    QString description() const override { return tr( "검색 가능한 모든 레이어에서 표시 이름이 일치하는 항목 목록을 반환합니다." ); }
     Priority priority() const override { return Medium; }
     QString prefix() const override { return QStringLiteral( "af" ); }
 
