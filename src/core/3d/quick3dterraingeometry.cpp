@@ -87,12 +87,20 @@ float Quick3DTerrainGeometry::getHeight( int x, int z ) const
 
 QVector3D Quick3DTerrainGeometry::calculateNormal( int x, int z ) const
 {
+  const float cellWidth = mSize.width() / std::max( 1, mGridSize.width() - 1 );
+  const float cellDepth = mSize.height() / std::max( 1, mGridSize.height() - 1 );
+
   const float hL = getHeight( x - 1, z );
   const float hR = getHeight( x + 1, z );
   const float hD = getHeight( x, z - 1 );
   const float hU = getHeight( x, z + 1 );
 
-  return QVector3D( hL - hR, 2.0f / 1, hD - hU ).normalized();
+  // Calculate tangent vectors
+  const QVector3D tangentX( 2.0f * cellWidth, hR - hL, 0.0f );
+  const QVector3D tangentZ( 0.0f, hU - hD, 2.0f * cellDepth );
+
+  // Normal is cross product of tangents
+  return QVector3D::crossProduct( tangentZ, tangentX ).normalized();
 }
 
 void Quick3DTerrainGeometry::updateGeometry()
