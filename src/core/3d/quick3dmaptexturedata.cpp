@@ -121,12 +121,10 @@ void Quick3DMapTextureData::render()
     renderSettings.setExtent( mExtent );
 
 
-    const double dpi = 150.0;
     const double mupp = mMapSettings->mapSettings().mapUnitsPerPixel();
-    const int outputWidth = mExtent.width() / mupp * ( dpi / 96 );
-    const int outputHeight = mExtent.height() / mupp * ( dpi / 96 );
+    const int outputWidth = mExtent.width() / mupp;
+    const int outputHeight = mExtent.height() / mupp;
     renderSettings.setOutputSize( QSize( outputWidth, outputHeight ) );
-    renderSettings.setOutputDpi( 150.0 );
   }
 
   if ( renderSettings.layers().isEmpty() )
