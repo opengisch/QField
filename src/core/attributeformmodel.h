@@ -32,6 +32,7 @@ class AttributeFormModel : public QSortFilterProxyModel
     Q_PROPERTY( FeatureModel *featureModel READ featureModel WRITE setFeatureModel NOTIFY featureModelChanged )
     Q_PROPERTY( bool hasTabs READ hasTabs NOTIFY hasTabsChanged )
     Q_PROPERTY( bool hasRemembrance READ hasRemembrance NOTIFY hasRemembranceChanged )
+    Q_PROPERTY( bool hasConstraints READ hasConstraints NOTIFY hasConstraintsChanged )
     Q_PROPERTY( bool constraintsHardValid READ constraintsHardValid NOTIFY constraintsHardValidChanged )
     Q_PROPERTY( bool constraintsSoftValid READ constraintsSoftValid NOTIFY constraintsSoftValidChanged )
 
@@ -76,6 +77,7 @@ class AttributeFormModel : public QSortFilterProxyModel
 
     bool hasTabs() const;
     bool hasRemembrance() const;
+    bool hasConstraints() const;
 
     FeatureModel *featureModel() const;
     void setFeatureModel( FeatureModel *featureModel );
@@ -124,6 +126,7 @@ class AttributeFormModel : public QSortFilterProxyModel
     void featureModelChanged();
     void hasTabsChanged();
     void hasRemembranceChanged();
+    void hasConstraintsChanged();
     void featureChanged();
     void constraintsHardValidChanged();
     void constraintsSoftValidChanged();

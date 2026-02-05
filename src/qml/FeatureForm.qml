@@ -177,8 +177,7 @@ Page {
           contentHeight: content.height
           bottomMargin: form.bottomMargin
           clip: true
-          ScrollBar.vertical: QfScrollBar {
-          }
+          ScrollBar.vertical: QfScrollBar {}
           boundsBehavior: Flickable.StopAtBounds
 
           Rectangle {
@@ -260,7 +259,6 @@ Page {
         font.bold: true
         topPadding: 10
         bottomPadding: 5
-        opacity: form.state === 'ReadOnly' || embedded && EditorWidget === 'RelationEditor' ? 0.45 : 1
         color: labelOverrideColor !== undefined && labelOverrideColor ? labelColor : Theme.mainTextColor
       }
 
@@ -306,7 +304,6 @@ Page {
         font.bold: true
         topPadding: 10
         bottomPadding: 5
-        opacity: form.state === 'ReadOnly' || embedded && EditorWidget === 'RelationEditor' ? 0.45 : 1
         color: labelOverrideColor !== undefined && labelOverrideColor ? labelColor : Theme.mainTextColor
       }
 
@@ -314,8 +311,13 @@ Page {
         id: qmlItem
 
         property string code: containerCode
+        property var obj: undefined
+
         onCodeChanged: {
-          var obj = Qt.createQmlObject(code, qmlItem, 'qmlContent');
+          if (obj !== undefined) {
+            obj.destroy();
+          }
+          obj = Qt.createQmlObject(code, qmlItem, 'qmlContent');
         }
 
         height: childrenRect.height
@@ -353,7 +355,6 @@ Page {
         font.bold: true
         topPadding: 10
         bottomPadding: 5
-        opacity: form.state === 'ReadOnly' || embedded && EditorWidget === 'RelationEditor' ? 0.45 : 1
         color: labelOverrideColor !== undefined && labelOverrideColor ? labelColor : Theme.mainTextColor
       }
 
@@ -435,8 +436,7 @@ Page {
   Component {
     id: dummyContainer
 
-    Item {
-    }
+    Item {}
   }
 
   /**
@@ -892,7 +892,7 @@ Page {
 
         iconSource: Theme.getThemeVectorIcon("ic_check_white_24dp")
         iconColor: (form.state === 'Add' && model.featureModel.featureAdditionLocked) || !model.constraintsHardValid ? Theme.mainOverlayColor : Theme.mainTextColor
-        bgcolor: (form.state === 'Add' && model.featureModel.featureAdditionLocked) || !model.constraintsHardValid ? Theme.errorColor : !model.constraintsSoftValid ? Theme.warningColor : "transparent"
+        bgcolor: (form.state === 'Add' && model.featureModel.featureAdditionLocked) || !model.constraintsHardValid ? Theme.errorColor : !model.constraintsSoftValid ? Theme.warningColor : model.hasConstraints ? Theme.goodColor : "transparent"
         borderColor: Theme.mainBackgroundColor
         roundborder: true
         round: true

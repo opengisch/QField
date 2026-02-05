@@ -42,7 +42,7 @@ Popup {
       fillColor: Theme.mainBackgroundColor
       frameColor: Theme.mainColor
 
-      Behavior on zoomFactor  {
+      Behavior on zoomFactor {
         enabled: !pinchHandler.active
         NumberAnimation {
           duration: 100
@@ -182,14 +182,14 @@ Popup {
           scale: settings.strokeColor == colorValue ? 1 : 0.66
           opacity: settings.strokeColor == colorValue ? 1 : 0.66
 
-          Behavior on scale  {
+          Behavior on scale {
             enabled: true
             NumberAnimation {
               duration: 200
               easing.type: Easing.OutQuad
             }
           }
-          Behavior on opacity  {
+          Behavior on opacity {
             enabled: true
             NumberAnimation {
               duration: 200

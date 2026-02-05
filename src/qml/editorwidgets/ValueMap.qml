@@ -1,8 +1,6 @@
 import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
-import QtQuick.Controls.Material
-import QtQuick.Controls.Material.impl
 import org.qfield
 import org.qgis
 import Theme
@@ -16,11 +14,11 @@ EditorWidgetBase {
     right: parent.right
   }
 
-  property var currentKeyValue: value
-
   // Workaround to get a signal when the value has changed
+  property var currentKeyValue: value
   onCurrentKeyValueChanged: {
     comboBox.currentIndex = comboBox.model.keyToIndex(currentKeyValue);
+    toggleButtons.selectedIndex = toggleButtons.model.keyToIndex(currentKeyValue);
   }
 
   height: childrenRect.height
@@ -64,15 +62,15 @@ EditorWidgetBase {
   // Using the search and comboBox when there are less than X items in the dropdown proves to be poor UI on normally
   // sized and oriented phones. Some empirical tests proved 6 to be a good number for now.
   readonly property int toggleButtonsThreshold: currentLayer && currentLayer.customProperty('QFieldSync/value_map_button_interface_threshold') !== undefined ? currentLayer.customProperty('QFieldSync/value_map_button_interface_threshold') : 0
-  state: currentItemCount < toggleButtonsThreshold ? "toggleButtonsView" : "comboBoxItemView"
-
-  property real currentItemCount: comboBox.count
+  property bool useToggleButtons: comboBox.count < toggleButtonsThreshold
+  state: useToggleButtons ? "toggleButtonsView" : "comboBoxItemView"
 
   ValueMapModel {
     id: listModel
     filterCaseSensitivity: Qt.CaseInsensitive
     onMapChanged: {
       comboBox.currentIndex = keyToIndex(valueMap.currentKeyValue);
+      toggleButtons.selectedIndex = keyToIndex(valueMap.currentKeyValue);
     }
   }
 
@@ -82,89 +80,20 @@ EditorWidgetBase {
       right: parent.right
     }
 
-    Item {
+    QfToggleButtonGroup {
       id: toggleButtons
       Layout.fillWidth: true
-      Layout.minimumHeight: flow.height + flow.anchors.topMargin + flow.anchors.bottomMargin
+      Layout.minimumHeight: toggleButtons.height
 
-      property real selectedIndex: comboBox.currentIndex
-      property string currentSelectedKey: ""
-      property string currentSelectedValue: ""
+      model: listModel
+      textRole: "value"
+      editing: isEditing
+      editable: isEditable
+      enabled: isEnabled
+      allowDeselect: false
 
-      Flow {
-        id: flow
-        anchors.left: parent.left
-        anchors.right: parent.right
-        anchors.top: parent.top
-        anchors.topMargin: 6
-        anchors.bottomMargin: 6
-        spacing: 8
-
-        Repeater {
-          id: repeater
-          model: comboBox.model
-
-          delegate: Rectangle {
-            id: item
-            width: Math.min(flow.width - 16, innerText.width + 16)
-            height: 34
-            radius: 4
-            color: selected ? isEditable && isEditing ? Theme.mainColor : Theme.controlBorderColor : "transparent"
-            border.color: isEditing ? selected ? Theme.mainColor : Theme.secondaryTextColor : "transparent"
-            border.width: 1
-
-            property bool selected: toggleButtons.selectedIndex == index
-
-            Component.onCompleted: {
-              if (selected) {
-                toggleButtons.currentSelectedKey = key;
-                toggleButtons.currentSelectedValue = value;
-              }
-            }
-
-            Behavior on color  {
-              ColorAnimation {
-                duration: 150
-              }
-            }
-
-            Text {
-              id: innerText
-              width: Math.min(flow.width - 32, implicitWidth)
-              text: value
-              elide: Text.ElideRight
-              anchors.centerIn: parent
-              font: Theme.defaultFont
-              color: !isEditable && isEditing ? Theme.mainTextDisabledColor : selected && isEditing ? Theme.buttonTextColor : Theme.mainTextColor
-            }
-
-            MouseArea {
-              id: mouseArea
-              anchors.fill: parent
-              onClicked: {
-                if (toggleButtons.selectedIndex != index) {
-                  comboBox.currentIndex = index;
-                  toggleButtons.currentSelectedKey = key;
-                  toggleButtons.currentSelectedValue = value;
-                } else {
-                  comboBox.currentIndex = -1;
-                  toggleButtons.currentSelectedKey = "";
-                  toggleButtons.currentSelectedValue = "";
-                }
-                valueChangeRequested(toggleButtons.currentSelectedKey, false);
-              }
-
-              Ripple {
-                clip: true
-                width: parent.width
-                height: parent.height
-                pressed: mouseArea.pressed
-                anchor: parent
-                color: Theme.darkTheme ? "#22ffffff" : "#22000000"
-              }
-            }
-          }
-        }
+      onItemSelected: function (index, itemModel) {
+        valueChangeRequested(itemModel !== undefined ? itemModel.key : "", false);
       }
     }
 
@@ -214,11 +143,6 @@ EditorWidgetBase {
         onPositionChanged: mouse.accepted = false
         onPressAndHold: mouse.accepted = false
       }
-    }
-
-    FontMetrics {
-      id: fontMetrics
-      font: comboBox.font
     }
 
     QfToolButton {
@@ -303,8 +227,7 @@ EditorWidgetBase {
           height: searchFeaturePopup.height - searchBar.height - 50
           boundsBehavior: Flickable.StopAtBounds
           clip: true
-          ScrollBar.vertical: QfScrollBar {
-          }
+          ScrollBar.vertical: QfScrollBar {}
           delegate: Rectangle {
             id: delegateRect
 
@@ -328,8 +251,7 @@ EditorWidgetBase {
               font.italic: value ? false : true
 
               checked: itemChecked
-              indicator: Rectangle {
-              }
+              indicator: Rectangle {}
 
               text: StringUtils.highlightText(itemText, searchBar.searchTerm, Theme.mainTextColor)
 

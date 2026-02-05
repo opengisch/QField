@@ -27,8 +27,7 @@ LinePolygonShape {
   Component {
     id: componentPathPolyline
 
-    PathPolyline {
-    }
+    PathPolyline {}
   }
 
   Shape {

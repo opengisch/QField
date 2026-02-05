@@ -32,6 +32,7 @@
         <file>themes/qfield/nodpi/ic_tcp_receiver_black_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_udp_receiver_black_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_serial_port_receiver_black_24dp.svg</file>
+        <file>themes/qfield/nodpi/ic_coordinate_locator_white_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_copy_black_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_cut_black_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_book_white_24dp.svg</file>
@@ -87,6 +88,10 @@
         <file>themes/qfield/nodpi/ic_cloud_project_download_48dp.svg</file>
         <file>themes/qfield/nodpi/ic_cloud_project_upload_48dp.svg</file>
         <file>themes/qfield/nodpi/ic_cloud_project_localonly_48dp.svg</file>
+        <file>themes/qfield/nodpi/ic_cogo_white_24dp.svg</file>
+        <file>themes/qfield/nodpi/ic_cogo_angle_distance_white_24dp.svg</file>
+        <file>themes/qfield/nodpi/ic_cogo_intersection_circles_white_24dp.svg</file>
+        <file>themes/qfield/nodpi/ic_cogo_xy_white_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_geotag_white_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_geotag_missing_white_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_chevron_left_white_24dp.svg</file>
@@ -155,6 +160,7 @@
         <file>themes/qfield/nodpi/ic_geometry_point_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_geometry_line_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_geometry_polygon_24dp.svg</file>
+        <file>themes/qfield/nodpi/ic_geometry_mixed_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_vectorlayer_point_18dp.svg</file>
         <file>themes/qfield/nodpi/ic_vectorlayer_line_18dp.svg</file>
         <file>themes/qfield/nodpi/ic_vectorlayer_polygon_18dp.svg</file>
@@ -194,5 +200,7 @@
         <file>themes/qfield/nodpi/ic_login_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_download_white_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_sort_white_24dp.svg</file>
+        <file>themes/qfield/nodpi/ic_collapse_all_24dp.svg</file>
+        <file>themes/qfield/nodpi/ic_expand_all_24dp.svg</file>
     </qresource>
 </RCC>

@@ -209,14 +209,14 @@ Drawer {
     }
   }
 
-  Behavior on width  {
+  Behavior on width {
     PropertyAnimation {
       duration: parent.width > parent.height && !isDragging ? 250 : 0
       easing.type: Easing.OutQuart
     }
   }
 
-  Behavior on height  {
+  Behavior on height {
     PropertyAnimation {
       duration: parent.width < parent.height && !isDragging ? 250 : 0
       easing.type: Easing.OutQuart

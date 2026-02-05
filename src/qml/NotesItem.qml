@@ -45,8 +45,7 @@ QfPopup {
     ScrollView {
       padding: 5
       ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
-      ScrollBar.vertical: QfScrollBar {
-      }
+      ScrollBar.vertical: QfScrollBar {}
       contentWidth: popupLayout.width
       contentHeight: popupLayout.childrenRect.height
       height: parent.height

@@ -1,4 +1,8 @@
 set(QFIELD_CORE_SRCS
+    cogo/cogoexecutor.cpp
+    cogo/cogooperation.cpp
+    cogo/cogooperationsmodel.cpp
+    cogo/cogoregistry.cpp
     platforms/platformutilities.cpp
     utils/coordinatereferencesystemutils.cpp
     utils/expressioncontextutils.cpp
@@ -91,6 +95,7 @@ set(QFIELD_CORE_SRCS
     linepolygonshape.cpp
     localfilesimageprovider.cpp
     localfilesmodel.cpp
+    maplayermodel.cpp
     maptoscreen.cpp
     messagelogmodel.cpp
     multifeaturelistmodel.cpp
@@ -104,12 +109,14 @@ set(QFIELD_CORE_SRCS
     pluginmanager.cpp
     pluginmodel.cpp
     resourcesource.cpp
+    translatormanager.cpp
     printlayoutlistmodel.cpp
     projectinfo.cpp
     projectsource.cpp
     projectsimageprovider.cpp
     qfieldappauthrequesthandler.cpp
     qfieldurlhandler.cpp
+    qfieldxmlhttprequest.cpp
     qgismobileapp.cpp
     qgsgeometrywrapper.cpp
     qgsgpkgflusher.cpp
@@ -132,6 +139,10 @@ set(QFIELD_CORE_SRCS
     webdavconnection.cpp)
 
 set(QFIELD_CORE_HDRS
+    cogo/cogoexecutor.h
+    cogo/cogooperation.h
+    cogo/cogooperationsmodel.h
+    cogo/cogoregistry.h
     platforms/platformutilities.h
     utils/coordinatereferencesystemutils.h
     utils/expressioncontextutils.h
@@ -223,6 +234,7 @@ set(QFIELD_CORE_HDRS
     linepolygonshape.h
     localfilesimageprovider.h
     localfilesmodel.h
+    maplayermodel.h
     maptoscreen.h
     messagelogmodel.h
     multifeaturelistmodel.h
@@ -236,12 +248,14 @@ set(QFIELD_CORE_HDRS
     pluginmanager.h
     pluginmodel.h
     resourcesource.h
+    translatormanager.h
     printlayoutlistmodel.h
     projectinfo.h
     projectsource.h
     projectsimageprovider.h
     qfieldappauthrequesthandler.h
     qfieldurlhandler.h
+    qfieldxmlhttprequest.h
     qgismobileapp.h
     qgsgeometrywrapper.h
     qgsgpkgflusher.h
@@ -339,6 +353,7 @@ endif()
 target_include_directories(
   qfield_core
   PUBLIC ${CMAKE_SOURCE_DIR}/src/core
+         ${CMAKE_SOURCE_DIR}/src/core/cogo
          ${CMAKE_SOURCE_DIR}/src/core/locator
          ${CMAKE_SOURCE_DIR}/src/core/platforms
          ${CMAKE_SOURCE_DIR}/src/core/qgsquick

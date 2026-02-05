@@ -6,6 +6,7 @@ on:
       - 🐧 Linux
       - 🍎 MacOS
       - 🪟 Windows
+      - 📱 Android
     types:
       - completed
 

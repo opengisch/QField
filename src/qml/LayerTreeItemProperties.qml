@@ -99,8 +99,7 @@ QfPopup {
       anchors.fill: parent
       padding: 5
       ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
-      ScrollBar.vertical: QfScrollBar {
-      }
+      ScrollBar.vertical: QfScrollBar {}
       contentWidth: popupLayout.childrenRect.width
       contentHeight: popupLayout.childrenRect.height
       clip: true

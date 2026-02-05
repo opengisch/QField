@@ -19,6 +19,7 @@ Item {
   property var relation: undefined
   property var layerResolver: undefined
   property var currentKeyValue: value
+  readonly property alias count: comboBox.count
   property EmbeddedFeatureForm embeddedFeatureForm: embeddedPopupLoader.item
   readonly property alias searchPopup: searchFeaturePopup
   property color displayedTextColor: FeatureUtils.attributeIsNull(value) || value === "" || (!isEditable && isEditing) ? Theme.mainTextDisabledColor : Theme.mainTextColor
@@ -114,8 +115,7 @@ Item {
         width: parent.width
         height: searchFeaturePopup.height - searchBar.height - 50
         clip: true
-        ScrollBar.vertical: QfScrollBar {
-        }
+        ScrollBar.vertical: QfScrollBar {}
         section.property: featureListModel ? featureListModel.groupField != "" ? "groupFieldValue" : "" : ""
         section.labelPositioning: ViewSection.CurrentLabelAtStart | ViewSection.InlineLabels
         section.delegate: Component {
@@ -167,8 +167,7 @@ Item {
               font.weight: model.checked ? Font.DemiBold : Font.Normal
 
               checked: model.checked
-              indicator: Rectangle {
-              }
+              indicator: Rectangle {}
             }
 
             CheckBox {
@@ -298,24 +297,14 @@ Item {
       }
 
       font: Theme.defaultFont
-
-      contentItem: Text {
-        leftPadding: relationCombobox.enabled || (!isEditable && isEditing) ? 10 : 0
-        height: fontMetrics.height + 20
-        text: {
-          if (!isEditing && value === "") {
-            return qsTr("Empty");
-          } else if (!isEditing && FeatureUtils.attributeIsNull(value)) {
-            return qsTr("NULL");
-          }
-          return comboBox.currentIndex === -1 && value !== undefined ? '(' + value + ')' : comboBox.currentText;
+      text.color: displayedTextColor
+      displayText: {
+        if (!isEditing && value === "") {
+          return qsTr("Empty");
+        } else if (!isEditing && FeatureUtils.attributeIsNull(value)) {
+          return qsTr("NULL");
         }
-
-        font: comboBox.font
-        horizontalAlignment: Text.AlignLeft
-        verticalAlignment: Text.AlignVCenter
-        elide: Text.ElideRight
-        color: displayedTextColor
+        return comboBox.currentIndex === -1 && value !== undefined ? '(' + value + ')' : comboBox.currentText;
       }
 
       popup: Popup {
@@ -362,8 +351,7 @@ Item {
             }
           }
 
-          ScrollIndicator.vertical: ScrollIndicator {
-          }
+          ScrollIndicator.vertical: ScrollIndicator {}
         }
       }
 

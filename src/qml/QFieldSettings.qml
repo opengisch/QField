@@ -18,6 +18,7 @@ Page {
   property alias fullScreenIdentifyView: registry.fullScreenIdentifyView
   property alias locatorKeepScale: registry.locatorKeepScale
   property alias autoOpenFormSingleIdentify: registry.autoOpenFormSingleIdentify
+  property alias autoZoomToIdentifiedFeature: registry.autoZoomToIdentifiedFeature
   property alias numericalDigitizingInformation: registry.numericalDigitizingInformation
   property alias showBookmarks: registry.showBookmarks
   property alias nativeCamera2: registry.nativeCamera2
@@ -58,6 +59,7 @@ Page {
     property bool fullScreenIdentifyView: false
     property bool locatorKeepScale: false
     property bool autoOpenFormSingleIdentify: false
+    property bool autoZoomToIdentifiedFeature: false
     property bool numericalDigitizingInformation: false
     property bool showBookmarks: true
     property bool nativeCamera2: false
@@ -175,6 +177,12 @@ Page {
       title: qsTr("Fixed scale navigation")
       description: qsTr("When fixed scale navigation is active, focusing on a search result will pan to the feature. With fixed scale navigation disabled it will pan and zoom to the feature.")
       settingAlias: "locatorKeepScale"
+      isVisible: true
+    }
+    ListElement {
+      title: qsTr("Auto-zoom to identified feature(s)")
+      description: qsTr("When enabled, the map will automatically zoom to show all identified features, as well as the individual selected feature when the feature form is opened.")
+      settingAlias: "autoZoomToIdentifiedFeature"
       isVisible: true
     }
   }
@@ -295,11 +303,11 @@ Page {
 
     SwipeView {
       id: swipeView
-      width: mainWindow.width
       currentIndex: bar.currentIndex
       Layout.fillHeight: true
       Layout.fillWidth: true
       onCurrentIndexChanged: bar.currentIndex = swipeView.currentIndex
+      clip: true
 
       Item {
         ScrollView {
@@ -307,8 +315,7 @@ Page {
           leftPadding: 0
           rightPadding: 0
           ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
-          ScrollBar.vertical: QfScrollBar {
-          }
+          ScrollBar.vertical: QfScrollBar {}
           contentWidth: generalSettingsGrid.width
           contentHeight: generalSettingsGrid.height
           anchors.fill: parent
@@ -316,7 +323,7 @@ Page {
 
           ColumnLayout {
             id: generalSettingsGrid
-            width: parent.parent.width
+            width: swipeView.width
 
             GridLayout {
               Layout.fillWidth: true
@@ -339,7 +346,7 @@ Page {
             }
 
             ListView {
-              Layout.preferredWidth: mainWindow.width
+              Layout.fillWidth: true
               Layout.preferredHeight: childrenRect.height
               interactive: false
 
@@ -437,7 +444,7 @@ Page {
             }
 
             ListView {
-              Layout.preferredWidth: mainWindow.width
+              Layout.fillWidth: true
               Layout.preferredHeight: childrenRect.height
               interactive: false
 
@@ -528,7 +535,7 @@ Page {
             }
 
             ListView {
-              Layout.preferredWidth: mainWindow.width
+              Layout.fillWidth: true
               Layout.preferredHeight: childrenRect.height
               interactive: false
 
@@ -715,18 +722,6 @@ Page {
                 wrapMode: Text.WordWrap
               }
 
-              Label {
-                id: languageTip
-                visible: false
-
-                Layout.fillWidth: true
-                text: qsTr("To apply the selected user interface language, QField needs to completely shutdown and restart.")
-                font: Theme.tipFont
-                color: Theme.warningColor
-
-                wrapMode: Text.WordWrap
-              }
-
               QfComboBox {
                 id: languageComboBox
                 enabled: true
@@ -741,10 +736,13 @@ Page {
                 property variant languageCodes: undefined
                 property string currentLanguageCode: undefined
 
-                onCurrentIndexChanged: {
+                onActivated: {
                   if (currentLanguageCode != undefined) {
-                    settings.setValue("customLanguage", languageCodes[currentIndex]);
-                    languageTip.visible = languageCodes[currentIndex] !== currentLanguageCode;
+                    var newLanguageCode = languageCodes[currentIndex];
+                    if (newLanguageCode !== currentLanguageCode) {
+                      iface.changeLanguage(newLanguageCode);
+                      currentLanguageCode = newLanguageCode;
+                    }
                   }
                 }
 
@@ -758,12 +756,11 @@ Page {
                   languageComboBox.model = items.concat(Object.values(languages));
                   languageComboBox.currentIndex = languageCodes.indexOf(customLanguageCode);
                   currentLanguageCode = customLanguageCode || '';
-                  languageTip.visible = false;
                 }
               }
 
               Label {
-                text: qsTr("Found a missing or incomplete language? %1Join the translator community.%2").arg('<a href="https://www.transifex.com/opengisch/qfield-for-qgis/">').arg('</a>')
+                text: qsTr("Found a missing or incomplete language? %1Join the translator community.%2").arg('<a href="https://explore.transifex.com/opengisch/qfield-for-qgis/">').arg('</a>')
                 font: Theme.tipFont
                 color: Theme.secondaryTextColor
                 textFormat: Qt.RichText
@@ -797,7 +794,7 @@ Page {
             }
 
             ListView {
-              Layout.preferredWidth: mainWindow.width
+              Layout.fillWidth: true
               Layout.preferredHeight: childrenRect.height
               interactive: false
 
@@ -822,8 +819,7 @@ Page {
           leftPadding: 20
           rightPadding: 20
           ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
-          ScrollBar.vertical: QfScrollBar {
-          }
+          ScrollBar.vertical: QfScrollBar {}
           contentWidth: positioningGrid.width
           contentHeight: positioningGrid.height
           anchors.fill: parent
@@ -940,14 +936,19 @@ Page {
                     }
                   }
 
+                  property bool loaded: false
+
                   onCurrentIndexChanged: {
-                    var modelIndex = positioningDeviceModel.index(currentIndex, 0);
-                    positioningSettings.positioningDevice = positioningDeviceModel.data(modelIndex, PositioningDeviceModel.DeviceId);
-                    positioningSettings.positioningDeviceName = positioningDeviceModel.data(modelIndex, PositioningDeviceModel.DeviceName);
+                    if (loaded && currentIndex !== -1) {
+                      const modelIndex = positioningDeviceModel.index(currentIndex, 0);
+                      positioningSettings.positioningDevice = positioningDeviceModel.data(modelIndex, PositioningDeviceModel.DeviceId);
+                      positioningSettings.positioningDeviceName = positioningDeviceModel.data(modelIndex, PositioningDeviceModel.DeviceName);
+                    }
                   }
 
                   Component.onCompleted: {
-                    currentIndex = positioningDeviceModel.findIndexFromDeviceId(settings.value('positioningDevice', ''));
+                    currentIndex = positioningDeviceModel.findIndexFromDeviceId(positioningSettings.positioningDevice);
+                    loaded = true;
                   }
                 }
               }
@@ -1062,6 +1063,53 @@ Page {
                 onCheckedChanged: {
                   positioningSettings.showPositionInformation = checked;
                 }
+              }
+
+              Label {
+                id: positionFollowModeLabel
+                Layout.fillWidth: true
+                Layout.columnSpan: 2
+                text: qsTr("Behavior when locked to position:")
+                font: Theme.defaultFont
+                color: Theme.mainTextColor
+
+                wrapMode: Text.WordWrap
+              }
+
+              QfComboBox {
+                id: positionFollowModeComboBox
+                Layout.fillWidth: true
+                Layout.columnSpan: 2
+                Layout.alignment: Qt.AlignVCenter
+                font: Theme.defaultFont
+                model: [qsTr("Follow position only"), qsTr("Follow position and compass orientation"), qsTr("Follow position and movement direction")]
+
+                popup.font: Theme.defaultFont
+                popup.topMargin: mainWindow.sceneTopMargin
+                popup.bottomMargin: mainWindow.sceneTopMargin
+
+                property bool loaded: false
+
+                Component.onCompleted: {
+                  positionFollowModeComboBox.currentIndex = positioningSettings.positionFollowMode;
+                  loaded = true;
+                }
+
+                onCurrentIndexChanged: {
+                  if (loaded) {
+                    positioningSettings.positionFollowMode = currentIndex;
+                  }
+                }
+              }
+
+              Label {
+                id: positionFollowModeTipLabel
+                Layout.fillWidth: true
+                text: qsTr("When the map canvas is following or locked to position, it can also rotate to match compass orientation or movement direction.")
+                font: Theme.tipFont
+                color: Theme.secondaryTextColor
+
+                wrapMode: Text.WordWrap
               }
 
               Label {
@@ -1245,12 +1293,12 @@ Page {
 
               Label {
                 text: qsTr("When the accuracy indicator is enabled, a badge is attached to the location button and colored <span %1>red</span> if the accuracy value is worse than <i>bad</i>, <span %2>yellow</span> if it falls short of <i>excellent</i>, or <span %3>green</span>.<br><br>In addition, an accuracy restriction mode can be toggled on, which restricts vertex addition when locked to coordinate cursor to positions with an accuracy value worse than the bad threshold.").arg("style='%1'".arg(Theme.toInlineStyles({
-                        "color": Theme.accuracyBad
-                      }))).arg("style='%1'".arg(Theme.toInlineStyles({
-                        "color": Theme.accuracyTolerated
-                      }))).arg("style='%1'".arg(Theme.toInlineStyles({
-                        "color": Theme.accuracyExcellent
-                      })))
+                  "color": Theme.accuracyBad
+                }))).arg("style='%1'".arg(Theme.toInlineStyles({
+                  "color": Theme.accuracyTolerated
+                }))).arg("style='%1'".arg(Theme.toInlineStyles({
+                  "color": Theme.accuracyExcellent
+                })))
                 font: Theme.tipFont
                 color: Theme.secondaryTextColor
                 textFormat: Qt.RichText
@@ -1524,23 +1572,23 @@ Page {
                   reloading = true;
                   verticalGridShiftComboBox.model.clear();
                   verticalGridShiftComboBox.model.append({
-                      "text": qsTr("None"),
-                      "value": Positioning.ElevationCorrectionMode.None
-                    });
+                    "text": qsTr("None"),
+                    "value": Positioning.ElevationCorrectionMode.None
+                  });
                   if ((positionSource.deviceCapabilities & AbstractGnssReceiver.OrthometricAltitude) != 0) {
                     verticalGridShiftComboBox.model.append({
-                        "text": qsTr("Orthometric from device"),
-                        "value": Positioning.ElevationCorrectionMode.OrthometricFromDevice
-                      });
+                      "text": qsTr("Orthometric from device"),
+                      "value": Positioning.ElevationCorrectionMode.OrthometricFromDevice
+                    });
                   }
 
                   // Add geoid files to combobox
                   var geoidFiles = platformUtilities.availableGrids();
                   for (var i = 0; i < geoidFiles.length; i++)
                     verticalGridShiftComboBox.model.append({
-                        "text": geoidFiles[i],
-                        "value": Positioning.ElevationCorrectionMode.OrthometricFromGeoidFile
-                      });
+                      "text": geoidFiles[i],
+                      "value": Positioning.ElevationCorrectionMode.OrthometricFromGeoidFile
+                    });
                   if (positioningSettings.elevationCorrectionMode === Positioning.ElevationCorrectionMode.None) {
                     verticalGridShiftComboBox.currentIndex = indexOfValue(positioningSettings.elevationCorrectionMode);
                     positioningSettings.verticalGrid = "";
@@ -1824,7 +1872,6 @@ Page {
       }
       var index = positioningDeviceModel.addDevice(type, name, settings);
       positioningDeviceComboBox.currentIndex = index;
-      positioningDeviceComboBox.onCurrentIndexChanged();
     }
   }
 

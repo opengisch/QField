@@ -95,7 +95,9 @@ Pane {
         lastHeight = parent.height;
         return parent.height;
       } else {
-        const newHeight = Math.min(Math.max(200, parent.height / 2), parent.height);
+        const defaultMin = Math.min(Math.max(200, parent.height / 2), parent.height);
+        var minContentHeight = featureForm.visible ? defaultMin : featureListToolBar.height + (globalFeaturesList.contentHeight + globalFeaturesList.anchors.bottomMargin) + 25;
+        const newHeight = Math.min(minContentHeight, defaultMin);
         lastHeight = newHeight;
         return newHeight;
       }
@@ -257,8 +259,7 @@ Pane {
 
   WheelHandler {
     acceptedDevices: PointerDevice.AllDevices
-    onWheel: {
-    }
+    onWheel: {}
   }
 
   QtObject {
@@ -280,8 +281,7 @@ Pane {
     anchors.bottomMargin: mainWindow.sceneBottomMargin
     height: parent.height - featureListToolBar.height
     visible: false
-    ScrollBar.vertical: QfScrollBar {
-    }
+    ScrollBar.vertical: QfScrollBar {}
 
     section.property: "layerName"
     section.labelPositioning: ViewSection.CurrentLabelAtStart | ViewSection.InlineLabels
@@ -338,13 +338,16 @@ Pane {
         id: featureText
         anchors {
           leftMargin: featureFormList.multiSelection ? 50 : 10
+          rightMargin: 10
           left: parent.left
+          right: parent.right
           verticalCenter: parent.verticalCenter
         }
         font.bold: true
         font.pointSize: Theme.resultFont.pointSize
         color: Theme.mainTextColor
         text: display
+        wrapMode: Text.WordWrap
       }
 
       Rectangle {
@@ -353,7 +356,7 @@ Pane {
         width: 6
         color: featureFormList.selectionColor
         opacity: index == featureFormList.selection.focusedItem && featureFormList.selection.model.selectedCount == 0 ? 1 : 0
-        Behavior on opacity  {
+        Behavior on opacity {
           PropertyAnimation {
             easing.type: Easing.OutQuart
           }
@@ -398,6 +401,16 @@ Pane {
       }
     }
 
+    function sectionCount() {
+      let sections = {};
+      for (let i = 0; i < globalFeaturesList.model.count; ++i) {
+        const idx = globalFeaturesList.model.index(i, 0);
+        let sectionVal = globalFeaturesList.model.data(idx, MultiFeatureListModel.LayerNameRole);
+        sections[sectionVal] = true;
+      }
+      return Object.keys(sections).length;
+    }
+
     /* bottom border */
     Rectangle {
       anchors.bottom: parent.bottom
@@ -406,7 +419,7 @@ Pane {
       width: parent.width
     }
 
-    Behavior on height  {
+    Behavior on height {
       PropertyAnimation {
         easing.type: Easing.OutQuart
       }
@@ -513,6 +526,7 @@ Pane {
       model: globalFeaturesList.model
       selection: featureFormList.selection
       mapSettings: featureFormList.mapSettings
+      autoZoom: qfieldSettings.autoZoomToIdentifiedFeature
 
       onFeatureFormStateRequested: {
         featureFormList.state = "FeatureForm";
@@ -553,7 +567,8 @@ Pane {
     onStatusIndicatorDragReleased: {
       isDragging = false;
       if (isVertical) {
-        if (featureFormList.height < featureFormList.parent.height * 0.3) {
+        const minContentHeight = featureListToolBar.height + 48 + 30;
+        if (featureFormList.height < minContentHeight) {
           if (fullScreenView) {
             fullScreenView = false;
           } else {
@@ -785,7 +800,7 @@ Pane {
     }
   }
 
-  Behavior on width  {
+  Behavior on width {
     enabled: !isDragging
     PropertyAnimation {
       duration: parent.width > parent.height ? 250 : 0
@@ -800,7 +815,7 @@ Pane {
     }
   }
 
-  Behavior on height  {
+  Behavior on height {
     enabled: !isDragging
     PropertyAnimation {
       duration: parent.width < parent.height ? 250 : 0
@@ -815,7 +830,7 @@ Pane {
     }
   }
 
-  Behavior on anchors.rightMargin  {
+  Behavior on anchors.rightMargin {
     PropertyAnimation {
       duration: 250
       easing.type: Easing.OutQuart
@@ -829,7 +844,7 @@ Pane {
     }
   }
 
-  Behavior on anchors.bottomMargin  {
+  Behavior on anchors.bottomMargin {
     PropertyAnimation {
       duration: 250
       easing.type: Easing.OutQuart

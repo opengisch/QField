@@ -19,16 +19,22 @@
 #include "fileutils.h"
 #include "platformutilities.h"
 #include "qfield.h"
+#include "qfieldxmlhttprequest.h"
 #include "qgismobileapp.h"
+#include "translatormanager.h"
 #if WITH_SENTRY
 #include "sentry_wrapper.h"
 #endif
 
+#include <QCoreApplication>
 #include <QDirIterator>
 #include <QFileInfo>
 #include <QImageReader>
+#include <QLocale>
 #include <QQuickItem>
+#include <QSettings>
 #include <QTemporaryFile>
+#include <QTranslator>
 #include <qgsapplication.h>
 #include <qgsauthmanager.h>
 #include <qgsmessagelog.h>
@@ -41,6 +47,19 @@ AppInterface *AppInterface::sAppInterface = nullptr;
 AppInterface::AppInterface( QgisMobileapp *app )
   : mApp( app )
 {
+}
+
+QObject *AppInterface::createHttpRequest() const
+{
+  QFieldXmlHttpRequest *request = new QFieldXmlHttpRequest();
+
+  QObject *rootObject = ( !mApp->rootObjects().isEmpty() ) ? mApp->rootObjects().at( 0 ) : nullptr;
+  if ( rootObject && qmlEngine( rootObject ) )
+  {
+    QQmlEngine::setObjectOwnership( request, QQmlEngine::CppOwnership );
+  }
+
+  return request;
 }
 
 QObject *AppInterface::findItemByObjectName( const QString &name ) const
@@ -225,6 +244,55 @@ QVariantMap AppInterface::availableLanguages() const
     }
   }
   return languages;
+}
+
+void AppInterface::changeLanguage( const QString &languageCode )
+{
+  if ( !languageCode.isEmpty() && !availableLanguages().contains( languageCode ) )
+  {
+    qWarning() << "Language code" << languageCode << "is not available, ignoring language change request";
+    return;
+  }
+
+  QTranslator *qfieldTranslator = TranslatorManager::instance()->qfieldTranslator();
+  QTranslator *qtTranslator = TranslatorManager::instance()->qtTranslator();
+
+  QCoreApplication::removeTranslator( qtTranslator );
+  QCoreApplication::removeTranslator( qfieldTranslator );
+
+  if ( !qfieldTranslator->load( QStringLiteral( "qfield_%1" ).arg( languageCode ), QStringLiteral( ":/i18n/" ), "_" ) )
+  {
+    qWarning() << "Failed to load QField translation for" << languageCode;
+  }
+  if ( !qtTranslator->load( QStringLiteral( "qt_%1" ).arg( languageCode ), QStringLiteral( ":/i18n/" ), "_" ) )
+  {
+    qWarning() << "Failed to load Qt translation for" << languageCode;
+  }
+
+  QCoreApplication::installTranslator( qtTranslator );
+  QCoreApplication::installTranslator( qfieldTranslator );
+
+  QSettings settings;
+  settings.setValue( QStringLiteral( "/customLanguage" ), languageCode );
+
+  if ( !languageCode.isEmpty() )
+  {
+    QLocale customLocale( languageCode );
+    QLocale::setDefault( customLocale );
+    QgsApplication::setTranslation( languageCode );
+    QgsApplication::setLocale( QLocale() );
+  }
+  else
+  {
+    QLocale systemLocale = QLocale::system();
+    QLocale::setDefault( systemLocale );
+    QgsApplication::setTranslation( systemLocale.name() );
+    QgsApplication::setLocale( systemLocale );
+  }
+  if ( mApp )
+  {
+    mApp->retranslate();
+  }
 }
 
 bool AppInterface::isFileExtensionSupported( const QString &filename ) const

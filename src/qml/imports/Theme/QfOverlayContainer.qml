@@ -8,6 +8,7 @@ Rectangle {
   id: container
 
   default property alias contents: containerLayout.children
+  property alias layout: containerLayout
   property alias title: title.text
 
   width: parent.width

@@ -105,7 +105,7 @@ ListView {
             enabled: HasChildren
             rotation: !IsCollapsed ? 90 : 0
 
-            Behavior on rotation  {
+            Behavior on rotation {
               NumberAnimation {
                 duration: 100
               }
@@ -144,8 +144,7 @@ ListView {
             contentWidth: legendImage.width
             contentHeight: legendImage.height
             clip: true
-            ScrollBar.horizontal: QfScrollBar {
-            }
+            ScrollBar.horizontal: QfScrollBar {}
 
             Image {
               id: legendImage
@@ -282,14 +281,14 @@ ListView {
 
             onClicked: {
               displayToast(qsTr('Tracking active on this layer.'), 'info', qsTr('Stop'), function () {
-                  if (trackingModel.layerInActiveTracking(VectorLayerPointer)) {
-                    trackingModel.stopTracker(VectorLayerPointer);
-                    displayToast(qsTr('Tracking on layer %1 stopped').arg(VectorLayerPointer.name));
-                  }
-                });
+                if (trackingModel.layerInActiveTracking(VectorLayerPointer)) {
+                  trackingModel.stopTracker(VectorLayerPointer);
+                  displayToast(qsTr('Tracking on layer %1 stopped').arg(VectorLayerPointer.name));
+                }
+              });
             }
 
-            SequentialAnimation on bgcolor  {
+            SequentialAnimation on bgcolor {
               running: isVisible && legend.isVisible
               loops: Animation.Infinite
               ColorAnimation {

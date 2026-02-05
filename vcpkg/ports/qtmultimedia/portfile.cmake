@@ -7,6 +7,7 @@ set(${PORT}_PATCHES
     ffmpeg-compile-def.patch
     ffmpeg.patch
     windows-camera.patch
+    ios-camera.patch
 )
 
 vcpkg_check_features(OUT_FEATURE_OPTIONS FEATURE_OPTIONS

@@ -201,7 +201,7 @@ Rectangle {
       }
     }
 
-    Behavior on width  {
+    Behavior on width {
       PropertyAnimation {
         easing.type: Easing.OutQuart
       }
@@ -235,7 +235,7 @@ Rectangle {
       }
     }
 
-    Behavior on width  {
+    Behavior on width {
       PropertyAnimation {
         easing.type: Easing.OutQuart
       }
@@ -257,7 +257,7 @@ Rectangle {
 
     iconSource: Theme.getThemeVectorIcon("ic_check_white_24dp")
     iconColor: !featureForm.model.constraintsHardValid ? Theme.mainOverlayColor : Theme.mainTextColor
-    bgcolor: !featureForm.model.constraintsHardValid ? Theme.errorColor : !featureForm.model.constraintsSoftValid ? Theme.warningColor : "transparent"
+    bgcolor: !featureForm.model.constraintsHardValid ? Theme.errorColor : !featureForm.model.constraintsSoftValid ? Theme.warningColor : featureForm.model.hasConstraints ? Theme.goodColor : "transparent"
     borderColor: Theme.mainBackgroundColor
     roundborder: true
     round: true
@@ -273,7 +273,7 @@ Rectangle {
         }
       }
     }
-    Behavior on width  {
+    Behavior on width {
       PropertyAnimation {
         easing.type: Easing.OutQuart
       }
@@ -300,7 +300,7 @@ Rectangle {
       toolBar.cancel();
     }
 
-    Behavior on width  {
+    Behavior on width {
       PropertyAnimation {
         easing.type: Easing.OutQuart
       }
@@ -330,7 +330,7 @@ Rectangle {
       toolBar.editGeometryButtonClicked();
     }
 
-    Behavior on width  {
+    Behavior on width {
       PropertyAnimation {
         easing.type: Easing.OutQuart
       }
@@ -367,7 +367,7 @@ Rectangle {
       toolBar.editAttributesButtonClicked();
     }
 
-    Behavior on width  {
+    Behavior on width {
       PropertyAnimation {
         easing.type: Easing.OutQuart
       }
@@ -413,7 +413,7 @@ Rectangle {
       }
     }
 
-    Behavior on width  {
+    Behavior on width {
       PropertyAnimation {
         easing.type: Easing.OutQuart
       }
@@ -439,7 +439,7 @@ Rectangle {
 
     onClicked: toggleMultiSelection()
 
-    Behavior on width  {
+    Behavior on width {
       PropertyAnimation {
         easing.type: Easing.OutQuart
       }
@@ -486,7 +486,7 @@ Rectangle {
       multiEditClicked();
     }
 
-    Behavior on width  {
+    Behavior on width {
       PropertyAnimation {
         easing.type: Easing.OutQuart
       }
@@ -740,9 +740,9 @@ Rectangle {
       leftPadding: Theme.menuItemCheckLeftPadding
 
       checkable: true
-      checked: extentController.autoZoom
+      checked: qfieldSettings.autoZoomToIdentifiedFeature
 
-      onTriggered: extentController.autoZoom = !extentController.autoZoom
+      onTriggered: qfieldSettings.autoZoomToIdentifiedFeature = !qfieldSettings.autoZoomToIdentifiedFeature
     }
 
     MenuSeparator {

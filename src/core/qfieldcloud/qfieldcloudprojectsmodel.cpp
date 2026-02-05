@@ -40,7 +40,6 @@
 QFieldCloudProjectsModel::QFieldCloudProjectsModel()
 {
   // TODO all of these connects are a bit too much, and I guess not very precise, should be refactored!
-
   connect( this, &QFieldCloudProjectsModel::dataChanged, this, [this]( const QModelIndex &topLeft, const QModelIndex &bottomRight, const QVector<int> &roles ) {
     Q_UNUSED( bottomRight )
     Q_UNUSED( roles )
@@ -60,13 +59,16 @@ QFieldCloudConnection *QFieldCloudProjectsModel::cloudConnection() const
 void QFieldCloudProjectsModel::setCloudConnection( QFieldCloudConnection *cloudConnection )
 {
   if ( mCloudConnection == cloudConnection )
+  {
     return;
+  }
 
   if ( mCloudConnection )
   {
     disconnect( mCloudConnection, &QFieldCloudConnection::statusChanged, this, &QFieldCloudProjectsModel::connectionStatusChanged );
     disconnect( mCloudConnection, &QFieldCloudConnection::usernameChanged, this, &QFieldCloudProjectsModel::usernameChanged );
     disconnect( mCloudConnection, &QFieldCloudConnection::urlChanged, this, &QFieldCloudProjectsModel::urlChanged );
+    disconnect( mCloudConnection, &QFieldCloudConnection::queuedProjectPushRequested, this, nullptr );
   }
 
   mCloudConnection = cloudConnection;
@@ -76,7 +78,11 @@ void QFieldCloudProjectsModel::setCloudConnection( QFieldCloudConnection *cloudC
     connect( mCloudConnection, &QFieldCloudConnection::statusChanged, this, &QFieldCloudProjectsModel::connectionStatusChanged );
     connect( mCloudConnection, &QFieldCloudConnection::usernameChanged, this, &QFieldCloudProjectsModel::usernameChanged );
     connect( mCloudConnection, &QFieldCloudConnection::urlChanged, this, &QFieldCloudProjectsModel::urlChanged );
-
+    connect( mCloudConnection, &QFieldCloudConnection::queuedProjectPushRequested, this,
+             [this]( const QString &projectId ) {
+               // queuedProjectPush only provides projectId, so default shouldDownloadUpdates = false
+               projectPush( projectId, false );
+             } );
     mUsername = mCloudConnection->username();
     mUrl = mCloudConnection->url();
     resetProjects();
@@ -93,12 +99,16 @@ LayerObserver *QFieldCloudProjectsModel::layerObserver() const
 void QFieldCloudProjectsModel::setLayerObserver( LayerObserver *layerObserver )
 {
   if ( mLayerObserver == layerObserver )
+  {
     return;
+  }
 
   mLayerObserver = layerObserver;
 
   if ( !layerObserver )
+  {
     return;
+  }
 
   emit layerObserverChanged();
 }
@@ -111,7 +121,9 @@ QString QFieldCloudProjectsModel::currentProjectId() const
 void QFieldCloudProjectsModel::setCurrentProjectId( const QString &currentProjectId )
 {
   if ( mCurrentProjectId == currentProjectId )
+  {
     return;
+  }
 
   mCurrentProjectId = currentProjectId;
   mCurrentProject = findProject( mCurrentProjectId );
@@ -208,7 +220,9 @@ QFieldCloudProject *QFieldCloudProjectsModel::findProject( const QString &projec
   const QModelIndex index = findProjectIndex( projectId );
 
   if ( index.isValid() )
+  {
     return mProjects[index.row()];
+  }
 
   return nullptr;
 }
@@ -216,7 +230,9 @@ QFieldCloudProject *QFieldCloudProjectsModel::findProject( const QString &projec
 void QFieldCloudProjectsModel::appendProject( const QString &projectId )
 {
   if ( !mCloudConnection )
+  {
     return;
+  }
 
   const QModelIndex index = findProjectIndex( projectId );
   if ( index.isValid() )
@@ -270,17 +286,23 @@ QString QFieldCloudProjectsModel::layerFileName( const QgsMapLayer *layer ) cons
 void QFieldCloudProjectsModel::projectCancelDownload( const QString &projectId )
 {
   if ( !mCloudConnection )
+  {
     return;
+  }
 
   const QModelIndex projectIndex = findProjectIndex( projectId );
   if ( !projectIndex.isValid() )
+  {
     return;
+  }
 
   QFieldCloudProject *project = mProjects[projectIndex.row()];
 
   // before canceling, the project should be downloading
   if ( project->status() != QFieldCloudProject::ProjectStatus::Downloading )
+  {
     return;
+  }
 
   project->cancelDownload();
 
@@ -292,7 +314,9 @@ void QFieldCloudProjectsModel::projectPackageAndDownload( const QString &project
   QgsLogger::debug( QStringLiteral( "Project %1: package and download initiated." ).arg( projectId ) );
 
   if ( !mCloudConnection )
+  {
     return;
+  }
 
   const QModelIndex projectIndex = findProjectIndex( projectId );
   if ( !projectIndex.isValid() )
@@ -320,12 +344,33 @@ void QFieldCloudProjectsModel::projectPush( const QString &projectId, const bool
   const QModelIndex projectIndex = findProjectIndex( projectId );
 
   if ( !projectIndex.isValid() )
+  {
     return;
+  }
 
   QFieldCloudProject *project = mProjects[projectIndex.row()];
-
-  if ( !( project->status() == QFieldCloudProject::ProjectStatus::Idle ) )
+  if ( !project )
+  {
     return;
+  }
+
+  if ( !mCloudConnection )
+  {
+    return;
+  }
+
+  if ( !mCloudConnection->isReachable() )
+  {
+    mCloudConnection->queueProjectPush( projectId );
+    emit warning( tr( "Network is not currently active. "
+                      "We will push the changes automatically once you are back online." ) );
+    return;
+  }
+
+  if ( project->status() != QFieldCloudProject::ProjectStatus::Idle )
+  {
+    return;
+  }
 
   project->push( shouldDownloadUpdates );
 }
@@ -335,7 +380,9 @@ void QFieldCloudProjectsModel::refreshProjectDeltaList( const QString &projectId
 {
   const QModelIndex projectIndex = findProjectIndex( projectId );
   if ( !projectIndex.isValid() )
+  {
     return;
+  }
 
   QFieldCloudProject *project = mProjects[projectIndex.row()];
   project->refreshDeltaList();
@@ -875,12 +922,16 @@ bool QFieldCloudProjectsModel::revertLocalChangesFromCurrentProject()
 {
   const QFieldCloudProject *project = findProject( mCurrentProjectId );
   if ( !project )
+  {
     return false;
+  }
 
   DeltaFileWrapper *deltaFileWrapper = mLayerObserver->deltaFileWrapper();
 
   if ( !deltaFileWrapper->toFile() )
+  {
     return false;
+  }
 
   if ( !deltaFileWrapper->applyReversed( QgsProject::instance() ) )
   {
@@ -892,7 +943,9 @@ bool QFieldCloudProjectsModel::revertLocalChangesFromCurrentProject()
   deltaFileWrapper->resetId();
 
   if ( !deltaFileWrapper->toFile() )
+  {
     return false;
+  }
 
   return true;
 }
@@ -901,18 +954,24 @@ bool QFieldCloudProjectsModel::discardLocalChangesFromCurrentProject()
 {
   const QFieldCloudProject *project = findProject( mCurrentProjectId );
   if ( !project )
+  {
     return false;
+  }
 
   DeltaFileWrapper *deltaFileWrapper = mLayerObserver->deltaFileWrapper();
 
   if ( !deltaFileWrapper->toFile() )
+  {
     QgsMessageLog::logMessage( QStringLiteral( "Failed to write deltas." ) );
+  }
 
   deltaFileWrapper->reset();
   deltaFileWrapper->resetId();
 
   if ( !deltaFileWrapper->toFile() )
+  {
     return false;
+  }
 
   return true;
 }
@@ -920,7 +979,9 @@ bool QFieldCloudProjectsModel::discardLocalChangesFromCurrentProject()
 void QFieldCloudProjectsModel::setGpkgFlusher( QgsGpkgFlusher *flusher )
 {
   if ( mGpkgFlusher == flusher )
+  {
     return;
+  }
 
   mGpkgFlusher = flusher;
 
@@ -1057,7 +1118,9 @@ QFieldCloudProjectsFilterModel::QFieldCloudProjectsFilterModel( QObject *parent 
 void QFieldCloudProjectsFilterModel::setProjectsModel( QFieldCloudProjectsModel *projectsModel )
 {
   if ( mSourceModel == projectsModel )
+  {
     return;
+  }
 
   mSourceModel = projectsModel;
   setSourceModel( mSourceModel );
@@ -1073,7 +1136,9 @@ QFieldCloudProjectsModel *QFieldCloudProjectsFilterModel::projectsModel() const
 void QFieldCloudProjectsFilterModel::setFilter( ProjectsFilter filter )
 {
   if ( mFilter == filter )
+  {
     return;
+  }
 
   mFilter = filter;
   invalidateFilter();
@@ -1089,7 +1154,9 @@ QFieldCloudProjectsFilterModel::ProjectsFilter QFieldCloudProjectsFilterModel::f
 void QFieldCloudProjectsFilterModel::setShowLocalOnly( bool showLocalOnly )
 {
   if ( mShowLocalOnly == showLocalOnly )
+  {
     return;
+  }
 
   mShowLocalOnly = showLocalOnly;
   invalidateFilter();
@@ -1105,7 +1172,9 @@ bool QFieldCloudProjectsFilterModel::showLocalOnly() const
 bool QFieldCloudProjectsFilterModel::lessThan( const QModelIndex &sourceLeft, const QModelIndex &sourceRight ) const
 {
   if ( !mSourceModel )
+  {
     return true;
+  }
 
   if ( mShowFeaturedOnTop )
   {
@@ -1167,7 +1236,9 @@ bool QFieldCloudProjectsFilterModel::filterAcceptsRow( int source_row, const QMo
 void QFieldCloudProjectsFilterModel::setTextFilter( const QString &text )
 {
   if ( mTextFilter == text )
+  {
     return;
+  }
   mTextFilter = text;
   invalidateFilter();
 }
@@ -1180,7 +1251,9 @@ QString QFieldCloudProjectsFilterModel::textFilter() const
 void QFieldCloudProjectsFilterModel::setShowInValidProjects( bool showInValidProjects )
 {
   if ( mShowInValidProjects == showInValidProjects )
+  {
     return;
+  }
 
   mShowInValidProjects = showInValidProjects;
   invalidateFilter();
@@ -1195,7 +1268,9 @@ bool QFieldCloudProjectsFilterModel::showInValidProjects() const
 void QFieldCloudProjectsFilterModel::setShowFeaturedOnTop( bool showFeaturedOnTop )
 {
   if ( mShowFeaturedOnTop == showFeaturedOnTop )
+  {
     return;
+  }
 
   mShowFeaturedOnTop = showFeaturedOnTop;
   emit showFeaturedOnTopChanged();

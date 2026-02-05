@@ -605,6 +605,14 @@ Cancel to make a minimal device scan instead.</translation>
         <source>Return home</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Expand All</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Collapse All</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>DateTime</name>
@@ -3463,6 +3471,10 @@ While you can still view and use the project, it is strongly recommended to rese
         <source>Cloud project could not be created.</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Network is not currently active. We will push the changes automatically once you are back online.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>QFieldCloudScreen</name>
@@ -3877,7 +3889,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>To apply the selected user interface language, QField needs to completely shutdown and restart.</source>
-        <translation>To apply the selected user interface language, QField needs to completely shutdown and restart.</translation>
+        <translation type="vanished">To apply the selected user interface language, QField needs to completely shutdown and restart.</translation>
     </message>
     <message>
         <source>system</source>
@@ -4248,6 +4260,34 @@ Cancel to make a minimal device scan instead.</translation>
         <source>If enabled, newly-added features are stored as soon as it has having a valid geometry and the constraints are fulfilled and edited atributes are commited immediately.</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Auto-zoom to identified feature(s)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>When enabled, the map will automatically zoom to show all identified features, as well as the individual selected feature when the feature form is opened.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Behavior when locked to position:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Follow position only</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Follow position and compass orientation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Follow position and movement direction</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>When the map canvas is following or locked to position, it can also rotate to match compass orientation or movement direction.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>QFieldSketcher</name>
@@ -4388,6 +4428,54 @@ Cancel to make a minimal device scan instead.</translation>
     </message>
     <message>
         <source>Error opening zip archive: &apos;%1&apos; (Error code: %2)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Circle #1: radius</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Circle #2: radius</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Candidate</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>XYZ Parameters</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Distance/Angle from Point</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Circles Intersection</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Point</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Distance</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Angle</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Elevation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Circle #1: point</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Circle #2: point</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -5475,6 +5563,13 @@ project</source>
     </message>
 </context>
 <context>
+    <name>angle</name>
+    <message>
+        <source>deg</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>area</name>
     <message>
         <source>square degrees</source>
@@ -5620,6 +5715,37 @@ project</source>
     <message>
         <source>Failed to delete referencing feature</source>
         <translation type="vanished">Failed to delete referencing feature</translation>
+    </message>
+</context>
+<context>
+    <name>point</name>
+    <message>
+        <source>latitude</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>longitude</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>elevation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>easting [X]</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>northing [Y]</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>elevation [Z]</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Point Feature Picker</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -6389,6 +6515,30 @@ to show actions</source>
     </message>
     <message>
         <source>No compatible layers available to launch tracking</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>COGO digitizing turned on</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>COGO digitizing turned off</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enable positioning service to get points at your location</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Positioning service has not yet received a valid location</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Map canvas locked to location and movement direction</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Map canvas follows location and movement direction</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

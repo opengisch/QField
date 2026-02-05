@@ -1,5 +1,6 @@
 import QtQuick
 import QtQuick.Controls
+import QtQuick.Templates as T
 import QtQuick.Controls.impl
 import QtQuick.Controls.Material
 import QtQuick.Controls.Material.impl
@@ -12,15 +13,26 @@ ComboBox {
 
   property alias text: contentText
 
-  contentItem: Text {
+  contentItem: T.TextField {
     id: contentText
-    leftPadding: enabled ? Material.textFieldHorizontalPadding : 0
+    leftPadding: comboBox.background.visible ? Material.textFieldHorizontalPadding : 0
+    topPadding: Material.textFieldVerticalPadding
+    bottomPadding: Material.textFieldVerticalPadding
 
-    text: comboBox.displayText
-    font: comboBox.font
-    color: Theme.mainTextColor
+    text: comboBox.editable ? comboBox.editText : comboBox.displayText
+
+    enabled: comboBox.editable
+    autoScroll: comboBox.editable
+    readOnly: comboBox.down
+    inputMethodHints: comboBox.inputMethodHints
+    validator: comboBox.validator
+    selectByMouse: comboBox.selectTextByMouse
+
+    color: comboBox.enabled ? comboBox.Material.foreground : comboBox.Material.hintTextColor
+    selectionColor: comboBox.Material.accentColor
+    selectedTextColor: comboBox.Material.primaryHighlightedTextColor
     verticalAlignment: Text.AlignVCenter
-    horizontalAlignment: Text.AlignLeft
-    elide: Text.ElideRight
+
+    cursorDelegate: CursorDelegate {}
   }
 }

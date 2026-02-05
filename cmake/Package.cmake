@@ -16,6 +16,8 @@ set(CPACK_PACKAGE_VERSION_MAJOR ${CMAKE_PROJECT_VERSION_MAJOR})
 set(CPACK_PACKAGE_VERSION_MINOR ${CMAKE_PROJECT_VERSION_MINOR})
 set(CPACK_PACKAGE_VERSION_PATCH ${CMAKE_PROJECT_VERSION_PATCH})
 
+set(PACKAGE_ZIP OFF CACHE BOOL "Create an additional ZIP package")
+
 function(macdeployqt bundle targetdir _PACKAGER)
     file(GENERATE OUTPUT ${CMAKE_BINARY_DIR}/CPackMacDeployQt-${_PACKAGER}.cmake
                   CONTENT "execute_process(COMMAND \"${MACDEPLOYQT_EXECUTABLE}\" \"${CPACK_PACKAGE_DIRECTORY}/_CPack_Packages/Darwin/${_PACKAGER}/${targetdir}/${bundle}\" -always-overwrite COMMAND_ERROR_IS_FATAL ANY)")
@@ -37,6 +39,13 @@ if(WIN32)
     set(CPACK_NSIS_DISPLAY_NAME "QField")
 
     list(APPEND CPACK_GENERATOR "NSIS")
+endif()
+
+if(PACKAGE_ZIP)
+    message(STATUS "   + ZIP archive                       YES ")
+    list(APPEND CPACK_GENERATOR "ZIP")
+else()
+    message(STATUS "   + ZIP archive                        NO ")
 endif()
 
 get_target_property(qmake_executable Qt::qmake IMPORTED_LOCATION)

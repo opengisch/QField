@@ -77,6 +77,15 @@
         <file>geometryeditors/Reshape.qml</file>
         <file>geometryeditors/FillRing.qml</file>
         <file>GeometryEditorsToolbar.qml</file>
+        <file>cogoparameterwidgets/CogoParameterWidgetBase.qml</file>
+        <file>cogoparameterwidgets/angle.qml</file>
+        <file>cogoparameterwidgets/elevation.qml</file>
+        <file>cogoparameterwidgets/distance.qml</file>
+        <file>cogoparameterwidgets/enum.qml</file>
+        <file>cogoparameterwidgets/point.qml</file>
+        <file>CogoOperations.qml</file>
+        <file>CogoOperationPreview.qml</file>
+        <file>CogoOperationSettings.qml</file>
         <file>qgismobileapp.qml</file>
         <file>Legend.qml</file>
         <file>TemporalProperties.qml</file>
@@ -125,6 +134,7 @@
         <file>imports/Theme/QfCalendarItem.qml</file>
         <file>imports/Theme/QfBadge.qml</file>
         <file>imports/Theme/QfToolButtonPie.qml</file>
+        <file>imports/Theme/QfToggleButtonGroup.qml</file>
         <file>TrackerSettings.qml</file>
         <file>TrackerFeatureForm.qml</file>
         <file>TrackingSession.qml</file>

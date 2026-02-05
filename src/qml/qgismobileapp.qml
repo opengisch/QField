@@ -368,13 +368,20 @@ ApplicationWindow {
         bearingTrueNorth = PositioningUtils.bearingTrueNorth(positionSource.projectedPosition, mapCanvas.mapSettings.destinationCrs);
         if (gnssButton.followActive) {
           gnssButton.followLocation(false);
+          // Call followOrientation for movement direction mode
+          if (positioningSettings.positionFollowMode === PositioningSettings.FollowMode.PositionAndDirection) {
+            gnssButton.followOrientation();
+          }
         }
       }
     }
 
     onOrientationChanged: {
       if (active && gnssButton.followActive) {
-        gnssButton.followOrientation();
+        // Call followOrientation for compass mode
+        if (positioningSettings.positionFollowMode === PositioningSettings.FollowMode.PositionAndCompass) {
+          gnssButton.followOrientation();
+        }
       }
     }
 
@@ -422,10 +429,16 @@ ApplicationWindow {
           positionSource.active = true;
         } else {
           gnssButton.followActive = false;
-          gnssButton.followOrientationActive = false;
           gnssButton.autoRefollow = false;
           positionSource.active = false;
         }
+      }
+    }
+
+    onPositionFollowModeChanged: {
+      // When mode changes while locked, apply orientation immediately
+      if (gnssButton.followActive && gnssButton.followOrientationActive) {
+        gnssButton.followOrientation();
       }
     }
   }
@@ -458,7 +471,7 @@ ApplicationWindow {
     DragHandler {
       id: freehandHandler
       property bool isDigitizing: false
-      enabled: freehandButton.visible && freehandButton.freehandDigitizing && !digitizingToolbar.rubberbandModel.frozen && ((!featureListForm.visible && digitizingToolbar.digitizingAllowed) || digitizingToolbar.geometryRequested)
+      enabled: freehandButton.visible && freehandButton.freehandDigitizing && !digitizingToolbar.cogoEnabled && !digitizingToolbar.rubberbandModel.frozen && ((!featureListForm.visible && digitizingToolbar.digitizingAllowed) || digitizingToolbar.geometryRequested)
       acceptedDevices: !qfieldSettings.mouseAsTouchScreen ? PointerDevice.Stylus | PointerDevice.Mouse : PointerDevice.Stylus
       grabPermissions: PointerHandler.CanTakeOverFromHandlersOfSameType | PointerHandler.CanTakeOverFromHandlersOfDifferentType | PointerHandler.ApprovesTakeOverByAnything
       dragThreshold: 0
@@ -705,6 +718,9 @@ ApplicationWindow {
             return;
           }
           if ((stateMachine.state === "digitize" && digitizingFeature.currentLayer && digitizingToolbar.digitizingAllowed) || stateMachine.state === "measure") {
+            if (digitizingToolbar.cogoEnabled) {
+              return;
+            }
             if (!positionLocked && (!featureListForm.visible || digitizingToolbar.geometryRequested)) {
               if (Number(currentRubberband.model.geometryType) === Qgis.GeometryType.Point || Number(currentRubberband.model.geometryType) === Qgis.GeometryType.Null) {
                 digitizingToolbar.confirm();
@@ -759,6 +775,9 @@ ApplicationWindow {
             return;
           }
           if (stateMachine.state === "digitize" && digitizingFeature.currentLayer && digitizingToolbar.digitizingAllowed) {
+            if (digitizingToolbar.cogoEnabled) {
+              return;
+            }
             // the sourceLocation test checks if a (stylus) hover is active
             if ((Number(currentRubberband.model.geometryType) === Qgis.GeometryType.Line && currentRubberband.model.vertexCount >= 2) || (Number(currentRubberband.model.geometryType) === Qgis.GeometryType.Polygon && currentRubberband.model.vertexCount >= 2)) {
               digitizingToolbar.addVertex();
@@ -834,20 +853,36 @@ ApplicationWindow {
    * - Digitizing Rubberband
    **************************************************/
 
+    // Model for pie menu and context menu feature identification
+    MultiFeatureListModel {
+      id: menuFeatureListModel
+    }
+
     /** The identify tool **/
     IdentifyTool {
       id: identifyTool
 
       property bool isMenuRequest: false
+      property bool isPieMenuRequest: false
 
       mapSettings: mapCanvas.mapSettings
-      model: isMenuRequest ? canvasMenuFeatureListModel : featureListForm.model
+      model: isPieMenuRequest || isMenuRequest ? menuFeatureListModel : featureListForm.model
       searchRadiusMm: 3
 
       onIdentifyFinished: {
-        if (qfieldSettings.autoOpenFormSingleIdentify && !isMenuRequest && !featureListForm.multiSelection && featureListForm.model.count === 1) {
-          featureListForm.selection.focusedItem = 0;
-          featureListForm.state = "FeatureForm";
+        if (isPieMenuRequest) {
+          actionsPieMenu.identifiedCount = menuFeatureListModel.count;
+          isPieMenuRequest = false;
+        } else if (isMenuRequest) {
+          canvasMenuFeatureListInstantiator.active = true;
+        } else {
+          if (qfieldSettings.autoOpenFormSingleIdentify && !featureListForm.multiSelection && featureListForm.model.count === 1) {
+            featureListForm.selection.focusedItem = 0;
+            featureListForm.state = "FeatureForm";
+          }
+          if (qfieldSettings.autoZoomToIdentifiedFeature && featureListForm.model.count > 0) {
+            featureListForm.extentController.zoomToAllFeatures();
+          }
         }
       }
     }
@@ -876,8 +911,14 @@ ApplicationWindow {
         }
       }
 
-      TrackingSession {
-      }
+      TrackingSession {}
+    }
+
+    /** COGO operation visual guides **/
+    CogoOperationPreview {
+      id: cogoOperationPreview
+      visible: digitizingToolbar.cogoEnabled
+      visualGuides: digitizingToolbar.cogoExecutor.visualGuides
     }
 
     /** A rubberband for ditizing **/
@@ -885,33 +926,39 @@ ApplicationWindow {
       id: digitizingRubberband
 
       mapSettings: mapCanvas.mapSettings
+      showVertices: digitizingToolbar.cogoEnabled
 
       model: RubberbandModel {
         frozen: false
-        currentCoordinate: coordinateLocator.currentCoordinate
+        currentCoordinate: digitizingToolbar.cogoEnabled ? GeometryUtils.emptyPoint() : coordinateLocator.currentCoordinate
         measureValue: {
-          if (coordinateLocator.positionLocked) {
-            switch (positioningSettings.digitizingMeasureType) {
-            case Tracker.Timestamp:
-              return coordinateLocator.positionInformation.utcDateTime.getTime();
-            case Tracker.GroundSpeed:
-              return coordinateLocator.positionInformation.speed;
-            case Tracker.Bearing:
-              return coordinateLocator.positionInformation.direction;
-            case Tracker.HorizontalAccuracy:
-              return coordinateLocator.positionInformation.hacc;
-            case Tracker.VerticalAccuracy:
-              return coordinateLocator.positionInformation.vacc;
-            case Tracker.PDOP:
-              return coordinateLocator.positionInformation.pdop;
-            case Tracker.HDOP:
-              return coordinateLocator.positionInformation.hdop;
-            case Tracker.VDOP:
-              return coordinateLocator.positionInformation.vdop;
-            }
+          let pi;
+          if (digitizingToolbar.cogoEnabled) {
+            pi = digitizingToolbar.cogoOperationSettings.positionInformation;
+          } else if (coordinateLocator.positionLocked) {
+            pi = coordinateLocator.positionInformation;
           } else {
             return Number.NaN;
           }
+          switch (positioningSettings.digitizingMeasureType) {
+          case Tracker.Timestamp:
+            return pi.utcDateTime.getTime();
+          case Tracker.GroundSpeed:
+            return pi.speed;
+          case Tracker.Bearing:
+            return pi.direction;
+          case Tracker.HorizontalAccuracy:
+            return pi.hacc;
+          case Tracker.VerticalAccuracy:
+            return pi.vacc;
+          case Tracker.PDOP:
+            return pi.pdop;
+          case Tracker.HDOP:
+            return pi.hdop;
+          case Tracker.VDOP:
+            return pi.vdop;
+          }
+          return Number.NaN;
         }
         vectorLayer: digitizingToolbar.geometryRequested ? digitizingToolbar.geometryRequestedLayer : dashBoard.activeLayer
         crs: mapCanvas.mapSettings.destinationCrs
@@ -979,12 +1026,12 @@ ApplicationWindow {
       objectName: "coordinateLocator"
       anchors.fill: parent
       anchors.bottomMargin: !gnssButton.followActive || !gnssButton.followOrientationActive ? informationDrawer.height > mainWindow.sceneBottomMargin ? informationDrawer.height : 0 : 0
-      visible: stateMachine.state === "digitize" || stateMachine.state === 'measure'
+      visible: (stateMachine.state === "digitize" || stateMachine.state === 'measure')
       highlightColor: digitizingToolbar.isDigitizing ? currentRubberband.color : "#CFD8DC"
       mapSettings: mapCanvas.mapSettings
       currentLayer: dashBoard.activeLayer
       positionInformation: positionSource.positionInformation
-      positionLocked: positionSource.active && (positioningSettings.positioningCoordinateLock || gnssButton.followActive)
+      positionLocked: !digitizingToolbar.cogoEnabled && positionSource.active && (positioningSettings.positioningCoordinateLock || gnssButton.followActive)
       rubberbandModel: geometryEditorsToolbar.stateVisible ? geometryEditorsToolbar.editorRubberbandModel : digitizingToolbar.rubberbandModel
       averagedPosition: positionSource.averagedPosition
       averagedPositionCount: positionSource.averagedPositionCount
@@ -1011,18 +1058,18 @@ ApplicationWindow {
 
       Component.onCompleted: {
         pointHandler.registerHandler("LocationMarker", (point, type, interactionType) => {
-            if (!locationMarker.visible || !locationMarker.isOnMapCanvas || interactionType !== "clicked") {
-              return false;
-            }
-            const dx = point.x - locationMarker.screenLocation.x;
-            const dy = point.y - locationMarker.screenLocation.y;
-            const distance = Math.sqrt(dx * dx + dy * dy);
-            if (distance > 25) {
-              return false;
-            }
-            openPieMenu(point);
-            return true;
-          }, MapCanvasPointHandler.Priority.High);
+          if (!locationMarker.visible || !locationMarker.isOnMapCanvas || interactionType !== "clicked") {
+            return false;
+          }
+          const dx = point.x - locationMarker.screenLocation.x;
+          const dy = point.y - locationMarker.screenLocation.y;
+          const distance = Math.sqrt(dx * dx + dy * dy);
+          if (distance > 25) {
+            return false;
+          }
+          openPieMenu(point);
+          return true;
+        }, MapCanvasPointHandler.Priority.High);
         if (!settings.valueBool("/QField/pieMenuOpenedOnce", false)) {
           bubbleText = qsTr("Tap on your location marker\nto show actions");
           bubbleVisible = Qt.binding(() => locationMarker.isOnMapCanvas && locationMarker.visible && !mapCanvasTour.visible);
@@ -1048,6 +1095,8 @@ ApplicationWindow {
           actionsPieMenu.y = locationMarker.screenLocation.y - actionsPieMenu.menuHalfSize;
         }
         actionsPieMenu.open();
+        identifyTool.isPieMenuRequest = true;
+        identifyTool.identify(locationMarker.screenLocation);
       }
     }
 
@@ -1073,12 +1122,49 @@ ApplicationWindow {
       }
 
       readonly property int segmentAngle: 360 / actionsPieMenu.numberOfButtons
+      property int identifiedCount: 0
+
+      onClosed: {
+        menuFeatureListModel.clear(false);
+        identifiedCount = 0;
+      }
 
       width: Math.min(150, mapCanvasMap.width / 3)
       height: width
 
       targetPoint: locationMarker.screenLocation
       showConnectionLine: visible && (nearToEdge || locationMarkerOutSidePieMenu)
+
+      centralActionVisible: identifiedCount > 0
+      centralActionComponent: Component {
+        QfToolButton {
+          id: identifyFeaturesButton
+          width: actionsPieMenu.bandWidth - 8
+          height: width
+          padding: 2
+          round: true
+          iconSource: Theme.getThemeVectorIcon("ic_geometry_mixed_24dp")
+          iconColor: Theme.toolButtonColor
+          bgcolor: Theme.toolButtonBackgroundColor
+
+          QfBadge {
+            width: 16
+            color: Theme.toolButtonColor
+            border.width: 1
+            border.color: Theme.toolButtonColor
+            badgeText.text: actionsPieMenu.identifiedCount > 9 ? "+" : actionsPieMenu.identifiedCount
+            badgeText.color: Theme.toolButtonBackgroundColor
+            z: 2
+          }
+
+          onClicked: {
+            identifyTool.isMenuRequest = false;
+            identifyTool.isPieMenuRequest = false;
+            identifyTool.identify(locationMarker.screenLocation);
+            actionsPieMenu.close();
+          }
+        }
+      }
 
       QfToolButton {
         id: gnssCursorLockButton
@@ -1169,14 +1255,23 @@ ApplicationWindow {
             mapCanvasMap.unfreeze('follow');
             gnssButton.autoRefollow = false;
             gnssButton.followActive = false;
-            gnssButton.followOrientationActive = false;
             displayToast(qsTr("Map canvas unlocked"));
           } else {
             mapCanvasMap.freeze('follow');
             gnssButton.autoRefollow = true;
             gnssButton.followActive = true;
             gnssButton.followLocation(true);
-            displayToast(qsTr("Map canvas locked to location"));
+            if (positioningSettings.positionFollowMode === PositioningSettings.FollowMode.PositionAndCompass) {
+              displayToast(qsTr("Map canvas locked to location and compass orientation"));
+            } else if (positioningSettings.positionFollowMode === PositioningSettings.FollowMode.PositionAndDirection) {
+              displayToast(qsTr("Map canvas locked to location and movement direction"));
+            } else {
+              displayToast(qsTr("Map canvas locked to location"));
+            }
+            // Apply orientation immediately if enabled
+            if (gnssButton.followOrientationActive) {
+              gnssButton.followOrientation();
+            }
           }
           actionsPieMenu.close();
         }
@@ -1309,17 +1404,17 @@ ApplicationWindow {
         onClicked: {
           if (trackings.count > 0) {
             displayToast(qsTr('Tracking active on %n layer(s)', '', trackings.count), 'info', qsTr('Stop all'), function () {
-                displayToast(qsTr('Tracking on %n layer(s) stopped', '', trackings.count));
-                trackingModel.stopTrackers();
-              });
+              displayToast(qsTr('Tracking on %n layer(s) stopped', '', trackings.count));
+              trackingModel.stopTrackers();
+            });
           } else {
             trackerSettings.prepareSettings();
             if (trackerSettings.availableLayersCount > 0) {
               trackerSettings.open();
             } else {
               displayToast(qsTr('No compatible layers available to launch tracking'), 'info', qsTr('Learn more'), function () {
-                  Qt.openUrlExternally('https://docs.qfield.org/how-to/navigation-and-positioning/tracking/');
-                });
+                Qt.openUrlExternally('https://docs.qfield.org/how-to/navigation-and-positioning/tracking/');
+              });
             }
           }
           actionsPieMenu.close();
@@ -1328,9 +1423,9 @@ ApplicationWindow {
 
       Component.onCompleted: {
         onOpened.connect(() => {
-            settings.setValue("/QField/pieMenuOpenedOnce", true);
-            locationMarker.bubbleVisible = false;
-          });
+          settings.setValue("/QField/pieMenuOpenedOnce", true);
+          locationMarker.bubbleVisible = false;
+        });
       }
     }
 
@@ -1493,6 +1588,8 @@ ApplicationWindow {
     navigation: navigation
     positionSource: positionSource
     positioningSettings: positioningSettings
+
+    cogoOperationSettings.mapSettings: mapCanvas.mapSettings
   }
 
   /**************************************************
@@ -1964,6 +2061,43 @@ ApplicationWindow {
         visible: stateMachine.state === "digitize" && dashBoard.activeLayer && dashBoard.activeLayer.isValid && (dashBoard.activeLayer.geometryType() === Qgis.GeometryType.Polygon || dashBoard.activeLayer.geometryType() === Qgis.GeometryType.Line || dashBoard.activeLayer.geometryType() === Qgis.GeometryType.Point)
 
         QfToolButton {
+          id: cogoButton
+          width: 40
+          height: 40
+          padding: 2
+          round: true
+          state: digitizingToolbar.cogoEnabled ? "On" : "Off"
+          iconSource: Theme.getThemeVectorIcon("ic_cogo_white_24dp")
+          iconColor: Theme.toolButtonColor
+          bgcolor: Theme.toolButtonBackgroundSemiOpaqueColor
+
+          states: [
+            State {
+
+              name: "Off"
+              PropertyChanges {
+                target: cogoButton
+                iconColor: Theme.toolButtonColor
+                bgcolor: Theme.toolButtonBackgroundSemiOpaqueColor
+              }
+            },
+            State {
+              name: "On"
+              PropertyChanges {
+                target: cogoButton
+                iconColor: Theme.mainColor
+                bgcolor: Theme.toolButtonBackgroundColor
+              }
+            }
+          ]
+
+          onClicked: {
+            digitizingToolbar.cogoEnabled = !digitizingToolbar.cogoEnabled;
+            displayToast(digitizingToolbar.cogoEnabled ? qsTr("COGO digitizing turned on") : qsTr("COGO digitizing turned off"));
+          }
+        }
+
+        QfToolButton {
           id: snappingButton
           width: 40
           height: 40
@@ -2428,9 +2562,9 @@ ApplicationWindow {
         */
         property bool followActiveSkipExtentChanged: false
         /*
-        / When set to true, the map will rotate to match the device's current magnetometer/compass orientatin.
+        / When set to true, the map will rotate to match the device's orientation (compass or movement direction based on setting).
         */
-        property bool followOrientationActive: false
+        property bool followOrientationActive: followActive && qfieldSettings.enableMapRotation && positioningSettings.positionFollowMode !== PositioningSettings.FollowMode.PositionOnly
         /*
         / When set to true, map canvas rotation changes will not result in the
         / deactivation of the above followOrientationActive mode.
@@ -2463,39 +2597,14 @@ ApplicationWindow {
         ]
 
         onClicked: {
-          if (followActive) {
-            if (qfieldSettings.enableMapRotation) {
-              if (!followOrientationActive) {
-                if (autoRefollow) {
-                  displayToast(qsTr("Map canvas locked to location and compass orientation"));
-                  followOrientationActive = true;
-                  followOrientation();
-                } else {
-                  displayToast(qsTr("Map canvas follows location and compass orientation"));
-                  mapCanvasMap.jumpToPosition(positionSource, -1, -positionSource.orientation, true, () => {
-                      gnssButton.followOrientation();
-                    });
-                  followOrientationActive = true;
-                }
-              } else {
-                followOrientationActive = false;
-                if (autoRefollow) {
-                  displayToast(qsTr("Map canvas locked to location"));
-                } else {
-                  displayToast(qsTr("Map canvas follows location"));
-                }
-              }
-            }
+          if (!positionSource.active) {
+            positionSource.jumpToPosition = true;
+            positioningSettings.positioningActivated = true;
           } else {
-            if (!positionSource.active) {
-              positionSource.jumpToPosition = true;
-              positioningSettings.positioningActivated = true;
+            if (positionSource.projectedPosition.x) {
+              jumpToLocation();
             } else {
-              if (positionSource.projectedPosition.x) {
-                jumpToLocation();
-              } else {
-                displayToast(qsTr("Waiting for location"));
-              }
+              displayToast(qsTr("Waiting for location"));
             }
           }
         }
@@ -2532,12 +2641,22 @@ ApplicationWindow {
             jumpedOnce = true;
           }
           mapCanvasMap.jumpToPosition(positionSource, targetScale, -1, true, () => {
-              gnssButton.followLocation(true);
-            });
+            gnssButton.followLocation(true);
+            // Apply orientation immediately when follow mode includes orientation
+            if (gnssButton.followOrientationActive) {
+              gnssButton.followOrientation();
+            }
+          });
           if (!gnssButton.followActive) {
             mapCanvasMap.freeze('follow');
             gnssButton.followActive = true;
-            displayToast(qsTr("Map canvas follows location"));
+            if (positioningSettings.positionFollowMode === PositioningSettings.FollowMode.PositionAndCompass) {
+              displayToast(qsTr("Map canvas follows location and compass orientation"));
+            } else if (positioningSettings.positionFollowMode === PositioningSettings.FollowMode.PositionAndDirection) {
+              displayToast(qsTr("Map canvas follows location and movement direction"));
+            } else {
+              displayToast(qsTr("Map canvas follows location"));
+            }
           }
         }
 
@@ -2592,11 +2711,28 @@ ApplicationWindow {
         }
 
         function followOrientation() {
-          if (!isNaN(positionSource.orientation) && Math.abs(-positionSource.orientation - mapCanvas.mapSettings.rotation) >= 2) {
-            if (gnssButton.followOrientationActive) {
-              mapCanvas.mapSettings.rotation = -positionSource.orientation;
-              gnssButton.followActiveSkipRotationChanged = true;
+          if (!gnssButton.followOrientationActive) {
+            return;
+          }
+          let targetRotation;
+          if (positioningSettings.positionFollowMode === PositioningSettings.FollowMode.PositionAndCompass) {
+            // Follow compass orientation
+            if (isNaN(positionSource.orientation)) {
+              return;
             }
+            targetRotation = -positionSource.orientation;
+          } else if (positioningSettings.positionFollowMode === PositioningSettings.FollowMode.PositionAndDirection) {
+            // Follow movement direction
+            if (!positionSource.positionInformation || !positionSource.positionInformation.directionValid) {
+              return;
+            }
+            targetRotation = -positionSource.positionInformation.direction;
+          } else {
+            return;
+          }
+          if (Math.abs(targetRotation - mapCanvas.mapSettings.rotation) >= 2) {
+            mapCanvas.mapSettings.rotation = targetRotation;
+            gnssButton.followActiveSkipRotationChanged = true;
             const triggerRefresh = Math.abs(mapCanvasMap.mapCanvasWrapper.rotation) > 60;
             if (triggerRefresh) {
               mapCanvasMap.refresh(true);
@@ -2637,7 +2773,6 @@ ApplicationWindow {
             } else {
               mapCanvasMap.unfreeze('follow');
               gnssButton.followActive = false;
-              gnssButton.followOrientationActive = false;
               if (gnssButton.autoRefollow) {
                 showAutoLockToast();
               }
@@ -2660,7 +2795,6 @@ ApplicationWindow {
           if (gnssButton.followActive && gnssButton.autoRefollow) {
             mapCanvasMap.unfreeze('follow');
             gnssButton.followActive = false;
-            gnssButton.followOrientationActive = false;
             showAutoLockToast();
           } else if (gnssButton.autoRefollow) {
             showAutoLockToast();
@@ -2688,12 +2822,15 @@ ApplicationWindow {
         id: digitizingToolbar
 
         property bool digitizingAllowed: dashBoard.activeLayer && !dashBoard.activeLayer.readOnly && !LayerUtils.isFeatureAdditionLocked(dashBoard.activeLayer) && (projectInfo.editRights || projectInfo.insertRights)
+        property string previousStateMachineState: ''
 
         stateVisible: !screenLocker.enabled && (!positioningSettings.geofencingPreventDigitizingDuringAlert || !geofencer.isAlerting) && ((stateMachine.state === "digitize" && digitizingAllowed && !geometryEditorsToolbar.stateVisible && !moveFeaturesToolbar.stateVisible && !rotateFeaturesToolbar.stateVisible) || stateMachine.state === 'measure' || (stateMachine.state === "digitize" && digitizingToolbar.geometryRequested))
         rubberbandModel: currentRubberband ? currentRubberband.model : null
         mapSettings: mapCanvas.mapSettings
         showConfirmButton: stateMachine.state === "digitize"
         screenHovering: mapCanvasMap.hovered
+
+        cogoOperationSettings: informationDrawer.cogoOperationSettings
 
         digitizingLogger.type: stateMachine.state === 'measure' ? '' : 'add'
 
@@ -2707,17 +2844,6 @@ ApplicationWindow {
             id: digitizingGeometry
             rubberbandModel: digitizingRubberband.model
             vectorLayer: digitizingToolbar.geometryRequested ? digitizingToolbar.geometryRequestedLayer : dashBoard.activeLayer
-          }
-        }
-
-        property string previousStateMachineState: ''
-        onGeometryRequestedChanged: {
-          if (geometryRequested) {
-            digitizingRubberband.model.reset();
-            previousStateMachineState = stateMachine.state;
-            stateMachine.state = "digitize";
-          } else {
-            stateMachine.state = previousStateMachineState;
           }
         }
 
@@ -2795,6 +2921,7 @@ ApplicationWindow {
           }
           if (digitizingRubberband.model.geometryType === Qgis.GeometryType.Null) {
             digitizingRubberband.model.reset();
+            digitizingRubberband.model.frozen = digitizingToolbar.cogoEnabled;
           } else {
             coordinateLocator.flash();
             digitizingFeature.geometry.applyRubberband();
@@ -2826,9 +2953,40 @@ ApplicationWindow {
               }
             }
             digitizingRubberband.model.reset();
+            digitizingRubberband.model.frozen = digitizingToolbar.cogoEnabled;
             digitizingFeature.resetFeature();
           }
           coordinateLocator.sourceLocation = undefined;
+        }
+
+        onGeometryRequestedChanged: {
+          if (geometryRequested) {
+            digitizingRubberband.model.reset();
+            previousStateMachineState = stateMachine.state;
+            stateMachine.state = "digitize";
+          } else {
+            stateMachine.state = previousStateMachineState;
+          }
+        }
+
+        onRequestJumpToPoint: function (center, scale, handleMargins) {
+          mapCanvasMap.jumpTo(center, scale, -1, handleMargins);
+        }
+
+        onRequestPosition: function (item, fromCoordinateLocator) {
+          if (fromCoordinateLocator) {
+            item.requestedPositionReceived(coordinateLocator.currentCoordinate, undefined);
+          } else {
+            if (!positionSource.active) {
+              displayToast(qsTr("Enable positioning service to get points at your location"));
+              item.requestedPositionReceived(GeometryUtils.emptyPoint(), undefined);
+            } else if (!positionSource.positionInformation.latitudeValid) {
+              displayToast(qsTr("Positioning service has not yet received a valid location"));
+              item.requestedPositionReceived(GeometryUtils.emptyPoint(), undefined);
+            } else {
+              item.requestedPositionReceived(positionSource.projectedPosition, positionSource.positionInformation);
+            }
+          }
         }
       }
 
@@ -3156,8 +3314,8 @@ ApplicationWindow {
         } else {
           mainMenu.close();
           toast.show(qsTr('No sensor available'), 'info', qsTr('Learn more'), function () {
-              Qt.openUrlExternally('https://docs.qfield.org/how-to/advanced-how-tos/sensors/');
-            });
+            Qt.openUrlExternally('https://docs.qfield.org/how-to/advanced-how-tos/sensors/');
+          });
         }
         highlighted = false;
       }
@@ -3532,10 +3690,9 @@ ApplicationWindow {
 
     Instantiator {
       id: canvasMenuFeatureListInstantiator
+      active: false
 
-      model: MultiFeatureListModel {
-        id: canvasMenuFeatureListModel
-      }
+      model: menuFeatureListModel
 
       QfMenu {
         id: featureMenu
@@ -3670,9 +3827,9 @@ ApplicationWindow {
             if (layerGeometryType !== Qgis.GeometryType.Null && layerGeometryType !== Qgis.GeometryType.Unknown && (featureGeometryType !== Qgis.GeometryType.Point || layerGeometryType === Qgis.GeometryType.Point)) {
               if (layer.supportsEditing && !layer.readOnly) {
                 layersModel.append({
-                    "LayerType": layerGeometryType,
-                    "Layer": layer
-                  });
+                  "LayerType": layerGeometryType,
+                  "Layer": layer
+                });
               }
             }
           }
@@ -4121,8 +4278,7 @@ ApplicationWindow {
     allowEdit: stateMachine.state === "digitize"
     allowDelete: stateMachine.state === "digitize"
 
-    model: MultiFeatureListModel {
-    }
+    model: MultiFeatureListModel {}
 
     selection: FeatureListModelSelection {
       id: featureListModelSelection
@@ -4191,18 +4347,22 @@ ApplicationWindow {
 
   function showAutoLockToast() {
     displayToast(qsTr('Map canvas lock paused'), 'info', qsTr('Unlock'), () => {
-        gnssButton.autoRefollow = false;
-      }, true, () => {
-        if (positionSource.active && gnssButton.autoRefollow) {
-          mapCanvasMap.freeze('follow');
-          gnssButton.followActive = true;
-          gnssButton.followLocation(true);
-        }
-      });
+      gnssButton.autoRefollow = false;
+    }, true, () => {
+      if (positionSource.active && gnssButton.autoRefollow) {
+        mapCanvasMap.freeze('follow');
+        gnssButton.followActive = true;
+        gnssButton.followLocation(true);
+      }
+    });
   }
 
   function displayToast(message, type, action_text, action_function, stop_function, is_animation_enabled) {
     toast.show(message, type, action_text, action_function, stop_function, is_animation_enabled);
+  }
+
+  function closeToast() {
+    toast.close();
   }
 
   Timer {
@@ -4275,10 +4435,10 @@ ApplicationWindow {
     function onLoadProjectTriggered(path, name) {
       qfieldAuthRequestHandler.isProjectLoading = true;
       messageLogModel.suppress({
-          "WFS": [""],
-          "WMS": [""],
-          "PostGIS": ["fe_sendauth: no password supplied"]
-        });
+        "WFS": [""],
+        "WMS": [""],
+        "PostGIS": ["fe_sendauth: no password supplied"]
+      });
       qfieldLocalDataPickerScreen.visible = false;
       qfieldLocalDataPickerScreen.focus = false;
       welcomeScreen.visible = false;
@@ -4309,10 +4469,10 @@ ApplicationWindow {
         // project in need of handling layer credentials
         qfieldAuthRequestHandler.isProjectLoading = true;
         messageLogModel.unsuppress({
-            "WFS": [],
-            "WMS": [],
-            "PostGIS": []
-          });
+          "WFS": [],
+          "WMS": [],
+          "PostGIS": []
+        });
       }
       projectInfo.filePath = path;
       stateMachine.state = projectInfo.stateMode;
@@ -5060,22 +5220,26 @@ ApplicationWindow {
     baseRoot: mainWindow
     objectName: 'mapCanvasTour'
 
-    steps: [{
+    steps: [
+      {
         "type": "information",
         "title": qsTr("Dashboard"),
         "description": qsTr("This button opens the dashboard. With the dashboard you can interact with the legend and map theme, or start digitizing by activating the editing mode. Long-pressing the button gives you immediate access to the main menu."),
         "target": () => [menuButton]
-      }, {
+      },
+      {
         "type": "information",
         "title": qsTr("Positioning"),
         "description": qsTr("This button toggles the positioning system. When enabled, a position marker will appear top of the map. Long-pressing the button will open the positioning menu where additional functionalities can be explored."),
         "target": () => [gnssButton]
-      }, {
+      },
+      {
         "type": "information",
         "title": qsTr("Search"),
         "description": qsTr("The search bar provides you with a quick way to find features within your project, jump to a typed latitude and longitude point, and much more."),
         "target": () => [locatorItem]
-      }]
+      }
+    ]
 
     function startOnFreshRun() {
       const startupGuide = settings.valueBool("/QField/showMapCanvasGuide", true);
@@ -5093,37 +5257,44 @@ ApplicationWindow {
     z: dashBoard.z + 1
     index: -1
 
-    steps: [{
+    steps: [
+      {
         "type": "information",
         "title": qsTr("Digitizing toggle"),
         "description": qsTr("Switch between browse and digitize modes. Browse mode focuses on delivering the best experience viewing the map and its features, while digitize mode enables you to create features and edit geometries."),
         "target": () => [iface.findItemByObjectName('ModeSwitch')]
-      }, {
+      },
+      {
         "type": "information",
         "title": qsTr("Legend"),
         "description": qsTr("The legend shows map layers and allows you to toggle visibility and opacity properties by <b>long-pressing on a layer to open a properties popup</b>. The popup offers additional functionalities such as zooming to layer extent and displaying features contained within vector layers."),
         "target": () => [iface.findItemByObjectName('Legend')]
-      }, {
+      },
+      {
         "type": "information",
         "title": qsTr("Measurement"),
         "description": qsTr("Toggle the measurement tool to calculate distances and areas on the map."),
         "target": () => [iface.findItemByObjectName('MeasurementButton')]
-      }, {
+      },
+      {
         "type": "information",
         "title": qsTr("Print"),
         "description": qsTr("Export the map canvas to PDF using configured project print and atlas layouts."),
         "target": () => [iface.findItemByObjectName('PrintItemButton')]
-      }, {
+      },
+      {
         "type": "information",
         "title": qsTr("QFieldCloud"),
         "description": qsTr("Push changes, synchronize or revert changes to and from QFieldCloud when a cloud project is opened."),
         "target": () => [iface.findItemByObjectName('CloudButton')]
-      }, {
+      },
+      {
         "type": "information",
         "title": qsTr("Project folder"),
         "description": qsTr("Open the project folder to access project files, data sources, and related documents. Useful for managing project resources, manually uploading data to QFieldCloud, and sharing datasets, attachments, and layouts."),
         "target": () => [iface.findItemByObjectName('ProjectFolderButton')]
-      }]
+      }
+    ]
 
     Connections {
       id: dashBoardConnections

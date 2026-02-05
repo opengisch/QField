@@ -53,8 +53,7 @@ QfPopup {
     id: featureModel
     project: qgisProject
 
-    geometry: Geometry {
-    }
+    geometry: Geometry {}
 
     appExpressionContextScopesGenerator: AppExpressionContextScopesGenerator {
       positionInformation: appScopesGenerator.positionInformation

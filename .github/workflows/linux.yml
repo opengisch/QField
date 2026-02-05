@@ -93,10 +93,11 @@ jobs:
                 -D CMAKE_COMPILE_WARNING_AS_ERROR=ON \
                 -D SENTRY_DSN=${{ secrets.SENTRY_DSN }} \
                 -D SENTRY_ENV="${APP_ENV}" \
-                -D LINUXDEPLOY_EXECUTABLE=${{ env.BUILD_ROOT }}/linuxdeploy-x86_64.AppImage
+                -D LINUXDEPLOY_EXECUTABLE=${{ env.BUILD_ROOT }}/linuxdeploy-x86_64.AppImage \
+                -D VCPKG_INSTALL_OPTIONS="--x-abi-tools-use-exact-versions"
 
       - name: 📑 Upload dep build logs
-        uses: actions/upload-artifact@v5
+        uses: actions/upload-artifact@v6
         if: failure()
         with:
           name: build-logs-x64-linux
@@ -112,7 +113,7 @@ jobs:
         run: |
           xvfb-run cmake --build build --config ${{ env.BUILD_TYPE }}
 
-      - uses: ZedThree/clang-tidy-review@v0.22.2
+      - uses: ZedThree/clang-tidy-review@v0.23.0
         id: review
         if: github.event_name == 'pull_request'
         with:
@@ -126,18 +127,22 @@ jobs:
           cmake --build  "build" --target bundle --config ${{ env.BUILD_TYPE }}
           echo "ARTIFACT_PATHNAME=build/QField-x86_64.AppImage" >> $GITHUB_ENV
           echo "ARTIFACT_NAME=qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}-linux-x64.AppImage" >> $GITHUB_ENV
+          echo "ARTIFACT_PACKAGE_NAME=QField-dev-x64-linux-${{ env.BUILD_TYPE }}" >> $GITHUB_ENV
 
       - name: 📦 Upload package
         if: ${{ env.ARTIFACT_NAME != null }}
-        uses: actions/upload-artifact@v5
+        uses: actions/upload-artifact@v6
         id: artifact-linux
         with:
-          name: "QField-dev-x64-linux-${{ env.BUILD_TYPE }}"
+          name: ${{ env.ARTIFACT_PACKAGE_NAME }}
           path: ${{ env.ARTIFACT_PATHNAME }}
 
       - name: 🧫 Test
         env:
           PROJ_LIB: ${{ github.workspace }}/build/vcpkg_installed/x64-linux/share/proj
+          QFIELDCLOUD_TEST_USERNAME: ${{ secrets.QFIELDCLOUD_TEST_USERNAME }}
+          QFIELDCLOUD_TEST_PASSWORD: ${{ secrets.QFIELDCLOUD_TEST_PASSWORD }}
+          QFIELDCLOUD_TEST_SERVER_URL: ${{ secrets.QFIELDCLOUD_TEST_SERVER_URL }}
         run: |
           pip install -r "${{ github.workspace }}/test/spix/requirements.txt"
           docker compose -f "${{ github.workspace }}/test/docker-compose.yaml" up -d
@@ -159,12 +164,15 @@ jobs:
           chmod 700 ${{ github.workspace }}/test/postgis_docker/cert_keys/server.crt
 
           cd build
+          export QFIELDCLOUD_TEST_USERNAME="${QFIELDCLOUD_TEST_USERNAME}"
+          export QFIELDCLOUD_TEST_PASSWORD="${QFIELDCLOUD_TEST_PASSWORD}"
+          export QFIELDCLOUD_TEST_SERVER_URL="${QFIELDCLOUD_TEST_SERVER_URL}"
           xvfb-run --server-args="-screen 0 640x480x24" ctest --output-on-failure -C ${{ env.BUILD_TYPE }}
 
           docker compose -f "${{ github.workspace }}/test/docker-compose.yaml" down
 
       - name: 📑 Upload package logs
-        uses: actions/upload-artifact@v5
+        uses: actions/upload-artifact@v6
         if: failure()
         with:
           name: package-logs-x64-linux
@@ -172,7 +180,7 @@ jobs:
 
       - name: 📊 Upload test report
         if: always()
-        uses: actions/upload-artifact@v5
+        uses: actions/upload-artifact@v6
         with:
           name: "test-report-x64-linux-${{ env.BUILD_TYPE }}"
           path: "build/report"
@@ -207,6 +215,6 @@ jobs:
           marker: linux
           body: |
             ### 🐧 Linux AppImage builds
-            Download a [Linux AppImage build of this PR for testing](${{ steps.artifact-linux.outputs.artifact-url }}).
+            Download a [Linux AppImage build of this PR for testing](https://nightly.link/opengisch/QField/actions/runs/${{ github.run_id }}/${{ env.ARTIFACT_PACKAGE_NAME }}.zip).
             *(Built from commit ${{ github.event.pull_request.head.sha }})*
           pr: ${{ github.event.number }}

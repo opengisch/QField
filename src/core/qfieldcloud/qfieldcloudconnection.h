@@ -21,7 +21,9 @@
 #include "qfieldcloudutils.h"
 
 #include <QJsonDocument>
+#include <QNetworkInformation>
 #include <QObject>
+#include <QSet>
 #include <QVariantMap>
 
 class QNetworkRequest;
@@ -83,6 +85,8 @@ class QFieldCloudConnection : public QObject
 
     Q_PROPERTY( QList<AuthenticationProvider> availableProviders READ availableProviders NOTIFY availableProvidersChanged )
     Q_PROPERTY( bool isFetchingAvailableProviders READ isFetchingAvailableProviders NOTIFY isFetchingAvailableProvidersChanged )
+    Q_PROPERTY( bool isReachable READ isReachable NOTIFY isReachableChanged )
+
 
   public:
     enum class ConnectionStatus
@@ -218,6 +222,22 @@ class QFieldCloudConnection : public QObject
      */
     qsizetype uploadPendingAttachments();
 
+    /**
+     * Queues a project push request when the network is not reachable.
+     *
+     * The push will be automatically triggered once the connection is back online
+     * and the user is logged in.
+     */
+    void queueProjectPush( const QString &projectId );
+
+    /**
+     * Returns whether the network is currently reachable.
+     *
+     * If reachability information is not available, this returns true to keep
+     * the existing behavior unchanged.
+     */
+    bool isReachable() const;
+
   signals:
     void providerChanged();
     void usernameChanged();
@@ -239,6 +259,9 @@ class QFieldCloudConnection : public QObject
 
     void availableProvidersChanged();
     void isFetchingAvailableProvidersChanged();
+
+    void isReachableChanged();
+    void queuedProjectPushRequested( const QString &projectId );
 
   private:
     void setStatus( ConnectionStatus status );
@@ -271,6 +294,12 @@ class QFieldCloudConnection : public QObject
     qsizetype mUploadFailingCount = 0;
 
     void setClientHeaders( QNetworkRequest &request );
+
+    QSet<QString> mQueuedProjectPushes;
+    bool mIsFlushingQueuedProjectPushes = false;
+
+    const QNetworkInformation *mNetworkInformation = nullptr;
+    void tryFlushQueuedProjectPushes();
 };
 
 #endif // QFIELDCLOUDCONNECTION_H

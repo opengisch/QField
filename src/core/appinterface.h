@@ -27,6 +27,7 @@ class QgisMobileapp;
 class QgsRectangle;
 class QgsFeature;
 class QQuickItem;
+class QFieldXmlHttpRequest;
 
 /**
  * \brief App interface made available in QML as `iface`.
@@ -122,6 +123,14 @@ class AppInterface : public QObject
     //! Returns a list of available UI translation languages
     Q_INVOKABLE QVariantMap availableLanguages() const;
 
+    /**
+     * Changes the application language to the specified \a languageCode.
+     * This will reload translators and refresh all QML translations without restarting the app.
+     * \param languageCode The language code (e.g., "en", "de")
+     * \see availableLanguages
+     */
+    Q_INVOKABLE void changeLanguage( const QString &languageCode );
+
     //! Returns TRUE if a given \a filename can be opened as a project or standalone dataset.
     Q_INVOKABLE bool isFileExtensionSupported( const QString &filename ) const;
 
@@ -207,6 +216,10 @@ class AppInterface : public QObject
      * \see Positioning
      */
     Q_INVOKABLE QObject *positioning() const;
+
+
+    //! One-shot xmlhttp request. Defaults to autoDelete = true.
+    Q_INVOKABLE QObject *createHttpRequest() const;
 
     /// @cond PRIVATE
     //! Reads the content of the loaded project, called on loadProjectTriggered()

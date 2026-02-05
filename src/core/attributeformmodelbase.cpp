@@ -193,6 +193,7 @@ void AttributeFormModelBase::resetModel()
   setConstraintsSoftValid( true );
   setHasTabs( false );
   setHasRemembrance( false );
+  setHasConstraints( false );
 
   if ( !mFeatureModel )
     return;
@@ -587,7 +588,15 @@ void AttributeFormModelBase::buildForm( QgsAttributeEditorContainer *container, 
           descriptions << tr( "Unique" );
         }
 
-        item->setData( descriptions.join( ", " ), AttributeFormModel::ConstraintDescription );
+        if ( !descriptions.isEmpty() )
+        {
+          setHasConstraints( true );
+          item->setData( descriptions.join( ", " ), AttributeFormModel::ConstraintDescription );
+        }
+        else
+        {
+          item->setData( QString(), AttributeFormModel::ConstraintDescription );
+        }
 
         QgsProperty property = mLayer->editFormConfig().dataDefinedFieldProperties( field.name() ).property( QgsEditFormConfig::DataDefinedProperty::Alias );
         if ( property.isActive() )
@@ -711,7 +720,9 @@ void AttributeFormModelBase::synchronizeFieldValue( int fieldIndex, QVariant val
     QStandardItem *item = fieldIterator.key();
     const int fidx = fieldIterator.value();
     if ( fidx != fieldIndex )
+    {
       continue;
+    }
 
     item->setData( value, AttributeFormModel::AttributeValue );
   }
@@ -749,6 +760,9 @@ void AttributeFormModelBase::updateDefaultValues( int fieldIndex, QVector<int> u
     const QVariant updatedValue = mFeatureModel->data( mFeatureModel->index( fidx ), FeatureModel::AttributeValue );
     if ( success && updatedValue != previousValue )
     {
+      mExpressionContext.popScope();
+      mExpressionContext << QgsExpressionContextUtils::formScope( mFeatureModel->feature() );
+
       synchronizeFieldValue( fidx, updatedValue );
       if ( !updatedFields.contains( fidx ) )
       {
@@ -1204,6 +1218,20 @@ void AttributeFormModelBase::setHasRemembrance( bool hasRemembrance )
 
   mHasRemembrance = hasRemembrance;
   emit hasRemembranceChanged();
+}
+
+bool AttributeFormModelBase::hasConstraints() const
+{
+  return mHasConstraints;
+}
+
+void AttributeFormModelBase::setHasConstraints( bool hasConstraints )
+{
+  if ( hasConstraints == mHasConstraints )
+    return;
+
+  mHasConstraints = hasConstraints;
+  emit hasConstraintsChanged();
 }
 
 bool AttributeFormModelBase::save()

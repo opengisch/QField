@@ -260,6 +260,8 @@ class QFIELD_CORE_EXPORT VertexModel : public QAbstractListModel
 
     Vertex vertex( int row ) const;
 
+    QList<VertexChange> history( bool transformPoints = false, bool includeAvailableRedos = false ) const;
+
     void clearHistory();
 
     void addToHistory( VertexChangeType type );

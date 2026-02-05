@@ -68,40 +68,16 @@ QfPopup {
   }
 
   function prepareSettings(requestedLayer = undefined) {
-    const availableLayers = trackingModel.availableLayers(qgisProject);
     let defaultLayer = requestedLayer;
     if (defaultLayer === undefined) {
       defaultLayer = trackingModel.bestAvailableLayer(qgisProject);
     }
-    layersModel.clear();
-    let defaultIndex = -1;
-    let index = 0;
-    for (const availableLayer of availableLayers) {
-      if (defaultLayer === availableLayer) {
-        defaultIndex = index;
-      }
-      let icon = '';
-      switch (availableLayer.geometryType()) {
-      case Qgis.GeometryType.Point:
-        icon = Theme.getThemeVectorIcon('ic_geometry_point_24dp');
-        break;
-      case Qgis.GeometryType.Line:
-        icon = Theme.getThemeVectorIcon('ic_geometry_line_24dp');
-        break;
-      case Qgis.GeometryType.Polygon:
-        icon = Theme.getThemeVectorIcon('ic_geometry_polygon_24dp');
-        break;
-      }
-      layersModel.append({
-          "name": availableLayer.name,
-          "icon": icon,
-          "layer": availableLayer
-        });
-      index++;
-    }
-    if (defaultIndex >= 0) {
+    layersModel.trackingModel = trackingModel;
+    layersModel.enabled = true;
+    const defaultLayerIndex = layersModel.findLayer(defaultLayer);
+    if (defaultLayerIndex >= 0) {
       trackerSettings.layer = defaultLayer;
-      layersComboBox.currentIndex = defaultIndex;
+      layersComboBox.currentIndex = defaultLayerIndex;
     } else {
       layersComboBox.currentIndex = 0;
     }
@@ -140,8 +116,7 @@ QfPopup {
       leftPadding: 5
       rightPadding: 5 // Considering scroll bar
       ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
-      ScrollBar.vertical: QfScrollBar {
-      }
+      ScrollBar.vertical: QfScrollBar {}
       contentWidth: trackerSettingsGrid.width
       contentHeight: trackerSettingsGrid.height + bottomRow.height
       clip: true
@@ -167,23 +142,39 @@ QfPopup {
 
         QfComboBox {
           id: layersComboBox
-          model: ListModel {
-            id: layersModel
-          }
-          textRole: 'name'
-          valueRole: 'layer'
 
           Layout.fillWidth: true
           Layout.topMargin: 5
           Layout.columnSpan: 2
+
+          model: MapLayerModel {
+            id: layersModel
+            enabled: false
+            project: qgisProject
+            requiresTrackingAvailability: true
+          }
+
+          textRole: 'Name'
+          valueRole: 'LayerPointer'
 
           delegate: ItemDelegate {
             width: layersComboBox.width
             height: 36
             icon.width: 24
             icon.height: 24
-            icon.source: model.icon
-            text: model.name
+            icon.source: {
+              switch (GeometryType) {
+              case Qgis.GeometryType.Point:
+                return Theme.getThemeVectorIcon('ic_geometry_point_24dp');
+              case Qgis.GeometryType.Line:
+                return Theme.getThemeVectorIcon('ic_geometry_line_24dp');
+              case Qgis.GeometryType.Polygon:
+                return Theme.getThemeVectorIcon('ic_geometry_polygon_24dp');
+              default:
+                return '';
+              }
+            }
+            text: Name
             font: Theme.defaultFont
             highlighted: layersComboBox.highlightedIndex === index
           }
@@ -194,7 +185,21 @@ QfPopup {
 
             icon.width: 24
             icon.height: 24
-            icon.source: layersComboBox.currentIndex >= 0 ? layersComboBox.model.get(layersComboBox.currentIndex).icon : ''
+            icon.source: {
+              if (layersComboBox.currentIndex >= 0) {
+                switch (layersComboBox.model.get(layersComboBox.currentIndex).GeometryType) {
+                case Qgis.GeometryType.Point:
+                  return Theme.getThemeVectorIcon('ic_geometry_point_24dp');
+                case Qgis.GeometryType.Line:
+                  return Theme.getThemeVectorIcon('ic_geometry_line_24dp');
+                case Qgis.GeometryType.Polygon:
+                  return Theme.getThemeVectorIcon('ic_geometry_polygon_24dp');
+                default:
+                  return '';
+                }
+              }
+              return '';
+            }
             text: layersComboBox.currentText
             font: Theme.defaultFont
 
@@ -609,8 +614,7 @@ QfPopup {
     id: featureModel
     project: qgisProject
 
-    geometry: Geometry {
-    }
+    geometry: Geometry {}
 
     appExpressionContextScopesGenerator: AppExpressionContextScopesGenerator {
       positionInformation: appScopesGenerator.positionInformation

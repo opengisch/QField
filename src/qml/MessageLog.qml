@@ -18,6 +18,8 @@ Page {
 
   visible: false
   focus: visible
+  leftPadding: mainWindow.sceneLeftMargin
+  rightPadding: mainWindow.sceneRightMargin
 
   header: QfPageHeader {
     title: qsTr('Message Logs')
@@ -50,8 +52,7 @@ Page {
         objectName: 'messagesList'
         flickableDirection: Flickable.VerticalFlick
         boundsBehavior: Flickable.StopAtBounds
-        ScrollBar.vertical: QfScrollBar {
-        }
+        ScrollBar.vertical: QfScrollBar {}
         clip: true
         anchors.fill: parent
         spacing: 2

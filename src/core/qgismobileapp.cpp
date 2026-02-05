@@ -45,6 +45,10 @@
 #include "barcodedecoder.h"
 #include "barcodeimageprovider.h"
 #include "changelogcontents.h"
+#include "cogoexecutor.h"
+#include "cogooperation.h"
+#include "cogooperationsmodel.h"
+#include "cogoregistry.h"
 #include "coordinatereferencesystemutils.h"
 #include "deltafilewrapper.h"
 #include "deltalistmodel.h"
@@ -81,6 +85,7 @@
 #include "localfilesimageprovider.h"
 #include "localfilesmodel.h"
 #include "locatormodelsuperbridge.h"
+#include "maplayermodel.h"
 #include "maptoscreen.h"
 #include "messagelogmodel.h"
 #include "navigation.h"
@@ -227,6 +232,9 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
   QDesktopServices::setUrlHandler( QStringLiteral( "qfield" ), mUrlHandler.get(), "handleUrl" );
 
   mMessageLogModel = new MessageLogModel( this );
+
+  mCogoRegistry.reset( new CogoRegistry() );
+  CogoRegistry::setInstance( mCogoRegistry.get() );
 
   QSettings settings;
   if ( PlatformUtilities::instance()->capabilities() & PlatformUtilities::AdjustBrightness )
@@ -424,6 +432,7 @@ void QgisMobileapp::initDeclarative( QQmlEngine *engine )
   qRegisterMetaType<Qgis::GeometryType>( "Qgis::GeometryType" );
   qRegisterMetaType<Qgis::WkbType>( "Qgis::WkbType" );
   qRegisterMetaType<Qgis::LayerType>( "Qgis::LayerType" );
+  qRegisterMetaType<Qgis::LayerFilters>( "Qgis::LayerFilters" );
   qRegisterMetaType<Qgis::DistanceUnit>( "Qgis::DistanceUnit" );
   qRegisterMetaType<Qgis::AreaUnit>( "Qgis::AreaUnit" );
   qRegisterMetaType<Qgis::AngleUnit>( "Qgis::AngleUnit" );
@@ -475,6 +484,11 @@ void QgisMobileapp::initDeclarative( QQmlEngine *engine )
   qmlRegisterType<GridModel>( "org.qfield", 1, 0, "GridModel" );
   qmlRegisterUncreatableType<GridAnnotation>( "org.qfield", 1, 0, "GridAnnotation", "" );
 
+  qmlRegisterType<CogoExecutor>( "org.qfield", 1, 0, "CogoExecutor" );
+  qmlRegisterType<CogoOperationsModel>( "org.qfield", 1, 0, "CogoOperationsModel" );
+  qmlRegisterUncreatableType<CogoParameter>( "org.qfield", 1, 0, "CogoParameter", "" );
+  qmlRegisterUncreatableType<CogoVisualGuide>( "org.qfield", 1, 0, "CogoVisualGuide", "" );
+
   qmlRegisterType<Geofencer>( "org.qfield", 1, 0, "Geofencer" );
   qmlRegisterType<DigitizingLogger>( "org.qfield", 1, 0, "DigitizingLogger" );
   qmlRegisterType<AttributeFormModel>( "org.qfield", 1, 0, "AttributeFormModel" );
@@ -491,6 +505,7 @@ void QgisMobileapp::initDeclarative( QQmlEngine *engine )
   qmlRegisterType<ParametizedImage>( "org.qfield", 1, 0, "ParametizedImage" );
   qmlRegisterType<PrintLayoutListModel>( "org.qfield", 1, 0, "PrintLayoutListModel" );
   qmlRegisterType<VertexModel>( "org.qfield", 1, 0, "VertexModel" );
+  qmlRegisterType<MapLayerModel>( "org.qfield", 1, 0, "MapLayerModel" );
   qmlRegisterType<MapToScreen>( "org.qfield", 1, 0, "MapToScreen" );
   qmlRegisterType<LocatorModelSuperBridge>( "org.qfield", 1, 0, "LocatorModelSuperBridge" );
   qmlRegisterType<LocatorActionsModel>( "org.qfield", 1, 0, "LocatorActionsModel" );

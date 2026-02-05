@@ -52,7 +52,6 @@ void FeatureListModel::cleanupGatherer()
 
 QModelIndex FeatureListModel::index( int row, int column, const QModelIndex &parent ) const
 {
-  Q_UNUSED( column )
   Q_UNUSED( parent )
 
   return createIndex( row, column, 1000 );
@@ -81,7 +80,9 @@ int FeatureListModel::columnCount( const QModelIndex &parent ) const
 QVariant FeatureListModel::data( const QModelIndex &index, int role ) const
 {
   if ( index.row() < 0 || index.row() >= mEntries.size() )
+  {
     return QVariant();
+  }
 
   switch ( role )
   {
@@ -122,7 +123,9 @@ QgsVectorLayer *FeatureListModel::currentLayer() const
 void FeatureListModel::setCurrentLayer( QgsVectorLayer *currentLayer )
 {
   if ( mCurrentLayer == currentLayer )
+  {
     return;
+  }
 
   if ( mCurrentLayer )
   {
@@ -153,7 +156,9 @@ QString FeatureListModel::keyField() const
 void FeatureListModel::setKeyField( const QString &keyField )
 {
   if ( mKeyField == keyField )
+  {
     return;
+  }
 
   mKeyField = keyField;
 
@@ -170,7 +175,9 @@ QString FeatureListModel::displayValueField() const
 void FeatureListModel::setDisplayValueField( const QString &displayValueField )
 {
   if ( mDisplayValueField == displayValueField )
+  {
     return;
+  }
 
   mDisplayValueField = displayValueField;
 
@@ -187,7 +194,9 @@ QString FeatureListModel::groupField() const
 void FeatureListModel::setGroupField( const QString &groupField )
 {
   if ( mGroupField == groupField )
+  {
     return;
+  }
 
   mGroupField = groupField;
 
@@ -204,7 +213,9 @@ bool FeatureListModel::displayGroupName() const
 void FeatureListModel::setDisplayGroupName( bool displayGroupName )
 {
   if ( mDisplayGroupName == displayGroupName )
+  {
     return;
+  }
 
   mDisplayGroupName = displayGroupName;
 
@@ -217,13 +228,17 @@ int FeatureListModel::findKey( const QVariant &key ) const
   for ( const Entry &entry : mEntries )
   {
     if ( entry.key == key )
+    {
       return idx;
+    }
 
     ++idx;
   }
 
   if ( mAddNull )
+  {
     return 0;
+  }
 
   return -1;
 }
@@ -238,7 +253,9 @@ QList<int> FeatureListModel::findDisplayValueMatches( const QString &filter ) co
     for ( const Entry &entry : mEntries )
     {
       if ( entry.displayString.trimmed().toLower().startsWith( preparedFilter ) )
+      {
         matches.insert( entry.displayString.trimmed().toLower(), idx );
+      }
       ++idx;
     }
   }
@@ -259,7 +276,9 @@ void FeatureListModel::onAttributeValueChanged( QgsFeatureId, int idx, const QVa
   referencedColumns << mDisplayValueField;
 
   if ( referencedColumns.contains( mCurrentLayer->fields().at( idx ).name() ) )
+  {
     reloadLayer();
+  }
 }
 
 void FeatureListModel::onFeatureDeleted()
@@ -270,7 +289,9 @@ void FeatureListModel::onFeatureDeleted()
 QgsFeature FeatureListModel::getFeatureFromKeyValue( const QVariant &value ) const
 {
   if ( !mCurrentLayer )
+  {
     return QgsFeature();
+  }
 
   QgsFeature feature;
   for ( auto &entry : mEntries )
@@ -287,7 +308,9 @@ QgsFeature FeatureListModel::getFeatureFromKeyValue( const QVariant &value ) con
 QgsFeature FeatureListModel::getFeatureById( QgsFeatureId id ) const
 {
   if ( !mCurrentLayer )
+  {
     return QgsFeature();
+  }
 
   return mCurrentLayer->getFeature( id );
 }
@@ -295,7 +318,9 @@ QgsFeature FeatureListModel::getFeatureById( QgsFeatureId id ) const
 void FeatureListModel::gatherFeatureList()
 {
   if ( !mCurrentLayer || !mCurrentLayer->isValid() )
+  {
     return;
+  }
 
   QgsFeatureRequest request;
   QgsExpressionContext context = mCurrentLayer->createExpressionContext();
@@ -305,10 +330,14 @@ void FeatureListModel::gatherFeatureList()
   QSet<QString> referencedColumns = expression.referencedColumns();
 
   if ( !keyField().isNull() )
+  {
     referencedColumns << mKeyField;
+  }
 
   if ( !groupField().isNull() )
+  {
     referencedColumns << mGroupField;
+  }
 
   referencedColumns << mDisplayValueField;
 
@@ -335,7 +364,9 @@ void FeatureListModel::gatherFeatureList()
     }
 
     if ( mCurrentFormFeature.isValid() && QgsValueRelationFieldFormatter::expressionRequiresFormScope( mFilterExpression ) )
+    {
       filterContext.appendScope( QgsExpressionContextUtils::formScope( mCurrentFormFeature ) );
+    }
 
     request.setExpressionContext( filterContext );
     request.setFilterExpression( mFilterExpression );
@@ -351,14 +382,18 @@ void FeatureListModel::gatherFeatureList()
 void FeatureListModel::processFeatureList()
 {
   if ( !mGatherer )
+  {
     return;
+  }
 
   mEntries.clear();
 
   QList<Entry> entries;
 
   if ( mAddNull )
+  {
     entries.append( Entry( QStringLiteral( "<i>NULL</i>" ), QVariant(), QVariant(), QgsFeatureId() ) );
+  }
 
   const QVector<FeatureExpressionValuesGatherer::Entry> gatheredEntries = mGatherer->entries();
   mGatherer->deleteLater();
@@ -372,13 +407,19 @@ void FeatureListModel::processFeatureList()
   {
     std::sort( entries.begin(), entries.end(), [this]( const Entry &entry1, const Entry &entry2 ) {
       if ( entry1.key.isNull() && !entry2.key.isNull() )
+      {
         return true;
+      }
 
       if ( !entry1.key.isNull() && entry2.key.isNull() )
+      {
         return false;
+      }
 
       if ( !mGroupField.isEmpty() && entry1.group != entry2.group )
+      {
         return entry1.group < entry2.group;
+      }
       return entry1.displayString.toLower() < entry2.displayString.toLower();
     } );
   }
@@ -401,7 +442,9 @@ bool FeatureListModel::addNull() const
 void FeatureListModel::setAddNull( bool addNull )
 {
   if ( mAddNull == addNull )
+  {
     return;
+  }
 
   mAddNull = addNull;
   emit addNullChanged();
@@ -417,7 +460,9 @@ bool FeatureListModel::orderByValue() const
 void FeatureListModel::setOrderByValue( bool orderByValue )
 {
   if ( mOrderByValue == orderByValue )
+  {
     return;
+  }
 
   mOrderByValue = orderByValue;
   reloadLayer();
@@ -432,7 +477,9 @@ QString FeatureListModel::filterExpression() const
 void FeatureListModel::setFilterExpression( const QString &filterExpression )
 {
   if ( mFilterExpression == filterExpression )
+  {
     return;
+  }
 
   mFilterExpression = filterExpression;
   reloadLayer();
@@ -447,7 +494,9 @@ QgsFeature FeatureListModel::currentFormFeature() const
 void FeatureListModel::setCurrentFormFeature( const QgsFeature &feature )
 {
   if ( mCurrentFormFeature == feature )
+  {
     return;
+  }
 
   mCurrentFormFeature = feature;
 
@@ -467,7 +516,9 @@ AppExpressionContextScopesGenerator *FeatureListModel::appExpressionContextScope
 void FeatureListModel::setAppExpressionContextScopesGenerator( AppExpressionContextScopesGenerator *generator )
 {
   if ( mAppExpressionContextScopesGenerator == generator )
+  {
     return;
+  }
 
   mAppExpressionContextScopesGenerator = generator;
 

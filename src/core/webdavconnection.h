@@ -44,6 +44,7 @@ class WebdavConnection : public QObject
     Q_PROPERTY( bool isUploadingPath READ isUploadingPath NOTIFY isUploadingPathChanged )
 
     Q_PROPERTY( QStringList availablePaths READ availablePaths NOTIFY availablePathsChanged )
+    Q_PROPERTY( QStringList checkedPaths READ checkedPaths NOTIFY checkedPathsChanged )
     Q_PROPERTY( double progress READ progress NOTIFY progressChanged )
     Q_PROPERTY( QString lastError READ lastError NOTIFY lastErrorChanged )
 
@@ -125,6 +126,12 @@ class WebdavConnection : public QObject
     double progress() const;
 
     /**
+     * Returns a list of checked paths.
+     * \see fetchAvailablePaths
+     */
+    QStringList checkedPaths() const { return mCheckedPaths; }
+
+    /**
      * Returns a list of fetched available paths.
      * \see fetchAvailablePaths
      */
@@ -138,7 +145,7 @@ class WebdavConnection : public QObject
     /**
      * Fetches available remote paths from the current WebDAV endpoint.
      */
-    Q_INVOKABLE void fetchAvailablePaths();
+    Q_INVOKABLE void fetchAvailablePaths( const QString &remotePath = QString() );
 
     /**
      * Imports a remote path into a local path stored on the device.
@@ -204,6 +211,7 @@ class WebdavConnection : public QObject
     void isDownloadingPathChanged();
     void isUploadingPathChanged();
     void availablePathsChanged();
+    void checkedPathsChanged();
     void progressChanged();
     void lastErrorChanged();
 
@@ -232,6 +240,8 @@ class WebdavConnection : public QObject
 
     bool mStorePassword = false;
     QString mStoredPassword;
+
+    QStringList mCheckedPaths;
 
     bool mIsFetchingAvailablePaths = false;
     QStringList mAvailablePaths;

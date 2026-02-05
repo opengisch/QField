@@ -35,8 +35,6 @@ QfVisibilityFadingRow {
 
   property string image: Theme.getThemeVectorIcon("ic_edit_geometry_white_24dp")
 
-  spacing: 4
-
   signal editorChanged
   signal requestJumpToPoint(var center, real scale, bool handleMargins)
 
@@ -106,8 +104,6 @@ QfVisibilityFadingRow {
   QfVisibilityFadingRow {
     id: selectorRow
     stateVisible: true
-
-    spacing: 4
 
     Repeater {
       model: editors

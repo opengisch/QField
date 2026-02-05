@@ -16,11 +16,14 @@ Item {
   anchors.rightMargin: mainWindow.sceneRightMargin
 
   height: mainContent.height + (mainContent.height > 0 ? 5 : 0) + mainWindow.sceneBottomMargin
-  Behavior on height  {
+  Behavior on height {
     PropertyAnimation {
       easing.type: Easing.OutQuart
     }
   }
+
+  // COGO
+  property alias cogoOperationSettings: cogoOperationSettings
 
   // SensorInformationView
   property bool sensorInformationViewEnabled: sensorInformationView.activeSensors > 0
@@ -47,6 +50,11 @@ Item {
     leftPadding: 5
     rightPadding: 5
     spacing: 8
+
+    CogoOperationSettings {
+      id: cogoOperationSettings
+      visible: false
+    }
 
     QfOverlayContainer {
       visible: navigationInformationViewEnabled

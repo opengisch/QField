@@ -90,8 +90,7 @@ Item {
       contentHeight: content.height
       bottomMargin: processingAlgorithmForm.bottomMargin
       clip: true
-      ScrollBar.vertical: QfScrollBar {
-      }
+      ScrollBar.vertical: QfScrollBar {}
 
       Rectangle {
         anchors.fill: parent

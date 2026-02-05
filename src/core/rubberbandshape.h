@@ -53,7 +53,7 @@ class RubberbandShape : public QQuickItem
     Q_PROPERTY( qreal lineWidth READ lineWidth WRITE setLineWidth NOTIFY lineWidthChanged )
 
     //! List of polylines representing the rubber band
-    Q_PROPERTY( QList<QPolygonF> polylines READ polylines NOTIFY polylinesChanged )
+    Q_PROPERTY( QList<QList<QPointF>> polylines READ polylines NOTIFY polylinesChanged )
     //! The geometry type associated to the polylines
     Q_PROPERTY( Qgis::GeometryType polylinesType READ polylinesType NOTIFY polylinesTypeChanged )
 
@@ -95,7 +95,7 @@ class RubberbandShape : public QQuickItem
     void setGeometryType( const Qgis::GeometryType geometryType );
 
     //! \copydoc polylines
-    QList<QPolygonF> polylines() const { return mPolylines; }
+    QList<QList<QPointF>> polylines() const { return mPolylines; }
 
     //! \copydoc polylinesType
     Qgis::GeometryType polylinesType() const { return mPolylinesType; }
@@ -139,7 +139,7 @@ class RubberbandShape : public QQuickItem
     Qgis::GeometryType mGeometryType = Qgis::GeometryType::Null;
     QgsPoint mGeometryCorner;
     double mGeometryMUPP = 0.0;
-    QList<QPolygonF> mPolylines;
+    QList<QList<QPointF>> mPolylines;
     Qgis::GeometryType mPolylinesType = Qgis::GeometryType::Null;
 };
 

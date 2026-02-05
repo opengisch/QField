@@ -100,37 +100,44 @@ TestCase {
     compare(tabRow.model.rowCount(), 6);
     const expectedTabs = ["General", "Picture", "Issues", "Review", "Consumption", "GNSS"];
     compareFeatureFormTabNamesWithExpectedResults(expectedTabs);
-    const expectedModel = [{
+    const expectedModel = [
+      {
         "containerName": "Number of Boxes",
         "widgetType": "Range",
         "source": "editorwidgets/Range.qml",
         "value": 7
-      }, {
+      },
+      {
         "containerName": "Species of Bees",
         "widgetType": "ValueMap",
         "source": "editorwidgets/ValueMap.qml",
         "value": "Apis Mellifera Carnica"
-      }, {
+      },
+      {
         "containerName": "Amount of Bees",
         "widgetType": "ValueMap",
         "source": "editorwidgets/ValueMap.qml",
         "value": "1000"
-      }, {
+      },
+      {
         "containerName": "Beekeeper",
         "widgetType": "TextEdit",
         "source": "editorwidgets/TextEdit.qml",
         "value": "Stephen Hawking"
-      }, {
+      },
+      {
         "containerName": "Yearly Harvest (kg)",
         "widgetType": "Range",
         "source": "editorwidgets/Range.qml",
         "value": 10
-      }, {
+      },
+      {
         "containerName": "Owner",
         "widgetType": "ValueRelation",
         "source": "editorwidgets/ValueRelation.qml",
         "value": ""
-      }];
+      }
+    ];
     compareFeatureFormWithExpectedResults(expectedModel);
   }
 
@@ -174,22 +181,26 @@ TestCase {
     compare(titleLabel.text, "View feature on Fields");
     const expectedTabs = ["General", "Picture", "Review", "Consuming Apiaries"];
     compareFeatureFormTabNamesWithExpectedResults(expectedTabs);
-    const expectedModel = [{
+    const expectedModel = [
+      {
         "containerName": "Proprietor",
         "widgetType": "ValueMap",
         "source": "editorwidgets/ValueMap.qml",
         "value": "national"
-      }, {
+      },
+      {
         "containerName": "Plants",
         "widgetType": "ValueMap",
         "source": "editorwidgets/ValueMap.qml",
         "value": "taraxacum"
-      }, {
+      },
+      {
         "containerName": "Owner",
         "widgetType": "ValueRelation",
         "source": "editorwidgets/ValueRelation.qml",
         "value": "2"
-      }];
+      }
+    ];
     compareFeatureFormWithExpectedResults(expectedModel);
   }
 
@@ -228,22 +239,26 @@ TestCase {
     compare(titleLabel.text, "View feature on Tracks");
     const tabRow = Utils.findChildren(featureForm, "tabRow");
     compare(tabRow.model.hasTabs, undefined); // Notice: its better to be false not undefined
-    const expectedModel = [{
+    const expectedModel = [
+      {
         "containerName": "Track Name",
         "widgetType": "TextEdit",
         "source": "editorwidgets/TextEdit.qml",
         "value": "Munt Sura"
-      }, {
+      },
+      {
         "containerName": "Region",
         "widgetType": "TextEdit",
         "source": "editorwidgets/TextEdit.qml",
         "value": ""
-      }, {
+      },
+      {
         "containerName": "Editor Name",
         "widgetType": "TextEdit",
         "source": "editorwidgets/TextEdit.qml",
         "value": "Linda Camathiias"
-      }];
+      }
+    ];
     compareFeatureFormWithExpectedResults(expectedModel);
   }
 
@@ -275,6 +290,214 @@ TestCase {
     compare(attributeEditorLoader.isEditing, true);
     attributeEditorLoader.value = 99;
     compare(attributeEditorLoader.value, 99);
+    attributeEditorLoader.value = 7;
+    wait(50);
+    featureForm.state = 'ReadOnly';
+    wait(50);
+  }
+
+  /**
+   * Test that Range widget properly handles null and empty values
+   * This prevents crashes when empty values are intended for server-side fills
+   */
+  function test_05_rangeWidgetNullHandling() {
+    featureForm.mSelectedLayer = qgisProject.mapLayersByName('Apiary')[0];
+    featureForm.mSelectedFeature = featureForm.mSelectedLayer.getFeature("64");
+
+    // Reset to ReadOnly state first to reload the feature with original values
+    featureForm.state = 'ReadOnly';
+    wait(100);
+
+    // now switch to Edit mode
+    featureForm.state = 'Edit';
+    wait(100);
+
+    const fieldItem = Utils.findChildren(featureForm, "fieldRepeater");
+    const rangeItemLoader = fieldItem.itemAt(0).children[2].children[0];
+    const attributeEditorLoader = Utils.findChildren(featureForm, "attributeEditorLoader" + rangeItemLoader.containerName);
+
+    compare(rangeItemLoader.containerName, "Number of Boxes");
+    compare(attributeEditorLoader.value, 7, "Initial value should be 7");
+
+    // Test setting a valid value
+    attributeEditorLoader.value = 15;
+    wait(100);
+    compare(attributeEditorLoader.value, 15, "Value should update to 15");
+
+    // Test setting null-> should not crash
+    attributeEditorLoader.value = null;
+    wait(100);
+    verify(true, "Setting null value should not crash");
+
+    // Test setting back to valid value after null
+    attributeEditorLoader.value = 20;
+    wait(100);
+    compare(attributeEditorLoader.value, 20, "Value should be set correctly after null");
+
+    // edge case for numeric fields
+    attributeEditorLoader.value = 0;
+    wait(100);
+    compare(attributeEditorLoader.value, 0, "Zero should be handled correctly");
+    attributeEditorLoader.value = 7;
+    wait(50);
+    featureForm.state = "ReadOnly";
+    wait(50);
+  }
+
+  /**
+   * Test TextEdit widgets handling of empty vs null values
+   * Ensures server-side value fills are not corrupted
+   */
+  function test_06_textEditEmptyStringPreservation() {
+    featureForm.mSelectedLayer = qgisProject.mapLayersByName('Tracks')[0];
+    featureForm.mSelectedFeature = featureForm.mSelectedLayer.getFeature("1");
+    featureForm.state = 'Edit';
+    wait(100);
+
+    const fieldItem = Utils.findChildren(featureForm, "fieldRepeater");
+    const regionItemLoader = fieldItem.itemAt(1).children[2].children[0];
+    const attributeEditorLoader = Utils.findChildren(featureForm, "attributeEditorLoader" + regionItemLoader.containerName);
+
+    compare(regionItemLoader.containerName, "Region");
+
+    // Verify initial empty string (server-side fill scenario)
+    compare(attributeEditorLoader.value, '', "Region should start as empty string");
+    verify(attributeEditorLoader.value !== null, "Initial value should be empty string, not null");
+    verify(attributeEditorLoader.value !== undefined, "Initial value should be empty string, not undefined");
+    attributeEditorLoader.value = "test region";
+    wait(100);
+    compare(attributeEditorLoader.value, "test region", "Value should update to 'test region'");
+
+    // set back to empty string-> simulating user clearing the field
+    attributeEditorLoader.value = "";
+    wait(100);
+
+    // empty string should remain empty string, not become null
+    compare(attributeEditorLoader.value, "", "Value should be empty string after clearing");
+    verify(attributeEditorLoader.value !== null, "Cleared value should NOT be null (would break server-side fills)");
+    verify(attributeEditorLoader.value !== undefined, "Cleared value should NOT be undefined");
+    verify(typeof attributeEditorLoader.value === 'string', "Cleared value should be string type");
+
+    // Test null handling separately
+    attributeEditorLoader.value = null;
+    wait(100);
+    verify(true, "Setting null should not crash");
+    attributeEditorLoader.value = "";
+    wait(50);
+    featureForm.state = "ReadOnly";
+    wait(50);
+  }
+
+  /**
+   * Test that different widget types handle null and empty values correctly
+   * This is a regression test for the bug fixed in the PR
+   */
+  function test_07_widgetValueHandlingConsistency() {
+    featureForm.mSelectedLayer = qgisProject.mapLayersByName('Apiary')[0];
+    featureForm.mSelectedFeature = featureForm.mSelectedLayer.getFeature("64");
+    featureForm.state = 'Edit';
+    wait(100);
+
+    const fieldItem = Utils.findChildren(featureForm, "fieldRepeater");
+
+    // Test Range widget
+    const rangeLoader = Utils.findChildren(featureForm, "attributeEditorLoader" + fieldItem.itemAt(0).children[2].children[0].containerName);
+    compare(rangeLoader.widget, "Range");
+
+    const initialRangeValue = rangeLoader.value;
+    rangeLoader.value = null;
+    wait(50);
+    verify(true, "Range widget should handle null without crashing");
+
+    // Restore value
+    rangeLoader.value = initialRangeValue;
+    wait(50);
+
+    // Test TextEdit widget
+    const textEditLoader = Utils.findChildren(featureForm, "attributeEditorLoader" + fieldItem.itemAt(3).children[2].children[0].containerName);
+    compare(textEditLoader.widget, "TextEdit");
+
+    const initialTextValue = textEditLoader.value;
+
+    textEditLoader.value = "Test Name";
+    wait(50);
+    compare(textEditLoader.value, "Test Name");
+
+    // Test empty string preservation
+    textEditLoader.value = "";
+    wait(50);
+    compare(textEditLoader.value, "");
+    verify(textEditLoader.value !== null, "TextEdit empty string should not become null");
+
+    textEditLoader.value = null;
+    wait(50);
+    verify(true, "TextEdit should handle null without crashing");
+
+    // Restore
+    textEditLoader.value = initialTextValue;
+    wait(50);
+
+    // Test ValueMap widget
+    const valueMapLoader = Utils.findChildren(featureForm, "attributeEditorLoader" + fieldItem.itemAt(1).children[2].children[0].containerName);
+    compare(valueMapLoader.widget, "ValueMap");
+
+    const initialValueMapValue = valueMapLoader.value;
+
+    valueMapLoader.value = "";
+    wait(50);
+    verify(true, "ValueMap should handle empty string without crashing");
+
+    // Restore
+    valueMapLoader.value = initialValueMapValue;
+    wait(50);
+  }
+
+  /**
+   * Test state transitions with null or empty values
+   * Ensures that switching between ReadOnly and Edit modes preserves values correctly
+   */
+  function test_08_stateTransitionWithNullValues() {
+    featureForm.mSelectedLayer = qgisProject.mapLayersByName('Tracks')[0];
+    featureForm.mSelectedFeature = featureForm.mSelectedLayer.getFeature("1");
+
+    // Start in ReadOnly mode
+    featureForm.state = 'ReadOnly';
+    wait(100);
+
+    const fieldItem = Utils.findChildren(featureForm, "fieldRepeater");
+    const regionLoader = Utils.findChildren(featureForm, "attributeEditorLoader" + fieldItem.itemAt(1).children[2].children[0].containerName);
+
+    // Region starts as empty string
+    compare(regionLoader.value, "");
+
+    // Switch to Edit mode
+    featureForm.state = 'Edit';
+    wait(100);
+
+    // Empty string should be preserved across state change
+    compare(regionLoader.value, "");
+    verify(regionLoader.value !== null, "Empty string should not become null on state change");
+
+    // set a value
+    regionLoader.value = "Test Region";
+    wait(50);
+
+    // Switch back to ReadOnly
+    featureForm.state = 'ReadOnly';
+    wait(100);
+
+    // Value should be preserved
+    compare(regionLoader.value, "Test Region");
+
+    // Switch back to Edit and clear
+    featureForm.state = 'Edit';
+    wait(100);
+    regionLoader.value = "";
+    wait(50);
+
+    // Empty should still be empty, not null
+    compare(regionLoader.value, "");
+    verify(regionLoader.value !== null, "Cleared value should be empty string, not null");
   }
 
   /**
@@ -326,6 +549,7 @@ TestCase {
 
   Item {
     id: qfieldSettings
+
     property bool autoSave: false
   }
 

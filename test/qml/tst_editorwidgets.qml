@@ -115,6 +115,28 @@ TestCase {
     property bool isEnabled: false
     property string fieldLabel: "dummy"
 
+    // to simulate customProperty('QFieldSync/value_map_button_interface_threshold') -> toggleButtons view
+    Item {
+      id: currentLayerWithToggleButtons
+      function customProperty(propName) {
+        if (propName === 'QFieldSync/value_map_button_interface_threshold') {
+          return 100;
+        }
+        return undefined;
+      }
+    }
+
+    // to simulate customProperty('QFieldSync/value_map_button_interface_threshold') -> comboBox view (threshold = 0)
+    Item {
+      id: currentLayerWithoutToggleButtons
+      function customProperty(propName) {
+        if (propName === 'QFieldSync/value_map_button_interface_threshold') {
+          return 0;
+        }
+        return undefined;
+      }
+    }
+
     Connections {
       target: valueRelation
 
@@ -369,17 +391,20 @@ TestCase {
     const comboBoxItem = valueMap.children[0].children[1];
     compare(valueMap.toggleButtonsThreshold, 0);
     compare(valueMap.state, "comboBoxItemView");
-    compare(valueMap.currentItemCount, 0);
     compare(comboBoxItem.model.length, undefined);
     compare(comboBoxItem.currentIndex, toggleButtonsItem.selectedIndex);
     valueMap.config = {
-      "map": [{
+      "map": [
+        {
           "Buckfast bee": "Apis Mellifera"
-        }, {
+        },
+        {
           "Carniolan honey bee": "Apis Mellifera Carnica"
-        }, {
+        },
+        {
           "European honey bee": "Apis Mellifera Mellifera"
-        }]
+        }
+      ]
     };
     valueMap.currentLayer = currentLayerTrue;
     valueMap.value = "Apis Mellifera";
@@ -468,10 +493,10 @@ TestCase {
       "Value": "name"
     };
     setupValueRelationInReadonlyMode();
-    const relationComboBoxParent = valueRelation.children[0];
+    const relationComboBoxParent = valueRelation.children[1];
     const comboBoxItem = Utils.findChildren(relationComboBoxParent, "RelationComboBox");
     const addFeatureButton = Utils.findChildren(relationComboBoxParent, "AddFeatureButton");
-    const valueRelationListComponentParent = valueRelation.children[1];
+    const valueRelationListComponentParent = valueRelation.children[2];
     const valueRelationRepeater = Utils.findChildren(valueRelationListComponentParent, "ValueRelationRepeater");
 
     // check ui in readonly mode
@@ -518,7 +543,7 @@ TestCase {
       "Value": "name"
     };
     setupValueRelationInReadonlyMode();
-    const relationComboBoxParent = valueRelation.children[0];
+    const relationComboBoxParent = valueRelation.children[1];
     const comboBoxItem = Utils.findChildren(relationComboBoxParent, "RelationComboBox");
     const featureListModel = comboBoxItem.model;
     const expectedOrderedData = {
@@ -561,7 +586,7 @@ TestCase {
       "Value": "name"
     };
     setupValueRelationInReadonlyMode();
-    const relationComboBoxParent = valueRelation.children[0];
+    const relationComboBoxParent = valueRelation.children[1];
     const comboBoxItem = Utils.findChildren(relationComboBoxParent, "RelationComboBox");
     const featureListModel = comboBoxItem.model;
     const expectedOrderedData = {
@@ -604,7 +629,7 @@ TestCase {
       "Value": "name"
     };
     setupValueRelationInReadonlyMode();
-    const relationComboBoxParent = valueRelation.children[0];
+    const relationComboBoxParent = valueRelation.children[1];
     const addFeatureButton = Utils.findChildren(relationComboBoxParent, "AddFeatureButton");
     valueRelation.isEnabled = true;
     waitForRendering(valueRelation);
@@ -644,7 +669,7 @@ TestCase {
       "Value": "name"
     };
     setupValueRelationInReadonlyMode();
-    const relationComboBoxParent = valueRelation.children[0];
+    const relationComboBoxParent = valueRelation.children[1];
     const comboBoxItem = Utils.findChildren(relationComboBoxParent, "RelationComboBox");
     const featureListModel = comboBoxItem.model;
     const expectedOrderedData = {
@@ -693,10 +718,10 @@ TestCase {
       "Value": "name"
     };
     setupValueRelationInReadonlyMode();
-    const relationComboBoxParent = valueRelation2.children[0];
+    const relationComboBoxParent = valueRelation2.children[1];
     const comboBoxItem = Utils.findChildren(relationComboBoxParent, "RelationComboBox");
     const addFeatureButton = Utils.findChildren(relationComboBoxParent, "AddFeatureButton");
-    const valueRelationListComponentParent = valueRelation2.children[1];
+    const valueRelationListComponentParent = valueRelation2.children[2];
     const valueRelationGridView = Utils.findChildren(valueRelationListComponentParent, "ValueRelationGridView");
     const valueRelationRepeater = Utils.findChildren(valueRelationListComponentParent, "ValueRelationRepeater");
     const valueRelationSearchBar = Utils.findChildren(valueRelationListComponentParent, "ValueRelationSearchBar");
@@ -746,7 +771,7 @@ TestCase {
       "Value": "name"
     };
     setupValueRelationInReadonlyMode();
-    const valueRelationListComponentParent = valueRelation.children[1];
+    const valueRelationListComponentParent = valueRelation.children[2];
     const valueRelationRepeater = Utils.findChildren(valueRelationListComponentParent, "ValueRelationRepeater");
     const featureListModel = valueRelationRepeater.model;
     const expectedOrderedData = {
@@ -786,7 +811,7 @@ TestCase {
       "Value": "name"
     };
     setupValueRelationInReadonlyMode();
-    const valueRelationListComponentParent = valueRelation.children[1];
+    const valueRelationListComponentParent = valueRelation.children[2];
     const valueRelationRepeater = Utils.findChildren(valueRelationListComponentParent, "ValueRelationRepeater");
     const featureListModel = valueRelationRepeater.model;
     const expectedOrderedData = {
@@ -826,7 +851,7 @@ TestCase {
       "Value": "name"
     };
     setupValueRelationInReadonlyMode();
-    const valueRelationListComponentParent = valueRelation.children[1];
+    const valueRelationListComponentParent = valueRelation.children[2];
     const valueRelationRepeater = Utils.findChildren(valueRelationListComponentParent, "ValueRelationRepeater");
     const valueRelationSearchBar = Utils.findChildren(valueRelationListComponentParent, "ValueRelationSearchBar");
     const searchTextField = valueRelationSearchBar.children[0].children[2];
@@ -880,13 +905,13 @@ TestCase {
       "Value": "name"
     };
     setupValueRelationInReadonlyMode();
-    const relationComboBoxParent = valueRelation.children[0];
+    const relationComboBoxParent = valueRelation.children[1];
     const comboBoxItem = Utils.findChildren(relationComboBoxParent, "RelationComboBox");
     const addFeatureButton = Utils.findChildren(relationComboBoxParent, "AddFeatureButton");
     const openSearchFeaturePopupButton = Utils.findChildren(relationComboBoxParent, "OpenSearchFeaturePopupButton");
 
     // Initially, the combobox should not select any item because the value is undefined
-    compare(comboBoxItem.displayText, "");
+    compare(comboBoxItem.displayText, "NULL");
 
     // Enable editable mode
     valueRelation.isEnabled = true;
@@ -931,5 +956,54 @@ TestCase {
     wait(500);
     compare(relationComboBoxParent.searchPopup.opened, false);
     compare(comboBoxItem.displayText, "Sophia");
+  }
+
+  /**
+   * Tests ValueRelation toggle button UI (similar to ValueMap toggle buttons)
+   *
+   * This test verifies:
+   * - Toggle buttons are shown when threshold is set and conditions are met:
+   *   - AllowMulti is false
+   *   - No grouping is enabled
+   *   - Number of items is below the threshold
+   * - ComboBox is shown when threshold is 0 or conditions are not met
+   */
+  function test_11_ValueRelation_ToggleButtons() {
+    valueRelation.config = {
+      "AllowMulti": false,
+      "AllowNull": true,
+      "CompleterMatchFlags": 2,
+      "DisplayGroupName": false,
+      "Key": "id",
+      "LayerName": "TestRelationValues",
+      "LayerProviderName": "ogr",
+      "NofColumns": 1,
+      "OrderByDescending": false,
+      "OrderByField": false,
+      "OrderByFieldName": "id",
+      "OrderByKey": true,
+      "OrderByValue": false,
+      "UseCompleter": false,
+      "Value": "name"
+    };
+    setupValueRelationInReadonlyMode();
+
+    // Initially, without threshold set, should use defaultView (comboBox)
+    compare(valueRelation.toggleButtonsThreshold, 0);
+    compare(valueRelation.state, "defaultView");
+
+    // Set currentLayer to mock layer with threshold = 100 (toggle buttons should appear)
+    valueRelation.currentLayer = currentLayerWithToggleButtons;
+    valueRelation.isEnabled = true;
+    waitForRendering(valueRelation);
+    wait(500);
+
+    // Should now be in toggleButtonsView state
+    compare(valueRelation.toggleButtonsThreshold, 100);
+    compare(valueRelation.state, "toggleButtonsView");
+
+    // Wait for state change to apply
+    waitForRendering(valueRelation);
+    wait(500);
   }
 }

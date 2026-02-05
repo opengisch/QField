@@ -19,6 +19,8 @@ Page {
   signal finished(var loading)
 
   focus: visible
+  leftPadding: mainWindow.sceneLeftMargin
+  rightPadding: mainWindow.sceneRightMargin
 
   onVisibleChanged: {
     if (visible) {
@@ -1117,7 +1119,7 @@ Page {
           if (!isFetchingAvailablePaths && importWebdavDialog.visible) {
             swipeDialog.currentIndex = 1;
             importWebdavPathInput.model = availablePaths;
-            importWebdavPathInput.currentIndex = -1;
+            importWebdavPathInput.currentIndex = importWebdavPathInput.model.indexOf(importWebdavPathInput.lastIndexPath);
           }
         }
       }
@@ -1503,11 +1505,11 @@ Page {
             anchors.fill: parent
             anchors.margins: 1
             enabled: !webdavConnectionLoader.item || !webdavConnectionLoader.item.isFetchingAvailablePaths
-            ScrollBar.vertical: QfScrollBar {
-            }
+            ScrollBar.vertical: QfScrollBar {}
             clip: true
             model: []
 
+            property string lastIndexPath: ""
             property var expandedPaths: []
             property int expandedPathsClicks: 0
 
@@ -1549,6 +1551,10 @@ Page {
                   return true;
                 }
                 property bool hasChildren: {
+                  if (webdavConnectionLoader.item.checkedPaths.indexOf(modelData) === -1) {
+                    return true;
+                  }
+
                   for (const availablePath of importWebdavPathInput.model) {
                     if (availablePath.indexOf(modelData) === 0 && availablePath !== modelData) {
                       return true;
@@ -1584,7 +1590,7 @@ Page {
                   opacity: lineDialog.level > 0 && lineDialog.hasChildren && !lineDialog.isImported ? 1 : 0
                   rotation: importWebdavPathInput.expandedPaths.indexOf(modelData) > -1 ? 90 : 0
 
-                  Behavior on rotation  {
+                  Behavior on rotation {
                     NumberAnimation {
                       duration: 100
                     }
@@ -1644,6 +1650,10 @@ Page {
                   const index = importWebdavPathInput.expandedPaths.indexOf(modelData);
                   if (importWebdavPathInput.expandedPaths.indexOf(modelData) == -1) {
                     importWebdavPathInput.expandedPaths.push(modelData);
+                    if (webdavConnectionLoader.item.checkedPaths.indexOf(modelData) === -1) {
+                      importWebdavPathInput.lastIndexPath = modelData;
+                      webdavConnectionLoader.item.fetchAvailablePaths(modelData);
+                    }
                   } else {
                     importWebdavPathInput.expandedPaths.splice(index, 1);
                   }
