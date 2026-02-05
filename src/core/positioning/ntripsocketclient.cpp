@@ -24,42 +24,61 @@ qint64 NtripSocketClient::start(
   const QString &username,
   const QString &password )
 {
-  mHeadersSent = false;
-  mSocket.connectToHost( host, port );
+  mHost = host;
+  mPort = port;
+  mMountpoint = mountpoint;
+  mUsername = username;
+  mPassword = password;
 
-  QString credentials = username + ":" + password;
+  mHeadersSent = false;
+
+  if ( mSocket.isOpen() )
+    stop();
+
+  mSocket.connectToHost( mHost, mPort );
+
+  return estimateRequestSize();
+}
+
+qint64 NtripSocketClient::estimateRequestSize() const
+{
+  QString credentials = mUsername + ":" + mPassword;
   QByteArray base64 = credentials.toUtf8().toBase64();
 
-  QByteArray request;
-  request.append( "GET " + mountpoint.toUtf8() + " HTTP/1.0\r\n" );
-  request.append( "Host: " + host.toUtf8() + ":" + QByteArray::number( port ) + "\r\n" );
-  request.append( "User-Agent: QField NTRIP QtSocketClient/1.0\r\n" );
-  request.append( "Accept: */*\r\n" );
-  request.append( "Authorization: Basic " + base64 + "\r\n" );
-  request.append( "Connection: close\r\n" );
-  //request.append("Ntrip-Version: Ntrip/2.0\r\n");
-  request.append( "\r\n" );
-
-  connect( &mSocket, &QTcpSocket::connected, [this, request]() {
-    mSocket.write( request );
-    mSocket.flush();
-  } );
-
-  return request.size();
+  return 200 + base64.size() + mMountpoint.size();
 }
 
 void NtripSocketClient::stop()
 {
   if ( mSocket.isOpen() )
   {
-    mSocket.disconnectFromHost();
-    mSocket.close();
+    mSocket.abort();
   }
+  mHeadersSent = false;
 }
 
 void NtripSocketClient::onConnected()
 {
-  qDebug() << "Connected to NTRIP caster.";
+  qDebug() << "Connected to NTRIP caster:" << mHost << mPort << "mount:" << mMountpoint;
+
+  QString credentials = mUsername + ":" + mPassword;
+  QByteArray base64 = credentials.toUtf8().toBase64();
+
+  QByteArray mp = mMountpoint.toUtf8();
+  if ( !mp.startsWith( '/' ) )
+    mp.prepend( '/' );
+
+  QByteArray request;
+  request.append( "GET " + mp + " HTTP/1.0\r\n" );
+  request.append( "Host: " + mHost.toUtf8() + ":" + QByteArray::number( mPort ) + "\r\n" );
+  request.append( "User-Agent: QField NTRIP QtSocketClient/1.0\r\n" );
+  request.append( "Accept: */*\r\n" );
+  request.append( "Authorization: Basic " + base64 + "\r\n" );
+  request.append( "Connection: close\r\n" );
+  request.append( "\r\n" );
+
+  mSocket.write( request );
+  mSocket.flush();
 }
 
 void NtripSocketClient::onReadyRead()
@@ -69,12 +88,10 @@ void NtripSocketClient::onReadyRead()
   // If headers not processed yet, discard them
   if ( !mHeadersSent )
   {
-    int headerEnd = data.indexOf( "\r\n\r\n" );
+    qsizetype headerEnd = data.indexOf( "\r\n\r\n" );
     if ( headerEnd != -1 )
     {
       QByteArray headerData = data.left( headerEnd );
-      qDebug() << "Received HTTP headers:\n"
-               << headerData;
       data = data.mid( headerEnd + 4 );
       mHeadersSent = true;
       emit streamConnected();
@@ -94,10 +111,18 @@ void NtripSocketClient::onReadyRead()
 
 void NtripSocketClient::onDisconnected()
 {
-  emit errorOccurred( "Disconnected from NTRIP caster." );
+  emit errorOccurred( QString( "Disconnected from NTRIP caster %1:%2 (%3)" )
+                        .arg( mHost )
+                        .arg( mPort )
+                        .arg( mMountpoint ) );
 }
 
 void NtripSocketClient::onSocketError( QAbstractSocket::SocketError error )
 {
-  emit errorOccurred( "Socket error: " + QString::number( error ) + " (" + mSocket.errorString() + ")" );
+  emit errorOccurred( QString( "NTRIP socket error on %1:%2 (%3): %4 (%5)" )
+                        .arg( mHost )
+                        .arg( mPort )
+                        .arg( mMountpoint )
+                        .arg( error )
+                        .arg( mSocket.errorString() ) );
 }

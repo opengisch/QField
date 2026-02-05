@@ -30,8 +30,14 @@ class NtripSocketClient : public QObject
     void onReadyRead();
     void onDisconnected();
     void onSocketError( QAbstractSocket::SocketError error );
+    qint64 estimateRequestSize() const;
 
   private:
     QTcpSocket mSocket;
     bool mHeadersSent = false;
+    QString mHost;
+    quint16 mPort = 0;
+    QString mMountpoint;
+    QString mUsername;
+    QString mPassword;
 };
