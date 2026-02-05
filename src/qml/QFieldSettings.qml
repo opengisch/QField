@@ -421,18 +421,18 @@ Page {
                     name: qsTr("최저 품질")
                     value: 0.5
                   }
-                  /ListElement {
-                  /  name: qsTr('Best quality')
-                  /  value: 1.0
-                  /}
-                  /ListElement {
-                  /  name: qsTr('Lower quality')
-                  /  value: 0.75
-                  /}
-                  /ListElement {
-                  /  name: qsTr('Lowest quality')
-                  /  value: 0.5
-                  /}
+                  //ListElement {
+                  //  name: qsTr('Best quality')
+                  //  value: 1.0
+                  //}
+                  //ListElement {
+                  //  name: qsTr('Lower quality')
+                  //  value: 0.75
+                  //}
+                  //ListElement {
+                  //  name: qsTr('Lowest quality')
+                  //  value: 0.5
+                  //}
                 }
                 textRole: "name"
                 valueRole: "value"
