@@ -319,14 +319,11 @@ void PositioningSource::setupDevice()
     disconnect( mReceiver.get(), &AbstractGnssReceiver::socketStateStringChanged, this, &PositioningSource::deviceSocketStateStringChanged );
     mReceiver->deleteLater();
     mReceiver.reset();
-
-    // Stop NTRIP client when receiver is being replaced
     stopNtripClient();
   }
 
   if ( mDeviceId.isEmpty() )
   {
-    // Using internal receiver - NTRIP client not needed
     mReceiver = std::make_unique<InternalGnssReceiver>( this );
   }
   else
@@ -508,14 +505,6 @@ void PositioningSource::triggerConnectDevice()
   }
 }
 
-void PositioningSource::triggerDisconnectDevice()
-{
-  if ( mReceiver )
-  {
-    mReceiver->disconnectDevice();
-  }
-}
-
 void PositioningSource::startNtripClient()
 {
   // Only start NTRIP client if we have an external receiver that can use RTK corrections
@@ -593,4 +582,12 @@ void PositioningSource::setNtripStatus( const QString &status )
 
   mNtripStatus = status;
   emit ntripStatusChanged();
+}
+
+void PositioningSource::triggerDisconnectDevice()
+{
+  if ( mReceiver )
+  {
+    mReceiver->disconnectDevice();
+  }
 }
