@@ -14,8 +14,8 @@ Item {
   property bool isLoading: terrainProvider.isLoading
   property bool wireframeMode: false
 
-  property var gnssPosition: null
   property bool gnssActive: false
+  property var gnssPosition: null
   property real gnssSpeed: -1
   property real gnssDirection: -1
 
@@ -125,11 +125,12 @@ Item {
 
     Node {
       id: gnssMarker
-      visible: map3DView.gnssActive && map3DView.gnssPosition !== null
+      visible: pos3d !== null
 
       property var pos3d: {
-        if (!map3DView.gnssPosition)
+        if (!map3DView.gnssActive || !map3DView.gnssPosition) {
           return null;
+        }
         return map3DView.geoTo3D(map3DView.gnssPosition.x, map3DView.gnssPosition.y);
       }
 
