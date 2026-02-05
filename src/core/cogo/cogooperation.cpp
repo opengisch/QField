@@ -85,15 +85,31 @@ bool CogoOperationPointAtXYZ::execute( RubberbandModel *rubberbandModel, const Q
 QList<CogoParameter> CogoOperationPointAtDistanceAngle::parameters( Qgis::WkbType wkbType ) const
 {
   QList<CogoParameter> parameters;
-  parameters << CogoParameter( QStringLiteral( "point" ), QStringLiteral( "point" ), QObject::tr( "Point" ), Qt::transparent, { { QStringLiteral( "hasZ" ), QgsWkbTypes::hasZ( wkbType ) } } )
-             << CogoParameter( QStringLiteral( "distance" ), QStringLiteral( "distance" ), QObject::tr( "Distance" ) )
-             << CogoParameter( QStringLiteral( "angle" ), QStringLiteral( "angle" ), QObject::tr( "Angle" ) );
+  parameters << CogoParameter( QStringLiteral( "point" ), QStringLiteral( "point" ),
+                               QObject::tr( "기준점" ), Qt::transparent,
+                               { { QStringLiteral( "hasZ" ), QgsWkbTypes::hasZ( wkbType ) } } )
+             << CogoParameter( QStringLiteral( "distance" ), QStringLiteral( "distance" ),
+                               QObject::tr( "거리" ) )
+             << CogoParameter( QStringLiteral( "angle" ), QStringLiteral( "angle" ),
+                               QObject::tr( "각도" ) );
   if ( QgsWkbTypes::hasZ( wkbType ) )
   {
-    parameters << CogoParameter( QStringLiteral( "elevation" ), QStringLiteral( "elevation" ), QObject::tr( "Elevation" ) );
+    parameters << CogoParameter( QStringLiteral( "elevation" ), QStringLiteral( "elevation" ),
+                                 QObject::tr( "고도" ) );
   }
   return parameters;
 }
+// {
+//   QList<CogoParameter> parameters;
+//   parameters << CogoParameter( QStringLiteral( "point" ), QStringLiteral( "point" ), QObject::tr( "Point" ), Qt::transparent, { { QStringLiteral( "hasZ" ), QgsWkbTypes::hasZ( wkbType ) } } )
+//              << CogoParameter( QStringLiteral( "distance" ), QStringLiteral( "distance" ), QObject::tr( "Distance" ) )
+//              << CogoParameter( QStringLiteral( "angle" ), QStringLiteral( "angle" ), QObject::tr( "Angle" ) );
+//   if ( QgsWkbTypes::hasZ( wkbType ) )
+//   {
+//     parameters << CogoParameter( QStringLiteral( "elevation" ), QStringLiteral( "elevation" ), QObject::tr( "Elevation" ) );
+//   }
+//   return parameters;
+// }
 
 QList<CogoVisualGuide> CogoOperationPointAtDistanceAngle::visualGuides( const QVariantMap &parameters, QgsQuickMapSettings *mapSettings ) const
 {
@@ -203,13 +219,28 @@ bool CogoOperationPointAtDistanceAngle::execute( RubberbandModel *rubberbandMode
 }
 
 QList<CogoParameter> CogoOperationPointAtIntersectionCircles::parameters( Qgis::WkbType wkbType ) const
+// {
+//   QList<CogoParameter> parameters;
+//   parameters << CogoParameter( QStringLiteral( "point" ), QStringLiteral( "point1" ), QObject::tr( "Circle #1: point" ), COLOR_GROUP_1 )
+//              << CogoParameter( QStringLiteral( "distance" ), QStringLiteral( "distance1" ), QObject::tr( "Circle #1: radius" ), COLOR_GROUP_1 )
+//              << CogoParameter( QStringLiteral( "point" ), QStringLiteral( "point2" ), QObject::tr( "Circle #2: point" ), COLOR_GROUP_2 )
+//              << CogoParameter( QStringLiteral( "distance" ), QStringLiteral( "distance2" ), QObject::tr( "Circle #2: radius" ), COLOR_GROUP_2 )
+//              << CogoParameter( QStringLiteral( "enum" ), QStringLiteral( "candidate" ), QObject::tr( "Candidate" ), Qt::transparent, { { QStringLiteral( "options" ), QStringList() << QStringLiteral( "A" ) << QStringLiteral( "B" ) } } );
+//   return parameters;
+// }
 {
   QList<CogoParameter> parameters;
-  parameters << CogoParameter( QStringLiteral( "point" ), QStringLiteral( "point1" ), QObject::tr( "Circle #1: point" ), COLOR_GROUP_1 )
-             << CogoParameter( QStringLiteral( "distance" ), QStringLiteral( "distance1" ), QObject::tr( "Circle #1: radius" ), COLOR_GROUP_1 )
-             << CogoParameter( QStringLiteral( "point" ), QStringLiteral( "point2" ), QObject::tr( "Circle #2: point" ), COLOR_GROUP_2 )
-             << CogoParameter( QStringLiteral( "distance" ), QStringLiteral( "distance2" ), QObject::tr( "Circle #2: radius" ), COLOR_GROUP_2 )
-             << CogoParameter( QStringLiteral( "enum" ), QStringLiteral( "candidate" ), QObject::tr( "Candidate" ), Qt::transparent, { { QStringLiteral( "options" ), QStringList() << QStringLiteral( "A" ) << QStringLiteral( "B" ) } } );
+  parameters << CogoParameter( QStringLiteral( "point" ), QStringLiteral( "point1" ),
+                               QObject::tr( "원 #1: 기준점" ), COLOR_GROUP_1 )
+             << CogoParameter( QStringLiteral( "distance" ), QStringLiteral( "distance1" ),
+                               QObject::tr( "원 #1: 반지름" ), COLOR_GROUP_1 )
+             << CogoParameter( QStringLiteral( "point" ), QStringLiteral( "point2" ),
+                               QObject::tr( "원 #2: 기준점" ), COLOR_GROUP_2 )
+             << CogoParameter( QStringLiteral( "distance" ), QStringLiteral( "distance2" ),
+                               QObject::tr( "원 #2: 반지름" ), COLOR_GROUP_2 )
+             << CogoParameter( QStringLiteral( "enum" ), QStringLiteral( "candidate" ),
+                               QObject::tr( "교차점 선택" ), Qt::transparent,
+                               { { QStringLiteral( "options" ), QStringList() << QStringLiteral( "A" ) << QStringLiteral( "B" ) } } );
   return parameters;
 }
 
