@@ -103,7 +103,8 @@ Page {
       isVisible: true
     }
     ListElement {
-      title: qsTr("Show zoom controls")
+      //title: qsTr("Show zoom controls")
+      title: qsTr("확대/축소 버튼 표시")
       description: ''
       settingAlias: "showZoomControls"
       isVisible: true
@@ -115,8 +116,10 @@ Page {
       isVisible: true
     }
     ListElement {
-      title: qsTr("Enable map rotation")
-      description: qsTr("When switched on, the map can be rotated by the user.")
+      //title: qsTr("Enable map rotation")
+      title: qsTr("지도 회전 사용")
+      //description: qsTr("When switched on, the map can be rotated by the user.")
+      description: qsTr("이 설정을 켜면 사용자가 지도를 회전할 수 있습니다.")
       settingAlias: "enableMapRotation"
       isVisible: true
     }
@@ -131,20 +134,25 @@ Page {
       isVisible: true
     }
     ListElement {
-      title: qsTr("Use volume keys to digitize")
-      description: qsTr("If enabled, pressing the device's volume up key will add a vertex while pressing volume down key will remove the last entered vertex during digitizing sessions.")
+      //title: qsTr("Use volume keys to digitize")
+      title: qsTr("볼륨 키로 지도 편집")
+      //description: qsTr("If enabled, pressing the device's volume up key will add a vertex while pressing volume down key will remove the last entered vertex during digitizing sessions.")
+      description: qsTr("이 설정을 켜면 지도 편집 중 볼륨 올림 키를 눌러 꼭짓점을 추가하고, 볼륨 내림 키를 눌러 마지막으로 입력한 꼭짓점을 삭제할 수 있습니다.")
       settingAlias: "digitizingVolumeKeys"
       isVisible: true
     }
     ListElement {
-      title: qsTr("Allow finger tap on canvas to add vertices")
-      description: qsTr("When enabled, tapping on the map canvas with a finger will add a vertex at the tapped location.")
+      //title: qsTr("Allow finger tap on canvas to add vertices")
+      title: qsTr("지도 화면 터치로 꼭짓점 추가 허용")
+      //description: qsTr("When enabled, tapping on the map canvas with a finger will add a vertex at the tapped location.")
+      description: qsTr("이 설정을 켜면 지도 화면을 손가락으로 터치했을 때 해당 위치에 꼭짓점이 추가됩니다.")
       settingAlias: "fingerTapDigitizing"
       isVisible: true
     }
     ListElement {
       title: qsTr("Consider mouse as a touchscreen device")
-      description: qsTr("When enabled, the mouse will act as if it was a finger. When disabled, the mouse will match the stylus behavior.")
+      //description: qsTr("When enabled, the mouse will act as if it was a finger. When disabled, the mouse will match the stylus behavior.")
+      description: qsTr("이 설정을 켜면 마우스가 손가락처럼 동작합니다. 끄면 마우스가 스타일러스(펜) 방식으로 동작합니다.")
       settingAlias: "mouseAsTouchScreen"
       isVisible: true
     }
@@ -162,14 +170,17 @@ Page {
   ListModel {
     id: interfaceSettingsModel
     ListElement {
-      title: qsTr("Maximize feature form")
+      //title: qsTr("Maximize feature form")
+      title: qsTr("항목 입력 폼 최대화")
       description: ''
       settingAlias: "fullScreenIdentifyView"
       isVisible: true
     }
     ListElement {
-      title: qsTr("Open feature form for single feature identification")
-      description: qsTr("When enabled, the feature form will open automatically if only one feature is identified, skipping the feature list.")
+      //title: qsTr("Open feature form for single feature identification")
+      title: qsTr("단일 항목 선택 시 입력 폼 자동 열기")
+      //description: qsTr("When enabled, the feature form will open automatically if only one feature is identified, skipping the feature list.")
+      description: qsTr("이 설정을 켜면 하나의 항목만 식별될 경우 항목 목록을 건너뛰고 입력 폼이 자동으로 열립니다.")
       settingAlias: "autoOpenFormSingleIdentify"
       isVisible: true
     }
@@ -180,8 +191,10 @@ Page {
       isVisible: true
     }
     ListElement {
-      title: qsTr("Auto-zoom to identified feature(s)")
-      description: qsTr("When enabled, the map will automatically zoom to show all identified features, as well as the individual selected feature when the feature form is opened.")
+      //title: qsTr("Auto-zoom to identified feature(s)")
+      title: qsTr("식별된 항목으로 자동 확대")
+      //description: qsTr("When enabled, the map will automatically zoom to show all identified features, as well as the individual selected feature when the feature form is opened.")
+      description: qsTr("이 설정을 켜면 식별된 모든 항목이 보이도록 지도가 자동으로 확대되며, 항목 입력 폼을 열 때 선택된 개별 항목으로도 자동 확대됩니다.")
       settingAlias: "autoZoomToIdentifiedFeature"
       isVisible: true
     }
@@ -190,20 +203,26 @@ Page {
   ListModel {
     id: advancedSettingsModel
     ListElement {
-      title: qsTr("Render preview content around visible map canvas")
-      description: qsTr("If enabled, areas just outside of the visible map canvas extent will be partially rendered to allow preview when zooming and panning.")
+      //title: qsTr("Render preview content around visible map canvas")
+      title: qsTr("지도 화면 주변 미리보기 렌더링")
+      //description: qsTr("If enabled, areas just outside of the visible map canvas extent will be partially rendered to allow preview when zooming and panning.")
+      description: qsTr("이 설정을 켜면 현재 보이는 지도 화면 범위의 바깥 영역도 일부 렌더링되어 확대하거나 이동할 때 미리보기가 가능합니다.")
       settingAlias: "previewJobsEnabled"
       isVisible: true
     }
     ListElement {
-      title: qsTr("Enable auto-save mode")
-      description: qsTr("If enabled, newly-added features are stored as soon as it has having a valid geometry and the constraints are fulfilled and edited atributes are commited immediately.")
+      //title: qsTr("Enable auto-save mode")
+      title: qsTr("자동 저장 모드 사용")
+      //description: qsTr("If enabled, newly-added features are stored as soon as it has having a valid geometry and the constraints are fulfilled and edited atributes are commited immediately.")
+      description: qsTr("이 설정을 켜면 새로 추가된 항목이 유효한 도형을 갖추고 제약 조건을 충족하는 즉시 저장되며, 수정된 속성도 바로 반영됩니다.")
       settingAlias: "autoSave"
       isVisible: true
     }
     ListElement {
-      title: qsTr("Use native camera")
-      description: qsTr("If disabled, QField will use a minimalist internal camera instead of the camera app on the device.<br>Tip: Enable this option and install the open camera app to create geo tagged photos.")
+      //title: qsTr("Use native camera")
+      title: qsTr("기기 기본 카메라 사용")
+      //description: qsTr("If disabled, QField will use a minimalist internal camera instead of the camera app on the device.<br>Tip: Enable this option and install the open camera app to create geo tagged photos.")
+      description: qsTr("이 설정을 끄면 QField는 기기에 설치된 카메라 앱 대신 간단한 내부 카메라를 사용합니다.<br>팁: 이 옵션을 켜고 Open Camera 앱을 설치하면 위치 정보가 포함된 사진을 촬영할 수 있습니다.")
       settingAlias: "nativeCamera2"
       isVisible: true
     }
@@ -335,7 +354,8 @@ Page {
               rowSpacing: 5
 
               Label {
-                text: qsTr('Map Canvas')
+                //text: qsTr('Map Canvas')
+                text: qsTr('지도 화면')
                 font: Theme.strongFont
                 color: Theme.mainTextColor
                 wrapMode: Text.WordWrap
@@ -368,7 +388,8 @@ Page {
               Label {
                 Layout.fillWidth: true
                 Layout.columnSpan: 2
-                text: qsTr("Map canvas rendering quality:")
+                //text: qsTr("Map canvas rendering quality:")
+                text: qsTr("지도 화면 렌더링 품질:")
                 font: Theme.defaultFont
                 color: Theme.mainTextColor
 
@@ -389,17 +410,29 @@ Page {
 
                 model: ListModel {
                   ListElement {
-                    name: qsTr('Best quality')
+                    name: qsTr("최고 품질")
                     value: 1.0
                   }
                   ListElement {
-                    name: qsTr('Lower quality')
+                    name: qsTr("낮은 품질")
                     value: 0.75
                   }
                   ListElement {
-                    name: qsTr('Lowest quality')
+                    name: qsTr("최저 품질")
                     value: 0.5
                   }
+                  /ListElement {
+                  /  name: qsTr('Best quality')
+                  /  value: 1.0
+                  /}
+                  /ListElement {
+                  /  name: qsTr('Lower quality')
+                  /  value: 0.75
+                  /}
+                  /ListElement {
+                  /  name: qsTr('Lowest quality')
+                  /  value: 0.5
+                  /}
                 }
                 textRole: "name"
                 valueRole: "value"
@@ -419,7 +452,8 @@ Page {
               }
 
               Label {
-                text: qsTr("A lower quality trades rendering precision in favor of lower memory usage and rendering time.")
+                //text: qsTr("A lower quality trades rendering precision in favor of lower memory usage and rendering time.")
+                text: qsTr("낮은 품질은 렌더링 정확도를 낮추는 대신 메모리 사용량과 렌더링 시간을 줄입니다.")
                 font: Theme.tipFont
                 color: Theme.secondaryTextColor
                 textFormat: Qt.RichText
@@ -433,7 +467,8 @@ Page {
               }
 
               Label {
-                text: qsTr('Digitizing & Editing')
+                //text: qsTr('Digitizing & Editing')
+                text: qsTr('지도 편집')
                 font: Theme.strongFont
                 color: Theme.mainTextColor
                 wrapMode: Text.WordWrap
@@ -464,7 +499,8 @@ Page {
               rowSpacing: 0
 
               Label {
-                text: qsTr('User Interface')
+                //text: qsTr('User Interface')
+                text: qsTr('사용자 인터페이스')
                 font: Theme.strongFont
                 color: Theme.mainTextColor
                 wrapMode: Text.WordWrap
@@ -505,7 +541,8 @@ Page {
               }
 
               Label {
-                text: qsTr("Manage plugins")
+                //text: qsTr("Manage plugins")
+                text: qsTr("플러그인 관리")
                 font: Theme.defaultFont
                 color: Theme.mainTextColor
                 wrapMode: Text.WordWrap
@@ -584,7 +621,8 @@ Page {
 
               Label {
                 Layout.fillWidth: true
-                text: qsTr('Time of inactivity in seconds before the screen brightness get be dimmed to preserve battery.')
+                //text: qsTr('Time of inactivity in seconds before the screen brightness get be dimmed to preserve battery.')
+                text: qsTr('배터리 절약을 위해 화면 밝기가 낮아지기까지의 비활성 시간(초)입니다.')
 
                 font: Theme.tipFont
                 color: Theme.secondaryTextColor
@@ -605,7 +643,8 @@ Page {
 
               Label {
                 Layout.fillWidth: true
-                text: qsTr("Appearance:")
+                //text: qsTr("Appearance:")
+                text: qsTr("화면 모드:")
                 font: Theme.defaultFont
                 color: Theme.mainTextColor
 
@@ -625,17 +664,29 @@ Page {
 
                 model: ListModel {
                   ListElement {
-                    name: qsTr('Follow system appearance')
-                    value: 'system'
+                    name: qsTr("시스템 설정 따르기")
+                    value: "system"
                   }
                   ListElement {
-                    name: qsTr('Light theme')
-                    value: 'light'
+                    name: qsTr("라이트")
+                    value: "light"
                   }
                   ListElement {
-                    name: qsTr('Dark theme')
-                    value: 'dark'
+                    name: qsTr("다크")
+                    value: "dark"
                   }
+                  //ListElement {
+                  //  name: qsTr('Follow system appearance')
+                  //  value: 'system'
+                  //}
+                  //ListElement {
+                  //  name: qsTr('Light theme')
+                  //  value: 'light'
+                  //}
+                  //ListElement {
+                  //  name: qsTr('Dark theme')
+                  //  value: 'dark'
+                  //}
                 }
                 textRole: "name"
                 valueRole: "value"
@@ -658,7 +709,8 @@ Page {
 
               Label {
                 Layout.fillWidth: true
-                text: qsTr("Font size:")
+                //text: qsTr("Font size:")
+                text: qsTr("글자 크기:")
                 font: Theme.defaultFont
                 color: Theme.mainTextColor
 
@@ -678,21 +730,37 @@ Page {
 
                 model: ListModel {
                   ListElement {
-                    name: qsTr('Tiny')
+                    name: qsTr("아주 작게")
                     value: 0.75
                   }
                   ListElement {
-                    name: qsTr('Normal')
+                    name: qsTr("보통")
                     value: 1.0
                   }
                   ListElement {
-                    name: qsTr('Large')
+                    name: qsTr("크게")
                     value: 1.5
                   }
                   ListElement {
-                    name: qsTr('Extra-large')
+                    name: qsTr("아주 크게")
                     value: 2.0
                   }
+                  //ListElement {
+                  //  name: qsTr('Tiny')
+                  //  value: 0.75
+                  //}
+                  //ListElement {
+                  //  name: qsTr('Normal')
+                  //  value: 1.0
+                  //}
+                  //ListElement {
+                  //  name: qsTr('Large')
+                  //  value: 1.5
+                  //}
+                  //ListElement {
+                  //  name: qsTr('Extra-large')
+                  //  value: 2.0
+                  //}
                 }
                 textRole: "name"
                 valueRole: "value"
@@ -715,7 +783,8 @@ Page {
 
               Label {
                 Layout.fillWidth: true
-                text: qsTr("Language:")
+                //text: qsTr("Language:")
+                text: qsTr("언어:")
                 font: Theme.defaultFont
                 color: Theme.mainTextColor
 
@@ -783,7 +852,8 @@ Page {
               rowSpacing: 5
 
               Label {
-                text: qsTr('Advanced')
+                //text: qsTr('Advanced')
+                text: qsTr('고급 설정')
                 font: Theme.strongFont
                 color: Theme.mainTextColor
                 wrapMode: Text.WordWrap

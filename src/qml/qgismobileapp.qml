@@ -3641,7 +3641,8 @@ ApplicationWindow {
 
     MenuItem {
       id: lockMapRotation
-      text: qsTr("Enable Map Rotation")
+      //text: qsTr("Enable Map Rotation")
+      text: qsTr("지도 회전 사용")
       height: 48
       leftPadding: Theme.menuItemCheckLeftPadding
       font: Theme.defaultFont
