@@ -24,6 +24,7 @@ class NtripSocketClient : public QObject
     void correctionDataReceived( const QByteArray &data );
     void errorOccurred( const QString &message );
     void streamConnected();
+    void streamDisconnected();
 
   private slots:
     void onConnected();

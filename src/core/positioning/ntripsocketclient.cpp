@@ -116,10 +116,19 @@ void NtripSocketClient::onReadyRead()
 
 void NtripSocketClient::onDisconnected()
 {
-  emit errorOccurred( QString( "Disconnected from NTRIP caster %1:%2 (%3)" )
-                        .arg( mHost )
-                        .arg( mPort )
-                        .arg( mMountpoint ) );
+  if ( mHeadersSent )
+  {
+    // Server-initiated disconnection after stream was connected
+    emit streamDisconnected();
+  }
+  else
+  {
+    // Connection failed or disconnected before headers were processed
+    emit errorOccurred( QString( "Disconnected from NTRIP caster %1:%2 (%3)" )
+                          .arg( mHost )
+                          .arg( mPort )
+                          .arg( mMountpoint ) );
+  }
 }
 
 void NtripSocketClient::onSocketError( QAbstractSocket::SocketError error )
