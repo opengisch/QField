@@ -299,7 +299,7 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Location permission denied</source>
-        <translation type="unfinished"/>
+        <translation>Permissão de localização negada</translation>
     </message>
     <message>
         <source>Location permission is required to scan for bluetooth devices</source>
@@ -594,7 +594,7 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Legend</source>
-        <translation type="unfinished"/>
+        <translation>Legenda</translation>
     </message>
     <message>
         <source>Return home</source>
@@ -1619,11 +1619,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Created projects</source>
-        <translation type="unfinished"/>
+        <translation>projetos criados</translation>
     </message>
     <message>
         <source>Home</source>
-        <translation type="unfinished"/>
+        <translation>Página inicial</translation>
     </message>
 </context>
 <context>
@@ -3700,7 +3700,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Home</source>
-        <translation type="unfinished"/>
+        <translation>Página inicial</translation>
     </message>
     <message>
         <source>Item Actions</source>
@@ -6535,7 +6535,7 @@ project</source>
     </message>
     <message>
         <source>Legend</source>
-        <translation type="unfinished"/>
+        <translation>Legenda</translation>
     </message>
     <message>
         <source>The legend shows map layers and allows you to toggle visibility and opacity properties by &lt;b&gt;long-pressing on a layer to open a properties popup&lt;/b&gt;. The popup offers additional functionalities such as zooming to layer extent and displaying features contained within vector layers.</source>
