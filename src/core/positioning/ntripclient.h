@@ -13,12 +13,10 @@ class NtripClient : public QObject
     ~NtripClient();
 
     void start( const QString &ntripHost, const quint16 &port, const QString &mountpoint, const QString &username, const QString &password );
+    void stop();
 
     qint64 bytesSent() const { return mBytesSent; }
     qint64 bytesReceived() const { return mBytesReceived; }
-
-  public slots:
-    void stop();
 
   signals:
     void correctionDataReceived( const QByteArray &rtcmData );
@@ -27,7 +25,6 @@ class NtripClient : public QObject
     void streamConnected();
 
   private slots:
-    //void onReadyRead();
     void onFinished();
     void onError( QNetworkReply::NetworkError code );
 

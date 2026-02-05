@@ -17,7 +17,6 @@ void NtripClient::start( const QString &ntripHost, const quint16 &port, const QS
 {
   if ( mReply )
   {
-    qWarning() << "NtripClient already running";
     return;
   }
 
@@ -30,21 +29,6 @@ void NtripClient::start( const QString &ntripHost, const quint16 &port, const QS
     mBytesReceived += data.size();
 
     quint8 firstByte = quint8( data.at( 0 ) );
-    if ( firstByte == 0xD3 )
-    {
-      qDebug() << "RTCM chunk:";
-    }
-    else if ( firstByte == 0x73 )
-    {
-      qDebug() << "SPARTN chunk:";
-    }
-    else
-    {
-      qDebug() << "UNKNOWN chunk:";
-    }
-
-    qDebug() << data.size() << "bytes";
-    // send to your GNSS device
     emit correctionDataReceived( data );
     emit bytesCountersChanged();
   } );
@@ -67,37 +51,22 @@ void NtripClient::start( const QString &ntripHost, const quint16 &port, const QS
 
   // Emit immediately to show sent bytes
   emit bytesCountersChanged();
-
-
-  //connect(mReply, &QNetworkReply::readyRead, this, &NtripClient::onReadyRead);
-  //connect(mReply, &QNetworkReply::finished, this, &NtripClient::onFinished);
-  //connect(mReply, xxxQOverload<QNetworkReply::NetworkError>::of(&QNetworkReply::errorOccurred),
-  //        this, &NtripClient::onError);
 }
 
 void NtripClient::stop()
 {
   if ( mReply )
   {
-    disconnect( mReply, nullptr, this, nullptr ); // ✅ Disconnect all signals
+    disconnect( mReply, nullptr, this, nullptr ); // Disconnect all signals
 
     if ( mReply->isRunning() )
     {
-      mReply->abort(); // ✅ Cancel the request
+      mReply->abort(); // Cancel the request
     }
     mReply->deleteLater();
     mReply = nullptr;
   }
 }
-
-/*
-void NtripClient::onReadyRead()
-{
-    QByteArray data = mReply->readAll();
-    qInfo() << data + "\n";
-    emit correctionDataReceived(data);
-}
-*/
 
 void NtripClient::onFinished()
 {
@@ -122,7 +91,5 @@ void NtripClient::onError( QNetworkReply::NetworkError code )
       .arg( code )
       .arg( status )
       .arg( reason ) );
-  //emit errorOccurred(QStringLiteral("NTRIP error: %1").arg(code));
-  // Schedule cleanup after Qt finishes emitting signals
   QMetaObject::invokeMethod( this, "stop", Qt::QueuedConnection );
 }
