@@ -61,11 +61,22 @@ class PositioningSource : public QObject
     Q_PROPERTY( QString ntripMountpoint READ ntripMountpoint WRITE setNtripMountpoint NOTIFY ntripMountpointChanged )
     Q_PROPERTY( QString ntripUsername READ ntripUsername WRITE setNtripUsername NOTIFY ntripUsernameChanged )
     Q_PROPERTY( QString ntripPassword READ ntripPassword WRITE setNtripPassword NOTIFY ntripPasswordChanged )
-    Q_PROPERTY( QString ntripStatus READ ntripStatus NOTIFY ntripStatusChanged )
+    Q_PROPERTY( NtripState ntripState READ ntripState NOTIFY ntripStateChanged )
+    Q_PROPERTY( QString ntripLastError READ ntripLastError NOTIFY ntripLastErrorChanged )
     Q_PROPERTY( qint64 ntripBytesSent READ ntripBytesSent NOTIFY ntripBytesSentChanged )
     Q_PROPERTY( qint64 ntripBytesReceived READ ntripBytesReceived NOTIFY ntripBytesReceivedChanged )
 
   public:
+    /**
+     * NTRIP client connection states
+     */
+    enum class NtripState
+    {
+      Disconnected, //! NTRIP client is disconnected
+      Connected     //! NTRIP client is connected
+    };
+    Q_ENUM( NtripState )
+
     /**
      * Elevation correction modes
      */
@@ -276,9 +287,14 @@ class PositioningSource : public QObject
     void setNtripPassword( const QString &ntripPassword );
 
     /**
-     * Returns the current NTRIP connection status.
+     * Returns the current NTRIP connection state.
      */
-    QString ntripStatus() const { return mNtripStatus; }
+    NtripState ntripState() const { return mNtripState; }
+
+    /**
+     * Returns the last NTRIP error string.
+     */
+    QString ntripLastError() const { return mNtripLastError; }
 
     /**
      * Returns the number of bytes sent via NTRIP.
@@ -320,7 +336,8 @@ class PositioningSource : public QObject
     void ntripMountpointChanged();
     void ntripUsernameChanged();
     void ntripPasswordChanged();
-    void ntripStatusChanged();
+    void ntripStateChanged();
+    void ntripLastErrorChanged();
     void ntripBytesSentChanged();
     void ntripBytesReceivedChanged();
 
@@ -339,7 +356,8 @@ class PositioningSource : public QObject
     void setupDevice();
     void startNtripClient();
     void stopNtripClient();
-    void setNtripStatus( const QString &status );
+    void setNtripState( NtripState state );
+    void setNtripLastError( const QString &error );
 
     bool mActive = false;
 
@@ -362,7 +380,8 @@ class PositioningSource : public QObject
     QString mNtripMountpoint;
     QString mNtripUsername;
     QString mNtripPassword;
-    QString mNtripStatus;
+    NtripState mNtripState = NtripState::Disconnected;
+    QString mNtripLastError;
     qint64 mNtripBytesSent = 0;
     qint64 mNtripBytesReceived = 0;
 
@@ -374,6 +393,7 @@ class PositioningSource : public QObject
     double mOrientation = std::numeric_limits<double>::quiet_NaN();
 };
 
+Q_DECLARE_METATYPE( PositioningSource::NtripState )
 Q_DECLARE_METATYPE( PositioningSource::ElevationCorrectionMode )
 
 #endif // POSITIONINGSOURCE_H

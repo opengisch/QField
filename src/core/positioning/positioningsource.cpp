@@ -513,7 +513,7 @@ void PositioningSource::startNtripClient()
     // Check that all required NTRIP parameters are configured
     if ( mNtripHost.isEmpty() || mNtripMountpoint.isEmpty() || mNtripUsername.isEmpty() || mNtripPassword.isEmpty() )
     {
-      setNtripStatus( QStringLiteral( "Missing parameters" ) );
+      setNtripLastError( QStringLiteral( "Missing parameters" ) );
       qWarning() << "NTRIP Client: Missing required connection parameters (host, mountpoint, username, or password)";
       return;
     }
@@ -527,7 +527,7 @@ void PositioningSource::startNtripClient()
     emit ntripBytesSentChanged();
     emit ntripBytesReceivedChanged();
 
-    setNtripStatus( QStringLiteral( "Connecting..." ) );
+    setNtripState( NtripState::Connected );
     mNtripClient->start( mNtripHost, static_cast<quint16>( mNtripPort ), mNtripMountpoint, mNtripUsername, mNtripPassword );
 
     // Connect to receiver if it supports RTK corrections
@@ -541,12 +541,13 @@ void PositioningSource::startNtripClient()
     // Track connection status through signals
     connect( mNtripClient.get(), &NtripClient::streamConnected,
              this, [this]() {
-               setNtripStatus( QStringLiteral( "Connected" ) );
+               setNtripState( NtripState::Connected );
+               setNtripLastError( QString() );
              } );
 
     connect( mNtripClient.get(), &NtripClient::errorOccurred,
              this, [this]( const QString &msg ) {
-               setNtripStatus( QStringLiteral( "Error: %1" ).arg( msg ) );
+               setNtripLastError( msg );
                qWarning() << "NTRIP Client Error:" << msg;
              } );
 
@@ -561,7 +562,7 @@ void PositioningSource::startNtripClient()
   }
   else
   {
-    setNtripStatus( QStringLiteral( "No external receiver" ) );
+    setNtripLastError( QStringLiteral( "No external receiver" ) );
   }
 }
 
@@ -572,16 +573,26 @@ void PositioningSource::stopNtripClient()
     mNtripClient->stop();
     mNtripClient.reset();
   }
-  setNtripStatus( QStringLiteral( "Disconnected" ) );
+  setNtripState( NtripState::Disconnected );
+  setNtripLastError( QString() );
 }
 
-void PositioningSource::setNtripStatus( const QString &status )
+void PositioningSource::setNtripState( NtripState state )
 {
-  if ( mNtripStatus == status )
+  if ( mNtripState == state )
     return;
 
-  mNtripStatus = status;
-  emit ntripStatusChanged();
+  mNtripState = state;
+  emit ntripStateChanged();
+}
+
+void PositioningSource::setNtripLastError( const QString &error )
+{
+  if ( mNtripLastError == error )
+    return;
+
+  mNtripLastError = error;
+  emit ntripLastErrorChanged();
 }
 
 void PositioningSource::triggerDisconnectDevice()
