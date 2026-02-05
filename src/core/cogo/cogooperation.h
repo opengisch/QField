@@ -215,7 +215,8 @@ class CogoOperationPointAtXYZ : public CogoOperation
     ~CogoOperationPointAtXYZ() = default;
 
     QString name() const override { return QStringLiteral( "point_at_xyz" ); }
-    QString displayName() const override { return QObject::tr( "XYZ Parameters" ); }
+    /* QString displayName() const override { return QObject::tr( "XYZ Parameters" ); } */
+    QString displayName() const override { return QObject::tr( "좌표 설정값" ); }
     QString icon() const override { return QStringLiteral( "ic_cogo_xy_white_24dp" ); }
     QList<CogoParameter> parameters( Qgis::WkbType wkbType ) const override;
     QList<CogoVisualGuide> visualGuides( const QVariantMap &parameters, QgsQuickMapSettings *mapSettings ) const override;
@@ -235,7 +236,8 @@ class CogoOperationPointAtDistanceAngle : public CogoOperation
     ~CogoOperationPointAtDistanceAngle() = default;
 
     QString name() const override { return QStringLiteral( "point_at_distance_angle" ); }
-    QString displayName() const override { return QObject::tr( "Distance/Angle from Point" ); }
+    //QString displayName() const override { return QObject::tr( "Distance/Angle from Point" ); }
+    QString displayName() const override { return QObject::tr( "점에서 거리·각도" ); }
     QString icon() const override { return QStringLiteral( "ic_cogo_angle_distance_white_24dp" ); }
     QList<CogoParameter> parameters( Qgis::WkbType wkbType ) const override;
     QList<CogoVisualGuide> visualGuides( const QVariantMap &parameters, QgsQuickMapSettings *mapSettings ) const override;
@@ -255,7 +257,8 @@ class CogoOperationPointAtIntersectionCircles : public CogoOperation
     ~CogoOperationPointAtIntersectionCircles() = default;
 
     QString name() const override { return QStringLiteral( "point_at_intersection_circles" ); }
-    QString displayName() const override { return QObject::tr( "Circles Intersection" ); }
+    //QString displayName() const override { return QObject::tr( "Circles Intersection" ); }
+    QString displayName() const override { return QObject::tr( "원 교차점" ); }
     QString icon() const override { return QStringLiteral( "ic_cogo_intersection_circles_white_24dp" ); }
     QList<CogoParameter> parameters( Qgis::WkbType wkbType ) const override;
     QList<CogoVisualGuide> visualGuides( const QVariantMap &parameters, QgsQuickMapSettings *mapSettings ) const override;

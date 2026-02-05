@@ -2105,7 +2105,8 @@ ApplicationWindow {
             snappingConfig.enabled = !snappingConfig.enabled;
             qgisProject.snappingConfig = snappingConfig;
             projectInfo.snappingEnabled = snappingConfig.enabled;
-            displayToast(snappingConfig.enabled ? qsTr("Snapping turned on") : qsTr("Snapping turned off"));
+            //displayToast(snappingConfig.enabled ? qsTr("Snapping turned on") : qsTr("Snapping turned off"));
+            displayToast(snappingConfig.enabled ? qsTr("스냅 기능이 활성화되었습니다") : qsTr("스냅 기능이 비활성화되었습니다"));
           }
         }
 
@@ -2142,7 +2143,8 @@ ApplicationWindow {
 
           onClicked: {
             qgisProject.topologicalEditing = !qgisProject.topologicalEditing;
-            displayToast(qgisProject.topologicalEditing ? qsTr("Topological editing turned on") : qsTr("Topological editing turned off"));
+            //displayToast(qgisProject.topologicalEditing ? qsTr("Topological editing turned on") : qsTr("Topological editing turned off"));
+            displayToast(qgisProject.topologicalEditing ? qsTr("위상 편집이 활성화되었습니다") : qsTr("위상 편집이 비활성화되었습니다"));
           }
         }
 
@@ -2184,7 +2186,8 @@ ApplicationWindow {
             if (freehandDigitizing && positioningSettings.positioningCoordinateLock) {
               positioningSettings.positioningCoordinateLock = false;
             }
-            displayToast(freehandDigitizing ? qsTr("Freehand digitizing turned on") : qsTr("Freehand digitizing turned off"));
+            //displayToast(freehandDigitizing ? qsTr("Freehand digitizing turned on") : qsTr("Freehand digitizing turned off"));
+            displayToast(freehandDigitizing ? qsTr("자유 그리기 편집이 활성화되었습니다") : qsTr("자유 그리기 편집이 비활성화되었습니다"));
             settings.setValue("/QField/Digitizing/FreehandActive", freehandDigitizing);
           }
 
@@ -2227,7 +2230,7 @@ ApplicationWindow {
 
           onClicked: {
             qfieldSettings.snapToCommonAngleIsEnabled = !qfieldSettings.snapToCommonAngleIsEnabled;
-            displayToast(qfieldSettings.snapToCommonAngleIsEnabled ? qsTr("Snap to %1° angle turned on").arg(qfieldSettings.snapToCommonAngleDegrees) : qsTr("Snap to common angle turned off"));
+            displayToast(qfieldSettings.snapToCommonAngleIsEnabled ? qsTr("%1° 각도 스냅이 활성화되었습니다").arg(qfieldSettings.snapToCommonAngleDegrees) : qsTr("공통 각도 스냅이 비활성화되었습니다"));
           }
 
           onPressAndHold: {
@@ -2950,10 +2953,12 @@ ApplicationWindow {
             item.requestedPositionReceived(coordinateLocator.currentCoordinate, undefined);
           } else {
             if (!positionSource.active) {
-              displayToast(qsTr("Enable positioning service to get points at your location"));
+              //displayToast(qsTr("Enable positioning service to get points at your location"));
+              displayToast(qsTr("현재 위치에서 점을 추가하려면 위치 서비스를 활성화하세요."));
               item.requestedPositionReceived(GeometryUtils.emptyPoint(), undefined);
             } else if (!positionSource.positionInformation.latitudeValid) {
-              displayToast(qsTr("Positioning service has not yet received a valid location"));
+              //displayToast(qsTr("Positioning service has not yet received a valid location"));
+              displayToast(qsTr("위치 서비스가 아직 유효한 위치 정보를 받지 못했습니다."));
               item.requestedPositionReceived(GeometryUtils.emptyPoint(), undefined);
             } else {
               item.requestedPositionReceived(positionSource.projectedPosition, positionSource.positionInformation);

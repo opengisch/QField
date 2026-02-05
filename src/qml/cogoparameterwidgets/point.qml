@@ -43,18 +43,33 @@ CogoParameterWidgetBase {
         text: {
           let content = '';
           if (mapSettings.destinationCrs.isGeographic) {
-            content += qsTr("latitude") + ' ' + qsTr("longitude");
+            content += qsTr("경도") + ' ' + qsTr("위도");
             if (!!parameterConfiguration["hasZ"]) {
-              content += ' ' + qsTr("elevation");
+              content += ' ' + qsTr("고도");
             }
           } else {
-            content += qsTr("easting [X]") + ' ' + qsTr("northing [Y]");
+            content += qsTr("동좌표 [X]") + ' ' + qsTr("북좌표 [Y]");
             if (!!parameterConfiguration["hasZ"]) {
-              content += ' ' + qsTr("elevation [Z]");
+              content += ' ' + qsTr("고도 [Z]");
             }
           }
           return content;
         }
+        /text: {
+        /  let content = '';
+        /  if (mapSettings.destinationCrs.isGeographic) {
+        /    content += qsTr("latitude") + ' ' + qsTr("longitude");
+        /    if (!!parameterConfiguration["hasZ"]) {
+        /      content += ' ' + qsTr("elevation");
+        /    }
+        /  } else {
+        /    content += qsTr("easting [X]") + ' ' + qsTr("northing [Y]");
+        /    if (!!parameterConfiguration["hasZ"]) {
+        /      content += ' ' + qsTr("elevation [Z]");
+        /    }
+        /  }
+        /  return content;
+        /}
       }
     }
 
@@ -132,7 +147,8 @@ CogoParameterWidgetBase {
         padding: 5
 
         header: QfPageHeader {
-          title: qsTr("Point Feature Picker")
+          //title: qsTr("Point Feature Picker")
+          title: qsTr("점 객체 선택")
           showBackButton: false
           showApplyButton: false
           showCancelButton: true
