@@ -91,6 +91,7 @@ void Positioning::setupSource()
   connect( mPositioningSourceReplica.data(), SIGNAL( deviceSocketStateChanged() ), this, SIGNAL( deviceSocketStateChanged() ) );
   connect( mPositioningSourceReplica.data(), SIGNAL( deviceSocketStateStringChanged() ), this, SIGNAL( deviceSocketStateStringChanged() ) );
   connect( mPositioningSourceReplica.data(), SIGNAL( orientationChanged() ), this, SIGNAL( orientationChanged() ) );
+
   connect( mPositioningSourceReplica.data(), SIGNAL( enableNtripClientChanged() ), this, SIGNAL( enableNtripClientChanged() ) );
   connect( mPositioningSourceReplica.data(), SIGNAL( ntripHostChanged() ), this, SIGNAL( ntripHostChanged() ) );
   connect( mPositioningSourceReplica.data(), SIGNAL( ntripPortChanged() ), this, SIGNAL( ntripPortChanged() ) );
@@ -614,21 +615,6 @@ void Positioning::setNtripPassword( const QString &ntripPassword )
   }
 }
 
-QList<GnssPositionInformation> Positioning::getBackgroundPositionInformation() const
-{
-  QList<GnssPositionInformation> positionInformationList;
-
-  if ( isSourceAvailable() )
-  {
-    QRemoteObjectPendingCall call;
-    QMetaObject::invokeMethod( mPositioningSourceReplica.data(), "getBackgroundPositionInformation", Qt::DirectConnection, Q_RETURN_ARG( QRemoteObjectPendingCall, call ) );
-    call.waitForFinished();
-    positionInformationList = call.returnValue().value<QList<GnssPositionInformation>>();
-  }
-
-  return positionInformationList;
-}
-
 QString Positioning::ntripStatus() const
 {
   return isSourceAvailable() ? mPositioningSourceReplica->property( "ntripStatus" ).toString() : QString();
@@ -642,6 +628,21 @@ qint64 Positioning::ntripBytesSent() const
 qint64 Positioning::ntripBytesReceived() const
 {
   return isSourceAvailable() ? mPositioningSourceReplica->property( "ntripBytesReceived" ).toLongLong() : 0;
+}
+
+QList<GnssPositionInformation> Positioning::getBackgroundPositionInformation() const
+{
+  QList<GnssPositionInformation> positionInformationList;
+
+  if ( isSourceAvailable() )
+  {
+    QRemoteObjectPendingCall call;
+    QMetaObject::invokeMethod( mPositioningSourceReplica.data(), "getBackgroundPositionInformation", Qt::DirectConnection, Q_RETURN_ARG( QRemoteObjectPendingCall, call ) );
+    call.waitForFinished();
+    positionInformationList = call.returnValue().value<QList<GnssPositionInformation>>();
+  }
+
+  return positionInformationList;
 }
 
 void Positioning::onElevationCorrectionModeChanged()

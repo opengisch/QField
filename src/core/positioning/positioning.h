@@ -68,6 +68,7 @@ class Positioning : public QObject
 
     Q_PROPERTY( bool serviceMode READ serviceMode WRITE setServiceMode NOTIFY serviceModeChanged )
     Q_PROPERTY( bool backgroundMode READ backgroundMode WRITE setBackgroundMode NOTIFY backgroundModeChanged )
+
     Q_PROPERTY( bool enableNtripClient READ enableNtripClient WRITE setEnableNtripClient NOTIFY enableNtripClientChanged )
     Q_PROPERTY( QString ntripHost READ ntripHost WRITE setNtripHost NOTIFY ntripHostChanged )
     Q_PROPERTY( int ntripPort READ ntripPort WRITE setNtripPort NOTIFY ntripPortChanged )
@@ -402,6 +403,8 @@ class Positioning : public QObject
     void deviceSocketStateChanged();
     void deviceSocketStateStringChanged();
     void orientationChanged();
+
+    //Ntrip client signals
     void enableNtripClientChanged();
     void ntripHostChanged();
     void ntripPortChanged();
@@ -411,6 +414,7 @@ class Positioning : public QObject
     void ntripStatusChanged();
     void ntripBytesSentChanged();
     void ntripBytesReceivedChanged();
+
 
     // Signals forwarded to positioning source
     void triggerConnectDevice();
@@ -426,7 +430,6 @@ class Positioning : public QObject
     void excellentAccuracyThresholdChanged();
     void serviceModeChanged();
     void backgroundModeChanged();
-
   private slots:
     void onActiveChanged();
     void onValidChanged();
