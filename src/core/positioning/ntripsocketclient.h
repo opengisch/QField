@@ -35,6 +35,7 @@ class NtripSocketClient : public QObject
   private:
     QTcpSocket mSocket;
     bool mHeadersSent = false;
+    QByteArray mHeaderBuffer;
     QString mHost;
     quint16 mPort = 0;
     QString mMountpoint;

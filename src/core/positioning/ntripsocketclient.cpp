@@ -85,22 +85,27 @@ void NtripSocketClient::onReadyRead()
 {
   QByteArray data = mSocket.readAll();
 
-  // If headers not processed yet, discard them
+  // If headers not processed yet, accumulate data until we find the header end marker
   if ( !mHeadersSent )
   {
-    qsizetype headerEnd = data.indexOf( "\r\n\r\n" );
+    mHeaderBuffer.append( data );
+
+    qsizetype headerEnd = mHeaderBuffer.indexOf( "\r\n\r\n" );
     if ( headerEnd != -1 )
     {
-      QByteArray headerData = data.left( headerEnd );
-      data = data.mid( headerEnd + 4 );
+      // Headers complete, extract any data that came after them
+      mHeaderBuffer = mHeaderBuffer.mid( headerEnd + 4 );
       mHeadersSent = true;
       emit streamConnected();
+
+      // If there was data after headers in the same chunk, emit it
+      if ( !mHeaderBuffer.isEmpty() )
+      {
+        emit correctionDataReceived( mHeaderBuffer );
+        mHeaderBuffer.clear();
+      }
     }
-    else
-    {
-      // Wait for more data
-      return;
-    }
+    return;
   }
 
   if ( !data.isEmpty() )
