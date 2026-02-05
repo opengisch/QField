@@ -6,12 +6,12 @@ import org.qfield
 import Theme
 
 Item {
-  id: map3DView
+  id: mapArea
   focus: true
   visible: !isLoading
 
-  property alias mapSettings: terrainProvider.mapSettings
-  property bool isLoading: terrainProvider.isLoading
+  property alias mapSettings: mapTerrainProvider.mapSettings
+  property bool isLoading: mapTerrainProvider.isLoading
   property bool wireframeMode: false
 
   property bool gnssActive: false
@@ -21,69 +21,35 @@ Item {
 
   signal cameraInteractionDetected
 
-  QtObject {
-    id: internal
-    property real terrainWidth: terrainProvider.size.width
-    property real terrainDepth: terrainProvider.size.height
-  }
-
   Quick3DTerrainProvider {
-    id: terrainProvider
+    id: mapTerrainProvider
     project: qgisProject
-    mapSettings: map3DView.mapSettings
+    mapSettings: mapArea.mapSettings
 
     onTerrainDataReady: {
-      loadTerrain();
-      Qt.callLater(map3DView.playOpeningAnimation);
+      const heights = normalizedData;
+      if (heights.length === 0) {
+        return;
+      }
+
+      positionCameraForTerrain();
+      mapTextureData.render();
+
+      Qt.callLater(mapArea.playOpeningAnimation);
     }
   }
 
   Quick3DMapTextureData {
-    id: textureData
-    mapSettings: map3DView.mapSettings
-    extent: terrainProvider.extent
+    id: mapTextureData
+    mapSettings: mapArea.mapSettings
+    extent: mapTerrainProvider.extent
   }
 
   Texture {
-    id: satelliteTexture
-    textureData: textureData
+    id: mapTexture
+    textureData: mapTextureData
     generateMipmaps: true
     mipFilter: Texture.Linear
-  }
-
-  function loadTerrain() {
-    const heights = terrainProvider.normalizedData;
-    if (heights.length === 0) {
-      return;
-    }
-
-    terrainMesh.heightData = heights;
-    positionCameraForTerrain();
-    textureData.render();
-  }
-
-  function positionCameraForTerrain() {
-    const terrainDiagonal = Math.sqrt(internal.terrainWidth * internal.terrainWidth + internal.terrainDepth * internal.terrainDepth);
-    cameraController.distance = terrainDiagonal * 0.8;
-    cameraController.pitch = 40;
-    cameraController.yaw = 0;
-    cameraController.target = Qt.vector3d(0, 0, 0);
-  }
-
-  function playOpeningAnimation() {
-    const terrainDiagonal = Math.sqrt(internal.terrainWidth * internal.terrainWidth + internal.terrainDepth * internal.terrainDepth);
-    cameraController.distance = terrainDiagonal * 0.8;
-    cameraController.pitch = 85;
-    cameraController.yaw = 0;
-    cameraController.target = Qt.vector3d(0, 0, 0);
-    cameraController.updateCameraPosition();
-    openingAnimation.start();
-  }
-
-  function playClosingAnimation(callback) {
-    cameraController.resetView();
-    closingAnimation.callback = callback;
-    closingAnimation.start();
   }
 
   View3D {
@@ -91,7 +57,7 @@ Item {
     anchors.fill: parent
 
     environment: SceneEnvironment {
-      clearColor: map3DView.mapSettings ? map3DView.mapSettings.backgroundColor : "#FFFFFF"
+      clearColor: mapArea.mapSettings ? mapArea.mapSettings.backgroundColor : "#FFFFFF"
       backgroundMode: SceneEnvironment.Color
       antialiasingMode: SceneEnvironment.MSAA
       antialiasingQuality: SceneEnvironment.High
@@ -117,10 +83,11 @@ Item {
 
     TerrainMesh {
       id: terrainMesh
-      gridSize: terrainProvider.gridSize
-      size: terrainProvider.size
-      satelliteTexture: satelliteTexture
-      satelliteTextureReady: textureData.ready
+      gridSize: mapTerrainProvider.gridSize
+      size: mapTerrainProvider.size
+      texture: mapTexture
+      textureReady: mapTextureData.ready
+      heightData: mapTerrainProvider.normalizedData
     }
 
     Node {
@@ -128,14 +95,14 @@ Item {
       visible: pos3d !== null
 
       property var pos3d: {
-        if (!map3DView.gnssActive || !map3DView.gnssPosition) {
+        if (!mapArea.gnssActive || !mapArea.gnssPosition) {
           return null;
         }
-        return map3DView.geoTo3D(map3DView.gnssPosition.x, map3DView.gnssPosition.y);
+        return mapArea.geoTo3D(mapArea.gnssPosition.x, mapArea.gnssPosition.y);
       }
 
       position: pos3d || Qt.vector3d(0, 0, 0)
-      eulerRotation: map3DView.gnssSpeed > 0 && map3DView.gnssDirection >= 0 ? Qt.vector3d(0, -map3DView.gnssDirection, 0) : Qt.vector3d(0, 0, 0)
+      eulerRotation: mapArea.gnssSpeed > 0 && mapArea.gnssDirection >= 0 ? Qt.vector3d(0, -mapArea.gnssDirection, 0) : Qt.vector3d(0, 0, 0)
 
       Model {
         source: "#Sphere"
@@ -169,7 +136,7 @@ Item {
       }
 
       Node {
-        visible: map3DView.gnssSpeed > 0 && map3DView.gnssDirection >= 0
+        visible: mapArea.gnssSpeed > 0 && mapArea.gnssDirection >= 0
 
         Model {
           source: "#Cone"
@@ -215,7 +182,7 @@ Item {
       }
 
       Model {
-        visible: !(map3DView.gnssSpeed > 0 && map3DView.gnssDirection >= 0)
+        visible: !(mapArea.gnssSpeed > 0 && mapArea.gnssDirection >= 0)
         source: "#Sphere"
         scale: Qt.vector3d(0.15, 0.15, 0.15)
         position: Qt.vector3d(0, 0.08, 0)
@@ -244,7 +211,7 @@ Item {
       }
     }
     onUserInteractionStarted: {
-      map3DView.cameraInteractionDetected();
+      mapArea.cameraInteractionDetected();
     }
   }
 
@@ -281,24 +248,50 @@ Item {
     }
   }
 
+  function playOpeningAnimation() {
+    const terrainDiagonal = Math.sqrt(Math.pow(mapTerrainProvider.size.width, 2) + Math.pow(mapTerrainProvider.size.height, 2));
+    cameraController.distance = terrainDiagonal * 0.8;
+    cameraController.pitch = 85;
+    cameraController.yaw = 0;
+    cameraController.target = Qt.vector3d(0, 0, 0);
+    cameraController.updateCameraPosition();
+    openingAnimation.start();
+  }
+
+  function playClosingAnimation(callback) {
+    cameraController.resetView();
+    closingAnimation.callback = callback;
+    closingAnimation.start();
+  }
+
+  function positionCameraForTerrain() {
+    const terrainDiagonal = Math.sqrt(Math.pow(mapTerrainProvider.size.width, 2) + Math.pow(mapTerrainProvider.size.height, 2));
+    cameraController.distance = terrainDiagonal * 0.8;
+    cameraController.pitch = 40;
+    cameraController.yaw = 0;
+    cameraController.target = Qt.vector3d(0, 0, 0);
+  }
+
   function geoTo3D(geoX, geoY) {
-    const extW = terrainProvider.extent.width;
-    const extH = terrainProvider.extent.height;
+    const extW = mapTerrainProvider.extent.width;
+    const extH = mapTerrainProvider.extent.height;
 
     if (extW <= 0 || extH <= 0)
       return null;
 
-    const nx = (geoX - terrainProvider.extent.xMinimum) / extW;
-    const nz = (geoY - terrainProvider.extent.yMinimum) / extH;
+    const nx = (geoX - mapTerrainProvider.extent.xMinimum) / extW;
+    const nz = (geoY - mapTerrainProvider.extent.yMinimum) / extH;
 
     if (nx < 0 || nx > 1 || nz < 0 || nz > 1) {
       return null;
     }
 
-    const x3d = (nx - 0.5) * internal.terrainWidth;
-    const z3d = (0.5 - nz) * internal.terrainDepth;
+    const width = mapTerrainProvider.size.width;
+    const height = mapTerrainProvider.size.height;
+    const x3d = (nx - 0.5) * width;
+    const z3d = (0.5 - nz) * height;
 
-    let y3d = terrainProvider.normalizedHeightAt(geoX, geoY);
+    let y3d = mapTerrainProvider.normalizedHeightAt(geoX, geoY);
     y3d += 15;
 
     return Qt.vector3d(x3d, y3d, z3d);

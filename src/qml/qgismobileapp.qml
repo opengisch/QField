@@ -644,7 +644,7 @@ ApplicationWindow {
     }
 
     Loader {
-      id: map3DViewLoader
+      id: mapCanvas3DLoader
       anchors.fill: parent
       active: opacity > 0 ? true : false
       visible: opacity > 0 ? true : false
@@ -658,7 +658,7 @@ ApplicationWindow {
         }
       }
 
-      source: "qrc:/qml/3d/Map3DView.qml"
+      source: "qrc:/qml/3d/MapCanvas3D.qml"
 
       onLoaded: {
         item.mapSettings = mapCanvas.mapSettings;
@@ -691,19 +691,19 @@ ApplicationWindow {
     Connections {
       id: gnssMarker3DPositionUpdate
       target: positionSource
-      enabled: gnssButton.followActive && mainWindow.show3DView && map3DViewLoader.item
+      enabled: gnssButton.followActive && mainWindow.show3DView && mapCanvas3DLoader.item
 
       property var pos3d: null
 
       function onPositionInformationChanged() {
-        if (!gnssButton.followActive || !map3DViewLoader.item) {
+        if (!gnssButton.followActive || !mapCanvas3DLoader.item) {
           return;
         }
 
-        gnssMarker3DPositionUpdate.pos3d = map3DViewLoader.item.geoTo3D(positionSource.projectedPosition.x, positionSource.projectedPosition.y);
+        gnssMarker3DPositionUpdate.pos3d = mapCanvas3DLoader.item.geoTo3D(positionSource.projectedPosition.x, positionSource.projectedPosition.y);
 
         if (gnssMarker3DPositionUpdate.pos3d) {
-          map3DViewLoader.item.lookAtPoint(gnssMarker3DPositionUpdate.pos3d, 1000);
+          mapCanvas3DLoader.item.lookAtPoint(gnssMarker3DPositionUpdate.pos3d, 1000);
         }
       }
     }
@@ -712,7 +712,7 @@ ApplicationWindow {
       id: loadingOverlay
       anchors.fill: parent
       color: "#80000000"
-      visible: mainWindow.show3DView && map3DViewLoader.item && map3DViewLoader.item.isLoading
+      visible: mainWindow.show3DView && mapCanvas3DLoader.item && mapCanvas3DLoader.item.isLoading
       z: 1000
 
       Column {
@@ -2105,8 +2105,8 @@ ApplicationWindow {
         toolText: qsTr('Close 3D view')
 
         onClicked: {
-          if (map3DViewLoader.item && map3DViewLoader.item.playClosingAnimation) {
-            map3DViewLoader.item.playClosingAnimation(function () {
+          if (mapCanvas3DLoader.item && mapCanvas3DLoader.item.playClosingAnimation) {
+            mapCanvas3DLoader.item.playClosingAnimation(function () {
               mainWindow.show3DView = false;
             });
           } else {
@@ -3217,7 +3217,7 @@ ApplicationWindow {
     onToggle3DView: {
       dashBoard.close();
       if (mainWindow.show3DView) {
-        map3DViewLoader.item.playClosingAnimation(function () {
+        mapCanvas3DLoader.item.playClosingAnimation(function () {
           mainWindow.show3DView = false;
         });
       } else {

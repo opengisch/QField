@@ -5,25 +5,24 @@ import org.qfield
 Node {
   id: root
 
-  property alias gridSize: terrainGeometry.gridSize
-  property alias size: terrainGeometry.size
-  property alias heightData: terrainGeometry.heightData
+  property alias gridSize: mapTerrainGeometry.gridSize
+  property alias size: mapTerrainGeometry.size
+  property alias heightData: mapTerrainGeometry.heightData
 
-  property var satelliteTexture: null
-  property bool satelliteTextureReady: false
+  property var texture: null
+  property bool textureReady: false
 
   Texture {
-    id: grassTexture
+    id: neutralTexture
     sourceItem: Canvas {
-      id: grassCanvas
       width: 256
       height: 256
 
       onPaint: {
         var ctx = getContext("2d");
         var gradient = ctx.createLinearGradient(0, 0, 256, 256);
-        gradient.addColorStop(0.0, "#3d6b3d");
-        gradient.addColorStop(1.0, "#4a7c4e");
+        gradient.addColorStop(0.0, "#999999");
+        gradient.addColorStop(1.0, "#bbbbbb");
         ctx.fillStyle = gradient;
         ctx.fillRect(0, 0, 256, 256);
       }
@@ -34,16 +33,16 @@ Node {
     id: terrainModel
 
     geometry: Quick3DTerrainGeometry {
-      id: terrainGeometry
+      id: mapTerrainGeometry
     }
 
     materials: [
       PrincipledMaterial {
         id: terrainMaterial
-        baseColorMap: root.satelliteTextureReady ? root.satelliteTexture : grassTexture
-        roughness: root.satelliteTextureReady ? 0.9 : 0.85
+        baseColorMap: root.textureReady ? root.texture : neutralTexture
+        roughness: root.textureReady ? 0.9 : 0.85
         metalness: 0.0
-        normalStrength: root.satelliteTextureReady ? 0.0 : 0.3
+        normalStrength: root.textureReady ? 0.0 : 0.3
       }
     ]
   }
