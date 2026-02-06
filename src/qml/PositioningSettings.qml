@@ -9,7 +9,8 @@ Settings {
   property bool positioningCoordinateLock: false
 
   property string positioningDevice: ""
-  property string positioningDeviceName: qsTr("Internal device")
+  //property string positioningDeviceName: qsTr("Internal device")
+  property string positioningDeviceName: qsTr("내장 장치")
   property int elevationCorrectionMode: Positioning.ElevationCorrectionMode.None
   property bool logging: false
 

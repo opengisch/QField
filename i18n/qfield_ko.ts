@@ -3777,7 +3777,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Positioning</source>
-        <translation>Positioning</translation>
+        <translation>위치 설정</translation>
     </message>
     <message>
         <source>Variables</source>

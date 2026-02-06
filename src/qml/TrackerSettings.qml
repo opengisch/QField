@@ -498,7 +498,8 @@ QfPopup {
 
         Label {
           id: measureLabel
-          text: qsTr("Measure (M) value attached to vertices:")
+          //text: qsTr("Measure (M) value attached to vertices:")
+          text: qsTr("꼭짓점에 연결된 M 값 측정:")
           font: Theme.defaultFont
 
           wrapMode: Text.WordWrap

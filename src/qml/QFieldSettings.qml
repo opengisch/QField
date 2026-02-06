@@ -1134,7 +1134,8 @@ Page {
                 id: measureLabel
                 Layout.fillWidth: true
                 Layout.columnSpan: 2
-                text: qsTr("Measure (M) value attached to vertices:")
+                //text: qsTr("Measure (M) value attached to vertices:")
+                text: qsTr("꼭짓점에 연결된 M 값 측정:")
                 font: Theme.defaultFont
                 color: Theme.mainTextColor
 
@@ -1171,7 +1172,8 @@ Page {
               Label {
                 id: measureTipLabel
                 Layout.fillWidth: true
-                text: qsTr("When digitizing features with the coordinate cursor locked to the current position, the measurement type selected above will be added to the geometry provided it has an M dimension.")
+                //text: qsTr("When digitizing features with the coordinate cursor locked to the current position, the measurement type selected above will be added to the geometry provided it has an M dimension.")
+                text: qsTr("현재 위치에 좌표 커서를 고정한 상태로 객체를 편집할 때, 도형에 M 차원이 있는 경우 위에서 선택한 측정 유형이 도형에 추가됩니다.")
                 font: Theme.tipFont
                 color: Theme.secondaryTextColor
 
@@ -1185,7 +1187,8 @@ Page {
               }
 
               Label {
-                text: qsTr("Activate accuracy indicator")
+                //text: qsTr("Activate accuracy indicator")
+                text: qsTr("정확도 표시 활성화")
                 font: Theme.defaultFont
                 color: Theme.mainTextColor
                 wrapMode: Text.WordWrap
@@ -1310,7 +1313,8 @@ Page {
               }
 
               Label {
-                text: qsTr("When the accuracy indicator is enabled, a badge is attached to the location button and colored <span %1>red</span> if the accuracy value is worse than <i>bad</i>, <span %2>yellow</span> if it falls short of <i>excellent</i>, or <span %3>green</span>.<br><br>In addition, an accuracy restriction mode can be toggled on, which restricts vertex addition when locked to coordinate cursor to positions with an accuracy value worse than the bad threshold.").arg("style='%1'".arg(Theme.toInlineStyles({
+                //text: qsTr("When the accuracy indicator is enabled, a badge is attached to the location button and colored <span %1>red</span> if the accuracy value is worse than <i>bad</i>, <span %2>yellow</span> if it falls short of <i>excellent</i>, or <span %3>green</span>.<br><br>In addition, an accuracy restriction mode can be toggled on, which restricts vertex addition when locked to coordinate cursor to positions with an accuracy value worse than the bad threshold.").arg("style='%1'".arg(Theme.toInlineStyles({
+                text: qsTr("정확도 표시를 활성화하면 위치 버튼에 배지가 표시되며, 정확도 값이 <i>나쁨</i> 기준보다 낮으면 <span %1>빨간색</span>, <i>우수</i> 기준에 미치지 못하면 <span %2>노란색</span>, 기준을 충족하면 <span %3>초록색</span>으로 표시됩니다.<br><br>또한 정확도 제한 모드를 켤 수 있으며, 이 모드를 활성화하면 좌표 커서를 고정한 상태에서 꼭짓점 추가가 <i>나쁨</i> 기준보다 정확도가 더 나쁜 위치로 제한됩니다.").arg("style='%1'".arg(Theme.toInlineStyles({
                   "color": Theme.accuracyBad
                 }))).arg("style='%1'".arg(Theme.toInlineStyles({
                   "color": Theme.accuracyTolerated
@@ -1330,7 +1334,8 @@ Page {
               }
 
               Label {
-                text: qsTr("Enable averaged positioning requirement")
+                //text: qsTr("Enable averaged positioning requirement")
+                text: qsTr("평균 위치 정확도 조건 사용")
                 font: Theme.defaultFont
                 color: Theme.mainTextColor
                 wrapMode: Text.WordWrap
@@ -1418,7 +1423,8 @@ Page {
               }
 
               Label {
-                text: qsTr("When enabled, digitizing vertices with a cursor locked to position will only accepted an averaged position from a minimum number of collected positions. Digitizing using averaged positions is done by pressing and holding the add vertex button, which will collect positions until the press is released. Accuracy requirement settings are respected when enabled.")
+                //text: qsTr("When enabled, digitizing vertices with a cursor locked to position will only accepted an averaged position from a minimum number of collected positions. Digitizing using averaged positions is done by pressing and holding the add vertex button, which will collect positions until the press is released. Accuracy requirement settings are respected when enabled.")
+                text: qsTr("이 설정을 켜면 위치에 고정된 커서로 꼭짓점을 편집할 때, 수집된 최소 개수 이상의 위치를 평균한 값만 허용됩니다. 평균 위치를 사용한 편집은 꼭짓점 추가 버튼을 길게 눌러 수행하며, 버튼을 누르는 동안 위치가 수집되고 손을 떼면 평균 위치가 적용됩니다. 정확도 요구 조건이 활성화된 경우 해당 설정도 함께 적용됩니다.")
                 font: Theme.tipFont
                 color: Theme.secondaryTextColor
                 textFormat: Qt.RichText
@@ -1432,7 +1438,8 @@ Page {
               }
 
               Label {
-                text: qsTr("Antenna height compensation")
+                //text: qsTr("Antenna height compensation")
+                text: qsTr("안테나 높이 보정")
                 font: Theme.defaultFont
                 color: Theme.mainTextColor
                 wrapMode: Text.WordWrap
@@ -1493,7 +1500,9 @@ Page {
               }
 
               Label {
-                text: qsTr("This value will correct the Z values recorded from the positioning device. If a value of 1.6 is entered, QField will automatically subtract 1.6 from each recorded value. Make sure to insert the effective antenna height, i.e. pole length + antenna phase centre offset.")
+                //text: qsTr("This value will correct the Z values recorded from the positioning device. If a value of 1.6 is entered, QField will automatically subtract 1.6 from each recorded value. Make sure to insert the effective antenna height, i.e. pole length + antenna phase centre offset.")
+                text: qsTr("이 값은 위치 장치에서 기록된 Z 값을 보정합니다. 예를 들어 1.6을 입력하면 QField는 기록된 각 값에서 1.6을 자동으로 차감합니다. 폴 길이와 안테나 위상 중심 오프셋을 합산한 실제 안테나 높이를 입력하세요.")
+
                 font: Theme.tipFont
                 color: Theme.secondaryTextColor
 
@@ -1507,7 +1516,8 @@ Page {
               }
 
               Label {
-                text: qsTr("Skip altitude correction")
+                //text: qsTr("Skip altitude correction")
+                text: qsTr("고도 보정 건너뛰기")
                 font: Theme.defaultFont
                 color: Theme.mainTextColor
                 wrapMode: Text.WordWrap
@@ -1531,7 +1541,9 @@ Page {
 
               Label {
                 topPadding: 0
-                text: qsTr("Use the altitude as reported by the positioning device. Skip any altitude correction that may be implied by the coordinate system transformation.")
+                //text: qsTr("Use the altitude as reported by the positioning device. Skip any altitude correction that may be implied by the coordinate system transformation.")
+                text: qsTr("위치 장치에서 제공하는 고도 값을 그대로 사용합니다. 좌표계 변환으로 인해 적용될 수 있는 모든 고도 보정은 수행하지 않습니다.")
+
                 font: Theme.tipFont
                 color: Theme.secondaryTextColor
 
@@ -1545,7 +1557,8 @@ Page {
               }
 
               Label {
-                text: qsTr("Vertical grid shift in use:")
+                //text: qsTr("Vertical grid shift in use:")
+                text: qsTr("사용 중인 수직 격자 변위:")
                 font: Theme.defaultFont
                 color: Theme.mainTextColor
 
@@ -1637,7 +1650,8 @@ Page {
               Label {
                 topPadding: 0
                 rightPadding: antennaHeightActivated.width
-                text: qsTr("Vertical grid shift is used to increase the altitude accuracy.")
+                //text: qsTr("Vertical grid shift is used to increase the altitude accuracy.")
+                text: qsTr("수직 격자 변위는 고도 정확도를 향상시키기 위해 사용됩니다.")
                 font: Theme.tipFont
                 color: Theme.secondaryTextColor
 
