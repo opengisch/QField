@@ -3960,6 +3960,30 @@ Même si vous pouvez toujours voir et utiliser ce projet, il est fortement recom
         <translation>Utiliser la caméra native</translation>
     </message>
     <message>
+        <source>Enable NTRIP client</source>
+        <translation>Activer le client NTRIP</translation>
+    </message>
+    <message>
+        <source>NTRIP Host</source>
+        <translation>Hôte NTRIP</translation>
+    </message>
+    <message>
+        <source>NTRIP Port</source>
+        <translation>Port NTRIP</translation>
+    </message>
+    <message>
+        <source>NTRIP Username</source>
+        <translation>Nom d&apos;utilisateur NTRIP</translation>
+    </message>
+    <message>
+        <source>NTRIP Password</source>
+        <translation>Mot de passe NTRIP</translation>
+    </message>
+    <message>
+        <source>NTRIP Mountpoint</source>
+        <translation>Point de montage NTRIP</translation>
+    </message>
+    <message>
         <source>If disabled, QField will use a minimalist internal camera instead of the camera app on the device.&lt;br&gt;Tip: Enable this option and install the open camera app to create geo tagged photos.</source>
         <translation>Si désactivé, QField utilisera un appareil photo interne minimaliste au lieu de l&apos;application appareil photo du terminal mobile.&lt;br&gt;Conseil : activer cette option et installer l&apos;application d&apos; appareil photo pour créer des photos géo-référencées.</translation>
     </message>
