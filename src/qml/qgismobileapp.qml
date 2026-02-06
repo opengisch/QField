@@ -57,7 +57,6 @@ ApplicationWindow {
   property double sceneBottomMargin: SafeArea.margins.bottom
   property double sceneLeftMargin: SafeArea.margins.left
   property double sceneRightMargin: SafeArea.margins.right
-  property bool show3DView: false
 
   onSceneLoadedChanged: {
     // This requires the scene to be fully loaded not to crash due to possibility of
@@ -218,6 +217,8 @@ ApplicationWindow {
   property QgsGpkgFlusher gpkgFlusherAlias: gpkgFlusher
 
   signal closeMeasureTool
+  signal close3DView
+
   signal changeMode(string mode)
   signal toggleDigitizeMode
 
@@ -259,6 +260,9 @@ ApplicationWindow {
           target: featureForm
           state: "Hidden"
         }
+      },
+      State {
+        name: '3d'
       }
     ]
     state: "browse"
@@ -277,9 +281,12 @@ ApplicationWindow {
   }
 
   onChangeMode: mode => {
-    if (stateMachine.state === mode)
+    if (stateMachine.state === mode) {
       return;
-    stateMachine.lastState = stateMachine.state;
+    }
+    if (stateMachine.state !== 'measure' && stateMachine.state !== '3d') {
+      stateMachine.lastState = stateMachine.state;
+    }
     stateMachine.state = mode;
     switch (stateMachine.state) {
     case 'browse':
@@ -302,11 +309,16 @@ ApplicationWindow {
       informationDrawer.elevationProfile.populateLayersFromProject();
       displayToast(qsTr('You are now in measure mode'));
       break;
+    case '3d':
+      break;
     }
   }
 
   onCloseMeasureTool: {
-    overlayFeatureFormDrawer.close();
+    changeMode(stateMachine.lastState);
+  }
+
+  onClose3DView: {
     changeMode(stateMachine.lastState);
   }
 
@@ -350,7 +362,7 @@ ApplicationWindow {
         }
         bearingTrueNorth = PositioningUtils.bearingTrueNorth(positionSource.projectedPosition, mapCanvas.mapSettings.destinationCrs);
         if (gnssButton.followActive) {
-          if (mainWindow.show3DView) {
+          if (stateMachine.state === '3d') {
             if (mapCanvas3DLoader.item) {
               const pos3d = mapCanvas3DLoader.item.geoTo3D(positionSource.projectedPosition.x, positionSource.projectedPosition.y);
               if (pos3d !== null) {
@@ -659,10 +671,10 @@ ApplicationWindow {
     Loader {
       id: mapCanvas3DLoader
       anchors.fill: parent
-      active: opacity > 0 ? true : false
-      visible: opacity > 0 ? true : false
+      active: stateMachine.state === '3d'
+      visible: active ? true : false
       z: 100
-      opacity: mainWindow.show3DView ? 1 : 0
+      opacity: active ? 1.0 : 0.0
 
       Behavior on opacity {
         NumberAnimation {
@@ -693,7 +705,7 @@ ApplicationWindow {
 
       onStatusChanged: {
         if (status === Loader.Error) {
-          mainWindow.show3DView = false;
+          close3DView();
           displayToast(qsTr("Failed to load 3D view"));
         }
       }
@@ -703,7 +715,7 @@ ApplicationWindow {
       id: loadingOverlay
       anchors.fill: parent
       color: "#80000000"
-      visible: mainWindow.show3DView && mapCanvas3DLoader.item && mapCanvas3DLoader.item.isLoading
+      visible: stateMachine.state === '3d' && mapCanvas3DLoader.item && mapCanvas3DLoader.item.isLoading
       z: 1000
 
       Column {
@@ -740,7 +752,7 @@ ApplicationWindow {
       id: mapCanvasMap
       objectName: "mapCanvas"
 
-      property bool isEnabled: !show3DView && !dashBoard.opened && !aboutDialog.visible && !welcomeScreen.visible && !qfieldSettings.visible && !qfieldLocalDataPickerScreen.visible && !qfieldCloudScreen.visible && !qfieldCloudPopup.visible && !codeReader.visible && !sketcher.visible && !overlayFeatureFormDrawer.opened && !rotateFeaturesToolbar.rotateFeaturesRequested
+      property bool isEnabled: !mapCanvas3DLoader.active && !dashBoard.opened && !aboutDialog.visible && !welcomeScreen.visible && !qfieldSettings.visible && !qfieldLocalDataPickerScreen.visible && !qfieldCloudScreen.visible && !qfieldCloudPopup.visible && !codeReader.visible && !sketcher.visible && !overlayFeatureFormDrawer.opened && !rotateFeaturesToolbar.rotateFeaturesRequested
 
       interactive: isEnabled && !screenLocker.enabled && !snapToCommonAngleMenu.visible
       isMapRotationEnabled: qfieldSettings.enableMapRotation
@@ -1864,7 +1876,7 @@ ApplicationWindow {
     QfToolButton {
       id: compassArrow
       rotation: mapCanvas.mapSettings.rotation
-      visible: rotation !== 0 && !mainWindow.show3DView
+      visible: rotation !== 0 && stateMachine.state !== '3d'
       anchors.left: parent.left
       anchors.bottom: parent.bottom
       anchors.leftMargin: mainWindow.sceneLeftMargin + 4
@@ -1938,7 +1950,7 @@ ApplicationWindow {
     }
 
     ScaleBar {
-      visible: qfieldSettings.showScaleBar && !mainWindow.show3DView
+      visible: qfieldSettings.showScaleBar && stateMachine.state !== '3d'
       mapSettings: mapCanvas.mapSettings
       anchors.left: parent.left
       anchors.bottom: parent.bottom
@@ -2091,17 +2103,17 @@ ApplicationWindow {
 
       QfActionButton {
         id: close3DView
-        visible: mainWindow.show3DView
+        visible: stateMachine.state === '3d'
         toolImage: Theme.getThemeVectorIcon("ic_3d_24dp")
         toolText: qsTr('Close 3D view')
 
         onClicked: {
           if (mapCanvas3DLoader.item && mapCanvas3DLoader.item.playClosingAnimation) {
             mapCanvas3DLoader.item.playClosingAnimation(function () {
-              mainWindow.show3DView = false;
+              mainWindow.close3DView();
             });
           } else {
-            mainWindow.show3DView = false;
+            mainWindow.close3DView();
           }
         }
       }
@@ -2700,7 +2712,8 @@ ApplicationWindow {
         property bool jumpedOnce: false
 
         function jumpToLocation() {
-          if (mainWindow.show3DView) {
+          const is3D = stateMachine.state === '3d';
+          if (is3D) {
             const pos3d = mapCanvas3DLoader.item.geoTo3D(positionSource.projectedPosition.x, positionSource.projectedPosition.y);
             if (pos3d === null) {
               return;
@@ -2708,7 +2721,7 @@ ApplicationWindow {
           }
 
           let targetScale = -1;
-          if (!jumpedOnce && !mainWindow.show3DView) {
+          if (!jumpedOnce && !is3D) {
             // The scale range and speed range aims at providing an adequate default
             // value for a range of scenarios from people walking to people being driven
             // in trains
@@ -3191,7 +3204,9 @@ ApplicationWindow {
         shouldReturnHome = true;
       } else if (!shouldReturnHome) {
         openWelcomeScreen();
-        show3DView = false;
+        if (stateMachine.state === '3d') {
+          mainWindow.close3DView();
+        }
       }
     }
 
@@ -3213,14 +3228,7 @@ ApplicationWindow {
     }
 
     onToggle3DView: {
-      dashBoard.close();
-      if (mainWindow.show3DView) {
-        mapCanvas3DLoader.item.playClosingAnimation(function () {
-          mainWindow.show3DView = false;
-        });
-      } else {
-        mainWindow.show3DView = true;
-      }
+      activate3DMode();
     }
 
     onShowPrintLayouts: p => {
@@ -3289,6 +3297,14 @@ ApplicationWindow {
     mainMenu.close();
     dashBoard.close();
     changeMode('measure');
+  }
+
+  function activate3DMode() {
+    mainMenu.close();
+    dashBoard.close();
+    if (stateMachine.state !== '3d') {
+      changeMode('3d');
+    }
   }
 
   QfMenu {
