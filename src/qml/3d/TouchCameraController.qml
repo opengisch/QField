@@ -181,6 +181,36 @@ Item {
     }
   }
 
+  DragHandler {
+    acceptedButtons: Qt.RightButton
+    acceptedDevices: PointerDevice.AllDevices
+    acceptedModifiers: Qt.NoModifier
+
+    property var lastPoint
+
+    onActiveChanged: {
+      if (active) {
+        lastPoint = centroid.position;
+        root.userInteractionStarted();
+      }
+    }
+
+    onCentroidChanged: {
+      if (active) {
+        const panScale = root.distance * 0.0025;
+        let dx = (centroid.position.x - lastPoint.x) * panScale;
+        let dy = (centroid.position.y - lastPoint.y) * panScale;
+
+        const yawRad = -root.yaw * Math.PI / 180.0;
+        root.targetX -= (dx * Math.cos(yawRad) - dy * Math.sin(yawRad));
+        root.targetZ -= (dx * Math.sin(yawRad) + dy * Math.cos(yawRad));
+
+        lastPoint = centroid.position;
+        updateCameraPosition();
+      }
+    }
+  }
+
   // Pinch to zoom (touch devices)
   PinchHandler {
     id: pinchHandler
