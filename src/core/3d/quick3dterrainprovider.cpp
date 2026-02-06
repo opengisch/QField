@@ -288,7 +288,22 @@ void Quick3DTerrainProvider::calcNormalizedData()
     }
   }
 
-  if ( !rasterProvider && !terrainProvider )
+  QgsRectangle extent = mExtent;
+  const QgsCoordinateReferenceSystem projectCrs = mProject ? mProject->crs() : QgsCoordinateReferenceSystem();
+  if ( terrainCrs.isValid() && projectCrs.isValid() && terrainCrs != projectCrs )
+  {
+    QgsCoordinateTransform transform( projectCrs, terrainCrs, mProject->transformContext() );
+    try
+    {
+      extent = transform.transformBoundingBox( extent );
+    }
+    catch ( const QgsCsException & )
+    {
+      extent = QgsRectangle();
+    }
+  }
+
+  if ( ( !rasterProvider && !terrainProvider ) || extent.isEmpty() )
   {
     mNormalizedData.fill( 0.0, static_cast<qsizetype>( mGridSize.width() ) * mGridSize.height() );
     emit normalizedDataChanged();
@@ -300,44 +315,23 @@ void Quick3DTerrainProvider::calcNormalizedData()
     return;
   }
 
-  QgsRectangle extent = mExtent;
   QSize gridSize = mGridSize;
-  QgsCoordinateReferenceSystem projectCrs = mProject ? mProject->crs() : QgsCoordinateReferenceSystem();
-  QgsCoordinateTransformContext transformContext = mProject ? mProject->transformContext() : QgsCoordinateTransformContext();
-
-  QFuture<QVector<double>> future = QtConcurrent::run( [terrainProvider, rasterProvider, extent, gridSize, terrainCrs, projectCrs, transformContext, scale, offset]() {
+  QFuture<QVector<double>> future = QtConcurrent::run( [terrainProvider, rasterProvider, extent, gridSize, scale, offset]() {
     QVector<double> heights( static_cast<qsizetype>( gridSize.width() ) * gridSize.height(), 0.0 );
     if ( rasterProvider )
     {
-      QgsRectangle blockExtent = extent;
-      if ( terrainCrs.isValid() && projectCrs.isValid() && terrainCrs != projectCrs )
+      std::unique_ptr<QgsRasterBlock> block( rasterProvider->block( 1, extent, gridSize.width(), gridSize.height() ) );
+      if ( block && block->isValid() )
       {
-        try
+        for ( int row = 0; row < gridSize.height(); ++row )
         {
-          QgsCoordinateTransform transform( projectCrs, terrainCrs, transformContext );
-          blockExtent = transform.transformBoundingBox( extent );
-        }
-        catch ( const QgsCsException & )
-        {
-          blockExtent = QgsRectangle();
-        }
-      }
-
-      if ( !blockExtent.isEmpty() )
-      {
-        std::unique_ptr<QgsRasterBlock> block( rasterProvider->block( 1, blockExtent, gridSize.width(), gridSize.height() ) );
-        if ( block && block->isValid() )
-        {
-          for ( int row = 0; row < gridSize.height(); ++row )
+          for ( int col = 0; col < gridSize.width(); ++col )
           {
-            for ( int col = 0; col < gridSize.width(); ++col )
+            bool isNoData = false;
+            double value = block->valueAndNoData( row, col, isNoData );
+            if ( !isNoData && !std::isnan( value ) )
             {
-              bool isNoData = false;
-              double value = block->valueAndNoData( row, col, isNoData );
-              if ( !isNoData && !std::isnan( value ) )
-              {
-                heights[row * gridSize.width() + col] = value * scale + offset;
-              }
+              heights[row * gridSize.width() + col] = value * scale + offset;
             }
           }
         }
