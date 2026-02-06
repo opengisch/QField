@@ -50,8 +50,18 @@ void Quick3DTerrainProvider::setProject( QgsProject *project )
     return;
   }
 
+  if ( mProject )
+  {
+    disconnect( mProject->elevationProperties(), &QgsProjectElevationProperties::changed, this, &Quick3DTerrainProvider::updateTerrainProvider );
+  }
+
   mProject = project;
   emit projectChanged();
+
+  if ( mProject )
+  {
+    connect( mProject->elevationProperties(), &QgsProjectElevationProperties::changed, this, &Quick3DTerrainProvider::updateTerrainProvider );
+  }
 
   updateTerrainProvider();
 }
