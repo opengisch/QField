@@ -16,6 +16,8 @@
       "name": "gdal",
       "features": [
         "archive",
+        "arrow",
+        "parquet",
         "poppler"
       ]
     },
