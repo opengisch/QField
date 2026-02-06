@@ -647,7 +647,8 @@ Rectangle {
 
         onClicked: {
           clipboardManager.copyFeatureToClipboard(featureForm.model.featureModel.currentLayer, featureForm.model.featureModel.feature.id, true, true);
-          mainWindow.displayToast(qsTr('Feature cut into clipboard'));
+          //mainWindow.displayToast(qsTr('Feature cut into clipboard'));
+          mainWindow.displayToast(qsTr('객체가 클립보드로 잘라내기 되었습니다'));
           featureMenu.close();
           selection.focusedItem = -1;
           backClicked();
@@ -666,7 +667,8 @@ Rectangle {
 
         onClicked: {
           clipboardManager.copyFeatureToClipboard(featureForm.model.featureModel.feature, true);
-          mainWindow.displayToast(qsTr('Feature copied to clipboard'));
+          //mainWindow.displayToast(qsTr('Feature copied to clipboard'));
+          mainWindow.displayToast(qsTr('객체가 클립보드에 복사되었습니다'));
         }
       }
 
@@ -684,9 +686,11 @@ Rectangle {
           var feature = clipboardManager.pasteFeatureFromClipboard();
           if (featureForm.model.featureModel.updateAttributesFromFeature(feature)) {
             featureForm.model.featureModel.save();
-            mainWindow.displayToast(qsTr('Feature attributes updated from clipboard'));
+            //mainWindow.displayToast(qsTr('Feature attributes updated from clipboard'));
+            mainWindow.displayToast(qsTr('클립보드에서 객체 속성이 업데이트되었습니다'));
           } else {
-            mainWindow.displayToast(qsTr('No feature attributes were updated from clipboard'));
+            //mainWindow.displayToast(qsTr('No feature attributes were updated from clipboard'));
+            mainWindow.displayToast(qsTr('클립보드에서 업데이트된 객체 속성이 없습니다'));
           }
         }
       }
@@ -719,7 +723,8 @@ Rectangle {
         onClicked: {
           featureMenu.close();
           destinationClicked();
-          mainWindow.displayToast(qsTr('Feature set as navigation destination'));
+          //mainWindow.displayToast(qsTr('Feature set as navigation destination'));
+          mainWindow.displayToast(qsTr('객체가 탐색 목적지로 설정되었습니다'));
         }
       }
     }
