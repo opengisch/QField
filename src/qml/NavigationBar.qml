@@ -25,7 +25,7 @@ import Theme
  */
 Rectangle {
   id: toolBar
-  property string title: qsTr('Features')
+  property string title: qsTr('레이어 목록')
 
   property bool multiSelection
   property bool allowDelete
@@ -501,7 +501,8 @@ Rectangle {
     bottomMargin: mainWindow.sceneBottomMargin
 
     MenuItem {
-      text: qsTr('Toggle Feature Selection')
+      //text: qsTr('Toggle Feature Selection')
+      text: qsTr('객체 다중 선택')
 
       checkable: true
       checked: toolBar.multiSelection
@@ -520,7 +521,8 @@ Rectangle {
     }
 
     MenuItem {
-      text: qsTr('Print Atlas Feature(s) to PDF')
+      //text: qsTr('Print Atlas Feature(s) to PDF')
+      text: qsTr('아틀라스 객체를 PDF로 출력')
       icon.source: Theme.getThemeVectorIcon("ic_print_black_24dp")
       enabled: toolBar.model && toolBar.model.selectedCount > 0 && LayerUtils.isAtlasCoverageLayer(toolBar.model.selectedLayer)
 
@@ -543,7 +545,8 @@ Rectangle {
 
     MenuItem {
       id: mergeSelectedFeaturesBtn
-      text: qsTr('Merge Selected Features')
+      //text: qsTr('Merge Selected Features')
+      text: qsTr('선택한 객체 병합')
       height: 48
       icon.source: Theme.getThemeVectorIcon("ic_merge_features_white_24dp")
       enabled: toolBar.model && toolBar.model.canMergeSelection && toolBar.model.selectedCount > 1 && projectInfo.editRights
@@ -556,7 +559,8 @@ Rectangle {
 
     MenuItem {
       id: moveSelectedFeaturesBtn
-      text: qsTr('Move Selected Feature(s)')
+      //text: qsTr('Move Selected Feature(s)')
+      text: qsTr('선택한 객체 이동')
       height: 48
       icon.source: Theme.getThemeVectorIcon("ic_move_white_24dp")
       enabled: toolBar.model && toolBar.model.canMoveSelection && projectInfo.editRights
@@ -569,7 +573,8 @@ Rectangle {
 
     MenuItem {
       id: duplicateSelectedFeaturesBtn
-      text: qsTr('Duplicate Selected Feature(s)')
+      //text: qsTr('Duplicate Selected Feature(s)')
+      text: qsTr('선택한 객체 복제')
       height: 48
       icon.source: Theme.getThemeVectorIcon("ic_duplicate_black_24dp")
       enabled: toolBar.model && toolBar.model.canDuplicateSelection && projectInfo.insertRights
@@ -582,7 +587,8 @@ Rectangle {
 
     MenuItem {
       id: deleteSelectedFeaturesBtn
-      text: qsTr('Delete Selected Feature(s)')
+      //text: qsTr('Delete Selected Feature(s)')
+      text: qsTr('선택한 객체 삭제')
       icon.source: Theme.getThemeVectorIcon("ic_delete_forever_white_24dp")
       enabled: toolBar.model && toolBar.model.canDeleteSelection && projectInfo.editRights
       visible: enabled
@@ -600,7 +606,8 @@ Rectangle {
 
     MenuItem {
       id: processingSelectedFeaturesBtn
-      text: qsTr('Process Selected Feature(s)')
+      //text: qsTr('Process Selected Feature(s)')
+      text: qsTr('선택한 객체 처리')
       height: 48
       icon.source: Theme.getThemeVectorIcon("ic_processing_black_24dp")
       enabled: toolBar.model && toolBar.model.canProcessSelection && projectInfo.editRights
@@ -722,7 +729,8 @@ Rectangle {
     }
 
     MenuItem {
-      text: qsTr('Zoom to Feature')
+      //text: qsTr('Zoom to Feature')
+      text: qsTr("객체로 확대")
       icon.source: Theme.getThemeVectorIcon("ic_fullscreen_white_24dp")
 
       font: Theme.defaultFont
@@ -733,7 +741,8 @@ Rectangle {
     }
 
     MenuItem {
-      text: qsTr('Auto-Zoom to Feature')
+      //text: qsTr('Auto-Zoom to Feature')
+      text: qsTr("객체로 자동 확대")
 
       font: Theme.defaultFont
       height: 48
@@ -753,7 +762,8 @@ Rectangle {
 
     MenuItem {
       id: processFeatureButton
-      text: qsTr('Process Feature')
+      //text: qsTr('Process Feature')
+      text: qsTr("객체 처리")
       icon.source: Theme.getThemeVectorIcon("ic_processing_black_24dp")
       enabled: ((projectInfo.editRights || editButton.isCreatedCloudFeature) && (!selection.focusedLayer || !featureForm.model.featureModel.geometryEditingLocked))
       visible: enabled
@@ -767,7 +777,8 @@ Rectangle {
 
     MenuItem {
       id: moveFeatureBtn
-      text: qsTr('Move Feature')
+      //text: qsTr('Move Feature')
+      text: qsTr("객체 이동")
       icon.source: Theme.getThemeVectorIcon("ic_move_white_24dp")
       enabled: ((projectInfo.editRights || editButton.isCreatedCloudFeature) && (!selection.focusedLayer || !featureForm.model.featureModel.geometryEditingLocked))
       visible: enabled
@@ -781,7 +792,8 @@ Rectangle {
 
     MenuItem {
       id: duplicateFeatureBtn
-      text: qsTr('Duplicate Feature')
+      //text: qsTr('Duplicate Feature')
+      text: qsTr("객체 복제")
       icon.source: Theme.getThemeVectorIcon("ic_duplicate_black_24dp")
       enabled: (projectInfo.insertRights && (!selection.focusedLayer || (!selection.focusedLayer.readOnly && !featureForm.model.featureModel.featureAdditionLocked)))
       visible: enabled
@@ -795,7 +807,8 @@ Rectangle {
 
     MenuItem {
       id: rotateFeatureBtn
-      text: qsTr('Rotate Feature')
+      //text: qsTr('Rotate Feature')
+      text: qsTr("객체 회전")
       icon.source: Theme.getThemeVectorIcon("ic_rotate_white_24dp")
       // allow only rotation for line or polygon or multipoint
       property bool isGeometryCompatible: {
@@ -821,7 +834,8 @@ Rectangle {
 
     MenuItem {
       id: transferFeatureAttributesBtn
-      text: qsTr('Update Attributes from Feature')
+      //text: qsTr('Update Attributes from Feature')
+      text: qsTr("객체에서 속성 업데이트")
       icon.source: Theme.getThemeVectorIcon("ic_transfer_into_black_24dp")
       enabled: (projectInfo.insertRights && (!selection.focusedLayer || !featureForm.model.featureModel.attributeEditingLocked))
       visible: enabled
@@ -835,7 +849,8 @@ Rectangle {
 
     MenuItem {
       id: deleteFeatureBtn
-      text: qsTr('Delete Feature')
+      //text: qsTr('Delete Feature')
+      text: qsTr("객체 삭제")
       icon.source: Theme.getThemeVectorIcon("ic_delete_forever_white_24dp")
       enabled: ((projectInfo.editRights || editButton.isCreatedCloudFeature) && (!selection.focusedLayer || !featureForm.model.featureModel.featureDeletionLocked))
       visible: enabled

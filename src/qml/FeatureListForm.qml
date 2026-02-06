@@ -161,7 +161,7 @@ Pane {
             ///e.g. tip on the canvas during an edit
             featureForm.confirm();
           }
-          featureListToolBar.title = qsTr('Features');
+          featureListToolBar.title = qsTr('레이어 목록');
         }
       }
     },
@@ -226,7 +226,8 @@ Pane {
       }
       StateChangeScript {
         script: {
-          featureListToolBar.title = qsTr('Processing Algorithms');
+          //featureListToolBar.title = qsTr('Processing Algorithms');
+          featureListToolBar.title = qsTr('처리 알고리즘');
         }
       }
     },
@@ -747,7 +748,8 @@ Pane {
     onMultiDuplicateClicked: {
       if (featureFormList.multiSelection) {
         if (featureFormList.model.duplicateSelection()) {
-          displayToast(qsTr("Successfully duplicated selected features, list updated to show newly-created features"));
+          //displayToast(qsTr("Successfully duplicated selected features, list updated to show newly-created features"));
+          displayToast(qsTr("선택한 객체가 복제되었습니다. 새로 생성된 객체가 목록에 표시됩니다."));
           moveFeaturesToolbar.initializeMoveFeatures();
         }
       }
@@ -900,11 +902,13 @@ Pane {
     property string featureDisplayName: ''
     property bool isMerged: false
 
+    //title: qsTr("객체 병합")
     title: qsTr("Merge feature(s)")
     Label {
       width: parent.width
       wrapMode: Text.WordWrap
-      text: qsTr("Should the %n feature(s) selected really be merge?\n\nThe features geometries will be combined into feature '%1', which will keep its attributes.", "0", mergeDialog.selectedCount).arg(mergeDialog.featureDisplayName)
+      //text: qsTr("Should the %n feature(s) selected really be merge?\n\nThe features geometries will be combined into feature '%1', which will keep its attributes.", "0", mergeDialog.selectedCount).arg(mergeDialog.featureDisplayName)
+      text: qsTr("선택한 %n개의 객체를 병합하시겠습니까?\n\n객체의 도형은 '%1' 객체로 결합되며, 해당 객체의 속성은 유지됩니다.", "0", mergeDialog.selectedCount).arg(mergeDialog.featureDisplayName)
     }
 
     onAccepted: {
@@ -913,9 +917,11 @@ Pane {
       }
       isMerged = featureFormList.model.mergeSelection();
       if (isMerged) {
-        displayToast(qsTr("Successfully merged %n feature(s)", "", selectedCount));
+        //displayToast(qsTr("Successfully merged %n feature(s)", "", selectedCount));
+        displayToast(qsTr("%n개의 객체가 병합되었습니다", "", selectedCount));
       } else {
-        displayToast(qsTr("Failed to merge %n feature(s)", "", selectedCount), 'warning');
+        //displayToast(qsTr("Failed to merge %n feature(s)", "", selectedCount), 'warning');
+        displayToast(qsTr("%n개의 객체 병합에 실패했습니다", "", selectedCount), 'warning');
       }
       visible = false;
       featureFormList.focus = true;
@@ -936,7 +942,8 @@ Pane {
   QfDialog {
     id: transferDialog
     parent: mainWindow.contentItem
-    title: qsTr("Transfer Feature Attributes")
+    //title: qsTr("Transfer Feature Attributes")
+    title: qsTr("객체 속성 전달")
 
     Column {
       width: childrenRect.width
@@ -952,7 +959,8 @@ Pane {
       Label {
         id: transferLabel
         width: mainWindow.width - 60 < transferLabelMetrics.width ? mainWindow.width - 60 : transferLabelMetrics.width
-        text: qsTr("Select a feature below from which attributes will be transfered onto the currently opened feature.")
+        //text: qsTr("Select a feature below from which attributes will be transfered onto the currently opened feature.")
+        text: qsTr("아래에서 현재 열려 있는 객체에 속성을 전달할 기준 객체를 선택하세요.")
         wrapMode: Text.WordWrap
         font: Theme.defaultFont
         color: Theme.mainTextColor
@@ -975,9 +983,11 @@ Pane {
       let feature = transferFeatureListModel.getFeatureById(transferComboBox.currentValue);
       if (featureForm.model.featureModel.updateAttributesFromFeature(feature)) {
         featureForm.model.featureModel.save();
-        mainWindow.displayToast(qsTr('Feature attributes transferred'));
+        //mainWindow.displayToast(qsTr('Feature attributes transferred'));
+        mainWindow.displayToast(qsTr('객체 속성이 전달되었습니다'));
       } else {
-        mainWindow.displayToast(qsTr('No feature attributes were transferred'));
+        //mainWindow.displayToast(qsTr('No feature attributes were transferred'));
+        mainWindow.displayToast(qsTr('전달된 객체 속성이 없습니다'));
       }
       transferFeatureListModel.currentLayer = null;
     }
@@ -1004,7 +1014,7 @@ Pane {
     Label {
       width: parent.width
       wrapMode: Text.WordWrap
-      text: qsTr("Should the %n feature(s) selected really be deleted?", "0", deleteDialog.selectedCount)
+      text: qsTr("선택한 %n개의 객체를 삭제하시겠습니까?", "0", deleteDialog.selectedCount)
     }
     onAccepted: {
       if (isDeleted) {
@@ -1016,7 +1026,8 @@ Pane {
         isDeleted = featureFormList.selection.model.deleteFeature(featureFormList.selection.focusedLayer, featureFormList.selection.focusedFeature.id);
       }
       if (isDeleted) {
-        displayToast(qsTr("Successfully deleted %n feature(s)", "", selectedCount));
+        //displayToast(qsTr("Successfully deleted %n feature(s)", "", selectedCount));
+        displayToast(qsTr("%n개의 객체가 삭제되었습니다", "", selectedCount));
         if (!featureFormList.multiSelection) {
           featureFormList.selection.focusedItem = -1;
           featureFormList.state = "FeatureList";

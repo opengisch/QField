@@ -59,7 +59,8 @@ Item {
     QfOverlayContainer {
       visible: navigationInformationViewEnabled
 
-      title: qsTr("Navigation")
+      //title: qsTr("Navigation")
+      title: qsTr("내비게이션")
 
       NavigationInformationView {
         id: navigationInformationView

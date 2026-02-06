@@ -149,7 +149,8 @@ Page {
                 case LocalFilesModel.File:
                   return qsTr('Files');
                 case LocalFilesModel.Favorite:
-                  return qsTr('Favorites');
+                  //return qsTr('Favorites');
+                  qsTr("즐겨찾기");
                 }
                 return '';
               }

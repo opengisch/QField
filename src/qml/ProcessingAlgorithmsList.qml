@@ -31,7 +31,8 @@ Item {
       Layout.fillWidth: true
       Layout.preferredHeight: defaultHeight
 
-      model: [qsTr("Favorites"), qsTr("All Algorithms")]
+      //model: [qsTr("Favorites"), qsTr("All Algorithms")]
+      model: [qsTr("즐겨찾기"), qsTr("전체 알고리즘")]
 
       delegate: TabButton {
         id: tabButton
