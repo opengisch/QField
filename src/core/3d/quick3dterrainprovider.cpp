@@ -246,7 +246,7 @@ void Quick3DTerrainProvider::calcNormalizedData()
 {
   if ( mExtent.isEmpty() || !mTerrainProvider )
   {
-    mNormalizedData.fill( 0.0, mGridSize.width() * mGridSize.height() );
+    mNormalizedData.fill( 0.0, static_cast<qsizetype>( mGridSize.width() ) * mGridSize.height() );
     emit normalizedDataChanged();
     emit terrainDataReady();
     return;
@@ -290,7 +290,7 @@ void Quick3DTerrainProvider::calcNormalizedData()
 
   if ( !rasterProvider && !terrainProvider )
   {
-    mNormalizedData.fill( 0.0, mGridSize.width() * mGridSize.height() );
+    mNormalizedData.fill( 0.0, static_cast<qsizetype>( mGridSize.width() ) * mGridSize.height() );
     emit normalizedDataChanged();
     emit terrainDataReady();
 
@@ -306,7 +306,7 @@ void Quick3DTerrainProvider::calcNormalizedData()
   QgsCoordinateTransformContext transformContext = mProject ? mProject->transformContext() : QgsCoordinateTransformContext();
 
   QFuture<QVector<double>> future = QtConcurrent::run( [terrainProvider, rasterProvider, extent, gridSize, terrainCrs, projectCrs, transformContext, scale, offset]() {
-    QVector<double> heights( gridSize.width() * gridSize.height(), 0.0 );
+    QVector<double> heights( static_cast<qsizetype>( gridSize.width() ) * gridSize.height(), 0.0 );
 
     QgsRectangle blockExtent = extent;
     if ( terrainCrs.isValid() && projectCrs.isValid() && terrainCrs != projectCrs )
