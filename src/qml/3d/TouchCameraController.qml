@@ -212,7 +212,8 @@ Item {
       }
     }
 
-    onTranslationChanged: function (delta) {
+    // TODO: fix jankiness
+    /*onTranslationChanged: function (delta) {
       // Pan with translation
       const panScale = root.distance * 0.0005;
       const yawRad = root.yaw * Math.PI / 180.0;
@@ -226,7 +227,7 @@ Item {
       root.targetY += delta.y * panScale;
 
       updateCameraPosition();
-    }
+    }*/
   }
 
   WheelHandler {
