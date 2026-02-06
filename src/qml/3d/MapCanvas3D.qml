@@ -25,6 +25,7 @@ Item {
     id: mapTerrainProvider
     project: qgisProject
     mapSettings: mapArea.mapSettings
+    forceSquareSize: true
 
     onTerrainDataReady: {
       const heights = normalizedData;

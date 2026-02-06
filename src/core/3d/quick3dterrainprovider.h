@@ -63,6 +63,9 @@ class Quick3DTerrainProvider : public QObject
     //! Size of the terrain
     Q_PROPERTY( QSizeF size READ size NOTIFY extentChanged )
 
+    //! Whether the extent's shorter side will be expanded to form a square terrain
+    Q_PROPERTY( bool forceSquareSize READ forceSquareSize WRITE setForceSquareSize NOTIFY forceSquareSizeChanged );
+
     //! Normalized height data array [0.0-1.0] for terrain mesh generation
     Q_PROPERTY( QVariantList normalizedData READ normalizedData NOTIFY normalizedDataChanged )
 
@@ -86,12 +89,17 @@ class Quick3DTerrainProvider : public QObject
     //! Sets the map settings.
     void setMapSettings( QgsQuickMapSettings *mapSettings );
 
+    bool forceSquareSize() const;
+
+    void setForceSquareSize( bool forceSquareSize );
+
     //! Returns the grid dimensions for terrain sampling.
     QSize gridSize() const;
 
     //! Returns the geographic extent for terrain data retrieval.
     QgsRectangle extent() const;
 
+    //! Returns the size of the terrain.
     QSizeF size() const;
 
     //! Returns the normalized height data array [0.0-1.0].
@@ -125,6 +133,7 @@ class Quick3DTerrainProvider : public QObject
   signals:
     void projectChanged();
     void mapSettingsChanged();
+    void forceSquareSizeChanged();
     void gridSizeChanged();
     void extentChanged();
 
@@ -153,6 +162,7 @@ class Quick3DTerrainProvider : public QObject
 
     QgsRectangle mExtent;
     QSizeF mSize;
+    bool mForceSquareSize = false;
     double mBaseSize = 2000.0;
 
     QSize mGridSize = QSize( 64, 64 );

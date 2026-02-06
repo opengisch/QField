@@ -74,6 +74,24 @@ void Quick3DTerrainProvider::setMapSettings( QgsQuickMapSettings *mapSettings )
   updateFromMapSettings();
 }
 
+bool Quick3DTerrainProvider::forceSquareSize() const
+{
+  return mForceSquareSize;
+}
+
+void Quick3DTerrainProvider::setForceSquareSize( bool forceSquareSize )
+{
+  if ( mForceSquareSize == forceSquareSize )
+  {
+    return;
+  }
+
+  mForceSquareSize = forceSquareSize;
+  emit forceSquareSizeChanged();
+
+  updateFromMapSettings();
+}
+
 QSize Quick3DTerrainProvider::gridSize() const
 {
   return mGridSize;
@@ -97,7 +115,21 @@ void Quick3DTerrainProvider::updateFromMapSettings()
   }
 
   QgsRectangle visibleExtent = mMapSettings->visibleExtent();
-  QSizeF visibleSize = QSize( visibleExtent.width() * mMapSettings->mapSettings().mapUnitsPerPixel(), visibleExtent.height() * mMapSettings->mapSettings().mapUnitsPerPixel() );
+  if ( mForceSquareSize )
+  {
+    if ( visibleExtent.width() >= visibleExtent.height() )
+    {
+      const double adjustement = ( visibleExtent.width() - visibleExtent.height() ) / 2;
+      visibleExtent.setYMinimum( visibleExtent.yMinimum() - adjustement );
+      visibleExtent.setYMaximum( visibleExtent.yMaximum() + adjustement );
+    }
+    else
+    {
+      const double adjustement = ( visibleExtent.height() - visibleExtent.width() ) / 2;
+      visibleExtent.setXMinimum( visibleExtent.xMinimum() - adjustement );
+      visibleExtent.setXMaximum( visibleExtent.xMaximum() + adjustement );
+    }
+  }
 
 #if 0
   QgsRectangle visibleExtent = mMapSettings->visibleExtent();
