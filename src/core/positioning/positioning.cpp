@@ -93,6 +93,7 @@ void Positioning::setupSource()
   connect( mPositioningSourceReplica.data(), SIGNAL( orientationChanged() ), this, SIGNAL( orientationChanged() ) );
 
   connect( mPositioningSourceReplica.data(), SIGNAL( enableNtripClientChanged() ), this, SIGNAL( enableNtripClientChanged() ) );
+  connect( mPositioningSourceReplica.data(), SIGNAL( ntripSendNmeaChanged() ), this, SIGNAL( ntripSendNmeaChanged() ) );
   connect( mPositioningSourceReplica.data(), SIGNAL( ntripHostChanged() ), this, SIGNAL( ntripHostChanged() ) );
   connect( mPositioningSourceReplica.data(), SIGNAL( ntripPortChanged() ), this, SIGNAL( ntripPortChanged() ) );
   connect( mPositioningSourceReplica.data(), SIGNAL( ntripMountpointChanged() ), this, SIGNAL( ntripMountpointChanged() ) );
@@ -512,6 +513,11 @@ bool Positioning::enableNtripClient() const
   return ( isSourceAvailable() ? mPositioningSourceReplica->property( "enableNtripClient" ) : mProperties.value( "enableNtripClient", false ) ).toBool();
 }
 
+bool Positioning::ntripSendNmea() const
+{
+  return ( isSourceAvailable() ? mPositioningSourceReplica->property( "ntripSendNmea" ) : mProperties.value( "ntripSendNmea", false ) ).toBool();
+}
+
 void Positioning::setEnableNtripClient( bool enableNtripClient )
 {
   if ( isSourceAvailable() )
@@ -522,6 +528,19 @@ void Positioning::setEnableNtripClient( bool enableNtripClient )
   {
     mProperties["enableNtripClient"] = enableNtripClient;
     emit enableNtripClientChanged();
+  }
+}
+
+void Positioning::setNtripSendNmea( bool sendNmea )
+{
+  if ( isSourceAvailable() )
+  {
+    mPositioningSourceReplica->setProperty( "ntripSendNmea", sendNmea );
+  }
+  else
+  {
+    mProperties["ntripSendNmea"] = sendNmea;
+    emit ntripSendNmeaChanged();
   }
 }
 

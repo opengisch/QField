@@ -22,6 +22,7 @@ Settings {
   property bool showPositionInformation: false
 
   property bool enableNtripClient: false
+  property bool ntripSendNmea: false
   property string ntripHost: ""
   property int ntripPort: 2101
   property string ntripMountpoint: ""

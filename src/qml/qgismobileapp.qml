@@ -341,6 +341,7 @@ ApplicationWindow {
     loggingPath: platformUtilities.appDataDirs()[0] + "/logs"
     logging: positioningSettings.logging
     enableNtripClient: positioningSettings.enableNtripClient
+    ntripSendNmea: positioningSettings.ntripSendNmea
     ntripHost: positioningSettings.ntripHost
     ntripPort: positioningSettings.ntripPort
     ntripMountpoint: positioningSettings.ntripMountpoint

@@ -56,6 +56,7 @@ class PositioningSource : public QObject
     Q_PROPERTY( bool backgroundMode READ backgroundMode WRITE setBackgroundMode NOTIFY backgroundModeChanged )
 
     Q_PROPERTY( bool enableNtripClient READ enableNtripClient WRITE setEnableNtripClient NOTIFY enableNtripClientChanged )
+    Q_PROPERTY( bool ntripSendNmea READ ntripSendNmea WRITE setNtripSendNmea NOTIFY ntripSendNmeaChanged )
     Q_PROPERTY( QString ntripHost READ ntripHost WRITE setNtripHost NOTIFY ntripHostChanged )
     Q_PROPERTY( int ntripPort READ ntripPort WRITE setNtripPort NOTIFY ntripPortChanged )
     Q_PROPERTY( QString ntripMountpoint READ ntripMountpoint WRITE setNtripMountpoint NOTIFY ntripMountpointChanged )
@@ -232,9 +233,19 @@ class PositioningSource : public QObject
     bool enableNtripClient() const { return mEnableNtripClient; }
 
     /**
+     * Returns TRUE if NMEA sentences should be sent to the NTRIP caster.
+     */
+    bool ntripSendNmea() const { return mNtripSendNmea; }
+
+    /**
      * Sets whether the NTRIP client is enabled.
      */
     void setEnableNtripClient( bool enableNtripClient );
+
+    /**
+     * Sets whether NMEA sentences should be sent to the NTRIP caster.
+     */
+    void setNtripSendNmea( bool sendNmea );
 
     /**
      * Returns the NTRIP host server address.
@@ -331,6 +342,7 @@ class PositioningSource : public QObject
     void loggingPathChanged();
     void backgroundModeChanged();
     void enableNtripClientChanged();
+    void ntripSendNmeaChanged();
     void ntripHostChanged();
     void ntripPortChanged();
     void ntripMountpointChanged();
@@ -375,6 +387,7 @@ class PositioningSource : public QObject
     bool mBackgroundMode = false;
 
     bool mEnableNtripClient = false;
+    bool mNtripSendNmea = false;
     QString mNtripHost;
     int mNtripPort = 2101;
     QString mNtripMountpoint;

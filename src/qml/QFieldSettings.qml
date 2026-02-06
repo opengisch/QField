@@ -1719,6 +1719,36 @@ Page {
                 }
               }
 
+              RowLayout {
+                Layout.fillWidth: true
+                Layout.columnSpan: 2
+                spacing: 10
+
+                Label {
+                  text: qsTr("Send NMEA sentences to caster")
+                  font: Theme.defaultFont
+                  color: Theme.mainTextColor
+                  wrapMode: Text.WordWrap
+                  Layout.preferredWidth: 120
+
+                  MouseArea {
+                    anchors.fill: parent
+                    onClicked: ntripSendNmea.toggle()
+                  }
+                }
+
+                QfSwitch {
+                  id: ntripSendNmea
+                  Layout.preferredWidth: implicitContentWidth
+                  Layout.alignment: Qt.AlignTop
+                  enabled: positioningSettings.enableNtripClient
+                  checked: positioningSettings.ntripSendNmea
+                  onCheckedChanged: {
+                    positioningSettings.ntripSendNmea = checked;
+                  }
+                }
+              }
+
               // NTRIP Host
               RowLayout {
                 Layout.fillWidth: true

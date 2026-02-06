@@ -182,6 +182,15 @@ void PositioningSource::setEnableNtripClient( bool enableNtripClient )
   emit enableNtripClientChanged();
 }
 
+void PositioningSource::setNtripSendNmea( bool sendNmea )
+{
+  if ( mNtripSendNmea == sendNmea )
+    return;
+
+  mNtripSendNmea = sendNmea;
+  emit ntripSendNmeaChanged();
+}
+
 void PositioningSource::setNtripHost( const QString &ntripHost )
 {
   if ( mNtripHost == ntripHost )
@@ -571,6 +580,11 @@ void PositioningSource::startNtripClient()
     {
       connect( nmeaReceiver, &NmeaGnssReceiver::nmeaSentenceReceived, this, [this]( const QString &sentence ) {
         if ( !mNtripClient )
+        {
+          return;
+        }
+
+        if ( !mNtripSendNmea )
         {
           return;
         }
