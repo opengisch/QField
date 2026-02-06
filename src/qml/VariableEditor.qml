@@ -59,7 +59,8 @@ ColumnLayout {
             font.bold: true
             font.pointSize: Theme.resultFont.pointSize
             color: Theme.mainTextColor
-            text: section == "GlobalScope" ? qsTr("Global variables") : qsTr("Project variables")
+            //text: section == "GlobalScope" ? qsTr("Global variables") : qsTr("Project variables")
+            text: section == "GlobalScope" ? qsTr("전역 변수") : qsTr("프로젝트 변수")
           }
         }
       }
@@ -193,12 +194,13 @@ ColumnLayout {
   QfButton {
     id: addCustomVariableButton
     Layout.fillWidth: true
-    text: qsTr("Add a new variable")
+    //text: qsTr("Add a new variable")
+    text: qsTr("새 변수 추가")
 
     onClicked: {
       let insertionPosition = table.model.addVariable(ExpressionVariableModel.GlobalScope, "new_variable", "");
       table.positionViewAtIndex(insertionPosition, ListView.Contain);
       table.itemAtIndex(insertionPosition).forceFocusOnVariableName();
-    }
+    }0
   }
 }

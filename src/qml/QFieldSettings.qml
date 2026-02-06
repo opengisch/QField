@@ -1313,8 +1313,8 @@ Page {
               }
 
               Label {
-                text: qsTr("When the accuracy indicator is enabled, a badge is attached to the location button and colored <span %1>red</span> if the accuracy value is worse than <i>bad</i>, <span %2>yellow</span> if it falls short of <i>excellent</i>, or <span %3>green</span>.<br><br>In addition, an accuracy restriction mode can be toggled on, which restricts vertex addition when locked to coordinate cursor to positions with an accuracy value worse than the bad threshold.").arg("style='%1'".arg(Theme.toInlineStyles({
-                //text: qsTr("정확도 표시를 활성화하면 위치 버튼에 배지가 표시되며, 정확도 값이 <i>나쁨</i> 기준보다 낮으면 <span %1>빨간색</span>, <i>우수</i> 기준에 미치지 못하면 <span %2>노란색</span>, 기준을 충족하면 <span %3>초록색</span>으로 표시됩니다.<br><br>또한 정확도 제한 모드를 켤 수 있으며, 이 모드를 활성화하면 좌표 커서를 고정한 상태에서 꼭짓점 추가가 <i>나쁨</i> 기준보다 정확도가 더 나쁜 위치로 제한됩니다.").arg("style='%1'".arg(Theme.toInlineStyles({
+                //text: qsTr("When the accuracy indicator is enabled, a badge is attached to the location button and colored <span %1>red</span> if the accuracy value is worse than <i>bad</i>, <span %2>yellow</span> if it falls short of <i>excellent</i>, or <span %3>green</span>.<br><br>In addition, an accuracy restriction mode can be toggled on, which restricts vertex addition when locked to coordinate cursor to positions with an accuracy value worse than the bad threshold.").arg("style='%1'".arg(Theme.toInlineStyles({
+                text: qsTr("정확도 표시를 활성화하면 위치 버튼에 배지가 표시되며, 정확도 값이 <i>나쁨</i> 기준보다 낮으면 <span %1>red</span>, <i>우수</i> 기준에 미치지 못하면 <span %2>yellow</span>, 기준을 충족하면 <span %3>green</span>으로 표시됩니다.<br><br>또한 정확도 제한 모드를 켤 수 있으며, 이 모드를 활성화하면 좌표 커서를 고정한 상태에서 꼭짓점 추가가 <i>나쁨</i> 기준보다 정확도가 더 나쁜 위치로 제한됩니다.").arg("style='%1'".arg(Theme.toInlineStyles({
                   "color": Theme.accuracyBad
                 }))).arg("style='%1'".arg(Theme.toInlineStyles({
                   "color": Theme.accuracyTolerated

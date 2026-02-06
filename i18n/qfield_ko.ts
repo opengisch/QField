@@ -3781,7 +3781,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Variables</source>
-        <translation>Variables</translation>
+        <translation>변수 관리</translation>
     </message>
     <message>
         <source>Customize search bar</source>
