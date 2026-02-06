@@ -145,6 +145,8 @@ Item {
   onDistanceChanged: updateCameraPosition()
 
   TapHandler {
+    id: tapHandler
+    target: null
     acceptedButtons: Qt.LeftButton
     gesturePolicy: TapHandler.WithinBounds
     onDoubleTapped: resetView()
@@ -154,6 +156,8 @@ Item {
   }
 
   DragHandler {
+    id: primaryDragHandler
+    target: null
     acceptedButtons: Qt.LeftButton
     acceptedDevices: PointerDevice.AllDevices
     acceptedModifiers: Qt.NoModifier
@@ -182,6 +186,8 @@ Item {
   }
 
   DragHandler {
+    id: secondaryDragHandler
+    target: null
     acceptedButtons: Qt.RightButton
     acceptedDevices: PointerDevice.AllDevices
     acceptedModifiers: Qt.NoModifier
@@ -261,6 +267,8 @@ Item {
   }
 
   WheelHandler {
+    id: wheelHandler
+    target: null
     acceptedDevices: PointerDevice.AllDevices
 
     onWheel: function (event) {
