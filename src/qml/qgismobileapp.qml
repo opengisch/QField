@@ -257,7 +257,7 @@ ApplicationWindow {
           currentRubberband: measuringTool.measuringRubberband
         }
         PropertyChanges {
-          target: featureForm
+          target: featureListForm
           state: "Hidden"
         }
       },
