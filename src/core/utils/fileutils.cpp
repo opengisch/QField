@@ -26,10 +26,13 @@
 #include <QFileInfo>
 #include <QImage>
 #include <QImageReader>
+#include <QImageWriter>
 #include <QMimeDatabase>
 #include <QPainter>
 #include <QPainterPath>
+#include <QSaveFile>
 #include <QStandardPaths>
+#include <QTransform>
 #include <qgis.h>
 #include <qgsapplication.h>
 #include <qgsexiftools.h>
@@ -216,7 +219,9 @@ bool FileUtils::copyRecursively( const QString &sourceFolder, const QString &des
 
     QFileInfo destInfo( destName );
     if ( QFileInfo( srcName ).isDir() )
+    {
       continue;
+    }
 
     QDir destDir( destInfo.absoluteDir() );
     if ( !destDir.exists() )
@@ -224,7 +229,9 @@ bool FileUtils::copyRecursively( const QString &sourceFolder, const QString &des
       destDir.mkpath( destDir.path() );
     }
     if ( QFile::exists( destName ) )
+    {
       QFile::remove( destName );
+    }
 
     bool success = QFile::copy( srcName, destName );
     if ( !success )
@@ -236,7 +243,9 @@ bool FileUtils::copyRecursively( const QString &sourceFolder, const QString &des
     QFile( destName ).setPermissions( QFileDevice::ReadOwner | QFileDevice::WriteOwner );
 
     if ( feedback )
+    {
       feedback->setProgress( 100 * current / fileCount );
+    }
 
     ++current;
   }
@@ -249,7 +258,9 @@ int FileUtils::copyRecursivelyPrepare( const QString &sourceFolder, const QStrin
   QDir sourceDir( sourceFolder );
 
   if ( !sourceDir.exists() )
+  {
     return 0;
+  }
 
   int count = 0;
 
@@ -261,7 +272,9 @@ int FileUtils::copyRecursivelyPrepare( const QString &sourceFolder, const QStrin
     QString filePath = dirIt.next();
     const QString relPath = filePath.mid( sfLength );
     if ( relPath.endsWith( QLatin1String( "/." ) ) || relPath.endsWith( QLatin1String( "/.." ) ) )
+    {
       continue;
+    }
 
     QString srcName = QDir::cleanPath( sourceFolder + QDir::separator() + relPath );
     QString destName = QDir::cleanPath( destFolder + QDir::separator() + relPath );
@@ -279,12 +292,16 @@ QByteArray FileUtils::fileChecksum( const QString &fileName, const QCryptographi
   QFile f( fileName );
 
   if ( !f.open( QFile::ReadOnly ) )
+  {
     return QByteArray();
+  }
 
   QCryptographicHash hash( hashAlgorithm );
 
   if ( hash.addData( &f ) )
+  {
     return hash.result();
+  }
 
   return QByteArray();
 }
@@ -329,14 +346,17 @@ void FileUtils::restrictImageSize( const QString &imagePath, int maximumWidthHei
   }
 
   QVariantMap metadata = QgsExifTools::readTags( imagePath );
-  QImage img( imagePath );
+  QImageReader reader( imagePath );
+  reader.setAutoTransform( true );
+  QImage img = reader.read();
   if ( !img.isNull() && ( img.width() > maximumWidthHeight || img.height() > maximumWidthHeight ) )
   {
     QImage scaledImage = img.width() > img.height()
                            ? img.scaledToWidth( maximumWidthHeight, Qt::SmoothTransformation )
                            : img.scaledToHeight( maximumWidthHeight, Qt::SmoothTransformation );
     scaledImage.save( imagePath, nullptr, 90 );
-
+    metadata["Exif.Image.Orientation"] = 1;
+    metadata["Xmp.tiff.Orientation"] = 1;
     for ( const QString &key : metadata.keys() )
     {
       QgsExifTools::tagImage( imagePath, key, metadata[key] );
@@ -399,7 +419,9 @@ void FileUtils::addImageStamp( const QString &imagePath, const QString &text, co
   QgsReadWriteContext readWriteContent;
   readWriteContent.setPathResolver( QgsProject::instance()->pathResolver() );
   QVariantMap metadata = QgsExifTools::readTags( imagePath );
-  QImage img( imagePath );
+  QImageReader reader( imagePath );
+  reader.setAutoTransform( true );
+  QImage img = reader.read();
   if ( !img.isNull() )
   {
     QPainter painter( &img );
@@ -489,7 +511,8 @@ void FileUtils::addImageStamp( const QString &imagePath, const QString &text, co
     QgsTextRenderer::drawText( QRectF( 10, img.height() - textHeight - 20, img.width() - 20, img.height() - 20 ), 0, horizontalAlignment, text.split( QStringLiteral( "\n" ) ), context, format, true, Qgis::TextVerticalAlignment::Top, Qgis::TextRendererFlag::WrapLines );
 
     img.save( imagePath, nullptr, 90 );
-
+    metadata["Exif.Image.Orientation"] = 1;
+    metadata["Xmp.tiff.Orientation"] = 1;
     for ( const QString &key : metadata.keys() )
     {
       QgsExifTools::tagImage( imagePath, key, metadata[key] );
@@ -497,16 +520,111 @@ void FileUtils::addImageStamp( const QString &imagePath, const QString &text, co
   }
 }
 
+bool FileUtils::rotateImageInPlace( const QString &imagePath, int clockwiseDegrees )
+{
+  if ( !QFileInfo::exists( imagePath ) )
+  {
+    return false;
+  }
+
+  // normalize to [0, 359]
+  int deg = ( clockwiseDegrees % 360 ) + 90; //somehow, the offset is - 90degree, if added 90" it keeps the previewed orientation from qml
+  if ( deg < 0 )
+  {
+    deg += 360;
+  }
+
+  if ( deg == 0 )
+  {
+    return true;
+  }
+
+  // read all tags first so we can restore them after rewriting the file
+  QVariantMap metadata = QgsExifTools::readTags( imagePath );
+
+  // apply any existing EXIF orientation before rotating (autoTransform)
+  QImageReader reader( imagePath );
+  reader.setAutoTransform( true );
+  QImage img = reader.read();
+  if ( img.isNull() )
+  {
+    return false;
+  }
+
+  QTransform transform;
+  transform.rotate( deg );
+  QImage rotated = img.transformed( transform, Qt::SmoothTransformation );
+
+  QSaveFile out( imagePath );
+  if ( !out.open( QIODevice::WriteOnly ) )
+  {
+    return false;
+  }
+
+  QByteArray fmt = QFileInfo( imagePath ).suffix().toLower().toLatin1();
+  if ( fmt == "jpeg" )
+  {
+    fmt = "jpg";
+  }
+  if ( fmt.isEmpty() )
+  {
+    fmt = "jpg";
+  }
+
+  QImageWriter writer( &out, fmt );
+  if ( fmt == "jpg" )
+  {
+    writer.setQuality( 90 );
+  }
+
+  if ( !writer.write( rotated ) )
+  {
+    out.cancelWriting();
+    return false;
+  }
+
+  if ( !out.commit() )
+  {
+    return false;
+  }
+
+  const QVariant oldExifOri = metadata.value( "Exif.Image.Orientation" );
+  const QVariant oldXmpOri = metadata.value( "Xmp.tiff.Orientation" );
+  // normalize orientation tag so external viewers don't rotate AGAIN
+  metadata["Exif.Image.Orientation"] = 1;
+  metadata["Xmp.tiff.Orientation"] = 1;
+
+  qDebug() << "rotateImageInPlace" << imagePath
+           << "deg=" << clockwiseDegrees
+           << "oldExifOri=" << oldExifOri
+           << "oldXmpOri=" << oldXmpOri
+           << "newExifOri=" << metadata.value( "Exif.Image.Orientation" )
+           << "newXmpOri=" << metadata.value( "Xmp.tiff.Orientation" );
+
+  // restore tags
+  for ( const QString &key : metadata.keys() )
+  {
+    QgsExifTools::tagImage( imagePath, key, metadata[key] );
+  }
+
+  return true;
+}
+
+
 bool FileUtils::isWithinProjectDirectory( const QString &filePath )
 {
   // Get the project instance
   QgsProject *project = QgsProject::instance();
   if ( !project || project->fileName().isEmpty() )
+  {
     return false;
+  }
 
   QFileInfo projectFileInfo( project->fileName() );
   if ( !projectFileInfo.exists() )
+  {
     return false;
+  }
 
   // Get the canonical path for the project directory
   QString projectDirCanonical = QFileInfo( projectFileInfo.dir().absolutePath() ).canonicalFilePath();
@@ -515,7 +633,9 @@ bool FileUtils::isWithinProjectDirectory( const QString &filePath )
     // Fallback to absolutePath() if canonicalFilePath() is empty
     projectDirCanonical = QFileInfo( projectFileInfo.dir().absolutePath() ).absoluteFilePath();
     if ( projectDirCanonical.isEmpty() )
+    {
       return false;
+    }
   }
 
   // Get target file info and its canonical path
@@ -546,7 +666,9 @@ bool FileUtils::isWithinProjectDirectory( const QString &filePath )
     {
       existingCanonical = QFileInfo( dir.path() ).absoluteFilePath();
       if ( existingCanonical.isEmpty() )
+      {
         return false;
+      }
     }
 
     // Rebuild the target path from existing directories
