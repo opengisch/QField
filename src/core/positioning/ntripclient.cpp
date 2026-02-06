@@ -15,7 +15,7 @@ NtripClient::~NtripClient()
 
 void NtripClient::start( const QString &ntripHost, const quint16 &port, const QString &mountpoint, const QString &username, const QString &password )
 {
-  if ( mReply )
+  if ( mSocketClient )
   {
     return;
   }
@@ -23,26 +23,29 @@ void NtripClient::start( const QString &ntripHost, const quint16 &port, const QS
   mBytesSent = 0;
   mBytesReceived = 0;
 
-  NtripSocketClient *client = new NtripSocketClient( this );
+  mSocketClient = new NtripSocketClient( this );
 
-  connect( client, &NtripSocketClient::correctionDataReceived, [this]( const QByteArray &data ) {
+  connect( mSocketClient, &NtripSocketClient::correctionDataReceived, [this]( const QByteArray &data ) {
     mBytesReceived += data.size();
 
-    quint8 firstByte = quint8( data.at( 0 ) );
     emit correctionDataReceived( data );
     emit bytesCountersChanged();
   } );
 
-  connect( client, &NtripSocketClient::errorOccurred, [this]( const QString &msg ) {
+  connect( mSocketClient, &NtripSocketClient::errorOccurred, [this]( const QString &msg ) {
     qWarning() << msg;
     emit errorOccurred( msg );
   } );
 
-  connect( client, &NtripSocketClient::streamConnected, [this]() {
+  connect( mSocketClient, &NtripSocketClient::streamConnected, [this]() {
     emit streamConnected();
   } );
 
-  mBytesSent = client->start(
+  connect( mSocketClient, &NtripSocketClient::streamDisconnected, [this]() {
+    emit streamDisconnected();
+  } );
+
+  mBytesSent = mSocketClient->start(
     ntripHost,
     port,
     "/" + mountpoint,
@@ -55,41 +58,25 @@ void NtripClient::start( const QString &ntripHost, const quint16 &port, const QS
 
 void NtripClient::stop()
 {
-  if ( mReply )
+  if ( mSocketClient )
   {
-    disconnect( mReply, nullptr, this, nullptr ); // Disconnect all signals
-
-    if ( mReply->isRunning() )
-    {
-      mReply->abort(); // Cancel the request
-    }
-    mReply->deleteLater();
-    mReply = nullptr;
+    mSocketClient->stop();
+    mSocketClient->deleteLater();
+    mSocketClient = nullptr;
   }
 }
 
-void NtripClient::onFinished()
+void NtripClient::sendNmeaSentence( const QString &sentence )
 {
-  if ( mReply )
+  if ( !mSocketClient )
   {
-    emit errorOccurred( "NTRIP connection closed" );
+    return;
   }
-  // Schedule cleanup after Qt finishes emitting signals
-  QMetaObject::invokeMethod( this, "stop", Qt::QueuedConnection );
-}
 
-void NtripClient::onError( QNetworkReply::NetworkError code )
-{
-  int status = mReply->attribute( QNetworkRequest::HttpStatusCodeAttribute ).toInt();
-  QString reason = mReply->attribute( QNetworkRequest::HttpReasonPhraseAttribute ).toString();
-
-  qWarning() << "HTTP status during error:" << status << reason;
-  qWarning() << "Network error code:" << code;
-
-  emit errorOccurred(
-    QStringLiteral( "Network error %1, HTTP %2 %3" )
-      .arg( code )
-      .arg( status )
-      .arg( reason ) );
-  QMetaObject::invokeMethod( this, "stop", Qt::QueuedConnection );
+  const qint64 bytesWritten = mSocketClient->sendNmeaSentence( sentence.toUtf8() );
+  if ( bytesWritten > 0 )
+  {
+    mBytesSent += bytesWritten;
+    emit bytesCountersChanged();
+  }
 }

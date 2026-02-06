@@ -382,6 +382,7 @@ class PositioningSource : public QObject
     QString mNtripPassword;
     NtripState mNtripState = NtripState::Disconnected;
     QString mNtripLastError;
+    qint64 mLastNtripGgaSentMs = 0;
     qint64 mNtripBytesSent = 0;
     qint64 mNtripBytesReceived = 0;
 

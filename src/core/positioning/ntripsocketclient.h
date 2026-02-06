@@ -18,6 +18,8 @@ class NtripSocketClient : public QObject
       const QString &username,
       const QString &password );
 
+    qint64 sendNmeaSentence( const QByteArray &sentence );
+
     void stop();
 
   signals:

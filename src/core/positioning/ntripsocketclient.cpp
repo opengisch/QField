@@ -48,6 +48,22 @@ qint64 NtripSocketClient::estimateRequestSize() const
   return 200 + base64.size() + mMountpoint.size();
 }
 
+qint64 NtripSocketClient::sendNmeaSentence( const QByteArray &sentence )
+{
+  if ( !mSocket.isOpen() || mSocket.state() != QAbstractSocket::ConnectedState )
+  {
+    return -1;
+  }
+
+  QByteArray payload = sentence;
+  if ( !payload.endsWith( "\r\n" ) )
+  {
+    payload.append( "\r\n" );
+  }
+
+  return mSocket.write( payload );
+}
+
 void NtripSocketClient::stop()
 {
   if ( mSocket.isOpen() )

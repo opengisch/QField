@@ -23,12 +23,14 @@
 #include "egenioussreceiver.h"
 #include "filereceiver.h"
 #include "internalgnssreceiver.h"
+#include "nmeagnssreceiver.h"
 #include "ntripclient.h"
 #include "positioningsource.h"
 #include "positioningutils.h"
 #include "tcpreceiver.h"
 #include "udpreceiver.h"
 
+#include <QDateTime>
 #include <QStandardPaths>
 
 QString PositioningSource::backgroundFilePath = QStringLiteral( "%1/positioning.background" ).arg( QStandardPaths::writableLocation( QStandardPaths::AppDataLocation ) );
@@ -527,7 +529,7 @@ void PositioningSource::startNtripClient()
     emit ntripBytesSentChanged();
     emit ntripBytesReceivedChanged();
 
-    setNtripState( NtripState::Connected );
+    setNtripState( NtripState::Disconnected );
     mNtripClient->start( mNtripHost, static_cast<quint16>( mNtripPort ), mNtripMountpoint, mNtripUsername, mNtripPassword );
 
     // Connect to receiver if it supports RTK corrections
@@ -545,6 +547,11 @@ void PositioningSource::startNtripClient()
                setNtripLastError( QString() );
              } );
 
+    connect( mNtripClient.get(), &NtripClient::streamDisconnected,
+             this, [this]() {
+               setNtripState( NtripState::Disconnected );
+             } );
+
     connect( mNtripClient.get(), &NtripClient::errorOccurred,
              this, [this]( const QString &msg ) {
                setNtripLastError( msg );
@@ -559,6 +566,31 @@ void PositioningSource::startNtripClient()
                emit ntripBytesSentChanged();
                emit ntripBytesReceivedChanged();
              } );
+
+    if ( auto nmeaReceiver = dynamic_cast<NmeaGnssReceiver *>( mReceiver.get() ) )
+    {
+      connect( nmeaReceiver, &NmeaGnssReceiver::nmeaSentenceReceived, this, [this]( const QString &sentence ) {
+        if ( !mNtripClient )
+        {
+          return;
+        }
+
+        if ( !( sentence.startsWith( "$GPGGA" ) || sentence.startsWith( "$GNGGA" ) || sentence.startsWith( "$GLGGA" ) || sentence.startsWith( "$GAGGA" ) || sentence.startsWith( "$GBGGA" ) ) )
+        {
+          return;
+        }
+
+        const qint64 nowMs = QDateTime::currentMSecsSinceEpoch();
+        if ( mLastNtripGgaSentMs != 0 && ( nowMs - mLastNtripGgaSentMs ) < 900 )
+        {
+          return;
+        }
+        mLastNtripGgaSentMs = nowMs;
+
+        qDebug() << "NTRIP Client: Sending GGA sentence:" << sentence;
+        mNtripClient->sendNmeaSentence( sentence );
+      } );
+    }
   }
   else
   {
