@@ -18,18 +18,9 @@
 #ifndef WEBDAVCONNECTION_H
 #define WEBDAVCONNECTION_H
 
-#include <QByteArray>
-#include <QDateTime>
-#include <QFileInfo>
-#include <QList>
 #include <QObject>
-#include <QScopedPointer>
-#include <QStringList>
-#include <QVariantMap>
 #include <QtWebDAV/qwebdav.h>
 #include <QtWebDAV/qwebdavdirparser.h>
-
-class QLockFile;
 
 /**
  * The webdav connection objects allows for connection to and push/pull
@@ -197,15 +188,6 @@ class WebdavConnection : public QObject
     Q_INVOKABLE void cancelRequest();
 
     /**
-     * Requests an auto-upload for the WebDAV imported project that contains \a projectPath.
-     * - skips if busy
-     * - skips if not a WebDAV imported project
-     * - skips if locked (per-project lock file next to json config)
-     * - skips if unchanged (unless force == true)
-     */
-    Q_INVOKABLE void requestUpload( const QString &projectPath, bool force = false );
-
-    /**
      * Returns TRUE if a given path contains a WebDAV configuration JSON file or is parented
      * to a folder containing such a file.
      */
@@ -237,9 +219,6 @@ class WebdavConnection : public QObject
 
     void importSuccessful( const QString &path );
 
-    void uploadFinished( bool success, const QString &message );
-    void uploadSkipped( const QString &reason );
-
   private slots:
     void processDirParserFinished();
     void processConnectionError( const QString &error );
@@ -251,11 +230,6 @@ class WebdavConnection : public QObject
     void setupConnection();
     void getWebdavItems();
     void putLocalItems();
-    /**
-     * Common upload completion handler.
-     * Cleans up auto-upload state and emits appropriate signals.
-     */
-    void finishUpload( bool success, const QString &errorMessage );
 
     ///! Computes the common path between two given paths.
     QString getCommonPath( const QString &addressA, const QString &addressB );
@@ -290,11 +264,6 @@ class WebdavConnection : public QObject
     QWebdav mWebdavConnection;
     QWebdavDirParser mWebdavDirParser;
     QString mLastError;
-
-    bool mAutoUploadActive = false;
-    QString mAutoUploadRoot;
-    QByteArray mAutoUploadSignature;
-    std::unique_ptr<QLockFile> mAutoUploadLock;
 };
 
 #endif // WEBDAVCONNECTION_H
