@@ -1045,7 +1045,8 @@ ApplicationWindow {
           return true;
         }, MapCanvasPointHandler.Priority.High);
         if (!settings.valueBool("/QField/pieMenuOpenedOnce", false)) {
-          bubbleText = qsTr("Tap on your location marker\nto show actions");
+          //bubbleText = qsTr("Tap on your location marker\nto show actions");
+          bubbleText = qsTr("내 위치 표시를 눌러\n작업을 확인하세요");
           bubbleVisible = Qt.binding(() => locationMarker.isOnMapCanvas && locationMarker.visible && !mapCanvasTour.visible);
           bubbleAction = () => {
             openPieMenu(locationMarker.screenLocation);
@@ -2576,11 +2577,13 @@ ApplicationWindow {
             if (qfieldSettings.enableMapRotation) {
               if (!followOrientationActive) {
                 if (autoRefollow) {
-                  displayToast(qsTr("Map canvas locked to location and compass orientation"));
+                  //displayToast(qsTr("Map canvas locked to location and compass orientation"));
+                  displayToast(qsTr("지도 화면이 현재 위치와 나침반 방향에 고정되었습니다"));
                   followOrientationActive = true;
                   followOrientation();
                 } else {
-                  displayToast(qsTr("Map canvas follows location and compass orientation"));
+                  //displayToast(qsTr("Map canvas follows location and compass orientation"));
+                  displayToast(qsTr("지도 화면이 현재 위치와 나침반 방향을 따라갑니다"));
                   mapCanvasMap.jumpToPosition(positionSource, -1, -positionSource.orientation, true, () => {
                     gnssButton.followOrientation();
                   });
@@ -2589,9 +2592,11 @@ ApplicationWindow {
               } else {
                 followOrientationActive = false;
                 if (autoRefollow) {
-                  displayToast(qsTr("Map canvas locked to location"));
+                  //displayToast(qsTr("Map canvas locked to location"));
+                  displayToast(qsTr("지도 화면이 현재 위치에 고정되었습니다"));
                 } else {
-                  displayToast(qsTr("Map canvas follows location"));
+                  //displayToast(qsTr("Map canvas follows location"));
+                  displayToast(qsTr("지도 화면이 현재 위치를 따라갑니다"));
                 }
               }
             }
@@ -2646,7 +2651,8 @@ ApplicationWindow {
           if (!gnssButton.followActive) {
             mapCanvasMap.freeze('follow');
             gnssButton.followActive = true;
-            displayToast(qsTr("Map canvas follows location"));
+            //displayToast(qsTr("Map canvas follows location"));
+            displayToast(qsTr("지도 화면이 현재 위치를 따라갑니다"));
           }
         }
 
