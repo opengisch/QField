@@ -307,34 +307,37 @@ void Quick3DTerrainProvider::calcNormalizedData()
 
   QFuture<QVector<double>> future = QtConcurrent::run( [terrainProvider, rasterProvider, extent, gridSize, terrainCrs, projectCrs, transformContext, scale, offset]() {
     QVector<double> heights( static_cast<qsizetype>( gridSize.width() ) * gridSize.height(), 0.0 );
-
-    QgsRectangle blockExtent = extent;
-    if ( terrainCrs.isValid() && projectCrs.isValid() && terrainCrs != projectCrs )
-    {
-      try
-      {
-        QgsCoordinateTransform transform( projectCrs, terrainCrs, transformContext );
-        blockExtent = transform.transformBoundingBox( extent );
-      }
-      catch ( const QgsCsException & )
-      {
-      }
-    }
-
     if ( rasterProvider )
     {
-      std::unique_ptr<QgsRasterBlock> block( rasterProvider->block( 1, blockExtent, gridSize.width(), gridSize.height() ) );
-      if ( block && block->isValid() )
+      QgsRectangle blockExtent = extent;
+      if ( terrainCrs.isValid() && projectCrs.isValid() && terrainCrs != projectCrs )
       {
-        for ( int row = 0; row < gridSize.height(); ++row )
+        try
         {
-          for ( int col = 0; col < gridSize.width(); ++col )
+          QgsCoordinateTransform transform( projectCrs, terrainCrs, transformContext );
+          blockExtent = transform.transformBoundingBox( extent );
+        }
+        catch ( const QgsCsException & )
+        {
+          blockExtent = QgsRectangle();
+        }
+      }
+
+      if ( !blockExtent.isEmpty() )
+      {
+        std::unique_ptr<QgsRasterBlock> block( rasterProvider->block( 1, blockExtent, gridSize.width(), gridSize.height() ) );
+        if ( block && block->isValid() )
+        {
+          for ( int row = 0; row < gridSize.height(); ++row )
           {
-            bool isNoData = false;
-            double value = block->valueAndNoData( row, col, isNoData );
-            if ( !isNoData && !std::isnan( value ) )
+            for ( int col = 0; col < gridSize.width(); ++col )
             {
-              heights[row * gridSize.width() + col] = value * scale + offset;
+              bool isNoData = false;
+              double value = block->valueAndNoData( row, col, isNoData );
+              if ( !isNoData && !std::isnan( value ) )
+              {
+                heights[row * gridSize.width() + col] = value * scale + offset;
+              }
             }
           }
         }
