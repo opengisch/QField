@@ -601,7 +601,6 @@ void PositioningSource::startNtripClient()
         }
         mLastNtripGgaSentMs = nowMs;
 
-        qDebug() << "NTRIP Client: Sending GGA sentence:" << sentence;
         mNtripClient->sendNmeaSentence( sentence );
       } );
     }
