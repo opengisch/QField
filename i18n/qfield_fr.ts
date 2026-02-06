@@ -3964,6 +3964,10 @@ Même si vous pouvez toujours voir et utiliser ce projet, il est fortement recom
         <translation>Activer le client NTRIP</translation>
     </message>
     <message>
+        <source>Send NMEA sentences to caster</source>
+        <translation>Envoyer les trames NMEA au caster</translation>
+    </message>
+    <message>
         <source>NTRIP Host</source>
         <translation>Hôte NTRIP</translation>
     </message>
