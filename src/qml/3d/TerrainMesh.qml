@@ -5,9 +5,7 @@ import org.qfield
 Node {
   id: root
 
-  property alias gridSize: mapTerrainGeometry.gridSize
-  property alias size: mapTerrainGeometry.size
-  property alias heightData: mapTerrainGeometry.heightData
+  property alias mapTerrainGeometry: mapTerrainGeometry
 
   property var texture: null
   property bool textureReady: false

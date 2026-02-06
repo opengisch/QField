@@ -28,8 +28,7 @@ Item {
     forceSquareSize: true
 
     onTerrainDataReady: {
-      const heights = normalizedData;
-      if (heights.length === 0) {
+      if (normalizedData.length === 0) {
         return;
       }
 
@@ -84,11 +83,11 @@ Item {
 
     TerrainMesh {
       id: terrainMesh
-      gridSize: mapTerrainProvider.gridSize
-      size: mapTerrainProvider.size
+      mapTerrainGeometry.gridSize: mapTerrainProvider.gridSize
+      mapTerrainGeometry.size: mapTerrainProvider.size
+      mapTerrainGeometry.heightData: mapTerrainProvider.normalizedData
       texture: mapTexture
       textureReady: mapTextureData.ready
-      heightData: mapTerrainProvider.normalizedData
     }
 
     Node {

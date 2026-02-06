@@ -269,7 +269,6 @@ void Quick3DTerrainProvider::calcNormalizedData()
 
   if ( mTerrainProvider )
   {
-    terrainCrs = mTerrainProvider->crs();
     scale = mTerrainProvider->scale();
     offset = mTerrainProvider->offset();
 
@@ -278,11 +277,13 @@ void Quick3DTerrainProvider::calcNormalizedData()
       QgsRasterLayer *layer = rasterDemProvider->layer();
       if ( layer && layer->dataProvider() )
       {
+        terrainCrs = layer->crs();
         rasterProvider = layer->dataProvider()->clone();
       }
     }
     else
     {
+      terrainCrs = mTerrainProvider->crs();
       terrainProvider = mTerrainProvider->clone();
       terrainProvider->prepare();
     }
