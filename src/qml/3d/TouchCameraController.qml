@@ -158,7 +158,7 @@ Item {
     acceptedDevices: PointerDevice.AllDevices
     acceptedModifiers: Qt.NoModifier
 
-    property point lastPoint: Qt.point(0, 0)
+    property var lastPoint
 
     onActiveChanged: {
       if (active) {
@@ -168,18 +168,16 @@ Item {
     }
 
     onCentroidChanged: {
-      if (!active) {
-        return;
+      if (active) {
+        const dx = centroid.position.x - lastPoint.x;
+        const dy = centroid.position.y - lastPoint.y;
+
+        root.yaw -= dx * orbitSensitivity;
+        root.pitch = clampPitch(pitch + dy * orbitSensitivity);
+
+        lastPoint = centroid.position;
+        updateCameraPosition();
       }
-
-      const dx = centroid.position.x - lastPoint.x;
-      const dy = centroid.position.y - lastPoint.y;
-
-      root.yaw -= dx * orbitSensitivity;
-      root.pitch = clampPitch(pitch + dy * orbitSensitivity);
-
-      lastPoint = centroid.position;
-      updateCameraPosition();
     }
   }
 
@@ -189,6 +187,7 @@ Item {
     target: null
 
     property real lastScale: 1.0
+    property real lastRotation: 0.0
 
     onActiveChanged: {
       if (active) {
@@ -197,15 +196,24 @@ Item {
       }
     }
 
-    onScaleChanged: {
-      const scaleDelta = scale / lastScale;
-      root.distance = clampDistance(root.distance / scaleDelta);
-      lastScale = scale;
-      updateCameraPosition();
+    onActiveScaleChanged: {
+      if (active) {
+        const scaleDelta = scale / lastScale;
+        root.distance = clampDistance(root.distance / scaleDelta);
+        lastScale = scale;
+        updateCameraPosition();
+      }
     }
 
-    // Pan with translation
+    onRotationChanged: {
+      if (active) {
+        root.yaw -= (rotation - oldRotation) * orbitSensitivity;
+        lastRotation = rotation;
+      }
+    }
+
     onTranslationChanged: function (delta) {
+      // Pan with translation
       const panScale = root.distance * 0.0005;
       const yawRad = root.yaw * Math.PI / 180.0;
 
