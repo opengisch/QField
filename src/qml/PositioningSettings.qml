@@ -22,12 +22,12 @@ Settings {
   property bool showPositionInformation: false
 
   property bool enableNtripClient: false
-  property bool ntripSendNmea: false
-  property string ntripHost: ""
+  property bool ntripSendNmea: true
+  property string ntripHost: "crtk.net"
   property int ntripPort: 2101
-  property string ntripMountpoint: ""
-  property string ntripUsername: ""
-  property string ntripPassword: ""
+  property string ntripMountpoint: "NEAR"
+  property string ntripUsername: "QfieldNtripClient"
+  property string ntripPassword: "QfieldNtripClient"
   property string ntripStatus: ""
   property int ntripBytesSent: 0
   property int ntripBytesReceived: 0

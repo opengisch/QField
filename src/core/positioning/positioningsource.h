@@ -387,12 +387,12 @@ class PositioningSource : public QObject
     bool mBackgroundMode = false;
 
     bool mEnableNtripClient = false;
-    bool mNtripSendNmea = false;
-    QString mNtripHost;
+    bool mNtripSendNmea = true;
+    QString mNtripHost = "crtk.net";
     int mNtripPort = 2101;
-    QString mNtripMountpoint;
-    QString mNtripUsername;
-    QString mNtripPassword;
+    QString mNtripMountpoint = "NEAR";
+    QString mNtripUsername = "QfieldNtripClient";
+    QString mNtripPassword = "QfieldNtripClient";
     NtripState mNtripState = NtripState::Disconnected;
     QString mNtripLastError;
     qint64 mLastNtripGgaSentMs = 0;

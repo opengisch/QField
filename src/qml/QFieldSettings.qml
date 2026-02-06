@@ -1719,40 +1719,33 @@ Page {
                 }
               }
 
-              RowLayout {
+              Label {
+                text: qsTr("Send NMEA sentences to caster")
+                font: Theme.defaultFont
+                color: Theme.mainTextColor
+                wrapMode: Text.WordWrap
                 Layout.fillWidth: true
-                Layout.columnSpan: 2
-                spacing: 10
 
-                Label {
-                  text: qsTr("Send NMEA sentences to caster")
-                  font: Theme.defaultFont
-                  color: Theme.mainTextColor
-                  wrapMode: Text.WordWrap
-                  Layout.preferredWidth: 120
-
-                  MouseArea {
-                    anchors.fill: parent
-                    onClicked: ntripSendNmea.toggle()
-                  }
-                }
-
-                QfSwitch {
-                  id: ntripSendNmea
-                  Layout.preferredWidth: implicitContentWidth
-                  Layout.alignment: Qt.AlignTop
-                  enabled: positioningSettings.enableNtripClient
-                  checked: positioningSettings.ntripSendNmea
-                  onCheckedChanged: {
-                    positioningSettings.ntripSendNmea = checked;
-                  }
+                MouseArea {
+                  anchors.fill: parent
+                  onClicked: ntripSendNmea.toggle()
                 }
               }
 
-              // NTRIP Host
+              QfSwitch {
+                id: ntripSendNmea
+                Layout.preferredWidth: implicitContentWidth
+                Layout.alignment: Qt.AlignTop
+                checked: positioningSettings.ntripSendNmea
+                onCheckedChanged: {
+                  positioningSettings.ntripSendNmea = checked;
+                }
+              }
+
               RowLayout {
                 Layout.fillWidth: true
                 Layout.columnSpan: 2
+                Layout.topMargin: 8
                 spacing: 10
 
                 Label {
@@ -1760,46 +1753,53 @@ Page {
                   font: Theme.defaultFont
                   color: Theme.mainTextColor
                   wrapMode: Text.WordWrap
-                  Layout.preferredWidth: 120
+                  Layout.preferredWidth: 200
                 }
 
                 QfTextField {
                   id: ntripHost
                   Layout.fillWidth: true
-                  text: positioningSettings.ntripHost
-                  placeholderText: qsTr("e.g. ntrip.example.com")
+                  text: positioningSettings.ntripHost || "crtk.net"
+                  placeholderText: qsTr("e.g. crtk.net")
                   onTextChanged: {
                     positioningSettings.ntripHost = text;
                   }
                 }
               }
 
-              // NTRIP Port
-              Label {
-                text: qsTr("NTRIP Port")
-                font: Theme.defaultFont
-                color: Theme.mainTextColor
-                wrapMode: Text.WordWrap
-                Layout.fillWidth: true
-              }
-
-              QfTextField {
-                id: ntripPort
-                Layout.fillWidth: true
-                text: positioningSettings.ntripPort || "2101"
-                validator: IntValidator {
-                  bottom: 1
-                  top: 65535
-                }
-                onTextChanged: {
-                  positioningSettings.ntripPort = parseInt(text) || 2101;
-                }
-              }
-
-              // NTRIP Username
               RowLayout {
                 Layout.fillWidth: true
                 Layout.columnSpan: 2
+                Layout.topMargin: 8
+                spacing: 10
+
+                Label {
+                  text: qsTr("NTRIP Port")
+                  font: Theme.defaultFont
+                  color: Theme.mainTextColor
+                  wrapMode: Text.WordWrap
+                  Layout.preferredWidth: 200
+                }
+
+                QfTextField {
+                  id: ntripPort
+                  Layout.fillWidth: true
+                  text: positioningSettings.ntripPort || "2101"
+                  placeholderText: qsTr("default 2101")
+                  validator: IntValidator {
+                    bottom: 1
+                    top: 65535
+                  }
+                  onTextChanged: {
+                    positioningSettings.ntripPort = parseInt(text) || 2101;
+                  }
+                }
+              }
+
+              RowLayout {
+                Layout.fillWidth: true
+                Layout.columnSpan: 2
+                Layout.topMargin: 8
                 spacing: 10
 
                 Label {
@@ -1807,7 +1807,7 @@ Page {
                   font: Theme.defaultFont
                   color: Theme.mainTextColor
                   wrapMode: Text.WordWrap
-                  Layout.preferredWidth: 120
+                  Layout.preferredWidth: 200
                 }
 
                 QfTextField {
@@ -1818,12 +1818,13 @@ Page {
                     positioningSettings.ntripUsername = text;
                   }
                 }
+
               }
 
-              // NTRIP Password
               RowLayout {
                 Layout.fillWidth: true
                 Layout.columnSpan: 2
+                Layout.topMargin: 8
                 spacing: 10
 
                 Label {
@@ -1831,7 +1832,7 @@ Page {
                   font: Theme.defaultFont
                   color: Theme.mainTextColor
                   wrapMode: Text.WordWrap
-                  Layout.preferredWidth: 120
+                  Layout.preferredWidth: 200
                 }
 
                 QfTextField {
@@ -1845,21 +1846,27 @@ Page {
                 }
               }
 
-              // NTRIP Mountpoint
-              Label {
-                text: qsTr("NTRIP Mountpoint")
-                font: Theme.defaultFont
-                color: Theme.mainTextColor
-                wrapMode: Text.WordWrap
+              RowLayout {
                 Layout.fillWidth: true
-              }
+                Layout.columnSpan: 2
+                Layout.topMargin: 8
+                spacing: 10
 
-              QfTextField {
-                id: ntripMountpoint
-                Layout.fillWidth: true
-                text: positioningSettings.ntripMountpoint
-                onTextChanged: {
-                  positioningSettings.ntripMountpoint = text;
+                Label {
+                  text: qsTr("NTRIP Mountpoint")
+                  font: Theme.defaultFont
+                  color: Theme.mainTextColor
+                  wrapMode: Text.WordWrap
+                  Layout.preferredWidth: 200
+                }
+
+                QfTextField {
+                  id: ntripMountpoint
+                  Layout.fillWidth: true
+                  text: positioningSettings.ntripMountpoint || "NEAR"
+                  onTextChanged: {
+                    positioningSettings.ntripMountpoint = text;
+                  }
                 }
               }
             }
