@@ -201,6 +201,6 @@ ColumnLayout {
       let insertionPosition = table.model.addVariable(ExpressionVariableModel.GlobalScope, "new_variable", "");
       table.positionViewAtIndex(insertionPosition, ListView.Contain);
       table.itemAtIndex(insertionPosition).forceFocusOnVariableName();
-    }0
+    }
   }
 }
