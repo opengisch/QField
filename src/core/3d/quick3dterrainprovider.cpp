@@ -141,47 +141,6 @@ void Quick3DTerrainProvider::updateFromMapSettings()
     }
   }
 
-#if 0
-  QgsRectangle visibleExtent = mMapSettings->visibleExtent();
-
-  if ( mTerrainProvider )
-  {
-    QgsMapLayer *terrainLayer = nullptr;
-    if ( QgsRasterDemTerrainProvider *rasterDemTerrainProvider = dynamic_cast<QgsRasterDemTerrainProvider *>( mTerrainProvider.get() ) )
-    {
-      terrainLayer = rasterDemTerrainProvider->layer();
-    }
-    else if ( QgsMeshTerrainProvider *meshTerrainProvider = dynamic_cast<QgsMeshTerrainProvider *>( mTerrainProvider.get() ) )
-    {
-      terrainLayer = meshTerrainProvider->layer();
-    }
-
-    if ( terrainLayer && terrainLayer->isValid() )
-    {
-      QgsRectangle terrainExtent = terrainLayer->extent();
-
-      if ( terrainLayer->crs() != mProject->crs() )
-      {
-        try
-        {
-          QgsCoordinateTransform transform( terrainLayer->crs(), mProject->crs(), mProject->transformContext() );
-          terrainExtent = transform.transformBoundingBox( terrainExtent );
-        }
-        catch ( const QgsCsException & )
-        {
-          terrainExtent = QgsRectangle();
-        }
-      }
-
-      QgsRectangle intersection = visibleExtent.intersect( terrainExtent );
-      if ( !intersection.isEmpty() )
-      {
-        visibleExtent = intersection;
-      }
-    }
-  }
-#endif
-
   bool changed = mExtent != visibleExtent;
   if ( changed )
   {

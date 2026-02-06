@@ -260,6 +260,7 @@ Item {
   }
 
   function playClosingAnimation(callback) {
+    cameraController.defaultYaw = mapArea.mapSettings.rotation; // Needed so the reset ends on the 2D map canvas rotation
     cameraController.resetView();
     closingAnimation.callback = callback;
     closingAnimation.start();

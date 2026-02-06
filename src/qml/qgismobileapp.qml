@@ -1873,7 +1873,7 @@ ApplicationWindow {
     QfToolButton {
       id: compassArrow
       rotation: mapCanvas.mapSettings.rotation
-      visible: rotation !== 0
+      visible: rotation !== 0 && !mainWindow.show3DView
       anchors.left: parent.left
       anchors.bottom: parent.bottom
       anchors.leftMargin: mainWindow.sceneLeftMargin + 4
