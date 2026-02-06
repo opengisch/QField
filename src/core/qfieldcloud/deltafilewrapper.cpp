@@ -850,7 +850,7 @@ void DeltaFileWrapper::mergeCreateDelta( const QJsonObject &delta )
 
         emit countChanged();
 
-        qDebug() << "DeltaFileWrapper::mergeCreateDelta: removed delete delta instead of adding a create delta: " << existingDeltaIdx;
+        QgsDebugMsgLevel( QStringLiteral( "DeltaFileWrapper::mergeCreateDelta: removed delete delta instead of adding a create delta: %1" ).arg( existingDeltaIdx ), 3 );
 
         return;
       }
@@ -860,7 +860,7 @@ void DeltaFileWrapper::mergeCreateDelta( const QJsonObject &delta )
   mDeltas.append( delta );
   mIsDirty = true;
 
-  qDebug() << "DeltaFileWrapper::mergeCreateDelta: Added a new create delta: " << delta;
+  QgsDebugMsgLevel( QStringLiteral( "DeltaFileWrapper::mergeCreateDelta: Added a new create delta: %1" ).arg( delta ), 3 );
 
   mLocalPkToDeltaUuid[localLayerId][localPk] = delta.value( QStringLiteral( "uuid" ) ).toString();
 
@@ -894,7 +894,7 @@ void DeltaFileWrapper::mergeDeleteDelta( const QJsonObject &delta )
       mDeltas.removeAt( existingDeltaIdx );
       mIsDirty = true;
 
-      qDebug() << "DeltaFileWrapper::mergeDeleteDelta: removed the create delta: " << delta;
+      QgsDebugMsgLevel( QStringLiteral( "DeltaFileWrapper::mergeDeleteDelta: removed the create delta: %1" ).arg( delta ), 3 );
 
       mLocalPkToDeltaUuid[localLayerId].remove( localPk );
 
@@ -907,7 +907,7 @@ void DeltaFileWrapper::mergeDeleteDelta( const QJsonObject &delta )
   mDeltas.append( delta );
   mIsDirty = true;
 
-  qDebug() << "DeltaFileWrapper::mergeDeleteDelta: Added a new delete delta: " << delta;
+  QgsDebugMsgLevel( QStringLiteral( "DeltaFileWrapper::mergeDeleteDelta: Added a new delete delta: %1" ).arg( delta ), 3 );
 
   mLocalPkToDeltaUuid[localLayerId][localPk] = delta.value( QStringLiteral( "uuid" ) ).toString();
 
@@ -958,13 +958,13 @@ void DeltaFileWrapper::mergePatchDelta( const QJsonObject &delta )
   const QString localLayerId = delta.value( QStringLiteral( "localLayerId" ) ).toString();
   QMap<QString, QString> layerPkDeltaIdx = mLocalPkToDeltaUuid.value( localLayerId );
 
-  qDebug() << "DeltaFileWrapper::mergePatchDelta: localPk=" << localPk << " layerPkDeltaIdx=" << layerPkDeltaIdx;
+  QgsDebugMsgLevel( QStringLiteral( "DeltaFileWrapper::mergePatchDelta: localPk= %1 layerPkDeltaIdx= %2" ).arg( localPk, layerPkDeltaIdx ), 3 );
 
   // check if there is a patch delta that refers to the same `localLayerId` and `localPk`
   // we might get here if we did 0) existing f1 1) modify f1 2) delete f1 3) undo 4) undo
   if ( !layerPkDeltaIdx.contains( localPk ) )
   {
-    qDebug() << "DeltaFileWrapper::mergePatchDelta: does not contain PK, trying to find a patch delta...";
+    QgsDebugMsgLevel( QStringLiteral( "DeltaFileWrapper::mergePatchDelta: does not contain PK, trying to find a patch delta..." ), 3 );
 
     for ( qsizetype i = mDeltas.size() - 1; i >= 0; i-- )
     {
@@ -976,7 +976,7 @@ void DeltaFileWrapper::mergePatchDelta( const QJsonObject &delta )
 
       if ( existingLayerId == localLayerId && existingLocalPk == localPk && existingMethod == "patch" )
       {
-        qDebug() << "DeltaFileWrapper::mergePatchDelta: patch delta found!";
+        QgsDebugMsgLevel( QStringLiteral( "DeltaFileWrapper::mergePatchDelta: patch delta found!" ), 3 );
 
         layerPkDeltaIdx[localPk] = existingDelta.value( "uuid" ).toString();
         break;
@@ -984,7 +984,7 @@ void DeltaFileWrapper::mergePatchDelta( const QJsonObject &delta )
     }
   }
 
-  qDebug() << "DeltaFileWrapper::mergePatchDelta: localPk=" << localPk << " layerPkDeltaIdx=" << layerPkDeltaIdx;
+  QgsDebugMsgLevel( QStringLiteral( "DeltaFileWrapper::mergePatchDelta: localPk= %1 layerPkDeltaIdx= %2" ).arg( localPk, layerPkDeltaIdx ), 3 );
 
   if ( layerPkDeltaIdx.contains( localPk ) )
   {
@@ -1102,7 +1102,7 @@ void DeltaFileWrapper::mergePatchDelta( const QJsonObject &delta )
       mDeltas.replace( existingDeltaIdx, existingDelta );
       mIsDirty = true;
 
-      qDebug() << "DeltaFileWrapper::mergePatchDelta: replaced an existing create delta: " << existingDelta;
+      QgsDebugMsgLevel( QStringLiteral( "DeltaFileWrapper::mergePatchDelta: replaced an existing create delta: %1" ).arg( existingDelta ), 3 );
 
       mLocalPkToDeltaUuid[localLayerId][localPk] = existingDelta.value( QStringLiteral( "uuid" ) ).toString();
 
@@ -1123,13 +1123,13 @@ void DeltaFileWrapper::mergePatchDelta( const QJsonObject &delta )
 
         mLocalPkToDeltaUuid[localLayerId][localPk] = existingDelta.value( QStringLiteral( "uuid" ) ).toString();
 
-        qDebug() << "DeltaFileWrapper::mergePatchDelta: re-added a patch delta: " << existingDelta;
+        QgsDebugMsgLevel( QStringLiteral( "DeltaFileWrapper::mergePatchDelta: re-added a patch delta: %1 " ).arg( existingDelta ), 3 );
       }
       else
       {
         mLocalPkToDeltaUuid[localLayerId].remove( localPk );
 
-        qDebug() << "DeltaFileWrapper::mergePatchDelta: removed a patch delta: " << existingDelta;
+        QgsDebugMsgLevel( QStringLiteral( "DeltaFileWrapper::mergePatchDelta: removed a patch delta: %1" ).arg( existingDelta ), 3 );
       }
 
       mIsDirty = true;
@@ -1149,7 +1149,7 @@ void DeltaFileWrapper::mergePatchDelta( const QJsonObject &delta )
     mDeltas.append( delta );
     mIsDirty = true;
 
-    qDebug() << "DeltaFileWrapper::mergePatchDelta: added a new patch delta: " << delta;
+    QgsDebugMsgLevel( QStringLiteral( "DeltaFileWrapper::mergePatchDelta: added a new patch delta: %1" ).arg( delta ), 3 );
 
     mLocalPkToDeltaUuid[localLayerId][localPk] = delta.value( QStringLiteral( "uuid" ) ).toString();
 
@@ -1481,14 +1481,14 @@ QPair<int, QString> DeltaFileWrapper::getLocalPkAttribute( const QgsVectorLayer 
   // we assume the first index to be the primary key index... kinda stupid, but memory layers don't have primary key at all, but we use it on geopackages, but... snap!
   const int pkAttrIdx = pkAttrs[0];
 
-  qDebug() << "DeltaFileWrapper::getLocalPkAttribute: vl->primaryKeyglAttributes()=" << vl->primaryKeyAttributes() << " pkAttrs=" << pkAttrs;
+  QgsDebugMsgLevel( QStringLiteral( "DeltaFileWrapper::getLocalPkAttribute: vl->primaryKeyglAttributes()= %1 pkAttrs= %2" ).arg( vl->primaryKeyAttributes(), pkAttrs ), 3 );
 
   if ( pkAttrIdx == -1 )
     return QPair<int, QString>( -1, QString() );
 
   const QString pkAttrName = fields.at( pkAttrIdx ).name();
 
-  qDebug() << "DeltaFileWrapper::getLocalPkAttribute: pkAttrName=" << pkAttrName << " pkAttrIdx=" << pkAttrIdx;
+  QgsDebugMsgLevel( QStringLiteral( "DeltaFileWrapper::getLocalPkAttribute: pkAttrName= %1 pkAttrIdx= %2" ).arg( pkAttrName, pkAttrIdx ), 3 );
 
   return QPair<int, QString>( pkAttrIdx, pkAttrName );
 }
@@ -1498,18 +1498,18 @@ QPair<int, QString> DeltaFileWrapper::getSourcePkAttribute( const QgsVectorLayer
 {
   QString pkAttrNamesAggr = vl->customProperty( QStringLiteral( "QFieldSync/sourceDataPrimaryKeys" ) ).toString();
 
-  qDebug() << "DeltaFileWrapper::getSourcePkAttribute: getting pkAttrNamesAggr=" << pkAttrNamesAggr << " with type=" << vl->customProperty( QStringLiteral( "QFieldSync/sourceDataPrimaryKeys" ) ).typeName();
+  QgsDebugMsgLevel( QStringLiteral( "DeltaFileWrapper::getSourcePkAttribute: getting pkAttrNamesAggr= %1 with type= %2" ).arg( pkAttrNamesAggr, vl->customProperty( QStringLiteral( "QFieldSync/sourceDataPrimaryKeys" ) ).typeName() ), 3 );
 
   if ( pkAttrNamesAggr.isEmpty() )
   {
-    qDebug() << "DeltaFileWrapper::getSourcePkAttribute: empty pkAttrNamesAggr, gotcha!";
+    QgsDebugMsgLevel( QStringLiteral( "DeltaFileWrapper::getSourcePkAttribute: empty pkAttrNamesAggr, gotcha!" ), 2 );
 
     return getLocalPkAttribute( vl );
   }
 
   QStringList pkAttrNames = pkAttrNamesAggr.split( QStringLiteral( "," ) );
 
-  qDebug() << "DeltaFileWrapper::getSourcePkAttribute: pk attrs pkAttrNames=" << pkAttrNames.size();
+  QgsDebugMsgLevel( QStringLiteral( "DeltaFileWrapper::getSourcePkAttribute: pk attrs pkAttrNames= %1" ).arg( pkAttrNames.size() ), 3 );
 
   if ( pkAttrNames.size() > 1 )
     return QPair<int, QString>( -1, QString() );
@@ -1518,7 +1518,7 @@ QPair<int, QString> DeltaFileWrapper::getSourcePkAttribute( const QgsVectorLayer
   const QgsFields fields = vl->fields();
   const int pkAttrIdx = fields.indexFromName( pkAttrName );
 
-  qDebug() << "DeltaFileWrapper::getSourcePkAttribute: pk pkAttrName=" << pkAttrName << " with index=" << pkAttrIdx;
+  QgsDebugMsgLevel( QStringLiteral( "DeltaFileWrapper::getSourcePkAttribute: pk pkAttrName= %1 with index= %2" ).arg( pkAttrName, pkAttrIdx ), 3 );
 
   if ( pkAttrIdx == -1 )
     return QPair<int, QString>( -1, QString() );
@@ -1528,7 +1528,7 @@ QPair<int, QString> DeltaFileWrapper::getSourcePkAttribute( const QgsVectorLayer
 
 QString DeltaFileWrapper::getSourceLayerId( const QgsVectorLayer *vl )
 {
-  qDebug() << "DeltaFileWrapper::getSourceLayerId: remoteLayerId=" << ( vl ? vl->customProperty( QStringLiteral( "remoteLayerId" ) ).toString() : QString() );
+  QgsDebugMsgLevel( QStringLiteral( "DeltaFileWrapper::getSourceLayerId: remoteLayerId= %1" ).arg( vl ? vl->customProperty( QStringLiteral( "remoteLayerId" ) ).toString() : QString() ), 3 );
 
   return vl ? vl->customProperty( QStringLiteral( "remoteLayerId" ) ).toString() : QString();
 }
