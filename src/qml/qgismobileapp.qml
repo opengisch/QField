@@ -350,10 +350,23 @@ ApplicationWindow {
         }
         bearingTrueNorth = PositioningUtils.bearingTrueNorth(positionSource.projectedPosition, mapCanvas.mapSettings.destinationCrs);
         if (gnssButton.followActive) {
-          gnssButton.followLocation(false);
-          // Call followOrientation for movement direction mode
-          if (positioningSettings.positionFollowMode === PositioningSettings.FollowMode.PositionAndDirection) {
-            gnssButton.followOrientation();
+          if (mainWindow.show3DView) {
+            if (mapCanvas3DLoader.item) {
+              const pos3d = mapCanvas3DLoader.item.geoTo3D(positionSource.projectedPosition.x, positionSource.projectedPosition.y);
+              if (pos3d !== null) {
+                mapCanvas3DLoader.item.lookAtPoint(pos3d, 1000);
+              } else {
+                // We're now out of the 3D map extent, unfollow
+                mapCanvasMap.unfreeze('follow');
+                gnssButton.followActive = false;
+              }
+            }
+          } else {
+            gnssButton.followLocation(false);
+            // Call followOrientation for movement direction mode
+            if (positioningSettings.positionFollowMode === PositioningSettings.FollowMode.PositionAndDirection) {
+              gnssButton.followOrientation();
+            }
           }
         }
       }
@@ -672,8 +685,8 @@ ApplicationWindow {
         // Connect camera interaction signal to deactivate soft lock
         item.cameraInteractionDetected.connect(function () {
           if (gnssButton.followActive) {
+            mapCanvasMap.unfreeze('follow');
             gnssButton.followActive = false;
-            displayToast(qsTr("3D camera unlocked"));
           }
         });
       }
@@ -682,26 +695,6 @@ ApplicationWindow {
         if (status === Loader.Error) {
           mainWindow.show3DView = false;
           displayToast(qsTr("Failed to load 3D view"));
-        }
-      }
-    }
-
-    Connections {
-      id: gnssMarker3DPositionUpdate
-      target: positionSource
-      enabled: gnssButton.followActive && mainWindow.show3DView && mapCanvas3DLoader.item
-
-      property var pos3d: null
-
-      function onPositionInformationChanged() {
-        if (!gnssButton.followActive || !mapCanvas3DLoader.item) {
-          return;
-        }
-
-        gnssMarker3DPositionUpdate.pos3d = mapCanvas3DLoader.item.geoTo3D(positionSource.projectedPosition.x, positionSource.projectedPosition.y);
-
-        if (gnssMarker3DPositionUpdate.pos3d) {
-          mapCanvas3DLoader.item.lookAtPoint(gnssMarker3DPositionUpdate.pos3d, 1000);
         }
       }
     }
@@ -2707,8 +2700,15 @@ ApplicationWindow {
         property bool jumpedOnce: false
 
         function jumpToLocation() {
+          if (mainWindow.show3DView) {
+            const pos3d = mapCanvas3DLoader.item.geoTo3D(positionSource.projectedPosition.x, positionSource.projectedPosition.y);
+            if (pos3d === null) {
+              return;
+            }
+          }
+
           let targetScale = -1;
-          if (!jumpedOnce) {
+          if (!jumpedOnce && !mainWindow.show3DView) {
             // The scale range and speed range aims at providing an adequate default
             // value for a range of scenarios from people walking to people being driven
             // in trains
