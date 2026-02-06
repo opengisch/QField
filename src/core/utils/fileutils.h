@@ -126,6 +126,15 @@ class QFIELD_CORE_EXPORT FileUtils : public QObject
      */
     Q_INVOKABLE static void addImageStamp( const QString &imagePath, const QString &text, const QString &textFormat = QString(), Qgis::TextHorizontalAlignment horizontalAlignment = Qgis::TextHorizontalAlignment::Left, const QString &imageDecoration = QString() );
 
+    /**
+     * Rotates an image file in-place by a clockwise angle.
+     * Used to ensure saved photos match the orientation shown in the camera preview on mobile devices.
+     * \param imagePath the image file path
+     * \param clockwiseDegrees clockwise rotation in degrees (0/90/180/270; other values are normalized)
+     * \returns TRUE on success, FALSE otherwise.
+     */
+    Q_INVOKABLE static bool rotateImageInPlace( const QString &imagePath, int clockwiseDegrees );
+
     static bool copyRecursively( const QString &sourceFolder, const QString &destFolder, QgsFeedback *feedback = nullptr, bool wipeDestFolder = true );
 
     /**
