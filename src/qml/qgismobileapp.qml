@@ -676,8 +676,6 @@ ApplicationWindow {
             displayToast(qsTr("3D camera unlocked"));
           }
         });
-
-        displayToast(qsTr("3D Map View loaded"));
       }
 
       onStatusChanged: {
