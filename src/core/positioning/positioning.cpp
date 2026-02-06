@@ -91,6 +91,15 @@ void Positioning::setupSource()
   connect( mPositioningSourceReplica.data(), SIGNAL( deviceSocketStateChanged() ), this, SIGNAL( deviceSocketStateChanged() ) );
   connect( mPositioningSourceReplica.data(), SIGNAL( deviceSocketStateStringChanged() ), this, SIGNAL( deviceSocketStateStringChanged() ) );
   connect( mPositioningSourceReplica.data(), SIGNAL( orientationChanged() ), this, SIGNAL( orientationChanged() ) );
+  connect( mPositioningSourceReplica.data(), SIGNAL( enableNtripClientChanged() ), this, SIGNAL( enableNtripClientChanged() ) );
+  connect( mPositioningSourceReplica.data(), SIGNAL( ntripHostChanged() ), this, SIGNAL( ntripHostChanged() ) );
+  connect( mPositioningSourceReplica.data(), SIGNAL( ntripPortChanged() ), this, SIGNAL( ntripPortChanged() ) );
+  connect( mPositioningSourceReplica.data(), SIGNAL( ntripMountpointChanged() ), this, SIGNAL( ntripMountpointChanged() ) );
+  connect( mPositioningSourceReplica.data(), SIGNAL( ntripUsernameChanged() ), this, SIGNAL( ntripUsernameChanged() ) );
+  connect( mPositioningSourceReplica.data(), SIGNAL( ntripPasswordChanged() ), this, SIGNAL( ntripPasswordChanged() ) );
+  connect( mPositioningSourceReplica.data(), SIGNAL( ntripStatusChanged() ), this, SIGNAL( ntripStatusChanged() ) );
+  connect( mPositioningSourceReplica.data(), SIGNAL( ntripBytesSentChanged() ), this, SIGNAL( ntripBytesSentChanged() ) );
+  connect( mPositioningSourceReplica.data(), SIGNAL( ntripBytesReceivedChanged() ), this, SIGNAL( ntripBytesReceivedChanged() ) );
 
   connect( this, SIGNAL( triggerConnectDevice() ), mPositioningSourceReplica.data(), SLOT( triggerConnectDevice() ) );
   connect( this, SIGNAL( triggerDisconnectDevice() ), mPositioningSourceReplica.data(), SLOT( triggerDisconnectDevice() ) );
@@ -497,6 +506,114 @@ void Positioning::setBackgroundMode( bool enabled )
   emit backgroundModeChanged();
 }
 
+bool Positioning::enableNtripClient() const
+{
+  return ( isSourceAvailable() ? mPositioningSourceReplica->property( "enableNtripClient" ) : mProperties.value( "enableNtripClient", false ) ).toBool();
+}
+
+void Positioning::setEnableNtripClient( bool enableNtripClient )
+{
+  if ( isSourceAvailable() )
+  {
+    mPositioningSourceReplica->setProperty( "enableNtripClient", enableNtripClient );
+  }
+  else
+  {
+    mProperties["enableNtripClient"] = enableNtripClient;
+    emit enableNtripClientChanged();
+  }
+}
+
+QString Positioning::ntripHost() const
+{
+  return ( isSourceAvailable() ? mPositioningSourceReplica->property( "ntripHost" ) : mProperties.value( "ntripHost", "" ) ).toString();
+}
+
+void Positioning::setNtripHost( const QString &ntripHost )
+{
+  if ( isSourceAvailable() )
+  {
+    mPositioningSourceReplica->setProperty( "ntripHost", ntripHost );
+  }
+  else
+  {
+    mProperties["ntripHost"] = ntripHost;
+    emit ntripHostChanged();
+  }
+}
+
+int Positioning::ntripPort() const
+{
+  return ( isSourceAvailable() ? mPositioningSourceReplica->property( "ntripPort" ) : mProperties.value( "ntripPort", 2101 ) ).toInt();
+}
+
+void Positioning::setNtripPort( int ntripPort )
+{
+  if ( isSourceAvailable() )
+  {
+    mPositioningSourceReplica->setProperty( "ntripPort", ntripPort );
+  }
+  else
+  {
+    mProperties["ntripPort"] = ntripPort;
+    emit ntripPortChanged();
+  }
+}
+
+QString Positioning::ntripMountpoint() const
+{
+  return ( isSourceAvailable() ? mPositioningSourceReplica->property( "ntripMountpoint" ) : mProperties.value( "ntripMountpoint", "" ) ).toString();
+}
+
+void Positioning::setNtripMountpoint( const QString &ntripMountpoint )
+{
+  if ( isSourceAvailable() )
+  {
+    mPositioningSourceReplica->setProperty( "ntripMountpoint", ntripMountpoint );
+  }
+  else
+  {
+    mProperties["ntripMountpoint"] = ntripMountpoint;
+    emit ntripMountpointChanged();
+  }
+}
+
+QString Positioning::ntripUsername() const
+{
+  return ( isSourceAvailable() ? mPositioningSourceReplica->property( "ntripUsername" ) : mProperties.value( "ntripUsername", "" ) ).toString();
+}
+
+void Positioning::setNtripUsername( const QString &ntripUsername )
+{
+  if ( isSourceAvailable() )
+  {
+    mPositioningSourceReplica->setProperty( "ntripUsername", ntripUsername );
+  }
+  else
+  {
+    mProperties["ntripUsername"] = ntripUsername;
+    emit ntripUsernameChanged();
+  }
+}
+
+QString Positioning::ntripPassword() const
+{
+  return ( isSourceAvailable() ? mPositioningSourceReplica->property( "ntripPassword" ) : mProperties.value( "ntripPassword", "" ) ).toString();
+}
+
+void Positioning::setNtripPassword( const QString &ntripPassword )
+{
+  if ( isSourceAvailable() )
+  {
+    mPositioningSourceReplica->setProperty( "ntripPassword", ntripPassword );
+  }
+  else
+  {
+    mProperties["ntripPassword"] = ntripPassword;
+    emit ntripPasswordChanged();
+  }
+}
+
 QList<GnssPositionInformation> Positioning::getBackgroundPositionInformation() const
 {
   QList<GnssPositionInformation> positionInformationList;
@@ -510,6 +627,21 @@ QList<GnssPositionInformation> Positioning::getBackgroundPositionInformation() c
   }
 
   return positionInformationList;
+}
+
+QString Positioning::ntripStatus() const
+{
+  return isSourceAvailable() ? mPositioningSourceReplica->property( "ntripStatus" ).toString() : QString();
+}
+
+qint64 Positioning::ntripBytesSent() const
+{
+  return isSourceAvailable() ? mPositioningSourceReplica->property( "ntripBytesSent" ).toLongLong() : 0;
+}
+
+qint64 Positioning::ntripBytesReceived() const
+{
+  return isSourceAvailable() ? mPositioningSourceReplica->property( "ntripBytesReceived" ).toLongLong() : 0;
 }
 
 void Positioning::onElevationCorrectionModeChanged()
