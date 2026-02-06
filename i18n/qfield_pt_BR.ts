@@ -295,7 +295,8 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Bluetooth permission is required to scan for bluetooth devices</source>
-        <translation type="unfinished"/>
+        <translation>É necessária permissão Bluetooth para procurar dispositivos Bluetooth
+</translation>
     </message>
     <message>
         <source>Location permission denied</source>
@@ -303,7 +304,7 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Location permission is required to scan for bluetooth devices</source>
-        <translation type="unfinished"/>
+        <translation>É necessária permissão de localização para procurar dispositivos Bluetooth</translation>
     </message>
 </context>
 <context>
@@ -416,7 +417,7 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Change color</source>
-        <translation type="unfinished"/>
+        <translation>Mudar cor</translation>
     </message>
 </context>
 <context>
@@ -502,7 +503,7 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Empty</source>
-        <translation type="unfinished"/>
+        <translation>Vazio</translation>
     </message>
 </context>
 <context>
@@ -598,15 +599,15 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Return home</source>
-        <translation type="unfinished"/>
+        <translation>Voltar para a página inicial</translation>
     </message>
     <message>
         <source>Expand All</source>
-        <translation type="unfinished"/>
+        <translation>Expandir tudo</translation>
     </message>
     <message>
         <source>Collapse All</source>
-        <translation type="unfinished"/>
+        <translation>Recolher tudo</translation>
     </message>
 </context>
 <context>
@@ -755,11 +756,11 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Failed to start egeniouss server.</source>
-        <translation type="unfinished"/>
+        <translation>Falha ao iniciar o servidor egeniouss.</translation>
     </message>
     <message>
         <source>Failed to stop egeniouss server.</source>
-        <translation type="unfinished"/>
+        <translation>Falha ao parar o servidor egeniouss.</translation>
     </message>
 </context>
 <context>
@@ -850,11 +851,11 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>QFieldCloud on-demand attachment error: </source>
-        <translation type="unfinished"/>
+        <translation>Erro de anexo sob demanda do QFieldCloud: </translation>
     </message>
     <message>
         <source>Empty</source>
-        <translation type="unfinished"/>
+        <translation>Vazio</translation>
     </message>
     <message>
         <source>NULL</source>
@@ -925,23 +926,23 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Feature Form Menu</source>
-        <translation type="unfinished"/>
+        <translation>Menu  do Formulário de Recursos</translation>
     </message>
     <message>
         <source>Remember All Reusable Values</source>
-        <translation type="unfinished"/>
+        <translation>Lembre-se de todos os valores reutilizáveis</translation>
     </message>
     <message>
         <source>Forget All Reusable Values</source>
-        <translation type="unfinished"/>
+        <translation>Esqueça todos os valores reutilizáveis</translation>
     </message>
     <message>
         <source>Soft constraints were not satisified</source>
-        <translation type="unfinished"/>
+        <translation>As restrições flexíveis não foram satisfeitas.</translation>
     </message>
     <message>
         <source>Hard constraints not satisfied</source>
-        <translation type="unfinished"/>
+        <translation>Restrições rígidas não satisfeitas</translation>
     </message>
 </context>
 <context>
@@ -1336,7 +1337,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Returns QField documentation pages matching terms.</source>
-        <translation type="unfinished"/>
+        <translation>Retorna páginas da documentação do QField que correspondem aos termos.</translation>
     </message>
 </context>
 <context>
@@ -1382,7 +1383,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Submit</source>
-        <translation type="unfinished"/>
+        <translation>Enviar</translation>
     </message>
 </context>
 <context>
@@ -1588,7 +1589,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Tracking active on this layer.</source>
-        <translation type="unfinished"/>
+        <translation>Rastreamento ativo nesta camada.</translation>
     </message>
     <message>
         <source>Tracking on layer %1 stopped</source>
@@ -1715,23 +1716,23 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Log runtime profiler</source>
-        <translation type="unfinished"/>
+        <translation>Registro do profiler de tempo de execução</translation>
     </message>
     <message>
         <source>Type optional details</source>
-        <translation type="unfinished"/>
+        <translation>Insira detalhes adicionais.</translation>
     </message>
     <message>
         <source>Include cloud user details</source>
-        <translation type="unfinished"/>
+        <translation>Incluir detalhes do usuário da nuvem</translation>
     </message>
     <message>
         <source>This will send a log of your current session to the development team. You only need to do this when you are asked for it.</source>
-        <translation type="unfinished"/>
+        <translation>Isso enviará um registro da sua sessão atual para a equipe de desenvolvimento. Você só precisa fazer isso quando for solicitado.</translation>
     </message>
     <message>
         <source>Your application log is being sent…</source>
-        <translation type="unfinished"/>
+        <translation>Seu registro de aplicativos está sendo enviado...</translation>
     </message>
 </context>
 <context>
@@ -1829,11 +1830,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Print Atlas Feature(s) to Image</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Imprimir recurso(s) do Atlas em imagem</translation>
     </message>
     <message>
         <source>Print Atlas Feature to Image</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Imprimir recurso do Atlas como imagem</translation>
     </message>
     <message>
         <source>Print Atlas Feature(s)</source>
@@ -1845,7 +1846,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Atlas feature(s) successfully printed and placed in your project folder</source>
-        <translation type="unfinished"/>
+        <translation>Recurso(s) do Atlas impressos com sucesso e colocados na pasta do seu projeto</translation>
     </message>
     <message>
         <source>Feature attributes updated from clipboard</source>
@@ -1966,7 +1967,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Hard constraints not satisfied</source>
-        <translation type="unfinished"/>
+        <translation>Restrições rígidas não satisfeitas</translation>
     </message>
 </context>
 <context>
@@ -2644,11 +2645,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Latitude</source>
-        <translation type="unfinished"/>
+        <translation>Latitude</translation>
     </message>
     <message>
         <source>Longitude</source>
-        <translation type="unfinished"/>
+        <translation>Longitude</translation>
     </message>
     <message>
         <source>Altitude</source>
@@ -4804,7 +4805,7 @@ Cancele para fazer uma verificação mínima.</translation>
     <name>Range</name>
     <message>
         <source>Empty</source>
-        <translation type="unfinished"/>
+        <translation>Vazio</translation>
     </message>
     <message>
         <source>NULL</source>
@@ -4869,7 +4870,7 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Empty</source>
-        <translation type="unfinished"/>
+        <translation>Vazio</translation>
     </message>
     <message>
         <source>NULL</source>
@@ -4936,7 +4937,7 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Atlas feature(s) successfully printed and placed in your project folder</source>
-        <translation type="unfinished"/>
+        <translation>Recursos do Atlas impressos com sucesso e colocados na pasta do seu projeto</translation>
     </message>
     <message numerus="yes">
         <source>%n feature(s)</source>
@@ -5123,7 +5124,7 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Empty</source>
-        <translation type="unfinished"/>
+        <translation>Vazio</translation>
     </message>
     <message>
         <source>NULL</source>
