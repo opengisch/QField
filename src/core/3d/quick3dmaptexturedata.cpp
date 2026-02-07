@@ -17,8 +17,9 @@
 #include "qgsquick/qgsquickmapsettings.h"
 #include "quick3dmaptexturedata.h"
 
+#include <qgis.h>
 #include <qgsmaplayer.h>
-#include <qgsmaprenderersequentialjob.h>
+#include <qgsmaprendererparalleljob.h>
 #include <qgsmapsettings.h>
 
 #include <algorithm>
@@ -26,10 +27,14 @@
 Quick3DMapTextureData::Quick3DMapTextureData( QQuick3DObject *parent )
   : QQuick3DTextureData( parent )
 {
+  connect( &mMapUpdateTimer, &QTimer::timeout, this, &Quick3DMapTextureData::onRenderJobUpdated );
+  mMapUpdateTimer.setSingleShot( false );
+  mMapUpdateTimer.setInterval( 250 );
 }
 
 Quick3DMapTextureData::~Quick3DMapTextureData()
 {
+  mMapUpdateTimer.stop();
   if ( mRenderJob )
   {
     mRenderJob->cancel();
@@ -103,6 +108,7 @@ void Quick3DMapTextureData::render()
     return;
   }
 
+  mMapUpdateTimer.stop();
   if ( mRenderJob )
   {
     mRenderJob->cancel();
@@ -136,13 +142,31 @@ void Quick3DMapTextureData::render()
     return;
   }
 
-  mRenderJob.reset( new QgsMapRendererSequentialJob( renderSettings ) );
-  connect( mRenderJob.get(), &QgsMapRendererSequentialJob::finished, this, &Quick3DMapTextureData::onRenderFinished );
+  renderSettings.setFlag( Qgis::MapSettingsFlag::RenderPartialOutput, true );
+
+  mRenderJob.reset( new QgsMapRendererParallelJob( renderSettings ) );
+  connect( mRenderJob.get(), &QgsMapRendererJob::renderingLayersFinished, this, &Quick3DMapTextureData::onRenderJobUpdated );
+  connect( mRenderJob.get(), &QgsMapRendererJob::finished, this, &Quick3DMapTextureData::onRenderFinished );
+  mMapUpdateTimer.start();
   mRenderJob->start();
+}
+
+void Quick3DMapTextureData::onRenderJobUpdated()
+{
+  if ( !mRenderJob )
+    return;
+
+  QImage image = mRenderJob->renderedImage();
+  if ( !image.isNull() )
+  {
+    updateTextureData( image );
+  }
 }
 
 void Quick3DMapTextureData::onRenderFinished()
 {
+  mMapUpdateTimer.stop();
+
   if ( !mRenderJob )
   {
     return;
