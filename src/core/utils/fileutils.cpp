@@ -588,18 +588,9 @@ bool FileUtils::rotateImageInPlace( const QString &imagePath, int clockwiseDegre
     return false;
   }
 
-  const QVariant oldExifOri = metadata.value( "Exif.Image.Orientation" );
-  const QVariant oldXmpOri = metadata.value( "Xmp.tiff.Orientation" );
   // normalize orientation tag so external viewers don't rotate AGAIN
   metadata["Exif.Image.Orientation"] = 1;
   metadata["Xmp.tiff.Orientation"] = 1;
-
-  qDebug() << "rotateImageInPlace" << imagePath
-           << "deg=" << clockwiseDegrees
-           << "oldExifOri=" << oldExifOri
-           << "oldXmpOri=" << oldXmpOri
-           << "newExifOri=" << metadata.value( "Exif.Image.Orientation" )
-           << "newXmpOri=" << metadata.value( "Xmp.tiff.Orientation" );
 
   // restore tags
   for ( const QString &key : metadata.keys() )
