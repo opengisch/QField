@@ -881,7 +881,16 @@ bool FeatureModel::updateAttributesFromFeature( const QgsFeature &feature )
 void FeatureModel::applyGeometry( bool fromVertexModel )
 {
   if ( ( !fromVertexModel && !mGeometry ) || ( fromVertexModel && !mVertexModel ) )
+  {
     return;
+  }
+
+  const bool wasEditing = mLayer->editBuffer();
+  const bool requiresEditing = ( mProject && mProject->topologicalEditing() );
+  if ( !wasEditing && requiresEditing )
+  {
+    mLayer->startEditing();
+  }
 
   QString error;
   QgsGeometry geometry = fromVertexModel ? mVertexModel->geometry() : mGeometry->asQgsGeometry();
@@ -950,8 +959,6 @@ void FeatureModel::applyGeometry( bool fromVertexModel )
           {
             if ( !modifiedFeatureIds.contains( mFeature.id() ) || modifiedFeatureIds.size() >= 2 )
             {
-              mLayer->startEditing();
-
               if ( mFeature.id() != FID_NULL )
               {
                 modifiedFeatureIds.remove( mFeature.id() );
@@ -999,8 +1006,6 @@ void FeatureModel::applyGeometry( bool fromVertexModel )
                   mLayer->changeGeometry( modifiedFeature.id(), modifiedGeometry );
                 }
               }
-
-              mLayer->commitChanges();
             }
           }
 
@@ -1030,6 +1035,11 @@ void FeatureModel::applyGeometry( bool fromVertexModel )
   if ( mProject && mProject->topologicalEditing() )
   {
     applyGeometryTopography( geometry );
+  }
+
+  if ( requiresEditing )
+  {
+    mLayer->commitChanges( !wasEditing );
   }
 
   mFeature.setGeometry( geometry );
@@ -1250,29 +1260,29 @@ void FeatureModel::applyGeometryTopography( const QgsGeometry &geometry )
   const QVector<QgsVectorLayer *> vectorLayers = mProject->layers<QgsVectorLayer *>();
   for ( QgsVectorLayer *vectorLayer : vectorLayers )
   {
-    if ( vectorLayer->readOnly() )
+    if ( vectorLayer->readOnly() || !vectorLayer->isSpatial() )
       continue;
 
     if ( vectorLayer->customProperty( QStringLiteral( "QFieldSync/is_geometry_locked" ), false ).toBool() || vectorLayer->customProperty( QStringLiteral( "QFieldSync/is_geometry_locked_expression_active" ), false ).toBool() || vectorLayer->customProperty( QStringLiteral( "QFieldSync/is_geometry_editing_locked" ), false ).toBool() || vectorLayer->customProperty( QStringLiteral( "QFieldSync/is_geometry_editing_locked_expression_active" ), false ).toBool() )
       continue;
 
-    bool requiresCommit = !vectorLayer->editBuffer();
     if ( vectorLayer != mLayer )
     {
       if ( !vectorLayer->getFeatures( request ).nextFeature( dummyFeature ) )
         continue;
     }
 
-    if ( requiresCommit )
+    const bool wasEditing = vectorLayer->editBuffer();
+    if ( vectorLayer != mLayer && !wasEditing )
     {
       vectorLayer->startEditing();
     }
 
     vectorLayer->addTopologicalPoints( geometry );
 
-    if ( requiresCommit )
+    if ( vectorLayer != mLayer )
     {
-      vectorLayer->commitChanges( true );
+      vectorLayer->commitChanges( !wasEditing );
     }
   }
 }
@@ -1323,7 +1333,7 @@ QgsFeatureIds FeatureModel::applyVertexModelTopography()
   const QVector<QgsVectorLayer *> vectorLayers = mProject ? mProject->layers<QgsVectorLayer *>() : QVector<QgsVectorLayer *>() << mLayer;
   for ( QgsVectorLayer *vectorLayer : vectorLayers )
   {
-    if ( vectorLayer->readOnly() )
+    if ( vectorLayer->readOnly() || !vectorLayer->isSpatial() )
       continue;
 
     if ( vectorLayer->customProperty( QStringLiteral( "QFieldSync/is_geometry_locked" ), false ).toBool() || vectorLayer->customProperty( QStringLiteral( "QFieldSync/is_geometry_locked_expression_active" ), false ).toBool() || vectorLayer->customProperty( QStringLiteral( "QFieldSync/is_geometry_editing_locked" ), false ).toBool() || vectorLayer->customProperty( QStringLiteral( "QFieldSync/is_geometry_editing_locked_expression_active" ), false ).toBool() )
@@ -1335,7 +1345,11 @@ QgsFeatureIds FeatureModel::applyVertexModelTopography()
         continue;
     }
 
-    vectorLayer->startEditing();
+    const bool wasEditing = vectorLayer->editBuffer();
+    if ( !wasEditing )
+    {
+      vectorLayer->startEditing();
+    }
 
     QgsPointLocator loc( vectorLayer );
     const double searchTolerance = QgsTolerance::vertexSearchRadius( vectorLayer, mVertexModel->mapSettings()->mapSettings() );
@@ -1374,7 +1388,10 @@ QgsFeatureIds FeatureModel::applyVertexModelTopography()
       }
     }
 
-    vectorLayer->commitChanges( true );
+    if ( vectorLayer != mLayer )
+    {
+      vectorLayer->commitChanges( !wasEditing );
+    }
   }
 
   disconnect( connection );
