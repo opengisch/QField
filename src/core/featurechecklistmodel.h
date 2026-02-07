@@ -335,6 +335,7 @@ class FeatureCheckListModel : public QSortFilterProxyModel
     void orderByValueChanged();
     void addNullChanged();
     void filterExpressionChanged();
+    void searchTermChanged();
     void currentFormFeatureChanged();
     void appExpressionContextScopesGeneratorChanged();
 
@@ -345,17 +346,10 @@ class FeatureCheckListModel : public QSortFilterProxyModel
     void listUpdated();
 
     // Proxy-specific signals
-    void searchTermChanged();
     void sortCheckedFirstChanged();
 
   private:
-    /**
-     * Calculates a fuzzy matching score between a display string and a search term.
-     */
-    double calcFuzzyScore( const QString &displayString, const QString &searchTerm ) const;
-
     FeatureCheckListModelBase *mSourceModel = nullptr;
-    QString mSearchTerm;
-    bool mSortCheckedFirst;
+    bool mSortCheckedFirst = false;
 };
 #endif // FEATURECHECKLISTMODEL_H

@@ -862,12 +862,14 @@ TestCase {
 
     // write in search bar
     searchTextField.text = "o";
+    wait(500);
 
     // only Olivia, Noah, Sophia, Mason
     compare(valueRelationRepeater.count, 4);
 
     // write in search bar
     searchTextField.text = "ia";
+    wait(500);
 
     // only Olivia, Sophia, Liam
     compare(valueRelationRepeater.count, 3);
@@ -939,9 +941,13 @@ TestCase {
       compare(expectedOrderedData[i], value);
     }
     searchBarTextField.text = "ai";
+    wait(500);
     compare(searchFeatureResultsList.count, 0);
+
     searchBarTextField.text = "ia";
+    wait(500);
     const expectedOrderedData2 = ["Olivia", "Liam", "Sophia"];
+
     compare(searchFeatureResultsList.count, expectedOrderedData2.length);
     for (let j = 0; j < searchFeatureResultsList.count; ++j) {
       const value = featureListModel.dataFromRowIndex(j, FeatureListModel.DisplayStringRole);
