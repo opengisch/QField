@@ -136,7 +136,7 @@ void Quick3DMapTextureData::render()
     return;
   }
 
-  mRenderJob = std::make_unique<QgsMapRendererSequentialJob>( renderSettings );
+  mRenderJob.reset( new QgsMapRendererSequentialJob( renderSettings ) );
   connect( mRenderJob.get(), &QgsMapRendererSequentialJob::finished, this, &Quick3DMapTextureData::onRenderFinished );
   mRenderJob->start();
 }

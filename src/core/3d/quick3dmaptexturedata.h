@@ -21,6 +21,7 @@
 #include <QImage>
 #include <QtQuick3D/QQuick3DTextureData>
 #include <qgsrectangle.h>
+#include <qobjectuniqueptr.h>
 
 class QgsMapRendererSequentialJob;
 
@@ -92,7 +93,7 @@ class Quick3DMapTextureData : public QQuick3DTextureData
 
     QgsQuickMapSettings *mMapSettings = nullptr;
     QgsRectangle mExtent;
-    std::unique_ptr<QgsMapRendererSequentialJob> mRenderJob;
+    QObjectUniquePtr<QgsMapRendererSequentialJob> mRenderJob;
     bool mReady = false;
     QVector<QMetaObject::Connection> mLayerConnections;
 };
