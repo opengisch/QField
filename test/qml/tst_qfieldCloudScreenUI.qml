@@ -80,6 +80,18 @@ TestCase {
     signalName: "isRefreshingChanged"
   }
 
+  SignalSpy {
+    id: currentProjectIdSpy
+    target: cloudProjectsModel
+    signalName: "currentProjectIdChanged"
+  }
+
+  SignalSpy {
+    id: currentProjectSpy
+    target: cloudProjectsModel
+    signalName: "currentProjectChanged"
+  }
+
   function cleanup() {
     if (cloudConnection.status === QFieldCloudConnection.LoggedIn) {
       cloudConnection.logout();
@@ -88,8 +100,11 @@ TestCase {
     cloudConnection.username = "";
     cloudConnection.url = "";
     wait(500);
+    cloudProjectsModel.currentProjectId = "";
     connectionStatusSpy.clear();
     projectsRefreshSpy.clear();
+    currentProjectIdSpy.clear();
+    currentProjectSpy.clear();
   }
 
   // Helper: Login and refresh projects list
@@ -396,5 +411,30 @@ TestCase {
     compare(project.downloadProgress, 1);
     cloudProjectsModel.removeLocalProject(projectInfo.id);
     wait(500);
+  }
+
+  /**
+   * Tests that setCurrentProjectId triggers correct signals and binds the right project.
+   *
+   * Scenario: Setting currentProjectId emits both currentProjectIdChanged and
+   * currentProjectChanged, and currentProject matches the expected project.
+   */
+  function test_10_setCurrentProjectIdSignalsAndBinding() {
+    loginAndRefresh();
+    verify(cloudProjectsModel.rowCount() > 0);
+    const index = cloudProjectsModel.index(0, 0);
+    const projectId = cloudProjectsModel.data(index, QFieldCloudProjectsModel.IdRole);
+    const projectName = cloudProjectsModel.data(index, QFieldCloudProjectsModel.NameRole);
+    verify(projectId !== "");
+    currentProjectIdSpy.clear();
+    currentProjectSpy.clear();
+    cloudProjectsModel.currentProjectId = projectId;
+    wait(500);
+    verify(currentProjectIdSpy.count > 0, "currentProjectIdChanged signal was not emitted");
+    verify(currentProjectSpy.count > 0, "currentProjectChanged signal was not emitted");
+    compare(cloudProjectsModel.currentProjectId, projectId);
+    verify(cloudProjectsModel.currentProject !== null, "currentProject should not be null");
+    compare(cloudProjectsModel.currentProject.id, projectId);
+    compare(cloudProjectsModel.currentProject.name, projectName);
   }
 }
