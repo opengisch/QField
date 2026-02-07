@@ -10,9 +10,9 @@ TestCase {
   when: windowShown
 
   // QFieldCloud test credentials — injected via context properties..
-  property string qfcTestServerUrl: typeof(qfcTestServerUrl) !== "undefined" ? qfcTestServerUrl : ""
-  property string qfcTestUsername: typeof(qfcTestUsername) !== "undefined" ? qfcTestUsername : ""
-  property string qfcTestPassword: typeof(qfcTestPassword) !== "undefined" ? qfcTestPassword : ""
+  property string qfcTestServerUrl: typeof (qfcTestServerUrl) !== "undefined" ? qfcTestServerUrl : ""
+  property string qfcTestUsername: typeof (qfcTestUsername) !== "undefined" ? qfcTestUsername : ""
+  property string qfcTestPassword: typeof (qfcTestPassword) !== "undefined" ? qfcTestPassword : ""
 
   // Dummy mainWindow required by QFieldCloudScreen
   Item {
@@ -112,13 +112,11 @@ TestCase {
     currentProjectSpy.clear();
   }
 
-  // Skip test if QFieldCloud credentials are not available
-  function skipIfNoCredentials() {
+  // Skip tests if QFieldCloud credentials are not available
+  function init() {
     if (!qfcTestServerUrl || !qfcTestUsername || !qfcTestPassword) {
       skip("QFieldCloud test credentials not available, skipping");
-      return true;
     }
-    return false;
   }
 
   // Helper: Login and refresh projects list
@@ -162,7 +160,6 @@ TestCase {
    * Scenario: When disconnected, show login form. When logged in, show projects list.
    */
   function test_01_viewVisibilityByConnectionStatus() {
-    if (skipIfNoCredentials()) return;
     compare(cloudConnection.status, QFieldCloudConnection.Disconnected);
     verify(connectionSettings.visible);
     compare(projectsSwipeView.visible, false);
@@ -182,7 +179,6 @@ TestCase {
    * Scenario: Switching between 'My Projects' and 'Community' tabs changes the table filter.
    */
   function test_02_filterBarTabSwitching() {
-    if (skipIfNoCredentials()) return;
     cloudConnection.url = qfcTestServerUrl;
     cloudConnection.username = qfcTestUsername;
     cloudConnection.login(qfcTestPassword);
@@ -205,7 +201,6 @@ TestCase {
    * Scenario: Entering search text filters the projects list and clearing it restores full list.
    */
   function test_03_searchBarFiltering() {
-    if (skipIfNoCredentials()) return;
     compare(table.count, 0);
     loginAndRefresh();
     const initialCount = table.count;
@@ -224,7 +219,6 @@ TestCase {
    * Scenario: Login shows projects view, logout returns to login form and clears project list.
    */
   function test_04_loginLogoutViewTransitions() {
-    if (skipIfNoCredentials()) return;
     verify(connectionSettings.visible);
     compare(projectsSwipeView.visible, false);
     cloudConnection.url = qfcTestServerUrl;
@@ -247,7 +241,6 @@ TestCase {
    * Scenario: TestCloudLargeProject and QFieldCloudTesting appear as visible delegates in table.
    */
   function test_05_verifyTestProjectsExist() {
-    if (skipIfNoCredentials()) return;
     loginAndRefresh();
     verify(table.count > 0);
     let foundLargeProject = false;
@@ -278,7 +271,6 @@ TestCase {
    * Scenario: Click download button, wait for download to complete, verify project is locally available.
    */
   function test_06_completeDownloadWorkflow() {
-    if (skipIfNoCredentials()) return;
     loginAndRefresh();
     const projectInfo = prepareProjectForDownload("QFieldCloudTesting");
     let project = cloudProjectsModel.findProject(projectInfo.id);
@@ -309,7 +301,6 @@ TestCase {
    * Scenario: Start download then cancel by clicking the button again during download.
    */
   function test_07_cancelDownload() {
-    if (skipIfNoCredentials()) return;
     loginAndRefresh();
     const projectInfo = prepareProjectForDownload("TestCloudLargeProject");
     let project = cloudProjectsModel.findProject(projectInfo.id);
@@ -340,7 +331,6 @@ TestCase {
    * Scenario: Start downloads for two projects simultaneously and verify both complete successfully.
    */
   function test_08_concurrentDownloads() {
-    if (skipIfNoCredentials()) return;
     loginAndRefresh();
     const project1Info = prepareProjectForDownload("QFieldCloudTesting");
     const project2Info = prepareProjectForDownload("TestCloudLargeProject");
@@ -387,7 +377,6 @@ TestCase {
    * Scenario: Download and cancel same project multiple times, then complete final download successfully.
    */
   function test_09_repeatedDownloadCancel() {
-    if (skipIfNoCredentials()) return;
     loginAndRefresh();
     const projectInfo = prepareProjectForDownload("TestCloudLargeProject");
     let project = cloudProjectsModel.findProject(projectInfo.id);
@@ -443,7 +432,6 @@ TestCase {
    * currentProjectChanged, and currentProject matches the expected project.
    */
   function test_10_setCurrentProjectIdSignalsAndBinding() {
-    if (skipIfNoCredentials()) return;
     loginAndRefresh();
     verify(cloudProjectsModel.rowCount() > 0);
     const index = cloudProjectsModel.index(0, 0);

@@ -10,9 +10,9 @@ TestCase {
   when: windowShown
 
   // QFieldCloud test credentials — injected via context properties.
-  property string qfcTestServerUrl: typeof(qfcTestServerUrl) !== "undefined" ? qfcTestServerUrl : ""
-  property string qfcTestUsername: typeof(qfcTestUsername) !== "undefined" ? qfcTestUsername : ""
-  property string qfcTestPassword: typeof(qfcTestPassword) !== "undefined" ? qfcTestPassword : ""
+  property string qfcTestServerUrl: typeof (qfcTestServerUrl) !== "undefined" ? qfcTestServerUrl : ""
+  property string qfcTestUsername: typeof (qfcTestUsername) !== "undefined" ? qfcTestUsername : ""
+  property string qfcTestPassword: typeof (qfcTestPassword) !== "undefined" ? qfcTestPassword : ""
 
   // Dummy mainWindow required by some components
   Item {
@@ -63,13 +63,11 @@ TestCase {
     signalName: "availableProvidersChanged"
   }
 
-  // Skip test if QFieldCloud credentials are not available
-  function skipIfNoCredentials() {
+  // Skip tests if QFieldCloud credentials are not available
+  function init() {
     if (!qfcTestServerUrl || !qfcTestUsername || !qfcTestPassword) {
       skip("QFieldCloud test credentials not available, skipping");
-      return true;
     }
-    return false;
   }
 
   // This function is called after each test function that is executed in the TestCase type.
@@ -95,7 +93,6 @@ TestCase {
    * Scenario: Fields should be visible when disconnected, hidden when logged in
    */
   function test_01_fieldsVisibilityByConnectionStatus() {
-    if (skipIfNoCredentials()) return;
     compare(cloudConnection.status, QFieldCloudConnection.Disconnected);
     verify(usernameField.visible);
     verify(passwordField.visible);
@@ -133,7 +130,6 @@ TestCase {
    * Scenario: Error message should appear when login fails and Error message should clear when attempting new login
    */
   function test_03_loginFeedbackOnFailure() {
-    if (skipIfNoCredentials()) return;
     compare(loginFeedbackLabel.visible, false);
     cloudConnection.url = qfcTestServerUrl;
     cloudConnection.username = "wrong_user_name";
@@ -186,7 +182,6 @@ TestCase {
    * and hasCredentialsAuthentication is set based on whether credentials provider exists
    */
   function test_06_authProvidersRepeaterModelUpdate() {
-    if (skipIfNoCredentials()) return;
     var initialCount = availableProvidersRepeater.model.length;
     availableProvidersChangedSpy.clear();
     cloudConnection.url = qfcTestServerUrl;
@@ -225,7 +220,6 @@ TestCase {
    * Scenario: After login, username field should show the logged-in username
    */
   function test_08_usernameFieldSyncsAfterLogin() {
-    if (skipIfNoCredentials()) return;
     usernameField.text = "";
     cloudConnection.url = qfcTestServerUrl;
     cloudConnection.username = qfcTestUsername;
