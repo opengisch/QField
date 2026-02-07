@@ -5153,6 +5153,7 @@ ApplicationWindow {
 
   BusyOverlay {
     id: busyOverlay
+    objectName: 'busyOverlay'
     state: iface.hasProjectOnLaunch() ? "visible" : "hidden"
   }
 

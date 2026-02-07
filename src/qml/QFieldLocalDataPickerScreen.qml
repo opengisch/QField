@@ -1062,6 +1062,7 @@ Page {
         onIsImportingPathChanged: {
           if (isImportingPath) {
             busyOverlay.text = qsTr("Importing WebDAV folder");
+            busyOverlay.showProgress = true;
             busyOverlay.progress = 0;
             busyOverlay.state = "visible";
           } else {
@@ -1072,6 +1073,7 @@ Page {
         onIsDownloadingPathChanged: {
           if (isDownloadingPath) {
             busyOverlay.text = qsTr("Downloading WebDAV folder");
+            busyOverlay.showProgress = true;
             busyOverlay.progress = 0;
             busyOverlay.state = "visible";
           } else {
@@ -1086,6 +1088,7 @@ Page {
         onIsUploadingPathChanged: {
           if (isUploadingPath) {
             busyOverlay.text = qsTr("Uploading WebDAV folder");
+            busyOverlay.showProgress = true;
             busyOverlay.progress = 0;
             busyOverlay.state = "visible";
           } else {
