@@ -19,11 +19,12 @@
 #include "qgsquickmapsettings.h"
 
 #include <QImage>
+#include <QTimer>
 #include <QtQuick3D/QQuick3DTextureData>
 #include <qgsrectangle.h>
 #include <qobjectuniqueptr.h>
 
-class QgsMapRendererSequentialJob;
+class QgsMapRendererParallelJob;
 
 /**
  * Provides in-memory texture data from rendered map layers for 3D terrain visualization.
@@ -86,6 +87,7 @@ class Quick3DMapTextureData : public QQuick3DTextureData
     void readyChanged();
 
   private slots:
+    void onRenderJobUpdated();
     void onRenderFinished();
 
   private:
@@ -93,7 +95,8 @@ class Quick3DMapTextureData : public QQuick3DTextureData
 
     QgsQuickMapSettings *mMapSettings = nullptr;
     QgsRectangle mExtent;
-    QObjectUniquePtr<QgsMapRendererSequentialJob> mRenderJob;
+    QObjectUniquePtr<QgsMapRendererParallelJob> mRenderJob;
+    QTimer mMapUpdateTimer;
     bool mReady = false;
     QVector<QMetaObject::Connection> mLayerConnections;
 };
