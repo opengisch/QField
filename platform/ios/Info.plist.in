@@ -64,6 +64,11 @@
     <key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
     <string>Needed to provide tracking functionality.</string>
 
+    <key>UIBackgroundModes</key>
+    <array>
+        <string>location</string>
+    </array>
+
     <!-- Peripherals -->
     <key>NSCameraUsageDescription</key>
     <string>Need to access your camera to capture pictures.</string>
