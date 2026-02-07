@@ -128,7 +128,10 @@ void QFieldCloudProjectsModel::setCurrentProjectId( const QString &currentProjec
   mCurrentProjectId = currentProjectId;
   mCurrentProject = findProject( mCurrentProjectId );
 
-  mLayerObserver->setDeltaFileWrapper( mCurrentProject ? mCurrentProject->deltaFileWrapper() : nullptr );
+  if ( mLayerObserver )
+  {
+    mLayerObserver->setDeltaFileWrapper( mCurrentProject ? mCurrentProject->deltaFileWrapper() : nullptr );
+  }
 
   emit currentProjectIdChanged();
   emit currentProjectChanged();
