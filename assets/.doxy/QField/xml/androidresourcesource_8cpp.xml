@@ -1,0 +1,150 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="androidresourcesource_8cpp" kind="file" language="C++">
+    <compoundname>androidresourcesource.cpp</compoundname>
+    <includes refid="androidresourcesource_8h" local="yes">androidresourcesource.h</includes>
+    <includes refid="platformutilities_8h" local="yes">platformutilities.h</includes>
+    <includes local="no">QDir</includes>
+    <includes local="no">QFile</includes>
+    <includes local="no">QSettings</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>src/core/platforms/android/androidresourcesource.cpp</label>
+        <link refid="androidresourcesource_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>androidresourcesource.h</label>
+        <link refid="androidresourcesource_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>platformutilities.h</label>
+        <link refid="platformutilities_8h_source"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>resourcesource.h</label>
+        <link refid="resourcesource_8h_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>viewstatus.h</label>
+        <link refid="viewstatus_8h_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>QDir</label>
+      </node>
+      <node id="11">
+        <label>QFile</label>
+      </node>
+      <node id="4">
+        <label>QObject</label>
+      </node>
+      <node id="8">
+        <label>QPermission</label>
+      </node>
+      <node id="12">
+        <label>QSettings</label>
+      </node>
+      <node id="6">
+        <label>qfield_core_export.h</label>
+      </node>
+      <node id="9">
+        <label>qgsfield.h</label>
+      </node>
+    </incdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/***************************************************************************</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/><sp/>androidresourcesource.cpp<sp/>-<sp/>AndroidResourceSource</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"></highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>---------------------</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>begin<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>5.7.2016</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>copyright<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>(C)<sp/>2016<sp/>by<sp/>Matthias<sp/>Kuhn</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>email<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>matthias@opengis.ch</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>***************************************************************************</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>*<sp/><sp/><sp/>This<sp/>program<sp/>is<sp/>free<sp/>software;<sp/>you<sp/>can<sp/>redistribute<sp/>it<sp/>and/or<sp/>modify<sp/><sp/>*</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>*<sp/><sp/><sp/>it<sp/>under<sp/>the<sp/>terms<sp/>of<sp/>the<sp/>GNU<sp/>General<sp/>Public<sp/>License<sp/>as<sp/>published<sp/>by<sp/><sp/>*</highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*<sp/><sp/><sp/>the<sp/>Free<sp/>Software<sp/>Foundation;<sp/>either<sp/>version<sp/>2<sp/>of<sp/>the<sp/>License,<sp/>or<sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>*<sp/><sp/><sp/>(at<sp/>your<sp/>option)<sp/>any<sp/>later<sp/>version.<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="15"><highlight class="comment"><sp/>***************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;androidresourcesource.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;platformutilities.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QDir&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QFile&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QSettings&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><ref refid="classAndroidResourceSource_1a93468ccc783cd314bc32edff5402720c" kindref="member">AndroidResourceSource::AndroidResourceSource</ref>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;prefix,<sp/>QObject<sp/>*parent<sp/>)</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/>:<sp/><ref refid="classResourceSource" kindref="compound">ResourceSource</ref>(<sp/>parent,<sp/>prefix,<sp/>QString()<sp/>)</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/>,<sp/>mPrefix(<sp/>prefix<sp/>)</highlight></codeline>
+<codeline lineno="27"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/>connect(<sp/>PlatformUtilities::instance(),<sp/>&amp;<ref refid="classPlatformUtilities_1a259061788f3c46617dea7888b04c95ed" kindref="member">PlatformUtilities::resourceReceived</ref>,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>&amp;AndroidResourceSource::handleResourceReceived<sp/>);</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/>connect(<sp/>PlatformUtilities::instance(),<sp/>&amp;<ref refid="classPlatformUtilities_1ace8de58cc6ffec62f777368fb356e758" kindref="member">PlatformUtilities::resourceCanceled</ref>,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>&amp;AndroidResourceSource::handleResourceCanceled<sp/>);</highlight></codeline>
+<codeline lineno="30"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>AndroidResourceSource::handleResourceReceived(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;path<sp/>)</highlight></codeline>
+<codeline lineno="33"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/>disconnect(<sp/>PlatformUtilities::instance(),<sp/>&amp;<ref refid="classPlatformUtilities_1a259061788f3c46617dea7888b04c95ed" kindref="member">PlatformUtilities::resourceReceived</ref>,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>&amp;AndroidResourceSource::handleResourceReceived<sp/>);</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/>disconnect(<sp/>PlatformUtilities::instance(),<sp/>&amp;<ref refid="classPlatformUtilities_1ace8de58cc6ffec62f777368fb356e758" kindref="member">PlatformUtilities::resourceCanceled</ref>,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>&amp;AndroidResourceSource::handleResourceCanceled<sp/>);</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>QSettings().value(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;QField/nativeCameraLaunched&quot;</highlight><highlight class="normal"><sp/>),<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal"><sp/>).toBool()<sp/>)</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/>QSettings().setValue(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;QField/nativeCameraLaunched&quot;</highlight><highlight class="normal"><sp/>),<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>!path.isEmpty()<sp/>)</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/>relativePath<sp/>=<sp/>path;</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/>relativePath.remove(<sp/>mPrefix<sp/>);</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/>emit<sp/><ref refid="classResourceSource_1a0d943802115ab0272a9e60a78b5bf8c0" kindref="member">resourceReceived</ref>(<sp/>relativePath<sp/>);</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/>emit<sp/><ref refid="classResourceSource_1a0d943802115ab0272a9e60a78b5bf8c0" kindref="member">resourceReceived</ref>(<sp/>QString()<sp/>);</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="52"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>AndroidResourceSource::handleResourceCanceled(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;message<sp/>)</highlight></codeline>
+<codeline lineno="55"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/>disconnect(<sp/>PlatformUtilities::instance(),<sp/>&amp;<ref refid="classPlatformUtilities_1a259061788f3c46617dea7888b04c95ed" kindref="member">PlatformUtilities::resourceReceived</ref>,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>&amp;AndroidResourceSource::handleResourceReceived<sp/>);</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/>disconnect(<sp/>PlatformUtilities::instance(),<sp/>&amp;<ref refid="classPlatformUtilities_1ace8de58cc6ffec62f777368fb356e758" kindref="member">PlatformUtilities::resourceCanceled</ref>,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>&amp;AndroidResourceSource::handleResourceCanceled<sp/>);</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>QSettings().value(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;QField/nativeCameraLaunched&quot;</highlight><highlight class="normal"><sp/>),<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal"><sp/>).toBool()<sp/>)</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/>QSettings().setValue(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;QField/nativeCameraLaunched&quot;</highlight><highlight class="normal"><sp/>),<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="63"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="src/core/platforms/android/androidresourcesource.cpp"/>
+  </compounddef>
+</doxygen>

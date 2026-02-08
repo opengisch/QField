@@ -1,0 +1,227 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQgsElevationProfilePlotItem" kind="class" language="C++" prot="public">
+    <compoundname>QgsElevationProfilePlotItem</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Qgs2DPlot</basecompoundref>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQgsElevationProfilePlotItem_1a151d80d0f6453772e9769fadbf4b5f6d" prot="private" static="no" mutable="no">
+        <type><ref refid="classQgsQuickElevationProfileCanvas" kindref="compound">QgsQuickElevationProfileCanvas</ref> *</type>
+        <definition>QgsQuickElevationProfileCanvas* QgsElevationProfilePlotItem::mCanvas</definition>
+        <argsstring></argsstring>
+        <name>mCanvas</name>
+        <qualifiedname>QgsElevationProfilePlotItem::mCanvas</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickelevationprofilecanvas.cpp" line="156" column="36" bodyfile="src/core/qgsquick/qgsquickelevationprofilecanvas.cpp" bodystart="156" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQgsElevationProfilePlotItem_1a0c013fff6dee6636fb08c0becaaf72ed" prot="private" static="no" mutable="no">
+        <type>QgsProfilePlotRenderer *</type>
+        <definition>QgsProfilePlotRenderer* QgsElevationProfilePlotItem::mRenderer</definition>
+        <argsstring></argsstring>
+        <name>mRenderer</name>
+        <qualifiedname>QgsElevationProfilePlotItem::mRenderer</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickelevationprofilecanvas.cpp" line="157" column="28" bodyfile="src/core/qgsquick/qgsquickelevationprofilecanvas.cpp" bodystart="157" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQgsElevationProfilePlotItem_1ac354dbcb5bdb3fd54d9bd98c4029b3f3" prot="private" static="no" mutable="no">
+        <type>QRectF</type>
+        <definition>QRectF QgsElevationProfilePlotItem::mPlotArea</definition>
+        <argsstring></argsstring>
+        <name>mPlotArea</name>
+        <qualifiedname>QgsElevationProfilePlotItem::mPlotArea</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickelevationprofilecanvas.cpp" line="159" column="12" bodyfile="src/core/qgsquick/qgsquickelevationprofilecanvas.cpp" bodystart="159" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQgsElevationProfilePlotItem_1aa8e03e6620f03f2ec78dc8ca6dc64348" prot="private" static="no" mutable="no">
+        <type>QMap&lt; QString, QImage &gt;</type>
+        <definition>QMap&lt;QString, QImage&gt; QgsElevationProfilePlotItem::mCachedImages</definition>
+        <argsstring></argsstring>
+        <name>mCachedImages</name>
+        <qualifiedname>QgsElevationProfilePlotItem::mCachedImages</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickelevationprofilecanvas.cpp" line="160" column="10" bodyfile="src/core/qgsquick/qgsquickelevationprofilecanvas.cpp" bodystart="160" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQgsElevationProfilePlotItem_1a510a8c1017fce8244bd5091f18c92688" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>QgsElevationProfilePlotItem::QgsElevationProfilePlotItem</definition>
+        <argsstring>(QgsQuickElevationProfileCanvas *canvas)</argsstring>
+        <name>QgsElevationProfilePlotItem</name>
+        <qualifiedname>QgsElevationProfilePlotItem::QgsElevationProfilePlotItem</qualifiedname>
+        <param>
+          <type><ref refid="classQgsQuickElevationProfileCanvas" kindref="compound">QgsQuickElevationProfileCanvas</ref> *</type>
+          <declname>canvas</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickelevationprofilecanvas.cpp" line="69" column="14" bodyfile="src/core/qgsquick/qgsquickelevationprofilecanvas.cpp" bodystart="69" bodyend="75"/>
+      </memberdef>
+      <memberdef kind="function" id="classQgsElevationProfilePlotItem_1ae56554e6343d190342c1330c6da73efa" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void QgsElevationProfilePlotItem::setRenderer</definition>
+        <argsstring>(QgsProfilePlotRenderer *renderer)</argsstring>
+        <name>setRenderer</name>
+        <qualifiedname>QgsElevationProfilePlotItem::setRenderer</qualifiedname>
+        <param>
+          <type>QgsProfilePlotRenderer *</type>
+          <declname>renderer</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickelevationprofilecanvas.cpp" line="77" column="10" bodyfile="src/core/qgsquick/qgsquickelevationprofilecanvas.cpp" bodystart="77" bodyend="80"/>
+      </memberdef>
+      <memberdef kind="function" id="classQgsElevationProfilePlotItem_1a93889f47e34418452dd03debb5a18c7f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void QgsElevationProfilePlotItem::updateRect</definition>
+        <argsstring>()</argsstring>
+        <name>updateRect</name>
+        <qualifiedname>QgsElevationProfilePlotItem::updateRect</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickelevationprofilecanvas.cpp" line="82" column="10" bodyfile="src/core/qgsquick/qgsquickelevationprofilecanvas.cpp" bodystart="82" bodyend="87"/>
+      </memberdef>
+      <memberdef kind="function" id="classQgsElevationProfilePlotItem_1a09b9505c9427ecbe4027461f88969987" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void QgsElevationProfilePlotItem::updatePlot</definition>
+        <argsstring>()</argsstring>
+        <name>updatePlot</name>
+        <qualifiedname>QgsElevationProfilePlotItem::updatePlot</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickelevationprofilecanvas.cpp" line="89" column="10" bodyfile="src/core/qgsquick/qgsquickelevationprofilecanvas.cpp" bodystart="89" bodyend="93"/>
+      </memberdef>
+      <memberdef kind="function" id="classQgsElevationProfilePlotItem_1aacbaf5fb33f07f5c70bde19cfbe3680b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QgsElevationProfilePlotItem::redrawResults</definition>
+        <argsstring>(const QString &amp;sourceId)</argsstring>
+        <name>redrawResults</name>
+        <qualifiedname>QgsElevationProfilePlotItem::redrawResults</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>sourceId</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickelevationprofilecanvas.cpp" line="95" column="10" bodyfile="src/core/qgsquick/qgsquickelevationprofilecanvas.cpp" bodystart="95" bodyend="103"/>
+      </memberdef>
+      <memberdef kind="function" id="classQgsElevationProfilePlotItem_1a611df369f7948194b6a935ee2ed2019d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>QRectF</type>
+        <definition>QRectF QgsElevationProfilePlotItem::plotArea</definition>
+        <argsstring>()</argsstring>
+        <name>plotArea</name>
+        <qualifiedname>QgsElevationProfilePlotItem::plotArea</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickelevationprofilecanvas.cpp" line="105" column="12" bodyfile="src/core/qgsquick/qgsquickelevationprofilecanvas.cpp" bodystart="105" bodyend="117"/>
+      </memberdef>
+      <memberdef kind="function" id="classQgsElevationProfilePlotItem_1a3645fa684ea3a9b50fd3c742201e0825" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void QgsElevationProfilePlotItem::renderContent</definition>
+        <argsstring>(QgsRenderContext &amp;rc, const QRectF &amp;plotArea) override</argsstring>
+        <name>renderContent</name>
+        <qualifiedname>QgsElevationProfilePlotItem::renderContent</qualifiedname>
+        <param>
+          <type>QgsRenderContext &amp;</type>
+          <declname>rc</declname>
+        </param>
+        <param>
+          <type>const QRectF &amp;</type>
+          <declname>plotArea</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickelevationprofilecanvas.cpp" line="119" column="10" bodyfile="src/core/qgsquick/qgsquickelevationprofilecanvas.cpp" bodystart="119" bodyend="153"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>Qgs2DPlot</label>
+      </node>
+      <node id="1">
+        <label>QgsElevationProfilePlotItem</label>
+        <link refid="classQgsElevationProfilePlotItem"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>Qgs2DPlot</label>
+      </node>
+      <node id="1">
+        <label>QgsElevationProfilePlotItem</label>
+        <link refid="classQgsElevationProfilePlotItem"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/qgsquick/qgsquickelevationprofilecanvas.cpp" line="66" column="1" bodyfile="src/core/qgsquick/qgsquickelevationprofilecanvas.cpp" bodystart="67" bodyend="161"/>
+    <listofallmembers>
+      <member refid="classQgsElevationProfilePlotItem_1aa8e03e6620f03f2ec78dc8ca6dc64348" prot="private" virt="non-virtual"><scope>QgsElevationProfilePlotItem</scope><name>mCachedImages</name></member>
+      <member refid="classQgsElevationProfilePlotItem_1a151d80d0f6453772e9769fadbf4b5f6d" prot="private" virt="non-virtual"><scope>QgsElevationProfilePlotItem</scope><name>mCanvas</name></member>
+      <member refid="classQgsElevationProfilePlotItem_1ac354dbcb5bdb3fd54d9bd98c4029b3f3" prot="private" virt="non-virtual"><scope>QgsElevationProfilePlotItem</scope><name>mPlotArea</name></member>
+      <member refid="classQgsElevationProfilePlotItem_1a0c013fff6dee6636fb08c0becaaf72ed" prot="private" virt="non-virtual"><scope>QgsElevationProfilePlotItem</scope><name>mRenderer</name></member>
+      <member refid="classQgsElevationProfilePlotItem_1a611df369f7948194b6a935ee2ed2019d" prot="public" virt="non-virtual"><scope>QgsElevationProfilePlotItem</scope><name>plotArea</name></member>
+      <member refid="classQgsElevationProfilePlotItem_1a510a8c1017fce8244bd5091f18c92688" prot="public" virt="non-virtual"><scope>QgsElevationProfilePlotItem</scope><name>QgsElevationProfilePlotItem</name></member>
+      <member refid="classQgsElevationProfilePlotItem_1aacbaf5fb33f07f5c70bde19cfbe3680b" prot="public" virt="non-virtual"><scope>QgsElevationProfilePlotItem</scope><name>redrawResults</name></member>
+      <member refid="classQgsElevationProfilePlotItem_1a3645fa684ea3a9b50fd3c742201e0825" prot="public" virt="non-virtual"><scope>QgsElevationProfilePlotItem</scope><name>renderContent</name></member>
+      <member refid="classQgsElevationProfilePlotItem_1ae56554e6343d190342c1330c6da73efa" prot="public" virt="non-virtual"><scope>QgsElevationProfilePlotItem</scope><name>setRenderer</name></member>
+      <member refid="classQgsElevationProfilePlotItem_1a09b9505c9427ecbe4027461f88969987" prot="public" virt="non-virtual"><scope>QgsElevationProfilePlotItem</scope><name>updatePlot</name></member>
+      <member refid="classQgsElevationProfilePlotItem_1a93889f47e34418452dd03debb5a18c7f" prot="public" virt="non-virtual"><scope>QgsElevationProfilePlotItem</scope><name>updateRect</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

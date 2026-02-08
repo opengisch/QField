@@ -1,0 +1,427 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classExternalStorage" kind="class" language="C++" prot="public">
+    <compoundname>ExternalStorage</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QObject</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classExternalStorage_1a45204f67ccc3abf847aa1b38ddc17cfd" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>Qgis::ContentStatus</type>
+        <definition>Qgis::ContentStatus ExternalStorage::status</definition>
+        <argsstring></argsstring>
+        <name>status</name>
+        <qualifiedname>ExternalStorage::status</qualifiedname>
+        <read>status</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/externalstorage.h" line="31" column="5" bodyfile="src/core/externalstorage.h" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classExternalStorage_1a07d2772099cd2e8de86641363e293db8" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString ExternalStorage::type</definition>
+        <argsstring></argsstring>
+        <name>type</name>
+        <qualifiedname>ExternalStorage::type</qualifiedname>
+        <read>type</read>
+        <write>setType</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/externalstorage.h" line="32" column="5" bodyfile="src/core/externalstorage.h" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classExternalStorage_1a93914df61a7614c32761c8222ba11c52" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString ExternalStorage::lastError</definition>
+        <argsstring></argsstring>
+        <name>lastError</name>
+        <qualifiedname>ExternalStorage::lastError</qualifiedname>
+        <read>lastError</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/externalstorage.h" line="33" column="5" bodyfile="src/core/externalstorage.h" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classExternalStorage_1ac9104daf4501b4cf47e556b7f2145465" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString ExternalStorage::fetchedContent</definition>
+        <argsstring></argsstring>
+        <name>fetchedContent</name>
+        <qualifiedname>ExternalStorage::fetchedContent</qualifiedname>
+        <read>fetchedContent</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/externalstorage.h" line="35" column="5" bodyfile="src/core/externalstorage.h" bodystart="35" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classExternalStorage_1a5d7358b5096e170431d56a7069b014fe" prot="private" static="no" mutable="no">
+        <type>Qgis::ContentStatus</type>
+        <definition>Qgis::ContentStatus ExternalStorage::mStatus</definition>
+        <argsstring></argsstring>
+        <name>mStatus</name>
+        <qualifiedname>ExternalStorage::mStatus</qualifiedname>
+        <initializer>= Qgis::ContentStatus::NotStarted</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/externalstorage.h" line="87" column="25" bodyfile="src/core/externalstorage.h" bodystart="87" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classExternalStorage_1add7c2174a8449def5731dce3c5966a2f" prot="private" static="no" mutable="no">
+        <type>QgsExternalStorage *</type>
+        <definition>QgsExternalStorage* ExternalStorage::mStorage</definition>
+        <argsstring></argsstring>
+        <name>mStorage</name>
+        <qualifiedname>ExternalStorage::mStorage</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/externalstorage.h" line="88" column="24" bodyfile="src/core/externalstorage.h" bodystart="88" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classExternalStorage_1a22cbb9d8b7369c7ab2cdff551ffd9299" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString ExternalStorage::mLastError</definition>
+        <argsstring></argsstring>
+        <name>mLastError</name>
+        <qualifiedname>ExternalStorage::mLastError</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/externalstorage.h" line="89" column="13" bodyfile="src/core/externalstorage.h" bodystart="89" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classExternalStorage_1a04bb01a55bc8e61c9f0aad9cd9e2039d" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString ExternalStorage::mFetchUrl</definition>
+        <argsstring></argsstring>
+        <name>mFetchUrl</name>
+        <qualifiedname>ExternalStorage::mFetchUrl</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/externalstorage.h" line="91" column="13" bodyfile="src/core/externalstorage.h" bodystart="91" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classExternalStorage_1acf1d383ffb2efb3e78bd8337c6c09edf" prot="private" static="no" mutable="no">
+        <type>std::unique_ptr&lt; QgsExternalStorageFetchedContent &gt;</type>
+        <definition>std::unique_ptr&lt;QgsExternalStorageFetchedContent&gt; ExternalStorage::mFetchedContent</definition>
+        <argsstring></argsstring>
+        <name>mFetchedContent</name>
+        <qualifiedname>ExternalStorage::mFetchedContent</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/externalstorage.h" line="92" column="21" bodyfile="src/core/externalstorage.h" bodystart="92" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classExternalStorage_1af467d704aec047002bd9a29da3472bf8" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>ExternalStorage::ExternalStorage</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>ExternalStorage</name>
+        <qualifiedname>ExternalStorage::ExternalStorage</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/externalstorage.h" line="38" column="14" bodyfile="src/core/externalstorage.cpp" bodystart="23" bodyend="26"/>
+      </memberdef>
+      <memberdef kind="function" id="classExternalStorage_1a18182d1674f1f71a5e687cb061269fd7" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>Qgis::ContentStatus</type>
+        <definition>Qgis::ContentStatus ExternalStorage::status</definition>
+        <argsstring>() const</argsstring>
+        <name>status</name>
+        <qualifiedname>ExternalStorage::status</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the current status of the external storage object. When a fetch operation has been triggered, the status will reflect the last fetched content operation. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/externalstorage.h" line="44" column="25" bodyfile="src/core/externalstorage.cpp" bodystart="28" bodyend="31"/>
+      </memberdef>
+      <memberdef kind="function" id="classExternalStorage_1a52783bb668de6206c0461c34686bea39" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString ExternalStorage::type</definition>
+        <argsstring>() const</argsstring>
+        <name>type</name>
+        <qualifiedname>ExternalStorage::type</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the current external storage type string. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/externalstorage.h" line="49" column="13" bodyfile="src/core/externalstorage.cpp" bodystart="33" bodyend="36"/>
+      </memberdef>
+      <memberdef kind="function" id="classExternalStorage_1a07443653f6cd16b9a4b420b9c6116b98" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ExternalStorage::setType</definition>
+        <argsstring>(const QString &amp;type)</argsstring>
+        <name>setType</name>
+        <qualifiedname>ExternalStorage::setType</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>type</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the current external storage type string. The type string must be tied to an external storage object that was added in the QgsApplication::externalStorageRegistry(). </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/externalstorage.h" line="55" column="10" bodyfile="src/core/externalstorage.cpp" bodystart="38" bodyend="45"/>
+      </memberdef>
+      <memberdef kind="function" id="classExternalStorage_1a0282aa4145e13fb14d39945840f4ec1a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString ExternalStorage::lastError</definition>
+        <argsstring>() const</argsstring>
+        <name>lastError</name>
+        <qualifiedname>ExternalStorage::lastError</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the last error emitted by an external storage operation. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/externalstorage.h" line="60" column="13" bodyfile="src/core/externalstorage.cpp" bodystart="47" bodyend="50"/>
+      </memberdef>
+      <memberdef kind="function" id="classExternalStorage_1a8a7b1cb922956d08c6e41825c065a02a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString ExternalStorage::fetchedContent</definition>
+        <argsstring>() const</argsstring>
+        <name>fetchedContent</name>
+        <qualifiedname>ExternalStorage::fetchedContent</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the file path of a successfully fetched content operation. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/externalstorage.h" line="65" column="13" bodyfile="src/core/externalstorage.cpp" bodystart="72" bodyend="75"/>
+      </memberdef>
+      <memberdef kind="function" id="classExternalStorage_1ad4d52a4ae8ac491215a8ce133a5e053d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void ExternalStorage::fetch</definition>
+        <argsstring>(const QString &amp;url, const QString &amp;authenticationConfigurationId)</argsstring>
+        <name>fetch</name>
+        <qualifiedname>ExternalStorage::fetch</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>url</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>authenticationConfigurationId</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Triggers a fetch operation to download the content from an external storage and make it available locally. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>url</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the remote URL of the content </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>authenticationConfigurationId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the authentication configuration ID used to connect to the external storage endpoint </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/externalstorage.h" line="74" column="22" bodyfile="src/core/externalstorage.cpp" bodystart="52" bodyend="70"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classExternalStorage_1a4d368c02e4059b1fa6d34701c793c1f6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ExternalStorage::statusChanged</definition>
+        <argsstring>()</argsstring>
+        <name>statusChanged</name>
+        <qualifiedname>ExternalStorage::statusChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/externalstorage.h" line="77" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classExternalStorage_1af11fd98156aa7c0f8df637ea8be010b2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ExternalStorage::typeChanged</definition>
+        <argsstring>()</argsstring>
+        <name>typeChanged</name>
+        <qualifiedname>ExternalStorage::typeChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/externalstorage.h" line="78" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classExternalStorage_1ad12837d96711c9a3262671023ee21593" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ExternalStorage::fetchedContentChanged</definition>
+        <argsstring>()</argsstring>
+        <name>fetchedContentChanged</name>
+        <qualifiedname>ExternalStorage::fetchedContentChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/externalstorage.h" line="79" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classExternalStorage_1a6fa68c8cbe917413dbce162f943fdcdc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ExternalStorage::lastErrorChanged</definition>
+        <argsstring>()</argsstring>
+        <name>lastErrorChanged</name>
+        <qualifiedname>ExternalStorage::lastErrorChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/externalstorage.h" line="80" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-slot">
+      <memberdef kind="slot" id="classExternalStorage_1af47549762be75edd595a13657f7c84cd" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ExternalStorage::contentFetched</definition>
+        <argsstring>()</argsstring>
+        <name>contentFetched</name>
+        <qualifiedname>ExternalStorage::contentFetched</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/externalstorage.h" line="83" column="10" bodyfile="src/core/externalstorage.cpp" bodystart="77" bodyend="81"/>
+      </memberdef>
+      <memberdef kind="slot" id="classExternalStorage_1a93ac112a79acd7ced3a0d03cb5733d7e" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ExternalStorage::contentErrorOccurred</definition>
+        <argsstring>(const QString &amp;errorString)</argsstring>
+        <name>contentErrorOccurred</name>
+        <qualifiedname>ExternalStorage::contentErrorOccurred</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>errorString</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/externalstorage.h" line="84" column="10" bodyfile="src/core/externalstorage.cpp" bodystart="83" bodyend="88"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>ExternalStorage</label>
+        <link refid="classExternalStorage"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>ExternalStorage</label>
+        <link refid="classExternalStorage"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/externalstorage.h" line="27" column="1" bodyfile="src/core/externalstorage.h" bodystart="28" bodyend="93"/>
+    <listofallmembers>
+      <member refid="classExternalStorage_1a93ac112a79acd7ced3a0d03cb5733d7e" prot="private" virt="non-virtual"><scope>ExternalStorage</scope><name>contentErrorOccurred</name></member>
+      <member refid="classExternalStorage_1af47549762be75edd595a13657f7c84cd" prot="private" virt="non-virtual"><scope>ExternalStorage</scope><name>contentFetched</name></member>
+      <member refid="classExternalStorage_1af467d704aec047002bd9a29da3472bf8" prot="public" virt="non-virtual"><scope>ExternalStorage</scope><name>ExternalStorage</name></member>
+      <member refid="classExternalStorage_1ad4d52a4ae8ac491215a8ce133a5e053d" prot="public" virt="non-virtual"><scope>ExternalStorage</scope><name>fetch</name></member>
+      <member refid="classExternalStorage_1ac9104daf4501b4cf47e556b7f2145465" prot="public" virt="non-virtual"><scope>ExternalStorage</scope><name>fetchedContent</name></member>
+      <member refid="classExternalStorage_1a8a7b1cb922956d08c6e41825c065a02a" prot="public" virt="non-virtual"><scope>ExternalStorage</scope><name>fetchedContent</name></member>
+      <member refid="classExternalStorage_1ad12837d96711c9a3262671023ee21593" prot="public" virt="non-virtual"><scope>ExternalStorage</scope><name>fetchedContentChanged</name></member>
+      <member refid="classExternalStorage_1a93914df61a7614c32761c8222ba11c52" prot="public" virt="non-virtual"><scope>ExternalStorage</scope><name>lastError</name></member>
+      <member refid="classExternalStorage_1a0282aa4145e13fb14d39945840f4ec1a" prot="public" virt="non-virtual"><scope>ExternalStorage</scope><name>lastError</name></member>
+      <member refid="classExternalStorage_1a6fa68c8cbe917413dbce162f943fdcdc" prot="public" virt="non-virtual"><scope>ExternalStorage</scope><name>lastErrorChanged</name></member>
+      <member refid="classExternalStorage_1acf1d383ffb2efb3e78bd8337c6c09edf" prot="private" virt="non-virtual"><scope>ExternalStorage</scope><name>mFetchedContent</name></member>
+      <member refid="classExternalStorage_1a04bb01a55bc8e61c9f0aad9cd9e2039d" prot="private" virt="non-virtual"><scope>ExternalStorage</scope><name>mFetchUrl</name></member>
+      <member refid="classExternalStorage_1a22cbb9d8b7369c7ab2cdff551ffd9299" prot="private" virt="non-virtual"><scope>ExternalStorage</scope><name>mLastError</name></member>
+      <member refid="classExternalStorage_1a5d7358b5096e170431d56a7069b014fe" prot="private" virt="non-virtual"><scope>ExternalStorage</scope><name>mStatus</name></member>
+      <member refid="classExternalStorage_1add7c2174a8449def5731dce3c5966a2f" prot="private" virt="non-virtual"><scope>ExternalStorage</scope><name>mStorage</name></member>
+      <member refid="classExternalStorage_1a07443653f6cd16b9a4b420b9c6116b98" prot="public" virt="non-virtual"><scope>ExternalStorage</scope><name>setType</name></member>
+      <member refid="classExternalStorage_1a45204f67ccc3abf847aa1b38ddc17cfd" prot="public" virt="non-virtual"><scope>ExternalStorage</scope><name>status</name></member>
+      <member refid="classExternalStorage_1a18182d1674f1f71a5e687cb061269fd7" prot="public" virt="non-virtual"><scope>ExternalStorage</scope><name>status</name></member>
+      <member refid="classExternalStorage_1a4d368c02e4059b1fa6d34701c793c1f6" prot="public" virt="non-virtual"><scope>ExternalStorage</scope><name>statusChanged</name></member>
+      <member refid="classExternalStorage_1a07d2772099cd2e8de86641363e293db8" prot="public" virt="non-virtual"><scope>ExternalStorage</scope><name>type</name></member>
+      <member refid="classExternalStorage_1a52783bb668de6206c0461c34686bea39" prot="public" virt="non-virtual"><scope>ExternalStorage</scope><name>type</name></member>
+      <member refid="classExternalStorage_1af11fd98156aa7c0f8df637ea8be010b2" prot="public" virt="non-virtual"><scope>ExternalStorage</scope><name>typeChanged</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,104 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structVertexModel_1_1VertexChange" kind="struct" language="C++" prot="public">
+    <compoundname>VertexModel::VertexChange</compoundname>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structVertexModel_1_1VertexChange_1a5dd3c8a76d5c2590a9183a0cbcd14741" prot="public" static="no" mutable="no">
+        <type>VertexChangeType</type>
+        <definition>VertexChangeType VertexModel::VertexChange::type</definition>
+        <argsstring></argsstring>
+        <name>type</name>
+        <qualifiedname>VertexModel::VertexChange::type</qualifiedname>
+        <initializer>= NoChange</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/vertexmodel.h" line="136" column="26" bodyfile="src/core/vertexmodel.h" bodystart="136" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structVertexModel_1_1VertexChange_1a209bdd7b61fd5a7c9c94edea5b40218b" prot="public" static="no" mutable="no">
+        <type>qsizetype</type>
+        <definition>qsizetype VertexModel::VertexChange::index</definition>
+        <argsstring></argsstring>
+        <name>index</name>
+        <qualifiedname>VertexModel::VertexChange::index</qualifiedname>
+        <initializer>= -1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/vertexmodel.h" line="137" column="19" bodyfile="src/core/vertexmodel.h" bodystart="137" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structVertexModel_1_1VertexChange_1a6da1ae24c714991c91953999399563e3" prot="public" static="no" mutable="no">
+        <type><ref refid="structVertexModel_1_1Vertex" kindref="compound">Vertex</ref></type>
+        <definition>Vertex VertexModel::VertexChange::vertex</definition>
+        <argsstring></argsstring>
+        <name>vertex</name>
+        <qualifiedname>VertexModel::VertexChange::vertex</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/vertexmodel.h" line="138" column="16" bodyfile="src/core/vertexmodel.h" bodystart="138" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="structVertexModel_1_1VertexChange_1a13a51f2f3201607eaec06f68cae50f79" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>VertexModel::VertexChange::VertexChange</definition>
+        <argsstring>(VertexChangeType type, qsizetype &amp;index, const Vertex &amp;vertex)</argsstring>
+        <name>VertexChange</name>
+        <qualifiedname>VertexModel::VertexChange::VertexChange</qualifiedname>
+        <param>
+          <type>VertexChangeType</type>
+          <declname>type</declname>
+        </param>
+        <param>
+          <type>qsizetype &amp;</type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structVertexModel_1_1Vertex" kindref="compound">Vertex</ref> &amp;</type>
+          <declname>vertex</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/vertexmodel.h" line="130" column="9" bodyfile="src/core/vertexmodel.h" bodystart="130" bodyend="134"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>VertexModel::Vertex</label>
+        <link refid="structVertexModel_1_1Vertex"/>
+      </node>
+      <node id="1">
+        <label>VertexModel::VertexChange</label>
+        <link refid="structVertexModel_1_1VertexChange"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>vertex</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/vertexmodel.h" line="128" column="5" bodyfile="src/core/vertexmodel.h" bodystart="129" bodyend="139"/>
+    <listofallmembers>
+      <member refid="structVertexModel_1_1VertexChange_1a209bdd7b61fd5a7c9c94edea5b40218b" prot="public" virt="non-virtual"><scope>VertexModel::VertexChange</scope><name>index</name></member>
+      <member refid="structVertexModel_1_1VertexChange_1a5dd3c8a76d5c2590a9183a0cbcd14741" prot="public" virt="non-virtual"><scope>VertexModel::VertexChange</scope><name>type</name></member>
+      <member refid="structVertexModel_1_1VertexChange_1a6da1ae24c714991c91953999399563e3" prot="public" virt="non-virtual"><scope>VertexModel::VertexChange</scope><name>vertex</name></member>
+      <member refid="structVertexModel_1_1VertexChange_1a13a51f2f3201607eaec06f68cae50f79" prot="public" virt="non-virtual"><scope>VertexModel::VertexChange</scope><name>VertexChange</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

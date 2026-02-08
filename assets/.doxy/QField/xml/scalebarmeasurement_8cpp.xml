@@ -1,0 +1,287 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="scalebarmeasurement_8cpp" kind="file" language="C++">
+    <compoundname>scalebarmeasurement.cpp</compoundname>
+    <includes refid="scalebarmeasurement_8h" local="yes">scalebarmeasurement.h</includes>
+    <includes local="no">qgis.h</includes>
+    <includes local="no">qgsproject.h</includes>
+    <includes local="no">qgsunittypes.h</includes>
+    <incdepgraph>
+      <node id="5">
+        <label>qgsquickmapsettings.h</label>
+        <link refid="qgsquickmapsettings_8h_source"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>src/core/scalebarmeasurement.cpp</label>
+        <link refid="scalebarmeasurement_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>scalebarmeasurement.h</label>
+        <link refid="scalebarmeasurement_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QObject</label>
+      </node>
+      <node id="6">
+        <label>qfield_core_export.h</label>
+      </node>
+      <node id="13">
+        <label>qgis.h</label>
+      </node>
+      <node id="7">
+        <label>qgscoordinatetransformcontext.h</label>
+      </node>
+      <node id="4">
+        <label>qgsdistancearea.h</label>
+      </node>
+      <node id="8">
+        <label>qgsmaplayer.h</label>
+      </node>
+      <node id="9">
+        <label>qgsmapsettings.h</label>
+      </node>
+      <node id="10">
+        <label>qgsmapthemecollection.h</label>
+      </node>
+      <node id="11">
+        <label>qgspoint.h</label>
+      </node>
+      <node id="14">
+        <label>qgsproject.h</label>
+      </node>
+      <node id="12">
+        <label>qgsrectangle.h</label>
+      </node>
+      <node id="15">
+        <label>qgsunittypes.h</label>
+      </node>
+    </incdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/***************************************************************************</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/><sp/>scalebarmeasurement.h<sp/>-<sp/>ScaleBarMeasurement</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"></highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>---------------------</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>begin<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>9.10.2021</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>copyright<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>(C)<sp/>2021<sp/>by<sp/>Mathieu<sp/>Pellerin</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>email<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>mathieu@opengis.ch</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>***************************************************************************</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>*<sp/><sp/><sp/>This<sp/>program<sp/>is<sp/>free<sp/>software;<sp/>you<sp/>can<sp/>redistribute<sp/>it<sp/>and/or<sp/>modify<sp/><sp/>*</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>*<sp/><sp/><sp/>it<sp/>under<sp/>the<sp/>terms<sp/>of<sp/>the<sp/>GNU<sp/>General<sp/>Public<sp/>License<sp/>as<sp/>published<sp/>by<sp/><sp/>*</highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*<sp/><sp/><sp/>the<sp/>Free<sp/>Software<sp/>Foundation;<sp/>either<sp/>version<sp/>2<sp/>of<sp/>the<sp/>License,<sp/>or<sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>*<sp/><sp/><sp/>(at<sp/>your<sp/>option)<sp/>any<sp/>later<sp/>version.<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="15"><highlight class="comment"><sp/>***************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;scalebarmeasurement.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;qgis.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;qgsproject.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;qgsunittypes.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal">ScaleBarMeasurement::ScaleBarMeasurement(<sp/>QObject<sp/>*parent<sp/>)</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/>:<sp/>QObject(<sp/>parent<sp/>)</highlight></codeline>
+<codeline lineno="25"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="26"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>ScaleBarMeasurement::resetDistanceArea()</highlight></codeline>
+<codeline lineno="29"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>mProject<sp/>&amp;&amp;<sp/>mMapSettings<sp/>&amp;&amp;<sp/>mMapSettings-&gt;<ref refid="classQgsQuickMapSettings_1aa0819eabfca106939c96d57f4d48d6f0" kindref="member">mapSettings</ref>().destinationCrs().isValid()<sp/>)</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/>mDistanceArea.setEllipsoid(<sp/>mProject-&gt;ellipsoid()<sp/>);</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/>mDistanceArea.setSourceCrs(<sp/>mMapSettings-&gt;<ref refid="classQgsQuickMapSettings_1aa0819eabfca106939c96d57f4d48d6f0" kindref="member">mapSettings</ref>().destinationCrs(),<sp/>mProject-&gt;transformContext()<sp/>);</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/>mDistanceArea.setEllipsoid(<sp/>Qgis::geoNone()<sp/>);</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="39"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal">QgsProject<sp/>*ScaleBarMeasurement::project()</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="42"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>mProject;</highlight></codeline>
+<codeline lineno="44"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>ScaleBarMeasurement::setProject(<sp/>QgsProject<sp/>*project<sp/>)</highlight></codeline>
+<codeline lineno="47"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>mProject<sp/>==<sp/>project<sp/>)</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>mProject<sp/>)</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/>disconnect(<sp/>mProject,<sp/>&amp;QgsProject::readProject,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>&amp;ScaleBarMeasurement::resetDistanceArea<sp/>);</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/>disconnect(<sp/>mProject,<sp/>&amp;QgsProject::ellipsoidChanged,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>&amp;ScaleBarMeasurement::resetDistanceArea<sp/>);</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/>mProject<sp/>=<sp/>project;</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>mProject<sp/>)</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/>connect(<sp/>mProject,<sp/>&amp;QgsProject::readProject,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>&amp;ScaleBarMeasurement::resetDistanceArea<sp/>);</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/>connect(<sp/>mProject,<sp/>&amp;QgsProject::ellipsoidChanged,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>&amp;ScaleBarMeasurement::resetDistanceArea<sp/>);</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/>resetDistanceArea();</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/>measure();</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/>emit<sp/>projectChanged();</highlight></codeline>
+<codeline lineno="67"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>ScaleBarMeasurement::setMapSettings(<sp/><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref><sp/>*mapSettings<sp/>)</highlight></codeline>
+<codeline lineno="70"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>mMapSettings<sp/>==<sp/>mapSettings<sp/>)</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>mMapSettings<sp/>)</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/>disconnect(<sp/>mMapSettings,<sp/>&amp;<ref refid="classQgsQuickMapSettings_1a5bbaee0bf1722dc39bd5b3c62e2ba7d9" kindref="member">QgsQuickMapSettings::destinationCrsChanged</ref>,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>&amp;ScaleBarMeasurement::resetDistanceArea<sp/>);</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/>disconnect(<sp/>mMapSettings,<sp/>&amp;<ref refid="classQgsQuickMapSettings_1a1956e57291066171d306c1981691f5be" kindref="member">QgsQuickMapSettings::extentChanged</ref>,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>&amp;ScaleBarMeasurement::measure<sp/>);</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/>mMapSettings<sp/>=<sp/>mapSettings;</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/>connect(<sp/>mMapSettings,<sp/>&amp;<ref refid="classQgsQuickMapSettings_1a5bbaee0bf1722dc39bd5b3c62e2ba7d9" kindref="member">QgsQuickMapSettings::destinationCrsChanged</ref>,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>&amp;ScaleBarMeasurement::resetDistanceArea<sp/>);</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/>connect(<sp/>mMapSettings,<sp/>&amp;<ref refid="classQgsQuickMapSettings_1a1956e57291066171d306c1981691f5be" kindref="member">QgsQuickMapSettings::extentChanged</ref>,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>&amp;ScaleBarMeasurement::measure<sp/>);</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/>resetDistanceArea();</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/>measure();</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/>emit<sp/>mapSettingsChanged();</highlight></codeline>
+<codeline lineno="87"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref><sp/>*ScaleBarMeasurement::mapSettings()</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="90"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>mMapSettings;</highlight></codeline>
+<codeline lineno="92"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"></highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>ScaleBarMeasurement::measure()</highlight></codeline>
+<codeline lineno="95"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>mProject<sp/>&amp;&amp;<sp/>mMapSettings<sp/>)</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QgsRectangle<sp/>extent<sp/>=<sp/>mMapSettings-&gt;<ref refid="classQgsQuickMapSettings_1aa0819eabfca106939c96d57f4d48d6f0" kindref="member">mapSettings</ref>().extent();</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>yPosition<sp/>=<sp/>0.5<sp/>*<sp/>(<sp/>extent.yMinimum()<sp/>+<sp/>extent.yMaximum()<sp/>);</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"></highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Qgis::DistanceUnit<sp/>mapUnits<sp/>=<sp/>mDistanceArea.lengthUnits();</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>extentLength<sp/>=<sp/>0.0;</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">try</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>extentLength<sp/>=<sp/>mDistanceArea.measureLine(<sp/>QgsPointXY(<sp/>extent.xMinimum(),<sp/>yPosition<sp/>),</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>QgsPointXY(<sp/>extent.xMaximum(),<sp/>yPosition<sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">catch</highlight><highlight class="normal"><sp/>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QgsException<sp/>&amp;<sp/>)</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>extentLength<sp/>=<sp/>0.0;</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>extentLength<sp/>&gt;<sp/>0<sp/>)</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>Qgis::DistanceUnit<sp/>distanceUnit<sp/>=<sp/>mProject-&gt;distanceUnits();</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>extentLength<sp/>=<sp/>mDistanceArea.convertLengthMeasurement(<sp/>extentLength,<sp/>distanceUnit<sp/>);</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>QgsUnitTypes::DistanceValue<sp/>scaledDistance<sp/>=<sp/>QgsUnitTypes::scaledDistance(<sp/>extentLength,<sp/>distanceUnit,<sp/>2<sp/>);</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>distanceUnit<sp/>=<sp/>scaledDistance.unit;</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>extentLength<sp/>=<sp/>scaledDistance.value;</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"></highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>factor<sp/>=<sp/>(<sp/>extentLength<sp/>/<sp/>extent.width()<sp/>)<sp/>*<sp/>mMapSettings-&gt;<ref refid="classQgsQuickMapSettings_1aa04c21ca7d0aab10e65d1bc6b0f4313d" kindref="member">mapUnitsPerPoint</ref>();</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>range<sp/>=<sp/>mReferenceScreenLength<sp/>*<sp/>factor;</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>exponent<sp/>=<sp/>std::floor(<sp/>std::log(<sp/>range<sp/>)<sp/>/<sp/>2.302585092994046<sp/>);</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>magnitude<sp/>=<sp/>std::pow(<sp/>10,<sp/>exponent<sp/>);</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>adjustedMagnitude<sp/>=<sp/>(<sp/>distanceUnit<sp/>==<sp/>Qgis::DistanceUnit::Degrees</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>?<sp/>magnitude<sp/>/<sp/>(<sp/>1<sp/>+<sp/>(<sp/>magnitude<sp/>/<sp/>factor<sp/>)<sp/>/<sp/>mReferenceScreenLength<sp/>)</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>magnitude<sp/>/<sp/>(<sp/>1<sp/>+<sp/>std::round(<sp/>(<sp/>magnitude<sp/>/<sp/>factor<sp/>)<sp/>/<sp/>mReferenceScreenLength<sp/>)<sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>mScreenLength<sp/>=<sp/>adjustedMagnitude<sp/>/<sp/>factor;</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"></highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>std::isnan(<sp/>adjustedMagnitude<sp/>)<sp/>)</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mLabel<sp/>=<sp/>tr(<sp/></highlight><highlight class="stringliteral">&quot;Unknown&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>adjustedMagnitude<sp/>&gt;=<sp/>0.1<sp/>)</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mLabel<sp/>=<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;%1<sp/>%2&quot;</highlight><highlight class="normal"><sp/>).arg(<sp/>adjustedMagnitude<sp/>).arg(<sp/>QgsUnitTypes::toAbbreviatedString(<sp/>distanceUnit<sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>when<sp/>going<sp/>to<sp/>mm<sp/>scale,<sp/>better<sp/>show<sp/>all<sp/>the<sp/>decimals</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>scaledDistance<sp/>=<sp/>QgsUnitTypes::scaledDistance(<sp/>adjustedMagnitude,<sp/>mapUnits,<sp/>10<sp/>);</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mLabel<sp/>=<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;%1<sp/>%2&quot;</highlight><highlight class="normal"><sp/>).arg(<sp/>scaledDistance.value<sp/>).arg(<sp/>QgsUnitTypes::toAbbreviatedString(<sp/>scaledDistance.unit<sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"></highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>impreciseUnits<sp/>=<sp/>mMapSettings-&gt;<ref refid="classQgsQuickMapSettings_1aa0819eabfca106939c96d57f4d48d6f0" kindref="member">mapSettings</ref>().mapUnits()<sp/>==<sp/>Qgis::DistanceUnit::Degrees;</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>impreciseUnits<sp/>)</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mLabel<sp/>=<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;~&quot;</highlight><highlight class="normal"><sp/>)<sp/>+<sp/>mLabel;</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>mScreenLength<sp/>=<sp/>0.0;</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>mLabel<sp/>=<sp/>tr(<sp/></highlight><highlight class="stringliteral">&quot;Unknown&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/>mScreenLength<sp/>=<sp/>0.0;</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/>mLabel<sp/>=<sp/>QString();</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"></highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/>emit<sp/>screenLengthChanged();</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/>emit<sp/>labelChanged();</highlight></codeline>
+<codeline lineno="165"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"></highlight></codeline>
+<codeline lineno="167"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>ScaleBarMeasurement::setReferenceScreenLength(<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>referenceScreenLength<sp/>)</highlight></codeline>
+<codeline lineno="168"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>mReferenceScreenLength<sp/>==<sp/>referenceScreenLength<sp/>)</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"></highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/>mReferenceScreenLength<sp/>=<sp/>referenceScreenLength;</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"></highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/>emit<sp/>referenceScreenLengthChanged();</highlight></codeline>
+<codeline lineno="175"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"></highlight></codeline>
+<codeline lineno="177"><highlight class="normal"></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>ScaleBarMeasurement::referenceScreenLength()</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="178"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>mReferenceScreenLength;</highlight></codeline>
+<codeline lineno="180"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"></highlight></codeline>
+<codeline lineno="182"><highlight class="normal"></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>ScaleBarMeasurement::screenLength()</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="183"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>mScreenLength;</highlight></codeline>
+<codeline lineno="185"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="186"><highlight class="normal"></highlight></codeline>
+<codeline lineno="187"><highlight class="normal">QString<sp/>ScaleBarMeasurement::label()</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="188"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="189"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>mLabel;</highlight></codeline>
+<codeline lineno="190"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="src/core/scalebarmeasurement.cpp"/>
+  </compounddef>
+</doxygen>

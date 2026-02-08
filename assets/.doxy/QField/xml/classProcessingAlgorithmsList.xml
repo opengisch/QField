@@ -1,0 +1,138 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classProcessingAlgorithmsList" kind="class" language="C++" prot="public">
+    <compoundname>ProcessingAlgorithmsList</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QtQuick::Item</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classProcessingAlgorithmsList_1aebf502d634443c329af8b4e024501640" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias ProcessingAlgorithmsList::filters</definition>
+        <argsstring></argsstring>
+        <name>filters</name>
+        <qualifiedname>ProcessingAlgorithmsList::filters</qualifiedname>
+        <read>dummyGetter_filters_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/ProcessingAlgorithmsList.qml" line="14" column="1" bodyfile="src/qml/ProcessingAlgorithmsList.qml" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classProcessingAlgorithmsList_1a362ec6c68c47cdadc367721e2d17e664" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias ProcessingAlgorithmsList::inPlaceLayer</definition>
+        <argsstring></argsstring>
+        <name>inPlaceLayer</name>
+        <qualifiedname>ProcessingAlgorithmsList::inPlaceLayer</qualifiedname>
+        <read>dummyGetter_inPlaceLayer_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/ProcessingAlgorithmsList.qml" line="16" column="1" bodyfile="src/qml/ProcessingAlgorithmsList.qml" bodystart="16" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classProcessingAlgorithmsList_1a7da74c0ffeb3d506ed12216012bd9563" prot="private" static="no" mutable="no">
+        <type>ColumnLayout</type>
+        <definition>ColumnLayout ProcessingAlgorithmsList::container</definition>
+        <argsstring></argsstring>
+        <name>container</name>
+        <qualifiedname>ProcessingAlgorithmsList::container</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/ProcessingAlgorithmsList.qml" line="20" column="14" bodyfile="src/qml/ProcessingAlgorithmsList.qml" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classProcessingAlgorithmsList_1aa884480e2bf95c4be6a5de87af0683fe" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfTabBar" kindref="compound">QfTabBar</ref></type>
+        <definition>QfTabBar ProcessingAlgorithmsList::tabRow</definition>
+        <argsstring></argsstring>
+        <name>tabRow</name>
+        <qualifiedname>ProcessingAlgorithmsList::tabRow</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/ProcessingAlgorithmsList.qml" line="21" column="10" bodyfile="src/qml/ProcessingAlgorithmsList.qml" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classProcessingAlgorithmsList_1aceebeee7e43593e57ea40984b08f3070" prot="private" static="no" mutable="no">
+        <type>ListView</type>
+        <definition>ListView ProcessingAlgorithmsList::processingAlgorithmsListView</definition>
+        <argsstring></argsstring>
+        <name>processingAlgorithmsListView</name>
+        <qualifiedname>ProcessingAlgorithmsList::processingAlgorithmsListView</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/ProcessingAlgorithmsList.qml" line="22" column="10" bodyfile="src/qml/ProcessingAlgorithmsList.qml" bodystart="22" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classProcessingAlgorithmsList_1a64b4fc3520f343db4b0bcea617446820" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ProcessingAlgorithmsList::algorithmSelected</definition>
+        <argsstring>(var id)</argsstring>
+        <name>algorithmSelected</name>
+        <qualifiedname>ProcessingAlgorithmsList::algorithmSelected</qualifiedname>
+        <param>
+          <type>var</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/ProcessingAlgorithmsList.qml" line="18" column="17"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>ProcessingAlgorithmsList</label>
+        <link refid="classProcessingAlgorithmsList"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QtQuick::Item</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>ProcessingAlgorithmsList</label>
+        <link refid="classProcessingAlgorithmsList"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QtQuick::Item</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/qml/ProcessingAlgorithmsList.qml" line="11" column="1" bodyfile="src/qml/ProcessingAlgorithmsList.qml" bodystart="11" bodyend="23"/>
+    <listofallmembers>
+      <member refid="classProcessingAlgorithmsList_1a64b4fc3520f343db4b0bcea617446820" prot="public" virt="non-virtual"><scope>ProcessingAlgorithmsList</scope><name>algorithmSelected</name></member>
+      <member refid="classProcessingAlgorithmsList_1a7da74c0ffeb3d506ed12216012bd9563" prot="private" virt="non-virtual"><scope>ProcessingAlgorithmsList</scope><name>container</name></member>
+      <member refid="classProcessingAlgorithmsList_1aebf502d634443c329af8b4e024501640" prot="public" virt="non-virtual"><scope>ProcessingAlgorithmsList</scope><name>filters</name></member>
+      <member refid="classProcessingAlgorithmsList_1a362ec6c68c47cdadc367721e2d17e664" prot="public" virt="non-virtual"><scope>ProcessingAlgorithmsList</scope><name>inPlaceLayer</name></member>
+      <member refid="classProcessingAlgorithmsList_1aceebeee7e43593e57ea40984b08f3070" prot="private" virt="non-virtual"><scope>ProcessingAlgorithmsList</scope><name>processingAlgorithmsListView</name></member>
+      <member refid="classProcessingAlgorithmsList_1aa884480e2bf95c4be6a5de87af0683fe" prot="private" virt="non-virtual"><scope>ProcessingAlgorithmsList</scope><name>tabRow</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

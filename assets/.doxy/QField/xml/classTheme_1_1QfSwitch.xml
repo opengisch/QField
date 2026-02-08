@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classTheme_1_1QfSwitch" kind="class" language="C++" prot="public">
+    <compoundname>Theme::QfSwitch</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">SwitchDelegate</basecompoundref>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><linebreak/>
+ <linebreak/>
+<bold>Import Statement</bold> <linebreak/>
+ <programlisting><codeline><highlight class="keyword">import</highlight><highlight class="normal"><sp/>Theme<sp/></highlight></codeline>
+</programlisting> <simplesect kind="version"><para>1.0 </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>SwitchDelegate</label>
+      </node>
+      <node id="1">
+        <label>Theme::QfSwitch</label>
+        <link refid="classTheme_1_1QfSwitch"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>SwitchDelegate</label>
+      </node>
+      <node id="1">
+        <label>Theme::QfSwitch</label>
+        <link refid="classTheme_1_1QfSwitch"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/qml/imports/Theme/QfSwitch.qml" line="9" column="1" bodyfile="src/qml/imports/Theme/QfSwitch.qml" bodystart="9" bodyend="10"/>
+    <listofallmembers>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

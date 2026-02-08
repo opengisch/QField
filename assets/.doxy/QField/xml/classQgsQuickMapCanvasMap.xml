@@ -1,0 +1,1899 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQgsQuickMapCanvasMap" kind="class" language="C++" prot="public">
+    <compoundname>QgsQuickMapCanvasMap</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QQuickItem</basecompoundref>
+    <includes refid="qgsquickmapcanvasmap_8h" local="no">qgsquickmapcanvasmap.h</includes>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQgsQuickMapCanvasMap_1aa64410b42a637f2440325637afba6194" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref> *</type>
+        <definition>QgsQuickMapSettings * QgsQuickMapCanvasMap::mapSettings</definition>
+        <argsstring></argsstring>
+        <name>mapSettings</name>
+        <qualifiedname>QgsQuickMapCanvasMap::mapSettings</qualifiedname>
+        <read>mapSettings</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The mapSettings property contains configuration for rendering of the map.</para>
+<para>It should be used as a primary source of map settings (and project) for all other components in the application.</para>
+<para>This is a readonly property. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapcanvasmap.h" line="60" column="5" bodyfile="src/core/qgsquick/qgsquickmapcanvasmap.h" bodystart="60" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQgsQuickMapCanvasMap_1affbe3a31aca7326c6b4804874ed60d16" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double QgsQuickMapCanvasMap::bottomMargin</definition>
+        <argsstring></argsstring>
+        <name>bottomMargin</name>
+        <qualifiedname>QgsQuickMapCanvasMap::bottomMargin</qualifiedname>
+        <read>bottomMargin</read>
+        <write>setBottomMargin</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The bottom margin used by the map settings when calculating map extent or center. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapcanvasmap.h" line="65" column="5" bodyfile="src/core/qgsquick/qgsquickmapcanvasmap.h" bodystart="65" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQgsQuickMapCanvasMap_1a8420caebe46026464a5dd0770007a8ee" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double QgsQuickMapCanvasMap::rightMargin</definition>
+        <argsstring></argsstring>
+        <name>rightMargin</name>
+        <qualifiedname>QgsQuickMapCanvasMap::rightMargin</qualifiedname>
+        <read>rightMargin</read>
+        <write>setRightMargin</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The right margin used by the map settings when calculating map extent or center. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapcanvasmap.h" line="70" column="5" bodyfile="src/core/qgsquick/qgsquickmapcanvasmap.h" bodystart="70" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQgsQuickMapCanvasMap_1ae20c0bf4bf2917dc8def3c2e686f33d8" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QgsQuickMapCanvasMap::freeze</definition>
+        <argsstring></argsstring>
+        <name>freeze</name>
+        <qualifiedname>QgsQuickMapCanvasMap::freeze</qualifiedname>
+        <read>freeze</read>
+        <write>setFreeze</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>When freeze property is set to true, the map canvas does not refresh. The value temporary changes during the rendering process. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapcanvasmap.h" line="76" column="5" bodyfile="src/core/qgsquick/qgsquickmapcanvasmap.h" bodystart="76" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQgsQuickMapCanvasMap_1a2f36d09a3f13acbb260144f34bfa3c9b" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QgsQuickMapCanvasMap::isRendering</definition>
+        <argsstring></argsstring>
+        <name>isRendering</name>
+        <qualifiedname>QgsQuickMapCanvasMap::isRendering</qualifiedname>
+        <read>isRendering</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The isRendering property is set to true while a rendering job is pending for this map canvas map. It can be used to show a notification icon about an ongoing rendering job. This is a readonly property. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapcanvasmap.h" line="83" column="5" bodyfile="src/core/qgsquick/qgsquickmapcanvasmap.h" bodystart="83" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQgsQuickMapCanvasMap_1a447994dc538c03f30d240a22e50f27ca" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int QgsQuickMapCanvasMap::mapUpdateInterval</definition>
+        <argsstring></argsstring>
+        <name>mapUpdateInterval</name>
+        <qualifiedname>QgsQuickMapCanvasMap::mapUpdateInterval</qualifiedname>
+        <read>mapUpdateInterval</read>
+        <write>setMapUpdateInterval</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Interval in milliseconds after which the map canvas will be updated while a rendering job is ongoing. This only has an effect if incrementalRendering is activated. Default is 250 [ms]. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapcanvasmap.h" line="90" column="5" bodyfile="src/core/qgsquick/qgsquickmapcanvasmap.h" bodystart="90" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQgsQuickMapCanvasMap_1ad590287c0fe12d04281bfa6d15629590" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QgsQuickMapCanvasMap::incrementalRendering</definition>
+        <argsstring></argsstring>
+        <name>incrementalRendering</name>
+        <qualifiedname>QgsQuickMapCanvasMap::incrementalRendering</qualifiedname>
+        <read>incrementalRendering</read>
+        <write>setIncrementalRendering</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>When the incrementalRendering property is set to true, the automatic refresh of map canvas during rendering is allowed. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapcanvasmap.h" line="95" column="5" bodyfile="src/core/qgsquick/qgsquickmapcanvasmap.h" bodystart="95" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQgsQuickMapCanvasMap_1a585fde6b8928cc9e175e23e3822dd1c7" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double QgsQuickMapCanvasMap::quality</definition>
+        <argsstring></argsstring>
+        <name>quality</name>
+        <qualifiedname>QgsQuickMapCanvasMap::quality</qualifiedname>
+        <read>quality</read>
+        <write>setQuality</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The quality property allows for an increase in rendering speed and memory usage reduction at the cost of rendering quality.</para>
+<para>By default, the value is set to 1.0, providing for the best rendering. The lowest quality value is 0.5. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapcanvasmap.h" line="104" column="5" bodyfile="src/core/qgsquick/qgsquickmapcanvasmap.h" bodystart="104" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQgsQuickMapCanvasMap_1aeb94a9020d263cfb0f1341e3eff9f026" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QgsQuickMapCanvasMap::smooth</definition>
+        <argsstring></argsstring>
+        <name>smooth</name>
+        <qualifiedname>QgsQuickMapCanvasMap::smooth</qualifiedname>
+        <read>smooth</read>
+        <write>setSmooth</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>When the smooth property is set to true, canvas map panning, zooming, and rotation changes while be interpolated to create a smoother transition. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapcanvasmap.h" line="110" column="5" bodyfile="src/core/qgsquick/qgsquickmapcanvasmap.h" bodystart="110" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQgsQuickMapCanvasMap_1a4e72427de4bbfa3f3e0478c10263fdfe" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double QgsQuickMapCanvasMap::forceDeferredLayersRepaint</definition>
+        <argsstring></argsstring>
+        <name>forceDeferredLayersRepaint</name>
+        <qualifiedname>QgsQuickMapCanvasMap::forceDeferredLayersRepaint</qualifiedname>
+        <read>forceDeferredLayersRepaint</read>
+        <write>setForceDeferredLayersRepaint</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>When the forceDeferredLayersRepaint property is set to true, all layer repaint signals will be deferred. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapcanvasmap.h" line="115" column="5" bodyfile="src/core/qgsquick/qgsquickmapcanvasmap.h" bodystart="115" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQgsQuickMapCanvasMap_1a088c641594062ad89b6fa82aae1d61a9" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QgsQuickMapCanvasMap::previewJobsEnabled</definition>
+        <argsstring></argsstring>
+        <name>previewJobsEnabled</name>
+        <qualifiedname>QgsQuickMapCanvasMap::previewJobsEnabled</qualifiedname>
+        <read>previewJobsEnabled</read>
+        <write>setPreviewJobsEnabled</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>When the previewJobsEnabled property is set to true, canvas map preview jobs (low priority render jobs which render portions of the view just outside of the canvas extent, to allow preview of these out-of-canvas areas when panning or zooming out the map) while be rendered. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapcanvasmap.h" line="123" column="5" bodyfile="src/core/qgsquick/qgsquickmapcanvasmap.h" bodystart="123" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQgsQuickMapCanvasMap_1a3a5fd2330c22c91b319f18a153caca5c" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QList&lt; int &gt;</type>
+        <definition>QList&lt;int&gt; QgsQuickMapCanvasMap::previewJobsQuadrants</definition>
+        <argsstring></argsstring>
+        <name>previewJobsQuadrants</name>
+        <qualifiedname>QgsQuickMapCanvasMap::previewJobsQuadrants</qualifiedname>
+        <read>previewJobsQuadrants</read>
+        <write>setPreviewJobsQuadrants</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The previewJobsQuadrants property is used to customize the preview jobs ordering. The possible quadrant integer values are:</para>
+<para>0 (top left) | 1 (top) | 2 (top right) 3 (left) | canvas | 5 (right) 6 (bottom left) | 7 (bottom) | 8 (bottom right) </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapcanvasmap.h" line="133" column="5" bodyfile="src/core/qgsquick/qgsquickmapcanvasmap.h" bodystart="133" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQgsQuickMapCanvasMap_1aa01dab0aab4cf74169b49fa8f03c649f" prot="private" static="no" mutable="no">
+        <type>std::unique_ptr&lt; <ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref> &gt;</type>
+        <definition>std::unique_ptr&lt;QgsQuickMapSettings&gt; QgsQuickMapCanvasMap::mMapSettings</definition>
+        <argsstring></argsstring>
+        <name>mMapSettings</name>
+        <qualifiedname>QgsQuickMapCanvasMap::mMapSettings</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapcanvasmap.h" line="322" column="21" bodyfile="src/core/qgsquick/qgsquickmapcanvasmap.h" bodystart="322" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQgsQuickMapCanvasMap_1a3cb6408d9f12a65fab1d76859be136ab" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool QgsQuickMapCanvasMap::mPinching</definition>
+        <argsstring></argsstring>
+        <name>mPinching</name>
+        <qualifiedname>QgsQuickMapCanvasMap::mPinching</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapcanvasmap.h" line="323" column="10" bodyfile="src/core/qgsquick/qgsquickmapcanvasmap.h" bodystart="323" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQgsQuickMapCanvasMap_1a6741e8c916be1bd00979420034410329" prot="private" static="no" mutable="no">
+        <type>QPoint</type>
+        <definition>QPoint QgsQuickMapCanvasMap::mPinchStartPoint</definition>
+        <argsstring></argsstring>
+        <name>mPinchStartPoint</name>
+        <qualifiedname>QgsQuickMapCanvasMap::mPinchStartPoint</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapcanvasmap.h" line="324" column="12" bodyfile="src/core/qgsquick/qgsquickmapcanvasmap.h" bodystart="324" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQgsQuickMapCanvasMap_1adf5e9a3509541941d837ac1816c95206" prot="private" static="no" mutable="no">
+        <type>QgsMapRendererParallelJob *</type>
+        <definition>QgsMapRendererParallelJob* QgsQuickMapCanvasMap::mJob</definition>
+        <argsstring></argsstring>
+        <name>mJob</name>
+        <qualifiedname>QgsQuickMapCanvasMap::mJob</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapcanvasmap.h" line="325" column="31" bodyfile="src/core/qgsquick/qgsquickmapcanvasmap.h" bodystart="325" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQgsQuickMapCanvasMap_1a391005f41d670ae0e0507e860aa36e23" prot="private" static="no" mutable="no">
+        <type>std::unique_ptr&lt; QgsMapRendererCache &gt;</type>
+        <definition>std::unique_ptr&lt;QgsMapRendererCache&gt; QgsQuickMapCanvasMap::mCache</definition>
+        <argsstring></argsstring>
+        <name>mCache</name>
+        <qualifiedname>QgsQuickMapCanvasMap::mCache</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapcanvasmap.h" line="326" column="21" bodyfile="src/core/qgsquick/qgsquickmapcanvasmap.h" bodystart="326" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQgsQuickMapCanvasMap_1a3d7c7ad2f716739d4affe1787db918b4" prot="private" static="no" mutable="no">
+        <type>QgsLabelingResults *</type>
+        <definition>QgsLabelingResults* QgsQuickMapCanvasMap::mLabelingResults</definition>
+        <argsstring></argsstring>
+        <name>mLabelingResults</name>
+        <qualifiedname>QgsQuickMapCanvasMap::mLabelingResults</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapcanvasmap.h" line="327" column="24" bodyfile="src/core/qgsquick/qgsquickmapcanvasmap.h" bodystart="327" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQgsQuickMapCanvasMap_1a26cb1898a3a36a8b68cd194511ae2cc2" prot="private" static="no" mutable="no">
+        <type>QImage</type>
+        <definition>QImage QgsQuickMapCanvasMap::mImage</definition>
+        <argsstring></argsstring>
+        <name>mImage</name>
+        <qualifiedname>QgsQuickMapCanvasMap::mImage</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapcanvasmap.h" line="328" column="12" bodyfile="src/core/qgsquick/qgsquickmapcanvasmap.h" bodystart="328" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQgsQuickMapCanvasMap_1acf7676ce2ca9d71cf0efedb5d282e32c" prot="private" static="no" mutable="no">
+        <type>QgsMapSettings</type>
+        <definition>QgsMapSettings QgsQuickMapCanvasMap::mImageMapSettings</definition>
+        <argsstring></argsstring>
+        <name>mImageMapSettings</name>
+        <qualifiedname>QgsQuickMapCanvasMap::mImageMapSettings</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapcanvasmap.h" line="329" column="20" bodyfile="src/core/qgsquick/qgsquickmapcanvasmap.h" bodystart="329" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQgsQuickMapCanvasMap_1a06869ba0ad8cdd1d3f5d2db7459664f9" prot="private" static="no" mutable="no">
+        <type>QTimer</type>
+        <definition>QTimer QgsQuickMapCanvasMap::mRefreshTimer</definition>
+        <argsstring></argsstring>
+        <name>mRefreshTimer</name>
+        <qualifiedname>QgsQuickMapCanvasMap::mRefreshTimer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapcanvasmap.h" line="330" column="12" bodyfile="src/core/qgsquick/qgsquickmapcanvasmap.h" bodystart="330" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQgsQuickMapCanvasMap_1a8fb0a6ae1b3a6716318dffe87a7e77a4" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool QgsQuickMapCanvasMap::mDirty</definition>
+        <argsstring></argsstring>
+        <name>mDirty</name>
+        <qualifiedname>QgsQuickMapCanvasMap::mDirty</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapcanvasmap.h" line="331" column="10" bodyfile="src/core/qgsquick/qgsquickmapcanvasmap.h" bodystart="331" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQgsQuickMapCanvasMap_1a9136e4eee8e6ce7a35e6f7eb78d13084" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool QgsQuickMapCanvasMap::mFreeze</definition>
+        <argsstring></argsstring>
+        <name>mFreeze</name>
+        <qualifiedname>QgsQuickMapCanvasMap::mFreeze</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapcanvasmap.h" line="332" column="10" bodyfile="src/core/qgsquick/qgsquickmapcanvasmap.h" bodystart="332" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQgsQuickMapCanvasMap_1af3f0fae416fc1c5e58f00019bbd5c878" prot="private" static="no" mutable="no">
+        <type>QList&lt; QMetaObject::Connection &gt;</type>
+        <definition>QList&lt;QMetaObject::Connection&gt; QgsQuickMapCanvasMap::mLayerConnections</definition>
+        <argsstring></argsstring>
+        <name>mLayerConnections</name>
+        <qualifiedname>QgsQuickMapCanvasMap::mLayerConnections</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapcanvasmap.h" line="333" column="11" bodyfile="src/core/qgsquick/qgsquickmapcanvasmap.h" bodystart="333" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQgsQuickMapCanvasMap_1aca07ded6ff03a71db1da3f5efa9c0548" prot="private" static="no" mutable="no">
+        <type>QTimer</type>
+        <definition>QTimer QgsQuickMapCanvasMap::mMapUpdateTimer</definition>
+        <argsstring></argsstring>
+        <name>mMapUpdateTimer</name>
+        <qualifiedname>QgsQuickMapCanvasMap::mMapUpdateTimer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapcanvasmap.h" line="334" column="12" bodyfile="src/core/qgsquick/qgsquickmapcanvasmap.h" bodystart="334" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQgsQuickMapCanvasMap_1ad4c0b2b469c9adceedde2eb05fddbd72" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool QgsQuickMapCanvasMap::mIncrementalRendering</definition>
+        <argsstring></argsstring>
+        <name>mIncrementalRendering</name>
+        <qualifiedname>QgsQuickMapCanvasMap::mIncrementalRendering</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapcanvasmap.h" line="335" column="10" bodyfile="src/core/qgsquick/qgsquickmapcanvasmap.h" bodystart="335" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQgsQuickMapCanvasMap_1a725739a1dae5a6e35703d7ab5c6d9d08" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool QgsQuickMapCanvasMap::mSilentRefresh</definition>
+        <argsstring></argsstring>
+        <name>mSilentRefresh</name>
+        <qualifiedname>QgsQuickMapCanvasMap::mSilentRefresh</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapcanvasmap.h" line="336" column="10" bodyfile="src/core/qgsquick/qgsquickmapcanvasmap.h" bodystart="336" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQgsQuickMapCanvasMap_1abfb36774b6777ef4f2a023a8985db71d" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool QgsQuickMapCanvasMap::mDeferredRefreshPending</definition>
+        <argsstring></argsstring>
+        <name>mDeferredRefreshPending</name>
+        <qualifiedname>QgsQuickMapCanvasMap::mDeferredRefreshPending</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapcanvasmap.h" line="337" column="10" bodyfile="src/core/qgsquick/qgsquickmapcanvasmap.h" bodystart="337" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQgsQuickMapCanvasMap_1a511814a4d0677e5a81059e8a107b1ef9" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double QgsQuickMapCanvasMap::mQuality</definition>
+        <argsstring></argsstring>
+        <name>mQuality</name>
+        <qualifiedname>QgsQuickMapCanvasMap::mQuality</qualifiedname>
+        <initializer>= 1.0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapcanvasmap.h" line="338" column="12" bodyfile="src/core/qgsquick/qgsquickmapcanvasmap.h" bodystart="338" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQgsQuickMapCanvasMap_1a485171df99595fdc3286f6104be00a48" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool QgsQuickMapCanvasMap::mSmooth</definition>
+        <argsstring></argsstring>
+        <name>mSmooth</name>
+        <qualifiedname>QgsQuickMapCanvasMap::mSmooth</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapcanvasmap.h" line="339" column="10" bodyfile="src/core/qgsquick/qgsquickmapcanvasmap.h" bodystart="339" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQgsQuickMapCanvasMap_1a81b854eb79e13c71abdfc09d6a32e4a2" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool QgsQuickMapCanvasMap::mForceDeferredLayersRepaint</definition>
+        <argsstring></argsstring>
+        <name>mForceDeferredLayersRepaint</name>
+        <qualifiedname>QgsQuickMapCanvasMap::mForceDeferredLayersRepaint</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapcanvasmap.h" line="340" column="10" bodyfile="src/core/qgsquick/qgsquickmapcanvasmap.h" bodystart="340" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQgsQuickMapCanvasMap_1a37747b2994e3f3cc7737703984ff3059" prot="private" static="no" mutable="no">
+        <type>QHash&lt; QString, int &gt;</type>
+        <definition>QHash&lt;QString, int&gt; QgsQuickMapCanvasMap::mLastLayerRenderTime</definition>
+        <argsstring></argsstring>
+        <name>mLastLayerRenderTime</name>
+        <qualifiedname>QgsQuickMapCanvasMap::mLastLayerRenderTime</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapcanvasmap.h" line="342" column="11" bodyfile="src/core/qgsquick/qgsquickmapcanvasmap.h" bodystart="342" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQgsQuickMapCanvasMap_1a6befcc92e3944b213560b7dc0a5f4aef" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool QgsQuickMapCanvasMap::mPreviewJobsEnabled</definition>
+        <argsstring></argsstring>
+        <name>mPreviewJobsEnabled</name>
+        <qualifiedname>QgsQuickMapCanvasMap::mPreviewJobsEnabled</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapcanvasmap.h" line="344" column="10" bodyfile="src/core/qgsquick/qgsquickmapcanvasmap.h" bodystart="344" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQgsQuickMapCanvasMap_1a7cbe1e4b6b355ba48bae771e4b975a2c" prot="private" static="no" mutable="no">
+        <type>QList&lt; int &gt;</type>
+        <definition>QList&lt;int&gt; QgsQuickMapCanvasMap::mPreviewJobsQuadrants</definition>
+        <argsstring></argsstring>
+        <name>mPreviewJobsQuadrants</name>
+        <qualifiedname>QgsQuickMapCanvasMap::mPreviewJobsQuadrants</qualifiedname>
+        <initializer>= { 0, 1, 2, 3, 5, 6, 7, 8 }</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapcanvasmap.h" line="345" column="11" bodyfile="src/core/qgsquick/qgsquickmapcanvasmap.h" bodystart="345" bodyend="345"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQgsQuickMapCanvasMap_1a8bba92837a4548bc5009c9b45ba28e13" prot="private" static="no" mutable="no">
+        <type>QList&lt; QgsMapRendererQImageJob * &gt;</type>
+        <definition>QList&lt;QgsMapRendererQImageJob *&gt; QgsQuickMapCanvasMap::mPreviewJobs</definition>
+        <argsstring></argsstring>
+        <name>mPreviewJobs</name>
+        <qualifiedname>QgsQuickMapCanvasMap::mPreviewJobs</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapcanvasmap.h" line="346" column="11" bodyfile="src/core/qgsquick/qgsquickmapcanvasmap.h" bodystart="346" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQgsQuickMapCanvasMap_1a7c42baabbe842b55bd5bf9fc10ab80ca" prot="private" static="no" mutable="no">
+        <type>QTimer</type>
+        <definition>QTimer QgsQuickMapCanvasMap::mPreviewTimer</definition>
+        <argsstring></argsstring>
+        <name>mPreviewTimer</name>
+        <qualifiedname>QgsQuickMapCanvasMap::mPreviewTimer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapcanvasmap.h" line="347" column="12" bodyfile="src/core/qgsquick/qgsquickmapcanvasmap.h" bodystart="347" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQgsQuickMapCanvasMap_1a01f0b140cd1ff6f02469677e217af6c4" prot="private" static="no" mutable="no">
+        <type>QMetaObject::Connection</type>
+        <definition>QMetaObject::Connection QgsQuickMapCanvasMap::mPreviewTimerConnection</definition>
+        <argsstring></argsstring>
+        <name>mPreviewTimerConnection</name>
+        <qualifiedname>QgsQuickMapCanvasMap::mPreviewTimerConnection</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapcanvasmap.h" line="348" column="29" bodyfile="src/core/qgsquick/qgsquickmapcanvasmap.h" bodystart="348" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQgsQuickMapCanvasMap_1abc7dbb6340fe0500a98f8c2eccd67363" prot="private" static="no" mutable="no">
+        <type>QMap&lt; int, QImage &gt;</type>
+        <definition>QMap&lt;int, QImage&gt; QgsQuickMapCanvasMap::mPreviewImages</definition>
+        <argsstring></argsstring>
+        <name>mPreviewImages</name>
+        <qualifiedname>QgsQuickMapCanvasMap::mPreviewImages</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapcanvasmap.h" line="349" column="10" bodyfile="src/core/qgsquick/qgsquickmapcanvasmap.h" bodystart="349" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQgsQuickMapCanvasMap_1a2c64988e62f9f77bdc46afd38025acc8" prot="private" static="no" mutable="no">
+        <type>QQuickWindow *</type>
+        <definition>QQuickWindow* QgsQuickMapCanvasMap::mWindow</definition>
+        <argsstring></argsstring>
+        <name>mWindow</name>
+        <qualifiedname>QgsQuickMapCanvasMap::mWindow</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapcanvasmap.h" line="351" column="18" bodyfile="src/core/qgsquick/qgsquickmapcanvasmap.h" bodystart="351" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQgsQuickMapCanvasMap_1af02223d649ac3425fec0dbc3e9f2b161" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>QgsQuickMapCanvasMap::QgsQuickMapCanvasMap</definition>
+        <argsstring>(QQuickItem *parent=nullptr)</argsstring>
+        <name>QgsQuickMapCanvasMap</name>
+        <qualifiedname>QgsQuickMapCanvasMap::QgsQuickMapCanvasMap</qualifiedname>
+        <param>
+          <type>QQuickItem *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+<para>Create map canvas map. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapcanvasmap.h" line="137" column="14" bodyfile="src/core/qgsquick/qgsquickmapcanvasmap.cpp" bodystart="39" bodyend="62"/>
+      </memberdef>
+      <memberdef kind="function" id="classQgsQuickMapCanvasMap_1a03be4229f59e35ff8150e4d9dd7e5119" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>QgsQuickMapCanvasMap::~QgsQuickMapCanvasMap</definition>
+        <argsstring>()</argsstring>
+        <name>~QgsQuickMapCanvasMap</name>
+        <qualifiedname>QgsQuickMapCanvasMap::~QgsQuickMapCanvasMap</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapcanvasmap.h" line="138" column="5" bodyfile="src/core/qgsquick/qgsquickmapcanvasmap.cpp" bodystart="64" bodyend="67"/>
+      </memberdef>
+      <memberdef kind="function" id="classQgsQuickMapCanvasMap_1ac417b1572468a4958ea3fdd8e93e51f7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>QSGNode *</type>
+        <definition>QSGNode * QgsQuickMapCanvasMap::updatePaintNode</definition>
+        <argsstring>(QSGNode *oldNode, QQuickItem::UpdatePaintNodeData *) override</argsstring>
+        <name>updatePaintNode</name>
+        <qualifiedname>QgsQuickMapCanvasMap::updatePaintNode</qualifiedname>
+        <param>
+          <type>QSGNode *</type>
+          <declname>oldNode</declname>
+        </param>
+        <param>
+          <type>QQuickItem::UpdatePaintNodeData *</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapcanvasmap.h" line="140" column="13" bodyfile="src/core/qgsquick/qgsquickmapcanvasmap.cpp" bodystart="492" bodyend="586"/>
+      </memberdef>
+      <memberdef kind="function" id="classQgsQuickMapCanvasMap_1a2370a778eaffc3dd54241c3b3c3e5021" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref> *</type>
+        <definition>QgsQuickMapSettings * QgsQuickMapCanvasMap::mapSettings</definition>
+        <argsstring>() const</argsstring>
+        <name>mapSettings</name>
+        <qualifiedname>QgsQuickMapCanvasMap::mapSettings</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The mapSettings property contains configuration for rendering of the map.</para>
+<para>It should be used as a primary source of map settings (and project) for all other components in the application.</para>
+<para>This is a readonly property.   </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapcanvasmap.h" line="143" column="25" bodyfile="src/core/qgsquick/qgsquickmapcanvasmap.cpp" bodystart="69" bodyend="72"/>
+      </memberdef>
+      <memberdef kind="function" id="classQgsQuickMapCanvasMap_1aff3f59ca2ba4cd41df02ed4666745051" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QgsQuickMapCanvasMap::freeze</definition>
+        <argsstring>() const</argsstring>
+        <name>freeze</name>
+        <qualifiedname>QgsQuickMapCanvasMap::freeze</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>When freeze property is set to true, the map canvas does not refresh. The value temporary changes during the rendering process.   </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapcanvasmap.h" line="146" column="10" bodyfile="src/core/qgsquick/qgsquickmapcanvasmap.cpp" bodystart="467" bodyend="470"/>
+      </memberdef>
+      <memberdef kind="function" id="classQgsQuickMapCanvasMap_1aa50da5c99bfb27f108db89602a8d9667" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QgsQuickMapCanvasMap::setFreeze</definition>
+        <argsstring>(bool freeze)</argsstring>
+        <name>setFreeze</name>
+        <qualifiedname>QgsQuickMapCanvasMap::setFreeze</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>freeze</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>When freeze property is set to true, the map canvas does not refresh. The value temporary changes during the rendering process.   </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapcanvasmap.h" line="149" column="10" bodyfile="src/core/qgsquick/qgsquickmapcanvasmap.cpp" bodystart="472" bodyend="485"/>
+      </memberdef>
+      <memberdef kind="function" id="classQgsQuickMapCanvasMap_1a031b0e002990c2cb47fcff7e88442250" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QgsQuickMapCanvasMap::isRendering</definition>
+        <argsstring>() const</argsstring>
+        <name>isRendering</name>
+        <qualifiedname>QgsQuickMapCanvasMap::isRendering</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The isRendering property is set to true while a rendering job is pending for this map canvas map. It can be used to show a notification icon about an ongoing rendering job. This is a readonly property.   </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapcanvasmap.h" line="152" column="10" bodyfile="src/core/qgsquick/qgsquickmapcanvasmap.cpp" bodystart="487" bodyend="490"/>
+      </memberdef>
+      <memberdef kind="function" id="classQgsQuickMapCanvasMap_1ae2d5cd988a5547b745e924a5b453b43d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int QgsQuickMapCanvasMap::mapUpdateInterval</definition>
+        <argsstring>() const</argsstring>
+        <name>mapUpdateInterval</name>
+        <qualifiedname>QgsQuickMapCanvasMap::mapUpdateInterval</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Interval in milliseconds after which the map canvas will be updated while a rendering job is ongoing. This only has an effect if incrementalRendering is activated. Default is 250 [ms].   </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapcanvasmap.h" line="155" column="9" bodyfile="src/core/qgsquick/qgsquickmapcanvasmap.cpp" bodystart="364" bodyend="367"/>
+      </memberdef>
+      <memberdef kind="function" id="classQgsQuickMapCanvasMap_1a4909cd89da1e9e3b8f944daf5b992e73" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QgsQuickMapCanvasMap::setMapUpdateInterval</definition>
+        <argsstring>(int mapUpdateInterval)</argsstring>
+        <name>setMapUpdateInterval</name>
+        <qualifiedname>QgsQuickMapCanvasMap::setMapUpdateInterval</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>mapUpdateInterval</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Interval in milliseconds after which the map canvas will be updated while a rendering job is ongoing. This only has an effect if incrementalRendering is activated. Default is 250 [ms].   </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapcanvasmap.h" line="158" column="10" bodyfile="src/core/qgsquick/qgsquickmapcanvasmap.cpp" bodystart="369" bodyend="377"/>
+      </memberdef>
+      <memberdef kind="function" id="classQgsQuickMapCanvasMap_1a91121375dca69b44977093a83e012cfe" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QgsQuickMapCanvasMap::incrementalRendering</definition>
+        <argsstring>() const</argsstring>
+        <name>incrementalRendering</name>
+        <qualifiedname>QgsQuickMapCanvasMap::incrementalRendering</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>When the incrementalRendering property is set to true, the automatic refresh of map canvas during rendering is allowed.   </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapcanvasmap.h" line="161" column="10" bodyfile="src/core/qgsquick/qgsquickmapcanvasmap.cpp" bodystart="379" bodyend="382"/>
+      </memberdef>
+      <memberdef kind="function" id="classQgsQuickMapCanvasMap_1a99f4035b31823f15261e200db2a33454" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QgsQuickMapCanvasMap::setIncrementalRendering</definition>
+        <argsstring>(bool incrementalRendering)</argsstring>
+        <name>setIncrementalRendering</name>
+        <qualifiedname>QgsQuickMapCanvasMap::setIncrementalRendering</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>incrementalRendering</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>When the incrementalRendering property is set to true, the automatic refresh of map canvas during rendering is allowed.   </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapcanvasmap.h" line="164" column="10" bodyfile="src/core/qgsquick/qgsquickmapcanvasmap.cpp" bodystart="384" bodyend="391"/>
+      </memberdef>
+      <memberdef kind="function" id="classQgsQuickMapCanvasMap_1afe5fe025afd39d1c5d282b25f6d91221" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double QgsQuickMapCanvasMap::quality</definition>
+        <argsstring>() const</argsstring>
+        <name>quality</name>
+        <qualifiedname>QgsQuickMapCanvasMap::quality</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The quality property allows for an increase in rendering speed and memory usage reduction at the cost of rendering quality.</para>
+<para>By default, the value is set to 1.0, providing for the best rendering. The lowest quality value is 0.5.   </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapcanvasmap.h" line="167" column="12" bodyfile="src/core/qgsquick/qgsquickmapcanvasmap.cpp" bodystart="393" bodyend="396"/>
+      </memberdef>
+      <memberdef kind="function" id="classQgsQuickMapCanvasMap_1a40f3b1875cb8115eae2bea9616fc8ef0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QgsQuickMapCanvasMap::setQuality</definition>
+        <argsstring>(double quality)</argsstring>
+        <name>setQuality</name>
+        <qualifiedname>QgsQuickMapCanvasMap::setQuality</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>quality</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>When the incrementalRendering property is set to true, the automatic refresh of map canvas during rendering is allowed.   </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapcanvasmap.h" line="170" column="10" bodyfile="src/core/qgsquick/qgsquickmapcanvasmap.cpp" bodystart="398" bodyend="409"/>
+      </memberdef>
+      <memberdef kind="function" id="classQgsQuickMapCanvasMap_1a53466c590cfd0328bef5d595db42b802" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QgsQuickMapCanvasMap::smooth</definition>
+        <argsstring>() const</argsstring>
+        <name>smooth</name>
+        <qualifiedname>QgsQuickMapCanvasMap::smooth</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>When the smooth property is set to true, canvas map panning, zooming, and rotation changes while be interpolated to create a smoother transition.   </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapcanvasmap.h" line="173" column="10" bodyfile="src/core/qgsquick/qgsquickmapcanvasmap.cpp" bodystart="411" bodyend="414"/>
+      </memberdef>
+      <memberdef kind="function" id="classQgsQuickMapCanvasMap_1aa71b9b3da9b3aa43a22a3a69ef475e10" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QgsQuickMapCanvasMap::setSmooth</definition>
+        <argsstring>(bool smooth)</argsstring>
+        <name>setSmooth</name>
+        <qualifiedname>QgsQuickMapCanvasMap::setSmooth</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>smooth</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>When the smooth property is set to true, canvas map panning, zooming, and rotation changes while be interpolated to create a smoother transition.   </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapcanvasmap.h" line="176" column="10" bodyfile="src/core/qgsquick/qgsquickmapcanvasmap.cpp" bodystart="416" bodyend="423"/>
+      </memberdef>
+      <memberdef kind="function" id="classQgsQuickMapCanvasMap_1ab633689b7be757cd36f3bcffcab61e8a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QgsQuickMapCanvasMap::forceDeferredLayersRepaint</definition>
+        <argsstring>() const</argsstring>
+        <name>forceDeferredLayersRepaint</name>
+        <qualifiedname>QgsQuickMapCanvasMap::forceDeferredLayersRepaint</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>When the forceDeferredLayersRepaint property is set to true, all layer repaint signals will be deferred.   </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapcanvasmap.h" line="179" column="10" bodyfile="src/core/qgsquick/qgsquickmapcanvasmap.cpp" bodystart="453" bodyend="456"/>
+      </memberdef>
+      <memberdef kind="function" id="classQgsQuickMapCanvasMap_1a96236c17773ff7bf57c32ab8ea42aa0c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QgsQuickMapCanvasMap::setForceDeferredLayersRepaint</definition>
+        <argsstring>(bool deferred)</argsstring>
+        <name>setForceDeferredLayersRepaint</name>
+        <qualifiedname>QgsQuickMapCanvasMap::setForceDeferredLayersRepaint</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>deferred</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>When the forceDeferredLayersRepaint property is set to true, all layer repaint signals will be deferred.   </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapcanvasmap.h" line="182" column="10" bodyfile="src/core/qgsquick/qgsquickmapcanvasmap.cpp" bodystart="458" bodyend="465"/>
+      </memberdef>
+      <memberdef kind="function" id="classQgsQuickMapCanvasMap_1a739e852b850495098bb04a7750f1e87b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double QgsQuickMapCanvasMap::bottomMargin</definition>
+        <argsstring>() const</argsstring>
+        <name>bottomMargin</name>
+        <qualifiedname>QgsQuickMapCanvasMap::bottomMargin</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The bottom margin used by the map settings when calculating map extent or center.   </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapcanvasmap.h" line="185" column="12" bodyfile="src/core/qgsquick/qgsquickmapcanvasmap.cpp" bodystart="425" bodyend="428"/>
+      </memberdef>
+      <memberdef kind="function" id="classQgsQuickMapCanvasMap_1ac937744b6d37418042ca5c5a41bf2327" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QgsQuickMapCanvasMap::setBottomMargin</definition>
+        <argsstring>(double bottomMargin)</argsstring>
+        <name>setBottomMargin</name>
+        <qualifiedname>QgsQuickMapCanvasMap::setBottomMargin</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>bottomMargin</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The bottom margin used by the map settings when calculating map extent or center.   </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapcanvasmap.h" line="188" column="10" bodyfile="src/core/qgsquick/qgsquickmapcanvasmap.cpp" bodystart="430" bodyend="437"/>
+      </memberdef>
+      <memberdef kind="function" id="classQgsQuickMapCanvasMap_1a60bea75c83c39ffff625a831a76479d8" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double QgsQuickMapCanvasMap::rightMargin</definition>
+        <argsstring>() const</argsstring>
+        <name>rightMargin</name>
+        <qualifiedname>QgsQuickMapCanvasMap::rightMargin</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The right margin used by the map settings when calculating map extent or center.   </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapcanvasmap.h" line="191" column="12" bodyfile="src/core/qgsquick/qgsquickmapcanvasmap.cpp" bodystart="439" bodyend="442"/>
+      </memberdef>
+      <memberdef kind="function" id="classQgsQuickMapCanvasMap_1aa36b4c21313dea28979134dffb8304cc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QgsQuickMapCanvasMap::setRightMargin</definition>
+        <argsstring>(double rightMargin)</argsstring>
+        <name>setRightMargin</name>
+        <qualifiedname>QgsQuickMapCanvasMap::setRightMargin</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>rightMargin</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The right margin used by the map settings when calculating map extent or center.   </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapcanvasmap.h" line="194" column="10" bodyfile="src/core/qgsquick/qgsquickmapcanvasmap.cpp" bodystart="444" bodyend="451"/>
+      </memberdef>
+      <memberdef kind="function" id="classQgsQuickMapCanvasMap_1a8aa811e889a9a707ba7e282d9cc88139" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QgsQuickMapCanvasMap::previewJobsEnabled</definition>
+        <argsstring>() const</argsstring>
+        <name>previewJobsEnabled</name>
+        <qualifiedname>QgsQuickMapCanvasMap::previewJobsEnabled</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>When the previewJobsEnabled property is set to true, canvas map preview jobs (low priority render jobs which render portions of the view just outside of the canvas extent, to allow preview of these out-of-canvas areas when panning or zooming out the map) while be rendered.   </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapcanvasmap.h" line="197" column="10" bodyfile="src/core/qgsquick/qgsquickmapcanvasmap.cpp" bodystart="801" bodyend="804"/>
+      </memberdef>
+      <memberdef kind="function" id="classQgsQuickMapCanvasMap_1ae82f94193ae11c540a5e466703fa5977" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QgsQuickMapCanvasMap::setPreviewJobsEnabled</definition>
+        <argsstring>(bool enabled)</argsstring>
+        <name>setPreviewJobsEnabled</name>
+        <qualifiedname>QgsQuickMapCanvasMap::setPreviewJobsEnabled</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>enabled</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>When the previewJobsEnabled property is set to true, canvas map preview jobs (low priority render jobs which render portions of the view just outside of the canvas extent, to allow preview of these out-of-canvas areas when panning or zooming out the map) while be rendered.   </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapcanvasmap.h" line="200" column="10" bodyfile="src/core/qgsquick/qgsquickmapcanvasmap.cpp" bodystart="806" bodyend="819"/>
+      </memberdef>
+      <memberdef kind="function" id="classQgsQuickMapCanvasMap_1ab14830eb241ba7dc9cef23a67312662b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QList&lt; int &gt;</type>
+        <definition>QList&lt; int &gt; QgsQuickMapCanvasMap::previewJobsQuadrants</definition>
+        <argsstring>() const</argsstring>
+        <name>previewJobsQuadrants</name>
+        <qualifiedname>QgsQuickMapCanvasMap::previewJobsQuadrants</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The previewJobsQuadrants property is used to customize the preview jobs ordering. The possible quadrant integer values are:</para>
+<para>0 (top left) | 1 (top) | 2 (top right) 3 (left) | canvas | 5 (right) 6 (bottom left) | 7 (bottom) | 8 (bottom right)   </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapcanvasmap.h" line="203" column="11" bodyfile="src/core/qgsquick/qgsquickmapcanvasmap.cpp" bodystart="821" bodyend="824"/>
+      </memberdef>
+      <memberdef kind="function" id="classQgsQuickMapCanvasMap_1aba7e7f4953a49a9717261fa68cca4766" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QgsQuickMapCanvasMap::setPreviewJobsQuadrants</definition>
+        <argsstring>(const QList&lt; int &gt; &amp;quadrants)</argsstring>
+        <name>setPreviewJobsQuadrants</name>
+        <qualifiedname>QgsQuickMapCanvasMap::setPreviewJobsQuadrants</qualifiedname>
+        <param>
+          <type>const QList&lt; int &gt; &amp;</type>
+          <declname>quadrants</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The previewJobsQuadrants property is used to customize the preview jobs ordering. The possible quadrant integer values are:</para>
+<para>0 (top left) | 1 (top) | 2 (top right) 3 (left) | canvas | 5 (right) 6 (bottom left) | 7 (bottom) | 8 (bottom right)   </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapcanvasmap.h" line="206" column="10" bodyfile="src/core/qgsquick/qgsquickmapcanvasmap.cpp" bodystart="826" bodyend="833"/>
+      </memberdef>
+      <memberdef kind="function" id="classQgsQuickMapCanvasMap_1ad6e69245b7c313fcaa7a945b6e523884" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QImage</type>
+        <definition>QImage QgsQuickMapCanvasMap::image</definition>
+        <argsstring>() const</argsstring>
+        <name>image</name>
+        <qualifiedname>QgsQuickMapCanvasMap::image</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns an image of the last successful map canvas rendering </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapcanvasmap.h" line="211" column="12" bodyfile="src/core/qgsquick/qgsquickmapcanvasmap.h" bodystart="211" bodyend="211"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classQgsQuickMapCanvasMap_1a66904f66b936d44c033338b5c0043b32" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QgsQuickMapCanvasMap::renderStarting</definition>
+        <argsstring>()</argsstring>
+        <name>renderStarting</name>
+        <qualifiedname>QgsQuickMapCanvasMap::renderStarting</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Signal is emitted when a rendering is starting </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapcanvasmap.h" line="218" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQgsQuickMapCanvasMap_1a3b53e8a3eb3bdf4228c73a7bda60e7d5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QgsQuickMapCanvasMap::mapCanvasRefreshed</definition>
+        <argsstring>()</argsstring>
+        <name>mapCanvasRefreshed</name>
+        <qualifiedname>QgsQuickMapCanvasMap::mapCanvasRefreshed</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Signal is emitted when a canvas is refreshed </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapcanvasmap.h" line="223" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQgsQuickMapCanvasMap_1a0f1d9944d4e1379896804b329ebbd61f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QgsQuickMapCanvasMap::freezeChanged</definition>
+        <argsstring>()</argsstring>
+        <name>freezeChanged</name>
+        <qualifiedname>QgsQuickMapCanvasMap::freezeChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>When freeze property is set to true, the map canvas does not refresh. The value temporary changes during the rendering process.   </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapcanvasmap.h" line="226" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQgsQuickMapCanvasMap_1af81a2d9df88d54193cc3ffeb4762ce1d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QgsQuickMapCanvasMap::isRenderingChanged</definition>
+        <argsstring>()</argsstring>
+        <name>isRenderingChanged</name>
+        <qualifiedname>QgsQuickMapCanvasMap::isRenderingChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The isRendering property is set to true while a rendering job is pending for this map canvas map. It can be used to show a notification icon about an ongoing rendering job. This is a readonly property.   </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapcanvasmap.h" line="229" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQgsQuickMapCanvasMap_1acb75bf96c2eba82f3f7abc82601e6a8a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QgsQuickMapCanvasMap::mapUpdateIntervalChanged</definition>
+        <argsstring>()</argsstring>
+        <name>mapUpdateIntervalChanged</name>
+        <qualifiedname>QgsQuickMapCanvasMap::mapUpdateIntervalChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Interval in milliseconds after which the map canvas will be updated while a rendering job is ongoing. This only has an effect if incrementalRendering is activated. Default is 250 [ms].   </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapcanvasmap.h" line="232" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQgsQuickMapCanvasMap_1a4050a8b093899f6a62d5ebeb61205bf0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QgsQuickMapCanvasMap::incrementalRenderingChanged</definition>
+        <argsstring>()</argsstring>
+        <name>incrementalRenderingChanged</name>
+        <qualifiedname>QgsQuickMapCanvasMap::incrementalRenderingChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>When the incrementalRendering property is set to true, the automatic refresh of map canvas during rendering is allowed.   </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapcanvasmap.h" line="235" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQgsQuickMapCanvasMap_1ac9c35a0dea51f0b0ffa1fdf780cfe281" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QgsQuickMapCanvasMap::qualityChanged</definition>
+        <argsstring>()</argsstring>
+        <name>qualityChanged</name>
+        <qualifiedname>QgsQuickMapCanvasMap::qualityChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The quality property allows for an increase in rendering speed and memory usage reduction at the cost of rendering quality.</para>
+<para>By default, the value is set to 1.0, providing for the best rendering. The lowest quality value is 0.5.   </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapcanvasmap.h" line="238" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQgsQuickMapCanvasMap_1a39797160879f80be2f1d85e0fb602b49" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QgsQuickMapCanvasMap::forceDeferredLayersRepaintChanged</definition>
+        <argsstring>()</argsstring>
+        <name>forceDeferredLayersRepaintChanged</name>
+        <qualifiedname>QgsQuickMapCanvasMap::forceDeferredLayersRepaintChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>When the forceDeferredLayersRepaint property is set to true, all layer repaint signals will be deferred.   </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapcanvasmap.h" line="241" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQgsQuickMapCanvasMap_1a2e0be714645aa59409ab7ffdcf2bfc13" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QgsQuickMapCanvasMap::bottomMarginChanged</definition>
+        <argsstring>()</argsstring>
+        <name>bottomMarginChanged</name>
+        <qualifiedname>QgsQuickMapCanvasMap::bottomMarginChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The bottom margin used by the map settings when calculating map extent or center.   </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapcanvasmap.h" line="244" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQgsQuickMapCanvasMap_1ab5b7837ebd62420e2376467b2b61503e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QgsQuickMapCanvasMap::rightMarginChanged</definition>
+        <argsstring>()</argsstring>
+        <name>rightMarginChanged</name>
+        <qualifiedname>QgsQuickMapCanvasMap::rightMarginChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The right margin used by the map settings when calculating map extent or center.   </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapcanvasmap.h" line="247" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQgsQuickMapCanvasMap_1af7821979d8ba00dd07e4100573fba6ca" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QgsQuickMapCanvasMap::previewJobsEnabledChanged</definition>
+        <argsstring>() const</argsstring>
+        <name>previewJobsEnabledChanged</name>
+        <qualifiedname>QgsQuickMapCanvasMap::previewJobsEnabledChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>When the previewJobsEnabled property is set to true, canvas map preview jobs (low priority render jobs which render portions of the view just outside of the canvas extent, to allow preview of these out-of-canvas areas when panning or zooming out the map) while be rendered.   </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapcanvasmap.h" line="250" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQgsQuickMapCanvasMap_1a21d39b9579e47ed664e5f8d7b749037d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QgsQuickMapCanvasMap::previewJobsQuadrantsChanged</definition>
+        <argsstring>() const</argsstring>
+        <name>previewJobsQuadrantsChanged</name>
+        <qualifiedname>QgsQuickMapCanvasMap::previewJobsQuadrantsChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The previewJobsQuadrants property is used to customize the preview jobs ordering. The possible quadrant integer values are:</para>
+<para>0 (top left) | 1 (top) | 2 (top right) 3 (left) | canvas | 5 (right) 6 (bottom left) | 7 (bottom) | 8 (bottom right)   </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapcanvasmap.h" line="253" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQgsQuickMapCanvasMap_1ac510cb18a0739ce5824e3556ae2d80ef" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QgsQuickMapCanvasMap::smoothChanged</definition>
+        <argsstring>() const</argsstring>
+        <name>smoothChanged</name>
+        <qualifiedname>QgsQuickMapCanvasMap::smoothChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The previewJobsQuadrants property is used to customize the preview jobs ordering. The possible quadrant integer values are:</para>
+<para>0 (top left) | 1 (top) | 2 (top right) 3 (left) | canvas | 5 (right) 6 (bottom left) | 7 (bottom) | 8 (bottom right)   </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapcanvasmap.h" line="256" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="protected-func">
+      <memberdef kind="function" id="classQgsQuickMapCanvasMap_1ae4cf8a33aa4066b087240ccf8afc1ba4" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QgsQuickMapCanvasMap::geometryChange</definition>
+        <argsstring>(const QRectF &amp;newGeometry, const QRectF &amp;oldGeometry) override</argsstring>
+        <name>geometryChange</name>
+        <qualifiedname>QgsQuickMapCanvasMap::geometryChange</qualifiedname>
+        <param>
+          <type>const QRectF &amp;</type>
+          <declname>newGeometry</declname>
+        </param>
+        <param>
+          <type>const QRectF &amp;</type>
+          <declname>oldGeometry</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapcanvasmap.h" line="259" column="10" bodyfile="src/core/qgsquick/qgsquickmapcanvasmap.cpp" bodystart="588" bodyend="596"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-slot">
+      <memberdef kind="slot" id="classQgsQuickMapCanvasMap_1a75a671b885c57cc1e941bf63ececacb9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QgsQuickMapCanvasMap::stopRendering</definition>
+        <argsstring>()</argsstring>
+        <name>stopRendering</name>
+        <qualifiedname>QgsQuickMapCanvasMap::stopRendering</qualifiedname>
+        <briefdescription>
+<para>Stop map rendering. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapcanvasmap.h" line="263" column="10" bodyfile="src/core/qgsquick/qgsquickmapcanvasmap.cpp" bodystart="624" bodyend="641"/>
+      </memberdef>
+      <memberdef kind="slot" id="classQgsQuickMapCanvasMap_1a98ed8f15811735053e5fe5c83717db10" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QgsQuickMapCanvasMap::rotate</definition>
+        <argsstring>(double degrees)</argsstring>
+        <name>rotate</name>
+        <qualifiedname>QgsQuickMapCanvasMap::rotate</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>degrees</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Change the map rotation by <emphasis>degrees</emphasis>. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapcanvasmap.h" line="268" column="10" bodyfile="src/core/qgsquick/qgsquickmapcanvasmap.cpp" bodystart="74" bodyend="77"/>
+      </memberdef>
+      <memberdef kind="slot" id="classQgsQuickMapCanvasMap_1a6a49465b82c6afcda6fa51ed58be7d00" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QgsQuickMapCanvasMap::zoomByFactor</definition>
+        <argsstring>(const QPointF center, qreal factor, bool handleMargins=false)</argsstring>
+        <name>zoomByFactor</name>
+        <qualifiedname>QgsQuickMapCanvasMap::zoomByFactor</qualifiedname>
+        <param>
+          <type>const QPointF</type>
+          <declname>center</declname>
+        </param>
+        <param>
+          <type>qreal</type>
+          <declname>factor</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>handleMargins</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Set map setting&apos;s extent (zoom the map) on the <emphasis>center</emphasis> by given <emphasis>factor</emphasis> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapcanvasmap.h" line="273" column="10" bodyfile="src/core/qgsquick/qgsquickmapcanvasmap.cpp" bodystart="79" bodyend="91"/>
+      </memberdef>
+      <memberdef kind="slot" id="classQgsQuickMapCanvasMap_1a95001a7ebaaea3c751be373f3730a5bd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QgsQuickMapCanvasMap::zoomScale</definition>
+        <argsstring>(const QPointF center, qreal scale, bool handleMargins=false)</argsstring>
+        <name>zoomScale</name>
+        <qualifiedname>QgsQuickMapCanvasMap::zoomScale</qualifiedname>
+        <param>
+          <type>const QPointF</type>
+          <declname>center</declname>
+        </param>
+        <param>
+          <type>qreal</type>
+          <declname>scale</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>handleMargins</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Set map setting&apos;s extent (zoom the map) on the <emphasis>center</emphasis> at a given <emphasis>scale</emphasis> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapcanvasmap.h" line="278" column="10" bodyfile="src/core/qgsquick/qgsquickmapcanvasmap.cpp" bodystart="93" bodyend="103"/>
+      </memberdef>
+      <memberdef kind="slot" id="classQgsQuickMapCanvasMap_1a9a2487217e6f484508fcc54629d3921b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QgsQuickMapCanvasMap::pan</definition>
+        <argsstring>(const QPointF oldPos, const QPointF newPos)</argsstring>
+        <name>pan</name>
+        <qualifiedname>QgsQuickMapCanvasMap::pan</qualifiedname>
+        <param>
+          <type>const QPointF</type>
+          <declname>oldPos</declname>
+        </param>
+        <param>
+          <type>const QPointF</type>
+          <declname>newPos</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Set map setting&apos;s extent (pan the map) based on the difference of positions </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapcanvasmap.h" line="283" column="10" bodyfile="src/core/qgsquick/qgsquickmapcanvasmap.cpp" bodystart="105" bodyend="122"/>
+      </memberdef>
+      <memberdef kind="slot" id="classQgsQuickMapCanvasMap_1a7beaf62d3e84be0b25dc5021f6091144" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QgsQuickMapCanvasMap::refresh</definition>
+        <argsstring>(bool ignoreFreeze=false)</argsstring>
+        <name>refresh</name>
+        <qualifiedname>QgsQuickMapCanvasMap::refresh</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>ignoreFreeze</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Refresh the map canvas. Does nothing when output size of map settings is not set </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapcanvasmap.h" line="289" column="10" bodyfile="src/core/qgsquick/qgsquickmapcanvasmap.cpp" bodystart="671" bodyend="678"/>
+      </memberdef>
+      <memberdef kind="slot" id="classQgsQuickMapCanvasMap_1a2b8fb1d747eb2d5026ad49a9204d9386" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QgsQuickMapCanvasMap::startPreviewJobs</definition>
+        <argsstring>()</argsstring>
+        <name>startPreviewJobs</name>
+        <qualifiedname>QgsQuickMapCanvasMap::startPreviewJobs</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapcanvasmap.h" line="291" column="10" bodyfile="src/core/qgsquick/qgsquickmapcanvasmap.cpp" bodystart="835" bodyend="846"/>
+      </memberdef>
+      <memberdef kind="slot" id="classQgsQuickMapCanvasMap_1a01de6a5b42fd06b14dbe79709c303256" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QgsQuickMapCanvasMap::stopPreviewJobs</definition>
+        <argsstring>()</argsstring>
+        <name>stopPreviewJobs</name>
+        <qualifiedname>QgsQuickMapCanvasMap::stopPreviewJobs</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapcanvasmap.h" line="292" column="10" bodyfile="src/core/qgsquick/qgsquickmapcanvasmap.cpp" bodystart="924" bodyend="937"/>
+      </memberdef>
+      <memberdef kind="slot" id="classQgsQuickMapCanvasMap_1a5395975347746352a7ed638d9c108bcd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QgsQuickMapCanvasMap::schedulePreviewJob</definition>
+        <argsstring>(int number)</argsstring>
+        <name>schedulePreviewJob</name>
+        <qualifiedname>QgsQuickMapCanvasMap::schedulePreviewJob</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>number</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapcanvasmap.h" line="293" column="10" bodyfile="src/core/qgsquick/qgsquickmapcanvasmap.cpp" bodystart="939" bodyend="948"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-slot">
+      <memberdef kind="slot" id="classQgsQuickMapCanvasMap_1a62061477492216e122499040bbaded90" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QgsQuickMapCanvasMap::refreshMap</definition>
+        <argsstring>()</argsstring>
+        <name>refreshMap</name>
+        <qualifiedname>QgsQuickMapCanvasMap::refreshMap</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapcanvasmap.h" line="296" column="10" bodyfile="src/core/qgsquick/qgsquickmapcanvasmap.cpp" bodystart="124" bodyend="183"/>
+      </memberdef>
+      <memberdef kind="slot" id="classQgsQuickMapCanvasMap_1a3070137f2dd2636eeacdf470117b25c6" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QgsQuickMapCanvasMap::renderJobUpdated</definition>
+        <argsstring>()</argsstring>
+        <name>renderJobUpdated</name>
+        <qualifiedname>QgsQuickMapCanvasMap::renderJobUpdated</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapcanvasmap.h" line="297" column="10" bodyfile="src/core/qgsquick/qgsquickmapcanvasmap.cpp" bodystart="185" bodyend="201"/>
+      </memberdef>
+      <memberdef kind="slot" id="classQgsQuickMapCanvasMap_1ae99ccdf690fd594df5fe8d49a0f5ef7d" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QgsQuickMapCanvasMap::renderJobFinished</definition>
+        <argsstring>()</argsstring>
+        <name>renderJobFinished</name>
+        <qualifiedname>QgsQuickMapCanvasMap::renderJobFinished</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapcanvasmap.h" line="298" column="10" bodyfile="src/core/qgsquick/qgsquickmapcanvasmap.cpp" bodystart="203" bodyend="256"/>
+      </memberdef>
+      <memberdef kind="slot" id="classQgsQuickMapCanvasMap_1abbac21496e0ab3badba2af1aa19b320a" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QgsQuickMapCanvasMap::layerRepaintRequested</definition>
+        <argsstring>(bool deferred)</argsstring>
+        <name>layerRepaintRequested</name>
+        <qualifiedname>QgsQuickMapCanvasMap::layerRepaintRequested</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>deferred</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapcanvasmap.h" line="299" column="10" bodyfile="src/core/qgsquick/qgsquickmapcanvasmap.cpp" bodystart="258" bodyend="279"/>
+      </memberdef>
+      <memberdef kind="slot" id="classQgsQuickMapCanvasMap_1a4323023fae465a1605d57643cfe50ca6" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QgsQuickMapCanvasMap::startPreviewJob</definition>
+        <argsstring>(int number)</argsstring>
+        <name>startPreviewJob</name>
+        <qualifiedname>QgsQuickMapCanvasMap::startPreviewJob</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>number</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapcanvasmap.h" line="300" column="10" bodyfile="src/core/qgsquick/qgsquickmapcanvasmap.cpp" bodystart="848" bodyend="922"/>
+      </memberdef>
+      <memberdef kind="slot" id="classQgsQuickMapCanvasMap_1a4cfc7a93b14418956af9d6939bde61ad" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QgsQuickMapCanvasMap::previewJobFinished</definition>
+        <argsstring>()</argsstring>
+        <name>previewJobFinished</name>
+        <qualifiedname>QgsQuickMapCanvasMap::previewJobFinished</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapcanvasmap.h" line="301" column="10" bodyfile="src/core/qgsquick/qgsquickmapcanvasmap.cpp" bodystart="950" bodyend="968"/>
+      </memberdef>
+      <memberdef kind="slot" id="classQgsQuickMapCanvasMap_1af1102b4a83f793def4926561a54b4d6b" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QgsQuickMapCanvasMap::onWindowChanged</definition>
+        <argsstring>(QQuickWindow *window)</argsstring>
+        <name>onWindowChanged</name>
+        <qualifiedname>QgsQuickMapCanvasMap::onWindowChanged</qualifiedname>
+        <param>
+          <type>QQuickWindow *</type>
+          <declname>window</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapcanvasmap.h" line="303" column="10" bodyfile="src/core/qgsquick/qgsquickmapcanvasmap.cpp" bodystart="281" bodyend="296"/>
+      </memberdef>
+      <memberdef kind="slot" id="classQgsQuickMapCanvasMap_1a4adce094cb2c770822fb4c61ac2214b7" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QgsQuickMapCanvasMap::onScreenChanged</definition>
+        <argsstring>(QScreen *screen)</argsstring>
+        <name>onScreenChanged</name>
+        <qualifiedname>QgsQuickMapCanvasMap::onScreenChanged</qualifiedname>
+        <param>
+          <type>QScreen *</type>
+          <declname>screen</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapcanvasmap.h" line="304" column="10" bodyfile="src/core/qgsquick/qgsquickmapcanvasmap.cpp" bodystart="298" bodyend="309"/>
+      </memberdef>
+      <memberdef kind="slot" id="classQgsQuickMapCanvasMap_1aeb89b3a6cbe40d0427a3d7d92e85af60" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QgsQuickMapCanvasMap::onExtentChanged</definition>
+        <argsstring>()</argsstring>
+        <name>onExtentChanged</name>
+        <qualifiedname>QgsQuickMapCanvasMap::onExtentChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapcanvasmap.h" line="305" column="10" bodyfile="src/core/qgsquick/qgsquickmapcanvasmap.cpp" bodystart="311" bodyend="317"/>
+      </memberdef>
+      <memberdef kind="slot" id="classQgsQuickMapCanvasMap_1af12e83bf5bf9834673a1cfaeb0da5ab8" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QgsQuickMapCanvasMap::onRotationChanged</definition>
+        <argsstring>()</argsstring>
+        <name>onRotationChanged</name>
+        <qualifiedname>QgsQuickMapCanvasMap::onRotationChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapcanvasmap.h" line="306" column="10" bodyfile="src/core/qgsquick/qgsquickmapcanvasmap.cpp" bodystart="319" bodyend="325"/>
+      </memberdef>
+      <memberdef kind="slot" id="classQgsQuickMapCanvasMap_1a49d2cfe7b6593638ba03e4ef7e427fff" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QgsQuickMapCanvasMap::onLayersChanged</definition>
+        <argsstring>()</argsstring>
+        <name>onLayersChanged</name>
+        <qualifiedname>QgsQuickMapCanvasMap::onLayersChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapcanvasmap.h" line="307" column="10" bodyfile="src/core/qgsquick/qgsquickmapcanvasmap.cpp" bodystart="598" bodyend="616"/>
+      </memberdef>
+      <memberdef kind="slot" id="classQgsQuickMapCanvasMap_1a2b1e20bd1765d7ad703ea815e985d47e" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QgsQuickMapCanvasMap::onTemporalStateChanged</definition>
+        <argsstring>()</argsstring>
+        <name>onTemporalStateChanged</name>
+        <qualifiedname>QgsQuickMapCanvasMap::onTemporalStateChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapcanvasmap.h" line="308" column="10" bodyfile="src/core/qgsquick/qgsquickmapcanvasmap.cpp" bodystart="327" bodyend="333"/>
+      </memberdef>
+      <memberdef kind="slot" id="classQgsQuickMapCanvasMap_1a735683f6ed37bc46bad0814ddd159cdf" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QgsQuickMapCanvasMap::onZRangeChanged</definition>
+        <argsstring>()</argsstring>
+        <name>onZRangeChanged</name>
+        <qualifiedname>QgsQuickMapCanvasMap::onZRangeChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapcanvasmap.h" line="309" column="10" bodyfile="src/core/qgsquick/qgsquickmapcanvasmap.cpp" bodystart="335" bodyend="341"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classQgsQuickMapCanvasMap_1a41d4446df62ac7badb3c4817cab55c0f" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QgsQuickMapCanvasMap::destroyJob</definition>
+        <argsstring>(QgsMapRendererJob *job)</argsstring>
+        <name>destroyJob</name>
+        <qualifiedname>QgsQuickMapCanvasMap::destroyJob</qualifiedname>
+        <param>
+          <type>QgsMapRendererJob *</type>
+          <declname>job</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Should only be called by <ref refid="classQgsQuickMapCanvasMap_1a75a671b885c57cc1e941bf63ececacb9" kindref="member">stopRendering()</ref>! </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapcanvasmap.h" line="315" column="10" bodyfile="src/core/qgsquick/qgsquickmapcanvasmap.cpp" bodystart="618" bodyend="622"/>
+      </memberdef>
+      <memberdef kind="function" id="classQgsQuickMapCanvasMap_1a30b203da5834668f23b5d4d2db06c18a" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QgsMapSettings</type>
+        <definition>QgsMapSettings QgsQuickMapCanvasMap::prepareMapSettings</definition>
+        <argsstring>() const</argsstring>
+        <name>prepareMapSettings</name>
+        <qualifiedname>QgsQuickMapCanvasMap::prepareMapSettings</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapcanvasmap.h" line="316" column="20"/>
+      </memberdef>
+      <memberdef kind="function" id="classQgsQuickMapCanvasMap_1a69f352b3b10f9883e07bf39844ebdbc3" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QgsQuickMapCanvasMap::updateTransform</definition>
+        <argsstring>(bool skipSmooth=false)</argsstring>
+        <name>updateTransform</name>
+        <qualifiedname>QgsQuickMapCanvasMap::updateTransform</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>skipSmooth</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapcanvasmap.h" line="317" column="10" bodyfile="src/core/qgsquick/qgsquickmapcanvasmap.cpp" bodystart="343" bodyend="362"/>
+      </memberdef>
+      <memberdef kind="function" id="classQgsQuickMapCanvasMap_1acb753126a8bbbadf9739ea7aeb6530e1" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QgsQuickMapCanvasMap::zoomToFullExtent</definition>
+        <argsstring>()</argsstring>
+        <name>zoomToFullExtent</name>
+        <qualifiedname>QgsQuickMapCanvasMap::zoomToFullExtent</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapcanvasmap.h" line="318" column="10" bodyfile="src/core/qgsquick/qgsquickmapcanvasmap.cpp" bodystart="643" bodyend="669"/>
+      </memberdef>
+      <memberdef kind="function" id="classQgsQuickMapCanvasMap_1adac5084f2fc26f281ef962782b862035" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QgsQuickMapCanvasMap::clearTemporalCache</definition>
+        <argsstring>()</argsstring>
+        <name>clearTemporalCache</name>
+        <qualifiedname>QgsQuickMapCanvasMap::clearTemporalCache</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapcanvasmap.h" line="319" column="10" bodyfile="src/core/qgsquick/qgsquickmapcanvasmap.cpp" bodystart="723" bodyend="781"/>
+      </memberdef>
+      <memberdef kind="function" id="classQgsQuickMapCanvasMap_1ab7473da1d77127e28f0a717ba66317cb" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QgsQuickMapCanvasMap::clearElevationCache</definition>
+        <argsstring>()</argsstring>
+        <name>clearElevationCache</name>
+        <qualifiedname>QgsQuickMapCanvasMap::clearElevationCache</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapcanvasmap.h" line="320" column="10" bodyfile="src/core/qgsquick/qgsquickmapcanvasmap.cpp" bodystart="680" bodyend="721"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>This class implements a visual Qt Quick Item that does map rendering according to the current map settings. Client code is expected to use <ref refid="classMapCanvas" kindref="compound">MapCanvas</ref> item rather than using this class directly.</para>
+<para><ref refid="classQgsQuickMapCanvasMap" kindref="compound">QgsQuickMapCanvasMap</ref> instance internally creates <ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref> in constructor. The QgsProject should be attached to the <ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref>. The map settings for other QgsQuick components should be initialized from <ref refid="classQgsQuickMapCanvasMap" kindref="compound">QgsQuickMapCanvasMap</ref>&apos;s mapSettings</para>
+<para><simplesect kind="note"><para>QML Type: MapCanvasMap </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>QQuickItem</label>
+      </node>
+      <node id="1">
+        <label>QgsQuickMapCanvasMap</label>
+        <link refid="classQgsQuickMapCanvasMap"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>QQuickItem</label>
+      </node>
+      <node id="1">
+        <label>QgsQuickMapCanvasMap</label>
+        <link refid="classQgsQuickMapCanvasMap"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/qgsquick/qgsquickmapcanvasmap.h" line="48" column="1" bodyfile="src/core/qgsquick/qgsquickmapcanvasmap.h" bodystart="49" bodyend="352"/>
+    <listofallmembers>
+      <member refid="classQgsQuickMapCanvasMap_1affbe3a31aca7326c6b4804874ed60d16" prot="public" virt="non-virtual"><scope>QgsQuickMapCanvasMap</scope><name>bottomMargin</name></member>
+      <member refid="classQgsQuickMapCanvasMap_1a739e852b850495098bb04a7750f1e87b" prot="public" virt="non-virtual"><scope>QgsQuickMapCanvasMap</scope><name>bottomMargin</name></member>
+      <member refid="classQgsQuickMapCanvasMap_1a2e0be714645aa59409ab7ffdcf2bfc13" prot="public" virt="non-virtual"><scope>QgsQuickMapCanvasMap</scope><name>bottomMarginChanged</name></member>
+      <member refid="classQgsQuickMapCanvasMap_1ab7473da1d77127e28f0a717ba66317cb" prot="private" virt="non-virtual"><scope>QgsQuickMapCanvasMap</scope><name>clearElevationCache</name></member>
+      <member refid="classQgsQuickMapCanvasMap_1adac5084f2fc26f281ef962782b862035" prot="private" virt="non-virtual"><scope>QgsQuickMapCanvasMap</scope><name>clearTemporalCache</name></member>
+      <member refid="classQgsQuickMapCanvasMap_1a41d4446df62ac7badb3c4817cab55c0f" prot="private" virt="non-virtual"><scope>QgsQuickMapCanvasMap</scope><name>destroyJob</name></member>
+      <member refid="classQgsQuickMapCanvasMap_1a4e72427de4bbfa3f3e0478c10263fdfe" prot="public" virt="non-virtual"><scope>QgsQuickMapCanvasMap</scope><name>forceDeferredLayersRepaint</name></member>
+      <member refid="classQgsQuickMapCanvasMap_1ab633689b7be757cd36f3bcffcab61e8a" prot="public" virt="non-virtual"><scope>QgsQuickMapCanvasMap</scope><name>forceDeferredLayersRepaint</name></member>
+      <member refid="classQgsQuickMapCanvasMap_1a39797160879f80be2f1d85e0fb602b49" prot="public" virt="non-virtual"><scope>QgsQuickMapCanvasMap</scope><name>forceDeferredLayersRepaintChanged</name></member>
+      <member refid="classQgsQuickMapCanvasMap_1ae20c0bf4bf2917dc8def3c2e686f33d8" prot="public" virt="non-virtual"><scope>QgsQuickMapCanvasMap</scope><name>freeze</name></member>
+      <member refid="classQgsQuickMapCanvasMap_1aff3f59ca2ba4cd41df02ed4666745051" prot="public" virt="non-virtual"><scope>QgsQuickMapCanvasMap</scope><name>freeze</name></member>
+      <member refid="classQgsQuickMapCanvasMap_1a0f1d9944d4e1379896804b329ebbd61f" prot="public" virt="non-virtual"><scope>QgsQuickMapCanvasMap</scope><name>freezeChanged</name></member>
+      <member refid="classQgsQuickMapCanvasMap_1ae4cf8a33aa4066b087240ccf8afc1ba4" prot="protected" virt="non-virtual"><scope>QgsQuickMapCanvasMap</scope><name>geometryChange</name></member>
+      <member refid="classQgsQuickMapCanvasMap_1ad6e69245b7c313fcaa7a945b6e523884" prot="public" virt="non-virtual"><scope>QgsQuickMapCanvasMap</scope><name>image</name></member>
+      <member refid="classQgsQuickMapCanvasMap_1ad590287c0fe12d04281bfa6d15629590" prot="public" virt="non-virtual"><scope>QgsQuickMapCanvasMap</scope><name>incrementalRendering</name></member>
+      <member refid="classQgsQuickMapCanvasMap_1a91121375dca69b44977093a83e012cfe" prot="public" virt="non-virtual"><scope>QgsQuickMapCanvasMap</scope><name>incrementalRendering</name></member>
+      <member refid="classQgsQuickMapCanvasMap_1a4050a8b093899f6a62d5ebeb61205bf0" prot="public" virt="non-virtual"><scope>QgsQuickMapCanvasMap</scope><name>incrementalRenderingChanged</name></member>
+      <member refid="classQgsQuickMapCanvasMap_1a2f36d09a3f13acbb260144f34bfa3c9b" prot="public" virt="non-virtual"><scope>QgsQuickMapCanvasMap</scope><name>isRendering</name></member>
+      <member refid="classQgsQuickMapCanvasMap_1a031b0e002990c2cb47fcff7e88442250" prot="public" virt="non-virtual"><scope>QgsQuickMapCanvasMap</scope><name>isRendering</name></member>
+      <member refid="classQgsQuickMapCanvasMap_1af81a2d9df88d54193cc3ffeb4762ce1d" prot="public" virt="non-virtual"><scope>QgsQuickMapCanvasMap</scope><name>isRenderingChanged</name></member>
+      <member refid="classQgsQuickMapCanvasMap_1abbac21496e0ab3badba2af1aa19b320a" prot="private" virt="non-virtual"><scope>QgsQuickMapCanvasMap</scope><name>layerRepaintRequested</name></member>
+      <member refid="classQgsQuickMapCanvasMap_1a3b53e8a3eb3bdf4228c73a7bda60e7d5" prot="public" virt="non-virtual"><scope>QgsQuickMapCanvasMap</scope><name>mapCanvasRefreshed</name></member>
+      <member refid="classQgsQuickMapCanvasMap_1aa64410b42a637f2440325637afba6194" prot="public" virt="non-virtual"><scope>QgsQuickMapCanvasMap</scope><name>mapSettings</name></member>
+      <member refid="classQgsQuickMapCanvasMap_1a2370a778eaffc3dd54241c3b3c3e5021" prot="public" virt="non-virtual"><scope>QgsQuickMapCanvasMap</scope><name>mapSettings</name></member>
+      <member refid="classQgsQuickMapCanvasMap_1a447994dc538c03f30d240a22e50f27ca" prot="public" virt="non-virtual"><scope>QgsQuickMapCanvasMap</scope><name>mapUpdateInterval</name></member>
+      <member refid="classQgsQuickMapCanvasMap_1ae2d5cd988a5547b745e924a5b453b43d" prot="public" virt="non-virtual"><scope>QgsQuickMapCanvasMap</scope><name>mapUpdateInterval</name></member>
+      <member refid="classQgsQuickMapCanvasMap_1acb75bf96c2eba82f3f7abc82601e6a8a" prot="public" virt="non-virtual"><scope>QgsQuickMapCanvasMap</scope><name>mapUpdateIntervalChanged</name></member>
+      <member refid="classQgsQuickMapCanvasMap_1a391005f41d670ae0e0507e860aa36e23" prot="private" virt="non-virtual"><scope>QgsQuickMapCanvasMap</scope><name>mCache</name></member>
+      <member refid="classQgsQuickMapCanvasMap_1abfb36774b6777ef4f2a023a8985db71d" prot="private" virt="non-virtual"><scope>QgsQuickMapCanvasMap</scope><name>mDeferredRefreshPending</name></member>
+      <member refid="classQgsQuickMapCanvasMap_1a8fb0a6ae1b3a6716318dffe87a7e77a4" prot="private" virt="non-virtual"><scope>QgsQuickMapCanvasMap</scope><name>mDirty</name></member>
+      <member refid="classQgsQuickMapCanvasMap_1a81b854eb79e13c71abdfc09d6a32e4a2" prot="private" virt="non-virtual"><scope>QgsQuickMapCanvasMap</scope><name>mForceDeferredLayersRepaint</name></member>
+      <member refid="classQgsQuickMapCanvasMap_1a9136e4eee8e6ce7a35e6f7eb78d13084" prot="private" virt="non-virtual"><scope>QgsQuickMapCanvasMap</scope><name>mFreeze</name></member>
+      <member refid="classQgsQuickMapCanvasMap_1a26cb1898a3a36a8b68cd194511ae2cc2" prot="private" virt="non-virtual"><scope>QgsQuickMapCanvasMap</scope><name>mImage</name></member>
+      <member refid="classQgsQuickMapCanvasMap_1acf7676ce2ca9d71cf0efedb5d282e32c" prot="private" virt="non-virtual"><scope>QgsQuickMapCanvasMap</scope><name>mImageMapSettings</name></member>
+      <member refid="classQgsQuickMapCanvasMap_1ad4c0b2b469c9adceedde2eb05fddbd72" prot="private" virt="non-virtual"><scope>QgsQuickMapCanvasMap</scope><name>mIncrementalRendering</name></member>
+      <member refid="classQgsQuickMapCanvasMap_1adf5e9a3509541941d837ac1816c95206" prot="private" virt="non-virtual"><scope>QgsQuickMapCanvasMap</scope><name>mJob</name></member>
+      <member refid="classQgsQuickMapCanvasMap_1a3d7c7ad2f716739d4affe1787db918b4" prot="private" virt="non-virtual"><scope>QgsQuickMapCanvasMap</scope><name>mLabelingResults</name></member>
+      <member refid="classQgsQuickMapCanvasMap_1a37747b2994e3f3cc7737703984ff3059" prot="private" virt="non-virtual"><scope>QgsQuickMapCanvasMap</scope><name>mLastLayerRenderTime</name></member>
+      <member refid="classQgsQuickMapCanvasMap_1af3f0fae416fc1c5e58f00019bbd5c878" prot="private" virt="non-virtual"><scope>QgsQuickMapCanvasMap</scope><name>mLayerConnections</name></member>
+      <member refid="classQgsQuickMapCanvasMap_1aa01dab0aab4cf74169b49fa8f03c649f" prot="private" virt="non-virtual"><scope>QgsQuickMapCanvasMap</scope><name>mMapSettings</name></member>
+      <member refid="classQgsQuickMapCanvasMap_1aca07ded6ff03a71db1da3f5efa9c0548" prot="private" virt="non-virtual"><scope>QgsQuickMapCanvasMap</scope><name>mMapUpdateTimer</name></member>
+      <member refid="classQgsQuickMapCanvasMap_1a3cb6408d9f12a65fab1d76859be136ab" prot="private" virt="non-virtual"><scope>QgsQuickMapCanvasMap</scope><name>mPinching</name></member>
+      <member refid="classQgsQuickMapCanvasMap_1a6741e8c916be1bd00979420034410329" prot="private" virt="non-virtual"><scope>QgsQuickMapCanvasMap</scope><name>mPinchStartPoint</name></member>
+      <member refid="classQgsQuickMapCanvasMap_1abc7dbb6340fe0500a98f8c2eccd67363" prot="private" virt="non-virtual"><scope>QgsQuickMapCanvasMap</scope><name>mPreviewImages</name></member>
+      <member refid="classQgsQuickMapCanvasMap_1a8bba92837a4548bc5009c9b45ba28e13" prot="private" virt="non-virtual"><scope>QgsQuickMapCanvasMap</scope><name>mPreviewJobs</name></member>
+      <member refid="classQgsQuickMapCanvasMap_1a6befcc92e3944b213560b7dc0a5f4aef" prot="private" virt="non-virtual"><scope>QgsQuickMapCanvasMap</scope><name>mPreviewJobsEnabled</name></member>
+      <member refid="classQgsQuickMapCanvasMap_1a7cbe1e4b6b355ba48bae771e4b975a2c" prot="private" virt="non-virtual"><scope>QgsQuickMapCanvasMap</scope><name>mPreviewJobsQuadrants</name></member>
+      <member refid="classQgsQuickMapCanvasMap_1a7c42baabbe842b55bd5bf9fc10ab80ca" prot="private" virt="non-virtual"><scope>QgsQuickMapCanvasMap</scope><name>mPreviewTimer</name></member>
+      <member refid="classQgsQuickMapCanvasMap_1a01f0b140cd1ff6f02469677e217af6c4" prot="private" virt="non-virtual"><scope>QgsQuickMapCanvasMap</scope><name>mPreviewTimerConnection</name></member>
+      <member refid="classQgsQuickMapCanvasMap_1a511814a4d0677e5a81059e8a107b1ef9" prot="private" virt="non-virtual"><scope>QgsQuickMapCanvasMap</scope><name>mQuality</name></member>
+      <member refid="classQgsQuickMapCanvasMap_1a06869ba0ad8cdd1d3f5d2db7459664f9" prot="private" virt="non-virtual"><scope>QgsQuickMapCanvasMap</scope><name>mRefreshTimer</name></member>
+      <member refid="classQgsQuickMapCanvasMap_1a725739a1dae5a6e35703d7ab5c6d9d08" prot="private" virt="non-virtual"><scope>QgsQuickMapCanvasMap</scope><name>mSilentRefresh</name></member>
+      <member refid="classQgsQuickMapCanvasMap_1a485171df99595fdc3286f6104be00a48" prot="private" virt="non-virtual"><scope>QgsQuickMapCanvasMap</scope><name>mSmooth</name></member>
+      <member refid="classQgsQuickMapCanvasMap_1a2c64988e62f9f77bdc46afd38025acc8" prot="private" virt="non-virtual"><scope>QgsQuickMapCanvasMap</scope><name>mWindow</name></member>
+      <member refid="classQgsQuickMapCanvasMap_1aeb89b3a6cbe40d0427a3d7d92e85af60" prot="private" virt="non-virtual"><scope>QgsQuickMapCanvasMap</scope><name>onExtentChanged</name></member>
+      <member refid="classQgsQuickMapCanvasMap_1a49d2cfe7b6593638ba03e4ef7e427fff" prot="private" virt="non-virtual"><scope>QgsQuickMapCanvasMap</scope><name>onLayersChanged</name></member>
+      <member refid="classQgsQuickMapCanvasMap_1af12e83bf5bf9834673a1cfaeb0da5ab8" prot="private" virt="non-virtual"><scope>QgsQuickMapCanvasMap</scope><name>onRotationChanged</name></member>
+      <member refid="classQgsQuickMapCanvasMap_1a4adce094cb2c770822fb4c61ac2214b7" prot="private" virt="non-virtual"><scope>QgsQuickMapCanvasMap</scope><name>onScreenChanged</name></member>
+      <member refid="classQgsQuickMapCanvasMap_1a2b1e20bd1765d7ad703ea815e985d47e" prot="private" virt="non-virtual"><scope>QgsQuickMapCanvasMap</scope><name>onTemporalStateChanged</name></member>
+      <member refid="classQgsQuickMapCanvasMap_1af1102b4a83f793def4926561a54b4d6b" prot="private" virt="non-virtual"><scope>QgsQuickMapCanvasMap</scope><name>onWindowChanged</name></member>
+      <member refid="classQgsQuickMapCanvasMap_1a735683f6ed37bc46bad0814ddd159cdf" prot="private" virt="non-virtual"><scope>QgsQuickMapCanvasMap</scope><name>onZRangeChanged</name></member>
+      <member refid="classQgsQuickMapCanvasMap_1a9a2487217e6f484508fcc54629d3921b" prot="public" virt="non-virtual"><scope>QgsQuickMapCanvasMap</scope><name>pan</name></member>
+      <member refid="classQgsQuickMapCanvasMap_1a30b203da5834668f23b5d4d2db06c18a" prot="private" virt="non-virtual"><scope>QgsQuickMapCanvasMap</scope><name>prepareMapSettings</name></member>
+      <member refid="classQgsQuickMapCanvasMap_1a4cfc7a93b14418956af9d6939bde61ad" prot="private" virt="non-virtual"><scope>QgsQuickMapCanvasMap</scope><name>previewJobFinished</name></member>
+      <member refid="classQgsQuickMapCanvasMap_1a088c641594062ad89b6fa82aae1d61a9" prot="public" virt="non-virtual"><scope>QgsQuickMapCanvasMap</scope><name>previewJobsEnabled</name></member>
+      <member refid="classQgsQuickMapCanvasMap_1a8aa811e889a9a707ba7e282d9cc88139" prot="public" virt="non-virtual"><scope>QgsQuickMapCanvasMap</scope><name>previewJobsEnabled</name></member>
+      <member refid="classQgsQuickMapCanvasMap_1af7821979d8ba00dd07e4100573fba6ca" prot="public" virt="non-virtual"><scope>QgsQuickMapCanvasMap</scope><name>previewJobsEnabledChanged</name></member>
+      <member refid="classQgsQuickMapCanvasMap_1a3a5fd2330c22c91b319f18a153caca5c" prot="public" virt="non-virtual"><scope>QgsQuickMapCanvasMap</scope><name>previewJobsQuadrants</name></member>
+      <member refid="classQgsQuickMapCanvasMap_1ab14830eb241ba7dc9cef23a67312662b" prot="public" virt="non-virtual"><scope>QgsQuickMapCanvasMap</scope><name>previewJobsQuadrants</name></member>
+      <member refid="classQgsQuickMapCanvasMap_1a21d39b9579e47ed664e5f8d7b749037d" prot="public" virt="non-virtual"><scope>QgsQuickMapCanvasMap</scope><name>previewJobsQuadrantsChanged</name></member>
+      <member refid="classQgsQuickMapCanvasMap_1af02223d649ac3425fec0dbc3e9f2b161" prot="public" virt="non-virtual"><scope>QgsQuickMapCanvasMap</scope><name>QgsQuickMapCanvasMap</name></member>
+      <member refid="classQgsQuickMapCanvasMap_1a585fde6b8928cc9e175e23e3822dd1c7" prot="public" virt="non-virtual"><scope>QgsQuickMapCanvasMap</scope><name>quality</name></member>
+      <member refid="classQgsQuickMapCanvasMap_1afe5fe025afd39d1c5d282b25f6d91221" prot="public" virt="non-virtual"><scope>QgsQuickMapCanvasMap</scope><name>quality</name></member>
+      <member refid="classQgsQuickMapCanvasMap_1ac9c35a0dea51f0b0ffa1fdf780cfe281" prot="public" virt="non-virtual"><scope>QgsQuickMapCanvasMap</scope><name>qualityChanged</name></member>
+      <member refid="classQgsQuickMapCanvasMap_1a7beaf62d3e84be0b25dc5021f6091144" prot="public" virt="non-virtual"><scope>QgsQuickMapCanvasMap</scope><name>refresh</name></member>
+      <member refid="classQgsQuickMapCanvasMap_1a62061477492216e122499040bbaded90" prot="private" virt="non-virtual"><scope>QgsQuickMapCanvasMap</scope><name>refreshMap</name></member>
+      <member refid="classQgsQuickMapCanvasMap_1ae99ccdf690fd594df5fe8d49a0f5ef7d" prot="private" virt="non-virtual"><scope>QgsQuickMapCanvasMap</scope><name>renderJobFinished</name></member>
+      <member refid="classQgsQuickMapCanvasMap_1a3070137f2dd2636eeacdf470117b25c6" prot="private" virt="non-virtual"><scope>QgsQuickMapCanvasMap</scope><name>renderJobUpdated</name></member>
+      <member refid="classQgsQuickMapCanvasMap_1a66904f66b936d44c033338b5c0043b32" prot="public" virt="non-virtual"><scope>QgsQuickMapCanvasMap</scope><name>renderStarting</name></member>
+      <member refid="classQgsQuickMapCanvasMap_1a8420caebe46026464a5dd0770007a8ee" prot="public" virt="non-virtual"><scope>QgsQuickMapCanvasMap</scope><name>rightMargin</name></member>
+      <member refid="classQgsQuickMapCanvasMap_1a60bea75c83c39ffff625a831a76479d8" prot="public" virt="non-virtual"><scope>QgsQuickMapCanvasMap</scope><name>rightMargin</name></member>
+      <member refid="classQgsQuickMapCanvasMap_1ab5b7837ebd62420e2376467b2b61503e" prot="public" virt="non-virtual"><scope>QgsQuickMapCanvasMap</scope><name>rightMarginChanged</name></member>
+      <member refid="classQgsQuickMapCanvasMap_1a98ed8f15811735053e5fe5c83717db10" prot="public" virt="non-virtual"><scope>QgsQuickMapCanvasMap</scope><name>rotate</name></member>
+      <member refid="classQgsQuickMapCanvasMap_1a5395975347746352a7ed638d9c108bcd" prot="public" virt="non-virtual"><scope>QgsQuickMapCanvasMap</scope><name>schedulePreviewJob</name></member>
+      <member refid="classQgsQuickMapCanvasMap_1ac937744b6d37418042ca5c5a41bf2327" prot="public" virt="non-virtual"><scope>QgsQuickMapCanvasMap</scope><name>setBottomMargin</name></member>
+      <member refid="classQgsQuickMapCanvasMap_1a96236c17773ff7bf57c32ab8ea42aa0c" prot="public" virt="non-virtual"><scope>QgsQuickMapCanvasMap</scope><name>setForceDeferredLayersRepaint</name></member>
+      <member refid="classQgsQuickMapCanvasMap_1aa50da5c99bfb27f108db89602a8d9667" prot="public" virt="non-virtual"><scope>QgsQuickMapCanvasMap</scope><name>setFreeze</name></member>
+      <member refid="classQgsQuickMapCanvasMap_1a99f4035b31823f15261e200db2a33454" prot="public" virt="non-virtual"><scope>QgsQuickMapCanvasMap</scope><name>setIncrementalRendering</name></member>
+      <member refid="classQgsQuickMapCanvasMap_1a4909cd89da1e9e3b8f944daf5b992e73" prot="public" virt="non-virtual"><scope>QgsQuickMapCanvasMap</scope><name>setMapUpdateInterval</name></member>
+      <member refid="classQgsQuickMapCanvasMap_1ae82f94193ae11c540a5e466703fa5977" prot="public" virt="non-virtual"><scope>QgsQuickMapCanvasMap</scope><name>setPreviewJobsEnabled</name></member>
+      <member refid="classQgsQuickMapCanvasMap_1aba7e7f4953a49a9717261fa68cca4766" prot="public" virt="non-virtual"><scope>QgsQuickMapCanvasMap</scope><name>setPreviewJobsQuadrants</name></member>
+      <member refid="classQgsQuickMapCanvasMap_1a40f3b1875cb8115eae2bea9616fc8ef0" prot="public" virt="non-virtual"><scope>QgsQuickMapCanvasMap</scope><name>setQuality</name></member>
+      <member refid="classQgsQuickMapCanvasMap_1aa36b4c21313dea28979134dffb8304cc" prot="public" virt="non-virtual"><scope>QgsQuickMapCanvasMap</scope><name>setRightMargin</name></member>
+      <member refid="classQgsQuickMapCanvasMap_1aa71b9b3da9b3aa43a22a3a69ef475e10" prot="public" virt="non-virtual"><scope>QgsQuickMapCanvasMap</scope><name>setSmooth</name></member>
+      <member refid="classQgsQuickMapCanvasMap_1aeb94a9020d263cfb0f1341e3eff9f026" prot="public" virt="non-virtual"><scope>QgsQuickMapCanvasMap</scope><name>smooth</name></member>
+      <member refid="classQgsQuickMapCanvasMap_1a53466c590cfd0328bef5d595db42b802" prot="public" virt="non-virtual"><scope>QgsQuickMapCanvasMap</scope><name>smooth</name></member>
+      <member refid="classQgsQuickMapCanvasMap_1ac510cb18a0739ce5824e3556ae2d80ef" prot="public" virt="non-virtual"><scope>QgsQuickMapCanvasMap</scope><name>smoothChanged</name></member>
+      <member refid="classQgsQuickMapCanvasMap_1a4323023fae465a1605d57643cfe50ca6" prot="private" virt="non-virtual"><scope>QgsQuickMapCanvasMap</scope><name>startPreviewJob</name></member>
+      <member refid="classQgsQuickMapCanvasMap_1a2b8fb1d747eb2d5026ad49a9204d9386" prot="public" virt="non-virtual"><scope>QgsQuickMapCanvasMap</scope><name>startPreviewJobs</name></member>
+      <member refid="classQgsQuickMapCanvasMap_1a01de6a5b42fd06b14dbe79709c303256" prot="public" virt="non-virtual"><scope>QgsQuickMapCanvasMap</scope><name>stopPreviewJobs</name></member>
+      <member refid="classQgsQuickMapCanvasMap_1a75a671b885c57cc1e941bf63ececacb9" prot="public" virt="non-virtual"><scope>QgsQuickMapCanvasMap</scope><name>stopRendering</name></member>
+      <member refid="classQgsQuickMapCanvasMap_1ac417b1572468a4958ea3fdd8e93e51f7" prot="public" virt="non-virtual"><scope>QgsQuickMapCanvasMap</scope><name>updatePaintNode</name></member>
+      <member refid="classQgsQuickMapCanvasMap_1a69f352b3b10f9883e07bf39844ebdbc3" prot="private" virt="non-virtual"><scope>QgsQuickMapCanvasMap</scope><name>updateTransform</name></member>
+      <member refid="classQgsQuickMapCanvasMap_1a6a49465b82c6afcda6fa51ed58be7d00" prot="public" virt="non-virtual"><scope>QgsQuickMapCanvasMap</scope><name>zoomByFactor</name></member>
+      <member refid="classQgsQuickMapCanvasMap_1a95001a7ebaaea3c751be373f3730a5bd" prot="public" virt="non-virtual"><scope>QgsQuickMapCanvasMap</scope><name>zoomScale</name></member>
+      <member refid="classQgsQuickMapCanvasMap_1acb753126a8bbbadf9739ea7aeb6530e1" prot="private" virt="non-virtual"><scope>QgsQuickMapCanvasMap</scope><name>zoomToFullExtent</name></member>
+      <member refid="classQgsQuickMapCanvasMap_1a03be4229f59e35ff8150e4d9dd7e5119" prot="public" virt="non-virtual"><scope>QgsQuickMapCanvasMap</scope><name>~QgsQuickMapCanvasMap</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,992 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classExternalResource" kind="class" language="C++" prot="public">
+    <compoundname>ExternalResource</compoundname>
+    <basecompoundref refid="classEditorWidgetBase" prot="public" virt="non-virtual">EditorWidgetBase</basecompoundref>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classExternalResource_1ae5a79acdf51a8411d22ffb3187a25aa1" prot="private" static="no" mutable="no">
+        <type>var anchors</type>
+        <definition>var anchors ExternalResource::left</definition>
+        <argsstring></argsstring>
+        <name>left</name>
+        <qualifiedname>ExternalResource::left</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/ExternalResource.qml" line="10" column="12" bodyfile="src/qml/editorwidgets/ExternalResource.qml" bodystart="10" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classExternalResource_1a64e55d7848177d16646da47e1c37a523" prot="private" static="no" mutable="no">
+        <type>var anchors</type>
+        <definition>var anchors ExternalResource::right</definition>
+        <argsstring></argsstring>
+        <name>right</name>
+        <qualifiedname>ExternalResource::right</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/ExternalResource.qml" line="11" column="12" bodyfile="src/qml/editorwidgets/ExternalResource.qml" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classExternalResource_1a170c75673d483a11bd6c34397ea694dd" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var ExternalResource::height</definition>
+        <argsstring></argsstring>
+        <name>height</name>
+        <qualifiedname>ExternalResource::height</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/ExternalResource.qml" line="12" column="5" bodyfile="src/qml/editorwidgets/ExternalResource.qml" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classExternalResource_1aa13c2755083e139c0c2071c832e4183d" prot="private" static="no" mutable="no">
+        <type><ref refid="classExpressionEvaluator" kindref="compound">ExpressionEvaluator</ref></type>
+        <definition>ExpressionEvaluator ExternalResource::rootPathEvaluator</definition>
+        <argsstring></argsstring>
+        <name>rootPathEvaluator</name>
+        <qualifiedname>ExternalResource::rootPathEvaluator</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/ExternalResource.qml" line="13" column="21" bodyfile="src/qml/editorwidgets/ExternalResource.qml" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classExternalResource_1a3b1d9810edb0029d34a1f48b68d8b0ce" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var ExternalResource::onCurrentValueChanged</definition>
+        <argsstring></argsstring>
+        <name>onCurrentValueChanged</name>
+        <qualifiedname>ExternalResource::onCurrentValueChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/ExternalResource.qml" line="43" column="5" bodyfile="src/qml/editorwidgets/ExternalResource.qml" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classExternalResource_1a8a504b6452ec1440fdd90e5af71f7342" prot="private" static="no" mutable="no">
+        <type><ref refid="classExternalStorage" kindref="compound">ExternalStorage</ref></type>
+        <definition>ExternalStorage ExternalResource::externalStorage</definition>
+        <argsstring></argsstring>
+        <name>externalStorage</name>
+        <qualifiedname>ExternalResource::externalStorage</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/ExternalResource.qml" line="48" column="17" bodyfile="src/qml/editorwidgets/ExternalResource.qml" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classExternalResource_1ab734d16771981b8b8775f743cdd0b9b6" prot="private" static="no" mutable="no">
+        <type><ref refid="classExpressionEvaluator" kindref="compound">ExpressionEvaluator</ref></type>
+        <definition>ExpressionEvaluator ExternalResource::expressionEvaluator</definition>
+        <argsstring></argsstring>
+        <name>expressionEvaluator</name>
+        <qualifiedname>ExternalResource::expressionEvaluator</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/ExternalResource.qml" line="49" column="21" bodyfile="src/qml/editorwidgets/ExternalResource.qml" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classExternalResource_1afc673ff1421b4d441cda15b16e57752c" prot="private" static="no" mutable="no">
+        <type>Label</type>
+        <definition>Label ExternalResource::linkField</definition>
+        <argsstring></argsstring>
+        <name>linkField</name>
+        <qualifiedname>ExternalResource::linkField</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/ExternalResource.qml" line="54" column="7" bodyfile="src/qml/editorwidgets/ExternalResource.qml" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classExternalResource_1a5ca6d3169ed96190dc3b9e2794d8f293" prot="private" static="no" mutable="no">
+        <type>FontMetrics</type>
+        <definition>FontMetrics ExternalResource::fontMetrics</definition>
+        <argsstring></argsstring>
+        <name>fontMetrics</name>
+        <qualifiedname>ExternalResource::fontMetrics</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/ExternalResource.qml" line="55" column="13" bodyfile="src/qml/editorwidgets/ExternalResource.qml" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classExternalResource_1a724e107354eca9889915f36dbcccdd8b" prot="private" static="no" mutable="no">
+        <type>Rectangle</type>
+        <definition>Rectangle ExternalResource::mediaFrame</definition>
+        <argsstring></argsstring>
+        <name>mediaFrame</name>
+        <qualifiedname>ExternalResource::mediaFrame</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/ExternalResource.qml" line="56" column="11" bodyfile="src/qml/editorwidgets/ExternalResource.qml" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classExternalResource_1a8a056fd16056b8013af2309bac05c368" prot="private" static="no" mutable="no">
+        <type>Rectangle</type>
+        <definition>Rectangle ExternalResource::roundMask</definition>
+        <argsstring></argsstring>
+        <name>roundMask</name>
+        <qualifiedname>ExternalResource::roundMask</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/ExternalResource.qml" line="57" column="11" bodyfile="src/qml/editorwidgets/ExternalResource.qml" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classExternalResource_1a7086657cb421aa847278a5d2e766f49f" prot="private" static="no" mutable="no">
+        <type>BusyIndicator</type>
+        <definition>BusyIndicator ExternalResource::fetchingIndicator</definition>
+        <argsstring></argsstring>
+        <name>fetchingIndicator</name>
+        <qualifiedname>ExternalResource::fetchingIndicator</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/ExternalResource.qml" line="58" column="15" bodyfile="src/qml/editorwidgets/ExternalResource.qml" bodystart="58" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classExternalResource_1aaabfc58465f059f0406d32de9eacb366" prot="private" static="no" mutable="no">
+        <type>Image</type>
+        <definition>Image ExternalResource::image</definition>
+        <argsstring></argsstring>
+        <name>image</name>
+        <qualifiedname>ExternalResource::image</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/ExternalResource.qml" line="59" column="7" bodyfile="src/qml/editorwidgets/ExternalResource.qml" bodystart="59" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classExternalResource_1a13ba45e965f436d8a70b87a4a6b4c9f5" prot="private" static="no" mutable="no">
+        <type>Image</type>
+        <definition>Image ExternalResource::geoTagBadge</definition>
+        <argsstring></argsstring>
+        <name>geoTagBadge</name>
+        <qualifiedname>ExternalResource::geoTagBadge</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/ExternalResource.qml" line="60" column="7" bodyfile="src/qml/editorwidgets/ExternalResource.qml" bodystart="60" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classExternalResource_1a055c1f405a91b4285872675da5c65172" prot="private" static="no" mutable="no">
+        <type>Loader</type>
+        <definition>Loader ExternalResource::player</definition>
+        <argsstring></argsstring>
+        <name>player</name>
+        <qualifiedname>ExternalResource::player</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/ExternalResource.qml" line="61" column="8" bodyfile="src/qml/editorwidgets/ExternalResource.qml" bodystart="61" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classExternalResource_1af49ceb49f3cf7a4caba438f5a0eee2d1" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton ExternalResource::sketchButton</definition>
+        <argsstring></argsstring>
+        <name>sketchButton</name>
+        <qualifiedname>ExternalResource::sketchButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/ExternalResource.qml" line="62" column="14" bodyfile="src/qml/editorwidgets/ExternalResource.qml" bodystart="62" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classExternalResource_1a198f45f8038f79f26b37ae606f89ae0a" prot="private" static="no" mutable="no">
+        <type>Connections</type>
+        <definition>Connections ExternalResource::sketcherConnection</definition>
+        <argsstring></argsstring>
+        <name>sketcherConnection</name>
+        <qualifiedname>ExternalResource::sketcherConnection</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/ExternalResource.qml" line="63" column="13" bodyfile="src/qml/editorwidgets/ExternalResource.qml" bodystart="63" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classExternalResource_1ad4af4e0f6cffddce5975771d96e07282" prot="private" static="no" mutable="no">
+        <type>RowLayout</type>
+        <definition>RowLayout ExternalResource::playerControls</definition>
+        <argsstring></argsstring>
+        <name>playerControls</name>
+        <qualifiedname>ExternalResource::playerControls</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/ExternalResource.qml" line="64" column="11" bodyfile="src/qml/editorwidgets/ExternalResource.qml" bodystart="64" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classExternalResource_1a398d47d85f86e78738204db051cae625" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton ExternalResource::playButton</definition>
+        <argsstring></argsstring>
+        <name>playButton</name>
+        <qualifiedname>ExternalResource::playButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/ExternalResource.qml" line="65" column="14" bodyfile="src/qml/editorwidgets/ExternalResource.qml" bodystart="65" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classExternalResource_1a604a2616ef4a74384cc56fa4ccf0139c" prot="private" static="no" mutable="no">
+        <type>Slider</type>
+        <definition>Slider ExternalResource::positionSlider</definition>
+        <argsstring></argsstring>
+        <name>positionSlider</name>
+        <qualifiedname>ExternalResource::positionSlider</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/ExternalResource.qml" line="66" column="8" bodyfile="src/qml/editorwidgets/ExternalResource.qml" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classExternalResource_1aada31688df32217c3db68df994a0ae62" prot="private" static="no" mutable="no">
+        <type>Label</type>
+        <definition>Label ExternalResource::durationLabel</definition>
+        <argsstring></argsstring>
+        <name>durationLabel</name>
+        <qualifiedname>ExternalResource::durationLabel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/ExternalResource.qml" line="67" column="7" bodyfile="src/qml/editorwidgets/ExternalResource.qml" bodystart="67" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classExternalResource_1a0c0d33f0231af10d9dd12df7d329018d" prot="private" static="no" mutable="no">
+        <type>FontMetrics</type>
+        <definition>FontMetrics ExternalResource::durationLabelMetrics</definition>
+        <argsstring></argsstring>
+        <name>durationLabelMetrics</name>
+        <qualifiedname>ExternalResource::durationLabelMetrics</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/ExternalResource.qml" line="68" column="13" bodyfile="src/qml/editorwidgets/ExternalResource.qml" bodystart="68" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classExternalResource_1ab11d61499e70aeaad43906d2e1b7b012" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton ExternalResource::cameraButton</definition>
+        <argsstring></argsstring>
+        <name>cameraButton</name>
+        <qualifiedname>ExternalResource::cameraButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/ExternalResource.qml" line="69" column="14" bodyfile="src/qml/editorwidgets/ExternalResource.qml" bodystart="69" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classExternalResource_1a0832cc03d6f409977967370993f5b223" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton ExternalResource::cameraVideoButton</definition>
+        <argsstring></argsstring>
+        <name>cameraVideoButton</name>
+        <qualifiedname>ExternalResource::cameraVideoButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/ExternalResource.qml" line="70" column="14" bodyfile="src/qml/editorwidgets/ExternalResource.qml" bodystart="70" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classExternalResource_1a3db9236ebfde1b60d6c348501cc3efc0" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton ExternalResource::microphoneButton</definition>
+        <argsstring></argsstring>
+        <name>microphoneButton</name>
+        <qualifiedname>ExternalResource::microphoneButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/ExternalResource.qml" line="71" column="14" bodyfile="src/qml/editorwidgets/ExternalResource.qml" bodystart="71" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classExternalResource_1aad5dc6751694c9af819bcbad2dda36a0" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton ExternalResource::fileButton</definition>
+        <argsstring></argsstring>
+        <name>fileButton</name>
+        <qualifiedname>ExternalResource::fileButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/ExternalResource.qml" line="72" column="14" bodyfile="src/qml/editorwidgets/ExternalResource.qml" bodystart="72" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classExternalResource_1ad523465d94c9e0fdcfdfd1acce2b7d6c" prot="private" static="no" mutable="no">
+        <type>Loader</type>
+        <definition>Loader ExternalResource::audioRecorderLoader</definition>
+        <argsstring></argsstring>
+        <name>audioRecorderLoader</name>
+        <qualifiedname>ExternalResource::audioRecorderLoader</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/ExternalResource.qml" line="73" column="8" bodyfile="src/qml/editorwidgets/ExternalResource.qml" bodystart="73" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classExternalResource_1ae6e52e231fdb6e18f97c520cc2e31b4b" prot="private" static="no" mutable="no">
+        <type>Loader</type>
+        <definition>Loader ExternalResource::cameraLoader</definition>
+        <argsstring></argsstring>
+        <name>cameraLoader</name>
+        <qualifiedname>ExternalResource::cameraLoader</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/ExternalResource.qml" line="74" column="8" bodyfile="src/qml/editorwidgets/ExternalResource.qml" bodystart="74" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classExternalResource_1ab479a3899753bfeffb0006885e778384" prot="private" static="no" mutable="no">
+        <type>Component</type>
+        <definition>Component ExternalResource::audioRecorderComponent</definition>
+        <argsstring></argsstring>
+        <name>audioRecorderComponent</name>
+        <qualifiedname>ExternalResource::audioRecorderComponent</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/ExternalResource.qml" line="75" column="11" bodyfile="src/qml/editorwidgets/ExternalResource.qml" bodystart="75" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classExternalResource_1a98a1c54ba5fd0605939c836b5ecbc7be" prot="private" static="no" mutable="no">
+        <type>Component</type>
+        <definition>Component ExternalResource::cameraComponent</definition>
+        <argsstring></argsstring>
+        <name>cameraComponent</name>
+        <qualifiedname>ExternalResource::cameraComponent</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/ExternalResource.qml" line="76" column="11" bodyfile="src/qml/editorwidgets/ExternalResource.qml" bodystart="76" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classExternalResource_1ac4a783cca1a5c98b8dadf90e80281b23" prot="private" static="no" mutable="no">
+        <type><ref refid="classQFieldCamera" kindref="compound">QFieldCamera</ref></type>
+        <definition>QFieldCamera ExternalResource::qfieldCamera</definition>
+        <argsstring></argsstring>
+        <name>qfieldCamera</name>
+        <qualifiedname>ExternalResource::qfieldCamera</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/ExternalResource.qml" line="77" column="14" bodyfile="src/qml/editorwidgets/ExternalResource.qml" bodystart="77" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classExternalResource_1a09494970aef4a3793fa1781fc780b1df" prot="private" static="no" mutable="no">
+        <type>QtObject</type>
+        <definition>QtObject ExternalResource::dummyTarget</definition>
+        <argsstring></argsstring>
+        <name>dummyTarget</name>
+        <qualifiedname>ExternalResource::dummyTarget</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/ExternalResource.qml" line="78" column="10" bodyfile="src/qml/editorwidgets/ExternalResource.qml" bodystart="78" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classExternalResource_1a45b6b4d8afc55da2c376ec083a5b4c00" prot="private" static="no" mutable="no">
+        <type>Connections</type>
+        <definition>Connections ExternalResource::cloudProjectConnection</definition>
+        <argsstring></argsstring>
+        <name>cloudProjectConnection</name>
+        <qualifiedname>ExternalResource::cloudProjectConnection</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/ExternalResource.qml" line="79" column="13" bodyfile="src/qml/editorwidgets/ExternalResource.qml" bodystart="79" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classExternalResource_1a4725b2c1219d359c0769c16a4fa24f61" prot="private" static="no" mutable="no">
+        <type>var Component</type>
+        <definition>var Component ExternalResource::onCompleted</definition>
+        <argsstring></argsstring>
+        <name>onCompleted</name>
+        <qualifiedname>ExternalResource::onCompleted</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/ExternalResource.qml" line="92" column="14" bodyfile="src/qml/editorwidgets/ExternalResource.qml" bodystart="92" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classExternalResource_1ad652c3cfd60cd716b57d4a8c3e2a0cf6" prot="private" static="no" mutable="no">
+        <type>MenuItem</type>
+        <definition>MenuItem ExternalResource::capturePhotoMenuItem</definition>
+        <argsstring></argsstring>
+        <name>capturePhotoMenuItem</name>
+        <qualifiedname>ExternalResource::capturePhotoMenuItem</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/ExternalResource.qml" line="93" column="10" bodyfile="src/qml/editorwidgets/ExternalResource.qml" bodystart="93" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classExternalResource_1a21df67bee81002e7045423e800f04323" prot="private" static="no" mutable="no">
+        <type>MenuItem</type>
+        <definition>MenuItem ExternalResource::captureVideoMenuItem</definition>
+        <argsstring></argsstring>
+        <name>captureVideoMenuItem</name>
+        <qualifiedname>ExternalResource::captureVideoMenuItem</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/ExternalResource.qml" line="94" column="10" bodyfile="src/qml/editorwidgets/ExternalResource.qml" bodystart="94" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classExternalResource_1ac5dba468b0a448a85513bd106a2d511f" prot="private" static="no" mutable="no">
+        <type>MenuItem</type>
+        <definition>MenuItem ExternalResource::captureAudioMenuItem</definition>
+        <argsstring></argsstring>
+        <name>captureAudioMenuItem</name>
+        <qualifiedname>ExternalResource::captureAudioMenuItem</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/ExternalResource.qml" line="95" column="10" bodyfile="src/qml/editorwidgets/ExternalResource.qml" bodystart="95" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classExternalResource_1a05d15cb7cce11938a3096bf456b9d6ba" prot="private" static="no" mutable="no">
+        <type>MenuSeparator</type>
+        <definition>MenuSeparator ExternalResource::separatorGalleryItem</definition>
+        <argsstring></argsstring>
+        <name>separatorGalleryItem</name>
+        <qualifiedname>ExternalResource::separatorGalleryItem</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/ExternalResource.qml" line="96" column="15" bodyfile="src/qml/editorwidgets/ExternalResource.qml" bodystart="96" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classExternalResource_1add12ea3077a8277e3b9eb9a3fea35e50" prot="private" static="no" mutable="no">
+        <type>MenuItem</type>
+        <definition>MenuItem ExternalResource::attachGalleryMenuItem</definition>
+        <argsstring></argsstring>
+        <name>attachGalleryMenuItem</name>
+        <qualifiedname>ExternalResource::attachGalleryMenuItem</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/ExternalResource.qml" line="97" column="10" bodyfile="src/qml/editorwidgets/ExternalResource.qml" bodystart="97" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classExternalResource_1a73d9de31e9c6d9ceaf8129fe2ecd5a2f" prot="private" static="no" mutable="no">
+        <type>MenuItem</type>
+        <definition>MenuItem ExternalResource::attachFileMenuItem</definition>
+        <argsstring></argsstring>
+        <name>attachFileMenuItem</name>
+        <qualifiedname>ExternalResource::attachFileMenuItem</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/ExternalResource.qml" line="98" column="10" bodyfile="src/qml/editorwidgets/ExternalResource.qml" bodystart="98" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classExternalResource_1a6396f22bc523e83ff37d3e715f7bae83" prot="private" static="no" mutable="no">
+        <type>MenuSeparator</type>
+        <definition>MenuSeparator ExternalResource::separatorDrawingItem</definition>
+        <argsstring></argsstring>
+        <name>separatorDrawingItem</name>
+        <qualifiedname>ExternalResource::separatorDrawingItem</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/ExternalResource.qml" line="99" column="15" bodyfile="src/qml/editorwidgets/ExternalResource.qml" bodystart="99" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classExternalResource_1ab3b788912145f8bf82fb0e9c97e90ef4" prot="private" static="no" mutable="no">
+        <type>MenuItem</type>
+        <definition>MenuItem ExternalResource::attachDrawingMenuItem</definition>
+        <argsstring></argsstring>
+        <name>attachDrawingMenuItem</name>
+        <qualifiedname>ExternalResource::attachDrawingMenuItem</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/ExternalResource.qml" line="100" column="10" bodyfile="src/qml/editorwidgets/ExternalResource.qml" bodystart="100" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classExternalResource_1a194e7ceae97c7650165ac970d9145aeb" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string ExternalResource::prefixToRelativePath</definition>
+        <argsstring></argsstring>
+        <name>prefixToRelativePath</name>
+        <qualifiedname>ExternalResource::prefixToRelativePath</qualifiedname>
+        <read>dummyGetter_prefixToRelativePath_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/ExternalResource.qml" line="16" column="1" bodyfile="src/qml/editorwidgets/ExternalResource.qml" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classExternalResource_1a285a0aeaa1cb8cd6fda65c7cffa54b24" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int ExternalResource::document_FILE</definition>
+        <argsstring></argsstring>
+        <name>document_FILE</name>
+        <qualifiedname>ExternalResource::document_FILE</qualifiedname>
+        <read>dummyGetter_document_FILE_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="remark"><para>This property is read-only </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/ExternalResource.qml" line="19" column="1" bodyfile="src/qml/editorwidgets/ExternalResource.qml" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classExternalResource_1a95e4f1a0a8bb88a7814c46adfa73e2ee" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int ExternalResource::document_IMAGE</definition>
+        <argsstring></argsstring>
+        <name>document_IMAGE</name>
+        <qualifiedname>ExternalResource::document_IMAGE</qualifiedname>
+        <read>dummyGetter_document_IMAGE_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="remark"><para>This property is read-only </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/ExternalResource.qml" line="22" column="1" bodyfile="src/qml/editorwidgets/ExternalResource.qml" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classExternalResource_1a0ca587098137855eb3ce953e85035cb7" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int ExternalResource::document_WEB</definition>
+        <argsstring></argsstring>
+        <name>document_WEB</name>
+        <qualifiedname>ExternalResource::document_WEB</qualifiedname>
+        <read>dummyGetter_document_WEB_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="remark"><para>This property is read-only </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/ExternalResource.qml" line="25" column="1" bodyfile="src/qml/editorwidgets/ExternalResource.qml" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classExternalResource_1a9b812ad699572ed5c6107ba192c10978" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int ExternalResource::document_AUDIO</definition>
+        <argsstring></argsstring>
+        <name>document_AUDIO</name>
+        <qualifiedname>ExternalResource::document_AUDIO</qualifiedname>
+        <read>dummyGetter_document_AUDIO_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="remark"><para>This property is read-only </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/ExternalResource.qml" line="28" column="1" bodyfile="src/qml/editorwidgets/ExternalResource.qml" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classExternalResource_1a8b87ba442bc35fee21fa7f6589db59f8" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int ExternalResource::document_VIDEO</definition>
+        <argsstring></argsstring>
+        <name>document_VIDEO</name>
+        <qualifiedname>ExternalResource::document_VIDEO</qualifiedname>
+        <read>dummyGetter_document_VIDEO_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="remark"><para>This property is read-only </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/ExternalResource.qml" line="31" column="1" bodyfile="src/qml/editorwidgets/ExternalResource.qml" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classExternalResource_1a5b07b3a87989dcd029bdc35bf495cf50" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int ExternalResource::documentViewer</definition>
+        <argsstring></argsstring>
+        <name>documentViewer</name>
+        <qualifiedname>ExternalResource::documentViewer</qualifiedname>
+        <read>dummyGetter_documentViewer_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/ExternalResource.qml" line="33" column="1" bodyfile="src/qml/editorwidgets/ExternalResource.qml" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classExternalResource_1a43c5e0ff7d35c383755a8805dbe65abd" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool ExternalResource::isImage</definition>
+        <argsstring></argsstring>
+        <name>isImage</name>
+        <qualifiedname>ExternalResource::isImage</qualifiedname>
+        <read>dummyGetter_isImage_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/ExternalResource.qml" line="35" column="1" bodyfile="src/qml/editorwidgets/ExternalResource.qml" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classExternalResource_1ab4c39b5cda72982e290b0ca015563572" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool ExternalResource::isAudio</definition>
+        <argsstring></argsstring>
+        <name>isAudio</name>
+        <qualifiedname>ExternalResource::isAudio</qualifiedname>
+        <read>dummyGetter_isAudio_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/ExternalResource.qml" line="37" column="1" bodyfile="src/qml/editorwidgets/ExternalResource.qml" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classExternalResource_1accf6a1b567988b980e25d36ba9fe40aa" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool ExternalResource::isVideo</definition>
+        <argsstring></argsstring>
+        <name>isVideo</name>
+        <qualifiedname>ExternalResource::isVideo</qualifiedname>
+        <read>dummyGetter_isVideo_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/ExternalResource.qml" line="39" column="1" bodyfile="src/qml/editorwidgets/ExternalResource.qml" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classExternalResource_1a9dab0ee1f5325ca543cc1ef56f6a3bce" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>var</type>
+        <definition>var ExternalResource::currentValue</definition>
+        <argsstring></argsstring>
+        <name>currentValue</name>
+        <qualifiedname>ExternalResource::currentValue</qualifiedname>
+        <read>dummyGetter_currentValue_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/ExternalResource.qml" line="41" column="1" bodyfile="src/qml/editorwidgets/ExternalResource.qml" bodystart="41" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classExternalResource_1ab7a5b3b2cea776866231f46866d75397" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ExternalResource::prepareValue</definition>
+        <argsstring>(fullValue)</argsstring>
+        <name>prepareValue</name>
+        <qualifiedname>ExternalResource::prepareValue</qualifiedname>
+        <param>
+          <type>fullValue</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/ExternalResource.qml" line="46" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classExternalResource_1a449e16e5002b839822e105d58dbb63fb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ExternalResource::getResourceFilePath</definition>
+        <argsstring>()</argsstring>
+        <name>getResourceFilePath</name>
+        <qualifiedname>ExternalResource::getResourceFilePath</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/ExternalResource.qml" line="52" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classExternalResource_1a37c0a12521339574bc253d348570c411" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ExternalResource::attachFile</definition>
+        <argsstring>()</argsstring>
+        <name>attachFile</name>
+        <qualifiedname>ExternalResource::attachFile</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/ExternalResource.qml" line="82" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classExternalResource_1aa0699804fa90aeead254882f88541152" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ExternalResource::attachGallery</definition>
+        <argsstring>()</argsstring>
+        <name>attachGallery</name>
+        <qualifiedname>ExternalResource::attachGallery</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/ExternalResource.qml" line="84" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classExternalResource_1abb109c459cfe150cd3e6881d9e9c2066" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ExternalResource::capturePhoto</definition>
+        <argsstring>()</argsstring>
+        <name>capturePhoto</name>
+        <qualifiedname>ExternalResource::capturePhoto</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/ExternalResource.qml" line="86" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classExternalResource_1af9ab0a4d3196bc7c9567fd94843918f0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ExternalResource::captureVideo</definition>
+        <argsstring>()</argsstring>
+        <name>captureVideo</name>
+        <qualifiedname>ExternalResource::captureVideo</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/ExternalResource.qml" line="88" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classExternalResource_1aed2eede7d20e81d629d0fa603cfe5da1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ExternalResource::captureAudio</definition>
+        <argsstring>()</argsstring>
+        <name>captureAudio</name>
+        <qualifiedname>ExternalResource::captureAudio</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/ExternalResource.qml" line="90" column="6"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>EditorWidgetBase</label>
+        <link refid="classEditorWidgetBase"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>ExternalResource</label>
+        <link refid="classExternalResource"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QtQuick::Item</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>EditorWidgetBase</label>
+        <link refid="classEditorWidgetBase"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>ExternalResource</label>
+        <link refid="classExternalResource"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QtQuick::Item</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/qml/editorwidgets/ExternalResource.qml" line="9" column="1" bodyfile="src/qml/editorwidgets/ExternalResource.qml" bodystart="9" bodyend="101"/>
+    <listofallmembers>
+      <member refid="classExternalResource_1ab3b788912145f8bf82fb0e9c97e90ef4" prot="private" virt="non-virtual"><scope>ExternalResource</scope><name>attachDrawingMenuItem</name></member>
+      <member refid="classExternalResource_1a37c0a12521339574bc253d348570c411" prot="public" virt="non-virtual"><scope>ExternalResource</scope><name>attachFile</name></member>
+      <member refid="classExternalResource_1a73d9de31e9c6d9ceaf8129fe2ecd5a2f" prot="private" virt="non-virtual"><scope>ExternalResource</scope><name>attachFileMenuItem</name></member>
+      <member refid="classExternalResource_1aa0699804fa90aeead254882f88541152" prot="public" virt="non-virtual"><scope>ExternalResource</scope><name>attachGallery</name></member>
+      <member refid="classExternalResource_1add12ea3077a8277e3b9eb9a3fea35e50" prot="private" virt="non-virtual"><scope>ExternalResource</scope><name>attachGalleryMenuItem</name></member>
+      <member refid="classExternalResource_1ab479a3899753bfeffb0006885e778384" prot="private" virt="non-virtual"><scope>ExternalResource</scope><name>audioRecorderComponent</name></member>
+      <member refid="classExternalResource_1ad523465d94c9e0fdcfdfd1acce2b7d6c" prot="private" virt="non-virtual"><scope>ExternalResource</scope><name>audioRecorderLoader</name></member>
+      <member refid="classExternalResource_1ab11d61499e70aeaad43906d2e1b7b012" prot="private" virt="non-virtual"><scope>ExternalResource</scope><name>cameraButton</name></member>
+      <member refid="classExternalResource_1a98a1c54ba5fd0605939c836b5ecbc7be" prot="private" virt="non-virtual"><scope>ExternalResource</scope><name>cameraComponent</name></member>
+      <member refid="classExternalResource_1ae6e52e231fdb6e18f97c520cc2e31b4b" prot="private" virt="non-virtual"><scope>ExternalResource</scope><name>cameraLoader</name></member>
+      <member refid="classExternalResource_1a0832cc03d6f409977967370993f5b223" prot="private" virt="non-virtual"><scope>ExternalResource</scope><name>cameraVideoButton</name></member>
+      <member refid="classExternalResource_1aed2eede7d20e81d629d0fa603cfe5da1" prot="public" virt="non-virtual"><scope>ExternalResource</scope><name>captureAudio</name></member>
+      <member refid="classExternalResource_1ac5dba468b0a448a85513bd106a2d511f" prot="private" virt="non-virtual"><scope>ExternalResource</scope><name>captureAudioMenuItem</name></member>
+      <member refid="classExternalResource_1abb109c459cfe150cd3e6881d9e9c2066" prot="public" virt="non-virtual"><scope>ExternalResource</scope><name>capturePhoto</name></member>
+      <member refid="classExternalResource_1ad652c3cfd60cd716b57d4a8c3e2a0cf6" prot="private" virt="non-virtual"><scope>ExternalResource</scope><name>capturePhotoMenuItem</name></member>
+      <member refid="classExternalResource_1af9ab0a4d3196bc7c9567fd94843918f0" prot="public" virt="non-virtual"><scope>ExternalResource</scope><name>captureVideo</name></member>
+      <member refid="classExternalResource_1a21df67bee81002e7045423e800f04323" prot="private" virt="non-virtual"><scope>ExternalResource</scope><name>captureVideoMenuItem</name></member>
+      <member refid="classExternalResource_1a45b6b4d8afc55da2c376ec083a5b4c00" prot="private" virt="non-virtual"><scope>ExternalResource</scope><name>cloudProjectConnection</name></member>
+      <member refid="classExternalResource_1a9dab0ee1f5325ca543cc1ef56f6a3bce" prot="public" virt="non-virtual"><scope>ExternalResource</scope><name>currentValue</name></member>
+      <member refid="classExternalResource_1a9b812ad699572ed5c6107ba192c10978" prot="public" virt="non-virtual"><scope>ExternalResource</scope><name>document_AUDIO</name></member>
+      <member refid="classExternalResource_1a285a0aeaa1cb8cd6fda65c7cffa54b24" prot="public" virt="non-virtual"><scope>ExternalResource</scope><name>document_FILE</name></member>
+      <member refid="classExternalResource_1a95e4f1a0a8bb88a7814c46adfa73e2ee" prot="public" virt="non-virtual"><scope>ExternalResource</scope><name>document_IMAGE</name></member>
+      <member refid="classExternalResource_1a8b87ba442bc35fee21fa7f6589db59f8" prot="public" virt="non-virtual"><scope>ExternalResource</scope><name>document_VIDEO</name></member>
+      <member refid="classExternalResource_1a0ca587098137855eb3ce953e85035cb7" prot="public" virt="non-virtual"><scope>ExternalResource</scope><name>document_WEB</name></member>
+      <member refid="classExternalResource_1a5b07b3a87989dcd029bdc35bf495cf50" prot="public" virt="non-virtual"><scope>ExternalResource</scope><name>documentViewer</name></member>
+      <member refid="classExternalResource_1a09494970aef4a3793fa1781fc780b1df" prot="private" virt="non-virtual"><scope>ExternalResource</scope><name>dummyTarget</name></member>
+      <member refid="classExternalResource_1aada31688df32217c3db68df994a0ae62" prot="private" virt="non-virtual"><scope>ExternalResource</scope><name>durationLabel</name></member>
+      <member refid="classExternalResource_1a0c0d33f0231af10d9dd12df7d329018d" prot="private" virt="non-virtual"><scope>ExternalResource</scope><name>durationLabelMetrics</name></member>
+      <member refid="classExternalResource_1ab734d16771981b8b8775f743cdd0b9b6" prot="private" virt="non-virtual"><scope>ExternalResource</scope><name>expressionEvaluator</name></member>
+      <member refid="classExternalResource_1a8a504b6452ec1440fdd90e5af71f7342" prot="private" virt="non-virtual"><scope>ExternalResource</scope><name>externalStorage</name></member>
+      <member refid="classExternalResource_1a7086657cb421aa847278a5d2e766f49f" prot="private" virt="non-virtual"><scope>ExternalResource</scope><name>fetchingIndicator</name></member>
+      <member refid="classExternalResource_1aad5dc6751694c9af819bcbad2dda36a0" prot="private" virt="non-virtual"><scope>ExternalResource</scope><name>fileButton</name></member>
+      <member refid="classExternalResource_1a5ca6d3169ed96190dc3b9e2794d8f293" prot="private" virt="non-virtual"><scope>ExternalResource</scope><name>fontMetrics</name></member>
+      <member refid="classExternalResource_1a13ba45e965f436d8a70b87a4a6b4c9f5" prot="private" virt="non-virtual"><scope>ExternalResource</scope><name>geoTagBadge</name></member>
+      <member refid="classExternalResource_1a449e16e5002b839822e105d58dbb63fb" prot="public" virt="non-virtual"><scope>ExternalResource</scope><name>getResourceFilePath</name></member>
+      <member refid="classEditorWidgetBase_1a09df69fe97d43104557cf6b6ff92733d" prot="public" virt="non-virtual"><scope>ExternalResource</scope><name>hasMenu</name></member>
+      <member refid="classExternalResource_1a170c75673d483a11bd6c34397ea694dd" prot="private" virt="non-virtual"><scope>ExternalResource</scope><name>height</name></member>
+      <member refid="classExternalResource_1aaabfc58465f059f0406d32de9eacb366" prot="private" virt="non-virtual"><scope>ExternalResource</scope><name>image</name></member>
+      <member refid="classExternalResource_1ab4c39b5cda72982e290b0ca015563572" prot="public" virt="non-virtual"><scope>ExternalResource</scope><name>isAudio</name></member>
+      <member refid="classEditorWidgetBase_1a5e234aeb8a604b878c0ea42b3666287d" prot="public" virt="non-virtual"><scope>ExternalResource</scope><name>isEmpty</name></member>
+      <member refid="classExternalResource_1a43c5e0ff7d35c383755a8805dbe65abd" prot="public" virt="non-virtual"><scope>ExternalResource</scope><name>isImage</name></member>
+      <member refid="classEditorWidgetBase_1a9bf5802500e205dc6689be4e3144d7a9" prot="public" virt="non-virtual"><scope>ExternalResource</scope><name>isLoaded</name></member>
+      <member refid="classEditorWidgetBase_1a68f4219d74a2b92e087e85eb77d8cd4c" prot="public" virt="non-virtual"><scope>ExternalResource</scope><name>isNull</name></member>
+      <member refid="classExternalResource_1accf6a1b567988b980e25d36ba9fe40aa" prot="public" virt="non-virtual"><scope>ExternalResource</scope><name>isVideo</name></member>
+      <member refid="classExternalResource_1ae5a79acdf51a8411d22ffb3187a25aa1" prot="private" virt="non-virtual"><scope>ExternalResource</scope><name>left</name></member>
+      <member refid="classExternalResource_1afc673ff1421b4d441cda15b16e57752c" prot="private" virt="non-virtual"><scope>ExternalResource</scope><name>linkField</name></member>
+      <member refid="classExternalResource_1a724e107354eca9889915f36dbcccdd8b" prot="private" virt="non-virtual"><scope>ExternalResource</scope><name>mediaFrame</name></member>
+      <member refid="classEditorWidgetBase_1a7833a10df4c49cd3d197cb1fec54c1b8" prot="public" virt="non-virtual"><scope>ExternalResource</scope><name>menu</name></member>
+      <member refid="classExternalResource_1a3db9236ebfde1b60d6c348501cc3efc0" prot="private" virt="non-virtual"><scope>ExternalResource</scope><name>microphoneButton</name></member>
+      <member refid="classExternalResource_1a4725b2c1219d359c0769c16a4fa24f61" prot="private" virt="non-virtual"><scope>ExternalResource</scope><name>onCompleted</name></member>
+      <member refid="classExternalResource_1a3b1d9810edb0029d34a1f48b68d8b0ce" prot="private" virt="non-virtual"><scope>ExternalResource</scope><name>onCurrentValueChanged</name></member>
+      <member refid="classExternalResource_1a398d47d85f86e78738204db051cae625" prot="private" virt="non-virtual"><scope>ExternalResource</scope><name>playButton</name></member>
+      <member refid="classExternalResource_1a055c1f405a91b4285872675da5c65172" prot="private" virt="non-virtual"><scope>ExternalResource</scope><name>player</name></member>
+      <member refid="classExternalResource_1ad4af4e0f6cffddce5975771d96e07282" prot="private" virt="non-virtual"><scope>ExternalResource</scope><name>playerControls</name></member>
+      <member refid="classExternalResource_1a604a2616ef4a74384cc56fa4ccf0139c" prot="private" virt="non-virtual"><scope>ExternalResource</scope><name>positionSlider</name></member>
+      <member refid="classExternalResource_1a194e7ceae97c7650165ac970d9145aeb" prot="public" virt="non-virtual"><scope>ExternalResource</scope><name>prefixToRelativePath</name></member>
+      <member refid="classExternalResource_1ab7a5b3b2cea776866231f46866d75397" prot="public" virt="non-virtual"><scope>ExternalResource</scope><name>prepareValue</name></member>
+      <member refid="classExternalResource_1ac4a783cca1a5c98b8dadf90e80281b23" prot="private" virt="non-virtual"><scope>ExternalResource</scope><name>qfieldCamera</name></member>
+      <member refid="classEditorWidgetBase_1a85e6ed4c11d34c9e84215dd004e8711c" prot="public" virt="non-virtual"><scope>ExternalResource</scope><name>requestBarcode</name></member>
+      <member refid="classEditorWidgetBase_1ae2d3df77c7c98886d2f0bbd18090bd1c" prot="public" virt="non-virtual"><scope>ExternalResource</scope><name>requestGeometry</name></member>
+      <member refid="classEditorWidgetBase_1ac9d672c6436f98d79d2a5539cd0b9200" prot="public" virt="non-virtual"><scope>ExternalResource</scope><name>requestJumpToPoint</name></member>
+      <member refid="classExternalResource_1a64e55d7848177d16646da47e1c37a523" prot="private" virt="non-virtual"><scope>ExternalResource</scope><name>right</name></member>
+      <member refid="classExternalResource_1aa13c2755083e139c0c2071c832e4183d" prot="private" virt="non-virtual"><scope>ExternalResource</scope><name>rootPathEvaluator</name></member>
+      <member refid="classExternalResource_1a8a056fd16056b8013af2309bac05c368" prot="private" virt="non-virtual"><scope>ExternalResource</scope><name>roundMask</name></member>
+      <member refid="classExternalResource_1a6396f22bc523e83ff37d3e715f7bae83" prot="private" virt="non-virtual"><scope>ExternalResource</scope><name>separatorDrawingItem</name></member>
+      <member refid="classExternalResource_1a05d15cb7cce11938a3096bf456b9d6ba" prot="private" virt="non-virtual"><scope>ExternalResource</scope><name>separatorGalleryItem</name></member>
+      <member refid="classExternalResource_1af49ceb49f3cf7a4caba438f5a0eee2d1" prot="private" virt="non-virtual"><scope>ExternalResource</scope><name>sketchButton</name></member>
+      <member refid="classExternalResource_1a198f45f8038f79f26b37ae606f89ae0a" prot="private" virt="non-virtual"><scope>ExternalResource</scope><name>sketcherConnection</name></member>
+      <member refid="classEditorWidgetBase_1afa2313f03e3b2887472534cc11ca1572" prot="public" virt="non-virtual"><scope>ExternalResource</scope><name>valueChangeRequested</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

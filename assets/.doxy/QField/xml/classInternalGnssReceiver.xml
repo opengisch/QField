@@ -1,0 +1,365 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classInternalGnssReceiver" kind="class" language="C++" prot="public">
+    <compoundname>InternalGnssReceiver</compoundname>
+    <basecompoundref refid="classAbstractGnssReceiver" prot="public" virt="non-virtual">AbstractGnssReceiver</basecompoundref>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classInternalGnssReceiver_1a0a3b3ae7ff72e6f0cd39e72fba97e6d8" prot="private" static="no" mutable="no">
+        <type>std::unique_ptr&lt; QGeoPositionInfoSource &gt;</type>
+        <definition>std::unique_ptr&lt;QGeoPositionInfoSource&gt; InternalGnssReceiver::mGeoPositionSource</definition>
+        <argsstring></argsstring>
+        <name>mGeoPositionSource</name>
+        <qualifiedname>InternalGnssReceiver::mGeoPositionSource</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/internalgnssreceiver.h" line="50" column="21" bodyfile="src/core/positioning/internalgnssreceiver.h" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classInternalGnssReceiver_1ab879b596aa431889ba49b864d6b03702" prot="private" static="no" mutable="no">
+        <type>std::unique_ptr&lt; QGeoSatelliteInfoSource &gt;</type>
+        <definition>std::unique_ptr&lt;QGeoSatelliteInfoSource&gt; InternalGnssReceiver::mGeoSatelliteSource</definition>
+        <argsstring></argsstring>
+        <name>mGeoSatelliteSource</name>
+        <qualifiedname>InternalGnssReceiver::mGeoSatelliteSource</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/internalgnssreceiver.h" line="51" column="21" bodyfile="src/core/positioning/internalgnssreceiver.h" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classInternalGnssReceiver_1a85f0c3549dcdbd8a661621f278acd83d" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool InternalGnssReceiver::mActive</definition>
+        <argsstring></argsstring>
+        <name>mActive</name>
+        <qualifiedname>InternalGnssReceiver::mActive</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/internalgnssreceiver.h" line="52" column="10" bodyfile="src/core/positioning/internalgnssreceiver.h" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classInternalGnssReceiver_1a00a4b28accd4869f31c4532a05a9d534" prot="private" static="no" mutable="no">
+        <type><ref refid="classGnssPositionInformation" kindref="compound">GnssPositionInformation</ref></type>
+        <definition>GnssPositionInformation InternalGnssReceiver::mLastGnssPositionInformation</definition>
+        <argsstring></argsstring>
+        <name>mLastGnssPositionInformation</name>
+        <qualifiedname>InternalGnssReceiver::mLastGnssPositionInformation</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/internalgnssreceiver.h" line="54" column="29" bodyfile="src/core/positioning/internalgnssreceiver.h" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classInternalGnssReceiver_1ab87f18a72e15866095b26dc431f4a939" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool InternalGnssReceiver::mLastGnssPositionValid</definition>
+        <argsstring></argsstring>
+        <name>mLastGnssPositionValid</name>
+        <qualifiedname>InternalGnssReceiver::mLastGnssPositionValid</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/internalgnssreceiver.h" line="55" column="10" bodyfile="src/core/positioning/internalgnssreceiver.h" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classInternalGnssReceiver_1a33314b490c1e77a58c804121b1a5d406" prot="private" static="no" mutable="no">
+        <type>QList&lt; int &gt;</type>
+        <definition>QList&lt;int&gt; InternalGnssReceiver::mSatellitesID</definition>
+        <argsstring></argsstring>
+        <name>mSatellitesID</name>
+        <qualifiedname>InternalGnssReceiver::mSatellitesID</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/internalgnssreceiver.h" line="57" column="11" bodyfile="src/core/positioning/internalgnssreceiver.h" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classInternalGnssReceiver_1a42b4da7072eafba3d362c5408aed59fc" prot="private" static="no" mutable="no">
+        <type>QList&lt; QgsSatelliteInfo &gt;</type>
+        <definition>QList&lt;QgsSatelliteInfo&gt; InternalGnssReceiver::mSatellitesInfo</definition>
+        <argsstring></argsstring>
+        <name>mSatellitesInfo</name>
+        <qualifiedname>InternalGnssReceiver::mSatellitesInfo</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/internalgnssreceiver.h" line="58" column="11" bodyfile="src/core/positioning/internalgnssreceiver.h" bodystart="58" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classInternalGnssReceiver_1a71c33092b9c6f3117fd71b0bdc3d4286" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool InternalGnssReceiver::mSatelliteInformationValid</definition>
+        <argsstring></argsstring>
+        <name>mSatelliteInformationValid</name>
+        <qualifiedname>InternalGnssReceiver::mSatelliteInformationValid</qualifiedname>
+        <initializer>= true</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/internalgnssreceiver.h" line="59" column="10" bodyfile="src/core/positioning/internalgnssreceiver.h" bodystart="59" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classInternalGnssReceiver_1af2331d6ad5ff066732edf77c556bbfa7" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>InternalGnssReceiver::InternalGnssReceiver</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>InternalGnssReceiver</name>
+        <qualifiedname>InternalGnssReceiver::InternalGnssReceiver</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/internalgnssreceiver.h" line="34" column="14" bodyfile="src/core/positioning/internalgnssreceiver.cpp" bodystart="21" bodyend="47"/>
+      </memberdef>
+      <memberdef kind="function" id="classInternalGnssReceiver_1a9e8eae82a665a2cc5d74696e53a173c3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>InternalGnssReceiver::~InternalGnssReceiver</definition>
+        <argsstring>() override=default</argsstring>
+        <name>~InternalGnssReceiver</name>
+        <qualifiedname>InternalGnssReceiver::~InternalGnssReceiver</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/internalgnssreceiver.h" line="35" column="5"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-slot">
+      <memberdef kind="slot" id="classInternalGnssReceiver_1a34ea00a7cea752b399be3065cee02470" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void InternalGnssReceiver::handlePositionUpdated</definition>
+        <argsstring>(const QGeoPositionInfo &amp;positionInfo)</argsstring>
+        <name>handlePositionUpdated</name>
+        <qualifiedname>InternalGnssReceiver::handlePositionUpdated</qualifiedname>
+        <param>
+          <type>const QGeoPositionInfo &amp;</type>
+          <declname>positionInfo</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+<para>Per Qt header documentation, the only details that are <emphasis>always</emphasis> provided in an update are the latitude, longitude, and elevation. Other attributes are not always served, we therefore have to skip updating those until the next time they are present in an update.</para>
+        </inbodydescription>
+        <location file="src/core/positioning/internalgnssreceiver.h" line="39" column="10" bodyfile="src/core/positioning/internalgnssreceiver.cpp" bodystart="77" bodyend="150"/>
+      </memberdef>
+      <memberdef kind="slot" id="classInternalGnssReceiver_1a02230b0fcd951cf99a90fd6abed3a225" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void InternalGnssReceiver::handleError</definition>
+        <argsstring>(QGeoPositionInfoSource::Error positioningError)</argsstring>
+        <name>handleError</name>
+        <qualifiedname>InternalGnssReceiver::handleError</qualifiedname>
+        <param>
+          <type>QGeoPositionInfoSource::Error</type>
+          <declname>positioningError</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/internalgnssreceiver.h" line="40" column="10" bodyfile="src/core/positioning/internalgnssreceiver.cpp" bodystart="214" bodyend="218"/>
+      </memberdef>
+      <memberdef kind="slot" id="classInternalGnssReceiver_1ace73f88a2adecb10da8a61efe9399667" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void InternalGnssReceiver::handleSatellitesInUseUpdated</definition>
+        <argsstring>(const QList&lt; QGeoSatelliteInfo &gt; &amp;satellites)</argsstring>
+        <name>handleSatellitesInUseUpdated</name>
+        <qualifiedname>InternalGnssReceiver::handleSatellitesInUseUpdated</qualifiedname>
+        <param>
+          <type>const QList&lt; QGeoSatelliteInfo &gt; &amp;</type>
+          <declname>satellites</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/internalgnssreceiver.h" line="42" column="10" bodyfile="src/core/positioning/internalgnssreceiver.cpp" bodystart="152" bodyend="190"/>
+      </memberdef>
+      <memberdef kind="slot" id="classInternalGnssReceiver_1a2b7f09d1130972151d1553817b93aa87" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void InternalGnssReceiver::handleSatellitesInViewUpdated</definition>
+        <argsstring>(const QList&lt; QGeoSatelliteInfo &gt; &amp;satellites)</argsstring>
+        <name>handleSatellitesInViewUpdated</name>
+        <qualifiedname>InternalGnssReceiver::handleSatellitesInViewUpdated</qualifiedname>
+        <param>
+          <type>const QList&lt; QGeoSatelliteInfo &gt; &amp;</type>
+          <declname>satellites</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/internalgnssreceiver.h" line="43" column="10" bodyfile="src/core/positioning/internalgnssreceiver.cpp" bodystart="192" bodyend="212"/>
+      </memberdef>
+      <memberdef kind="slot" id="classInternalGnssReceiver_1a2e4a1d7e079cbe1a461a9b637ff9b7fd" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void InternalGnssReceiver::handleSatelliteError</definition>
+        <argsstring>(QGeoSatelliteInfoSource::Error satelliteError)</argsstring>
+        <name>handleSatelliteError</name>
+        <qualifiedname>InternalGnssReceiver::handleSatelliteError</qualifiedname>
+        <param>
+          <type>QGeoSatelliteInfoSource::Error</type>
+          <declname>satelliteError</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/internalgnssreceiver.h" line="44" column="10" bodyfile="src/core/positioning/internalgnssreceiver.cpp" bodystart="220" bodyend="230"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classInternalGnssReceiver_1af8c94f21e57b8dd29724144cabf789c1" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void InternalGnssReceiver::handleConnectDevice</definition>
+        <argsstring>() override</argsstring>
+        <name>handleConnectDevice</name>
+        <qualifiedname>InternalGnssReceiver::handleConnectDevice</qualifiedname>
+        <reimplements refid="classAbstractGnssReceiver_1ab5f4dc91f3711881f4fb6217e4e4f1b9">handleConnectDevice</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/internalgnssreceiver.h" line="47" column="10" bodyfile="src/core/positioning/internalgnssreceiver.cpp" bodystart="64" bodyend="75"/>
+      </memberdef>
+      <memberdef kind="function" id="classInternalGnssReceiver_1ac80ebf5442faa32cd316fc1f64002ddf" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void InternalGnssReceiver::handleDisconnectDevice</definition>
+        <argsstring>() override</argsstring>
+        <name>handleDisconnectDevice</name>
+        <qualifiedname>InternalGnssReceiver::handleDisconnectDevice</qualifiedname>
+        <reimplements refid="classAbstractGnssReceiver_1a66579ca4823f700826dcf66fcdad18e0">handleDisconnectDevice</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/internalgnssreceiver.h" line="48" column="10" bodyfile="src/core/positioning/internalgnssreceiver.cpp" bodystart="49" bodyend="62"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>AbstractGnssReceiver</label>
+        <link refid="classAbstractGnssReceiver"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>InternalGnssReceiver</label>
+        <link refid="classInternalGnssReceiver"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QObject</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>AbstractGnssReceiver</label>
+        <link refid="classAbstractGnssReceiver"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>InternalGnssReceiver</label>
+        <link refid="classInternalGnssReceiver"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QObject</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/positioning/internalgnssreceiver.h" line="29" column="1" bodyfile="src/core/positioning/internalgnssreceiver.h" bodystart="30" bodyend="60"/>
+    <listofallmembers>
+      <member refid="classAbstractGnssReceiver_1a1609d1d8c1a316b44ffdbcc83bf4a766" prot="public" virt="non-virtual"><scope>InternalGnssReceiver</scope><name>AbstractGnssReceiver</name></member>
+      <member refid="classAbstractGnssReceiver_1ae59d2b8077ab097a16f63dd369a60975" prot="public" virt="non-virtual"><scope>InternalGnssReceiver</scope><name>Capability</name></member>
+      <member refid="classAbstractGnssReceiver_1a44f38d0bb07d582b9b301aeb1b834c71" prot="public" virt="non-virtual"><scope>InternalGnssReceiver</scope><name>connectDevice</name></member>
+      <member refid="classAbstractGnssReceiver_1af2969f1d0e0a4b756709baa112261d64" prot="public" virt="virtual"><scope>InternalGnssReceiver</scope><name>details</name></member>
+      <member refid="classAbstractGnssReceiver_1a8238eb63f6cea17e0269188394fad4d8" prot="public" virt="non-virtual"><scope>InternalGnssReceiver</scope><name>disconnectDevice</name></member>
+      <member refid="classInternalGnssReceiver_1af8c94f21e57b8dd29724144cabf789c1" prot="private" virt="virtual"><scope>InternalGnssReceiver</scope><name>handleConnectDevice</name></member>
+      <member refid="classInternalGnssReceiver_1ac80ebf5442faa32cd316fc1f64002ddf" prot="private" virt="virtual"><scope>InternalGnssReceiver</scope><name>handleDisconnectDevice</name></member>
+      <member refid="classInternalGnssReceiver_1a02230b0fcd951cf99a90fd6abed3a225" prot="private" virt="non-virtual"><scope>InternalGnssReceiver</scope><name>handleError</name></member>
+      <member refid="classInternalGnssReceiver_1a34ea00a7cea752b399be3065cee02470" prot="private" virt="non-virtual"><scope>InternalGnssReceiver</scope><name>handlePositionUpdated</name></member>
+      <member refid="classInternalGnssReceiver_1a2e4a1d7e079cbe1a461a9b637ff9b7fd" prot="private" virt="non-virtual"><scope>InternalGnssReceiver</scope><name>handleSatelliteError</name></member>
+      <member refid="classInternalGnssReceiver_1ace73f88a2adecb10da8a61efe9399667" prot="private" virt="non-virtual"><scope>InternalGnssReceiver</scope><name>handleSatellitesInUseUpdated</name></member>
+      <member refid="classInternalGnssReceiver_1a2b7f09d1130972151d1553817b93aa87" prot="private" virt="non-virtual"><scope>InternalGnssReceiver</scope><name>handleSatellitesInViewUpdated</name></member>
+      <member refid="classInternalGnssReceiver_1af2331d6ad5ff066732edf77c556bbfa7" prot="public" virt="non-virtual"><scope>InternalGnssReceiver</scope><name>InternalGnssReceiver</name></member>
+      <member refid="classAbstractGnssReceiver_1aaca96579de6a3a47f6af8f3872b9b727" prot="public" virt="non-virtual"><scope>InternalGnssReceiver</scope><name>lastError</name></member>
+      <member refid="classAbstractGnssReceiver_1afe956f57b712d23f7ffc7988293aea3e" prot="public" virt="non-virtual"><scope>InternalGnssReceiver</scope><name>lastErrorChanged</name></member>
+      <member refid="classAbstractGnssReceiver_1acae5ab4648a4eaa9aae76c1b76d4915c" prot="public" virt="non-virtual"><scope>InternalGnssReceiver</scope><name>lastGnssPositionInformation</name></member>
+      <member refid="classAbstractGnssReceiver_1a4f9353d27fc14bbbc9f157a3aea8429f" prot="public" virt="non-virtual"><scope>InternalGnssReceiver</scope><name>lastGnssPositionInformationChanged</name></member>
+      <member refid="classAbstractGnssReceiver_1ae59d2b8077ab097a16f63dd369a60975a627bf82746c2007f651b25f6a9f4e76d" prot="public" virt="non-virtual"><scope>InternalGnssReceiver</scope><name>Logging</name></member>
+      <member refid="classInternalGnssReceiver_1a85f0c3549dcdbd8a661621f278acd83d" prot="private" virt="non-virtual"><scope>InternalGnssReceiver</scope><name>mActive</name></member>
+      <member refid="classInternalGnssReceiver_1a0a3b3ae7ff72e6f0cd39e72fba97e6d8" prot="private" virt="non-virtual"><scope>InternalGnssReceiver</scope><name>mGeoPositionSource</name></member>
+      <member refid="classInternalGnssReceiver_1ab879b596aa431889ba49b864d6b03702" prot="private" virt="non-virtual"><scope>InternalGnssReceiver</scope><name>mGeoSatelliteSource</name></member>
+      <member refid="classInternalGnssReceiver_1a00a4b28accd4869f31c4532a05a9d534" prot="private" virt="non-virtual"><scope>InternalGnssReceiver</scope><name>mLastGnssPositionInformation</name></member>
+      <member refid="classInternalGnssReceiver_1ab87f18a72e15866095b26dc431f4a939" prot="private" virt="non-virtual"><scope>InternalGnssReceiver</scope><name>mLastGnssPositionValid</name></member>
+      <member refid="classInternalGnssReceiver_1a71c33092b9c6f3117fd71b0bdc3d4286" prot="private" virt="non-virtual"><scope>InternalGnssReceiver</scope><name>mSatelliteInformationValid</name></member>
+      <member refid="classInternalGnssReceiver_1a33314b490c1e77a58c804121b1a5d406" prot="private" virt="non-virtual"><scope>InternalGnssReceiver</scope><name>mSatellitesID</name></member>
+      <member refid="classInternalGnssReceiver_1a42b4da7072eafba3d362c5408aed59fc" prot="private" virt="non-virtual"><scope>InternalGnssReceiver</scope><name>mSatellitesInfo</name></member>
+      <member refid="classAbstractGnssReceiver_1ae59d2b8077ab097a16f63dd369a60975aed9e46fde2ff0acea44bc8137ac4d21a" prot="public" virt="non-virtual"><scope>InternalGnssReceiver</scope><name>NoCapabilities</name></member>
+      <member refid="classAbstractGnssReceiver_1ae59d2b8077ab097a16f63dd369a60975a26d16bd4c6171e893dd7303886a782e5" prot="public" virt="non-virtual"><scope>InternalGnssReceiver</scope><name>OrthometricAltitude</name></member>
+      <member refid="classAbstractGnssReceiver_1a579d81115c16bc5a498cc8532f44fcb3" prot="protected" virt="non-virtual"><scope>InternalGnssReceiver</scope><name>setSocketState</name></member>
+      <member refid="classAbstractGnssReceiver_1a61a9a4baf3e854038b0cd6bd9f969366" prot="public" virt="non-virtual"><scope>InternalGnssReceiver</scope><name>setValid</name></member>
+      <member refid="classAbstractGnssReceiver_1a778bd4ee7e98f891e42396a953eba4b4" prot="public" virt="virtual"><scope>InternalGnssReceiver</scope><name>socketState</name></member>
+      <member refid="classAbstractGnssReceiver_1a251c5c7ac7a3e6a8795fd9004b729e2e" prot="public" virt="non-virtual"><scope>InternalGnssReceiver</scope><name>socketStateChanged</name></member>
+      <member refid="classAbstractGnssReceiver_1a21957b057c65d7c39cf84626848c56a4" prot="public" virt="virtual"><scope>InternalGnssReceiver</scope><name>socketStateString</name></member>
+      <member refid="classAbstractGnssReceiver_1ad9d28fec49b2faf94fe187453b540d00" prot="public" virt="non-virtual"><scope>InternalGnssReceiver</scope><name>socketStateStringChanged</name></member>
+      <member refid="classAbstractGnssReceiver_1acb8e0d5ddd87eb007bf55a2a9a231801" prot="public" virt="non-virtual"><scope>InternalGnssReceiver</scope><name>startLogging</name></member>
+      <member refid="classAbstractGnssReceiver_1a098f12276d444f455473ffb9b95735d0" prot="public" virt="non-virtual"><scope>InternalGnssReceiver</scope><name>stopLogging</name></member>
+      <member refid="classAbstractGnssReceiver_1a0738727cbe42715b16564e8ea5863875" prot="public" virt="non-virtual"><scope>InternalGnssReceiver</scope><name>valid</name></member>
+      <member refid="classAbstractGnssReceiver_1a3fa79a03f84f0f9b0938cf9cc76513ba" prot="public" virt="non-virtual"><scope>InternalGnssReceiver</scope><name>validChanged</name></member>
+      <member refid="classAbstractGnssReceiver_1a79bb78bb03066de84106cd0a72579378" prot="public" virt="virtual"><scope>InternalGnssReceiver</scope><name>~AbstractGnssReceiver</name></member>
+      <member refid="classInternalGnssReceiver_1a9e8eae82a665a2cc5d74696e53a173c3" prot="public" virt="non-virtual"><scope>InternalGnssReceiver</scope><name>~InternalGnssReceiver</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

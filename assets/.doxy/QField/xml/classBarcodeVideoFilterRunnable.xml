@@ -1,0 +1,102 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classBarcodeVideoFilterRunnable" kind="class" language="C++" prot="public">
+    <compoundname>BarcodeVideoFilterRunnable</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QVideoFilterRunnable</basecompoundref>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classBarcodeVideoFilterRunnable_1aaf63b2836f2fba3661ec7e62b87e0d9e" prot="private" static="no" mutable="no">
+        <type><ref refid="classBarcodeVideoFilter" kindref="compound">BarcodeVideoFilter</ref> *</type>
+        <definition>BarcodeVideoFilter* BarcodeVideoFilterRunnable::mFilter</definition>
+        <argsstring></argsstring>
+        <name>mFilter</name>
+        <qualifiedname>BarcodeVideoFilterRunnable::mFilter</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/barcodevideofilter.cpp" line="43" column="24" bodyfile="src/core/barcodevideofilter.cpp" bodystart="43" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classBarcodeVideoFilterRunnable_1abe9026fa31f53e9bea575bda3a5fe05d" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>BarcodeVideoFilterRunnable::BarcodeVideoFilterRunnable</definition>
+        <argsstring>(BarcodeVideoFilter *filter=nullptr)</argsstring>
+        <name>BarcodeVideoFilterRunnable</name>
+        <qualifiedname>BarcodeVideoFilterRunnable::BarcodeVideoFilterRunnable</qualifiedname>
+        <param>
+          <type><ref refid="classBarcodeVideoFilter" kindref="compound">BarcodeVideoFilter</ref> *</type>
+          <declname>filter</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/barcodevideofilter.cpp" line="22" column="14" bodyfile="src/core/barcodevideofilter.cpp" bodystart="22" bodyend="25"/>
+      </memberdef>
+      <memberdef kind="function" id="classBarcodeVideoFilterRunnable_1ad22e0205a7cfb051313a020b5abb17a7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>QVideoFrame</type>
+        <definition>QVideoFrame BarcodeVideoFilterRunnable::run</definition>
+        <argsstring>(QVideoFrame *input, const QVideoSurfaceFormat &amp;surfaceFormat, QVideoFilterRunnable::RunFlags flags) override</argsstring>
+        <name>run</name>
+        <qualifiedname>BarcodeVideoFilterRunnable::run</qualifiedname>
+        <param>
+          <type>QVideoFrame *</type>
+          <declname>input</declname>
+        </param>
+        <param>
+          <type>const QVideoSurfaceFormat &amp;</type>
+          <declname>surfaceFormat</declname>
+        </param>
+        <param>
+          <type>QVideoFilterRunnable::RunFlags</type>
+          <declname>flags</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/barcodevideofilter.cpp" line="27" column="17" bodyfile="src/core/barcodevideofilter.cpp" bodystart="27" bodyend="40"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>BarcodeVideoFilterRunnable</label>
+        <link refid="classBarcodeVideoFilterRunnable"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QVideoFilterRunnable</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>BarcodeVideoFilterRunnable</label>
+        <link refid="classBarcodeVideoFilterRunnable"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QVideoFilterRunnable</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/barcodevideofilter.cpp" line="19" column="1" bodyfile="src/core/barcodevideofilter.cpp" bodystart="20" bodyend="44"/>
+    <listofallmembers>
+      <member refid="classBarcodeVideoFilterRunnable_1abe9026fa31f53e9bea575bda3a5fe05d" prot="public" virt="non-virtual"><scope>BarcodeVideoFilterRunnable</scope><name>BarcodeVideoFilterRunnable</name></member>
+      <member refid="classBarcodeVideoFilterRunnable_1aaf63b2836f2fba3661ec7e62b87e0d9e" prot="private" virt="non-virtual"><scope>BarcodeVideoFilterRunnable</scope><name>mFilter</name></member>
+      <member refid="classBarcodeVideoFilterRunnable_1ad22e0205a7cfb051313a020b5abb17a7" prot="public" virt="non-virtual"><scope>BarcodeVideoFilterRunnable</scope><name>run</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

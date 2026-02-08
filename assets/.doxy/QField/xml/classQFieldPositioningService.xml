@@ -1,0 +1,171 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQFieldPositioningService" kind="class" language="C++" prot="public">
+    <compoundname>QFieldPositioningService</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QAndroidService</basecompoundref>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQFieldPositioningService_1a031c70ed1ef37f0b1b53748b64dd5d07" prot="private" static="no" mutable="no">
+        <type><ref refid="classPositioningSource" kindref="compound">PositioningSource</ref> *</type>
+        <definition>PositioningSource* QFieldPositioningService::mPositioningSource</definition>
+        <argsstring></argsstring>
+        <name>mPositioningSource</name>
+        <qualifiedname>QFieldPositioningService::mPositioningSource</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/service/qfieldpositioningservice.h" line="43" column="23" bodyfile="src/service/qfieldpositioningservice.h" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldPositioningService_1ae215834ae270d9b396950181501b9f48" prot="private" static="no" mutable="no">
+        <type>QRemoteObjectHost</type>
+        <definition>QRemoteObjectHost QFieldPositioningService::mHost</definition>
+        <argsstring></argsstring>
+        <name>mHost</name>
+        <qualifiedname>QFieldPositioningService::mHost</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/service/qfieldpositioningservice.h" line="44" column="23" bodyfile="src/service/qfieldpositioningservice.h" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldPositioningService_1a88b0025e247dbcddcaa9b2cd4357ce1c" prot="private" static="no" mutable="no">
+        <type>QTimer</type>
+        <definition>QTimer QFieldPositioningService::mNotificationTimer</definition>
+        <argsstring></argsstring>
+        <name>mNotificationTimer</name>
+        <qualifiedname>QFieldPositioningService::mNotificationTimer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/service/qfieldpositioningservice.h" line="46" column="12" bodyfile="src/service/qfieldpositioningservice.h" bodystart="46" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQFieldPositioningService_1a531bfff9dc976706dcf652e2a9f4f417" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>QFieldPositioningService::QFieldPositioningService</definition>
+        <argsstring>(int &amp;argc, char **argv)</argsstring>
+        <name>QFieldPositioningService</name>
+        <qualifiedname>QFieldPositioningService::QFieldPositioningService</qualifiedname>
+        <param>
+          <type>int &amp;</type>
+          <declname>argc</declname>
+        </param>
+        <param>
+          <type>char **</type>
+          <declname>argv</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/service/qfieldpositioningservice.h" line="34" column="5" bodyfile="src/service/qfieldpositioningservice.cpp" bodystart="28" bodyend="83"/>
+      </memberdef>
+      <memberdef kind="function" id="classQFieldPositioningService_1a9f332f52a66a88902647e45eb373ae10" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>QFieldPositioningService::~QFieldPositioningService</definition>
+        <argsstring>() override</argsstring>
+        <name>~QFieldPositioningService</name>
+        <qualifiedname>QFieldPositioningService::~QFieldPositioningService</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/service/qfieldpositioningservice.h" line="35" column="5" bodyfile="src/service/qfieldpositioningservice.cpp" bodystart="113" bodyend="115"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-slot">
+      <memberdef kind="slot" id="classQFieldPositioningService_1a2583769856a12dc83186021cc6ad59c4" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QFieldPositioningService::triggerShowNotification</definition>
+        <argsstring>()</argsstring>
+        <name>triggerShowNotification</name>
+        <qualifiedname>QFieldPositioningService::triggerShowNotification</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/service/qfieldpositioningservice.h" line="38" column="10" bodyfile="src/service/qfieldpositioningservice.cpp" bodystart="85" bodyend="93"/>
+      </memberdef>
+      <memberdef kind="slot" id="classQFieldPositioningService_1abbe371b4cb9531072effb6eabc843100" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QFieldPositioningService::triggerReturnNotification</definition>
+        <argsstring>()</argsstring>
+        <name>triggerReturnNotification</name>
+        <qualifiedname>QFieldPositioningService::triggerReturnNotification</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/service/qfieldpositioningservice.h" line="39" column="10" bodyfile="src/service/qfieldpositioningservice.cpp" bodystart="95" bodyend="102"/>
+      </memberdef>
+      <memberdef kind="slot" id="classQFieldPositioningService_1a5b576292a5665ae1fa44b7cca5bc5c62" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QFieldPositioningService::triggerStopNotification</definition>
+        <argsstring>()</argsstring>
+        <name>triggerStopNotification</name>
+        <qualifiedname>QFieldPositioningService::triggerStopNotification</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/service/qfieldpositioningservice.h" line="40" column="10" bodyfile="src/service/qfieldpositioningservice.cpp" bodystart="104" bodyend="111"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>QAndroidService</label>
+      </node>
+      <node id="1">
+        <label>QFieldPositioningService</label>
+        <link refid="classQFieldPositioningService"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>QAndroidService</label>
+      </node>
+      <node id="1">
+        <label>QFieldPositioningService</label>
+        <link refid="classQFieldPositioningService"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/service/qfieldpositioningservice.h" line="29" column="1" bodyfile="src/service/qfieldpositioningservice.h" bodystart="30" bodyend="47"/>
+    <listofallmembers>
+      <member refid="classQFieldPositioningService_1ae215834ae270d9b396950181501b9f48" prot="private" virt="non-virtual"><scope>QFieldPositioningService</scope><name>mHost</name></member>
+      <member refid="classQFieldPositioningService_1a88b0025e247dbcddcaa9b2cd4357ce1c" prot="private" virt="non-virtual"><scope>QFieldPositioningService</scope><name>mNotificationTimer</name></member>
+      <member refid="classQFieldPositioningService_1a031c70ed1ef37f0b1b53748b64dd5d07" prot="private" virt="non-virtual"><scope>QFieldPositioningService</scope><name>mPositioningSource</name></member>
+      <member refid="classQFieldPositioningService_1a531bfff9dc976706dcf652e2a9f4f417" prot="public" virt="non-virtual"><scope>QFieldPositioningService</scope><name>QFieldPositioningService</name></member>
+      <member refid="classQFieldPositioningService_1abbe371b4cb9531072effb6eabc843100" prot="private" virt="non-virtual"><scope>QFieldPositioningService</scope><name>triggerReturnNotification</name></member>
+      <member refid="classQFieldPositioningService_1a2583769856a12dc83186021cc6ad59c4" prot="private" virt="non-virtual"><scope>QFieldPositioningService</scope><name>triggerShowNotification</name></member>
+      <member refid="classQFieldPositioningService_1a5b576292a5665ae1fa44b7cca5bc5c62" prot="private" virt="non-virtual"><scope>QFieldPositioningService</scope><name>triggerStopNotification</name></member>
+      <member refid="classQFieldPositioningService_1a9f332f52a66a88902647e45eb373ae10" prot="public" virt="non-virtual"><scope>QFieldPositioningService</scope><name>~QFieldPositioningService</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,1760 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQFieldCloudConnection" kind="class" language="C++" prot="public">
+    <compoundname>QFieldCloudConnection</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QObject</basecompoundref>
+    <innerclass refid="classQFieldCloudConnection_1_1CloudError" prot="public">QFieldCloudConnection::CloudError</innerclass>
+    <sectiondef kind="public-type">
+      <memberdef kind="enum" id="classQFieldCloudConnection_1a9ae2cbdb983e1e59f8961f74eea310ae" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>ConnectionStatus</name>
+        <qualifiedname>QFieldCloudConnection::ConnectionStatus</qualifiedname>
+        <enumvalue id="classQFieldCloudConnection_1a9ae2cbdb983e1e59f8961f74eea310aeaef70e46fd3bbc21e3e1f0b6815e750c0" prot="public">
+          <name>Disconnected</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQFieldCloudConnection_1a9ae2cbdb983e1e59f8961f74eea310aeae321c53b354930ba96f0243e652df458" prot="public">
+          <name>Connecting</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQFieldCloudConnection_1a9ae2cbdb983e1e59f8961f74eea310aeafebcd1edf6010db4858e623d1dd2f3bc" prot="public">
+          <name>LoggedIn</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfieldcloudconnection.h" line="92" column="5" bodyfile="src/core/qfieldcloud/qfieldcloudconnection.h" bodystart="93" bodyend="97"/>
+      </memberdef>
+      <memberdef kind="enum" id="classQFieldCloudConnection_1ac102733329fcc57d1718bca133b992f4" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>ConnectionState</name>
+        <qualifiedname>QFieldCloudConnection::ConnectionState</qualifiedname>
+        <enumvalue id="classQFieldCloudConnection_1ac102733329fcc57d1718bca133b992f4ae599161956d626eda4cb0a5ffb85271c" prot="public">
+          <name>Idle</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQFieldCloudConnection_1ac102733329fcc57d1718bca133b992f4ad8a942ef2b04672adfafef0ad817a407" prot="public">
+          <name>Busy</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfieldcloudconnection.h" line="100" column="5" bodyfile="src/core/qfieldcloud/qfieldcloudconnection.h" bodystart="101" bodyend="104"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQFieldCloudConnection_1aa0ffcc0f10675147e5849a1960c04bae" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString QFieldCloudConnection::provider</definition>
+        <argsstring></argsstring>
+        <name>provider</name>
+        <qualifiedname>QFieldCloudConnection::provider</qualifiedname>
+        <read>provider</read>
+        <write>setProvider</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfieldcloudconnection.h" line="71" column="5" bodyfile="src/core/qfieldcloud/qfieldcloudconnection.h" bodystart="71" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQFieldCloudConnection_1af51a0aa9b77dd499fea65742654ba4f1" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString QFieldCloudConnection::username</definition>
+        <argsstring></argsstring>
+        <name>username</name>
+        <qualifiedname>QFieldCloudConnection::username</qualifiedname>
+        <read>username</read>
+        <write>setUsername</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfieldcloudconnection.h" line="72" column="5" bodyfile="src/core/qfieldcloud/qfieldcloudconnection.h" bodystart="72" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQFieldCloudConnection_1abe95dc2fcd922eed9975a415fb1e6d3a" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString QFieldCloudConnection::password</definition>
+        <argsstring></argsstring>
+        <name>password</name>
+        <qualifiedname>QFieldCloudConnection::password</qualifiedname>
+        <read>password</read>
+        <write>setPassword</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfieldcloudconnection.h" line="73" column="5" bodyfile="src/core/qfieldcloud/qfieldcloudconnection.h" bodystart="73" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQFieldCloudConnection_1a6ac12967ebe1705988623f76eac56375" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString QFieldCloudConnection::avatarUrl</definition>
+        <argsstring></argsstring>
+        <name>avatarUrl</name>
+        <qualifiedname>QFieldCloudConnection::avatarUrl</qualifiedname>
+        <read>avatarUrl</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfieldcloudconnection.h" line="74" column="5" bodyfile="src/core/qfieldcloud/qfieldcloudconnection.h" bodystart="74" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQFieldCloudConnection_1a8b61733ae428400ce633d061c37a6745" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString QFieldCloudConnection::url</definition>
+        <argsstring></argsstring>
+        <name>url</name>
+        <qualifiedname>QFieldCloudConnection::url</qualifiedname>
+        <read>url</read>
+        <write>setUrl</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfieldcloudconnection.h" line="75" column="5" bodyfile="src/core/qfieldcloud/qfieldcloudconnection.h" bodystart="75" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQFieldCloudConnection_1a68af0bea6163e0cb4d5a40d7312d529c" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString QFieldCloudConnection::defaultUrl</definition>
+        <argsstring></argsstring>
+        <name>defaultUrl</name>
+        <qualifiedname>QFieldCloudConnection::defaultUrl</qualifiedname>
+        <read>defaultUrl</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfieldcloudconnection.h" line="76" column="5" bodyfile="src/core/qfieldcloud/qfieldcloudconnection.h" bodystart="76" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQFieldCloudConnection_1a45cbac920eaa96b82c28346b6f619085" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QStringList</type>
+        <definition>QStringList QFieldCloudConnection::urls</definition>
+        <argsstring></argsstring>
+        <name>urls</name>
+        <qualifiedname>QFieldCloudConnection::urls</qualifiedname>
+        <read>urls</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfieldcloudconnection.h" line="77" column="5" bodyfile="src/core/qfieldcloud/qfieldcloudconnection.h" bodystart="77" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQFieldCloudConnection_1a677d4967aeee428c8ebd974771370d6c" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>ConnectionStatus</type>
+        <definition>ConnectionStatus QFieldCloudConnection::status</definition>
+        <argsstring></argsstring>
+        <name>status</name>
+        <qualifiedname>QFieldCloudConnection::status</qualifiedname>
+        <read>status</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfieldcloudconnection.h" line="79" column="5" bodyfile="src/core/qfieldcloud/qfieldcloudconnection.h" bodystart="79" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQFieldCloudConnection_1ad752f9f37c4aa39ec5a26c6f75653929" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>ConnectionState</type>
+        <definition>ConnectionState QFieldCloudConnection::state</definition>
+        <argsstring></argsstring>
+        <name>state</name>
+        <qualifiedname>QFieldCloudConnection::state</qualifiedname>
+        <read>state</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfieldcloudconnection.h" line="80" column="5" bodyfile="src/core/qfieldcloud/qfieldcloudconnection.h" bodystart="80" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQFieldCloudConnection_1a0b59f08b3c338bf3ce75ce4f8cfbe8f5" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QFieldCloudConnection::hasToken</definition>
+        <argsstring></argsstring>
+        <name>hasToken</name>
+        <qualifiedname>QFieldCloudConnection::hasToken</qualifiedname>
+        <read>hasToken</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfieldcloudconnection.h" line="81" column="5" bodyfile="src/core/qfieldcloud/qfieldcloudconnection.h" bodystart="81" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQFieldCloudConnection_1a9e682e140a1ba6253f138519036351bd" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QFieldCloudConnection::hasProviderConfiguration</definition>
+        <argsstring></argsstring>
+        <name>hasProviderConfiguration</name>
+        <qualifiedname>QFieldCloudConnection::hasProviderConfiguration</qualifiedname>
+        <read>hasProviderConfiguration</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfieldcloudconnection.h" line="82" column="5" bodyfile="src/core/qfieldcloud/qfieldcloudconnection.h" bodystart="82" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQFieldCloudConnection_1abc7840ca6679ea28ede561c42e06aead" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="structCloudUserInformation" kindref="compound">CloudUserInformation</ref></type>
+        <definition>CloudUserInformation QFieldCloudConnection::userInformation</definition>
+        <argsstring></argsstring>
+        <name>userInformation</name>
+        <qualifiedname>QFieldCloudConnection::userInformation</qualifiedname>
+        <read>userInformation</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfieldcloudconnection.h" line="84" column="5" bodyfile="src/core/qfieldcloud/qfieldcloudconnection.h" bodystart="84" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQFieldCloudConnection_1a6bb8321bdbf5cc918ae6453cac857b25" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QList&lt; <ref refid="classAuthenticationProvider" kindref="compound">AuthenticationProvider</ref> &gt;</type>
+        <definition>QList&lt;AuthenticationProvider&gt; QFieldCloudConnection::availableProviders</definition>
+        <argsstring></argsstring>
+        <name>availableProviders</name>
+        <qualifiedname>QFieldCloudConnection::availableProviders</qualifiedname>
+        <read>availableProviders</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfieldcloudconnection.h" line="86" column="5" bodyfile="src/core/qfieldcloud/qfieldcloudconnection.h" bodystart="86" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQFieldCloudConnection_1a9eaa44ab03d7fa7473ac0926e50e6e22" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QFieldCloudConnection::isFetchingAvailableProviders</definition>
+        <argsstring></argsstring>
+        <name>isFetchingAvailableProviders</name>
+        <qualifiedname>QFieldCloudConnection::isFetchingAvailableProviders</qualifiedname>
+        <read>isFetchingAvailableProviders</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfieldcloudconnection.h" line="87" column="5" bodyfile="src/core/qfieldcloud/qfieldcloudconnection.h" bodystart="87" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQFieldCloudConnection_1a90d73b6297bfa5ae8fe9c25553c0db11" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QFieldCloudConnection::isReachable</definition>
+        <argsstring></argsstring>
+        <name>isReachable</name>
+        <qualifiedname>QFieldCloudConnection::isReachable</qualifiedname>
+        <read>isReachable</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfieldcloudconnection.h" line="88" column="5" bodyfile="src/core/qfieldcloud/qfieldcloudconnection.h" bodystart="88" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="classQFieldCloudConnection_1afd0eb15bc21b9204a04355b251049f41" prot="public" static="yes" mutable="no">
+        <type>QMap&lt; QString, QString &gt;</type>
+        <definition>QMap&lt; QString, QString &gt; QFieldCloudConnection::sErrors</definition>
+        <argsstring></argsstring>
+        <name>sErrors</name>
+        <qualifiedname>QFieldCloudConnection::sErrors</qualifiedname>
+        <initializer>= QMap&lt;QString, QString&gt;(
+  {
+    { &quot;unknown_error&quot;, QObject::tr( &quot;QFieldCloud Unknown Error&quot; ) },
+    { &quot;status_not_ok&quot;, QObject::tr( &quot;Status not ok&quot; ) },
+    { &quot;empty_content&quot;, QObject::tr( &quot;Empty content&quot; ) },
+    { &quot;object_not_found&quot;, QObject::tr( &quot;Object not found&quot; ) },
+    { &quot;api_error&quot;, QObject::tr( &quot;API Error&quot; ) },
+    { &quot;validation_error&quot;, QObject::tr( &quot;Validation Error&quot; ) },
+    { &quot;multiple_projects&quot;, QObject::tr( &quot;Multiple Projects&quot; ) },
+    { &quot;invalid_deltafile&quot;, QObject::tr( &quot;Invalid delta file&quot; ) },
+    { &quot;no_qgis_project&quot;, QObject::tr( &quot;The project does not contain a valid QGIS project file&quot; ) },
+    { &quot;invalid_job&quot;, QObject::tr( &quot;Invalid job&quot; ) },
+    { &quot;qgis_export_error&quot;, QObject::tr( &quot;QGIS export failed&quot; ) },
+    { &quot;qgis_cannot_open_project&quot;, QObject::tr( &quot;QGIS is unable to open the QGIS project&quot; ) },
+  } )</initializer>
+        <briefdescription>
+<para>Contains a map of error codes and translated messages. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfieldcloudconnection.h" line="131" column="17" bodyfile="src/core/qfieldcloud/qfieldcloudconnection.h" bodystart="131" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQFieldCloudConnection_1a89321d6c89fe227dbb13e21670ffd861" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString QFieldCloudConnection::mUrl</definition>
+        <argsstring></argsstring>
+        <name>mUrl</name>
+        <qualifiedname>QFieldCloudConnection::mUrl</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfieldcloudconnection.h" line="273" column="13" bodyfile="src/core/qfieldcloud/qfieldcloudconnection.h" bodystart="273" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldCloudConnection_1a12e36716c0211c8280f0bd2ada827ea1" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString QFieldCloudConnection::mUsername</definition>
+        <argsstring></argsstring>
+        <name>mUsername</name>
+        <qualifiedname>QFieldCloudConnection::mUsername</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfieldcloudconnection.h" line="275" column="13" bodyfile="src/core/qfieldcloud/qfieldcloudconnection.h" bodystart="275" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldCloudConnection_1a7273c3072ed809a0f14ce461890c0eb6" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString QFieldCloudConnection::mPassword</definition>
+        <argsstring></argsstring>
+        <name>mPassword</name>
+        <qualifiedname>QFieldCloudConnection::mPassword</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfieldcloudconnection.h" line="276" column="13" bodyfile="src/core/qfieldcloud/qfieldcloudconnection.h" bodystart="276" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldCloudConnection_1a6becd594a9de8d47b7fd5d6f5d95dd76" prot="private" static="no" mutable="no">
+        <type>QByteArray</type>
+        <definition>QByteArray QFieldCloudConnection::mToken</definition>
+        <argsstring></argsstring>
+        <name>mToken</name>
+        <qualifiedname>QFieldCloudConnection::mToken</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfieldcloudconnection.h" line="277" column="16" bodyfile="src/core/qfieldcloud/qfieldcloudconnection.h" bodystart="277" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldCloudConnection_1a34f288b2f06998b93d19a0e00e60aff1" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString QFieldCloudConnection::mTokenConfigId</definition>
+        <argsstring></argsstring>
+        <name>mTokenConfigId</name>
+        <qualifiedname>QFieldCloudConnection::mTokenConfigId</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfieldcloudconnection.h" line="278" column="13" bodyfile="src/core/qfieldcloud/qfieldcloudconnection.h" bodystart="278" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldCloudConnection_1ac2ac1b0d68ee33be100b3af132179a29" prot="private" static="no" mutable="no">
+        <type>QMap&lt; QString, <ref refid="classAuthenticationProvider" kindref="compound">AuthenticationProvider</ref> &gt;</type>
+        <definition>QMap&lt;QString, AuthenticationProvider&gt; QFieldCloudConnection::mAvailableProviders</definition>
+        <argsstring></argsstring>
+        <name>mAvailableProviders</name>
+        <qualifiedname>QFieldCloudConnection::mAvailableProviders</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfieldcloudconnection.h" line="280" column="10" bodyfile="src/core/qfieldcloud/qfieldcloudconnection.h" bodystart="280" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldCloudConnection_1a7427a765b191b7b408836a56deca3c10" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool QFieldCloudConnection::mIsFetchingAvailableProviders</definition>
+        <argsstring></argsstring>
+        <name>mIsFetchingAvailableProviders</name>
+        <qualifiedname>QFieldCloudConnection::mIsFetchingAvailableProviders</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfieldcloudconnection.h" line="281" column="10" bodyfile="src/core/qfieldcloud/qfieldcloudconnection.h" bodystart="281" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldCloudConnection_1a1cd98ff5441dc788de883d7f493b913d" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString QFieldCloudConnection::mProvider</definition>
+        <argsstring></argsstring>
+        <name>mProvider</name>
+        <qualifiedname>QFieldCloudConnection::mProvider</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfieldcloudconnection.h" line="282" column="13" bodyfile="src/core/qfieldcloud/qfieldcloudconnection.h" bodystart="282" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldCloudConnection_1a476dcbe6217e12fe45d1913ea38f09d7" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString QFieldCloudConnection::mProviderConfigId</definition>
+        <argsstring></argsstring>
+        <name>mProviderConfigId</name>
+        <qualifiedname>QFieldCloudConnection::mProviderConfigId</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfieldcloudconnection.h" line="283" column="13" bodyfile="src/core/qfieldcloud/qfieldcloudconnection.h" bodystart="283" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldCloudConnection_1a0fcb717bba53abec37d0944afd5f7668" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString QFieldCloudConnection::mAvatarUrl</definition>
+        <argsstring></argsstring>
+        <name>mAvatarUrl</name>
+        <qualifiedname>QFieldCloudConnection::mAvatarUrl</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfieldcloudconnection.h" line="285" column="13" bodyfile="src/core/qfieldcloud/qfieldcloudconnection.h" bodystart="285" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldCloudConnection_1a15f75753ca317c9782a3bde0f7cda47f" prot="private" static="no" mutable="no">
+        <type><ref refid="structCloudUserInformation" kindref="compound">CloudUserInformation</ref></type>
+        <definition>CloudUserInformation QFieldCloudConnection::mUserInformation</definition>
+        <argsstring></argsstring>
+        <name>mUserInformation</name>
+        <qualifiedname>QFieldCloudConnection::mUserInformation</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfieldcloudconnection.h" line="286" column="26" bodyfile="src/core/qfieldcloud/qfieldcloudconnection.h" bodystart="286" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldCloudConnection_1ae7544d6703a0500a2c8b7c7bf75589c4" prot="private" static="no" mutable="no">
+        <type>ConnectionStatus</type>
+        <definition>ConnectionStatus QFieldCloudConnection::mStatus</definition>
+        <argsstring></argsstring>
+        <name>mStatus</name>
+        <qualifiedname>QFieldCloudConnection::mStatus</qualifiedname>
+        <initializer>= ConnectionStatus::Disconnected</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfieldcloudconnection.h" line="287" column="22" bodyfile="src/core/qfieldcloud/qfieldcloudconnection.h" bodystart="287" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldCloudConnection_1a5cd9a80894ab80aa75b63925d6e904f4" prot="private" static="no" mutable="no">
+        <type>ConnectionState</type>
+        <definition>ConnectionState QFieldCloudConnection::mState</definition>
+        <argsstring></argsstring>
+        <name>mState</name>
+        <qualifiedname>QFieldCloudConnection::mState</qualifiedname>
+        <initializer>= ConnectionState::Idle</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfieldcloudconnection.h" line="288" column="21" bodyfile="src/core/qfieldcloud/qfieldcloudconnection.h" bodystart="288" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldCloudConnection_1a8d72f99bbd90ed58345912d50bc11e96" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int QFieldCloudConnection::mPendingRequests</definition>
+        <argsstring></argsstring>
+        <name>mPendingRequests</name>
+        <qualifiedname>QFieldCloudConnection::mPendingRequests</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfieldcloudconnection.h" line="290" column="9" bodyfile="src/core/qfieldcloud/qfieldcloudconnection.h" bodystart="290" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldCloudConnection_1a63e79f56161ee635434ba73cef7848f3" prot="private" static="no" mutable="no">
+        <type>qsizetype</type>
+        <definition>qsizetype QFieldCloudConnection::mUploadPendingCount</definition>
+        <argsstring></argsstring>
+        <name>mUploadPendingCount</name>
+        <qualifiedname>QFieldCloudConnection::mUploadPendingCount</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfieldcloudconnection.h" line="292" column="15" bodyfile="src/core/qfieldcloud/qfieldcloudconnection.h" bodystart="292" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldCloudConnection_1a1a8fa7e49c1177b13f0769cc3835d24b" prot="private" static="no" mutable="no">
+        <type>qsizetype</type>
+        <definition>qsizetype QFieldCloudConnection::mUploadDoneCount</definition>
+        <argsstring></argsstring>
+        <name>mUploadDoneCount</name>
+        <qualifiedname>QFieldCloudConnection::mUploadDoneCount</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfieldcloudconnection.h" line="293" column="15" bodyfile="src/core/qfieldcloud/qfieldcloudconnection.h" bodystart="293" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldCloudConnection_1a0112f849d7d3048016df11bf7907b9b8" prot="private" static="no" mutable="no">
+        <type>qsizetype</type>
+        <definition>qsizetype QFieldCloudConnection::mUploadFailingCount</definition>
+        <argsstring></argsstring>
+        <name>mUploadFailingCount</name>
+        <qualifiedname>QFieldCloudConnection::mUploadFailingCount</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfieldcloudconnection.h" line="294" column="15" bodyfile="src/core/qfieldcloud/qfieldcloudconnection.h" bodystart="294" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldCloudConnection_1add42a8438cff84b4a75e80fcd914e6c4" prot="private" static="no" mutable="no">
+        <type>QSet&lt; QString &gt;</type>
+        <definition>QSet&lt;QString&gt; QFieldCloudConnection::mQueuedProjectPushes</definition>
+        <argsstring></argsstring>
+        <name>mQueuedProjectPushes</name>
+        <qualifiedname>QFieldCloudConnection::mQueuedProjectPushes</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfieldcloudconnection.h" line="298" column="10" bodyfile="src/core/qfieldcloud/qfieldcloudconnection.h" bodystart="298" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldCloudConnection_1a8a553e681c0b8b306be0546e356f19fd" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool QFieldCloudConnection::mIsFlushingQueuedProjectPushes</definition>
+        <argsstring></argsstring>
+        <name>mIsFlushingQueuedProjectPushes</name>
+        <qualifiedname>QFieldCloudConnection::mIsFlushingQueuedProjectPushes</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfieldcloudconnection.h" line="299" column="10" bodyfile="src/core/qfieldcloud/qfieldcloudconnection.h" bodystart="299" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldCloudConnection_1a85f8376ea3de147fe083bf209467ff7f" prot="private" static="no" mutable="no">
+        <type>const QNetworkInformation *</type>
+        <definition>const QNetworkInformation* QFieldCloudConnection::mNetworkInformation</definition>
+        <argsstring></argsstring>
+        <name>mNetworkInformation</name>
+        <qualifiedname>QFieldCloudConnection::mNetworkInformation</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfieldcloudconnection.h" line="301" column="31" bodyfile="src/core/qfieldcloud/qfieldcloudconnection.h" bodystart="301" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQFieldCloudConnection_1a0db2bb1e386be43159be6c04177a9b35" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>QFieldCloudConnection::QFieldCloudConnection</definition>
+        <argsstring>()</argsstring>
+        <name>QFieldCloudConnection</name>
+        <qualifiedname>QFieldCloudConnection::QFieldCloudConnection</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfieldcloudconnection.h" line="125" column="5" bodyfile="src/core/qfieldcloud/qfieldcloudconnection.cpp" bodystart="39" bodyend="75"/>
+      </memberdef>
+      <memberdef kind="function" id="classQFieldCloudConnection_1a29940631bb98b68dbebbf4ed6609ec39" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString QFieldCloudConnection::url</definition>
+        <argsstring>() const</argsstring>
+        <name>url</name>
+        <qualifiedname>QFieldCloudConnection::url</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the currently set server connection URL. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfieldcloudconnection.h" line="136" column="13" bodyfile="src/core/qfieldcloud/qfieldcloudconnection.cpp" bodystart="167" bodyend="170"/>
+      </memberdef>
+      <memberdef kind="function" id="classQFieldCloudConnection_1aeecfae3b27934d9460e7c853d13e59e4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QFieldCloudConnection::setUrl</definition>
+        <argsstring>(const QString &amp;url)</argsstring>
+        <name>setUrl</name>
+        <qualifiedname>QFieldCloudConnection::setUrl</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>url</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the current server connection URL and saves it into QSettings. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfieldcloudconnection.h" line="141" column="10" bodyfile="src/core/qfieldcloud/qfieldcloudconnection.cpp" bodystart="172" bodyend="189"/>
+      </memberdef>
+      <memberdef kind="function" id="classQFieldCloudConnection_1a6de031e0551ed926a8d19296c00c9a7d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QStringList</type>
+        <definition>QStringList QFieldCloudConnection::urls</definition>
+        <argsstring>() const</argsstring>
+        <name>urls</name>
+        <qualifiedname>QFieldCloudConnection::urls</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the connections URLs successfully logged in in the past. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfieldcloudconnection.h" line="151" column="17" bodyfile="src/core/qfieldcloud/qfieldcloudconnection.cpp" bodystart="196" bodyend="208"/>
+      </memberdef>
+      <memberdef kind="function" id="classQFieldCloudConnection_1a7cd2420205bec64fcecb37c3d597f36f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString QFieldCloudConnection::provider</definition>
+        <argsstring>() const</argsstring>
+        <name>provider</name>
+        <qualifiedname>QFieldCloudConnection::provider</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfieldcloudconnection.h" line="153" column="13" bodyfile="src/core/qfieldcloud/qfieldcloudconnection.cpp" bodystart="215" bodyend="218"/>
+      </memberdef>
+      <memberdef kind="function" id="classQFieldCloudConnection_1a245745c66138008b1c1cadbaad15f8d4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QFieldCloudConnection::setProvider</definition>
+        <argsstring>(const QString &amp;provider)</argsstring>
+        <name>setProvider</name>
+        <qualifiedname>QFieldCloudConnection::setProvider</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>provider</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfieldcloudconnection.h" line="154" column="10" bodyfile="src/core/qfieldcloud/qfieldcloudconnection.cpp" bodystart="220" bodyend="231"/>
+      </memberdef>
+      <memberdef kind="function" id="classQFieldCloudConnection_1aee44be4ba4f5e5c25afaf686c8ec3831" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString QFieldCloudConnection::username</definition>
+        <argsstring>() const</argsstring>
+        <name>username</name>
+        <qualifiedname>QFieldCloudConnection::username</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfieldcloudconnection.h" line="156" column="13" bodyfile="src/core/qfieldcloud/qfieldcloudconnection.cpp" bodystart="233" bodyend="236"/>
+      </memberdef>
+      <memberdef kind="function" id="classQFieldCloudConnection_1ab0bcdd597a63a9050a5940726efe3b25" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QFieldCloudConnection::setUsername</definition>
+        <argsstring>(const QString &amp;username)</argsstring>
+        <name>setUsername</name>
+        <qualifiedname>QFieldCloudConnection::setUsername</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>username</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfieldcloudconnection.h" line="157" column="10" bodyfile="src/core/qfieldcloud/qfieldcloudconnection.cpp" bodystart="238" bodyend="255"/>
+      </memberdef>
+      <memberdef kind="function" id="classQFieldCloudConnection_1a28ec6ea45adfe3610ca8be3310dffb8e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString QFieldCloudConnection::password</definition>
+        <argsstring>() const</argsstring>
+        <name>password</name>
+        <qualifiedname>QFieldCloudConnection::password</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfieldcloudconnection.h" line="159" column="13" bodyfile="src/core/qfieldcloud/qfieldcloudconnection.cpp" bodystart="257" bodyend="260"/>
+      </memberdef>
+      <memberdef kind="function" id="classQFieldCloudConnection_1a12fb757b68f534a0b5ff1820b64d2fe6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QFieldCloudConnection::setPassword</definition>
+        <argsstring>(const QString &amp;password)</argsstring>
+        <name>setPassword</name>
+        <qualifiedname>QFieldCloudConnection::setPassword</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>password</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfieldcloudconnection.h" line="160" column="10" bodyfile="src/core/qfieldcloud/qfieldcloudconnection.cpp" bodystart="262" bodyend="271"/>
+      </memberdef>
+      <memberdef kind="function" id="classQFieldCloudConnection_1a44da322b4e179dc0bd1ac6cef282d8e1" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString QFieldCloudConnection::token</definition>
+        <argsstring>() const</argsstring>
+        <name>token</name>
+        <qualifiedname>QFieldCloudConnection::token</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfieldcloudconnection.h" line="162" column="13" bodyfile="src/core/qfieldcloud/qfieldcloudconnection.cpp" bodystart="273" bodyend="276"/>
+      </memberdef>
+      <memberdef kind="function" id="classQFieldCloudConnection_1a5f35444b985e5f58857428057f71468c" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString QFieldCloudConnection::avatarUrl</definition>
+        <argsstring>() const</argsstring>
+        <name>avatarUrl</name>
+        <qualifiedname>QFieldCloudConnection::avatarUrl</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfieldcloudconnection.h" line="164" column="13" bodyfile="src/core/qfieldcloud/qfieldcloudconnection.cpp" bodystart="210" bodyend="213"/>
+      </memberdef>
+      <memberdef kind="function" id="classQFieldCloudConnection_1ae1fe3cb9f39ab1d647e964aea2e03788" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structCloudUserInformation" kindref="compound">CloudUserInformation</ref></type>
+        <definition>CloudUserInformation QFieldCloudConnection::userInformation</definition>
+        <argsstring>() const</argsstring>
+        <name>userInformation</name>
+        <qualifiedname>QFieldCloudConnection::userInformation</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfieldcloudconnection.h" line="166" column="26" bodyfile="src/core/qfieldcloud/qfieldcloudconnection.cpp" bodystart="278" bodyend="281"/>
+      </memberdef>
+      <memberdef kind="function" id="classQFieldCloudConnection_1a56c15c9bd2ee9980355216fade63bd78" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QFieldCloudConnection::login</definition>
+        <argsstring>(const QString &amp;password=QString())</argsstring>
+        <name>login</name>
+        <qualifiedname>QFieldCloudConnection::login</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>password</declname>
+          <defval>QString()</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfieldcloudconnection.h" line="168" column="22" bodyfile="src/core/qfieldcloud/qfieldcloudconnection.cpp" bodystart="337" bodyend="466"/>
+      </memberdef>
+      <memberdef kind="function" id="classQFieldCloudConnection_1a6ed79e948be08981ec514d064dc22b56" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QFieldCloudConnection::logout</definition>
+        <argsstring>()</argsstring>
+        <name>logout</name>
+        <qualifiedname>QFieldCloudConnection::logout</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfieldcloudconnection.h" line="169" column="22" bodyfile="src/core/qfieldcloud/qfieldcloudconnection.cpp" bodystart="468" bodyend="502"/>
+      </memberdef>
+      <memberdef kind="function" id="classQFieldCloudConnection_1a6ca00cdfe11452fa28a92e0cb0195f78" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QFieldCloudConnection::getAuthenticationProviders</definition>
+        <argsstring>()</argsstring>
+        <name>getAuthenticationProviders</name>
+        <qualifiedname>QFieldCloudConnection::getAuthenticationProviders</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfieldcloudconnection.h" line="171" column="22" bodyfile="src/core/qfieldcloud/qfieldcloudconnection.cpp" bodystart="293" bodyend="335"/>
+      </memberdef>
+      <memberdef kind="function" id="classQFieldCloudConnection_1a4cf0467a8d0da1207ce0a2339c60177d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QList&lt; <ref refid="classAuthenticationProvider" kindref="compound">AuthenticationProvider</ref> &gt;</type>
+        <definition>QList&lt; AuthenticationProvider &gt; QFieldCloudConnection::availableProviders</definition>
+        <argsstring>() const</argsstring>
+        <name>availableProviders</name>
+        <qualifiedname>QFieldCloudConnection::availableProviders</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfieldcloudconnection.h" line="172" column="11" bodyfile="src/core/qfieldcloud/qfieldcloudconnection.cpp" bodystart="288" bodyend="291"/>
+      </memberdef>
+      <memberdef kind="function" id="classQFieldCloudConnection_1a72e9aa239b7f967002579bb0a4bb7077" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QFieldCloudConnection::isFetchingAvailableProviders</definition>
+        <argsstring>() const</argsstring>
+        <name>isFetchingAvailableProviders</name>
+        <qualifiedname>QFieldCloudConnection::isFetchingAvailableProviders</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfieldcloudconnection.h" line="173" column="10" bodyfile="src/core/qfieldcloud/qfieldcloudconnection.cpp" bodystart="283" bodyend="286"/>
+      </memberdef>
+      <memberdef kind="function" id="classQFieldCloudConnection_1a6f15ee9096fb573b221c38f81ba53029" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>ConnectionStatus</type>
+        <definition>QFieldCloudConnection::ConnectionStatus QFieldCloudConnection::status</definition>
+        <argsstring>() const</argsstring>
+        <name>status</name>
+        <qualifiedname>QFieldCloudConnection::status</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfieldcloudconnection.h" line="175" column="22" bodyfile="src/core/qfieldcloud/qfieldcloudconnection.cpp" bodystart="504" bodyend="507"/>
+      </memberdef>
+      <memberdef kind="function" id="classQFieldCloudConnection_1a824bb1ac74af462fb29cae8f48c990ba" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>ConnectionState</type>
+        <definition>QFieldCloudConnection::ConnectionState QFieldCloudConnection::state</definition>
+        <argsstring>() const</argsstring>
+        <name>state</name>
+        <qualifiedname>QFieldCloudConnection::state</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfieldcloudconnection.h" line="176" column="21" bodyfile="src/core/qfieldcloud/qfieldcloudconnection.cpp" bodystart="509" bodyend="512"/>
+      </memberdef>
+      <memberdef kind="function" id="classQFieldCloudConnection_1aa1f9b391de23bb9643ddf51c4d3ba830" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QFieldCloudConnection::hasToken</definition>
+        <argsstring>()</argsstring>
+        <name>hasToken</name>
+        <qualifiedname>QFieldCloudConnection::hasToken</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfieldcloudconnection.h" line="178" column="10" bodyfile="src/core/qfieldcloud/qfieldcloudconnection.h" bodystart="178" bodyend="178"/>
+      </memberdef>
+      <memberdef kind="function" id="classQFieldCloudConnection_1afa3a9fd3252db400c982be469e98aacb" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QFieldCloudConnection::hasProviderConfiguration</definition>
+        <argsstring>()</argsstring>
+        <name>hasProviderConfiguration</name>
+        <qualifiedname>QFieldCloudConnection::hasProviderConfiguration</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfieldcloudconnection.h" line="179" column="10" bodyfile="src/core/qfieldcloud/qfieldcloudconnection.h" bodystart="179" bodyend="179"/>
+      </memberdef>
+      <memberdef kind="function" id="classQFieldCloudConnection_1a903fb9f3991a1769b9b504df87751e33" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classNetworkReply" kindref="compound">NetworkReply</ref> *</type>
+        <definition>NetworkReply * QFieldCloudConnection::post</definition>
+        <argsstring>(const QString &amp;endpoint, const QVariantMap &amp;params=QVariantMap(), const QStringList &amp;fileNames=QStringList())</argsstring>
+        <name>post</name>
+        <qualifiedname>QFieldCloudConnection::post</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>endpoint</declname>
+        </param>
+        <param>
+          <type>const QVariantMap &amp;</type>
+          <declname>params</declname>
+          <defval>QVariantMap()</defval>
+        </param>
+        <param>
+          <type>const QStringList &amp;</type>
+          <declname>fileNames</declname>
+          <defval>QStringList()</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sends a post request with the given <emphasis>parameters</emphasis> to the given <emphasis>endpoint</emphasis>.</para>
+<para>If this connection is not logged in, will return nullptr. The returned reply needs to be deleted by the caller. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfieldcloudconnection.h" line="187" column="18" bodyfile="src/core/qfieldcloud/qfieldcloudconnection.cpp" bodystart="514" bodyend="518"/>
+      </memberdef>
+      <memberdef kind="function" id="classQFieldCloudConnection_1a5f1af393001efbff2509db082d6bbc70" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classNetworkReply" kindref="compound">NetworkReply</ref> *</type>
+        <definition>NetworkReply * QFieldCloudConnection::post</definition>
+        <argsstring>(QNetworkRequest &amp;request, const QString &amp;endpoint, const QVariantMap &amp;params=QVariantMap(), const QStringList &amp;fileNames=QStringList())</argsstring>
+        <name>post</name>
+        <qualifiedname>QFieldCloudConnection::post</qualifiedname>
+        <param>
+          <type>QNetworkRequest &amp;</type>
+          <declname>request</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>endpoint</declname>
+        </param>
+        <param>
+          <type>const QVariantMap &amp;</type>
+          <declname>params</declname>
+          <defval>QVariantMap()</defval>
+        </param>
+        <param>
+          <type>const QStringList &amp;</type>
+          <declname>fileNames</declname>
+          <defval>QStringList()</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sends a post <emphasis>request</emphasis> with the given <emphasis>parameters</emphasis> to the given <emphasis>endpoint</emphasis>.</para>
+<para>If this connection is not logged in, will return nullptr. The returned reply needs to be deleted by the caller. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfieldcloudconnection.h" line="195" column="18" bodyfile="src/core/qfieldcloud/qfieldcloudconnection.cpp" bodystart="520" bodyend="588"/>
+      </memberdef>
+      <memberdef kind="function" id="classQFieldCloudConnection_1a168cd75fb79e9233c00a0d2da9ed1e48" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classNetworkReply" kindref="compound">NetworkReply</ref> *</type>
+        <definition>NetworkReply * QFieldCloudConnection::get</definition>
+        <argsstring>(const QString &amp;endpoint, const QVariantMap &amp;params=QVariantMap())</argsstring>
+        <name>get</name>
+        <qualifiedname>QFieldCloudConnection::get</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>endpoint</declname>
+        </param>
+        <param>
+          <type>const QVariantMap &amp;</type>
+          <declname>params</declname>
+          <defval>QVariantMap()</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sends a get request to the given <emphasis>endpoint</emphasis>. Query can be passed via <emphasis>params</emphasis>, empty by default.</para>
+<para>If this connection is not logged in, will return nullptr. The returned reply needs to be deleted by the caller. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfieldcloudconnection.h" line="203" column="18" bodyfile="src/core/qfieldcloud/qfieldcloudconnection.cpp" bodystart="590" bodyend="599"/>
+      </memberdef>
+      <memberdef kind="function" id="classQFieldCloudConnection_1a7b069553283fc65a9af7a9fa1055c1cb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classNetworkReply" kindref="compound">NetworkReply</ref> *</type>
+        <definition>NetworkReply * QFieldCloudConnection::get</definition>
+        <argsstring>(QNetworkRequest &amp;request, const QString &amp;endpoint, const QVariantMap &amp;params=QVariantMap())</argsstring>
+        <name>get</name>
+        <qualifiedname>QFieldCloudConnection::get</qualifiedname>
+        <param>
+          <type>QNetworkRequest &amp;</type>
+          <declname>request</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>endpoint</declname>
+        </param>
+        <param>
+          <type>const QVariantMap &amp;</type>
+          <declname>params</declname>
+          <defval>QVariantMap()</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sends a get <emphasis>request</emphasis> to a given <emphasis>endpoint</emphasis>. Additional query can be passed via <emphasis>params</emphasis>, empty by default.</para>
+<para>If this connection is not logged in, will return nullptr. The returned reply needs to be deleted by the caller. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfieldcloudconnection.h" line="211" column="18" bodyfile="src/core/qfieldcloud/qfieldcloudconnection.cpp" bodystart="602" bodyend="612"/>
+      </memberdef>
+      <memberdef kind="function" id="classQFieldCloudConnection_1ac3db83cb7dcc363ec7e0533cc0d7213c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classNetworkReply" kindref="compound">NetworkReply</ref> *</type>
+        <definition>NetworkReply * QFieldCloudConnection::get</definition>
+        <argsstring>(QNetworkRequest &amp;request, const QUrl &amp;url, const QVariantMap &amp;params=QVariantMap())</argsstring>
+        <name>get</name>
+        <qualifiedname>QFieldCloudConnection::get</qualifiedname>
+        <param>
+          <type>QNetworkRequest &amp;</type>
+          <declname>request</declname>
+        </param>
+        <param>
+          <type>const QUrl &amp;</type>
+          <declname>url</declname>
+        </param>
+        <param>
+          <type>const QVariantMap &amp;</type>
+          <declname>params</declname>
+          <defval>QVariantMap()</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfieldcloudconnection.h" line="212" column="18" bodyfile="src/core/qfieldcloud/qfieldcloudconnection.cpp" bodystart="614" bodyend="661"/>
+      </memberdef>
+      <memberdef kind="function" id="classQFieldCloudConnection_1aa6309d43db1e5f2b943fdcb9a6cbda0d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QFieldCloudConnection::setAuthenticationDetails</definition>
+        <argsstring>(QNetworkRequest &amp;request)</argsstring>
+        <name>setAuthenticationDetails</name>
+        <qualifiedname>QFieldCloudConnection::setAuthenticationDetails</qualifiedname>
+        <param>
+          <type>QNetworkRequest &amp;</type>
+          <declname>request</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets authentication details on a <emphasis>request</emphasis>. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfieldcloudconnection.h" line="217" column="10" bodyfile="src/core/qfieldcloud/qfieldcloudconnection.cpp" bodystart="750" bodyend="814"/>
+      </memberdef>
+      <memberdef kind="function" id="classQFieldCloudConnection_1a0d4a4c13ffd11c7a2bc1225a0c2f728f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>qsizetype</type>
+        <definition>qsizetype QFieldCloudConnection::uploadPendingAttachments</definition>
+        <argsstring>()</argsstring>
+        <name>uploadPendingAttachments</name>
+        <qualifiedname>QFieldCloudConnection::uploadPendingAttachments</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Uploads any pending attachments linked to the logged in user account. <simplesect kind="return"><para>the number of attachments to be uploaded. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfieldcloudconnection.h" line="223" column="15" bodyfile="src/core/qfieldcloud/qfieldcloudconnection.cpp" bodystart="916" bodyend="935"/>
+      </memberdef>
+      <memberdef kind="function" id="classQFieldCloudConnection_1a2436325da2d7c6ec744108cd6f3bfc17" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QFieldCloudConnection::queueProjectPush</definition>
+        <argsstring>(const QString &amp;projectId)</argsstring>
+        <name>queueProjectPush</name>
+        <qualifiedname>QFieldCloudConnection::queueProjectPush</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>projectId</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Queues a project push request when the network is not reachable.</para>
+<para>The push will be automatically triggered once the connection is back online and the user is logged in. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfieldcloudconnection.h" line="231" column="10" bodyfile="src/core/qfieldcloud/qfieldcloudconnection.cpp" bodystart="77" bodyend="86"/>
+      </memberdef>
+      <memberdef kind="function" id="classQFieldCloudConnection_1a2f3b8be6d46d4686726c26b8efa33f91" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QFieldCloudConnection::isReachable</definition>
+        <argsstring>() const</argsstring>
+        <name>isReachable</name>
+        <qualifiedname>QFieldCloudConnection::isReachable</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns whether the network is currently reachable.</para>
+<para>If reachability information is not available, this returns true to keep the existing behavior unchanged. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfieldcloudconnection.h" line="239" column="10" bodyfile="src/core/qfieldcloud/qfieldcloudconnection.cpp" bodystart="123" bodyend="144"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classQFieldCloudConnection_1aab201ebd76062f5d93242a75a1d5b648" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString QFieldCloudConnection::errorString</definition>
+        <argsstring>(QNetworkReply *reply)</argsstring>
+        <name>errorString</name>
+        <qualifiedname>QFieldCloudConnection::errorString</qualifiedname>
+        <param>
+          <type>QNetworkReply *</type>
+          <declname>reply</declname>
+        </param>
+        <briefdescription>
+<para>Returns an error string to be shown to the user if <emphasis>reply</emphasis> has an error. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfieldcloudconnection.h" line="128" column="20" bodyfile="src/core/qfieldcloud/qfieldcloudconnection.cpp" bodystart="162" bodyend="165"/>
+      </memberdef>
+      <memberdef kind="function" id="classQFieldCloudConnection_1a52547e7a90b3bfdf3bd735f5538af8d5" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>static QString QFieldCloudConnection::defaultUrl</definition>
+        <argsstring>()</argsstring>
+        <name>defaultUrl</name>
+        <qualifiedname>QFieldCloudConnection::defaultUrl</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Default server connection URL, pointing to the production server. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfieldcloudconnection.h" line="146" column="20"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classQFieldCloudConnection_1a3ccbb5c791400ff8ba673bfe530bb563" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QFieldCloudConnection::providerChanged</definition>
+        <argsstring>()</argsstring>
+        <name>providerChanged</name>
+        <qualifiedname>QFieldCloudConnection::providerChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfieldcloudconnection.h" line="242" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQFieldCloudConnection_1ad8a14a055251bfc4f4f4f5ebddd1b8f4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QFieldCloudConnection::usernameChanged</definition>
+        <argsstring>()</argsstring>
+        <name>usernameChanged</name>
+        <qualifiedname>QFieldCloudConnection::usernameChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfieldcloudconnection.h" line="243" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQFieldCloudConnection_1a971ebea550df7c5a4a644b4354a0d839" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QFieldCloudConnection::passwordChanged</definition>
+        <argsstring>()</argsstring>
+        <name>passwordChanged</name>
+        <qualifiedname>QFieldCloudConnection::passwordChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfieldcloudconnection.h" line="244" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQFieldCloudConnection_1a250095fa6de5cf2d82805889066a09f5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QFieldCloudConnection::avatarUrlChanged</definition>
+        <argsstring>()</argsstring>
+        <name>avatarUrlChanged</name>
+        <qualifiedname>QFieldCloudConnection::avatarUrlChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfieldcloudconnection.h" line="245" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQFieldCloudConnection_1a9ca28c3a50ac8a1c9566e435e717a20a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QFieldCloudConnection::urlChanged</definition>
+        <argsstring>()</argsstring>
+        <name>urlChanged</name>
+        <qualifiedname>QFieldCloudConnection::urlChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfieldcloudconnection.h" line="246" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQFieldCloudConnection_1a86b245780487947b8084dc9a87e88cc1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QFieldCloudConnection::urlsChanged</definition>
+        <argsstring>()</argsstring>
+        <name>urlsChanged</name>
+        <qualifiedname>QFieldCloudConnection::urlsChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfieldcloudconnection.h" line="247" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQFieldCloudConnection_1ae93e4148ba20230f0170d2b7fe8dc518" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QFieldCloudConnection::statusChanged</definition>
+        <argsstring>()</argsstring>
+        <name>statusChanged</name>
+        <qualifiedname>QFieldCloudConnection::statusChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfieldcloudconnection.h" line="248" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQFieldCloudConnection_1a38cdef2b821a7ea3263877bc443dbbc8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QFieldCloudConnection::stateChanged</definition>
+        <argsstring>()</argsstring>
+        <name>stateChanged</name>
+        <qualifiedname>QFieldCloudConnection::stateChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfieldcloudconnection.h" line="249" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQFieldCloudConnection_1a1de3fe1c575f34bf0b98ebca4b536993" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QFieldCloudConnection::tokenChanged</definition>
+        <argsstring>()</argsstring>
+        <name>tokenChanged</name>
+        <qualifiedname>QFieldCloudConnection::tokenChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfieldcloudconnection.h" line="250" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQFieldCloudConnection_1a8fba68028ebb8dc09a21fbda6642c263" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QFieldCloudConnection::providerConfigurationChanged</definition>
+        <argsstring>()</argsstring>
+        <name>providerConfigurationChanged</name>
+        <qualifiedname>QFieldCloudConnection::providerConfigurationChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfieldcloudconnection.h" line="251" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQFieldCloudConnection_1a53b79415add65c55c75fd193cf8bbf89" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QFieldCloudConnection::userInformationChanged</definition>
+        <argsstring>()</argsstring>
+        <name>userInformationChanged</name>
+        <qualifiedname>QFieldCloudConnection::userInformationChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfieldcloudconnection.h" line="252" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQFieldCloudConnection_1a0442b4a91253e59d0a664acb58ecaaab" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QFieldCloudConnection::pendingAttachmentsUploadFinished</definition>
+        <argsstring>(const QString &amp;error=QString())</argsstring>
+        <name>pendingAttachmentsUploadFinished</name>
+        <qualifiedname>QFieldCloudConnection::pendingAttachmentsUploadFinished</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>error</declname>
+          <defval>QString()</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfieldcloudconnection.h" line="253" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQFieldCloudConnection_1ad928006d1eeede21f75db6bd985337d3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QFieldCloudConnection::pendingAttachmentsUploadStatus</definition>
+        <argsstring>(const QString &amp;fileName, double fileProgress, qsizetype uploadPending)</argsstring>
+        <name>pendingAttachmentsUploadStatus</name>
+        <qualifiedname>QFieldCloudConnection::pendingAttachmentsUploadStatus</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>fileName</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>fileProgress</declname>
+        </param>
+        <param>
+          <type>qsizetype</type>
+          <declname>uploadPending</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfieldcloudconnection.h" line="254" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQFieldCloudConnection_1ad7ab4f3291bd3b413e27e9fa34a73536" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QFieldCloudConnection::pendingAttachmentsAdded</definition>
+        <argsstring>()</argsstring>
+        <name>pendingAttachmentsAdded</name>
+        <qualifiedname>QFieldCloudConnection::pendingAttachmentsAdded</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfieldcloudconnection.h" line="255" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQFieldCloudConnection_1a60d05ca8a96211d572946b9da067f227" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QFieldCloudConnection::error</definition>
+        <argsstring>()</argsstring>
+        <name>error</name>
+        <qualifiedname>QFieldCloudConnection::error</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfieldcloudconnection.h" line="256" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQFieldCloudConnection_1a4f59580256eab783fe276acb15d2ec8f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QFieldCloudConnection::loginFailed</definition>
+        <argsstring>(const QString &amp;reason)</argsstring>
+        <name>loginFailed</name>
+        <qualifiedname>QFieldCloudConnection::loginFailed</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>reason</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfieldcloudconnection.h" line="258" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQFieldCloudConnection_1a445ac415f64a0b55f6ffeb91c207ff0b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QFieldCloudConnection::availableProvidersChanged</definition>
+        <argsstring>()</argsstring>
+        <name>availableProvidersChanged</name>
+        <qualifiedname>QFieldCloudConnection::availableProvidersChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfieldcloudconnection.h" line="260" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQFieldCloudConnection_1a4f50501830febf361fb1d168b943df59" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QFieldCloudConnection::isFetchingAvailableProvidersChanged</definition>
+        <argsstring>()</argsstring>
+        <name>isFetchingAvailableProvidersChanged</name>
+        <qualifiedname>QFieldCloudConnection::isFetchingAvailableProvidersChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfieldcloudconnection.h" line="261" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQFieldCloudConnection_1a01379f4162bf7e6c97fbab05e926507e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QFieldCloudConnection::isReachableChanged</definition>
+        <argsstring>()</argsstring>
+        <name>isReachableChanged</name>
+        <qualifiedname>QFieldCloudConnection::isReachableChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfieldcloudconnection.h" line="263" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQFieldCloudConnection_1a5bf19fbb07546ea4f943448b1de689c5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QFieldCloudConnection::queuedProjectPushRequested</definition>
+        <argsstring>(const QString &amp;projectId)</argsstring>
+        <name>queuedProjectPushRequested</name>
+        <qualifiedname>QFieldCloudConnection::queuedProjectPushRequested</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>projectId</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfieldcloudconnection.h" line="264" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classQFieldCloudConnection_1a3dded0b9b79408cba380485e4d019ae6" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QFieldCloudConnection::setStatus</definition>
+        <argsstring>(ConnectionStatus status)</argsstring>
+        <name>setStatus</name>
+        <qualifiedname>QFieldCloudConnection::setStatus</qualifiedname>
+        <param>
+          <type>ConnectionStatus</type>
+          <declname>status</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfieldcloudconnection.h" line="267" column="10" bodyfile="src/core/qfieldcloud/qfieldcloudconnection.cpp" bodystart="721" bodyend="737"/>
+      </memberdef>
+      <memberdef kind="function" id="classQFieldCloudConnection_1aa392d65e5de0418a8ca16dde55325782" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QFieldCloudConnection::setState</definition>
+        <argsstring>(ConnectionState state)</argsstring>
+        <name>setState</name>
+        <qualifiedname>QFieldCloudConnection::setState</qualifiedname>
+        <param>
+          <type>ConnectionState</type>
+          <declname>state</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfieldcloudconnection.h" line="268" column="10" bodyfile="src/core/qfieldcloud/qfieldcloudconnection.cpp" bodystart="739" bodyend="748"/>
+      </memberdef>
+      <memberdef kind="function" id="classQFieldCloudConnection_1a170a295af679b6f11c6adcacf48e8815" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QFieldCloudConnection::setToken</definition>
+        <argsstring>(const QByteArray &amp;token)</argsstring>
+        <name>setToken</name>
+        <qualifiedname>QFieldCloudConnection::setToken</qualifiedname>
+        <param>
+          <type>const QByteArray &amp;</type>
+          <declname>token</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfieldcloudconnection.h" line="269" column="10" bodyfile="src/core/qfieldcloud/qfieldcloudconnection.cpp" bodystart="663" bodyend="699"/>
+      </memberdef>
+      <memberdef kind="function" id="classQFieldCloudConnection_1a8cbf536dbef39078bf2a3fda41957c29" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QFieldCloudConnection::invalidateToken</definition>
+        <argsstring>()</argsstring>
+        <name>invalidateToken</name>
+        <qualifiedname>QFieldCloudConnection::invalidateToken</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfieldcloudconnection.h" line="270" column="10" bodyfile="src/core/qfieldcloud/qfieldcloudconnection.cpp" bodystart="701" bodyend="719"/>
+      </memberdef>
+      <memberdef kind="function" id="classQFieldCloudConnection_1a8f86cbefd3c24e1090770457d8b78819" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QFieldCloudConnection::processPendingAttachments</definition>
+        <argsstring>()</argsstring>
+        <name>processPendingAttachments</name>
+        <qualifiedname>QFieldCloudConnection::processPendingAttachments</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfieldcloudconnection.h" line="271" column="10" bodyfile="src/core/qfieldcloud/qfieldcloudconnection.cpp" bodystart="937" bodyend="1033"/>
+      </memberdef>
+      <memberdef kind="function" id="classQFieldCloudConnection_1aeab9f1aa78022c94c2d8266484c34ec9" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QFieldCloudConnection::setClientHeaders</definition>
+        <argsstring>(QNetworkRequest &amp;request)</argsstring>
+        <name>setClientHeaders</name>
+        <qualifiedname>QFieldCloudConnection::setClientHeaders</qualifiedname>
+        <param>
+          <type>QNetworkRequest &amp;</type>
+          <declname>request</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfieldcloudconnection.h" line="296" column="10" bodyfile="src/core/qfieldcloud/qfieldcloudconnection.cpp" bodystart="816" bodyend="824"/>
+      </memberdef>
+      <memberdef kind="function" id="classQFieldCloudConnection_1af305f6faa143c1022b0fb24ae520be87" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QFieldCloudConnection::tryFlushQueuedProjectPushes</definition>
+        <argsstring>()</argsstring>
+        <name>tryFlushQueuedProjectPushes</name>
+        <qualifiedname>QFieldCloudConnection::tryFlushQueuedProjectPushes</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfieldcloudconnection.h" line="302" column="10" bodyfile="src/core/qfieldcloud/qfieldcloudconnection.cpp" bodystart="88" bodyend="121"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>QFieldCloudConnection</label>
+        <link refid="classQFieldCloudConnection"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>QFieldCloudConnection</label>
+        <link refid="classQFieldCloudConnection"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/qfieldcloud/qfieldcloudconnection.h" line="67" column="1" bodyfile="src/core/qfieldcloud/qfieldcloudconnection.h" bodystart="68" bodyend="303"/>
+    <listofallmembers>
+      <member refid="classQFieldCloudConnection_1a6bb8321bdbf5cc918ae6453cac857b25" prot="public" virt="non-virtual"><scope>QFieldCloudConnection</scope><name>availableProviders</name></member>
+      <member refid="classQFieldCloudConnection_1a4cf0467a8d0da1207ce0a2339c60177d" prot="public" virt="non-virtual"><scope>QFieldCloudConnection</scope><name>availableProviders</name></member>
+      <member refid="classQFieldCloudConnection_1a445ac415f64a0b55f6ffeb91c207ff0b" prot="public" virt="non-virtual"><scope>QFieldCloudConnection</scope><name>availableProvidersChanged</name></member>
+      <member refid="classQFieldCloudConnection_1a6ac12967ebe1705988623f76eac56375" prot="public" virt="non-virtual"><scope>QFieldCloudConnection</scope><name>avatarUrl</name></member>
+      <member refid="classQFieldCloudConnection_1a5f35444b985e5f58857428057f71468c" prot="public" virt="non-virtual"><scope>QFieldCloudConnection</scope><name>avatarUrl</name></member>
+      <member refid="classQFieldCloudConnection_1a250095fa6de5cf2d82805889066a09f5" prot="public" virt="non-virtual"><scope>QFieldCloudConnection</scope><name>avatarUrlChanged</name></member>
+      <member refid="classQFieldCloudConnection_1ac102733329fcc57d1718bca133b992f4" prot="public" virt="non-virtual"><scope>QFieldCloudConnection</scope><name>ConnectionState</name></member>
+      <member refid="classQFieldCloudConnection_1a9ae2cbdb983e1e59f8961f74eea310ae" prot="public" virt="non-virtual"><scope>QFieldCloudConnection</scope><name>ConnectionStatus</name></member>
+      <member refid="classQFieldCloudConnection_1a68af0bea6163e0cb4d5a40d7312d529c" prot="public" virt="non-virtual"><scope>QFieldCloudConnection</scope><name>defaultUrl</name></member>
+      <member refid="classQFieldCloudConnection_1a52547e7a90b3bfdf3bd735f5538af8d5" prot="public" virt="non-virtual"><scope>QFieldCloudConnection</scope><name>defaultUrl</name></member>
+      <member refid="classQFieldCloudConnection_1a60d05ca8a96211d572946b9da067f227" prot="public" virt="non-virtual"><scope>QFieldCloudConnection</scope><name>error</name></member>
+      <member refid="classQFieldCloudConnection_1aab201ebd76062f5d93242a75a1d5b648" prot="public" virt="non-virtual"><scope>QFieldCloudConnection</scope><name>errorString</name></member>
+      <member refid="classQFieldCloudConnection_1a168cd75fb79e9233c00a0d2da9ed1e48" prot="public" virt="non-virtual"><scope>QFieldCloudConnection</scope><name>get</name></member>
+      <member refid="classQFieldCloudConnection_1a7b069553283fc65a9af7a9fa1055c1cb" prot="public" virt="non-virtual"><scope>QFieldCloudConnection</scope><name>get</name></member>
+      <member refid="classQFieldCloudConnection_1ac3db83cb7dcc363ec7e0533cc0d7213c" prot="public" virt="non-virtual"><scope>QFieldCloudConnection</scope><name>get</name></member>
+      <member refid="classQFieldCloudConnection_1a6ca00cdfe11452fa28a92e0cb0195f78" prot="public" virt="non-virtual"><scope>QFieldCloudConnection</scope><name>getAuthenticationProviders</name></member>
+      <member refid="classQFieldCloudConnection_1a9e682e140a1ba6253f138519036351bd" prot="public" virt="non-virtual"><scope>QFieldCloudConnection</scope><name>hasProviderConfiguration</name></member>
+      <member refid="classQFieldCloudConnection_1afa3a9fd3252db400c982be469e98aacb" prot="public" virt="non-virtual"><scope>QFieldCloudConnection</scope><name>hasProviderConfiguration</name></member>
+      <member refid="classQFieldCloudConnection_1a0b59f08b3c338bf3ce75ce4f8cfbe8f5" prot="public" virt="non-virtual"><scope>QFieldCloudConnection</scope><name>hasToken</name></member>
+      <member refid="classQFieldCloudConnection_1aa1f9b391de23bb9643ddf51c4d3ba830" prot="public" virt="non-virtual"><scope>QFieldCloudConnection</scope><name>hasToken</name></member>
+      <member refid="classQFieldCloudConnection_1a8cbf536dbef39078bf2a3fda41957c29" prot="private" virt="non-virtual"><scope>QFieldCloudConnection</scope><name>invalidateToken</name></member>
+      <member refid="classQFieldCloudConnection_1a9eaa44ab03d7fa7473ac0926e50e6e22" prot="public" virt="non-virtual"><scope>QFieldCloudConnection</scope><name>isFetchingAvailableProviders</name></member>
+      <member refid="classQFieldCloudConnection_1a72e9aa239b7f967002579bb0a4bb7077" prot="public" virt="non-virtual"><scope>QFieldCloudConnection</scope><name>isFetchingAvailableProviders</name></member>
+      <member refid="classQFieldCloudConnection_1a4f50501830febf361fb1d168b943df59" prot="public" virt="non-virtual"><scope>QFieldCloudConnection</scope><name>isFetchingAvailableProvidersChanged</name></member>
+      <member refid="classQFieldCloudConnection_1a90d73b6297bfa5ae8fe9c25553c0db11" prot="public" virt="non-virtual"><scope>QFieldCloudConnection</scope><name>isReachable</name></member>
+      <member refid="classQFieldCloudConnection_1a2f3b8be6d46d4686726c26b8efa33f91" prot="public" virt="non-virtual"><scope>QFieldCloudConnection</scope><name>isReachable</name></member>
+      <member refid="classQFieldCloudConnection_1a01379f4162bf7e6c97fbab05e926507e" prot="public" virt="non-virtual"><scope>QFieldCloudConnection</scope><name>isReachableChanged</name></member>
+      <member refid="classQFieldCloudConnection_1a56c15c9bd2ee9980355216fade63bd78" prot="public" virt="non-virtual"><scope>QFieldCloudConnection</scope><name>login</name></member>
+      <member refid="classQFieldCloudConnection_1a4f59580256eab783fe276acb15d2ec8f" prot="public" virt="non-virtual"><scope>QFieldCloudConnection</scope><name>loginFailed</name></member>
+      <member refid="classQFieldCloudConnection_1a6ed79e948be08981ec514d064dc22b56" prot="public" virt="non-virtual"><scope>QFieldCloudConnection</scope><name>logout</name></member>
+      <member refid="classQFieldCloudConnection_1ac2ac1b0d68ee33be100b3af132179a29" prot="private" virt="non-virtual"><scope>QFieldCloudConnection</scope><name>mAvailableProviders</name></member>
+      <member refid="classQFieldCloudConnection_1a0fcb717bba53abec37d0944afd5f7668" prot="private" virt="non-virtual"><scope>QFieldCloudConnection</scope><name>mAvatarUrl</name></member>
+      <member refid="classQFieldCloudConnection_1a7427a765b191b7b408836a56deca3c10" prot="private" virt="non-virtual"><scope>QFieldCloudConnection</scope><name>mIsFetchingAvailableProviders</name></member>
+      <member refid="classQFieldCloudConnection_1a8a553e681c0b8b306be0546e356f19fd" prot="private" virt="non-virtual"><scope>QFieldCloudConnection</scope><name>mIsFlushingQueuedProjectPushes</name></member>
+      <member refid="classQFieldCloudConnection_1a85f8376ea3de147fe083bf209467ff7f" prot="private" virt="non-virtual"><scope>QFieldCloudConnection</scope><name>mNetworkInformation</name></member>
+      <member refid="classQFieldCloudConnection_1a7273c3072ed809a0f14ce461890c0eb6" prot="private" virt="non-virtual"><scope>QFieldCloudConnection</scope><name>mPassword</name></member>
+      <member refid="classQFieldCloudConnection_1a8d72f99bbd90ed58345912d50bc11e96" prot="private" virt="non-virtual"><scope>QFieldCloudConnection</scope><name>mPendingRequests</name></member>
+      <member refid="classQFieldCloudConnection_1a1cd98ff5441dc788de883d7f493b913d" prot="private" virt="non-virtual"><scope>QFieldCloudConnection</scope><name>mProvider</name></member>
+      <member refid="classQFieldCloudConnection_1a476dcbe6217e12fe45d1913ea38f09d7" prot="private" virt="non-virtual"><scope>QFieldCloudConnection</scope><name>mProviderConfigId</name></member>
+      <member refid="classQFieldCloudConnection_1add42a8438cff84b4a75e80fcd914e6c4" prot="private" virt="non-virtual"><scope>QFieldCloudConnection</scope><name>mQueuedProjectPushes</name></member>
+      <member refid="classQFieldCloudConnection_1a5cd9a80894ab80aa75b63925d6e904f4" prot="private" virt="non-virtual"><scope>QFieldCloudConnection</scope><name>mState</name></member>
+      <member refid="classQFieldCloudConnection_1ae7544d6703a0500a2c8b7c7bf75589c4" prot="private" virt="non-virtual"><scope>QFieldCloudConnection</scope><name>mStatus</name></member>
+      <member refid="classQFieldCloudConnection_1a6becd594a9de8d47b7fd5d6f5d95dd76" prot="private" virt="non-virtual"><scope>QFieldCloudConnection</scope><name>mToken</name></member>
+      <member refid="classQFieldCloudConnection_1a34f288b2f06998b93d19a0e00e60aff1" prot="private" virt="non-virtual"><scope>QFieldCloudConnection</scope><name>mTokenConfigId</name></member>
+      <member refid="classQFieldCloudConnection_1a1a8fa7e49c1177b13f0769cc3835d24b" prot="private" virt="non-virtual"><scope>QFieldCloudConnection</scope><name>mUploadDoneCount</name></member>
+      <member refid="classQFieldCloudConnection_1a0112f849d7d3048016df11bf7907b9b8" prot="private" virt="non-virtual"><scope>QFieldCloudConnection</scope><name>mUploadFailingCount</name></member>
+      <member refid="classQFieldCloudConnection_1a63e79f56161ee635434ba73cef7848f3" prot="private" virt="non-virtual"><scope>QFieldCloudConnection</scope><name>mUploadPendingCount</name></member>
+      <member refid="classQFieldCloudConnection_1a89321d6c89fe227dbb13e21670ffd861" prot="private" virt="non-virtual"><scope>QFieldCloudConnection</scope><name>mUrl</name></member>
+      <member refid="classQFieldCloudConnection_1a15f75753ca317c9782a3bde0f7cda47f" prot="private" virt="non-virtual"><scope>QFieldCloudConnection</scope><name>mUserInformation</name></member>
+      <member refid="classQFieldCloudConnection_1a12e36716c0211c8280f0bd2ada827ea1" prot="private" virt="non-virtual"><scope>QFieldCloudConnection</scope><name>mUsername</name></member>
+      <member refid="classQFieldCloudConnection_1abe95dc2fcd922eed9975a415fb1e6d3a" prot="public" virt="non-virtual"><scope>QFieldCloudConnection</scope><name>password</name></member>
+      <member refid="classQFieldCloudConnection_1a28ec6ea45adfe3610ca8be3310dffb8e" prot="public" virt="non-virtual"><scope>QFieldCloudConnection</scope><name>password</name></member>
+      <member refid="classQFieldCloudConnection_1a971ebea550df7c5a4a644b4354a0d839" prot="public" virt="non-virtual"><scope>QFieldCloudConnection</scope><name>passwordChanged</name></member>
+      <member refid="classQFieldCloudConnection_1ad7ab4f3291bd3b413e27e9fa34a73536" prot="public" virt="non-virtual"><scope>QFieldCloudConnection</scope><name>pendingAttachmentsAdded</name></member>
+      <member refid="classQFieldCloudConnection_1a0442b4a91253e59d0a664acb58ecaaab" prot="public" virt="non-virtual"><scope>QFieldCloudConnection</scope><name>pendingAttachmentsUploadFinished</name></member>
+      <member refid="classQFieldCloudConnection_1ad928006d1eeede21f75db6bd985337d3" prot="public" virt="non-virtual"><scope>QFieldCloudConnection</scope><name>pendingAttachmentsUploadStatus</name></member>
+      <member refid="classQFieldCloudConnection_1a903fb9f3991a1769b9b504df87751e33" prot="public" virt="non-virtual"><scope>QFieldCloudConnection</scope><name>post</name></member>
+      <member refid="classQFieldCloudConnection_1a5f1af393001efbff2509db082d6bbc70" prot="public" virt="non-virtual"><scope>QFieldCloudConnection</scope><name>post</name></member>
+      <member refid="classQFieldCloudConnection_1a8f86cbefd3c24e1090770457d8b78819" prot="private" virt="non-virtual"><scope>QFieldCloudConnection</scope><name>processPendingAttachments</name></member>
+      <member refid="classQFieldCloudConnection_1aa0ffcc0f10675147e5849a1960c04bae" prot="public" virt="non-virtual"><scope>QFieldCloudConnection</scope><name>provider</name></member>
+      <member refid="classQFieldCloudConnection_1a7cd2420205bec64fcecb37c3d597f36f" prot="public" virt="non-virtual"><scope>QFieldCloudConnection</scope><name>provider</name></member>
+      <member refid="classQFieldCloudConnection_1a3ccbb5c791400ff8ba673bfe530bb563" prot="public" virt="non-virtual"><scope>QFieldCloudConnection</scope><name>providerChanged</name></member>
+      <member refid="classQFieldCloudConnection_1a8fba68028ebb8dc09a21fbda6642c263" prot="public" virt="non-virtual"><scope>QFieldCloudConnection</scope><name>providerConfigurationChanged</name></member>
+      <member refid="classQFieldCloudConnection_1a0db2bb1e386be43159be6c04177a9b35" prot="public" virt="non-virtual"><scope>QFieldCloudConnection</scope><name>QFieldCloudConnection</name></member>
+      <member refid="classQFieldCloudConnection_1a5bf19fbb07546ea4f943448b1de689c5" prot="public" virt="non-virtual"><scope>QFieldCloudConnection</scope><name>queuedProjectPushRequested</name></member>
+      <member refid="classQFieldCloudConnection_1a2436325da2d7c6ec744108cd6f3bfc17" prot="public" virt="non-virtual"><scope>QFieldCloudConnection</scope><name>queueProjectPush</name></member>
+      <member refid="classQFieldCloudConnection_1afd0eb15bc21b9204a04355b251049f41" prot="public" virt="non-virtual"><scope>QFieldCloudConnection</scope><name>sErrors</name></member>
+      <member refid="classQFieldCloudConnection_1aa6309d43db1e5f2b943fdcb9a6cbda0d" prot="public" virt="non-virtual"><scope>QFieldCloudConnection</scope><name>setAuthenticationDetails</name></member>
+      <member refid="classQFieldCloudConnection_1aeab9f1aa78022c94c2d8266484c34ec9" prot="private" virt="non-virtual"><scope>QFieldCloudConnection</scope><name>setClientHeaders</name></member>
+      <member refid="classQFieldCloudConnection_1a12fb757b68f534a0b5ff1820b64d2fe6" prot="public" virt="non-virtual"><scope>QFieldCloudConnection</scope><name>setPassword</name></member>
+      <member refid="classQFieldCloudConnection_1a245745c66138008b1c1cadbaad15f8d4" prot="public" virt="non-virtual"><scope>QFieldCloudConnection</scope><name>setProvider</name></member>
+      <member refid="classQFieldCloudConnection_1aa392d65e5de0418a8ca16dde55325782" prot="private" virt="non-virtual"><scope>QFieldCloudConnection</scope><name>setState</name></member>
+      <member refid="classQFieldCloudConnection_1a3dded0b9b79408cba380485e4d019ae6" prot="private" virt="non-virtual"><scope>QFieldCloudConnection</scope><name>setStatus</name></member>
+      <member refid="classQFieldCloudConnection_1a170a295af679b6f11c6adcacf48e8815" prot="private" virt="non-virtual"><scope>QFieldCloudConnection</scope><name>setToken</name></member>
+      <member refid="classQFieldCloudConnection_1aeecfae3b27934d9460e7c853d13e59e4" prot="public" virt="non-virtual"><scope>QFieldCloudConnection</scope><name>setUrl</name></member>
+      <member refid="classQFieldCloudConnection_1ab0bcdd597a63a9050a5940726efe3b25" prot="public" virt="non-virtual"><scope>QFieldCloudConnection</scope><name>setUsername</name></member>
+      <member refid="classQFieldCloudConnection_1ad752f9f37c4aa39ec5a26c6f75653929" prot="public" virt="non-virtual"><scope>QFieldCloudConnection</scope><name>state</name></member>
+      <member refid="classQFieldCloudConnection_1a824bb1ac74af462fb29cae8f48c990ba" prot="public" virt="non-virtual"><scope>QFieldCloudConnection</scope><name>state</name></member>
+      <member refid="classQFieldCloudConnection_1a38cdef2b821a7ea3263877bc443dbbc8" prot="public" virt="non-virtual"><scope>QFieldCloudConnection</scope><name>stateChanged</name></member>
+      <member refid="classQFieldCloudConnection_1a677d4967aeee428c8ebd974771370d6c" prot="public" virt="non-virtual"><scope>QFieldCloudConnection</scope><name>status</name></member>
+      <member refid="classQFieldCloudConnection_1a6f15ee9096fb573b221c38f81ba53029" prot="public" virt="non-virtual"><scope>QFieldCloudConnection</scope><name>status</name></member>
+      <member refid="classQFieldCloudConnection_1ae93e4148ba20230f0170d2b7fe8dc518" prot="public" virt="non-virtual"><scope>QFieldCloudConnection</scope><name>statusChanged</name></member>
+      <member refid="classQFieldCloudConnection_1a44da322b4e179dc0bd1ac6cef282d8e1" prot="public" virt="non-virtual"><scope>QFieldCloudConnection</scope><name>token</name></member>
+      <member refid="classQFieldCloudConnection_1a1de3fe1c575f34bf0b98ebca4b536993" prot="public" virt="non-virtual"><scope>QFieldCloudConnection</scope><name>tokenChanged</name></member>
+      <member refid="classQFieldCloudConnection_1af305f6faa143c1022b0fb24ae520be87" prot="private" virt="non-virtual"><scope>QFieldCloudConnection</scope><name>tryFlushQueuedProjectPushes</name></member>
+      <member refid="classQFieldCloudConnection_1a0d4a4c13ffd11c7a2bc1225a0c2f728f" prot="public" virt="non-virtual"><scope>QFieldCloudConnection</scope><name>uploadPendingAttachments</name></member>
+      <member refid="classQFieldCloudConnection_1a8b61733ae428400ce633d061c37a6745" prot="public" virt="non-virtual"><scope>QFieldCloudConnection</scope><name>url</name></member>
+      <member refid="classQFieldCloudConnection_1a29940631bb98b68dbebbf4ed6609ec39" prot="public" virt="non-virtual"><scope>QFieldCloudConnection</scope><name>url</name></member>
+      <member refid="classQFieldCloudConnection_1a9ca28c3a50ac8a1c9566e435e717a20a" prot="public" virt="non-virtual"><scope>QFieldCloudConnection</scope><name>urlChanged</name></member>
+      <member refid="classQFieldCloudConnection_1a45cbac920eaa96b82c28346b6f619085" prot="public" virt="non-virtual"><scope>QFieldCloudConnection</scope><name>urls</name></member>
+      <member refid="classQFieldCloudConnection_1a6de031e0551ed926a8d19296c00c9a7d" prot="public" virt="non-virtual"><scope>QFieldCloudConnection</scope><name>urls</name></member>
+      <member refid="classQFieldCloudConnection_1a86b245780487947b8084dc9a87e88cc1" prot="public" virt="non-virtual"><scope>QFieldCloudConnection</scope><name>urlsChanged</name></member>
+      <member refid="classQFieldCloudConnection_1abc7840ca6679ea28ede561c42e06aead" prot="public" virt="non-virtual"><scope>QFieldCloudConnection</scope><name>userInformation</name></member>
+      <member refid="classQFieldCloudConnection_1ae1fe3cb9f39ab1d647e964aea2e03788" prot="public" virt="non-virtual"><scope>QFieldCloudConnection</scope><name>userInformation</name></member>
+      <member refid="classQFieldCloudConnection_1a53b79415add65c55c75fd193cf8bbf89" prot="public" virt="non-virtual"><scope>QFieldCloudConnection</scope><name>userInformationChanged</name></member>
+      <member refid="classQFieldCloudConnection_1af51a0aa9b77dd499fea65742654ba4f1" prot="public" virt="non-virtual"><scope>QFieldCloudConnection</scope><name>username</name></member>
+      <member refid="classQFieldCloudConnection_1aee44be4ba4f5e5c25afaf686c8ec3831" prot="public" virt="non-virtual"><scope>QFieldCloudConnection</scope><name>username</name></member>
+      <member refid="classQFieldCloudConnection_1ad8a14a055251bfc4f4f4f5ebddd1b8f4" prot="public" virt="non-virtual"><scope>QFieldCloudConnection</scope><name>usernameChanged</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>
