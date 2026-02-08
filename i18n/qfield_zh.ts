@@ -5553,6 +5553,62 @@ Cancel to make a minimal device scan instead.</source>
         <source>Failed to upload file %1 due to network error (%2)</source>
         <translation>由于网络错误 (%2)，上传文件%1失败</translation>
     </message>
+    <message>
+        <source>Upload finished.</source>
+        <translation>上传已完成。</translation>
+    </message>
+    <message>
+        <source>No local paths provided.</source>
+        <translation>未提供本地路径。</translation>
+    </message>
+    <message>
+        <source>WebDAV is busy.</source>
+        <translation>WebDAV繁忙。</translation>
+    </message>
+    <message>
+        <source>Not a WebDAV imported project.</source>
+        <translation>不是WebDAV导入的工程。</translation>
+    </message>
+    <message>
+        <source>WebDAV config is missing required fields.</source>
+        <translation>WebDAV配置缺少必需字段。</translation>
+    </message>
+    <message>
+        <source>No stored password available.</source>
+        <translation>无可用存储密码。</translation>
+    </message>
+    <message>
+        <source>Selected items belong to different WebDAV projects.</source>
+        <translation>所选项属于不同的WebDAV工程。</translation>
+    </message>
+    <message>
+        <source>Nothing to upload.</source>
+        <translation>没有可上传的内容。</translation>
+    </message>
+    <message>
+        <source>No local changes detected.</source>
+        <translation>未检测到本地更改。</translation>
+    </message>
+    <message>
+        <source>Upload cancelled.</source>
+        <translation>上传已取消。</translation>
+    </message>
+    <message>
+        <source>Upload skipped.</source>
+        <translation>上传已跳过。</translation>
+    </message>
+    <message>
+        <source>Upload is locked by another process.</source>
+        <translation>上传被另一个进程锁定。</translation>
+    </message>
+    <message>
+        <source>Failed to read WebDAV config file.</source>
+        <translation>读取WebDAV配置文件失败。</translation>
+    </message>
+    <message>
+        <source>Invalid WebDAV config JSON.</source>
+        <translation>WebDAV配置JSON无效。</translation>
+    </message>
 </context>
 <context>
     <name>WelcomeScreen</name>
@@ -6660,6 +6716,18 @@ to show actions</source>
     <message>
         <source>Map canvas follows location and movement direction</source>
         <translation>地图画布遵循位置和移动方向</translation>
+    </message>
+    <message>
+        <source>Failed to load 3D view</source>
+        <translation>未能加载3D视图</translation>
+    </message>
+    <message>
+        <source>Loading terrain...</source>
+        <translation>正在加载地形...</translation>
+    </message>
+    <message>
+        <source>Close 3D view</source>
+        <translation>关闭3D视图</translation>
     </message>
 </context>
 <context>
