@@ -9,6 +9,11 @@ TestCase {
   name: "QFieldCloudScreenUI"
   when: windowShown
 
+  // QFieldCloud test credentials — injected via context properties..
+  property string qfcTestServerUrl: typeof (qfcTestServerUrl) !== "undefined" ? qfcTestServerUrl : ""
+  property string qfcTestUsername: typeof (qfcTestUsername) !== "undefined" ? qfcTestUsername : ""
+  property string qfcTestPassword: typeof (qfcTestPassword) !== "undefined" ? qfcTestPassword : ""
+
   // Dummy mainWindow required by QFieldCloudScreen
   Item {
     id: mainWindow
@@ -105,6 +110,13 @@ TestCase {
     projectsRefreshSpy.clear();
     currentProjectIdSpy.clear();
     currentProjectSpy.clear();
+  }
+
+  // Skip tests if QFieldCloud credentials are not available
+  function init() {
+    if (!qfcTestServerUrl || !qfcTestUsername || !qfcTestPassword) {
+      skip("QFieldCloud test credentials not available, skipping");
+    }
   }
 
   // Helper: Login and refresh projects list

@@ -9,6 +9,11 @@ TestCase {
   name: "QFieldCloudLoginUI"
   when: windowShown
 
+  // QFieldCloud test credentials — injected via context properties.
+  property string qfcTestServerUrl: typeof (qfcTestServerUrl) !== "undefined" ? qfcTestServerUrl : ""
+  property string qfcTestUsername: typeof (qfcTestUsername) !== "undefined" ? qfcTestUsername : ""
+  property string qfcTestPassword: typeof (qfcTestPassword) !== "undefined" ? qfcTestPassword : ""
+
   // Dummy mainWindow required by some components
   Item {
     id: mainWindow
@@ -56,6 +61,13 @@ TestCase {
     id: availableProvidersChangedSpy
     target: cloudConnection
     signalName: "availableProvidersChanged"
+  }
+
+  // Skip tests if QFieldCloud credentials are not available
+  function init() {
+    if (!qfcTestServerUrl || !qfcTestUsername || !qfcTestPassword) {
+      skip("QFieldCloud test credentials not available, skipping");
+    }
   }
 
   // This function is called after each test function that is executed in the TestCase type.
