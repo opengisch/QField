@@ -18,10 +18,6 @@
 #ifndef WEBDAVCONNECTION_H
 #define WEBDAVCONNECTION_H
 
-#include <QByteArray>
-#include <QDateTime>
-#include <QFileInfo>
-#include <QList>
 #include <QObject>
 #include <QStringList>
 #include <QVariantMap>
@@ -250,9 +246,6 @@ class WebdavConnection : public QObject
 
     void importSuccessful( const QString &path );
 
-    void uploadFinished( bool success, const QString &message );
-    void uploadSkipped( const QString &reason );
-
   private slots:
     void processDirParserFinished();
     void processConnectionError( const QString &error );
@@ -264,11 +257,6 @@ class WebdavConnection : public QObject
     void setupConnection();
     void getWebdavItems();
     void putLocalItems();
-    /**
-     * Common upload completion handler.
-     * Cleans up auto-upload state and emits appropriate signals.
-     */
-    void finishUpload( bool success, const QString &errorMessage );
 
     ///! Computes the common path between two given paths.
     QString getCommonPath( const QString &addressA, const QString &addressB );
