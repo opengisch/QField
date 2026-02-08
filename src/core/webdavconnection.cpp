@@ -473,7 +473,6 @@ void WebdavConnection::getWebdavItems()
         QFile file( mProcessLocalPath + itemPath.mid( mProcessRemotePath.size() ) );
         if ( file.exists() )
         {
-          // Remove pre-existing file
           file.remove();
         }
 
@@ -483,7 +482,6 @@ void WebdavConnection::getWebdavItems()
         temporaryFile->close();
         delete temporaryFile;
 
-        // Attach last modified date value coming from the server (cannot be done via QTemporaryFile)
         file.open( QFile::Append );
         file.setFileTime( itemLastModified, QFileDevice::FileModificationTime );
         file.setFileTime( itemLastModified, QFileDevice::FileAccessTime );
@@ -617,7 +615,6 @@ QVariantMap WebdavConnection::importHistory()
 
     importedFolders[importedFolderKey][webdavConfiguration.value( "remote_path" ).toString()] = importedProjectsDir.relativeFilePath( it.fileInfo().path() );
   }
-
   // Collect saved imports
   QVariantMap history;
 
