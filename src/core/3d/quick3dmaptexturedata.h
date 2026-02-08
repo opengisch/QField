@@ -50,6 +50,11 @@ class Quick3DMapTextureData : public QQuick3DTextureData
     //! Whether the texture data is ready to use
     Q_PROPERTY( bool ready READ isReady NOTIFY readyChanged )
 
+    /**
+     * When the incrementalRendering property is set to true, the incremental refresh of the terrain data during rendering is allowed.
+     */
+    Q_PROPERTY( bool incrementalRendering READ incrementalRendering WRITE setIncrementalRendering NOTIFY incrementalRenderingChanged )
+
   public:
     //! Creates a new map texture data provider
     explicit Quick3DMapTextureData( QQuick3DObject *parent = nullptr );
@@ -70,6 +75,12 @@ class Quick3DMapTextureData : public QQuick3DTextureData
     //! Returns whether the texture data is ready to use.
     bool isReady() const;
 
+    //! Returns whether incremental rendering is enabled.
+    bool incrementalRendering() const;
+
+    //! Sets whether incremental rendering is enabled.
+    void setIncrementalRendering( bool incrementalRendering );
+
     /**
      * Starts the asynchronous map rendering process.
      * The readyChanged signal is emitted when rendering completes.
@@ -86,6 +97,9 @@ class Quick3DMapTextureData : public QQuick3DTextureData
     //! Emitted when texture rendering is complete and data is ready
     void readyChanged();
 
+    //! Emitted when incremental rendering setting changes
+    void incrementalRenderingChanged();
+
   private slots:
     void onRenderJobUpdated();
     void onRenderFinished();
@@ -97,6 +111,7 @@ class Quick3DMapTextureData : public QQuick3DTextureData
     QgsRectangle mExtent;
     QObjectUniquePtr<QgsMapRendererParallelJob> mRenderJob;
     QTimer mMapUpdateTimer;
+    bool mIncrementalRendering = false;
     bool mReady = false;
     QVector<QMetaObject::Connection> mLayerConnections;
 };

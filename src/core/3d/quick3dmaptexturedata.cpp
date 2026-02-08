@@ -101,6 +101,22 @@ bool Quick3DMapTextureData::isReady() const
   return mReady;
 }
 
+bool Quick3DMapTextureData::incrementalRendering() const
+{
+  return mIncrementalRendering;
+}
+
+void Quick3DMapTextureData::setIncrementalRendering( bool incrementalRendering )
+{
+  if ( incrementalRendering == mIncrementalRendering )
+  {
+    return;
+  }
+
+  mIncrementalRendering = incrementalRendering;
+  emit incrementalRenderingChanged();
+}
+
 void Quick3DMapTextureData::render()
 {
   if ( !mMapSettings || mExtent.isEmpty() )
@@ -126,7 +142,6 @@ void Quick3DMapTextureData::render()
     renderSettings.setRotation( 0 );
     renderSettings.setExtent( mExtent );
 
-
     const double mupp = mMapSettings->mapSettings().mapUnitsPerPixel();
     const int outputWidth = mExtent.width() / mupp;
     const int outputHeight = mExtent.height() / mupp;
@@ -142,12 +157,18 @@ void Quick3DMapTextureData::render()
     return;
   }
 
-  renderSettings.setFlag( Qgis::MapSettingsFlag::RenderPartialOutput, true );
+  renderSettings.setFlag( Qgis::MapSettingsFlag::UseRenderingOptimization );
+  renderSettings.setFlag( Qgis::MapSettingsFlag::RenderPartialOutput, mIncrementalRendering );
 
   mRenderJob.reset( new QgsMapRendererParallelJob( renderSettings ) );
-  connect( mRenderJob.get(), &QgsMapRendererJob::renderingLayersFinished, this, &Quick3DMapTextureData::onRenderJobUpdated );
+
+  if ( mIncrementalRendering )
+  {
+    connect( mRenderJob.get(), &QgsMapRendererJob::renderingLayersFinished, this, &Quick3DMapTextureData::onRenderJobUpdated );
+    mMapUpdateTimer.start();
+  }
+
   connect( mRenderJob.get(), &QgsMapRendererJob::finished, this, &Quick3DMapTextureData::onRenderFinished );
-  mMapUpdateTimer.start();
   mRenderJob->start();
 }
 
