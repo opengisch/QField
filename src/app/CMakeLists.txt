@@ -11,6 +11,10 @@ if(CMAKE_SYSTEM_NAME STREQUAL "Darwin")
   set_source_files_properties(${qfield_ICON} PROPERTIES MACOSX_PACKAGE_LOCATION
                                                         "Resources")
   list(APPEND RESOURCES ${qfield_ICON})
+
+  # Génère le Info.plist macOS depuis le template commun
+  set(MACOSX_BUNDLE_INFO_PLIST "${CMAKE_BINARY_DIR}/Info.plist")
+  configure_file(${CMAKE_SOURCE_DIR}/platform/macos/Info.plist.in "${MACOSX_BUNDLE_INFO_PLIST}" @ONLY)
 endif()
 
 # lrelease .ts files
@@ -108,11 +112,13 @@ function(create_executable)
       ${exe_TARGET}
       PUBLIC Qt6::QDarwinCameraPermissionPlugin
              Qt6::QDarwinMicrophonePermissionPlugin
-             Qt6::QDarwinLocationPermissionPlugin)
+             Qt6::QDarwinLocationPermissionPlugin
+             Qt6::QDarwinBluetoothPermissionPlugin)
     qt_import_plugins(
       ${exe_TARGET} INCLUDE Qt6::QDarwinCameraPermissionPlugin
       Qt6::QDarwinMicrophonePermissionPlugin
-      Qt6::QDarwinLocationPermissionPlugin)
+      Qt6::QDarwinLocationPermissionPlugin
+      Qt6::QDarwinBluetoothPermissionPlugin)
   endif()
 
   if(WITH_VCPKG) # this triggers the initialisation of static qca ossl plugin.
@@ -122,7 +128,7 @@ function(create_executable)
   set_target_properties(${exe_TARGET} PROPERTIES AUTORCC TRUE)
   if(CMAKE_SYSTEM_NAME STREQUAL "Darwin")
     # Handles platform-specific tasks, including insuring permission plugins
-    qt_finalize_executable(qfield)
+    qt_finalize_executable(${exe_TARGET})
 
     set_target_properties(
       ${exe_TARGET}
@@ -134,7 +140,8 @@ function(create_executable)
                  MACOSX_BUNDLE_SHORT_VERSION_STRING
                  "${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}"
                  MACOSX_BUNDLE_BUNDLE_VERSION "${PROJECT_VERSION}"
-                 MACOSX_BUNDLE_COPYRIGHT "Copyright (c) OPENGIS.ch")
+                 MACOSX_BUNDLE_COPYRIGHT "Copyright (c) OPENGIS.ch"
+                 MACOSX_BUNDLE_INFO_PLIST "${MACOSX_BUNDLE_INFO_PLIST}")
   endif()
 endfunction()
 
