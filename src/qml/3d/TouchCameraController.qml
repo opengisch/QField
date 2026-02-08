@@ -82,15 +82,10 @@ Item {
   }
 
   function applyPan(dx, dy) {
-    const panScale = root.distance * 0.0025;
-    const worldDx = dx * panScale;
-    const worldDy = dy * panScale;
-
+    const s = root.distance * 0.0025;
     const yawRad = -root.yaw * Math.PI / 180.0;
-    root.targetX -= (worldDx * Math.cos(yawRad) - worldDy * Math.sin(yawRad));
-    root.targetZ -= (worldDx * Math.sin(yawRad) + worldDy * Math.cos(yawRad));
-
-    updateCameraPosition();
+    root.targetX -= (dx * s * Math.cos(yawRad) - dy * s * Math.sin(yawRad));
+    root.targetZ -= (dx * s * Math.sin(yawRad) + dy * s * Math.cos(yawRad));
   }
 
   ParallelAnimation {
@@ -190,7 +185,6 @@ Item {
         root.pitch = clampPitch(pitch + dy * orbitSensitivity);
 
         lastPoint = centroid.position;
-        updateCameraPosition();
       }
     }
   }
@@ -201,31 +195,6 @@ Item {
     acceptedButtons: Qt.RightButton
     acceptedDevices: PointerDevice.Mouse | PointerDevice.Stylus | PointerDevice.TouchPad
     acceptedModifiers: Qt.NoModifier
-
-    property var lastPoint
-
-    onActiveChanged: {
-      if (active) {
-        lastPoint = centroid.position;
-        root.userInteractionStarted();
-      }
-    }
-
-    onCentroidChanged: {
-      if (active) {
-        applyPan(centroid.position.x - lastPoint.x, centroid.position.y - lastPoint.y);
-        lastPoint = centroid.position;
-      }
-    }
-  }
-
-  DragHandler {
-    id: middleDragHandler
-    target: null
-    acceptedButtons: Qt.MiddleButton
-    acceptedDevices: PointerDevice.Mouse | PointerDevice.Stylus | PointerDevice.TouchPad
-    acceptedModifiers: Qt.NoModifier
-    grabPermissions: PointerHandler.TakeOverForbidden
 
     property var lastPoint
 
@@ -270,7 +239,6 @@ Item {
         root.pitch = clampPitch(pitch + dy * orbitSensitivity);
 
         lastPoint = centroid.position;
-        updateCameraPosition();
       }
     }
   }
@@ -312,7 +280,6 @@ Item {
       if (active) {
         root.distance = clampDistance(root.distance * (oldScale / pinchHandler.activeScale));
         oldScale = pinchHandler.activeScale;
-        updateCameraPosition();
       }
     }
 
@@ -337,7 +304,6 @@ Item {
     onWheel: function (event) {
       root.userInteractionStarted();
       root.distance = clampDistance(distance - event.angleDelta.y * 0.5);
-      updateCameraPosition();
     }
   }
 }
