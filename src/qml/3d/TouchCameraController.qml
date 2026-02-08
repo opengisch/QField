@@ -221,49 +221,56 @@ Item {
   PinchHandler {
     id: pinchHandler
     target: null
+    acceptedButtons: Qt.NoButton | Qt.LeftButton
+    grabPermissions: PointerHandler.CanTakeOverFromHandlersOfDifferentType | PointerHandler.ApprovesTakeOverByHandlersOfDifferentType
+    acceptedDevices: PointerDevice.TouchScreen
+    dragThreshold: 5
 
     property real lastScale: 1.0
     property real lastRotation: 0.0
+    property var oldPos
 
     onActiveChanged: {
       if (active) {
         lastScale = 1.0;
+        lastRotation = 0.0;
+        oldPos = centroid.position;
         root.userInteractionStarted();
+      }
+    }
+
+    onCentroidChanged: {
+      if (active) {
+        const oldPos1 = oldPos;
+        oldPos = centroid.position;
+
+        const panScale = root.distance * 0.0025;
+        let dx = (centroid.position.x - oldPos1.x) * panScale;
+        let dy = (centroid.position.y - oldPos1.y) * panScale;
+
+        const yawRad = -root.yaw * Math.PI / 180.0;
+        root.targetX -= (dx * Math.cos(yawRad) - dy * Math.sin(yawRad));
+        root.targetZ -= (dx * Math.sin(yawRad) + dy * Math.cos(yawRad));
+
+        updateCameraPosition();
       }
     }
 
     onActiveScaleChanged: {
       if (active) {
-        const scaleDelta = scale / lastScale;
+        const scaleDelta = pinchHandler.activeScale / lastScale;
         root.distance = clampDistance(root.distance / scaleDelta);
-        lastScale = scale;
+        lastScale = pinchHandler.activeScale;
         updateCameraPosition();
       }
     }
 
     onRotationChanged: {
       if (active) {
-        root.yaw -= (rotation - oldRotation) * orbitSensitivity;
+        root.yaw -= (rotation - lastRotation) * orbitSensitivity;
         lastRotation = rotation;
       }
     }
-
-    // TODO: fix jankiness
-    /*onTranslationChanged: function (delta) {
-      // Pan with translation
-      const panScale = root.distance * 0.0005;
-      const yawRad = root.yaw * Math.PI / 180.0;
-
-      // Right vector
-      const rightX = Math.cos(yawRad);
-      const rightZ = -Math.sin(yawRad);
-
-      root.targetX -= delta.x * panScale * rightX;
-      root.targetZ -= delta.x * panScale * rightZ;
-      root.targetY += delta.y * panScale;
-
-      updateCameraPosition();
-    }*/
   }
 
   WheelHandler {
