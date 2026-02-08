@@ -100,6 +100,7 @@ Rectangle {
     height: contentColumn.height + 24
     color: Theme.mainBackgroundColor
     radius: 12
+    z: 2
 
     ColumnLayout {
       id: contentColumn
@@ -186,6 +187,7 @@ Rectangle {
         MouseArea {
           anchors.fill: parent
           anchors.margins: -8  // increase clickable area
+          z: 10
           cursorShape: Qt.PointingHandCursor
           onClicked: {
             busyOverlay.buttonClicked();
@@ -199,11 +201,22 @@ Rectangle {
     id: busyOverlayCatcher
     anchors.fill: parent
     enabled: busyOverlay.visible
+    z: 1
 
+    acceptedButtons: Qt.AllButtons
+
+    // Block all events when overlay is present
     onClicked: mouse => {
-      // Needed to avoid people interacting with the UI while the busy overlay is visible
-      // (e.g. while uploading to webDAV, users shouldn't be allowed to select other files or navigate to other pages)
-      return;
+      mouse.accepted = true;
+    }
+    onPressed: mouse => {
+      mouse.accepted = true;
+    }
+    onReleased: mouse => {
+      mouse.accepted = true;
+    }
+    onPressAndHold: mouse => {
+      mouse.accepted = true;
     }
   }
 }
