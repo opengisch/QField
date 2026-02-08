@@ -270,9 +270,9 @@ Item {
 
     onCentroidChanged: {
       if (active) {
-        const oldPos1 = oldPos;
+        const previousPos = oldPos;
         oldPos = centroid.position;
-        applyPan(centroid.position.x - oldPos1.x, centroid.position.y - oldPos1.y);
+        applyPan(centroid.position.x - previousPos.x, centroid.position.y - previousPos.y);
       }
     }
 
