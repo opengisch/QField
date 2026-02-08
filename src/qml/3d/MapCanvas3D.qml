@@ -43,6 +43,7 @@ Item {
     id: mapTextureData
     mapSettings: mapArea.mapSettings
     extent: mapTerrainProvider.extent
+    incrementalRendering: true
   }
 
   Texture {

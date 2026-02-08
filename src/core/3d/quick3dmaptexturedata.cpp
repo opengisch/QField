@@ -17,8 +17,9 @@
 #include "qgsquick/qgsquickmapsettings.h"
 #include "quick3dmaptexturedata.h"
 
+#include <qgis.h>
 #include <qgsmaplayer.h>
-#include <qgsmaprenderersequentialjob.h>
+#include <qgsmaprendererparalleljob.h>
 #include <qgsmapsettings.h>
 
 #include <algorithm>
@@ -26,10 +27,14 @@
 Quick3DMapTextureData::Quick3DMapTextureData( QQuick3DObject *parent )
   : QQuick3DTextureData( parent )
 {
+  connect( &mMapUpdateTimer, &QTimer::timeout, this, &Quick3DMapTextureData::onRenderJobUpdated );
+  mMapUpdateTimer.setSingleShot( false );
+  mMapUpdateTimer.setInterval( 250 );
 }
 
 Quick3DMapTextureData::~Quick3DMapTextureData()
 {
+  mMapUpdateTimer.stop();
   if ( mRenderJob )
   {
     mRenderJob->cancel();
@@ -96,6 +101,22 @@ bool Quick3DMapTextureData::isReady() const
   return mReady;
 }
 
+bool Quick3DMapTextureData::incrementalRendering() const
+{
+  return mIncrementalRendering;
+}
+
+void Quick3DMapTextureData::setIncrementalRendering( bool incrementalRendering )
+{
+  if ( incrementalRendering == mIncrementalRendering )
+  {
+    return;
+  }
+
+  mIncrementalRendering = incrementalRendering;
+  emit incrementalRenderingChanged();
+}
+
 void Quick3DMapTextureData::render()
 {
   if ( !mMapSettings || mExtent.isEmpty() )
@@ -103,6 +124,7 @@ void Quick3DMapTextureData::render()
     return;
   }
 
+  mMapUpdateTimer.stop();
   if ( mRenderJob )
   {
     mRenderJob->cancel();
@@ -120,7 +142,6 @@ void Quick3DMapTextureData::render()
     renderSettings.setRotation( 0 );
     renderSettings.setExtent( mExtent );
 
-
     const double mupp = mMapSettings->mapSettings().mapUnitsPerPixel();
     const int outputWidth = mExtent.width() / mupp;
     const int outputHeight = mExtent.height() / mupp;
@@ -136,13 +157,37 @@ void Quick3DMapTextureData::render()
     return;
   }
 
-  mRenderJob.reset( new QgsMapRendererSequentialJob( renderSettings ) );
-  connect( mRenderJob.get(), &QgsMapRendererSequentialJob::finished, this, &Quick3DMapTextureData::onRenderFinished );
+  renderSettings.setFlag( Qgis::MapSettingsFlag::UseRenderingOptimization );
+  renderSettings.setFlag( Qgis::MapSettingsFlag::RenderPartialOutput, mIncrementalRendering );
+
+  mRenderJob.reset( new QgsMapRendererParallelJob( renderSettings ) );
+
+  if ( mIncrementalRendering )
+  {
+    connect( mRenderJob.get(), &QgsMapRendererJob::renderingLayersFinished, this, &Quick3DMapTextureData::onRenderJobUpdated );
+    mMapUpdateTimer.start();
+  }
+
+  connect( mRenderJob.get(), &QgsMapRendererJob::finished, this, &Quick3DMapTextureData::onRenderFinished );
   mRenderJob->start();
+}
+
+void Quick3DMapTextureData::onRenderJobUpdated()
+{
+  if ( !mRenderJob )
+    return;
+
+  QImage image = mRenderJob->renderedImage();
+  if ( !image.isNull() )
+  {
+    updateTextureData( image );
+  }
 }
 
 void Quick3DMapTextureData::onRenderFinished()
 {
+  mMapUpdateTimer.stop();
+
   if ( !mRenderJob )
   {
     return;
