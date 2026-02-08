@@ -251,7 +251,7 @@ Item {
     acceptedDevices: PointerDevice.TouchScreen
     dragThreshold: 5
 
-    property real rotationThreshold: 20.0
+    property real rotationThreshold: 5.0
 
     property var oldPos
     property real oldScale: 1.0
