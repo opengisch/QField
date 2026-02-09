@@ -46,7 +46,8 @@ QfPopup {
     padding: 5
     header: QfPageHeader {
       id: pageHeader
-      title: qsTr("Bookmark Properties")
+      //title: qsTr("Bookmark Properties")
+      title: qsTr("북마크 속성")
 
       showBackButton: false
       showApplyButton: true
