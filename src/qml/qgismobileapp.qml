@@ -685,6 +685,14 @@ ApplicationWindow {
 
       source: "qrc:/qml/3d/MapCanvas3D.qml"
 
+      onActiveChanged: {
+        if (active) {
+          mapCanvasMap.freeze('3d');
+        } else {
+          mapCanvasMap.unfreeze('3d');
+        }
+      }
+
       onLoaded: {
         item.mapSettings = mapCanvas.mapSettings;
 

@@ -26,7 +26,6 @@ Item {
 
   property real orbitSensitivity: 0.3
 
-  // Animated target for smooth camera movement
   property real targetX: 0
   property real targetY: 100
   property real targetZ: 0
@@ -40,7 +39,6 @@ Item {
       return;
     }
 
-    // Update target from animated values
     target = Qt.vector3d(targetX, targetY, targetZ);
 
     const degToRad = Math.PI / 180.0;
@@ -81,6 +79,13 @@ Item {
 
   function clampDistance(value) {
     return Math.max(minDistance, Math.min(maxDistance, value));
+  }
+
+  function applyPan(dx, dy) {
+    const s = root.distance * 0.0025;
+    const yawRad = -root.yaw * Math.PI / 180.0;
+    root.targetX -= (dx * s * Math.cos(yawRad) - dy * s * Math.sin(yawRad));
+    root.targetZ -= (dx * s * Math.sin(yawRad) + dy * s * Math.cos(yawRad));
   }
 
   ParallelAnimation {
@@ -156,10 +161,10 @@ Item {
   }
 
   DragHandler {
-    id: primaryDragHandler
+    id: orbitDragHandler
     target: null
     acceptedButtons: Qt.LeftButton
-    acceptedDevices: PointerDevice.AllDevices
+    acceptedDevices: PointerDevice.Mouse | PointerDevice.Stylus | PointerDevice.TouchPad
     acceptedModifiers: Qt.NoModifier
 
     property var lastPoint
@@ -180,16 +185,15 @@ Item {
         root.pitch = clampPitch(pitch + dy * orbitSensitivity);
 
         lastPoint = centroid.position;
-        updateCameraPosition();
       }
     }
   }
 
   DragHandler {
-    id: secondaryDragHandler
+    id: panDragHandler
     target: null
     acceptedButtons: Qt.RightButton
-    acceptedDevices: PointerDevice.AllDevices
+    acceptedDevices: PointerDevice.Mouse | PointerDevice.Stylus | PointerDevice.TouchPad
     acceptedModifiers: Qt.NoModifier
 
     property var lastPoint
@@ -203,67 +207,93 @@ Item {
 
     onCentroidChanged: {
       if (active) {
-        const panScale = root.distance * 0.0025;
-        let dx = (centroid.position.x - lastPoint.x) * panScale;
-        let dy = (centroid.position.y - lastPoint.y) * panScale;
-
-        const yawRad = -root.yaw * Math.PI / 180.0;
-        root.targetX -= (dx * Math.cos(yawRad) - dy * Math.sin(yawRad));
-        root.targetZ -= (dx * Math.sin(yawRad) + dy * Math.cos(yawRad));
-
+        applyPan(centroid.position.x - lastPoint.x, centroid.position.y - lastPoint.y);
         lastPoint = centroid.position;
-        updateCameraPosition();
       }
     }
   }
 
-  // Pinch to zoom (touch devices)
-  PinchHandler {
-    id: pinchHandler
+  DragHandler {
+    id: touchOrbitHandler
     target: null
+    acceptedButtons: Qt.NoButton | Qt.LeftButton
+    acceptedDevices: PointerDevice.TouchScreen
+    dragThreshold: 5
+    grabPermissions: PointerHandler.CanTakeOverFromHandlersOfDifferentType | PointerHandler.ApprovesTakeOverByHandlersOfDifferentType
 
-    property real lastScale: 1.0
-    property real lastRotation: 0.0
+    property var lastPoint
 
     onActiveChanged: {
       if (active) {
-        lastScale = 1.0;
+        lastPoint = centroid.position;
         root.userInteractionStarted();
+      }
+    }
+
+    onCentroidChanged: {
+      if (active) {
+        const dx = centroid.position.x - lastPoint.x;
+        const dy = centroid.position.y - lastPoint.y;
+
+        root.yaw -= dx * orbitSensitivity;
+        root.pitch = clampPitch(pitch + dy * orbitSensitivity);
+
+        lastPoint = centroid.position;
+      }
+    }
+  }
+
+  PinchHandler {
+    id: pinchHandler
+    target: null
+    acceptedButtons: Qt.NoButton | Qt.LeftButton
+    grabPermissions: PointerHandler.CanTakeOverFromHandlersOfDifferentType | PointerHandler.ApprovesTakeOverByHandlersOfDifferentType
+    acceptedDevices: PointerDevice.TouchScreen
+    dragThreshold: 5
+
+    property real rotationThreshold: 5.0
+
+    property var oldPos
+    property real oldScale: 1.0
+    property real oldRotation: 0.0
+    property bool rotationThresholdReached: false
+
+    onActiveChanged: {
+      if (active) {
+        oldScale = 1.0;
+        oldRotation = 0.0;
+        rotationThresholdReached = false;
+        oldPos = centroid.position;
+        root.userInteractionStarted();
+      }
+    }
+
+    onCentroidChanged: {
+      if (active) {
+        const previousPos = oldPos;
+        oldPos = centroid.position;
+        applyPan(centroid.position.x - previousPos.x, centroid.position.y - previousPos.y);
       }
     }
 
     onActiveScaleChanged: {
       if (active) {
-        const scaleDelta = scale / lastScale;
-        root.distance = clampDistance(root.distance / scaleDelta);
-        lastScale = scale;
-        updateCameraPosition();
+        root.distance = clampDistance(root.distance * (oldScale / pinchHandler.activeScale));
+        oldScale = pinchHandler.activeScale;
       }
     }
 
     onRotationChanged: {
       if (active) {
-        root.yaw -= (rotation - oldRotation) * orbitSensitivity;
-        lastRotation = rotation;
+        if (rotationThresholdReached) {
+          root.yaw += (rotation - oldRotation);
+          oldRotation = rotation;
+        } else if (Math.abs(rotation - oldRotation) > rotationThreshold) {
+          oldRotation = rotation;
+          rotationThresholdReached = true;
+        }
       }
     }
-
-    // TODO: fix jankiness
-    /*onTranslationChanged: function (delta) {
-      // Pan with translation
-      const panScale = root.distance * 0.0005;
-      const yawRad = root.yaw * Math.PI / 180.0;
-
-      // Right vector
-      const rightX = Math.cos(yawRad);
-      const rightZ = -Math.sin(yawRad);
-
-      root.targetX -= delta.x * panScale * rightX;
-      root.targetZ -= delta.x * panScale * rightZ;
-      root.targetY += delta.y * panScale;
-
-      updateCameraPosition();
-    }*/
   }
 
   WheelHandler {
@@ -274,7 +304,6 @@ Item {
     onWheel: function (event) {
       root.userInteractionStarted();
       root.distance = clampDistance(distance - event.angleDelta.y * 0.5);
-      updateCameraPosition();
     }
   }
 }
