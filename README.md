@@ -51,14 +51,20 @@ We are very happy if this app helps you to get your job done or in whatever crea
 If you found it useful, we will be even happier if you could give something back. A couple of things you can do are
 
  * Rate the app [★★★★★](https://play.google.com/store/apps/details?id=ch.opengis.qfield&hl=en#details-reviews)
- * [Share about it on Mastodon](https://mastodon.social/share?text=Looking%20for%20a%20good%20tool%20for%20field%20work%20in%20GIS?%20Check%20out%20%23QField!)
- * [Share on Bluesky](https://bsky.app/profile/qfield.bsky.social/share?text=Looking%20for%20a%20good%20tool%20for%20field%20work%20in%20GIS?%20Check%20out%20%23QField!)
  * Write about your experience (please [let us know](mailto:sales@qfield.cloud)!)
  * [Help with the documentation](https://github.com/opengisch/QField-docs#documentation-process)
  * [Translate the documentation](https://github.com/opengisch/QField-docs#translation-process) or [the app](https://www.transifex.com/opengisch/qfield-for-qgis/)
  * [Sponsor a feature](https://docs.qfield.org/get-started/sponsor/)
  * And just drop by to say thank you or have a beer with us next time you meet OPENGIS.ch at a conference
 
+## Share
+
+The world loves to hear about the usage of QField, follow us or share your story on your favorite channel
+
+[![share on linkedin](images/icons/linkedin.svg)](https://www.linkedin.com/products/opengisch-qfield/)
+[![share on bluesky](images/icons/bluesky.svg)](https://bsky.app/profile/qfield.bsky.social/share?text=Looking%20for%20a%20good%20tool%20for%20field%20work%20in%20GIS?%20Check%20out%20%23QField!)
+[![share on mastodon](images/icons/mastodon.svg)](https://mastodon.social/share?text=Looking%20for%20a%20good%20tool%20for%20field%20work%20in%20GIS?%20Check%20out%20%23QField!)
+[![share on X](images/icons/twitter-x.svg)](https://x.com/QFieldForQGIS)
 
 ## Development
 
