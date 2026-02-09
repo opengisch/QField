@@ -536,18 +536,18 @@ QfPopup {
           property bool loaded: false
           Component.onCompleted: {
             // This list matches the Tracker::MeasureType enum
-            //var measurements = [qsTr("Elapsed time (seconds since start of tracking)"), qsTr("Timestamp (milliseconds since epoch)"), qsTr("Ground speed"), qsTr("Bearing"), qsTr("Horizontal accuracy"), qsTr("Vertical accuracy"), qsTr("PDOP"), qsTr("HDOP"), qsTr("VDOP")];
-            var measurements = [
-              qsTr("경과 시간 (추적 시작 이후 초)"),
-              qsTr("타임스탬프 (에포크 이후 밀리초)"),
-              qsTr("지면 속도"),
-              qsTr("방위각"),
-              qsTr("수평 정확도"),
-              qsTr("수직 정확도"),
-              qsTr("PDOP"),
-              qsTr("HDOP"),
-              qsTr("VDOP")
-            ];
+            var measurements = [qsTr("Elapsed time (seconds since start of tracking)"), qsTr("Timestamp (milliseconds since epoch)"), qsTr("Ground speed"), qsTr("Bearing"), qsTr("Horizontal accuracy"), qsTr("Vertical accuracy"), qsTr("PDOP"), qsTr("HDOP"), qsTr("VDOP")];
+            //var measurements = [
+            //  qsTr("경과 시간 (추적 시작 이후 초)"),
+            //  qsTr("타임스탬프 (에포크 이후 밀리초)"),
+            //  qsTr("지면 속도"),
+            //  qsTr("방위각"),
+            //  qsTr("수평 정확도"),
+            //  qsTr("수직 정확도"),
+            //  qsTr("PDOP"),
+            //  qsTr("HDOP"),
+            //  qsTr("VDOP")
+            //];
             model = measurements;
             loaded = true;
           }
