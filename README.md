@@ -55,10 +55,9 @@ If you found it useful, we will be even happier if you could give something back
  * [Share on Bluesky](https://bsky.app/profile/qfield.bsky.social/share?text=Looking%20for%20a%20good%20tool%20for%20field%20work%20in%20GIS?%20Check%20out%20%23QField!)
  * Write about your experience (please [let us know](mailto:sales@qfield.cloud)!)
  * [Help with the documentation](https://github.com/opengisch/QField-docs#documentation-process)
- * [Translate the documentation](https://github.com/opengisch/QField-docs#translation-process) or [the app](https://www.transifex.com/opengisch/qfield-for-qgis/)
- * [Sponsor a feature](https://docs.qfield.org/get-started/sponsor/)
+ * [Translate the documentation](https://github.com/opengisch/QField-docs#translation-process) or [the app](https://explore.transifex.com/opengisch/qfield-for-qgis/)
+ * [Sponsor a feature](https://docs.qfield.org/get-started/contribute/)
  * And just drop by to say thank you or have a beer with us next time you meet OPENGIS.ch at a conference
-
 
 ## Development
 
