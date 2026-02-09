@@ -1195,7 +1195,8 @@ ApplicationWindow {
               freehandButton.clicked();
             }
             positioningSettings.positioningCoordinateLock = true;
-            displayToast(qsTr("Coordinate cursor locked to location"));
+            //displayToast(qsTr("Coordinate cursor locked to location"));
+            displayToast(qsTr("좌표 커서가 현재 위치에 고정되었습니다"));
           }
           actionsPieMenu.close();
         }
@@ -3613,7 +3614,8 @@ ApplicationWindow {
 
     MenuItem {
       id: addBookmarkItem
-      text: qsTr("Add Bookmark")
+      //text: qsTr("Add Bookmark")
+      text: qsTr("북마크 추가")
       icon.source: Theme.getThemeVectorIcon("ic_add_bookmark_black_24dp")
       height: 48
       leftPadding: Theme.menuItemLeftPadding
