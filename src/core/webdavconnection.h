@@ -337,6 +337,9 @@ class WebdavConnection : public QObject
     qint64 mBytesProcessed = 0;
     qint64 mBytesTotal = 0;
 
+    qint64 mCurrentUploadFileSize = 0;
+    qint64 mCurrentUploadBytesSentMax = 0;
+
     QWebdav mWebdavConnection;
     QWebdavDirParser mWebdavDirParser;
     QString mLastError;
