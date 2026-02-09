@@ -41,7 +41,7 @@ QfPopup {
 
   function startTracking() {
     trackingModel.startTracker(trackingFeatureForm.tracker.vectorLayer, positionSource.positionInformation, positionSource.projectedPosition);
-    displayToast(qsTr('Track on layer %1 started').arg(trackingFeatureForm.tracker.vectorLayer.name));
+    displayToast(qsTr('레이어 %1에서 추적이 시작되었습니다.').arg(trackingFeatureForm.tracker.vectorLayer.name));
     if (featureModel.currentLayer.geometryType === Qgis.GeometryType.Point) {
       projectInfo.saveTracker(featureModel.currentLayer);
     }

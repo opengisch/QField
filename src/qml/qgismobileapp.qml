@@ -1184,7 +1184,8 @@ ApplicationWindow {
             positioningSettings.positioningCoordinateLock = false;
             // deactivate any active averaged position collection
             positionSource.averagedPosition = false;
-            displayToast(qsTr("Coordinate cursor unlocked"));
+            //displayToast(qsTr("Coordinate cursor unlocked"));
+            displayToast(qsTr("좌표 커서 잠금이 해제되었습니다"));
           } else {
             if (stateMachine.state === "browse") {
               mainWindow.changeMode("digitize");
@@ -1294,9 +1295,10 @@ ApplicationWindow {
         onClicked: {
           var point = GeometryUtils.reprojectPoint(positionSource.sourcePosition, CoordinateReferenceSystemUtils.wgs84Crs(), projectInfo.coordinateDisplayCrs);
           var coordinates = StringUtils.pointInformation(point, projectInfo.coordinateDisplayCrs);
-          coordinates += ' (' + qsTr('Accuracy') + ' ' + (positionSource.positionInformation && positionSource.positionInformation.haccValid ? positionSource.positionInformation.hacc.toLocaleString(Qt.locale(), 'f', 3) + " m" : qsTr("N/A")) + ')';
+          coordinates += ' (' + qsTr('정확도') + ' ' + (positionSource.positionInformation && positionSource.positionInformation.haccValid ? positionSource.positionInformation.hacc.toLocaleString(Qt.locale(), 'f', 3) + " m" : qsTr("N/A")) + ')';
           platformUtilities.copyTextToClipboard(coordinates);
-          displayToast(qsTr('Current location copied to clipboard'));
+          //displayToast(qsTr('Current location copied to clipboard'));
+          displayToast(qsTr('현재 위치가 클립보드에 복사되었습니다'));
           actionsPieMenu.close();
         }
       }
@@ -1377,8 +1379,8 @@ ApplicationWindow {
 
         onClicked: {
           if (trackings.count > 0) {
-            displayToast(qsTr('Tracking active on %n layer(s)', '', trackings.count), 'info', qsTr('Stop all'), function () {
-              displayToast(qsTr('Tracking on %n layer(s) stopped', '', trackings.count));
+            displayToast(qsTr('%n개 레이어에서 트래킹이 진행 중입니다.', '', trackings.count), 'info', qsTr('모두 중지'), function () {
+              displayToast(qsTr('%n개 레이어의 트래킹이 중지되었습니다.', '', trackings.count));
               trackingModel.stopTrackers();
             });
           } else {
@@ -1386,7 +1388,7 @@ ApplicationWindow {
             if (trackerSettings.availableLayersCount > 0) {
               trackerSettings.open();
             } else {
-              displayToast(qsTr('No compatible layers available to launch tracking'), 'info', qsTr('Learn more'), function () {
+              displayToast(qsTr('트래킹을 시작할 수 있는 호환 레이어가 없습니다'), 'info', qsTr('자세히 보기'), function () {
                 Qt.openUrlExternally('https://docs.qfield.org/how-to/navigation-and-positioning/tracking/');
               });
             }

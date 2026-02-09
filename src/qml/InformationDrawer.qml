@@ -73,7 +73,8 @@ Item {
     QfOverlayContainer {
       visible: positioningInformationViewEnabled
 
-      title: qsTr("Positioning")
+      //title: qsTr("Positioning")
+      title: qsTr("위치 설정")
 
       PositioningInformationView {
         id: positioningInformationView

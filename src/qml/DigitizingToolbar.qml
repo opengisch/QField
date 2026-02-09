@@ -295,11 +295,13 @@ QfVisibilityFadingRow {
   QfDialog {
     id: cancelDialog
     parent: mainWindow.contentItem
-    title: qsTr("Cancel digitizing")
+    //title: qsTr("Cancel digitizing")
+    title: qsTr("편집 취소")
     Label {
       width: parent.width
       wrapMode: Text.WordWrap
-      text: qsTr("Should the digitized geometry be discarded?")
+      //text: qsTr("Should the digitized geometry be discarded?")
+      text: qsTr("편집한 도형을 삭제하시겠습니까?")
     }
     onAccepted: {
       digitizingLogger.clearCoordinates();

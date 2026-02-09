@@ -31,10 +31,10 @@ void PositioningInformationModel::refreshData()
   const QString hAccuracy = getHorizontalAccuracy( distanceUnitFactor, distanceUnitAbbreviation );
   const QString vAccuracy = getVerticalAccuracy( distanceUnitFactor, distanceUnitAbbreviation );
 
-  updateInfo( tr( "Altitude" ), altitude );
-  updateInfo( tr( "Speed" ), speed );
-  updateInfo( tr( "H. Accuracy" ), hAccuracy );
-  updateInfo( tr( "V. Accuracy" ), vAccuracy );
+  updateInfo( tr( "고도" ), altitude );
+  updateInfo( tr( "속도" ), speed );
+  updateInfo( tr( "수평 정확도" ), hAccuracy );
+  updateInfo( tr( "수직 정확도" ), vAccuracy );
 
   for ( int i = 0; i < detailNames.size(); ++i )
   {

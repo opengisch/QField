@@ -134,7 +134,8 @@ QfPopup {
                 anchors.leftMargin: 24
                 anchors.verticalCenter: colorPicker.verticalCenter
                 font: Theme.defaultFont
-                text: qsTr("Change color")
+                //text: qsTr("Change color")
+                text: qsTr("색상 변경")
                 color: "white"
               }
 
@@ -217,7 +218,8 @@ QfPopup {
             var crs = bookmarkModel.getBookmarkCrs(bookmarkProperties.bookmarkId);
             var coordinates = StringUtils.pointInformation(point, crs);
             platformUtilities.copyTextToClipboard(nameField.text + '\n' + coordinates);
-            displayToast(qsTr('Bookmark details copied to clipboard'));
+            //displayToast(qsTr('Bookmark details copied to clipboard'));
+            displayToast(qsTr('북마크 세부 정보가 클립보드에 복사되었습니다'));
           }
         }
       }
@@ -228,11 +230,13 @@ QfPopup {
     id: removeBookmarkDialog
     parent: mainWindow.contentItem
     z: 10000 // 1000s are embedded feature forms, user a higher value to insure the dialog will always show above embedded feature forms
-    title: qsTr("Remove bookmark")
+    //title: qsTr("Remove bookmark")
+    title: qsTr("북마크 삭제")
     Label {
       width: parent.width
       wrapMode: Text.WordWrap
-      text: qsTr("You are about to remove a bookmark, proceed?")
+      //text: qsTr("You are about to remove a bookmark, proceed?")
+      text: qsTr("북마크를 삭제하려고 합니다. 계속하시겠습니까?")
     }
 
     onAccepted: {

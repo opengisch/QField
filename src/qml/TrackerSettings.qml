@@ -500,7 +500,8 @@ QfPopup {
         }
 
         Label {
-          text: qsTr("When enabled, vertex addition will not occur when the distance between the last and new vertex is greater than a configured maximum value.")
+          //text: qsTr("When enabled, vertex addition will not occur when the distance between the last and new vertex is greater than a configured maximum value.")
+          text: qsTr("이 설정을 켜면 마지막 꼭짓점과 새 꼭짓점 사이의 거리가 설정된 최대값을 초과할 경우 꼭짓점이 추가되지 않습니다.")
           font: Theme.tipFont
           color: Theme.secondaryTextColor
 
@@ -627,7 +628,7 @@ QfPopup {
 
         onClicked: {
           applySettingsToTracker();
-          displayToast(qsTr('Track on layer %1 resumed').arg(trackerSettings.tracker.vectorLayer.name));
+          displayToast(qsTr('레이어 %1에서 추적이 다시 시작되었습니다.').arg(trackerSettings.tracker.vectorLayer.name));
           trackingModel.startTracker(trackerSettings.tracker.vectorLayer, positionSource.positionInformation, positionSource.projectedPosition);
           projectInfo.saveTracker(trackerSettings.tracker.vectorLayer);
           trackerSettings.layer = undefined;
