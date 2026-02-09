@@ -146,6 +146,9 @@ jobs:
         run: |
           pip install -r "${{ github.workspace }}/test/spix/requirements.txt"
           docker compose -f "${{ github.workspace }}/test/docker-compose.yaml" up -d
+
+          git clone --depth 1 https://github.com/opengisch/QFieldCloud.git /tmp/qfieldcloud
+          docker compose -p qfc --env-file /tmp/qfieldcloud/.env.example -f /tmp/qfieldcloud/docker-compose.yml -f /tmp/qfieldcloud/docker-compose.override.standalone.yml up -d --build
           echo "[test-clientssl]" >> ~/.pg_service.conf
           echo "host=localhost" >> ~/.pg_service.conf
           echo "port=5440" >> ~/.pg_service.conf
@@ -169,6 +172,8 @@ jobs:
           export QFIELDCLOUD_TEST_SERVER_URL="${QFIELDCLOUD_TEST_SERVER_URL}"
           xvfb-run --server-args="-screen 0 640x480x24" ctest --output-on-failure -C ${{ env.BUILD_TYPE }}
 
+          docker compose -p qfc --env-file /tmp/qfieldcloud/.env.example -f /tmp/qfieldcloud/docker-compose.yml -f /tmp/qfieldcloud/docker-compose.override.standalone.yml logs
+          docker compose -p qfc --env-file /tmp/qfieldcloud/.env.example -f /tmp/qfieldcloud/docker-compose.yml -f /tmp/qfieldcloud/docker-compose.override.standalone.yml down
           docker compose -f "${{ github.workspace }}/test/docker-compose.yaml" down
 
       - name: 📑 Upload package logs
