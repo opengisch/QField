@@ -404,7 +404,8 @@ ApplicationWindow {
     onPositioningActivatedChanged: {
       if (mainWindow.sceneLoaded) {
         if (positioningActivated) {
-          displayToast(qsTr("Activating positioning service"));
+          //displayToast(qsTr("Activating positioning service"));
+          displayToast(qsTr("위치 서비스 활성화 중"));
           positionSource.active = true;
         } else {
           gnssButton.followActive = false;
