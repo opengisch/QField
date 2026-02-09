@@ -148,7 +148,9 @@ jobs:
           docker compose -f "${{ github.workspace }}/test/docker-compose.yaml" up -d
 
           git clone --depth 1 https://github.com/opengisch/QFieldCloud.git /tmp/qfieldcloud
-          docker compose -p qfc --env-file /tmp/qfieldcloud/.env.example -f /tmp/qfieldcloud/docker-compose.yml -f /tmp/qfieldcloud/docker-compose.override.standalone.yml up -d --build
+          cp /tmp/qfieldcloud/.env.example /tmp/qfieldcloud/.env
+          sed -i 's|^MINIO_BROWSER_PORT=8010|MINIO_BROWSER_PORT=8013|' /tmp/qfieldcloud/.env
+          docker compose -p qfc --env-file /tmp/qfieldcloud/.env -f /tmp/qfieldcloud/docker-compose.yml -f /tmp/qfieldcloud/docker-compose.override.standalone.yml up -d --build
           echo "[test-clientssl]" >> ~/.pg_service.conf
           echo "host=localhost" >> ~/.pg_service.conf
           echo "port=5440" >> ~/.pg_service.conf
@@ -176,13 +178,13 @@ jobs:
         if: always()
         run: |
           echo "::group::QFieldCloud Docker logs"
-          docker compose -p qfc --env-file /tmp/qfieldcloud/.env.example -f /tmp/qfieldcloud/docker-compose.yml -f /tmp/qfieldcloud/docker-compose.override.standalone.yml logs --tail=200
+          docker compose -p qfc --env-file /tmp/qfieldcloud/.env -f /tmp/qfieldcloud/docker-compose.yml -f /tmp/qfieldcloud/docker-compose.override.standalone.yml logs --tail=200
           echo "::endgroup::"
 
       - name: 🧹 Docker cleanup
         if: always()
         run: |
-          docker compose -p qfc --env-file /tmp/qfieldcloud/.env.example -f /tmp/qfieldcloud/docker-compose.yml -f /tmp/qfieldcloud/docker-compose.override.standalone.yml down
+          docker compose -p qfc --env-file /tmp/qfieldcloud/.env -f /tmp/qfieldcloud/docker-compose.yml -f /tmp/qfieldcloud/docker-compose.override.standalone.yml down
           docker compose -f "${{ github.workspace }}/test/docker-compose.yaml" down
 
       - name: 📑 Upload package logs
