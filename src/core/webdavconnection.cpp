@@ -699,7 +699,6 @@ void WebdavConnection::putLocalItems()
     connect( reply, &QNetworkReply::finished, this, [this, reply, dirPath]() {
       mBytesProcessed += mCurrentBytesProcessed;
       mCurrentBytesProcessed = 0;
-      emit progressChanged();
 
       // WebDAV MKCOL:
       // - 2xx => created
@@ -737,19 +736,45 @@ void WebdavConnection::putLocalItems()
 
     const QString remoteItemPath = ensureTrailingSlash( mProcessRemotePath ) + QString( relFile ).replace( QDir::separator(), QLatin1Char( '/' ) );
 
+    mCurrentUploadFileSize = mLocalItems.first().size();
+    mCurrentUploadBytesSentMax = 0;
+    mCurrentBytesProcessed = 0;
+    emit progressChanged();
+
     QFile *file = new QFile( itemPath );
     file->open( QFile::ReadOnly );
     QNetworkReply *reply = mWebdavConnection.put( remoteItemPath, file );
     file->setParent( reply );
 
-    connect( reply, &QNetworkReply::uploadProgress, this, [this]( qint64 bytesSent, qint64 ) {
-      mCurrentBytesProcessed = bytesSent;
+    connect( reply, &QNetworkReply::uploadProgress, this, [this]( qint64 bytesSent, qint64 bytesTotal ) {
+      // Prefer bytesTotal if provided, else fall back to QFileInfo size
+      const qint64 total = ( bytesTotal > 0 ) ? bytesTotal : mCurrentUploadFileSize;
+
+      qint64 sent = bytesSent;
+      if ( total > 0 )
+      {
+        sent = std::min( sent, total );
+      }
+
+      if ( sent > mCurrentUploadBytesSentMax )
+      {
+        mCurrentUploadBytesSentMax = sent;
+      }
+
+      mCurrentBytesProcessed = mCurrentUploadBytesSentMax;
       emit progressChanged();
     } );
 
     connect( reply, &QNetworkReply::finished, this, [this, reply, remoteItemPath]() {
-      mBytesProcessed += mCurrentBytesProcessed;
+      const qint64 completed = ( mCurrentUploadFileSize > 0 )
+                                 ? mCurrentUploadFileSize
+                                 : mCurrentUploadBytesSentMax;
+
+      mBytesProcessed += completed;
+
       mCurrentBytesProcessed = 0;
+      mCurrentUploadFileSize = 0;
+      mCurrentUploadBytesSentMax = 0;
       emit progressChanged();
 
       // HTTP 2xx codes are success for WebDAV PUT
