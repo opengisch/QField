@@ -4328,7 +4328,7 @@ ApplicationWindow {
   }
 
   function showAutoLockToast() {
-    displayToast(qsTr("지도 화면 고정 일시 중지"),'info',qsTr("잠금 해제"),() => {
+    displayToast(qsTr('지도 화면 고정 일시 중지'),'info',qsTr('잠금 해제'), () => {
       gnssButton.autoRefollow = false;
     }, true, () => {
       if (positionSource.active && gnssButton.autoRefollow) {
