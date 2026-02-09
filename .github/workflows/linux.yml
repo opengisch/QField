@@ -172,7 +172,16 @@ jobs:
           export QFIELDCLOUD_TEST_SERVER_URL="${QFIELDCLOUD_TEST_SERVER_URL}"
           xvfb-run --server-args="-screen 0 640x480x24" ctest --output-on-failure -C ${{ env.BUILD_TYPE }}
 
-          docker compose -p qfc --env-file /tmp/qfieldcloud/.env.example -f /tmp/qfieldcloud/docker-compose.yml -f /tmp/qfieldcloud/docker-compose.override.standalone.yml logs
+      - name: 🐳 QFieldCloud Docker logs
+        if: always()
+        run: |
+          echo "::group::QFieldCloud Docker logs"
+          docker compose -p qfc --env-file /tmp/qfieldcloud/.env.example -f /tmp/qfieldcloud/docker-compose.yml -f /tmp/qfieldcloud/docker-compose.override.standalone.yml logs --tail=200
+          echo "::endgroup::"
+
+      - name: 🧹 Docker cleanup
+        if: always()
+        run: |
           docker compose -p qfc --env-file /tmp/qfieldcloud/.env.example -f /tmp/qfieldcloud/docker-compose.yml -f /tmp/qfieldcloud/docker-compose.override.standalone.yml down
           docker compose -f "${{ github.workspace }}/test/docker-compose.yaml" down
 
