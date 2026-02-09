@@ -923,11 +923,14 @@ Page {
           if (currentLayer !== null)
             layerName = currentLayer.name;
           if (form.state === 'Add')
-            qsTr('Add feature on %1').arg(layerName);
+            //qsTr('Add feature on %1').arg(layerName);
+            qsTr('%1에 새 객체 추가').arg(layerName);
           else if (form.state === 'Edit')
-            qsTr('Edit feature on %1').arg(layerName);
+            //qsTr('Edit feature on %1').arg(layerName);
+            qsTr('%1 객체 편집').arg(layerName);
           else
-            qsTr('View feature on %1').arg(layerName);
+            //qsTr('View feature on %1').arg(layerName);
+            qsTr('%1 객체 보기').arg(layerName);
         }
 
         fontSizeMode: Text.Fit

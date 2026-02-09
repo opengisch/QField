@@ -1237,13 +1237,15 @@ ApplicationWindow {
             gnssButton.autoRefollow = false;
             gnssButton.followActive = false;
             gnssButton.followOrientationActive = false;
-            displayToast(qsTr("Map canvas unlocked"));
+            //displayToast(qsTr("Map canvas unlocked"));
+            displayToast(qsTr("지도 화면 잠금 해제"));
           } else {
             mapCanvasMap.freeze('follow');
             gnssButton.autoRefollow = true;
             gnssButton.followActive = true;
             gnssButton.followLocation(true);
-            displayToast(qsTr("Map canvas locked to location"));
+            //displayToast(qsTr("Map canvas locked to location"));
+            displayToast(qsTr("지도 화면이 현재 위치에 고정되었습니다"));
           }
           actionsPieMenu.close();
         }
@@ -4326,7 +4328,7 @@ ApplicationWindow {
   }
 
   function showAutoLockToast() {
-    displayToast(qsTr('Map canvas lock paused'), 'info', qsTr('Unlock'), () => {
+    displayToast(qsTr("지도 화면 고정 일시 중지"),'info',qsTr("잠금 해제"),() => {
       gnssButton.autoRefollow = false;
     }, true, () => {
       if (positionSource.active && gnssButton.autoRefollow) {

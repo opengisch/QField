@@ -97,7 +97,8 @@ QfPopup {
     padding: 5
 
     header: QfPageHeader {
-      title: qsTr("Tracking")
+      //title: qsTr("Tracking")
+      title: qsTr("위치 기록")
 
       showApplyButton: false
       showCancelButton: false
@@ -131,7 +132,8 @@ QfPopup {
         rowSpacing: 5
 
         Label {
-          text: qsTr('Layer')
+          //text: qsTr('Layer')
+          text: qsTr('레이어')
           font: Theme.strongFont
           color: Theme.mainTextColor
           wrapMode: Text.WordWrap
@@ -217,7 +219,7 @@ QfPopup {
         }
 
         Label {
-          text: qsTr('Requirement Settings')
+          text: qsTr("요구 조건 설정")
           font: Theme.strongFont
           color: Theme.mainTextColor
           wrapMode: Text.WordWrap
@@ -227,7 +229,8 @@ QfPopup {
         }
 
         Label {
-          text: qsTr("Time requirement")
+          //text: qsTr("Time requirement")
+          text: qsTr("시간 조건")
           font: Theme.defaultFont
           wrapMode: Text.WordWrap
           Layout.fillWidth: true
@@ -249,7 +252,8 @@ QfPopup {
         }
 
         Label {
-          text: qsTr("Minimum time [sec]")
+          //text: qsTr("Minimum time [sec]")
+          text: qsTr("최소 시간 [초]")
           font: Theme.defaultFont
           wrapMode: Text.WordWrap
           enabled: timeInterval.checked
@@ -277,7 +281,8 @@ QfPopup {
         }
 
         Label {
-          text: qsTr("When enabled, vertex additions will occur when the time between the last and new vertex meets a configured mimimum value.")
+          //text: qsTr("When enabled, vertex additions will occur when the time between the last and new vertex meets a configured mimimum value.")
+          text: qsTr("이 설정을 켜면 마지막 꼭짓점과 새 꼭짓점 사이의 시간이 설정된 최소 값을 충족할 때에만 꼭짓점이 추가됩니다.")
           font: Theme.tipFont
           color: Theme.secondaryTextColor
           wrapMode: Text.WordWrap
@@ -289,7 +294,8 @@ QfPopup {
         }
 
         Label {
-          text: qsTr("Distance requirement")
+          //text: qsTr("Distance requirement")
+          text: qsTr("거리 조건")
           font: Theme.defaultFont
           wrapMode: Text.WordWrap
           Layout.fillWidth: true
@@ -345,7 +351,8 @@ QfPopup {
         }
 
         Label {
-          text: qsTr("When enabled, vertex additions will occur when the distance between the last and new vertex meets a configured mimimum value.")
+          //text: qsTr("When enabled, vertex additions will occur when the distance between the last and new vertex meets a configured mimimum value.")
+          text: qsTr("이 설정을 켜면 마지막 꼭짓점과 새 꼭짓점 사이의 거리가 설정된 최소 값을 충족할 때에만 꼭짓점이 추가됩니다.")
           font: Theme.tipFont
           color: Theme.secondaryTextColor
           wrapMode: Text.WordWrap
@@ -357,7 +364,8 @@ QfPopup {
         }
 
         Label {
-          text: qsTr("Sensor data requirement")
+          //text: qsTr("Sensor data requirement")
+          text: qsTr("센서 데이터 조건")
           font: Theme.defaultFont
           wrapMode: Text.WordWrap
           Layout.fillWidth: true
@@ -379,7 +387,8 @@ QfPopup {
         }
 
         Label {
-          text: qsTr("When enabled, vertex additions will occur when sensors have captured new data.")
+          //text: qsTr("When enabled, vertex additions will occur when sensors have captured new data.")
+          text: qsTr("이 설정을 켜면 센서에서 새로운 데이터가 수집될 때에만 꼭짓점이 추가됩니다.")
           font: Theme.tipFont
           color: Theme.secondaryTextColor
           wrapMode: Text.WordWrap
@@ -391,7 +400,8 @@ QfPopup {
         }
 
         Label {
-          text: qsTr("Wait for all active requirements")
+          //text: qsTr("Wait for all active requirements")
+          text: qsTr("모든 활성 조건이 충족될 때까지 대기")
           font: Theme.defaultFont
           wrapMode: Text.WordWrap
           Layout.fillWidth: true
@@ -413,7 +423,8 @@ QfPopup {
         }
 
         Label {
-          text: qsTr("When enabled, vertices will only be recorded when all active requirements are met. When disabled, individual requirement met will trigger vertex additions.")
+          //text: qsTr("When enabled, vertices will only be recorded when all active requirements are met. When disabled, individual requirement met will trigger vertex additions.")
+          text: qsTr("이 설정을 켜면 모든 활성 조건이 충족될 때에만 꼭짓점이 기록됩니다. 끄면 개별 조건이 충족될 때마다 꼭짓점이 추가됩니다.")
           font: Theme.tipFont
           color: Theme.secondaryTextColor
           textFormat: Qt.RichText
@@ -427,7 +438,8 @@ QfPopup {
         }
 
         Label {
-          text: qsTr('General Settings')
+          //text: qsTr('General Settings')
+          text: qsTr("일반 설정")
           font: Theme.strongFont
           color: Theme.mainTextColor
           wrapMode: Text.WordWrap
@@ -437,7 +449,8 @@ QfPopup {
         }
 
         Label {
-          text: qsTr("Erroneous distance safeguard")
+          //text: qsTr("Erroneous distance safeguard")
+          text: qsTr("비정상 거리 방지 기능")
           font: Theme.defaultFont
           wrapMode: Text.WordWrap
           Layout.fillWidth: true
@@ -523,7 +536,18 @@ QfPopup {
           property bool loaded: false
           Component.onCompleted: {
             // This list matches the Tracker::MeasureType enum
-            var measurements = [qsTr("Elapsed time (seconds since start of tracking)"), qsTr("Timestamp (milliseconds since epoch)"), qsTr("Ground speed"), qsTr("Bearing"), qsTr("Horizontal accuracy"), qsTr("Vertical accuracy"), qsTr("PDOP"), qsTr("HDOP"), qsTr("VDOP")];
+            //var measurements = [qsTr("Elapsed time (seconds since start of tracking)"), qsTr("Timestamp (milliseconds since epoch)"), qsTr("Ground speed"), qsTr("Bearing"), qsTr("Horizontal accuracy"), qsTr("Vertical accuracy"), qsTr("PDOP"), qsTr("HDOP"), qsTr("VDOP")];
+            var measurements = [
+              qsTr("경과 시간 (추적 시작 이후 초)"),
+              qsTr("타임스탬프 (에포크 이후 밀리초)"),
+              qsTr("지면 속도"),
+              qsTr("방위각"),
+              qsTr("수평 정확도"),
+              qsTr("수직 정확도"),
+              qsTr("PDOP"),
+              qsTr("HDOP"),
+              qsTr("VDOP")
+            ];
             model = measurements;
             loaded = true;
           }
@@ -539,7 +563,8 @@ QfPopup {
           id: measureTipLabel
           visible: !LayerUtils.hasMValue(featureModel.currentLayer)
           Layout.fillWidth: true
-          text: qsTr("To active the measurement functionality, make sure the vector layer's geometry type used for the tracking session has an M dimension.")
+          //text: qsTr("To active the measurement functionality, make sure the vector layer's geometry type used for the tracking session has an M dimension.")
+          text: text: qsTr("측정 기능을 활성화하려면, 추적 세션에 사용되는 벡터 레이어의 도형 유형이 M 차원을 포함하고 있어야 합니다.")
           font: Theme.tipFont
           color: Theme.secondaryTextColor
 
@@ -573,7 +598,8 @@ QfPopup {
       QfButton {
         id: startTrackingButton
         width: parent.width
-        text: qsTr("Start tracking")
+        //text: qsTr("Start tracking")
+        text: qsTr("기록 시작")
         icon.source: Theme.getThemeVectorIcon('directions_walk_24dp')
 
         onClicked: {
@@ -591,7 +617,8 @@ QfPopup {
       QfButton {
         id: resumeTrackingButton
         width: parent.width
-        text: qsTr("Resume tracking")
+        //text: qsTr("Resume tracking")
+        text: qsTr("기록 재개")
         icon.source: Theme.getThemeVectorIcon('directions_walk_24dp')
         icon.color: Theme.mainColor
         bgcolor: "transparent"
