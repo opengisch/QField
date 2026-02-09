@@ -13,9 +13,9 @@ Rectangle {
   property alias text: busyMessage.text
   property alias progress: busyProgress.value
   property bool showProgress: false
-  property string buttonText: ""  // Empty = no button, set text to show button and activate if needed
+  property string actionText: ""  // Empty = no actionText, set text to show actionText and activate if needed
 
-  signal buttonClicked
+  signal actionClicked
 
   anchors.fill: parent
   color: Theme.darkGraySemiOpaque
@@ -175,12 +175,12 @@ Rectangle {
       }
 
       Text {
-        id: actionButton
+        id: actionLink
         Layout.fillWidth: true
         Layout.topMargin: 4
         horizontalAlignment: Text.AlignRight
-        visible: busyOverlay.buttonText !== ""
-        text: busyOverlay.buttonText
+        visible: busyOverlay.actionText !== ""
+        text: busyOverlay.actionText
         font: Theme.defaultFont
         color: Theme.mainColor
 
@@ -190,7 +190,7 @@ Rectangle {
           z: 10
           cursorShape: Qt.PointingHandCursor
           onClicked: {
-            busyOverlay.buttonClicked();
+            busyOverlay.actionClicked();
           }
         }
       }
