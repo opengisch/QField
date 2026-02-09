@@ -536,7 +536,18 @@ QfPopup {
           property bool loaded: false
           Component.onCompleted: {
             // This list matches the Tracker::MeasureType enum
-            var measurements = [qsTr("Elapsed time (seconds since start of tracking)"), qsTr("Timestamp (milliseconds since epoch)"), qsTr("Ground speed"), qsTr("Bearing"), qsTr("Horizontal accuracy"), qsTr("Vertical accuracy"), qsTr("PDOP"), qsTr("HDOP"), qsTr("VDOP")];
+            //var measurements = [qsTr("Elapsed time (seconds since start of tracking)"), qsTr("Timestamp (milliseconds since epoch)"), qsTr("Ground speed"), qsTr("Bearing"), qsTr("Horizontal accuracy"), qsTr("Vertical accuracy"), qsTr("PDOP"), qsTr("HDOP"), qsTr("VDOP")];
+            var measurements = [
+              qsTr("경과 시간 (추적 시작 이후 초)"),
+              qsTr("타임스탬프 (에포크 이후 밀리초)"),
+              qsTr("지면 속도"),
+              qsTr("방위각"),
+              qsTr("수평 정확도"),
+              qsTr("수직 정확도"),
+              qsTr("PDOP"),
+              qsTr("HDOP"),
+              qsTr("VDOP")
+            ];
             model = measurements;
             loaded = true;
           }
@@ -553,7 +564,7 @@ QfPopup {
           visible: !LayerUtils.hasMValue(featureModel.currentLayer)
           Layout.fillWidth: true
           //text: qsTr("To active the measurement functionality, make sure the vector layer's geometry type used for the tracking session has an M dimension.")
-          text: text: qsTr("측정 기능을 활성화하려면, 추적 세션에 사용되는 벡터 레이어의 도형 유형이 M 차원을 포함하고 있어야 합니다.")
+          text: qsTr("측정 기능을 활성화하려면, 추적 세션에 사용되는 벡터 레이어의 도형 유형이 M 차원을 포함하고 있어야 합니다.")
           font: Theme.tipFont
           color: Theme.secondaryTextColor
 

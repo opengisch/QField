@@ -929,8 +929,8 @@ Page {
             //qsTr('Edit feature on %1').arg(layerName);
             qsTr('%1 객체 편집').arg(layerName);
           else
-            //qsTr('View feature on %1').arg(layerName);
-            qsTr('%1 객체 보기').arg(layerName);
+            qsTr('View feature on %1').arg(layerName);
+            //qsTr('%1 객체 보기').arg(layerName);
         }
 
         fontSizeMode: Text.Fit
