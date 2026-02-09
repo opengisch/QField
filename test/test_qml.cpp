@@ -173,14 +173,15 @@ class Setup : public QObject
       engine->rootContext()->setContextProperty( QStringLiteral( "qgisProject" ), QgsProject::instance() );
       engine->rootContext()->setContextProperty( QStringLiteral( "dataDir" ), mDataDir );
 
-      // Test credentials from environment variables (for CI/CD)
-      QString testUsername = QString::fromUtf8( qgetenv( "QFIELDCLOUD_TEST_USERNAME" ) );
-      QString testPassword = QString::fromUtf8( qgetenv( "QFIELDCLOUD_TEST_PASSWORD" ) );
-      QString testServerUrl = QString::fromUtf8( qgetenv( "QFIELDCLOUD_TEST_SERVER_URL" ) );
+      // QFieldCloud CI instance credentials
+      engine->rootContext()->setContextProperty( QStringLiteral( "qfcCiUrl" ), QString::fromUtf8( qgetenv( "QFIELDCLOUD_CI_URL" ) ) );
+      engine->rootContext()->setContextProperty( QStringLiteral( "qfcCiUsername" ), QString::fromUtf8( qgetenv( "QFIELDCLOUD_CI_USERNAME" ) ) );
+      engine->rootContext()->setContextProperty( QStringLiteral( "qfcCiPassword" ), QString::fromUtf8( qgetenv( "QFIELDCLOUD_CI_PASSWORD" ) ) );
 
-      engine->rootContext()->setContextProperty( QStringLiteral( "qfcTestUsername" ), testUsername );
-      engine->rootContext()->setContextProperty( QStringLiteral( "qfcTestPassword" ), testPassword );
-      engine->rootContext()->setContextProperty( QStringLiteral( "qfcTestServerUrl" ), testServerUrl );
+      // QFieldCloud production credentials
+      engine->rootContext()->setContextProperty( QStringLiteral( "qfcProductionUrl" ), QString::fromUtf8( qgetenv( "QFIELDCLOUD_PRODUCTION_URL" ) ) );
+      engine->rootContext()->setContextProperty( QStringLiteral( "qfcProductionUsername" ), QString::fromUtf8( qgetenv( "QFIELDCLOUD_PRODUCTION_USERNAME" ) ) );
+      engine->rootContext()->setContextProperty( QStringLiteral( "qfcProductionPassword" ), QString::fromUtf8( qgetenv( "QFIELDCLOUD_PRODUCTION_PASSWORD" ) ) );
 
       QgsExifTools mExifTools;
       engine->rootContext()->setContextProperty( "ExifTools", QVariant::fromValue<QgsExifTools>( mExifTools ) );

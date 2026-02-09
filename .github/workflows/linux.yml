@@ -104,6 +104,65 @@ jobs:
           path: |
             build/**/*.log
 
+      - name: Setup QFieldCloud
+        run: |
+          QFC_DIR=/tmp/qfieldcloud
+          git clone --depth 1 https://github.com/opengisch/QFieldCloud.git $QFC_DIR
+          cp $QFC_DIR/.env.example $QFC_DIR/.env
+
+          sed -i \
+            -e 's|^WEB_HTTP_PORT=80$|WEB_HTTP_PORT=8080|' \
+            -e 's|^WEB_HTTPS_PORT=443$|WEB_HTTPS_PORT=8443|' \
+            -e 's|^MINIO_BROWSER_PORT=8010$|MINIO_BROWSER_PORT=8013|' \
+            -e 's|^DEBUG_APP_DEBUGPY_PORT=5678$|DEBUG_APP_DEBUGPY_PORT=""|' \
+            -e 's|^DEBUG_WORKER_WRAPPER_DEBUGPY_PORT=5679$|DEBUG_WORKER_WRAPPER_DEBUGPY_PORT=""|' \
+            $QFC_DIR/.env
+
+          QFC="docker compose -p qfc --env-file $QFC_DIR/.env -f $QFC_DIR/docker-compose.yml -f $QFC_DIR/docker-compose.override.standalone.yml"
+
+          $QFC up -d db minio memcached mkcert
+
+          echo "Waiting for database..."
+          for i in $(seq 1 30); do
+            $QFC exec -T db pg_isready -q 2>/dev/null && break
+            [ "$i" -eq 30 ] && { $QFC logs db --tail=20; exit 1; }
+            sleep 2
+          done
+
+          $QFC up -d --build app
+          echo "Waiting for app..."
+          for i in $(seq 1 20); do
+            $QFC exec -T app python -c "print('ok')" 2>/dev/null && break
+            [ "$i" -eq 20 ] && { $QFC logs app --tail=20; exit 1; }
+            sleep 2
+          done
+
+          $QFC exec -T app python manage.py migrate --no-input
+          $QFC exec -T app python manage.py collectstatic --no-input
+          $QFC exec -T app python manage.py createuser --username admin --email admin@localhost.local --password admin123 --superuser
+
+          $QFC up -d --build nginx
+          echo "Waiting for nginx..."
+          for i in $(seq 1 40); do
+            curl -k -s -f https://localhost:8443/api/v1/status/ > /dev/null 2>&1 && break
+            [ "$i" -eq 40 ] && { $QFC logs nginx --tail=20; $QFC logs mkcert --tail=10; exit 1; }
+            sleep 3
+          done
+
+          $QFC ps
+
+      - name: Test QFieldCloud
+        run: |
+          curl -k -s https://localhost:8443/api/v1/status/ | grep -q '"database":"ok"'
+
+          TOKEN=$(curl -k -s -X POST https://localhost:8443/api/v1/auth/login/ \
+            -H "Content-Type: application/json" \
+            -d '{"username":"admin","password":"admin123"}' | jq -r '.token')
+          [ "$TOKEN" != "null" ] && [ -n "$TOKEN" ] || { echo "Login failed"; exit 1; }
+
+          curl -k -s -H "Authorization: Token $TOKEN" https://localhost:8443/api/v1/users/admin/ | grep -q '"username":"admin"'
+          echo "QFieldCloud is ready"
+
       - name: Initialize CodeQL
         uses: github/codeql-action/init@v4
         with:
@@ -140,12 +199,16 @@ jobs:
       - name: 🧫 Test
         env:
           PROJ_LIB: ${{ github.workspace }}/build/vcpkg_installed/x64-linux/share/proj
-          QFIELDCLOUD_TEST_USERNAME: ${{ secrets.QFIELDCLOUD_TEST_USERNAME }}
-          QFIELDCLOUD_TEST_PASSWORD: ${{ secrets.QFIELDCLOUD_TEST_PASSWORD }}
-          QFIELDCLOUD_TEST_SERVER_URL: ${{ secrets.QFIELDCLOUD_TEST_SERVER_URL }}
+          QFIELDCLOUD_CI_URL: https://localhost:8443
+          QFIELDCLOUD_CI_USERNAME: admin
+          QFIELDCLOUD_CI_PASSWORD: admin123
+          QFIELDCLOUD_PRODUCTION_URL: ${{ secrets.QFIELDCLOUD_TEST_SERVER_URL }}
+          QFIELDCLOUD_PRODUCTION_USERNAME: ${{ secrets.QFIELDCLOUD_TEST_USERNAME }}
+          QFIELDCLOUD_PRODUCTION_PASSWORD: ${{ secrets.QFIELDCLOUD_TEST_PASSWORD }}
         run: |
           pip install -r "${{ github.workspace }}/test/spix/requirements.txt"
           docker compose -f "${{ github.workspace }}/test/docker-compose.yaml" up -d
+
           echo "[test-clientssl]" >> ~/.pg_service.conf
           echo "host=localhost" >> ~/.pg_service.conf
           echo "port=5440" >> ~/.pg_service.conf
@@ -164,12 +227,23 @@ jobs:
           chmod 700 ${{ github.workspace }}/test/postgis_docker/cert_keys/server.crt
 
           cd build
-          export QFIELDCLOUD_TEST_USERNAME="${QFIELDCLOUD_TEST_USERNAME}"
-          export QFIELDCLOUD_TEST_PASSWORD="${QFIELDCLOUD_TEST_PASSWORD}"
-          export QFIELDCLOUD_TEST_SERVER_URL="${QFIELDCLOUD_TEST_SERVER_URL}"
+          export QFIELDCLOUD_CI_URL="${QFIELDCLOUD_CI_URL}"
+          export QFIELDCLOUD_CI_USERNAME="${QFIELDCLOUD_CI_USERNAME}"
+          export QFIELDCLOUD_CI_PASSWORD="${QFIELDCLOUD_CI_PASSWORD}"
+          export QFIELDCLOUD_PRODUCTION_URL="${QFIELDCLOUD_PRODUCTION_URL}"
+          export QFIELDCLOUD_PRODUCTION_USERNAME="${QFIELDCLOUD_PRODUCTION_USERNAME}"
+          export QFIELDCLOUD_PRODUCTION_PASSWORD="${QFIELDCLOUD_PRODUCTION_PASSWORD}"
           xvfb-run --server-args="-screen 0 640x480x24" ctest --output-on-failure -C ${{ env.BUILD_TYPE }}
 
-          docker compose -f "${{ github.workspace }}/test/docker-compose.yaml" down
+      - name: Docker cleanup
+        if: always()
+        run: |
+          QFC_DIR=/tmp/qfieldcloud
+          docker compose -p qfc --env-file $QFC_DIR/.env \
+            -f $QFC_DIR/docker-compose.yml \
+            -f $QFC_DIR/docker-compose.override.standalone.yml \
+            down 2>/dev/null || true
+          docker compose -f "${{ github.workspace }}/test/docker-compose.yaml" down 2>/dev/null || true
 
       - name: 📑 Upload package logs
         uses: actions/upload-artifact@v6
