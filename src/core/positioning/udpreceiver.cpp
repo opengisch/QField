@@ -71,6 +71,7 @@ UdpReceiver::UdpReceiver( const QString &address, const int port, QObject *paren
 
 UdpReceiver::~UdpReceiver()
 {
+  disconnectDevice();
   mSocket->deleteLater();
   mSocket = nullptr;
   mBuffer->deleteLater();

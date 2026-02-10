@@ -49,6 +49,7 @@ TcpReceiver::TcpReceiver( const QString &address, const int port, QObject *paren
 
 TcpReceiver::~TcpReceiver()
 {
+  disconnectDevice();
   mSocket->deleteLater();
   mSocket = nullptr;
 }

@@ -85,6 +85,7 @@ BluetoothReceiver::BluetoothReceiver( const QString &address, QObject *parent )
 
 BluetoothReceiver::~BluetoothReceiver()
 {
+  disconnectDevice();
   mSocket->deleteLater();
   mSocket = nullptr;
 }
