@@ -50,6 +50,9 @@ void Positioning::setupSource()
   if ( mPositioningSource )
   {
     mHost.disableRemoting( mPositioningSource );
+    // Don't rely on deleteLater(), insure any device is disconnected prior to switching source
+    mPositioningSource->setActive( false );
+    mPositioningSource->setDeviceId( QString() );
     mPositioningSource->deleteLater();
     mPositioningSource = nullptr;
   }
