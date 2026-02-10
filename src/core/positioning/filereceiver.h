@@ -33,7 +33,7 @@ class FileReceiver : public NmeaGnssReceiver
 
   public:
     explicit FileReceiver( const QString &filePath = QString(), const int interval = 0, QObject *parent = nullptr );
-    ~FileReceiver() override;
+    ~FileReceiver();
 
     static QLatin1String identifier;
 
