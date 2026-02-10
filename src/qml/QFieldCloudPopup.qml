@@ -421,9 +421,9 @@ Popup {
             color: hasError ? Theme.errorColor : Theme.mainTextColor
             text: {
               if (!hasError) {
-                return changesCount !== 0 ? qsTr('There is/are %n local change(s)', '', changesCount) : qsTr('There are no local changes');
+                return changesCount !== 0 ? qsTr('로컬 변경 사항이 %n개 있습니다.', '', changesCount) : qsTr('로컬 변경 사항이 없습니다.');
               } else {
-                return qsTr('The locally stored cloud project has been corrupted') + '\n' + cloudProjectsModel.layerObserver.deltaFileWrapper.errorString;
+                return qsTr('로컬에 저장된 클라우드 프로젝트가 손상되었습니다.') + '\n' + cloudProjectsModel.layerObserver.deltaFileWrapper.errorString;
               }
             }
             wrapMode: Text.WordWrap
@@ -449,7 +449,8 @@ Popup {
             font: Theme.tipFont
             color: Theme.secondaryTextColor
             visible: cloudProjectsModel.layerObserver.deltaFileWrapper && !cloudProjectsModel.layerObserver.deltaFileWrapper.hasError
-            text: qsTr('Synchronize the whole project with all modified features and download the freshly updated project with all the applied changes from QFieldCloud.')
+            //text: qsTr('Synchronize the whole project with all modified features and download the freshly updated project with all the applied changes from QFieldCloud.')
+            text: qsTr('수정된 모든 피처를 포함하여 전체 프로젝트를 동기화하고, QFieldCloud에서 적용된 최신 변경 사항이 반영된 프로젝트를 다시 다운로드합니다.')
             wrapMode: Text.WordWrap
             horizontalAlignment: Text.AlignHCenter
             Layout.bottomMargin: 20
@@ -473,7 +474,8 @@ Popup {
             font: Theme.tipFont
             color: Theme.secondaryTextColor
             visible: cloudProjectsModel.layerObserver.deltaFileWrapper && !cloudProjectsModel.layerObserver.deltaFileWrapper.hasError
-            text: qsTr('Save internet bandwidth by only pushing the local features and pictures to the cloud, without updating the whole project.')
+            //text: qsTr('Save internet bandwidth by only pushing the local features and pictures to the cloud, without updating the whole project.')
+            text: qsTr('전체 프로젝트를 업데이트하지 않고, 로컬 피처와 사진만 클라우드로 업로드하여 인터넷 대역폭을 절약합니다.')
             wrapMode: Text.WordWrap
             horizontalAlignment: Text.AlignHCenter
             Layout.bottomMargin: 20
@@ -501,7 +503,8 @@ Popup {
             id: discardText
             font: Theme.tipFont
             color: Theme.secondaryTextColor
-            text: cloudProjectsModel.layerObserver.deltaFileWrapper && !cloudProjectsModel.layerObserver.deltaFileWrapper.hasError ? qsTr('Revert all modified features in the local layers. You cannot restore those changes.') : qsTr('The local copy of this cloud project has been corrupted. Resetting the project will re-download the cloud version and will remove any local changes, make sure those were copied first if needed.\n\nWhile you can still view and use the project, it is strongly recommended to reset to avoid any accidental data loss as none of the changes made will be pushed back to the cloud.')
+            //text: cloudProjectsModel.layerObserver.deltaFileWrapper && !cloudProjectsModel.layerObserver.deltaFileWrapper.hasError ? qsTr('Revert all modified features in the local layers. You cannot restore those changes.') : qsTr('The local copy of this cloud project has been corrupted. Resetting the project will re-download the cloud version and will remove any local changes, make sure those were copied first if needed.\n\nWhile you can still view and use the project, it is strongly recommended to reset to avoid any accidental data loss as none of the changes made will be pushed back to the cloud.')
+            text: cloudProjectsModel.layerObserver.deltaFileWrapper && !cloudProjectsModel.layerObserver.deltaFileWrapper.hasError ? qsTr('로컬 레이어에서 수정된 모든 피처를 되돌립니다. 이 변경 사항은 복구할 수 없습니다.') : qsTr('이 클라우드 프로젝트의 로컬 복사본이 손상되었습니다. 프로젝트를 초기화하면 클라우드 버전을 다시 다운로드하며 모든 로컬 변경 사항이 삭제됩니다. 필요한 경우 먼저 복사해 두시기 바랍니다.\n\n현재 프로젝트를 계속 열람하고 사용할 수는 있으나, 변경 사항이 클라우드로 전송되지 않으므로 데이터 손실을 방지하기 위해 초기화를 권장합니다.')
             wrapMode: Text.WordWrap
             horizontalAlignment: Text.AlignHCenter
             Layout.bottomMargin: 10
@@ -530,7 +533,8 @@ Popup {
               wrapMode: Text.WordWrap
               color: autoPush.checked ? Theme.mainTextColor : Theme.secondaryTextColor
 
-              text: qsTr('Automatically push changes every %n minute(s)', '', 0 + (cloudProjectsModel.currentProject ? cloudProjectsModel.currentProject.autoPushIntervalMins : 0))
+              //text: qsTr('Automatically push changes every %n minute(s)', '', 0 + (cloudProjectsModel.currentProject ? cloudProjectsModel.currentProject.autoPushIntervalMins : 0))
+              text: qsTr('%n분마다 변경 사항을 자동으로 업로드합니다.', '', 0 + (cloudProjectsModel.currentProject ? cloudProjectsModel.currentProject.autoPushIntervalMins : 0))
 
               MouseArea {
                 anchors.fill: parent
@@ -603,13 +607,22 @@ Popup {
                 exportDt = new Date(exportDt);
                 timeDeltaMinutes = parseInt(Math.max(new Date() - exportDt, 0) / (60 * 1000));
                 if (timeDeltaMinutes < 1)
-                  exportText = qsTr('Last synchronized just now');
+                  exportText = qsTr('방금 동기화되었습니다');
                 else if (timeDeltaMinutes < 60)
-                  exportText = qsTr('Last synchronized %1 minutes ago').arg(timeDeltaMinutes);
+                  exportText = qsTr('%1분 전에 동기화되었습니다').arg(timeDeltaMinutes);
                 else if (exportDt.toLocaleDateString() === new Date().toLocaleDateString())
-                  exportText = qsTr('Last synchronized at %1').arg(exportDt.toLocaleTimeString());
+                  exportText = qsTr('오늘 %1에 동기화되었습니다').arg(exportDt.toLocaleTimeString());
                 else
-                  exportText = qsTr('Last synchronized on %1').arg(exportDt.toLocaleString());
+                  exportText = qsTr('%1에 동기화되었습니다').arg(exportDt.toLocaleString());
+
+                //if (timeDeltaMinutes < 1)
+                //  exportText = qsTr('Last synchronized just now');
+                //else if (timeDeltaMinutes < 60)
+                //  exportText = qsTr('Last synchronized %1 minutes ago').arg(timeDeltaMinutes);
+                //else if (exportDt.toLocaleDateString() === new Date().toLocaleDateString())
+                //  exportText = qsTr('Last synchronized at %1').arg(exportDt.toLocaleTimeString());
+                //else
+                //  exportText = qsTr('Last synchronized on %1').arg(exportDt.toLocaleString());
               }
               var pushText = '';
               var pushDt = cloudProjectsModel.currentProject.lastLocalPushDeltas;
