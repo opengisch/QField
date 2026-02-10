@@ -734,10 +734,15 @@ Page {
             onClicked: {
               RememberValue = !RememberValue;
               if (RememberValue) {
-                displayToast(qsTr("The last entered value for this field will be remembered and reused when creating new features"));
+                displayToast(qsTr("이 필드에 마지막으로 입력한 값이 새 항목을 만들 때 자동으로 다시 사용됩니다."));
               } else {
-                displayToast(qsTr("The last entered value for this field will not be reused when creating new features"));
+                displayToast(qsTr("이 필드에 마지막으로 입력한 값은 새 항목을 만들 때 다시 사용되지 않습니다."));
               }
+              //if (RememberValue) {
+              //  displayToast(qsTr("The last entered value for this field will be remembered and reused when creating new features"));
+              //} else {
+              //  displayToast(qsTr("The last entered value for this field will not be reused when creating new features"));
+              //}
               projectInfo.saveLayerRememberedFields(form.model.featureModel.currentLayer);
             }
           }
@@ -1048,11 +1053,12 @@ Page {
     id: cancelDialog
     parent: mainWindow.contentItem
     z: 10000 // 1000s are embedded feature forms, user a higher value to insure the dialog will always show above embedded feature forms
-    title: qsTr("Cancel editing")
+    title: qsTr("편집 취소")
     Label {
       width: parent.width
       wrapMode: Text.WordWrap
-      text: form.state === 'Add' ? qsTr("You are about to dismiss the new feature, proceed?") : qsTr("You are about to leave editing state, any changes will be lost. Proceed?")
+      //text: form.state === 'Add' ? qsTr("You are about to dismiss the new feature, proceed?") : qsTr("You are about to leave editing state, any changes will be lost. Proceed?")
+      text: form.state === 'Add' ? qsTr("새로 추가한 항목을 취소하려고 합니다. 계속하시겠습니까?") : qsTr("편집 상태를 종료하려고 합니다. 변경 사항은 저장되지 않습니다. 계속하시겠습니까?")
     }
     onAccepted: {
       form.cancel();

@@ -142,7 +142,8 @@ EditorWidgetBase {
 
     MenuItem {
       id: copyTextItem
-      text: qsTr('Copy Text')
+      //text: qsTr('Copy Text')
+      text: qsTr("텍스트 복사")
 
       font: Theme.defaultFont
       icon.source: Theme.getThemeVectorIcon("ic_copy_black_24dp")
@@ -156,7 +157,8 @@ EditorWidgetBase {
 
     MenuItem {
       id: pasteTextItem
-      text: qsTr('Paste Text')
+      //text: qsTr('Paste Text')
+      text: qsTr("텍스트 붙여넣기")
 
       font: Theme.defaultFont
       icon.source: Theme.getThemeVectorIcon("ic_paste_black_24dp")
@@ -177,7 +179,8 @@ EditorWidgetBase {
 
     MenuItem {
       id: scanCodeItem
-      text: qsTr('Scan Code')
+      //text: qsTr('Scan Code')
+      text: qsTr("코드 스캔")
 
       font: Theme.defaultFont
       icon.source: withNfc ? Theme.getThemeVectorIcon("ic_qr_nfc_code_black_24dp") : Theme.getThemeVectorIcon("ic_qr_code_black_24dp")

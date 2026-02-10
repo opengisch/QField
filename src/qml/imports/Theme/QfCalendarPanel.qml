@@ -67,7 +67,21 @@ QfDialog {
     wrapMode: Text.WordWrap
     Layout.fillWidth: true
     color: Theme.mainTextColor
-    readonly property var monthNames: [qsTr("January"), qsTr("February"), qsTr("March"), qsTr("April"), qsTr("May"), qsTr("June"), qsTr("July"), qsTr("August"), qsTr("September"), qsTr("October"), qsTr("November"), qsTr("December")]
+    //readonly property var monthNames: [qsTr("January"), qsTr("February"), qsTr("March"), qsTr("April"), qsTr("May"), qsTr("June"), qsTr("July"), qsTr("August"), qsTr("September"), qsTr("October"), qsTr("November"), qsTr("December")]
+    readonly property var monthNames: [
+      qsTr("1월"),
+      qsTr("2월"),
+      qsTr("3월"),
+      qsTr("4월"),
+      qsTr("5월"),
+      qsTr("6월"),
+      qsTr("7월"),
+      qsTr("8월"),
+      qsTr("9월"),
+      qsTr("10월"),
+      qsTr("11월"),
+      qsTr("12월")
+    ]
     readonly property string rowView: selectedDate.getDate() + " " + monthNames[selectedDate.getMonth()] + " " + selectedDate.getFullYear()
     readonly property string columnView: selectedDate.getDate() + "\n" + monthNames[selectedDate.getMonth()] + "\n" + selectedDate.getFullYear()
   }

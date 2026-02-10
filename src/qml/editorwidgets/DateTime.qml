@@ -214,7 +214,8 @@ EditorWidgetBase {
           const textDate = Qt.formatDateTime(currentDate, dateFormat);
           valueChangeRequested(textDate, false);
         }
-        displayToast(qsTr('Date value set to today.'));
+        //displayToast(qsTr('Date value set to today.'));
+        displayToast(qsTr("날짜가 오늘로 설정되었습니다."));
       }
     }
   }

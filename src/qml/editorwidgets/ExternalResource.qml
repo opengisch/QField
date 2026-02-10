@@ -800,7 +800,8 @@ EditorWidgetBase {
 
     MenuItem {
       id: capturePhotoMenuItem
-      text: qsTr('Take a photo')
+      //text: qsTr('Take a photo')
+      text: qsTr("사진 촬영")
 
       font: Theme.defaultFont
       icon.source: Theme.getThemeVectorIcon("ic_camera_photo_black_24dp")
@@ -812,7 +813,8 @@ EditorWidgetBase {
 
     MenuItem {
       id: captureVideoMenuItem
-      text: qsTr('Take a video')
+      //text: qsTr('Take a video')
+      text: qsTr("동영상 촬영")
 
       font: Theme.defaultFont
       icon.source: Theme.getThemeVectorIcon("ic_camera_video_black_24dp")
@@ -824,7 +826,8 @@ EditorWidgetBase {
 
     MenuItem {
       id: captureAudioMenuItem
-      text: qsTr('Record an audio clip')
+      //text: qsTr('Record an audio clip')
+      text: qsTr("음성 녹음")
 
       font: Theme.defaultFont
       icon.source: Theme.getThemeVectorIcon("ic_microphone_black_24dp")
@@ -841,7 +844,8 @@ EditorWidgetBase {
 
     MenuItem {
       id: attachGalleryMenuItem
-      text: qsTr('Attach a gallery item')
+      //text: qsTr('Attach a gallery item')
+      text: qsTr("갤러리에서 선택")
 
       font: Theme.defaultFont
       icon.source: Theme.getThemeVectorIcon("ic_gallery_black_24dp")
@@ -853,7 +857,8 @@ EditorWidgetBase {
 
     MenuItem {
       id: attachFileMenuItem
-      text: qsTr('Attach a file')
+      //text: qsTr('Attach a file')
+      text: qsTr("파일 첨부")
 
       font: Theme.defaultFont
       icon.source: Theme.getThemeVectorIcon("ic_file_black_24dp")
@@ -870,8 +875,9 @@ EditorWidgetBase {
 
     MenuItem {
       id: attachDrawingMenuItem
-      text: qsTr('Draw a sketch')
-
+      //text: qsTr('Draw a sketch')
+      text: qsTr("스케치 그리기")
+      
       font: Theme.defaultFont
       icon.source: Theme.getThemeVectorIcon("ic_freehand_white_24dp")
       height: 48

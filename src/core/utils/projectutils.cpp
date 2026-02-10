@@ -168,7 +168,8 @@ QString ProjectUtils::createProject( const QVariantMap &options, const GnssPosit
       widgetSetup = QgsEditorWidgetSetup( QStringLiteral( "DateTime" ), widgetOptions );
       notesLayer->setEditorWidgetSetup( fieldIndex, widgetSetup );
       notesLayer->setDefaultValueDefinition( fieldIndex, QgsDefaultValue( QStringLiteral( "now()" ), false ) );
-      notesLayer->setFieldAlias( fieldIndex, tr( "Time" ) );
+      //notesLayer->setFieldAlias( fieldIndex, tr( "Time" ) );
+      notesLayer->setFieldAlias( fieldIndex, tr( "시간" ) );
     }
 
     // Configure color field
@@ -179,34 +180,39 @@ QString ProjectUtils::createProject( const QVariantMap &options, const GnssPosit
       widgetSetup = QgsEditorWidgetSetup( QStringLiteral( "Color" ), widgetOptions );
       notesLayer->setEditorWidgetSetup( fieldIndex, widgetSetup );
       notesLayer->setDefaultValueDefinition( fieldIndex, QgsDefaultValue( QStringLiteral( "'#377eb8'" ), false ) );
-      notesLayer->setFieldAlias( fieldIndex, tr( "Marker color" ) );
+      //notesLayer->setFieldAlias( fieldIndex, tr( "Marker color" ) );
+      notesLayer->setFieldAlias( fieldIndex, tr( "마커 색상" ) );
     }
 
     // Configure note field
-    fieldIndex = fields.indexOf( QStringLiteral( "title" ) );
+    fieldIndex = fields.indexOf( QStringLiteral( "제목" ) );
     if ( fieldIndex >= 0 )
     {
       widgetOptions.clear();
       widgetSetup = QgsEditorWidgetSetup( QStringLiteral( "TextEdit" ), widgetOptions );
       notesLayer->setEditorWidgetSetup( fieldIndex, widgetSetup );
-      notesLayer->setFieldAlias( fieldIndex, tr( "Title" ) );
+      //notesLayer->setFieldAlias( fieldIndex, tr( "Title" ) );
+      notesLayer->setFieldAlias( fieldIndex, tr( "제목" ) );
     }
 
     // Configure note field
-    fieldIndex = fields.indexOf( QStringLiteral( "note" ) );
+    //fieldIndex = fields.indexOf( QStringLiteral( "note" ) );
+    fieldIndex = fields.indexOf( QStringLiteral( "메모" ) );
     if ( fieldIndex >= 0 )
     {
       widgetOptions.clear();
       widgetOptions[QStringLiteral( "IsMultiline" )] = true;
       widgetSetup = QgsEditorWidgetSetup( QStringLiteral( "TextEdit" ), widgetOptions );
       notesLayer->setEditorWidgetSetup( fieldIndex, widgetSetup );
-      notesLayer->setFieldAlias( fieldIndex, tr( "Note" ) );
+      //notesLayer->setFieldAlias( fieldIndex, tr( "Note" ) );
+      notesLayer->setFieldAlias( fieldIndex, tr( "메모" ) );
     }
 
     if ( options.value( QStringLiteral( "camera_capture" ) ).toBool() )
     {
       // Configure camera field
-      fieldIndex = fields.indexOf( QStringLiteral( "media" ) );
+      //fieldIndex = fields.indexOf( QStringLiteral( "media" ) );
+      fieldIndex = fields.indexOf( QStringLiteral( "사진 / 영상" ) );
       if ( fieldIndex >= 0 )
       {
         widgetOptions.clear();

@@ -16,14 +16,14 @@ Item {
     columns: __verticalView ? 1 : 3
 
     Label {
-      text: qsTr("Hours")
+      text: qsTr("시")
       font: Theme.strongTipFont
       Layout.fillWidth: true
       horizontalAlignment: Text.AlignHCenter
     }
 
     Label {
-      text: qsTr("Minutes")
+      text: qsTr("분")
       font: Theme.strongTipFont
       Layout.fillWidth: true
       horizontalAlignment: Text.AlignHCenter
@@ -32,7 +32,7 @@ Item {
     }
 
     Label {
-      text: qsTr("Seconds")
+      text: qsTr("초")
       font: Theme.strongTipFont
       Layout.fillWidth: true
       horizontalAlignment: Text.AlignHCenter
