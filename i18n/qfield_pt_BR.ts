@@ -1862,7 +1862,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Process Selected Feature(s)</source>
-        <translation type="unfinished"/>
+        <translation>Processar recurso(s) selecionado(s) </translation>
     </message>
     <message>
         <source>Rotate Feature</source>
@@ -1874,11 +1874,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Process Feature</source>
-        <translation type="unfinished"/>
+        <translation>Recurso do processo</translation>
     </message>
     <message>
         <source>Feature copied to clipboard</source>
-        <translation type="unfinished"/>
+        <translation>Recurso copiado para a área de transferência</translation>
     </message>
     <message>
         <source>Feature cut into clipboard</source>
@@ -2065,7 +2065,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Uninstall plugin</source>
-        <translation type="unfinished"/>
+        <translation>Desinstalar plugin</translation>
     </message>
 </context>
 <context>
@@ -2521,23 +2521,23 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Record your location every second, along with date and time, to keep a precise track of your movements.</source>
-        <translation type="unfinished"/>
+        <translation>Registre sua localização a cada segundo, juntamente com a data e a hora, para manter um registro preciso de seus movimentos.</translation>
     </message>
     <message>
         <source>Begin tracking automatically</source>
-        <translation type="unfinished"/>
+        <translation>Comece a rastrear automaticamente</translation>
     </message>
     <message>
         <source>Backup &amp; collaborate?</source>
-        <translation type="unfinished"/>
+        <translation>Fazer backup &amp; colaborar?</translation>
     </message>
     <message>
         <source>QFieldCloud allows to synchronize and merge the data collected by your team in QField. From small individual projects to large data collection campaigns. </source>
-        <translation type="unfinished"/>
+        <translation>O QFieldCloud permite sincronizar e mesclar os dados coletados pela sua equipe no QField. Desde pequenos projetos individuais até grandes campanhas de coleta de dados.</translation>
     </message>
     <message>
         <source>Learn more about QFieldCloud here</source>
-        <translation type="unfinished"/>
+        <translation>Saiba mais sobre o QFieldCloud aqui</translation>
     </message>
     <message>
         <source>Create Project</source>
@@ -2556,15 +2556,15 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Notes</source>
-        <translation type="unfinished"/>
+        <translation>Notas</translation>
     </message>
     <message>
         <source>Time</source>
-        <translation type="unfinished"/>
+        <translation>Tempo</translation>
     </message>
     <message>
         <source>Marker color</source>
-        <translation type="unfinished"/>
+        <translation>Cor do marcador</translation>
     </message>
     <message>
         <source>Title</source>
