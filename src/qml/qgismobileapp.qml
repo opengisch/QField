@@ -1998,13 +1998,19 @@ ApplicationWindow {
         height: 36
 
         onClicked: {
-          if (gnssButton.followActive) {
-            gnssButton.followActiveSkipExtentChanged = true;
-          }
-          mapCanvasMap.zoomIn(Qt.point(mapCanvas.x + (mapCanvas.width - mapCanvasMap.rightMargin) / 2, mapCanvas.y + (mapCanvas.height - mapCanvasMap.bottomMargin) / 2));
-          if (gnssButton.followActive) {
-            // Trigger a mao redraw
-            gnssButton.followLocation(true);
+          if (stateMachine.state === '3d') {
+            if (mapCanvas3DLoader.item) {
+              mapCanvas3DLoader.item.zoomIn();
+            }
+          } else {
+            if (gnssButton.followActive) {
+              gnssButton.followActiveSkipExtentChanged = true;
+            }
+            mapCanvasMap.zoomIn(Qt.point(mapCanvas.x + (mapCanvas.width - mapCanvasMap.rightMargin) / 2, mapCanvas.y + (mapCanvas.height - mapCanvasMap.bottomMargin) / 2));
+            if (gnssButton.followActive) {
+              // Trigger a map redraw
+              gnssButton.followLocation(true);
+            }
           }
         }
       }
@@ -2021,13 +2027,19 @@ ApplicationWindow {
         height: 36
 
         onClicked: {
-          if (gnssButton.followActive) {
-            gnssButton.followActiveSkipExtentChanged = true;
-          }
-          mapCanvasMap.zoomOut(Qt.point(mapCanvas.x + (mapCanvas.width - mapCanvasMap.rightMargin) / 2, mapCanvas.y + (mapCanvas.height - mapCanvasMap.bottomMargin) / 2));
-          if (gnssButton.followActive) {
-            // Trigger a mao redraw
-            gnssButton.followLocation(true);
+          if (stateMachine.state === '3d') {
+            if (mapCanvas3DLoader.item) {
+              mapCanvas3DLoader.item.zoomOut();
+            }
+          } else {
+            if (gnssButton.followActive) {
+              gnssButton.followActiveSkipExtentChanged = true;
+            }
+            mapCanvasMap.zoomOut(Qt.point(mapCanvas.x + (mapCanvas.width - mapCanvasMap.rightMargin) / 2, mapCanvas.y + (mapCanvas.height - mapCanvasMap.bottomMargin) / 2));
+            if (gnssButton.followActive) {
+              // Trigger a map redraw
+              gnssButton.followLocation(true);
+            }
           }
         }
       }

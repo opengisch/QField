@@ -302,4 +302,12 @@ Item {
   function lookAtPoint(pos3d, distance) {
     cameraController.lookAtPoint(pos3d, distance);
   }
+
+  function zoomIn() {
+    cameraController.distance = cameraController.clampDistance(cameraController.distance * 0.8);
+  }
+
+  function zoomOut() {
+    cameraController.distance = cameraController.clampDistance(cameraController.distance * 1.25);
+  }
 }
