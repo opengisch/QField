@@ -229,6 +229,13 @@ class WebdavConnection : public QObject
      */
     Q_INVOKABLE static QVariantMap importHistory();
 
+    /**
+     * Scans a directory recursively and returns all folders containing a WebDAV configuration file.
+     * \param basePath the directory to scan
+     * \return list of absolute paths to WebDAV project folders
+     */
+    Q_INVOKABLE static QStringList findWebdavProjectFolders( const QString &basePath );
+
     Q_INVOKABLE static void forgetHistory( const QString &url = QString(), const QString &username = QString() );
 
   signals:

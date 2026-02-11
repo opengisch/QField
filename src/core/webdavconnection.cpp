@@ -593,14 +593,11 @@ QVariantMap WebdavConnection::importHistory()
   // Collect imported folders
   QMap<QString, QVariantMap> importedFolders;
   QDir importedProjectsDir( QStringLiteral( "%1/Imported Projects/" ).arg( PlatformUtilities::instance()->applicationDirectory() ) );
-  QDirIterator it( importedProjectsDir.absolutePath(),
-                   QStringList() << WEBDAV_CONFIGURATION_FILENAME,
-                   QDir::Files,
-                   QDirIterator::Subdirectories );
+  const QStringList projectFolders = findWebdavProjectFolders( importedProjectsDir.absolutePath() );
 
-  while ( it.hasNext() )
+  for ( const QString &projectFolder : projectFolders )
   {
-    QFile webdavConfigurationFile( it.next() );
+    QFile webdavConfigurationFile( projectFolder + QDir::separator() + WEBDAV_CONFIGURATION_FILENAME );
     if ( !webdavConfigurationFile.open( QFile::ReadOnly ) )
     {
       continue;
@@ -615,7 +612,7 @@ QVariantMap WebdavConnection::importHistory()
     const QVariantMap webdavConfiguration = jsonDocument.toVariant().toMap();
     const QString importedFolderKey = QStringLiteral( "%1 - %2" ).arg( webdavConfiguration.value( "url" ).toString(), webdavConfiguration.value( "username" ).toString() );
 
-    importedFolders[importedFolderKey][webdavConfiguration.value( "remote_path" ).toString()] = importedProjectsDir.relativeFilePath( it.fileInfo().path() );
+    importedFolders[importedFolderKey][webdavConfiguration.value( "remote_path" ).toString()] = importedProjectsDir.relativeFilePath( projectFolder );
   }
 
   // Collect saved imports
@@ -686,6 +683,27 @@ QVariantMap WebdavConnection::importHistory()
   history[QStringLiteral( "lastUrl" )] = lastUrl;
 
   return history;
+}
+
+QStringList WebdavConnection::findWebdavProjectFolders( const QString &basePath )
+{
+  QStringList projects;
+  if ( basePath.isEmpty() )
+  {
+    return projects;
+  }
+
+  QDirIterator it( basePath,
+                   QStringList() << WEBDAV_CONFIGURATION_FILENAME,
+                   QDir::Files,
+                   QDirIterator::Subdirectories );
+
+  while ( it.hasNext() )
+  {
+    it.next();
+    projects << it.fileInfo().absolutePath();
+  }
+  return projects;
 }
 
 void WebdavConnection::putLocalItems()
