@@ -26,7 +26,7 @@ BluetoothReceiver::BluetoothReceiver( const QString &address, QObject *parent )
   , mLocalDevice( std::make_unique<QBluetoothLocalDevice>() )
   , mSocket( new QBluetoothSocket( QBluetoothServiceInfo::RfcommProtocol ) )
 {
-  connect( mSocket, qOverload<QBluetoothSocket::SocketError>( &QBluetoothSocket::errorOccurred ), this, &BluetoothReceiver::handleErrorOccured );
+  connect( mSocket, qOverload<QBluetoothSocket::SocketError>( &QBluetoothSocket::errorOccurred ), this, &BluetoothReceiver::handleErrorOccurred );
   connect( mSocket, &QBluetoothSocket::stateChanged, this, &BluetoothReceiver::handleStateChanged );
 
   connect( mLocalDevice.get(), &QBluetoothLocalDevice::pairingFinished, this, &BluetoothReceiver::pairingFinished );
@@ -120,7 +120,7 @@ void BluetoothReceiver::handleStateChanged( QBluetoothSocket::SocketState state 
 
   if ( currentState == QAbstractSocket::UnconnectedState && mConnectOnDisconnect )
   {
-    QTimer::singleShot( 1000, [this]() { doConnectDevice(); } );
+    QTimer::singleShot( 1000, this, &BluetoothReceiver::doConnectDevice );
   }
   else
   {
@@ -128,7 +128,7 @@ void BluetoothReceiver::handleStateChanged( QBluetoothSocket::SocketState state 
   }
 }
 
-void BluetoothReceiver::handleErrorOccured( QBluetoothSocket::SocketError error )
+void BluetoothReceiver::handleErrorOccurred( QBluetoothSocket::SocketError error )
 {
   switch ( error )
   {
