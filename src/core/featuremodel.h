@@ -165,9 +165,12 @@ class FeatureModel : public QAbstractListModel
      * Will commit the edit buffer of this layer.
      * May change in the future to only commit the changes buffered in this model.
      *
-     * @return Success of the operation
+     * By setting \a flushBuffer to FALSE, the edits made to the feature will remain
+     * in the edit buffer provided the vector layer was already in editing mode.
+     *
+     * \return TRUE if a feature was successfully saved
      */
-    Q_INVOKABLE bool save();
+    Q_INVOKABLE bool save( bool flushBuffer = true );
 
     /**
      * Will reset the feature to the original values and dismiss any buffered edits.
@@ -181,8 +184,15 @@ class FeatureModel : public QAbstractListModel
 
     /**
      * Will create this feature as a new feature on the data source.
+     *
+     * By setting \a flushBuffer to FALSE, the created feature will remain
+     * in the edit buffer provided the vector layer was already in editing mode.
+     * The flushBuffer parameter will be ignored for layers containing
+     * relationships.
+     *
+     * \return TRUE if a feature was successfully created
      */
-    Q_INVOKABLE bool create();
+    Q_INVOKABLE bool create( bool flushBuffer = true );
 
     /**
      * Deletes the current feature from the data source.
@@ -310,8 +320,10 @@ class FeatureModel : public QAbstractListModel
     QgsFeatureIds applyVertexModelTopography();
     void applyGeometryTopography( const QgsGeometry &geometry );
 
-    bool commit();
+    bool commit( bool stopEditing = true );
     bool startEditing();
+    bool isEditing() const;
+
     void setLinkedFeatureValues();
     void updateDefaultValues();
     void updatePermissions();
@@ -346,7 +358,9 @@ class FeatureModel : public QAbstractListModel
     SnappingResult mTopSnappingResult;
     QgsProject *mProject = nullptr;
     QString mTempName;
+
     bool mBatchMode = false;
+    bool mBatchModeWasEditing = false;
 };
 
 #endif // FEATUREMODEL_H
