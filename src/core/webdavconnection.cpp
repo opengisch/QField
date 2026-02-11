@@ -1242,14 +1242,7 @@ void WebdavConnection::requestUpload( const QString &projectPath, bool force )
 
 bool WebdavConnection::hasWebdavConfiguration( const QString &path )
 {
-  const QFileInfo fileInfo( path );
-  QDir dir( fileInfo.isFile() ? fileInfo.absolutePath() : fileInfo.absoluteFilePath() );
-  bool webdavConfigurationExists = dir.exists( WEBDAV_CONFIGURATION_FILENAME );
-  while ( !webdavConfigurationExists && dir.cdUp() )
-  {
-    webdavConfigurationExists = dir.exists( WEBDAV_CONFIGURATION_FILENAME );
-  }
-  return webdavConfigurationExists;
+  return !findWebdavRootForPath( path ).isEmpty();
 }
 
 bool WebdavConnection::tryLockUpload( const QString &root, QString *errorMessage )
@@ -1316,7 +1309,7 @@ QString WebdavConnection::ensureTrailingSlash( QString path ) const
   return path;
 }
 
-QString WebdavConnection::findWebdavRootForPath( const QString &path ) const
+QString WebdavConnection::findWebdavRootForPath( const QString &path )
 {
   QFileInfo fi( QDir::cleanPath( path ) );
   QDir dir( fi.isFile() ? fi.absolutePath() : fi.absoluteFilePath() );
