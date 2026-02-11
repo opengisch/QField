@@ -18,7 +18,7 @@
 
 #include <QDebug>
 #include <QGuiApplication>
-
+#include <QTimer>
 
 BluetoothReceiver::BluetoothReceiver( const QString &address, QObject *parent )
   : NmeaGnssReceiver( parent )
@@ -26,37 +26,8 @@ BluetoothReceiver::BluetoothReceiver( const QString &address, QObject *parent )
   , mLocalDevice( std::make_unique<QBluetoothLocalDevice>() )
   , mSocket( new QBluetoothSocket( QBluetoothServiceInfo::RfcommProtocol ) )
 {
-  connect( mSocket, qOverload<QBluetoothSocket::SocketError>( &QBluetoothSocket::errorOccurred ), this, &BluetoothReceiver::handleError );
-  connect( mSocket, &QBluetoothSocket::stateChanged, this, [this]( QBluetoothSocket::SocketState state ) {
-    QAbstractSocket::SocketState currentState;
-    switch ( state )
-    {
-      case QBluetoothSocket::SocketState::UnconnectedState:
-        currentState = QAbstractSocket::UnconnectedState;
-        break;
-      case QBluetoothSocket::SocketState::ConnectingState:
-        currentState = QAbstractSocket::ConnectingState;
-        break;
-      case QBluetoothSocket::SocketState::ConnectedState:
-        currentState = QAbstractSocket::ConnectedState;
-        break;
-      case QBluetoothSocket::SocketState::ClosingState:
-        currentState = QAbstractSocket::ClosingState;
-        break;
-      case QBluetoothSocket::SocketState::ListeningState:
-        currentState = QAbstractSocket::ListeningState;
-        break;
-      default:
-        currentState = QAbstractSocket::UnconnectedState;
-        break;
-    }
-    setSocketState( currentState );
-
-    if ( currentState == QAbstractSocket::UnconnectedState && mConnectOnDisconnect )
-    {
-      doConnectDevice();
-    }
-  } );
+  connect( mSocket, qOverload<QBluetoothSocket::SocketError>( &QBluetoothSocket::errorOccurred ), this, &BluetoothReceiver::handleErrorOccured );
+  connect( mSocket, &QBluetoothSocket::stateChanged, this, &BluetoothReceiver::handleStateChanged );
 
   connect( mLocalDevice.get(), &QBluetoothLocalDevice::pairingFinished, this, &BluetoothReceiver::pairingFinished );
   connect( mLocalDevice.get(), &QBluetoothLocalDevice::errorOccurred, this, [this]( QBluetoothLocalDevice::Error error ) {
@@ -95,6 +66,7 @@ void BluetoothReceiver::handleDisconnectDevice()
   if ( mSocket->state() != QBluetoothSocket::SocketState::UnconnectedState )
   {
     qInfo() << "BluetoothReceiver: Disconnecting from device: " << mAddress;
+    mConnectOnDisconnect = false;
     mDisconnecting = true;
     mLastGnssPositionValid = false;
     mSocket->disconnectFromService();
@@ -109,9 +81,10 @@ void BluetoothReceiver::handleConnectDevice()
   }
   qInfo() << "BluetoothReceiver: Initiating connection to device: " << mAddress;
 
+  mConnectionFailureCount = 0;
+  mConnectOnDisconnect = true;
   if ( mSocket->state() == QBluetoothSocket::SocketState::ConnectedState )
   {
-    mConnectOnDisconnect = true;
     disconnectDevice();
   }
   else
@@ -120,15 +93,48 @@ void BluetoothReceiver::handleConnectDevice()
   }
 }
 
-void BluetoothReceiver::handleError( QBluetoothSocket::SocketError error )
+void BluetoothReceiver::handleStateChanged( QBluetoothSocket::SocketState state )
 {
-  mLastError = QStringLiteral( "%1 (%2)" ).arg( mSocket->errorString(), QMetaEnum::fromType<QBluetoothSocket::SocketError>().valueToKey( static_cast<int>( error ) ) );
+  QAbstractSocket::SocketState currentState;
+  switch ( state )
+  {
+    case QBluetoothSocket::SocketState::UnconnectedState:
+      currentState = QAbstractSocket::UnconnectedState;
+      break;
+    case QBluetoothSocket::SocketState::ConnectingState:
+      currentState = QAbstractSocket::ConnectingState;
+      break;
+    case QBluetoothSocket::SocketState::ConnectedState:
+      currentState = QAbstractSocket::ConnectedState;
+      break;
+    case QBluetoothSocket::SocketState::ClosingState:
+      currentState = QAbstractSocket::ClosingState;
+      break;
+    case QBluetoothSocket::SocketState::ListeningState:
+      currentState = QAbstractSocket::ListeningState;
+      break;
+    default:
+      currentState = QAbstractSocket::UnconnectedState;
+      break;
+  }
 
+  if ( currentState == QAbstractSocket::UnconnectedState && mConnectOnDisconnect )
+  {
+    QTimer::singleShot( 1000, [this]() { doConnectDevice(); } );
+  }
+  else
+  {
+    setSocketState( currentState );
+  }
+}
+
+void BluetoothReceiver::handleErrorOccured( QBluetoothSocket::SocketError error )
+{
   switch ( error )
   {
     case QBluetoothSocket::SocketError::HostNotFoundError:
-    case QBluetoothSocket::SocketError::RemoteHostClosedError:
     case QBluetoothSocket::SocketError::ServiceNotFoundError:
+    case QBluetoothSocket::SocketError::RemoteHostClosedError:
     case QBluetoothSocket::SocketError::NetworkError:
     case QBluetoothSocket::SocketError::UnsupportedProtocolError:
     case QBluetoothSocket::SocketError::OperationError:
@@ -137,19 +143,35 @@ void BluetoothReceiver::handleError( QBluetoothSocket::SocketError error )
       break;
   }
 
+  mLastError = QStringLiteral( "%1 (%2)" ).arg( mSocket->errorString(), QMetaEnum::fromType<QBluetoothSocket::SocketError>().valueToKey( static_cast<int>( error ) ) );
   qInfo() << QStringLiteral( "BluetoothReceiver: Error: %1" ).arg( mLastError );
+
+  if ( mConnectOnDisconnect )
+  {
+    mConnectionFailureCount++;
+  }
+
+  bool emitMessage = false;
   if ( mSocket->isOpen() )
   {
+    emitMessage = true;
     mSocket->close();
   }
 
-  emit lastErrorChanged( mLastError );
+  if ( mConnectionFailureCount > 10 )
+  {
+    emitMessage = true;
+    mConnectOnDisconnect = false;
+  }
+
+  if ( emitMessage )
+  {
+    emit lastErrorChanged( mLastError );
+  }
 }
 
 void BluetoothReceiver::doConnectDevice()
 {
-  mConnectOnDisconnect = false;
-
   if ( mLocalDevice->hostMode() == QBluetoothLocalDevice::HostPoweredOff )
   {
     qInfo() << QStringLiteral( "BluetoothReceiver: Powering on local device" );
