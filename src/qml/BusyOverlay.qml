@@ -12,6 +12,10 @@ Rectangle {
 
   property alias text: busyMessage.text
   property alias progress: busyProgress.value
+  property bool showProgress: false
+  property string actionText: ""  // Empty = no actionText, set text to show actionText and activate if needed
+
+  signal actionClicked
 
   anchors.fill: parent
   color: Theme.darkGraySemiOpaque
@@ -19,15 +23,13 @@ Rectangle {
   visible: false
 
   state: "hidden"
+
   states: [
     State {
       name: "hidden"
       PropertyChanges {
         target: busyOverlay
         opacity: 0
-      }
-      PropertyChanges {
-        target: busyOverlay
         visible: false
       }
     },
@@ -36,13 +38,11 @@ Rectangle {
       PropertyChanges {
         target: busyOverlay
         visible: true
-      }
-      PropertyChanges {
-        target: busyOverlay
         opacity: 1
       }
     }
   ]
+
   transitions: [
     Transition {
       from: "hidden"
@@ -54,7 +54,10 @@ Rectangle {
           duration: 0
         }
         ScriptAction {
-          script: busyProgress.value = 0.0
+          script: {
+            busyProgress.value = 0.0;
+            busyOverlay.showProgress = false;
+          }
         }
         NumberAnimation {
           target: busyOverlay
@@ -83,66 +86,137 @@ Rectangle {
     }
   ]
 
-  BusyIndicator {
-    id: busyIndicator
-    anchors.centerIn: parent
-    visible: !busyProgress.visible
-    running: busyOverlay.visible
-    width: 100
-    height: 100
-  }
-
-  ProgressBar {
-    id: busyProgress
-    anchors.centerIn: busyIndicator
-    visible: value != 0.0
-    width: 160
-    height: 14
-    indeterminate: false
-    value: 0.0
-    to: 1.0
-  }
-
-  Rectangle {
-    id: busyMessageShield
-    anchors.top: busyIndicator.bottom
-    anchors.topMargin: 10
-    anchors.horizontalCenter: parent.horizontalCenter
-    color: Theme.toolButtonBackgroundSemiOpaqueColor
-    radius: 4
-
-    width: busyMessage.width
-    height: busyMessage.contentHeight + 5
-
-    Text {
-      id: busyMessage
-
-      property int absoluteWidth: busyMessageFontMetrics.boundingRect(text).width + 10
-      width: Math.min(mainWindow.width - 20, absoluteWidth)
-
-      anchors.centerIn: parent
-      horizontalAlignment: Text.AlignHCenter
-      font: Theme.tipFont
-      color: Theme.toolButtonColor
-      text: ''
-      wrapMode: Text.WordWrap
+  // Auto-enable progress tracking when progress value is set > 0
+  onProgressChanged: {
+    if (progress > 0) {
+      showProgress = true;
     }
   }
 
-  FontMetrics {
-    id: busyMessageFontMetrics
-    font: busyMessage.font
+  Rectangle {
+    id: busyCard
+    anchors.centerIn: parent
+    width: Math.min(parent.width * 0.8, 320)
+    height: contentColumn.height + 24
+    color: Theme.mainBackgroundColor
+    radius: 12
+    z: 2
+
+    ColumnLayout {
+      id: contentColumn
+      anchors.centerIn: parent
+      width: parent.width - 32
+      spacing: 12
+
+      Text {
+        id: busyMessage
+        Layout.fillWidth: true
+        horizontalAlignment: Text.AlignLeft
+        font: Theme.defaultFont
+        color: Theme.mainTextColor
+        text: ''
+        wrapMode: Text.WordWrap
+        visible: text.length > 0
+      }
+
+      BusyIndicator {
+        id: busyIndicator
+        Layout.alignment: Qt.AlignHCenter
+        Layout.preferredWidth: 48
+        Layout.preferredHeight: 48
+        running: busyOverlay.visible
+        visible: !busyOverlay.showProgress
+      }
+
+      ColumnLayout {
+        Layout.fillWidth: true
+        spacing: 6
+        visible: busyOverlay.showProgress
+
+        ProgressBar {
+          id: busyProgress
+          Layout.fillWidth: true
+          Layout.preferredHeight: 6
+          value: 0.0
+          to: 1.0
+
+          background: Rectangle {
+            implicitHeight: 6
+            radius: 3
+            color: Theme.controlBackgroundAlternateColor
+          }
+
+          contentItem: Item {
+            implicitHeight: 6
+
+            Rectangle {
+              width: busyProgress.visualPosition * parent.width
+              height: parent.height
+              radius: 3
+              color: Theme.mainColor
+
+              Behavior on width {
+                NumberAnimation {
+                  duration: 200
+                  easing.type: Easing.OutCubic
+                }
+              }
+            }
+          }
+        }
+
+        Text {
+          Layout.fillWidth: true
+          horizontalAlignment: Text.AlignRight
+          text: Math.round(busyProgress.value * 100) + "%"
+          font: Theme.tipFont
+          color: Theme.secondaryTextColor
+        }
+      }
+
+      Text {
+        id: actionLink
+        Layout.fillWidth: true
+        Layout.topMargin: 4
+        horizontalAlignment: Text.AlignRight
+        visible: busyOverlay.actionText !== ""
+        text: busyOverlay.actionText
+        font: Theme.defaultFont
+        color: Theme.mainColor
+
+        MouseArea {
+          anchors.fill: parent
+          anchors.margins: -8  // increase clickable area
+          z: 10
+          cursorShape: Qt.PointingHandCursor
+          onClicked: {
+            busyOverlay.actionClicked();
+          }
+        }
+      }
+    }
   }
 
   MouseArea {
     id: busyOverlayCatcher
     anchors.fill: parent
     enabled: busyOverlay.visible
+    z: 1
 
+    acceptedButtons: Qt.AllButtons
+
+    // Block all events when overlay is present
     onClicked: mouse => {
-      // Needed to avoid people interacting with the UI while the busy overlay is visible
-      // (e.g. while uploading to webDAV, users shouldn't be allowed to select other files or navigate to other pages)
-      return;
+      mouse.accepted = true;
+    }
+    onPressed: mouse => {
+      mouse.accepted = true;
+    }
+    onReleased: mouse => {
+      mouse.accepted = true;
+    }
+    onPressAndHold: mouse => {
+      mouse.accepted = true;
     }
   }
 }
