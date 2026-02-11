@@ -51,7 +51,7 @@ class BluetoothReceiver : public NmeaGnssReceiver
     void handleDisconnectDevice() override;
 
     void handleStateChanged( QBluetoothSocket::SocketState state );
-    void handleErrorOccured( QBluetoothSocket::SocketError error );
+    void handleErrorOccurred( QBluetoothSocket::SocketError error );
 
     void repairDevice( const QBluetoothAddress &address );
 
