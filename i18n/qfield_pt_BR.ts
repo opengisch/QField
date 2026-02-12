@@ -926,7 +926,7 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Feature Form Menu</source>
-        <translation>Menu  do Formulário de Recursos</translation>
+        <translation>Menu  do Formulário de elementos</translation>
     </message>
     <message>
         <source>Remember All Reusable Values</source>
@@ -1830,15 +1830,15 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Print Atlas Feature(s) to Image</source>
-        <translation type="vanished">Imprimir recurso(s) do Atlas em imagem</translation>
+        <translation type="vanished">Imprimir Elemento(s) para Imagem</translation>
     </message>
     <message>
         <source>Print Atlas Feature to Image</source>
-        <translation type="vanished">Imprimir recurso do Atlas como imagem</translation>
+        <translation type="vanished">Imprimir Elemento do Atlas para Imagem</translation>
     </message>
     <message>
         <source>Print Atlas Feature(s)</source>
-        <translation type="unfinished"/>
+        <translation>Imprimir Elemento(s) do Atlas</translation>
     </message>
     <message>
         <source>Printing...</source>
@@ -1850,27 +1850,27 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Feature attributes updated from clipboard</source>
-        <translation type="unfinished"/>
+        <translation>Atributos do elemento atualizados apartir área de transferência</translation>
     </message>
     <message>
         <source>No feature attributes were updated from clipboard</source>
-        <translation type="unfinished"/>
+        <translation>Nenhum atributo de elemento foi atualizado apartir da área de transferência</translation>
     </message>
     <message>
         <source>Feature set as navigation destination</source>
-        <translation type="unfinished"/>
+        <translation>Elemento definido como destino de navegação</translation>
     </message>
     <message>
         <source>Process Selected Feature(s)</source>
-        <translation>Processar recurso(s) selecionado(s) </translation>
+        <translation>Processar Elemento Selecionado(s)</translation>
     </message>
     <message>
         <source>Rotate Feature</source>
-        <translation type="unfinished"/>
+        <translation>Rotacionar elemento</translation>
     </message>
     <message>
         <source>Update Attributes from Feature</source>
-        <translation type="unfinished"/>
+        <translation>Atualizar os atributos apartir do elemento</translation>
     </message>
     <message>
         <source>Process Feature</source>
@@ -2092,7 +2092,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>The requested plugin URL is present in the available plugins list, please install via its download button</source>
-        <translation type="unfinished"/>
+        <translation>A URL do plugin solicitado está presente na lista de plugins disponíveis. Instale-o através do botão de download.</translation>
     </message>
 </context>
 <context>
@@ -2123,11 +2123,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>The author details shown above are self-reported by the plugin and not independently verified. Please make sure you trust the plugin&apos;s origin.</source>
-        <translation type="unfinished"/>
+        <translation>Os detalhes do autor mostrados acima são relatados pelo próprio plugin e não verificados de forma independente. Certifique-se de que confia na origem do plugin</translation>
     </message>
     <message>
         <source>Plugins management menu</source>
-        <translation type="unfinished"/>
+        <translation>Menu de gestão de plugins</translation>
     </message>
     <message>
         <source>Local Plugins</source>
@@ -2256,11 +2256,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>TCP (NMEA)</source>
-        <translation type="unfinished"/>
+        <translation>TCP (NMEA)</translation>
     </message>
     <message>
         <source>UDP (NMEA)</source>
-        <translation type="unfinished"/>
+        <translation>UDP (NMEA)</translation>
     </message>
     <message>
         <source>Serial port (NMEA)</source>
@@ -2280,7 +2280,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source> (leave empty to auto-fill)</source>
-        <translation type="unfinished"/>
+        <translation>Deixar vazio no preenchimento automático</translation>
     </message>
     <message>
         <source>Connection details</source>
@@ -2331,7 +2331,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>grid</source>
-        <translation type="unfinished"/>
+        <translation>grid</translation>
     </message>
     <message>
         <source>ortho.</source>
@@ -2439,11 +2439,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>There are no general parameters attached to this algorithm.</source>
-        <translation type="unfinished"/>
+        <translation>Não existem parâmetros gerais anexados a este algoritmo.</translation>
     </message>
     <message>
         <source>Algorithm description</source>
-        <translation type="unfinished"/>
+        <translation>Descrição do Algoritmo</translation>
     </message>
 </context>
 <context>
@@ -2465,7 +2465,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>This page will guide you through the creation of a simple project through simple configuration toggles. For more advanced needs, we advise you to create projects in QGIS using QFieldSync.</source>
-        <translation type="unfinished"/>
+        <translation>Esta página irá guiá-lo através da criação de um projeto simples por meio de configurações simples. Para necessidades mais avançadas, recomendamos que você crie projetos no QGIS usando o QFieldSync.</translation>
     </message>
     <message>
         <source>New project name</source>
@@ -2473,15 +2473,15 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Select your basemap</source>
-        <translation type="unfinished"/>
+        <translation>Seleciona a composição basemap</translation>
     </message>
     <message>
         <source>Choose a basemap for your project. Pick from the available options or provide your own custom URL.</source>
-        <translation type="unfinished"/>
+        <translation>Escolha um basemap para o seu projeto. Selecione uma das opções disponíveis ou forneça sua própria URL personalizada.</translation>
     </message>
     <message>
         <source>Colorful</source>
-        <translation type="unfinished"/>
+        <translation>Cor</translation>
     </message>
     <message>
         <source>Darkgray</source>
@@ -2509,15 +2509,15 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Quickly capture notes with date, time, and comments. Optionally, attach multimedia items such as images and videos to enrich your notes.</source>
-        <translation type="unfinished"/>
+        <translation>Capture rapidamente notas com data, hora e comentários. Opcionalmente, anexe itens multimídia, como imagens e vídeos, para enriquecer suas notas.</translation>
     </message>
     <message>
         <source>Take image and video attachments</source>
-        <translation type="unfinished"/>
+        <translation>Aceitar anexos de imagens e vídeos</translation>
     </message>
     <message>
         <source>Track your position?</source>
-        <translation type="unfinished"/>
+        <translation>Pesquisar por posição?</translation>
     </message>
     <message>
         <source>Record your location every second, along with date and time, to keep a precise track of your movements.</source>
@@ -2595,7 +2595,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>QFieldAppAuthRequestHandler</name>
     <message>
         <source>Please enter credentials for database</source>
-        <translation type="unfinished"/>
+        <translation>Insira as credenciais para o database</translation>
     </message>
     <message>
         <source>at host</source>
@@ -2641,7 +2641,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Details stamping enabled</source>
-        <translation type="unfinished"/>
+        <translation>Geotagging ativado</translation>
     </message>
     <message>
         <source>Latitude</source>
@@ -2717,7 +2717,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Authentication provider missing</source>
-        <translation type="unfinished"/>
+        <translation>Necessidade de autenticação</translation>
     </message>
     <message>
         <source>Password missing</source>
@@ -2831,7 +2831,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Some layers have not been packaged correctly on QFieldCloud. These layers might be misconfigured or their data source is not accessible from the QFieldCloud server. Please check the logs of the latest packaging job on the qfield.cloud website.</source>
-        <translation type="unfinished"/>
+        <translation>Algumas camadas não foram empacotadas corretamente no QFieldCloud. Essas camadas podem estar mal configuradas ou a sua origem de dados não pode ser acessada a partir do servidor QFieldCloud. Verifique os logs do último trabalho de package no site qfield.cloud.</translation>
     </message>
 </context>
 <context>
@@ -2846,7 +2846,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Storing projects on QFieldCloud offers seamless synchornization, offline editing, and team management.&lt;br&gt;&lt;br&gt;</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Armazenar projetos no QFieldCloud oferece uma sincronização segura, com edição offline e gestão de equipas.&lt;br&gt;&lt;br&gt;</translation>
     </message>
     <message>
         <source>Learn more about QFieldCloud</source>
@@ -2866,7 +2866,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>This QFieldCloud project was first downloaded with another cloud account. Please sign in with the original account for this project to use the QFieldCloud functionality.</source>
-        <translation type="unfinished"/>
+        <translation>Este projeto QFieldCloud foi descarregado pela primeira vez com outra conta na cloud. Faça login com a conta original deste projeto para usar a funcionalidade QFieldCloud.</translation>
     </message>
     <message>
         <source>Downloading %1%…</source>
@@ -2910,7 +2910,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Synchronize the whole project with all modified features and download the freshly updated project with all the applied changes from QFieldCloud.</source>
-        <translation type="unfinished"/>
+        <translation>Sincroniza o projeto todo com todos os elementos modificados e transfere um novo projeto atualizado com todas alterações aplicadas a partir do QFieldCloud.</translation>
     </message>
     <message>
         <source>Push changes</source>
@@ -2940,7 +2940,9 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <source>The local copy of this cloud project has been corrupted. Resetting the project will re-download the cloud version and will remove any local changes, make sure those were copied first if needed.
 
 While you can still view and use the project, it is strongly recommended to reset to avoid any accidental data loss as none of the changes made will be pushed back to the cloud.</source>
-        <translation type="unfinished"/>
+        <translation>A cópia local deste projeto da cloud foi corrompido. Limpando o projeto irá re-transferir a versão cloud e irá remover qualquer tipo de alterações locais, tenha a certeza que as copiou primeiro.
+
+Enquanto pode ver e usar o projeto, recomendamos fortemente a limpá-lo para evitar qualquer perda acidental de dados uma vez que nenhuma das alterações feitas serão enviadas de volta para a cloud.</translation>
     </message>
     <message>
         <source>Last synchronized just now</source>
@@ -3012,15 +3014,15 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>This project has an updated project file on the cloud, you are advised to synchronize.</source>
-        <translation type="unfinished"/>
+        <translation>Este projeto tem um ficheiro de projeto atualizado na nuvem, é recomendado sincronizar.</translation>
     </message>
     <message>
         <source>This project has updated data on the cloud, you should synchronize.</source>
-        <translation type="unfinished"/>
+        <translation>Este projeto possui dados atualizados na nuvem, você deve sincronizar.</translation>
     </message>
     <message>
         <source>QFieldCloud is packaging the latest data just for you; this might take some time, please hold tight</source>
-        <translation type="unfinished"/>
+        <translation>QFieldCloud está empacotando os dados mais recentes só para você; isso pode levar algum tempo, por favor aguarde</translation>
     </message>
     <message>
         <source>Downloading, %1% of %2 fetched</source>
@@ -3040,7 +3042,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>The current project does not allow for auto-push to be turned off</source>
-        <translation type="unfinished"/>
+        <translation>O projeto atual não permite que o envio automático seja desativado</translation>
     </message>
     <message>
         <source>Storing projects on QFieldCloud offers seamless synchronization, offline editing, and team management.&lt;br&gt;&lt;br&gt;</source>
@@ -3052,19 +3054,19 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>QFieldCloud is applying the latest pushed changes. This might take some time, please hold tight…</source>
-        <translation type="unfinished"/>
+        <translation>QFieldCloud está atualizando as últimas mudanças carregadas. Isso pode levar algum tempo, por favor, espere um momento...</translation>
     </message>
     <message>
         <source>Uploading the current project to QFieldCloud.</source>
-        <translation type="unfinished"/>
+        <translation>Carregando o projeto atual para o QFieldCloud.</translation>
     </message>
     <message>
         <source>The current project is not stored on QFieldCloud.</source>
-        <translation type="unfinished"/>
+        <translation>O projeto atual não está armazenado no QFieldCloud. &lt;br&gt;&lt;br&gt;</translation>
     </message>
     <message>
         <source>Cloudifying project</source>
-        <translation type="unfinished"/>
+        <translation>Carregando Projeto</translation>
     </message>
     <message>
         <source>Cloudify!</source>
@@ -3091,15 +3093,15 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Failed to get latest package data.</source>
-        <translation type="unfinished"/>
+        <translation>Falha ao obter os dados do pacote mais recente.</translation>
     </message>
     <message>
         <source>Latest package data response error.</source>
-        <translation type="unfinished"/>
+        <translation>Erro de resposta de dados do pacote mais recente.</translation>
     </message>
     <message>
         <source>Latest package data structure error.</source>
-        <translation type="unfinished"/>
+        <translation>Erro de estrutura de dados do pacote mais recente.</translation>
     </message>
     <message>
         <source>Project %1: Packaged layer `%2` is not valid. Error code %3, error message: %4</source>
@@ -3141,7 +3143,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Job creation finished, but the server response is missing required fields: id(string)</source>
-        <translation type="unfinished"/>
+        <translation>Criação do trabalho foi concluída, mas a resposta do servidor não contém os campos obrigatórios: id(string)</translation>
     </message>
     <message>
         <source>Getting job status, but no `%2` job triggered yet.</source>
@@ -3189,11 +3191,11 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Local path to upload cannot be used as it has multiple project files</source>
-        <translation type="unfinished"/>
+        <translation>O caminho local para upload não pode ser usado, pois contém vários arquivos de projeto.</translation>
     </message>
     <message>
         <source>Local path to upload is missing a valid project file</source>
-        <translation type="unfinished"/>
+        <translation>O caminho local para upload não pode ser usado, pois contém vários arquivos de projeto.</translation>
     </message>
     <message>
         <source>Network error. Failed to upload file `%1`.</source>
@@ -3220,7 +3222,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>This QR code can be scanned for users with the appropriate access to download and open this project</source>
-        <translation type="unfinished"/>
+        <translation>Este código QR pode ser escaneado por usuários com acesso apropriado para download e abrir este projeto.</translation>
     </message>
     <message>
         <source>Synchronize</source>
@@ -3299,7 +3301,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Job creation finished, but the server response is missing required fields: id(string)</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Criação do trabalho foi concluída, mas a resposta do servidor não contém os campos obrigatórios: id(string)</translation>
     </message>
     <message>
         <source>Getting job status, but no `%2` job triggered yet.</source>
@@ -3331,15 +3333,15 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Failed to get latest package data.</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Falha ao obter os dados do pacote mais recente.</translation>
     </message>
     <message>
         <source>Latest package data response error.</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Erro de resposta de dados do pacote mais recente.</translation>
     </message>
     <message>
         <source>Latest package data structure error.</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Erro de estrutura de dados do pacote mais recente.</translation>
     </message>
     <message>
         <source>Project %1: Packaged layer `%2` is not valid. Error code %3, error message: %4</source>
@@ -3386,11 +3388,11 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Project creation requires a name</source>
-        <translation type="unfinished"/>
+        <translation>Necessidade de autenticação</translation>
     </message>
     <message>
         <source>Cloud project could not be created.</source>
-        <translation type="unfinished"/>
+        <translation>A geometria não pôde ser alterada</translation>
     </message>
     <message>
         <source>Network is not currently active. We will push the changes automatically once you are back online.</source>
@@ -3509,7 +3511,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>QFieldCloud is packaging the latest data just for you; this might take some time, please hold tight</source>
-        <translation type="unfinished"/>
+        <translation>QFieldCloud está empacotando os dados mais recentes só para você; isso pode levar algum tempo, por favor aguarde</translation>
     </message>
     <message>
         <source>Downloading, %1% of %2 fetched</source>
@@ -3689,7 +3691,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Storage management help</source>
-        <translation type="unfinished"/>
+        <translation>Ajuda na gestão de armazenamento</translation>
     </message>
     <message>
         <source>Password</source>
@@ -3709,11 +3711,11 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>View file</source>
-        <translation type="unfinished"/>
+        <translation>Ver arquivo</translation>
     </message>
     <message>
         <source>Push to QFieldCloud</source>
-        <translation type="unfinished"/>
+        <translation>Enviar para o QFieldCloud</translation>
     </message>
     <message>
         <source>Add to favorites</source>
@@ -3733,11 +3735,11 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Delete file</source>
-        <translation type="unfinished"/>
+        <translation>Deletar elemento</translation>
     </message>
     <message>
         <source>Remove folder</source>
-        <translation type="unfinished"/>
+        <translation>Remover pasta </translation>
     </message>
     <message>
         <source>Import Actions</source>
@@ -4925,7 +4927,7 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Print Atlas Feature(s)</source>
-        <translation type="unfinished"/>
+        <translation>Imprimir Elemento(s) do Atlas</translation>
     </message>
     <message>
         <source>Select template below</source>
@@ -4937,7 +4939,7 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Atlas feature(s) successfully printed and placed in your project folder</source>
-        <translation>Recursos do Atlas impressos com sucesso e colocados na pasta do seu projeto</translation>
+        <translation>Elemento(s) do Atlas foram imprimidos com sucesso e guardados na sua pasta do projeto</translation>
     </message>
     <message numerus="yes">
         <source>%n feature(s)</source>
@@ -5893,11 +5895,11 @@ project</source>
     <name>point</name>
     <message>
         <source>latitude</source>
-        <translation type="unfinished"/>
+        <translation>Latitude</translation>
     </message>
     <message>
         <source>longitude</source>
-        <translation type="unfinished"/>
+        <translation>Longitude</translation>
     </message>
     <message>
         <source>elevation</source>
