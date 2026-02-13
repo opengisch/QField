@@ -653,6 +653,7 @@ double Positioning::projectedHorizontalAccuracy() const
 
 void Positioning::onPositionInformationChanged()
 {
+  qInfo() << "xxx got one";
   mPositionInformation = mPositioningSourceReplica->property( "positionInformation" ).value<GnssPositionInformation>();
 
   GnssPositionInformation::AccuracyQuality quality = GnssPositionInformation::AccuracyQuality::AccuracyBad;
