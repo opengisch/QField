@@ -1513,7 +1513,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Tracking on layer %1 stopped</source>
-        <translation type="unfinished"/>
+        <translation>Rastreamento na camada % 1 parada</translation>
     </message>
 </context>
 <context>
@@ -1593,7 +1593,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Tracking on layer %1 stopped</source>
-        <translation type="unfinished"/>
+        <translation>Rastreamento na camada % 1 parada</translation>
     </message>
 </context>
 <context>
@@ -1681,11 +1681,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>When disabled, this locator filter can still be used by typing the prefix %1 in the search bar.</source>
-        <translation type="unfinished"/>
+        <translation>Quando desativado, este filtro do localizador ainda pode ser usado inserido o prefixo %1 na barra de pesquisa.</translation>
     </message>
     <message>
         <source>Enable %1 locator by default</source>
-        <translation type="unfinished"/>
+        <translation>Ativar e definir este localizador % 1 como padrão.</translation>
     </message>
 </context>
 <context>
@@ -1882,7 +1882,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Feature cut into clipboard</source>
-        <translation type="unfinished"/>
+        <translation>Recurso copiado para a área de transferência</translation>
     </message>
 </context>
 <context>
@@ -2014,7 +2014,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>All images (*.jpg *.jpeg *.png *.bmp);;JPEG images (*.jpg *.jpeg);;PNG images (*.jpg *.jpeg);;BMP images (*.bmp)</source>
-        <translation type="unfinished"/>
+        <translation>Todas as imagens (*.jpg *.jpeg *.png *.bmp);;Imagens JPEG (*.jpg *.jpeg);;Imagens PNG (*.jpg *.jpeg);;Imagens BMP (*.bmp)</translation>
     </message>
     <message>
         <source>Select Video File</source>
@@ -2022,11 +2022,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>All video (*.mp4 *.mkv *.mov);;MP4 video (*.mp4);;MKV video(*.mkv);;MOV video (*.mov)</source>
-        <translation type="unfinished"/>
+        <translation>Todos os vídeos (*.mp4 *.mkv *.mov);;Vídeo MP4 (*.mp4);;Vídeo MKV (*.mkv);;Vídeo MOV (*.mov)</translation>
     </message>
     <message>
         <source>Audio files (*.mp3 *.aac *.ogg)</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Ficheiros áudio (*.mp3 *.aac *.ogg)</translation>
     </message>
     <message>
         <source>All files (*.*)</source>
@@ -2057,11 +2057,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>PluginItem</name>
     <message>
         <source>Authored by %1%2%3</source>
-        <translation type="unfinished"/>
+        <translation>Da autoria de %1%2%3</translation>
     </message>
     <message>
         <source>Uninstall version %1</source>
-        <translation type="unfinished"/>
+        <translation>Desinstalar a versão %1</translation>
     </message>
     <message>
         <source>Uninstall plugin</source>
@@ -2084,7 +2084,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Download file is not an zipped plugin</source>
-        <translation type="unfinished"/>
+        <translation>O ficheiro de download não é um plugin compactado</translation>
     </message>
     <message>
         <source>Network error</source>
@@ -2454,7 +2454,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>All Algorithms</source>
-        <translation type="unfinished"/>
+        <translation>Todos os Algoritmos</translation>
     </message>
 </context>
 <context>
@@ -2625,11 +2625,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Grid enabled</source>
-        <translation type="unfinished"/>
+        <translation>Grelha ativada</translation>
     </message>
     <message>
         <source>Grid disabled</source>
-        <translation type="unfinished"/>
+        <translation>Grelha desativada</translation>
     </message>
     <message>
         <source>front</source>
@@ -2709,11 +2709,12 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Failed to upload attachment stored at `%1`, reason:
 %2</source>
-        <translation type="unfinished"/>
+        <translation>Falha ao carregar o anexo armazenado em `%1`, motivo:
+%2</translation>
     </message>
     <message>
         <source>Login error due to unexpected redirect, please retry later</source>
-        <translation type="unfinished"/>
+        <translation>Login error due to unexpected redirect, please retry later</translation>
     </message>
     <message>
         <source>Authentication provider missing</source>
@@ -2752,7 +2753,8 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Server URL
 (Leave empty to use the default server)</source>
-        <translation type="unfinished"/>
+        <translation>URL do Servidor
+(Deixe vazio se usar o servidor padrão)</translation>
     </message>
     <message>
         <source>Username or email</source>
@@ -3026,15 +3028,15 @@ Enquanto pode ver e usar o projeto, recomendamos fortemente a limpá-lo para evi
     </message>
     <message>
         <source>Downloading, %1% of %2 fetched</source>
-        <translation type="unfinished"/>
+        <translation>Transferência, %1% de %2 obtida</translation>
     </message>
     <message>
         <source>Downloading, %1% fetched</source>
-        <translation type="unfinished"/>
+        <translation>Transferência, %1% obtida</translation>
     </message>
     <message>
         <source>Reaching out to QFieldCloud to download project</source>
-        <translation type="unfinished"/>
+        <translation>Ligando-se ao QFieldCloud para baixar o projeto</translation>
     </message>
     <message numerus="yes">
         <source>Automatically push changes every %n minute(s)</source>
@@ -3074,7 +3076,7 @@ Enquanto pode ver e usar o projeto, recomendamos fortemente a limpá-lo para evi
     </message>
     <message>
         <source>Uploading %1</source>
-        <translation type="unfinished"/>
+        <translation>Fazendo upload %1%...</translation>
     </message>
     <message numerus="yes">
         <source>%n file(s) remaining</source>
@@ -3085,11 +3087,11 @@ Enquanto pode ver e usar o projeto, recomendamos fortemente a limpá-lo para evi
     <name>QFieldCloudProject</name>
     <message>
         <source>Packaging job finished unsuccessfully for `%1`. %2</source>
-        <translation type="unfinished"/>
+        <translation>Trabalho de package foi concluído sem sucesso para `%1`. %2 </translation>
     </message>
     <message>
         <source>Failed to refresh the latest info for `%1`: %2</source>
-        <translation type="unfinished"/>
+        <translation>Falha ao atualizar a informação mais recente para `%1`: %2</translation>
     </message>
     <message>
         <source>Failed to get latest package data.</source>
@@ -3105,7 +3107,7 @@ Enquanto pode ver e usar o projeto, recomendamos fortemente a limpá-lo para evi
     </message>
     <message>
         <source>Project %1: Packaged layer `%2` is not valid. Error code %3, error message: %4</source>
-        <translation type="unfinished"/>
+        <translation>Projeto %1: A camada de package `%2` não é válida. Código de erro %3, mensagem de erro: %4</translation>
     </message>
     <message>
         <source>Failed to open temporary file for `%1`, reason:
@@ -3147,7 +3149,7 @@ Enquanto pode ver e usar o projeto, recomendamos fortemente a limpá-lo para evi
     </message>
     <message>
         <source>Getting job status, but no `%2` job triggered yet.</source>
-        <translation type="unfinished"/>
+        <translation>Obtendo o estado do trabalho, mas nenhum trabalho `%2` acionado ainda.</translation>
     </message>
     <message>
         <source>job(%1) status response does not contain all the expected keys: status(string)</source>
@@ -3159,7 +3161,7 @@ Enquanto pode ver e usar o projeto, recomendamos fortemente a limpá-lo para evi
     </message>
     <message>
         <source>project(%1) trigger response refresh not contain all the expected keys: name(string), owner(string), description(string), user_role(string), is_public(bool), can_repackage(bool), needs_repackaging(bool)</source>
-        <translation type="unfinished"/>
+        <translation>A resposta à atualização ao acionador do projeto(%1) não contém todas as chaves espectáveis: name(string), owner(string), description(string), user_role(string), is_public(bool), can_repackage(bool), needs_repackaging(bool)</translation>
     </message>
     <message>
         <source>aborted</source>
@@ -3167,15 +3169,15 @@ Enquanto pode ver e usar o projeto, recomendamos fortemente a limpá-lo para evi
     </message>
     <message>
         <source>File system error. Failed to write attachment to temporary location `%1`.</source>
-        <translation type="unfinished"/>
+        <translation>Erro no sistema de ficheiros. Falha ao gravar o ficheiro no local temporário `%1`.</translation>
     </message>
     <message>
         <source>File system error. Failed to open attachment for writing on temporary `%1`.</source>
-        <translation type="unfinished"/>
+        <translation>Erro no sistema de ficheiros. Falha ao abrir ficheiro para escrita em `%1` temporário.</translation>
     </message>
     <message>
         <source>Network error. Failed to download attachment `%1`.</source>
-        <translation type="unfinished"/>
+        <translation>Erro de rede. Falha ao descarregar o arquivo `%1`.</translation>
     </message>
     <message>
         <source>File system error. Failed to write to partial file `%1`.</source>
@@ -3199,7 +3201,7 @@ Enquanto pode ver e usar o projeto, recomendamos fortemente a limpá-lo para evi
     </message>
     <message>
         <source>Network error. Failed to upload file `%1`.</source>
-        <translation type="unfinished"/>
+        <translation>Erro de rede. Falha ao descarregar o arquivo `%1`.</translation>
     </message>
     <message>
         <source>One or more files could not be uploaded</source>
@@ -3293,7 +3295,7 @@ Enquanto pode ver e usar o projeto, recomendamos fortemente a limpá-lo para evi
     </message>
     <message>
         <source>project(%1) trigger response refresh not contain all the expected keys: name(string), owner(string), description(string), user_role(string), is_public(bool), can_repackage(bool), needs_repackaging(bool)</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">A resposta à atualização ao acionador do projeto(%1) não contém todas as chaves espectáveis: name(string), owner(string), description(string), user_role(string), is_public(bool), can_repackage(bool), needs_repackaging(bool)</translation>
     </message>
     <message>
         <source>Getting job status, but the project is deleted.</source>
@@ -3305,7 +3307,7 @@ Enquanto pode ver e usar o projeto, recomendamos fortemente a limpá-lo para evi
     </message>
     <message>
         <source>Getting job status, but no `%2` job triggered yet.</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Obtendo o estado do trabalho, mas nenhum trabalho `%2` acionado ainda.</translation>
     </message>
     <message>
         <source>Getting job status finished, but the project is deleted.</source>
@@ -3325,11 +3327,11 @@ Enquanto pode ver e usar o projeto, recomendamos fortemente a limpá-lo para evi
     </message>
     <message>
         <source>Packaging job finished unsuccessfully for `%1`. %2</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Trabalho de package foi concluído sem sucesso para `%1`. %2 </translation>
     </message>
     <message>
         <source>Failed to refresh the latest info for `%1`: %2</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Falha ao atualizar a informação mais recente para `%1`: %2</translation>
     </message>
     <message>
         <source>Failed to get latest package data.</source>
@@ -3345,7 +3347,7 @@ Enquanto pode ver e usar o projeto, recomendamos fortemente a limpá-lo para evi
     </message>
     <message>
         <source>Project %1: Packaged layer `%2` is not valid. Error code %3, error message: %4</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Projeto %1: A camada de package `%2` não é válida. Código de erro %3, mensagem de erro: %4</translation>
     </message>
     <message>
         <source>Failed to open temporary file for `%1`, reason:
@@ -3356,7 +3358,8 @@ Enquanto pode ver e usar o projeto, recomendamos fortemente a limpá-lo para evi
     <message>
         <source>Failed to upload attachment stored at `%1`, reason:
 %2</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Falha ao carregar o anexo armazenado em `%1`, motivo:
+%2</translation>
     </message>
     <message>
         <source>Network error. Failed to download file `%1`.</source>
@@ -3364,11 +3367,11 @@ Enquanto pode ver e usar o projeto, recomendamos fortemente a limpá-lo para evi
     </message>
     <message>
         <source>File system error. Failed to write file to temporary location `%1`.</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Erro no sistema de ficheiros. Falha ao gravar o ficheiro no local temporário `%1`.</translation>
     </message>
     <message>
         <source>File system error. Failed to open file for writing on temporary `%1`.</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Erro no sistema de ficheiros. Falha ao abrir ficheiro para escrita em `%1` temporário.</translation>
     </message>
     <message>
         <source>Project `%1`, file `%2`: %3</source>
@@ -3507,7 +3510,7 @@ Enquanto pode ver e usar o projeto, recomendamos fortemente a limpá-lo para evi
     </message>
     <message>
         <source>, updated data available on the cloud</source>
-        <translation type="unfinished"/>
+        <translation>, dados atualizados disponíveis na nuvem</translation>
     </message>
     <message>
         <source>QFieldCloud is packaging the latest data just for you; this might take some time, please hold tight</source>
@@ -3515,15 +3518,15 @@ Enquanto pode ver e usar o projeto, recomendamos fortemente a limpá-lo para evi
     </message>
     <message>
         <source>Downloading, %1% of %2 fetched</source>
-        <translation type="unfinished"/>
+        <translation>Transferência, %1% de %2 obtida</translation>
     </message>
     <message>
         <source>Downloading, %1% fetched</source>
-        <translation type="unfinished"/>
+        <translation>Transferência, %1% obtida</translation>
     </message>
     <message>
         <source>Reaching out to QFieldCloud to download project</source>
-        <translation type="unfinished"/>
+        <translation>Ligando-se ao QFieldCloud para baixar o projeto</translation>
     </message>
     <message>
         <source>No cloud projects found. To get started, %1read the documentation%2.</source>
@@ -3563,11 +3566,11 @@ Enquanto pode ver e usar o projeto, recomendamos fortemente a limpá-lo para evi
     </message>
     <message>
         <source>View Project Folder</source>
-        <translation type="unfinished"/>
+        <translation>Abrir Pasta do Projeto</translation>
     </message>
     <message>
         <source>Are you sure you want to remove `%1`?</source>
-        <translation type="unfinished"/>
+        <translation>Tem a certeza que quer desinstalar `%1`?</translation>
     </message>
     <message>
         <source>Synchronize</source>
@@ -3582,7 +3585,7 @@ Enquanto pode ver e usar o projeto, recomendamos fortemente a limpá-lo para evi
     <name>QFieldCloudService</name>
     <message>
         <source>Uploading %1</source>
-        <translation type="unfinished"/>
+        <translation>Fazendo upload %1%...</translation>
     </message>
     <message numerus="yes">
         <source>%n file(s) remaining</source>
@@ -3627,7 +3630,7 @@ Enquanto pode ver e usar o projeto, recomendamos fortemente a limpá-lo para evi
     </message>
     <message>
         <source>Local Projects &amp; Datasets</source>
-        <translation type="unfinished"/>
+        <translation>Projetos e conjuntos de dados locais </translation>
     </message>
     <message>
         <source>Folders</source>
@@ -3639,7 +3642,7 @@ Enquanto pode ver e usar o projeto, recomendamos fortemente a limpá-lo para evi
     </message>
     <message>
         <source>Datasets</source>
-        <translation type="unfinished"/>
+        <translation>Conjuntos de dados</translation>
     </message>
     <message>
         <source>Favorites</source>
@@ -3651,11 +3654,11 @@ Enquanto pode ver e usar o projeto, recomendamos fortemente a limpá-lo para evi
     </message>
     <message>
         <source>Vector dataset</source>
-        <translation type="unfinished"/>
+        <translation>Conjunto de dados vectoriais</translation>
     </message>
     <message>
         <source>Raster dataset</source>
-        <translation type="unfinished"/>
+        <translation>Conjunto de dados raster</translation>
     </message>
     <message>
         <source>Send to...</source>
@@ -3667,7 +3670,7 @@ Enquanto pode ver e usar o projeto, recomendamos fortemente a limpá-lo para evi
     </message>
     <message>
         <source>Remove dataset</source>
-        <translation type="unfinished"/>
+        <translation>Remover conjunto de dados</translation>
     </message>
     <message>
         <source>Send compressed folder to...</source>
@@ -3687,7 +3690,7 @@ Enquanto pode ver e usar o projeto, recomendamos fortemente a limpá-lo para evi
     </message>
     <message>
         <source>Import dataset(s)</source>
-        <translation type="unfinished"/>
+        <translation>Importar conjunto de dado(s)</translation>
     </message>
     <message>
         <source>Storage management help</source>
@@ -3775,7 +3778,7 @@ Enquanto pode ver e usar o projeto, recomendamos fortemente a limpá-lo para evi
     </message>
     <message>
         <source>Push file(s) to QFieldCloud</source>
-        <translation type="unfinished"/>
+        <translation>Enviar para o QFieldCloud</translation>
     </message>
     <message>
         <source>Please select one or more files to push to QFieldCloud.</source>
@@ -3795,7 +3798,7 @@ Enquanto pode ver e usar o projeto, recomendamos fortemente a limpá-lo para evi
     </message>
     <message>
         <source>Remove File(s)</source>
-        <translation type="unfinished"/>
+        <translation>Remover pasta </translation>
     </message>
     <message numerus="yes">
         <source>Are you sure you want to remove %n files?</source>
@@ -3949,7 +3952,7 @@ Enquanto pode ver e usar o projeto, recomendamos fortemente a limpá-lo para evi
     </message>
     <message>
         <source>When switched on, user&apos;s saved and currently opened project bookmarks will be displayed on the map.</source>
-        <translation type="unfinished"/>
+        <translation>Quando ativado, os utilizadores guardam e os marcadores do projetos atualmente abertos no projeto serão exibidos no mapa.</translation>
     </message>
     <message>
         <source>Use native camera</source>
@@ -4103,7 +4106,7 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Enable averaged positioning requirement</source>
-        <translation type="unfinished"/>
+        <translation>Ativar o requisito de posicionamento médio</translation>
     </message>
     <message>
         <source>Minimum number of positions collected</source>
@@ -4111,11 +4114,11 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Automatically end collection when minimum number is met</source>
-        <translation type="unfinished"/>
+        <translation>Terminar a recolha automaticamente quando o número mínimo for atingido</translation>
     </message>
     <message>
         <source>When enabled, digitizing vertices with a cursor locked to position will only accepted an averaged position from a minimum number of collected positions. Digitizing using averaged positions is done by pressing and holding the add vertex button, which will collect positions until the press is released. Accuracy requirement settings are respected when enabled.</source>
-        <translation type="unfinished"/>
+        <translation>Quando ativo, a digitalização de vértices com o cursor bloqueado à posição não irá aceitar uma posição média a partir de um número de posições recolhidas. A digitalização usando pontos médios é feita pressionando e segurando o botão de adicionar vértice, e que permitirá recolher posições até libertar o botão. As configurações de requisitos de precisão são respeitados quando ativos.</translation>
     </message>
     <message>
         <source>Antenna height compensation</source>
@@ -4155,19 +4158,19 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Time of inactivity in seconds before the screen brightness get be dimmed to preserve battery.</source>
-        <translation type="unfinished"/>
+        <translation>Tempo de inatividade em segundos antes que o brilho do ecrã seja reduzido para poupar bateria.</translation>
     </message>
     <message>
         <source>Measure (M) value attached to vertices:</source>
-        <translation type="unfinished"/>
+        <translation>Valor da medição (M) anexado aos vértices:</translation>
     </message>
     <message>
         <source>Timestamp (milliseconds since epoch)</source>
-        <translation type="unfinished"/>
+        <translation>Timestamp (millisegundos since epoch)</translation>
     </message>
     <message>
         <source>Ground speed</source>
-        <translation type="unfinished"/>
+        <translation>Velocidade</translation>
     </message>
     <message>
         <source>Bearing</source>
@@ -4195,7 +4198,7 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>When digitizing features with the coordinate cursor locked to the current position, the measurement type selected above will be added to the geometry provided it has an M dimension.</source>
-        <translation type="unfinished"/>
+        <translation>Quando a digitalização de elementos tem o cursor bloqueado à posição atual, o tipo de medição selecionado acima será adicionado à geometria fornecendo a dimensão M.</translation>
     </message>
     <message>
         <source>Add</source>
@@ -4227,27 +4230,27 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Tiny</source>
-        <translation type="unfinished"/>
+        <translation>Pequena</translation>
     </message>
     <message>
         <source>Normal</source>
-        <translation type="unfinished"/>
+        <translation>Normal</translation>
     </message>
     <message>
         <source>Large</source>
-        <translation type="unfinished"/>
+        <translation>Largo</translation>
     </message>
     <message>
         <source>Extra-large</source>
-        <translation type="unfinished"/>
+        <translation>Extra-largo</translation>
     </message>
     <message>
         <source>Log NMEA sentences from device to file</source>
-        <translation type="unfinished"/>
+        <translation>Registar informação NMEA a partir do dispositivo para um ficheiro</translation>
     </message>
     <message>
         <source>Map canvas rendering quality:</source>
-        <translation type="unfinished"/>
+        <translation>Qualidade de renderização do mapa:</translation>
     </message>
     <message>
         <source>Best quality</source>
@@ -4279,19 +4282,19 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>If enabled, pressing the device&apos;s volume up key will add a vertex while pressing volume down key will remove the last entered vertex during digitizing sessions.</source>
-        <translation type="unfinished"/>
+        <translation>Se ativado, pressionar a tecla de aumentar volume do dispositivo adicionará um vértice, enquanto pressionar a tecla de dimininur volume removerá o último vértice inserido durante as sessões de digitalização.</translation>
     </message>
     <message>
         <source>Allow finger tap on canvas to add vertices</source>
-        <translation type="unfinished"/>
+        <translation>Permitir o toque com o dedo no ecrã para adicionar vértices</translation>
     </message>
     <message>
         <source>When enabled, tapping on the map canvas with a finger will add a vertex at the tapped location.</source>
-        <translation type="unfinished"/>
+        <translation>Quando ativado, tocar no ecrã do mapa com o dedo irá adicionar um vértice no local tocado.</translation>
     </message>
     <message>
         <source>When enabled, the mouse will act as if it was a finger. When disabled, the mouse will match the stylus behavior.</source>
-        <translation type="unfinished"/>
+        <translation>Quando ativado, o rato atuará como se fosse um dedo. Quando desativado, o rato corresponderá ao comportamento da caneta.</translation>
     </message>
     <message>
         <source>Map Canvas</source>
@@ -4315,15 +4318,15 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Language:</source>
-        <translation type="unfinished"/>
+        <translation>Idioma:</translation>
     </message>
     <message>
         <source>Advanced</source>
-        <translation type="unfinished"/>
+        <translation>Avançado</translation>
     </message>
     <message>
         <source>Manage plugins</source>
-        <translation type="unfinished"/>
+        <translation>Gerir plugins</translation>
     </message>
     <message>
         <source>Enable map rotation</source>
@@ -4331,19 +4334,19 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>When switched on, the map can be rotated by the user.</source>
-        <translation type="unfinished"/>
+        <translation>Quando selecionado, o mapa pode ser rodado pelo utilizador</translation>
     </message>
     <message>
         <source>Bad accuracy threshold [m]</source>
-        <translation type="unfinished"/>
+        <translation>Má precisão abaixo de [m]</translation>
     </message>
     <message>
         <source>Excellent accuracy threshold [m]</source>
-        <translation type="unfinished"/>
+        <translation>Boa precisão acima de [m]</translation>
     </message>
     <message>
         <source>Enforce accuracy requirement</source>
-        <translation type="unfinished"/>
+        <translation>Ativar requisito de precisão</translation>
     </message>
     <message>
         <source>When the accuracy indicator is enabled, a badge is attached to the location button and colored &lt;span %1&gt;red&lt;/span&gt; if the accuracy value is worse than &lt;i&gt;bad&lt;/i&gt;, &lt;span %2&gt;yellow&lt;/span&gt; if it falls short of &lt;i&gt;excellent&lt;/i&gt;, or &lt;span %3&gt;green&lt;/span&gt;.&lt;br&gt;&lt;br&gt;In addition, an accuracy restriction mode can be toggled on, which restricts vertex addition when locked to coordinate cursor to positions with an accuracy value worse than the bad threshold.</source>
@@ -4363,7 +4366,7 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Maximize feature form</source>
-        <translation type="unfinished"/>
+        <translation>Formulário de atributo maximizado</translation>
     </message>
     <message>
         <source>Open feature form for single feature identification</source>
@@ -4375,7 +4378,7 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Enable auto-save mode</source>
-        <translation type="unfinished"/>
+        <translation>Não foi possível salvar as alterações</translation>
     </message>
     <message>
         <source>If enabled, newly-added features are stored as soon as it has having a valid geometry and the constraints are fulfilled and edited atributes are commited immediately.</source>
@@ -4399,7 +4402,7 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Follow position and compass orientation</source>
-        <translation type="unfinished"/>
+        <translation>O enquadramento acompanha a localização e a orientação da bússola.</translation>
     </message>
     <message>
         <source>Follow position and movement direction</source>
@@ -4414,7 +4417,7 @@ Cancele para fazer uma verificação mínima.</translation>
     <name>QFieldSketcher</name>
     <message>
         <source>Select drawing template</source>
-        <translation type="unfinished"/>
+        <translation>Selecione um template de desenho</translation>
     </message>
 </context>
 <context>
@@ -4497,11 +4500,11 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Please wait while QField installation finalizes.</source>
-        <translation type="unfinished"/>
+        <translation>Por favor aguarde enquanto a instalação do QField termina.</translation>
     </message>
     <message>
         <source>averaged</source>
-        <translation type="unfinished"/>
+        <translation>média</translation>
     </message>
     <message>
         <source>centroid</source>
@@ -4509,23 +4512,23 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Error zip file does not exist: &apos;%1&apos;</source>
-        <translation type="unfinished"/>
+        <translation>Erro ficheiro de zip não existe: &apos;%1&apos;</translation>
     </message>
     <message>
         <source>Error zip filename is empty</source>
-        <translation type="unfinished"/>
+        <translation>Erro o nome do ficheiro de zip, está vazio</translation>
     </message>
     <message>
         <source>Error output dir does not exist: &apos;%1&apos;</source>
-        <translation type="unfinished"/>
+        <translation>Erro pasta de saída não existe: &apos;%1&apos;</translation>
     </message>
     <message>
         <source>Error output dir is not a directory: &apos;%1&apos;</source>
-        <translation type="unfinished"/>
+        <translation>Erro a pasta de saída não é uma pasta válida: &apos;%1&apos;</translation>
     </message>
     <message>
         <source>Error output dir is not writable: &apos;%1&apos;</source>
-        <translation type="unfinished"/>
+        <translation>Erro pasta de saída não é permitida a gravação: &apos;%1&apos;</translation>
     </message>
     <message>
         <source>Skipped file %1 outside of the directory %2</source>
@@ -4533,23 +4536,23 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Failed to create a subdirectory %1/%2</source>
-        <translation type="unfinished"/>
+        <translation>Falha ao criar uma subpasta %1/%2</translation>
     </message>
     <message>
         <source>Could not write to %1</source>
-        <translation type="unfinished"/>
+        <translation>Não foi possível escrever para %1</translation>
     </message>
     <message>
         <source>Error reading file: &apos;%1&apos;</source>
-        <translation type="unfinished"/>
+        <translation>Erro ao ler ficheiro: &apos;%1&apos;</translation>
     </message>
     <message>
         <source>Error getting files: &apos;%1&apos;</source>
-        <translation type="unfinished"/>
+        <translation>Erro ao obter ficheiros: &apos;%1&apos;</translation>
     </message>
     <message>
         <source>Error opening zip archive: &apos;%1&apos; (Error code: %2)</source>
-        <translation type="unfinished"/>
+        <translation>Erro ao abrir ficheiro zip: &apos;%1&apos; (Error code: %2)</translation>
     </message>
     <message>
         <source>Circle #1: radius</source>
@@ -4581,7 +4584,7 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Distance</source>
-        <translation type="unfinished"/>
+        <translation>Distância (%1)</translation>
     </message>
     <message>
         <source>Angle</source>
@@ -4735,7 +4738,7 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Can&apos;t read project, file &quot;%1&quot; does not exist</source>
-        <translation type="unfinished"/>
+        <translation>Não é possível ler o projeto, o ficheiro &quot;%1&quot; não existe</translation>
     </message>
     <message>
         <source>Map printed on %1 using QField</source>
@@ -4786,7 +4789,7 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source> + IMU</source>
-        <translation type="unfinished"/>
+        <translation> + IMU</translation>
     </message>
 </context>
 <context>
@@ -4978,11 +4981,11 @@ Cancele para fazer uma verificação mínima.</translation>
     <name>SerialPortDeviceChooser</name>
     <message>
         <source>Select the serial port from the list below:</source>
-        <translation type="unfinished"/>
+        <translation>Selecione a serial port a partir da lista:</translation>
     </message>
     <message>
         <source>No serial ports detected, refresh the list once a device is connected.</source>
-        <translation type="unfinished"/>
+        <translation>Não foram foram detetadas serial ports, atualize a lista quando o dispositivo estiver ligado.</translation>
     </message>
     <message>
         <source>Refresh list</source>
@@ -4990,30 +4993,30 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Serial port display name:</source>
-        <translation type="unfinished"/>
+        <translation>Nome do serial port:</translation>
     </message>
     <message>
         <source>Serial port address:</source>
-        <translation type="unfinished"/>
+        <translation>Endereço do serial port:</translation>
     </message>
 </context>
 <context>
     <name>SerialPortReceiver</name>
     <message>
         <source>Could not find the serial port device</source>
-        <translation type="unfinished"/>
+        <translation>Não foi possível encontrar a serial port do dispositivo</translation>
     </message>
     <message>
         <source>Attempt to read from the serial port returned an error</source>
-        <translation type="unfinished"/>
+        <translation>Tentativa de ler a partir do serial port retornou um erro</translation>
     </message>
     <message>
         <source>The connection was refused due to not having enough permission</source>
-        <translation type="unfinished"/>
+        <translation>A ligação foi recusada por não ter permissões suficientes.</translation>
     </message>
     <message>
         <source>Serial port receiver error (%1)</source>
-        <translation type="unfinished"/>
+        <translation>Erro no receptor da serial port (%1)</translation>
     </message>
 </context>
 <context>
@@ -5041,11 +5044,11 @@ Cancele para fazer uma verificação mínima.</translation>
     <name>TcpDeviceChooser</name>
     <message>
         <source>Address:</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Endereço:</translation>
     </message>
     <message>
         <source>Port:</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Porta:</translation>
     </message>
     <message>
         <source>IP address</source>
@@ -5053,7 +5056,7 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Port</source>
-        <translation type="unfinished"/>
+        <translation>Porta:</translation>
     </message>
 </context>
 <context>
@@ -5084,11 +5087,11 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>The connection was refused by the remote hose</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">A ligação foi recusada pelo servidor remoto</translation>
     </message>
     <message>
         <source>UDP receiver error (%1)</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Erro do receptor UDP (%1)</translation>
     </message>
     <message>
         <source>The connection was refused by the remote host</source>
@@ -5144,15 +5147,15 @@ Cancele para fazer uma verificação mínima.</translation>
     <name>TrackerSettings</name>
     <message>
         <source>Tracking</source>
-        <translation type="unfinished"/>
+        <translation>Tracking</translation>
     </message>
     <message>
         <source>Requirement Settings</source>
-        <translation type="unfinished"/>
+        <translation>Requisitos de configurações</translation>
     </message>
     <message>
         <source>Time requirement</source>
-        <translation type="unfinished"/>
+        <translation>Requisito de tempo</translation>
     </message>
     <message>
         <source>Minimum time [sec]</source>
@@ -5160,11 +5163,11 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>When enabled, vertex additions will occur when the time between the last and new vertex meets a configured mimimum value.</source>
-        <translation type="unfinished"/>
+        <translation>Quando ativado, as adições de vértices ocorrrem quando o tempo entre o último e o novo vértice atingis um valor mínimo configurado.</translation>
     </message>
     <message>
         <source>Distance requirement</source>
-        <translation type="unfinished"/>
+        <translation>Requisito de distância</translation>
     </message>
     <message>
         <source>Minimum distance [%1]</source>
@@ -5172,11 +5175,11 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>When enabled, vertex additions will occur when the distance between the last and new vertex meets a configured mimimum value.</source>
-        <translation type="unfinished"/>
+        <translation>Quando ativado, as adições de vértices ocorrrem quando a distância entre o último e o novo vértice atingis um valor mínimo configurado.</translation>
     </message>
     <message>
         <source>Sensor data requirement</source>
-        <translation type="unfinished"/>
+        <translation>Requisito de dados do sensor</translation>
     </message>
     <message>
         <source>When enabled, vertex additions will occur when sensors have captured new data.</source>
@@ -5188,39 +5191,39 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>When enabled, vertices will only be recorded when all active requirements are met. When disabled, individual requirement met will trigger vertex additions.</source>
-        <translation type="unfinished"/>
+        <translation>Quando ativado, os vértices só serão registados quando todos os requisitos ativos forem cumpridos. Quando desativado, o requisito individual cumprido acionará adição de vértices.</translation>
     </message>
     <message>
         <source>General Settings</source>
-        <translation type="unfinished"/>
+        <translation>Configurações Gerais</translation>
     </message>
     <message>
         <source>Erroneous distance safeguard</source>
-        <translation type="unfinished"/>
+        <translation>Proteção na recolha de distância errada</translation>
     </message>
     <message>
         <source>Maximum tolerated distance [%1]</source>
-        <translation type="unfinished"/>
+        <translation>Distância máxima tolerada [%1]</translation>
     </message>
     <message>
         <source>When enabled, vertex addition will not occur when the distance between the last and new vertex is greater than a configured maximum value.</source>
-        <translation type="unfinished"/>
+        <translation>Quando ativado, a adição de vértices não acorrerá quanda a distância entre o último e o novo vértices for maior que um valor máximo configurado.</translation>
     </message>
     <message>
         <source>Measure (M) value attached to vertices:</source>
-        <translation type="unfinished"/>
+        <translation>Valor da medição (M) anexado aos vértices:</translation>
     </message>
     <message>
         <source>Elapsed time (seconds since start of tracking)</source>
-        <translation type="unfinished"/>
+        <translation>Tempo decorrido (segundos desde o início do tracking GPS)</translation>
     </message>
     <message>
         <source>Timestamp (milliseconds since epoch)</source>
-        <translation type="unfinished"/>
+        <translation>Timestamp (millisegundos since epoch)</translation>
     </message>
     <message>
         <source>Ground speed</source>
-        <translation type="unfinished"/>
+        <translation>Velocidade</translation>
     </message>
     <message>
         <source>Bearing</source>
@@ -5248,7 +5251,7 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>To active the measurement functionality, make sure the vector layer&apos;s geometry type used for the tracking session has an M dimension.</source>
-        <translation type="unfinished"/>
+        <translation>Para ativar a funcionalidade de medição, garante que o tipo de geometria da camada vetorial usada para a sessão de tracking GPS tem a dimensão M.</translation>
     </message>
     <message>
         <source>Start tracking</source>
@@ -5319,19 +5322,19 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Measure (M) value attached to vertices:</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Valor da medição (M) anexado aos vértices:</translation>
     </message>
     <message>
         <source>Elapsed time (seconds since start of tracking)</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Tempo decorrido (segundos desde o início do tracking GPS)</translation>
     </message>
     <message>
         <source>Timestamp (milliseconds since epoch)</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Timestamp (millisegundos since epoch)</translation>
     </message>
     <message>
         <source>Ground speed</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Velocidade</translation>
     </message>
     <message>
         <source>Bearing</source>
@@ -5359,7 +5362,7 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>To active the measurement functionality, make sure the vector layer&apos;s geometry type used for the tracking session has an M dimension.</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Para ativar a funcionalidade de medição, garante que o tipo de geometria da camada vetorial usada para a sessão de tracking GPS tem a dimensão M.</translation>
     </message>
 </context>
 <context>
@@ -5441,19 +5444,19 @@ Cancele para fazer uma verificação mínima.</translation>
     <name>UdpDeviceChooser</name>
     <message>
         <source>Address:</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Endereço:</translation>
     </message>
     <message>
         <source>Port:</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Porta:</translation>
     </message>
     <message>
         <source>Address</source>
-        <translation type="unfinished"/>
+        <translation>Endereço:</translation>
     </message>
     <message>
         <source>Port</source>
-        <translation type="unfinished"/>
+        <translation>Porta:</translation>
     </message>
 </context>
 <context>
@@ -5484,11 +5487,11 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>The connection was refused by the remote hose</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">A ligação foi recusada pelo servidor remoto</translation>
     </message>
     <message>
         <source>UDP receiver error (%1)</source>
-        <translation type="unfinished"/>
+        <translation>Erro do receptor UDP (%1)</translation>
     </message>
     <message>
         <source>The connection was refused by the remote host</source>
@@ -5518,7 +5521,7 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Global variables</source>
-        <translation type="unfinished"/>
+        <translation>Variáveis Globais</translation>
     </message>
     <message>
         <source>Project variables</source>
@@ -5686,7 +5689,7 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Base map</source>
-        <translation type="unfinished"/>
+        <translation>Mapa base</translation>
     </message>
     <message>
         <source>Default Project</source>
@@ -5694,23 +5697,23 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Individual Datasets Base Map</source>
-        <translation type="unfinished"/>
+        <translation>Conjunto de dados individuais de mapas base</translation>
     </message>
     <message>
         <source>Load default project on launch</source>
-        <translation type="unfinished"/>
+        <translation>Abrir um projeto padrão no lançamento</translation>
     </message>
     <message>
         <source>Load last opened project on launch</source>
-        <translation type="unfinished"/>
+        <translation>Abrir o último projeto aberto no lançamento</translation>
     </message>
     <message>
         <source>Recent Project Actions</source>
-        <translation type="unfinished"/>
+        <translation>Ações de Projeto Recente</translation>
     </message>
     <message>
         <source>Welcome to QField. First time using this application? Try the sample projects listed below.</source>
-        <translation type="unfinished"/>
+        <translation>Bem-vindo ao QField. É a primeira vez que está a usar a aplicação? Experimente alguns exemplos de projetos listados abaixo.</translation>
     </message>
     <message>
         <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a review.</source>
@@ -5723,7 +5726,7 @@ Cancele para fazer uma verificação mínima.</translation>
     <message>
         <source>QFieldCloud
 projects</source>
-        <translation type="unfinished"/>
+        <translation>Projetos QFieldCloud</translation>
     </message>
     <message>
         <source>Local projects and
@@ -5845,11 +5848,13 @@ project</source>
     </message>
     <message>
         <source>centimeters</source>
-        <translation type="unfinished"/>
+        <translation>centímetros</translation>
     </message>
     <message>
         <source>millimeters</source>
-        <translation type="unfinished"/>
+        <translation>milímetros
+
+</translation>
     </message>
     <message>
         <source>inches</source>
@@ -6138,7 +6143,7 @@ project</source>
     </message>
     <message>
         <source>0.5m Precision</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">0.5m Precisão</translation>
     </message>
     <message>
         <source>1m Precision</source>
@@ -6150,15 +6155,15 @@ project</source>
     </message>
     <message>
         <source>5m Precision</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">5m Precisão</translation>
     </message>
     <message>
         <source>10m Precision</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">10m Precisão</translation>
     </message>
     <message>
         <source>Always Show Precise View</source>
-        <translation type="unfinished"/>
+        <translation>Mostrar Sempre Visualização Precisa</translation>
     </message>
     <message>
         <source>Center to Location</source>
@@ -6166,19 +6171,19 @@ project</source>
     </message>
     <message>
         <source>Add Bookmark at Location</source>
-        <translation type="unfinished"/>
+        <translation>Adicionar o Marcador na Localização</translation>
     </message>
     <message>
         <source>Copy Location Coordinates</source>
-        <translation type="unfinished"/>
+        <translation>Copiar Coordenadas de Localização</translation>
     </message>
     <message>
         <source>Signed out</source>
-        <translation type="unfinished"/>
+        <translation>Sair</translation>
     </message>
     <message>
         <source>Signed in</source>
-        <translation type="unfinished"/>
+        <translation>Ligar</translation>
     </message>
     <message>
         <source>Set As Destination</source>
@@ -6194,11 +6199,11 @@ project</source>
     </message>
     <message>
         <source>%1 Precision</source>
-        <translation type="unfinished"/>
+        <translation>%1 Precisão</translation>
     </message>
     <message>
         <source>Enable Audio Proximity Feedback</source>
-        <translation type="unfinished"/>
+        <translation>Ativar Feedback de Áudio de Proximidade</translation>
     </message>
     <message>
         <source>Positioning Options</source>
@@ -6306,7 +6311,7 @@ project</source>
     </message>
     <message>
         <source>Print to Image</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Imprimir a Imagem</translation>
     </message>
     <message>
         <source>Printing...</source>
@@ -6314,11 +6319,11 @@ project</source>
     </message>
     <message>
         <source>Print</source>
-        <translation type="unfinished"/>
+        <translation>Imprimir</translation>
     </message>
     <message>
         <source>Positioning device error: %1</source>
-        <translation type="unfinished"/>
+        <translation>Erro do dispositivo de posicionamento: %1</translation>
     </message>
     <message>
         <source>Duplicate Feature</source>
@@ -6330,23 +6335,23 @@ project</source>
     </message>
     <message>
         <source>Snapping turned on</source>
-        <translation type="unfinished"/>
+        <translation>Snapping ligado</translation>
     </message>
     <message>
         <source>Snapping turned off</source>
-        <translation type="unfinished"/>
+        <translation>Snapping desligado</translation>
     </message>
     <message>
         <source>Snap to %1° angle turned on</source>
-        <translation type="unfinished"/>
+        <translation>Snap para ângulo %1° ativado</translation>
     </message>
     <message>
         <source>Snap to common angle turned off</source>
-        <translation type="unfinished"/>
+        <translation>Snap para ângulo comum desativado</translation>
     </message>
     <message>
         <source>Relative angle</source>
-        <translation type="unfinished"/>
+        <translation>Ângulo relativo</translation>
     </message>
     <message>
         <source>Learn more</source>
@@ -6358,7 +6363,7 @@ project</source>
     </message>
     <message>
         <source>No sensor available</source>
-        <translation type="unfinished"/>
+        <translation>Sem sensor disponível</translation>
     </message>
     <message>
         <source>Project Folder</source>
@@ -6366,11 +6371,11 @@ project</source>
     </message>
     <message>
         <source>Select sensor below</source>
-        <translation type="unfinished"/>
+        <translation>Selecionar sensor </translation>
     </message>
     <message>
         <source>Sensor error: %1</source>
-        <translation type="unfinished"/>
+        <translation>Erro no sensor: %1</translation>
     </message>
     <message>
         <source>Disconnecting sensor &apos;%1&apos;...</source>
@@ -6422,15 +6427,15 @@ project</source>
     </message>
     <message>
         <source>Position outside areas after leaving ‘%1’</source>
-        <translation type="unfinished"/>
+        <translation>Posicionar fora das áreas após sair de ‘%1’</translation>
     </message>
     <message>
         <source>Position entered into ‘%1’</source>
-        <translation type="unfinished"/>
+        <translation>Posição inserida em ‘%1’</translation>
     </message>
     <message>
         <source>Position left from ‘%1’</source>
-        <translation type="unfinished"/>
+        <translation>Posição à esquerda de ‘%1’</translation>
     </message>
     <message>
         <source>Enable Map Rotation</source>
@@ -6510,11 +6515,11 @@ project</source>
     </message>
     <message>
         <source>Normal</source>
-        <translation type="unfinished"/>
+        <translation>Normal</translation>
     </message>
     <message>
         <source>Large</source>
-        <translation type="unfinished"/>
+        <translation>Largo</translation>
     </message>
     <message>
         <source>Snapping tolerance set to %1</source>
@@ -6554,11 +6559,11 @@ project</source>
     </message>
     <message>
         <source>Failed to save feature</source>
-        <translation type="unfinished"/>
+        <translation>Falha ao salvar o elemento!</translation>
     </message>
     <message>
         <source>Digitizing toggle</source>
-        <translation type="unfinished"/>
+        <translation>Registo de Digitalização</translation>
     </message>
     <message>
         <source>Switch between browse and digitize modes. Browse mode focuses on delivering the best experience viewing the map and its features, while digitize mode enables you to create features and edit geometries.</source>
