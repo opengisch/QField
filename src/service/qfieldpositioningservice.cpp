@@ -39,6 +39,7 @@ QFieldPositioningService::QFieldPositioningService( int &argc, char **argv )
   connect( &mNotificationTimer, &QTimer::timeout, this, &QFieldPositioningService::triggerShowNotification );
 
   connect( mPositioningSource, &PositioningSource::positionInformationChanged, this, [=] {
+    qInfo() << "sss got one";
     if ( !mPositioningSource->backgroundMode() && QFile::exists( PositioningSource::backgroundFilePath ) )
     {
       mPositioningSource->setBackgroundMode( true );
