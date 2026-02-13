@@ -45,6 +45,9 @@ PositioningSource::PositioningSource( QObject *parent )
   // too many signals
   mCompassTimer.setInterval( 200 );
   connect( &mCompassTimer, &QTimer::timeout, this, &PositioningSource::processCompassReading );
+
+  mNtripReconnectTimer.setSingleShot( true );
+  connect( &mNtripReconnectTimer, &QTimer::timeout, this, &PositioningSource::attemptNtripReconnect );
 }
 
 void PositioningSource::setActive( bool active )
@@ -496,7 +499,7 @@ void PositioningSource::onDeviceSocketStateChanged()
     QAbstractSocket::SocketState state = mReceiver->socketState();
 
     // Stop NTRIP client when receiver is disconnected or has connection error
-    if ( mNtripClient && ( state == QAbstractSocket::UnconnectedState || state == QAbstractSocket::ClosingState ) )
+    if ( ( mNtripClient || mNtripReconnectTimer.isActive() ) && ( state == QAbstractSocket::UnconnectedState || state == QAbstractSocket::ClosingState ) )
     {
       stopNtripClient();
     }
@@ -525,6 +528,7 @@ void PositioningSource::startNtripClient()
     if ( mNtripHost.isEmpty() || mNtripMountpoint.isEmpty() || mNtripUsername.isEmpty() || mNtripPassword.isEmpty() )
     {
       setNtripLastError( QStringLiteral( "Missing parameters" ) );
+      setNtripState( NtripState::Error );
       qWarning() << "NTRIP Client: Missing required connection parameters (host, mountpoint, username, or password)";
       return;
     }
@@ -538,33 +542,50 @@ void PositioningSource::startNtripClient()
     emit ntripBytesSentChanged();
     emit ntripBytesReceivedChanged();
 
-    setNtripState( NtripState::Disconnected );
+    setNtripState( NtripState::Connecting );
     mNtripClient->start( mNtripHost, static_cast<quint16>( mNtripPort ), mNtripMountpoint, mNtripUsername, mNtripPassword );
 
-    // Connect to receiver if it supports RTK corrections
-#ifdef WITH_BLUETOOTH
-    if ( auto bluetoothReceiver = dynamic_cast<BluetoothReceiver *>( mReceiver.get() ) )
-    {
-      connect( mNtripClient.get(), &NtripClient::correctionDataReceived, bluetoothReceiver, &BluetoothReceiver::onCorrectionDataReceived );
-    }
-#endif
+    // Forward RTCM corrections to the active GNSS receiver
+    connect( mNtripClient.get(), &NtripClient::correctionDataReceived, this, [this]( const QByteArray &data ) {
+      if ( mReceiver )
+      {
+        mReceiver->writeRawData( data );
+      }
+    } );
 
     // Track connection status through signals
     connect( mNtripClient.get(), &NtripClient::streamConnected,
              this, [this]() {
+               mNtripReconnectAttempts = 0;
+               mNtripReconnectTimer.stop();
                setNtripState( NtripState::Connected );
                setNtripLastError( QString() );
              } );
 
     connect( mNtripClient.get(), &NtripClient::streamDisconnected,
              this, [this]() {
-               setNtripState( NtripState::Disconnected );
+               if ( mEnableNtripClient )
+               {
+                 scheduleNtripReconnect();
+               }
+               else
+               {
+                 setNtripState( NtripState::Disconnected );
+               }
              } );
 
     connect( mNtripClient.get(), &NtripClient::errorOccurred,
              this, [this]( const QString &msg ) {
                setNtripLastError( msg );
                qWarning() << "NTRIP Client Error:" << msg;
+               if ( mEnableNtripClient )
+               {
+                 scheduleNtripReconnect();
+               }
+               else
+               {
+                 setNtripState( NtripState::Error );
+               }
              } );
 
     // Track byte counters
@@ -608,11 +629,14 @@ void PositioningSource::startNtripClient()
   else
   {
     setNtripLastError( QStringLiteral( "No external receiver" ) );
+    setNtripState( NtripState::Error );
   }
 }
 
 void PositioningSource::stopNtripClient()
 {
+  mNtripReconnectTimer.stop();
+  mNtripReconnectAttempts = 0;
   if ( mNtripClient )
   {
     mNtripClient->stop();
@@ -620,6 +644,44 @@ void PositioningSource::stopNtripClient()
   }
   setNtripState( NtripState::Disconnected );
   setNtripLastError( QString() );
+}
+
+void PositioningSource::scheduleNtripReconnect()
+{
+  if ( !mEnableNtripClient || mDeviceId.isEmpty() )
+  {
+    setNtripState( NtripState::Disconnected );
+    return;
+  }
+
+  // Exponential backoff: 1s, 2s, 4s, 8s, 16s, 32s, capped at 60s
+  const int shift = std::min( mNtripReconnectAttempts, 6 );
+  const int delayMs = std::min( 1000 * ( 1 << shift ), NTRIP_MAX_RECONNECT_INTERVAL_MS );
+  mNtripReconnectAttempts++;
+
+  setNtripState( NtripState::Reconnecting );
+  qDebug() << "NTRIP: scheduling reconnect attempt" << mNtripReconnectAttempts << "in" << delayMs << "ms";
+  mNtripReconnectTimer.start( delayMs );
+}
+
+void PositioningSource::attemptNtripReconnect()
+{
+  if ( !mEnableNtripClient || mDeviceId.isEmpty() )
+  {
+    setNtripState( NtripState::Disconnected );
+    return;
+  }
+
+  if ( !mNtripClient )
+  {
+    // Client was destroyed (e.g. by device disconnect); do a full start with signal connections
+    startNtripClient();
+    return;
+  }
+
+  mNtripClient->stop();
+  setNtripState( NtripState::Connecting );
+  mNtripClient->start( mNtripHost, static_cast<quint16>( mNtripPort ), mNtripMountpoint, mNtripUsername, mNtripPassword );
 }
 
 void PositioningSource::setNtripState( NtripState state )

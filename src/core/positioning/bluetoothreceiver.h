@@ -37,7 +37,8 @@ class BluetoothReceiver : public NmeaGnssReceiver
 
   public slots:
     QString socketStateString() override;
-    void onCorrectionDataReceived( const QByteArray &data );
+
+    void writeRawData( const QByteArray &data ) override;
 
   private slots:
     /**

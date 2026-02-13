@@ -45,6 +45,7 @@ set(QFIELD_CORE_SRCS
     positioning/ntripclient.cpp
     positioning/ntripsocketclient.cpp
     positioning/positioningdevicemodel.cpp
+    positioning/satellitemodel.cpp
     positioning/geofencer.cpp
     positioning/positioninginformationmodel.cpp
     processing/processingalgorithm.cpp
@@ -177,6 +178,7 @@ set(QFIELD_CORE_HDRS
     positioning/positioning.h
     positioning/positioningsource.h
     positioning/positioningdevicemodel.h
+    positioning/satellitemodel.h
     positioning/internalgnssreceiver.h
     positioning/nmeagnssreceiver.h
     positioning/egenioussreceiver.h

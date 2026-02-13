@@ -99,7 +99,8 @@ void Positioning::setupSource()
   connect( mPositioningSourceReplica.data(), SIGNAL( ntripMountpointChanged() ), this, SIGNAL( ntripMountpointChanged() ) );
   connect( mPositioningSourceReplica.data(), SIGNAL( ntripUsernameChanged() ), this, SIGNAL( ntripUsernameChanged() ) );
   connect( mPositioningSourceReplica.data(), SIGNAL( ntripPasswordChanged() ), this, SIGNAL( ntripPasswordChanged() ) );
-  connect( mPositioningSourceReplica.data(), SIGNAL( ntripStatusChanged() ), this, SIGNAL( ntripStatusChanged() ) );
+  connect( mPositioningSourceReplica.data(), SIGNAL( ntripStateChanged() ), this, SIGNAL( ntripStateChanged() ) );
+  connect( mPositioningSourceReplica.data(), SIGNAL( ntripLastErrorChanged() ), this, SIGNAL( ntripStateChanged() ) );
   connect( mPositioningSourceReplica.data(), SIGNAL( ntripBytesSentChanged() ), this, SIGNAL( ntripBytesSentChanged() ) );
   connect( mPositioningSourceReplica.data(), SIGNAL( ntripBytesReceivedChanged() ), this, SIGNAL( ntripBytesReceivedChanged() ) );
 
@@ -634,9 +635,33 @@ void Positioning::setNtripPassword( const QString &ntripPassword )
   }
 }
 
+PositioningSource::NtripState Positioning::ntripState() const
+{
+  return isSourceAvailable() ? static_cast<PositioningSource::NtripState>( mPositioningSourceReplica->property( "ntripState" ).toInt() ) : PositioningSource::NtripState::Disconnected;
+}
+
 QString Positioning::ntripStatus() const
 {
-  return isSourceAvailable() ? mPositioningSourceReplica->property( "ntripStatus" ).toString() : QString();
+  if ( !isSourceAvailable() )
+    return QString();
+
+  const PositioningSource::NtripState state = ntripState();
+  const QString lastError = mPositioningSourceReplica->property( "ntripLastError" ).toString();
+
+  switch ( state )
+  {
+    case PositioningSource::NtripState::Connected:
+      return tr( "Connected" );
+    case PositioningSource::NtripState::Connecting:
+      return tr( "Connecting..." );
+    case PositioningSource::NtripState::Reconnecting:
+      return !lastError.isEmpty() ? tr( "Reconnecting (%1)" ).arg( lastError ) : tr( "Reconnecting..." );
+    case PositioningSource::NtripState::Error:
+      return !lastError.isEmpty() ? tr( "Error: %1" ).arg( lastError ) : tr( "Error" );
+    case PositioningSource::NtripState::Disconnected:
+    default:
+      return tr( "Disconnected" );
+  }
 }
 
 qint64 Positioning::ntripBytesSent() const
@@ -798,6 +823,8 @@ double Positioning::projectedHorizontalAccuracy() const
 void Positioning::onPositionInformationChanged()
 {
   mPositionInformation = mPositioningSourceReplica->property( "positionInformation" ).value<GnssPositionInformation>();
+
+  mSatelliteModel.updateSatellites( mPositionInformation.satellitesInView() );
 
   GnssPositionInformation::AccuracyQuality quality = GnssPositionInformation::AccuracyQuality::AccuracyBad;
   const double hacc = mPositionInformation.hacc();

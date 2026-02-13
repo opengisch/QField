@@ -61,6 +61,14 @@ void SerialPortReceiver::handleConnectDevice()
   }
 }
 
+void SerialPortReceiver::writeRawData( const QByteArray &data )
+{
+  if ( mSerialPort && mSerialPort->isOpen() )
+  {
+    mSerialPort->write( data );
+  }
+}
+
 void SerialPortReceiver::handleError( QSerialPort::SerialPortError error )
 {
   if ( error == QSerialPort::NoError )

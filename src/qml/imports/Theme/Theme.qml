@@ -100,6 +100,12 @@ QtObject {
   property color accuracyTolerated: "orange"
   property color accuracyExcellent: "#80cc28"
 
+  property color fixInvalid: "#c0392b"
+  property color fixAutonomous: "#FF9800"
+  property color fixDGPS: "#F39C12"
+  property color fixRtkFloat: "#42A5F5"
+  property color fixRtkFixed: "#4CAF50"
+
   property color navigationColor: "#984ea3"
   property color navigationColorSemiOpaque: "#99984ea3"
   property color navigationBackgroundColor: "#33984ea3"

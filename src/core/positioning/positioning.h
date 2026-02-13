@@ -20,6 +20,7 @@
 #include "gnsspositioninformation.h"
 #include "positioningsource.h"
 #include "qgsquickcoordinatetransformer.h"
+#include "satellitemodel.h"
 
 #include <QObject>
 #include <QRemoteObjectDynamicReplica>
@@ -76,9 +77,12 @@ class Positioning : public QObject
     Q_PROPERTY( QString ntripMountpoint READ ntripMountpoint WRITE setNtripMountpoint NOTIFY ntripMountpointChanged )
     Q_PROPERTY( QString ntripUsername READ ntripUsername WRITE setNtripUsername NOTIFY ntripUsernameChanged )
     Q_PROPERTY( QString ntripPassword READ ntripPassword WRITE setNtripPassword NOTIFY ntripPasswordChanged )
-    Q_PROPERTY( QString ntripStatus READ ntripStatus NOTIFY ntripStatusChanged )
+    Q_PROPERTY( PositioningSource::NtripState ntripState READ ntripState NOTIFY ntripStateChanged )
+    Q_PROPERTY( QString ntripStatus READ ntripStatus NOTIFY ntripStateChanged )
     Q_PROPERTY( qint64 ntripBytesSent READ ntripBytesSent NOTIFY ntripBytesSentChanged )
     Q_PROPERTY( qint64 ntripBytesReceived READ ntripBytesReceived NOTIFY ntripBytesReceivedChanged )
+
+    Q_PROPERTY( SatelliteModel *satelliteModel READ satelliteModel CONSTANT )
 
     Q_PROPERTY( double badAccuracyThreshold READ badAccuracyThreshold WRITE setBadAccuracyThreshold NOTIFY badAccuracyThresholdChanged )
     Q_PROPERTY( double excellentAccuracyThreshold READ excellentAccuracyThreshold WRITE setExcellentAccuracyThreshold NOTIFY excellentAccuracyThresholdChanged )
@@ -357,7 +361,12 @@ class Positioning : public QObject
     void setNtripPassword( const QString &ntripPassword );
 
     /**
-     * Returns the current NTRIP connection status.
+     * Returns the current NTRIP connection state.
+     */
+    PositioningSource::NtripState ntripState() const;
+
+    /**
+     * Returns a string representation of the current NTRIP connection status.
      */
     QString ntripStatus() const;
 
@@ -377,6 +386,11 @@ class Positioning : public QObject
      * \see setBackgroundMode()
      */
     Q_INVOKABLE QList<GnssPositionInformation> getBackgroundPositionInformation() const;
+
+    /**
+     * Returns the satellite model providing satellite data for QML views (Skyplot, SNR bars).
+     */
+    SatelliteModel *satelliteModel() { return &mSatelliteModel; }
 
     /**
      * Returns the threshold above which accuracy is considered bad.
@@ -423,7 +437,7 @@ class Positioning : public QObject
     void ntripMountpointChanged();
     void ntripUsernameChanged();
     void ntripPasswordChanged();
-    void ntripStatusChanged();
+    void ntripStateChanged();
     void ntripBytesSentChanged();
     void ntripBytesReceivedChanged();
 
@@ -489,6 +503,8 @@ class Positioning : public QObject
     bool mAveragedPositionFilterAccuracy = false;
     double mBadAccuracyThreshold = std::numeric_limits<double>::quiet_NaN();
     double mExcellentAccuracyThreshold = std::numeric_limits<double>::quiet_NaN();
+
+    SatelliteModel mSatelliteModel;
 };
 
 #endif // POSITIONING_H

@@ -73,8 +73,11 @@ class PositioningSource : public QObject
      */
     enum class NtripState
     {
-      Disconnected, //! NTRIP client is disconnected
-      Connected     //! NTRIP client is connected
+      Disconnected,  //! NTRIP client is disconnected
+      Connecting,    //! NTRIP client is attempting initial connection
+      Connected,     //! NTRIP client is connected and streaming
+      Reconnecting,  //! NTRIP client is waiting to reconnect after a drop
+      Error          //! NTRIP client encountered a persistent error
     };
     Q_ENUM( NtripState )
 
@@ -368,6 +371,8 @@ class PositioningSource : public QObject
     void setupDevice();
     void startNtripClient();
     void stopNtripClient();
+    void scheduleNtripReconnect();
+    void attemptNtripReconnect();
     void setNtripState( NtripState state );
     void setNtripLastError( const QString &error );
 
@@ -401,6 +406,9 @@ class PositioningSource : public QObject
 
     std::unique_ptr<AbstractGnssReceiver> mReceiver;
     std::unique_ptr<NtripClient> mNtripClient;
+    QTimer mNtripReconnectTimer;
+    int mNtripReconnectAttempts = 0;
+    static constexpr int NTRIP_MAX_RECONNECT_INTERVAL_MS = 60000;
 
     QCompass mCompass;
     QTimer mCompassTimer;

@@ -107,6 +107,14 @@ QString UdpReceiver::socketStateString()
   return socketStateString;
 }
 
+void UdpReceiver::writeRawData( const QByteArray &data )
+{
+  if ( mSocket && mSocket->state() == QAbstractSocket::ConnectedState )
+  {
+    mSocket->write( data );
+  }
+}
+
 void UdpReceiver::handleError( QAbstractSocket::SocketError error )
 {
   switch ( error )

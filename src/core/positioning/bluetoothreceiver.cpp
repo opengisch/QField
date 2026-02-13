@@ -89,23 +89,14 @@ BluetoothReceiver::~BluetoothReceiver()
   mSocket = nullptr;
 }
 
-void BluetoothReceiver::onCorrectionDataReceived( const QByteArray &data )
+void BluetoothReceiver::writeRawData( const QByteArray &data )
 {
   if ( !mSocket || !mSocket->isOpen() )
   {
-    qWarning() << "Bluetooth socket not open—cannot forward corrections.";
     return;
   }
 
-  qint64 bytesWritten = mSocket->write( data );
-  if ( bytesWritten == -1 )
-  {
-    qWarning() << "Failed to write corrections to Bluetooth socket:" << mSocket->errorString();
-  }
-  else
-  {
-    qDebug() << "Forwarded" << bytesWritten << "bytes of correction data to Bluetooth.";
-  }
+  mSocket->write( data );
 }
 
 
