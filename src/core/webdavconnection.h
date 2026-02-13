@@ -229,6 +229,20 @@ class WebdavConnection : public QObject
      */
     Q_INVOKABLE static QVariantMap importHistory();
 
+    /**
+     * Scans a directory recursively and returns all folders containing a WebDAV configuration file.
+     * \param basePath the directory to scan
+     * \return list of absolute paths to WebDAV project folders
+     */
+    Q_INVOKABLE static QStringList findWebdavProjectFolders( const QString &basePath );
+
+    /**
+     * Finds the WebDAV project root by walking up from the given path.
+     * \param path the file or folder path to start from
+     * \return the project root path, or empty string if not found
+     */
+    Q_INVOKABLE static QString findWebdavRootForPath( const QString &path );
+
     Q_INVOKABLE static void forgetHistory( const QString &url = QString(), const QString &username = QString() );
 
   signals:
@@ -278,9 +292,6 @@ class WebdavConnection : public QObject
 
     //! Ensures the path ends with a trailing slash.
     QString ensureTrailingSlash( QString path ) const;
-
-    //! Finds the WebDAV project root by walking up from the given path.
-    QString findWebdavRootForPath( const QString &path ) const;
 
     /**
      * Reads and parses the WebDAV config JSON stored at on rootPath.
