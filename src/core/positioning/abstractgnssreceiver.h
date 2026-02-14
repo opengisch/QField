@@ -50,6 +50,14 @@ class AbstractGnssReceiver : public QObject
     void startLogging( const QString &path ) { handleStartLogging( path ); }
     void stopLogging() { handleStopLogging(); }
 
+    /**
+     * Writes raw data (e.g. RTCM corrections) to the receiver device.
+     * Subclasses with a writable transport (Bluetooth, TCP, UDP, Serial) should
+     * override this to forward the data to their socket/port.
+     * \param data The raw bytes to write to the device.
+     */
+    virtual void writeRawData( const QByteArray &data ) { Q_UNUSED( data ) }
+
     GnssPositionInformation lastGnssPositionInformation() const { return mLastGnssPositionInformation; }
 
     QString lastError() const { return mLastError; }

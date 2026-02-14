@@ -36,6 +36,9 @@ class SerialPortReceiver : public NmeaGnssReceiver
 
     static QLatin1String identifier;
 
+  public:
+    void writeRawData( const QByteArray &data ) override;
+
   private:
     void handleConnectDevice() override;
     void handleDisconnectDevice() override;

@@ -20,6 +20,7 @@
 #include "gnsspositioninformation.h"
 #include "positioningsource.h"
 #include "qgsquickcoordinatetransformer.h"
+#include "satellitemodel.h"
 
 #include <QObject>
 #include <QRemoteObjectDynamicReplica>
@@ -68,6 +69,20 @@ class Positioning : public QObject
 
     Q_PROPERTY( bool serviceMode READ serviceMode WRITE setServiceMode NOTIFY serviceModeChanged )
     Q_PROPERTY( bool backgroundMode READ backgroundMode WRITE setBackgroundMode NOTIFY backgroundModeChanged )
+
+    Q_PROPERTY( bool enableNtripClient READ enableNtripClient WRITE setEnableNtripClient NOTIFY enableNtripClientChanged )
+    Q_PROPERTY( bool ntripSendNmea READ ntripSendNmea WRITE setNtripSendNmea NOTIFY ntripSendNmeaChanged )
+    Q_PROPERTY( QString ntripHost READ ntripHost WRITE setNtripHost NOTIFY ntripHostChanged )
+    Q_PROPERTY( int ntripPort READ ntripPort WRITE setNtripPort NOTIFY ntripPortChanged )
+    Q_PROPERTY( QString ntripMountpoint READ ntripMountpoint WRITE setNtripMountpoint NOTIFY ntripMountpointChanged )
+    Q_PROPERTY( QString ntripUsername READ ntripUsername WRITE setNtripUsername NOTIFY ntripUsernameChanged )
+    Q_PROPERTY( QString ntripPassword READ ntripPassword WRITE setNtripPassword NOTIFY ntripPasswordChanged )
+    Q_PROPERTY( PositioningSource::NtripState ntripState READ ntripState NOTIFY ntripStateChanged )
+    Q_PROPERTY( QString ntripStatus READ ntripStatus NOTIFY ntripStateChanged )
+    Q_PROPERTY( qint64 ntripBytesSent READ ntripBytesSent NOTIFY ntripBytesSentChanged )
+    Q_PROPERTY( qint64 ntripBytesReceived READ ntripBytesReceived NOTIFY ntripBytesReceivedChanged )
+
+    Q_PROPERTY( SatelliteModel *satelliteModel READ satelliteModel CONSTANT )
 
     Q_PROPERTY( double badAccuracyThreshold READ badAccuracyThreshold WRITE setBadAccuracyThreshold NOTIFY badAccuracyThresholdChanged )
     Q_PROPERTY( double excellentAccuracyThreshold READ excellentAccuracyThreshold WRITE setExcellentAccuracyThreshold NOTIFY excellentAccuracyThresholdChanged )
@@ -276,11 +291,106 @@ class Positioning : public QObject
     void setBackgroundMode( bool enabled );
 
     /**
+     * Returns TRUE if the NTRIP client is enabled.
+     */
+    bool enableNtripClient() const;
+
+    /**
+     * Returns TRUE if NMEA sentences should be sent to the NTRIP caster.
+     */
+    bool ntripSendNmea() const;
+
+    /**
+     * Sets whether the NTRIP client is enabled.
+     */
+    void setEnableNtripClient( bool enableNtripClient );
+
+    /**
+     * Sets whether NMEA sentences should be sent to the NTRIP caster.
+     */
+    void setNtripSendNmea( bool sendNmea );
+
+    /**
+     * Returns the NTRIP host server address.
+     */
+    QString ntripHost() const;
+
+    /**
+     * Sets the NTRIP host server address.
+     */
+    void setNtripHost( const QString &ntripHost );
+
+    /**
+     * Returns the NTRIP server port.
+     */
+    int ntripPort() const;
+
+    /**
+     * Sets the NTRIP server port.
+     */
+    void setNtripPort( int ntripPort );
+
+    /**
+     * Returns the NTRIP mountpoint.
+     */
+    QString ntripMountpoint() const;
+
+    /**
+     * Sets the NTRIP mountpoint.
+     */
+    void setNtripMountpoint( const QString &ntripMountpoint );
+
+    /**
+     * Returns the NTRIP username.
+     */
+    QString ntripUsername() const;
+
+    /**
+     * Sets the NTRIP username.
+     */
+    void setNtripUsername( const QString &ntripUsername );
+
+    /**
+     * Returns the NTRIP password.
+     */
+    QString ntripPassword() const;
+
+    /**
+     * Sets the NTRIP password.
+     */
+    void setNtripPassword( const QString &ntripPassword );
+
+    /**
+     * Returns the current NTRIP connection state.
+     */
+    PositioningSource::NtripState ntripState() const;
+
+    /**
+     * Returns a string representation of the current NTRIP connection status.
+     */
+    QString ntripStatus() const;
+
+    /**
+     * Returns the number of bytes sent via NTRIP.
+     */
+    qint64 ntripBytesSent() const;
+
+    /**
+     * Returns the number of bytes received via NTRIP.
+     */
+    qint64 ntripBytesReceived() const;
+
+    /**
      * Returns a list of position information collected while background mode is active.
      * \see backgroundMode()
      * \see setBackgroundMode()
      */
     Q_INVOKABLE QList<GnssPositionInformation> getBackgroundPositionInformation() const;
+
+    /**
+     * Returns the satellite model providing satellite data for QML views (Skyplot, SNR bars).
+     */
+    SatelliteModel *satelliteModel() { return &mSatelliteModel; }
 
     /**
      * Returns the threshold above which accuracy is considered bad.
@@ -319,6 +429,19 @@ class Positioning : public QObject
     void deviceSocketStateStringChanged();
     void orientationChanged();
 
+    //Ntrip client signals
+    void enableNtripClientChanged();
+    void ntripSendNmeaChanged();
+    void ntripHostChanged();
+    void ntripPortChanged();
+    void ntripMountpointChanged();
+    void ntripUsernameChanged();
+    void ntripPasswordChanged();
+    void ntripStateChanged();
+    void ntripBytesSentChanged();
+    void ntripBytesReceivedChanged();
+
+
     // Signals forwarded to positioning source
     void triggerConnectDevice();
     void triggerDisconnectDevice();
@@ -333,7 +456,6 @@ class Positioning : public QObject
     void excellentAccuracyThresholdChanged();
     void serviceModeChanged();
     void backgroundModeChanged();
-
   private slots:
     void onActiveChanged();
     void onValidChanged();
@@ -381,6 +503,8 @@ class Positioning : public QObject
     bool mAveragedPositionFilterAccuracy = false;
     double mBadAccuracyThreshold = std::numeric_limits<double>::quiet_NaN();
     double mExcellentAccuracyThreshold = std::numeric_limits<double>::quiet_NaN();
+
+    SatelliteModel mSatelliteModel;
 };
 
 #endif // POSITIONING_H

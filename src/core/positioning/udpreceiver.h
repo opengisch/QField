@@ -41,6 +41,8 @@ class UdpReceiver : public NmeaGnssReceiver
   public slots:
     QString socketStateString() override;
 
+    void writeRawData( const QByteArray &data ) override;
+
   private:
     void handleConnectDevice() override;
     void handleDisconnectDevice() override;

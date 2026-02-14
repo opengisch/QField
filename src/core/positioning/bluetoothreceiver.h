@@ -38,6 +38,8 @@ class BluetoothReceiver : public NmeaGnssReceiver
   public slots:
     QString socketStateString() override;
 
+    void writeRawData( const QByteArray &data ) override;
+
   private slots:
     /**
      * these functions used for repairing are only needed in the linux (not android) environment

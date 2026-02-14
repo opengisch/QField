@@ -353,6 +353,25 @@ ApplicationWindow {
 
     loggingPath: platformUtilities.appDataDirs()[0] + "/logs"
     logging: positioningSettings.logging
+    enableNtripClient: positioningSettings.enableNtripClient
+    ntripSendNmea: positioningSettings.ntripSendNmea
+    ntripHost: positioningSettings.ntripHost
+    ntripPort: positioningSettings.ntripPort
+    ntripMountpoint: positioningSettings.ntripMountpoint
+    ntripUsername: positioningSettings.ntripUsername
+    ntripPassword: positioningSettings.ntripPassword
+
+    onNtripStateChanged: {
+      positioningSettings.ntripStatus = ntripStatus;
+    }
+
+    onNtripBytesSentChanged: {
+      positioningSettings.ntripBytesSent = ntripBytesSent;
+    }
+
+    onNtripBytesReceivedChanged: {
+      positioningSettings.ntripBytesReceived = ntripBytesReceived;
+    }
 
     onPositionInformationChanged: {
       if (active) {
@@ -2882,6 +2901,25 @@ ApplicationWindow {
             }
           }
         }
+
+        QfBadge {
+          alignment: QfBadge.Alignment.BottomRight
+          visible: gnssButton.state === "On" && positionSource.positionInformation && positionSource.positionInformation.quality >= 2
+          color: {
+            if (!positionSource.positionInformation)
+              return Theme.fixInvalid;
+            switch (positionSource.positionInformation.quality) {
+            case 4:
+              return Theme.fixRtkFixed;
+            case 5:
+              return Theme.fixRtkFloat;
+            case 2:
+              return Theme.fixDGPS;
+            default:
+              return Theme.fixAutonomous;
+            }
+          }
+        }
       }
 
       Connections {
@@ -4300,6 +4338,21 @@ ApplicationWindow {
       indicator.implicitWidth: 24
 
       onTriggered: positioningSettings.showPositionInformation = checked
+    }
+
+    MenuItem {
+      text: qsTr("Enable NTRIP Client")
+      height: 48
+      leftPadding: Theme.menuItemCheckLeftPadding
+      font: Theme.defaultFont
+
+      checkable: true
+      checked: positioningSettings.enableNtripClient
+      indicator.height: 20
+      indicator.width: 20
+      indicator.implicitHeight: 24
+      indicator.implicitWidth: 24
+      onCheckedChanged: positioningSettings.enableNtripClient = checked
     }
 
     MenuItem {

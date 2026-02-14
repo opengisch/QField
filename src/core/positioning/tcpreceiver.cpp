@@ -80,6 +80,14 @@ QString TcpReceiver::socketStateString()
   return socketStateString;
 }
 
+void TcpReceiver::writeRawData( const QByteArray &data )
+{
+  if ( mSocket && mSocket->isOpen() )
+  {
+    mSocket->write( data );
+  }
+}
+
 void TcpReceiver::handleError( QAbstractSocket::SocketError error )
 {
   switch ( error )
