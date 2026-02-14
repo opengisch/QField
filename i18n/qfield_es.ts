@@ -602,11 +602,11 @@ Cancele para hacer una búsqueda mínima de dispositivos en su lugar.</translati
     </message>
     <message>
         <source>Expand All</source>
-        <translation type="unfinished"/>
+        <translation>Expandir todo</translation>
     </message>
     <message>
         <source>Collapse All</source>
-        <translation type="unfinished"/>
+        <translation>Contraer todo</translation>
     </message>
 </context>
 <context>
@@ -3055,35 +3055,35 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Pushing changes, %1%…</source>
-        <translation type="unfinished"/>
+        <translation>Subiendo cambios, %1%…</translation>
     </message>
     <message>
         <source>QFieldCloud is applying the latest pushed changes. This might take some time, please hold tight…</source>
-        <translation type="unfinished"/>
+        <translation>QFieldCloud está aplicando los últimos cambios subidos. Esto puede llevar algo de tiempo, mantente atento…</translation>
     </message>
     <message>
         <source>Uploading the current project to QFieldCloud.</source>
-        <translation type="unfinished"/>
+        <translation>Subiendo el proyecto actual a QFieldCloud.</translation>
     </message>
     <message>
         <source>The current project is not stored on QFieldCloud.</source>
-        <translation type="unfinished"/>
+        <translation>El proyecto actual no está guardado en QFieldCloud.</translation>
     </message>
     <message>
         <source>Cloudifying project</source>
-        <translation type="unfinished"/>
+        <translation>Preparando el proyecto para QFieldCloud</translation>
     </message>
     <message>
         <source>Cloudify!</source>
-        <translation type="unfinished"/>
+        <translation>¡Preparar el proyecto para QFieldCloud!</translation>
     </message>
     <message>
         <source>Uploading %1</source>
-        <translation type="unfinished"/>
+        <translation>Subiendo %1</translation>
     </message>
     <message numerus="yes">
         <source>%n file(s) remaining</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Falta un archivo</numerusform><numerusform>Faltan %n archivos</numerusform><numerusform>Faltan %n archivos</numerusform></translation>
     </message>
 </context>
 <context>
@@ -3192,23 +3192,23 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Local path doesn&apos;t exist</source>
-        <translation type="unfinished"/>
+        <translation>La ruta local no existe</translation>
     </message>
     <message>
         <source>Local path to upload cannot be used as it has multiple project files</source>
-        <translation type="unfinished"/>
+        <translation>La ruta local para subir no se puede usar porque contiene múltiples archivos de proyecto</translation>
     </message>
     <message>
         <source>Local path to upload is missing a valid project file</source>
-        <translation type="unfinished"/>
+        <translation>La ruta local para subir carece de un archivo de proyecto válido</translation>
     </message>
     <message>
         <source>Network error. Failed to upload file `%1`.</source>
-        <translation type="unfinished"/>
+        <translation>Error de red. Error al subir el archivo `%1`.</translation>
     </message>
     <message>
         <source>One or more files could not be uploaded</source>
-        <translation type="unfinished"/>
+        <translation>No se pudieron subir uno o más archivos</translation>
     </message>
 </context>
 <context>
@@ -3259,7 +3259,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Synchronizing</source>
-        <translation type="unfinished"/>
+        <translation>Sincronizando</translation>
     </message>
 </context>
 <context>
@@ -3394,15 +3394,15 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Project creation requires a name</source>
-        <translation type="unfinished"/>
+        <translation>La creación de un proyecto requiere un nombre</translation>
     </message>
     <message>
         <source>Cloud project could not be created.</source>
-        <translation type="unfinished"/>
+        <translation>No se pudo crear el proyecto en la nube.</translation>
     </message>
     <message>
         <source>Network is not currently active. We will push the changes automatically once you are back online.</source>
-        <translation type="unfinished"/>
+        <translation>La red no está activa en este momento. Subiremos los cambios automáticamente cuando vuelva a estar en línea.</translation>
     </message>
 </context>
 <context>
@@ -3573,7 +3573,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Are you sure you want to remove `%1`?</source>
-        <translation type="unfinished"/>
+        <translation>¿Está seguro de que quiere eliminar `%1`?</translation>
     </message>
     <message>
         <source>Synchronize</source>
@@ -3588,11 +3588,11 @@ While you can still view and use the project, it is strongly recommended to rese
     <name>QFieldCloudService</name>
     <message>
         <source>Uploading %1</source>
-        <translation type="unfinished"/>
+        <translation>Subiendo %1</translation>
     </message>
     <message numerus="yes">
         <source>%n file(s) remaining</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Falta un archivo</numerusform><numerusform>Faltan %n archivos</numerusform><numerusform>Faltan %n archivos</numerusform></translation>
     </message>
 </context>
 <context>
@@ -3797,7 +3797,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Items being uploaded to QFieldCloud</source>
-        <translation type="unfinished"/>
+        <translation>Elementos que se están subiendo a QFieldCloud</translation>
     </message>
     <message>
         <source>Remove File(s)</source>
@@ -3805,15 +3805,15 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message numerus="yes">
         <source>Are you sure you want to remove %n files?</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>¿Está seguro de que quiere eliminar un archivo?</numerusform><numerusform>¿Está seguro de que quiere eliminar %n archivos?</numerusform><numerusform>¿Está seguro de que quiere eliminar %n archivos?</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>%n file(s) deleted successfully</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Un archivo borrado con éxito</numerusform><numerusform>%n archivos borrados con éxito</numerusform><numerusform>%n archivos borrados con éxito</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Failed to delete %n file(s)</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>No se pudo borrar un archivo</numerusform><numerusform>No se pudieron borrar %n archivos</numerusform><numerusform>No se pudieron borrar %n archivos</numerusform></translation>
     </message>
     <message>
         <source>Type a URL below to download and import the project or dataset:</source>
@@ -4397,23 +4397,23 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     </message>
     <message>
         <source>Behavior when locked to position:</source>
-        <translation type="unfinished"/>
+        <translation>Comportamiento cuando está bloqueado a la posición:</translation>
     </message>
     <message>
         <source>Follow position only</source>
-        <translation type="unfinished"/>
+        <translation>Solo seguir la posición</translation>
     </message>
     <message>
         <source>Follow position and compass orientation</source>
-        <translation type="unfinished"/>
+        <translation>Seguir posición y orientación de la brújula</translation>
     </message>
     <message>
         <source>Follow position and movement direction</source>
-        <translation type="unfinished"/>
+        <translation>Seguir posición y dirección de movimiento</translation>
     </message>
     <message>
         <source>When the map canvas is following or locked to position, it can also rotate to match compass orientation or movement direction.</source>
-        <translation type="unfinished"/>
+        <translation>Cuando el lienzo del mapa está siguiendo la posición o bloqueado a ella, también puede rotar para coincidir con la orientación de la brújula o la dirección del movimiento.</translation>
     </message>
 </context>
 <context>
@@ -4559,15 +4559,15 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     </message>
     <message>
         <source>Circle #1: radius</source>
-        <translation type="unfinished"/>
+        <translation>Círculo #1: radio</translation>
     </message>
     <message>
         <source>Circle #2: radius</source>
-        <translation type="unfinished"/>
+        <translation>Círculo #2: radio</translation>
     </message>
     <message>
         <source>Candidate</source>
-        <translation type="unfinished"/>
+        <translation>Candidato</translation>
     </message>
     <message>
         <source>XYZ Parameters</source>
@@ -5557,59 +5557,59 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     </message>
     <message>
         <source>Upload finished.</source>
-        <translation type="unfinished"/>
+        <translation>Subida finalizada.</translation>
     </message>
     <message>
         <source>No local paths provided.</source>
-        <translation type="unfinished"/>
+        <translation>No se proporcionó ninguna ruta local.</translation>
     </message>
     <message>
         <source>WebDAV is busy.</source>
-        <translation type="unfinished"/>
+        <translation>WebDAV está ocupado.</translation>
     </message>
     <message>
         <source>Not a WebDAV imported project.</source>
-        <translation type="unfinished"/>
+        <translation>No es un proyecto WebDAV importado.</translation>
     </message>
     <message>
         <source>WebDAV config is missing required fields.</source>
-        <translation type="unfinished"/>
+        <translation>Faltan campos requeridos en la configuración de WebDAV  .</translation>
     </message>
     <message>
         <source>No stored password available.</source>
-        <translation type="unfinished"/>
+        <translation>Ninguna contraseña guardada disponible.</translation>
     </message>
     <message>
         <source>Selected items belong to different WebDAV projects.</source>
-        <translation type="unfinished"/>
+        <translation>Los objetos seleccionados pertenecen a proyectos WebDAV diferentes.</translation>
     </message>
     <message>
         <source>Nothing to upload.</source>
-        <translation type="unfinished"/>
+        <translation>Nada que subir.</translation>
     </message>
     <message>
         <source>No local changes detected.</source>
-        <translation type="unfinished"/>
+        <translation>No se han detectado cambios locales.</translation>
     </message>
     <message>
         <source>Upload cancelled.</source>
-        <translation type="unfinished"/>
+        <translation>Subida cancelada.</translation>
     </message>
     <message>
         <source>Upload skipped.</source>
-        <translation type="unfinished"/>
+        <translation>Subida omitida.</translation>
     </message>
     <message>
         <source>Upload is locked by another process.</source>
-        <translation type="unfinished"/>
+        <translation>La subida está bloqueada por otro proceso.</translation>
     </message>
     <message>
         <source>Failed to read WebDAV config file.</source>
-        <translation type="unfinished"/>
+        <translation>No se pudo leer el archivo de configuración WebDAV .</translation>
     </message>
     <message>
         <source>Invalid WebDAV config JSON.</source>
-        <translation type="unfinished"/>
+        <translation>Configuración JSON no válida de WebDAV.</translation>
     </message>
 </context>
 <context>
@@ -5749,7 +5749,7 @@ proyecto</translation>
     <name>angle</name>
     <message>
         <source>deg</source>
-        <translation type="unfinished"/>
+        <translation>grado</translation>
     </message>
 </context>
 <context>
@@ -6672,7 +6672,8 @@ proyecto</translation>
     <message>
         <source>Tap on your location marker
 to show actions</source>
-        <translation type="unfinished"/>
+        <translation>Toque en el marcador de su posición
+para mostrar las acciones</translation>
     </message>
     <message>
         <source>This button toggles the positioning system. When enabled, a position marker will appear top of the map. Long-pressing the button will open the positioning menu where additional functionalities can be explored.</source>
@@ -6696,39 +6697,39 @@ to show actions</source>
     </message>
     <message>
         <source>COGO digitizing turned on</source>
-        <translation type="unfinished"/>
+        <translation>Digitalización COGO activada</translation>
     </message>
     <message>
         <source>COGO digitizing turned off</source>
-        <translation type="unfinished"/>
+        <translation>Digitalización COGO desactivada</translation>
     </message>
     <message>
         <source>Enable positioning service to get points at your location</source>
-        <translation type="unfinished"/>
+        <translation>Habilitar servicio de posicionamiento para obtener puntos en su localización</translation>
     </message>
     <message>
         <source>Positioning service has not yet received a valid location</source>
-        <translation type="unfinished"/>
+        <translation>El servicio de posicionamiento no ha obtenido aún una localización válida</translation>
     </message>
     <message>
         <source>Map canvas locked to location and movement direction</source>
-        <translation type="unfinished"/>
+        <translation>Lienzo del mapa bloqueado a la localización y la dirección del movimiento</translation>
     </message>
     <message>
         <source>Map canvas follows location and movement direction</source>
-        <translation type="unfinished"/>
+        <translation>El lienzo del mapa sigue la localización y la dirección del movimiento</translation>
     </message>
     <message>
         <source>Failed to load 3D view</source>
-        <translation type="unfinished"/>
+        <translation>No se pudo cargar la vista 3D</translation>
     </message>
     <message>
         <source>Loading terrain...</source>
-        <translation type="unfinished"/>
+        <translation>Cargando terreno...</translation>
     </message>
     <message>
         <source>Close 3D view</source>
-        <translation type="unfinished"/>
+        <translation>Cerrar vista 3D</translation>
     </message>
 </context>
 <context>

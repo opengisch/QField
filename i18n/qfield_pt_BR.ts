@@ -2030,7 +2030,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>All files (*.*)</source>
-        <translation type="unfinished"/>
+        <translation>Todos os ficheiros (*)</translation>
     </message>
     <message>
         <source>Select File</source>
@@ -2288,7 +2288,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Logs file (NMEA)</source>
-        <translation type="unfinished"/>
+        <translation>Arquivo de logs (NMEA)</translation>
     </message>
 </context>
 <context>
@@ -2335,7 +2335,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>ortho.</source>
-        <translation type="unfinished"/>
+        <translation>ortho.</translation>
     </message>
     <message>
         <source>ant.</source>
@@ -2501,11 +2501,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Custom basemap URL</source>
-        <translation type="unfinished"/>
+        <translation>URL do basemap personalizado</translation>
     </message>
     <message>
         <source>Take notes?</source>
-        <translation type="unfinished"/>
+        <translation>Tomar notas?</translation>
     </message>
     <message>
         <source>Quickly capture notes with date, time, and comments. Optionally, attach multimedia items such as images and videos to enrich your notes.</source>
@@ -2588,7 +2588,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Track color</source>
-        <translation type="unfinished"/>
+        <translation>Cor da pista</translation>
     </message>
 </context>
 <context>
@@ -2603,7 +2603,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>at service</source>
-        <translation type="unfinished"/>
+        <translation>em serviço</translation>
     </message>
 </context>
 <context>
@@ -2665,7 +2665,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Details stamping disabled</source>
-        <translation type="unfinished"/>
+        <translation>Detalhes de estampagem desativados</translation>
     </message>
 </context>
 <context>
@@ -3048,11 +3048,11 @@ Enquanto pode ver e usar o projeto, recomendamos fortemente a limpá-lo para evi
     </message>
     <message>
         <source>Storing projects on QFieldCloud offers seamless synchronization, offline editing, and team management.&lt;br&gt;&lt;br&gt;</source>
-        <translation type="unfinished"/>
+        <translation>Armazenar projetos no QFieldCloud oferece uma sincronização perfeita, edição offline e gestão de equipas.&lt;br&gt;&lt;br&gt;</translation>
     </message>
     <message>
         <source>Pushing changes, %1%…</source>
-        <translation type="unfinished"/>
+        <translation>Enviando alterações, %1%...</translation>
     </message>
     <message>
         <source>QFieldCloud is applying the latest pushed changes. This might take some time, please hold tight…</source>
@@ -3181,15 +3181,15 @@ Enquanto pode ver e usar o projeto, recomendamos fortemente a limpá-lo para evi
     </message>
     <message>
         <source>File system error. Failed to write to partial file `%1`.</source>
-        <translation type="unfinished"/>
+        <translation>Erro no sistema de ficheiros. Falha ao gravar o ficheiro no local temporário `%1`.</translation>
     </message>
     <message>
         <source>File system error. Failed to open partial file `%1`.</source>
-        <translation type="unfinished"/>
+        <translation>Erro no sistema de ficheiros. Falha ao gravar o ficheiro no local temporário `%1`.</translation>
     </message>
     <message>
         <source>Local path doesn&apos;t exist</source>
-        <translation type="unfinished"/>
+        <translation>O caminho local não existe</translation>
     </message>
     <message>
         <source>Local path to upload cannot be used as it has multiple project files</source>
@@ -3205,7 +3205,7 @@ Enquanto pode ver e usar o projeto, recomendamos fortemente a limpá-lo para evi
     </message>
     <message>
         <source>One or more files could not be uploaded</source>
-        <translation type="unfinished"/>
+        <translation>Um ou mais arquivos não puderam ser carregados</translation>
     </message>
 </context>
 <context>
@@ -3399,7 +3399,7 @@ Enquanto pode ver e usar o projeto, recomendamos fortemente a limpá-lo para evi
     </message>
     <message>
         <source>Network is not currently active. We will push the changes automatically once you are back online.</source>
-        <translation type="unfinished"/>
+        <translation>A rede não está ativa no momento. Enviaremos as alterações automaticamente assim que você estiver online novamente.</translation>
     </message>
 </context>
 <context>
@@ -3530,7 +3530,7 @@ Enquanto pode ver e usar o projeto, recomendamos fortemente a limpá-lo para evi
     </message>
     <message>
         <source>No cloud projects found. To get started, %1read the documentation%2.</source>
-        <translation type="unfinished"/>
+        <translation>Nenhum plugin foi ainda instalado. Para saber mais sobre plugins, %1leia a documentação%2.</translation>
     </message>
     <message>
         <source>Search for project</source>
@@ -3730,11 +3730,11 @@ Enquanto pode ver e usar o projeto, recomendamos fortemente a limpá-lo para evi
     </message>
     <message>
         <source>Upload folder to WebDAV server</source>
-        <translation type="unfinished"/>
+        <translation>Upload pasta para o servidor WebDAV</translation>
     </message>
     <message>
         <source>Download folder from WebDAV server</source>
-        <translation type="unfinished"/>
+        <translation>Download pasta do servidor WebDAV</translation>
     </message>
     <message>
         <source>Delete file</source>
@@ -3754,7 +3754,7 @@ Enquanto pode ver e usar o projeto, recomendamos fortemente a limpá-lo para evi
     </message>
     <message>
         <source>Import WebDAV folder</source>
-        <translation type="unfinished"/>
+        <translation>Importar pasta WebDAV</translation>
     </message>
     <message>
         <source>Project Actions</source>
@@ -3766,15 +3766,15 @@ Enquanto pode ver e usar o projeto, recomendamos fortemente a limpá-lo para evi
     </message>
     <message>
         <source>Upload project to WebDAV</source>
-        <translation type="unfinished"/>
+        <translation>Upload projeto para WebDAV</translation>
     </message>
     <message>
         <source>Download project from WebDAV</source>
-        <translation type="unfinished"/>
+        <translation>Download projeto do WebDAV</translation>
     </message>
     <message>
         <source>Upload file(s) to WebDAV</source>
-        <translation type="unfinished"/>
+        <translation>Upload arquivo(s) para o WebDAV</translation>
     </message>
     <message>
         <source>Push file(s) to QFieldCloud</source>
@@ -3782,19 +3782,19 @@ Enquanto pode ver e usar o projeto, recomendamos fortemente a limpá-lo para evi
     </message>
     <message>
         <source>Please select one or more files to push to QFieldCloud.</source>
-        <translation type="unfinished"/>
+        <translation>Selecione um ou mais arquivos para enviar para o QFieldCloud.</translation>
     </message>
     <message>
         <source>Delete file(s)</source>
-        <translation type="unfinished"/>
+        <translation>Deletar elemento</translation>
     </message>
     <message>
         <source>‘%1’ is being uploaded to QFieldCloud</source>
-        <translation type="unfinished"/>
+        <translation>‘%1’ está sendo carregado no QFieldCloud</translation>
     </message>
     <message>
         <source>Items being uploaded to QFieldCloud</source>
-        <translation type="unfinished"/>
+        <translation>Sistemas sendo carregados no QFieldCloud</translation>
     </message>
     <message>
         <source>Remove File(s)</source>
@@ -3818,11 +3818,11 @@ Enquanto pode ver e usar o projeto, recomendamos fortemente a limpá-lo para evi
     </message>
     <message>
         <source>Importing WebDAV folder</source>
-        <translation type="unfinished"/>
+        <translation>Importando pasta WebDAV</translation>
     </message>
     <message>
         <source>Downloading WebDAV folder</source>
-        <translation type="unfinished"/>
+        <translation>Baixando a pasta WebDAV</translation>
     </message>
     <message>
         <source>Uploading WebDAV folder</source>
@@ -3830,27 +3830,27 @@ Enquanto pode ver e usar o projeto, recomendamos fortemente a limpá-lo para evi
     </message>
     <message>
         <source>WebDAV error: </source>
-        <translation type="unfinished"/>
+        <translation>Erro WebDAV:</translation>
     </message>
     <message>
         <source>WebDAV upload</source>
-        <translation type="unfinished"/>
+        <translation>Upload WebDAV</translation>
     </message>
     <message>
         <source>WebDAV download</source>
-        <translation type="unfinished"/>
+        <translation>Download WebDAV</translation>
     </message>
     <message>
         <source>You are about to upload modified content into &lt;b&gt;%1&lt;/b&gt; using user &lt;b&gt;%2&lt;/b&gt;.&lt;br&gt;&lt;br&gt;This operation will overwrite data stored remotely, make sure this is what you want to do.</source>
-        <translation type="unfinished"/>
+        <translation>Você está prestes a enviar conteúdo modificado&lt;b&gt; para %1 &lt;/b&gt;usando o usuário &lt;b&gt;%2&lt;/b&gt;. &lt;br&gt;&lt;br&gt;Esta operação substituirá os dados armazenados remotamente. Certifique-se de que é isso que você deseja fazer.</translation>
     </message>
     <message>
         <source>You are about to download modified content from &lt;b&gt;%1&lt;/b&gt; using user &lt;b&gt;%2&lt;/b&gt;.&lt;br&gt;&lt;br&gt;This operation will overwrite data stored locally, make sure this is what you want to do.</source>
-        <translation type="unfinished"/>
+        <translation>Você está prestes a fazer o download  do conteúdo modificado de &lt;b&gt;%1 &lt;/b&gt;usando o usuário &lt;b&gt;%2&lt;/b&gt;. &lt;br&gt;&lt;br&gt;Esta operação substituirá os dados armazenados localmente. Certifique-se de que é isso que você deseja fazer.</translation>
     </message>
     <message>
         <source>Password (leave empty to use remembered)</source>
-        <translation type="unfinished"/>
+        <translation>Senha (deixe em branco para usar a senha memorizada)</translation>
     </message>
     <message>
         <source>Remember password</source>
@@ -3858,11 +3858,11 @@ Enquanto pode ver e usar o projeto, recomendamos fortemente a limpá-lo para evi
     </message>
     <message>
         <source>Type the WebDAV details below to import a remote folder:</source>
-        <translation type="unfinished"/>
+        <translation>Digite os detalhes do WebDAV abaixo para importar uma pasta remota:</translation>
     </message>
     <message>
         <source>WebDAV server URL</source>
-        <translation type="unfinished"/>
+        <translation>URL do servidor WebDAV</translation>
     </message>
     <message>
         <source>User and password</source>
@@ -3870,15 +3870,15 @@ Enquanto pode ver e usar o projeto, recomendamos fortemente a limpá-lo para evi
     </message>
     <message>
         <source>leave empty to use remembered</source>
-        <translation type="unfinished"/>
+        <translation>deixe em branco para usar o valor memorizado</translation>
     </message>
     <message>
         <source>Fetching remote folders</source>
-        <translation type="unfinished"/>
+        <translation>Buscando pastas remotas</translation>
     </message>
     <message>
         <source>Fetch remote folders</source>
-        <translation type="unfinished"/>
+        <translation>Buscar pastas remotas</translation>
     </message>
     <message>
         <source>Select the remote folder to import:</source>
@@ -3886,15 +3886,15 @@ Enquanto pode ver e usar o projeto, recomendamos fortemente a limpá-lo para evi
     </message>
     <message>
         <source>root folder</source>
-        <translation type="unfinished"/>
+        <translation>Pasta do Projeto</translation>
     </message>
     <message>
         <source>Available locally in ‘%1’</source>
-        <translation type="unfinished"/>
+        <translation>Disponível localmente em ‘%1’</translation>
     </message>
     <message>
         <source>Imported folder name</source>
-        <translation type="unfinished"/>
+        <translation>Nome da pasta importada</translation>
     </message>
     <message>
         <source>Confirm</source>
@@ -3902,7 +3902,7 @@ Enquanto pode ver e usar o projeto, recomendamos fortemente a limpá-lo para evi
     </message>
     <message>
         <source>You are about to remove a saved WebDAV item, proceed?</source>
-        <translation type="unfinished"/>
+        <translation>Você está prestes a remover um item WebDAV salvo. Deseja continuar?</translation>
     </message>
 </context>
 <context>
@@ -3913,11 +3913,11 @@ Enquanto pode ver e usar o projeto, recomendamos fortemente a limpá-lo para evi
     </message>
     <message>
         <source>Latitude %1 | Longitude %2 | Altitude %3 m | Speed %4 m/s | Direction %5°</source>
-        <translation type="unfinished"/>
+        <translation>Latitude %1 | Longitude %2 | Altitude %3 m | Velocidade %4 m/s | Direção %5°</translation>
     </message>
     <message>
         <source>Positioning service stopped</source>
-        <translation type="unfinished"/>
+        <translation>Serviço de posicionamento interrompido</translation>
     </message>
 </context>
 <context>
@@ -4266,15 +4266,15 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>A lower quality trades rendering precision in favor of lower memory usage and rendering time.</source>
-        <translation type="unfinished"/>
+        <translation>Uma qualidade inferior troca precisão por menor uso de memória e tempo de renderização.</translation>
     </message>
     <message>
         <source>This value will correct the Z values recorded from the positioning device. If a value of 1.6 is entered, QField will automatically subtract 1.6 from each recorded value. Make sure to insert the effective antenna height, i.e. pole length + antenna phase centre offset.</source>
-        <translation type="unfinished"/>
+        <translation>Este valor corrigirá os valores Z registrados pelo dispositivo de posicionamento. Se for inserido um valor de 1,6, o QField subtrairá automaticamente 1,6 de cada valor registrado. Certifique-se de inserir a altura efetiva da antena, ou seja, o comprimento do poste + o deslocamento do centro de fase da antena.</translation>
     </message>
     <message>
         <source>Orthometric from device</source>
-        <translation type="unfinished"/>
+        <translation>Ortométrico a partir do dispositivo</translation>
     </message>
     <message>
         <source>Use volume keys to digitize</source>
@@ -4302,7 +4302,7 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Digitizing &amp; Editing</source>
-        <translation type="unfinished"/>
+        <translation>Digitalização e Edição</translation>
     </message>
     <message>
         <source>User Interface</source>
@@ -4350,19 +4350,19 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>When the accuracy indicator is enabled, a badge is attached to the location button and colored &lt;span %1&gt;red&lt;/span&gt; if the accuracy value is worse than &lt;i&gt;bad&lt;/i&gt;, &lt;span %2&gt;yellow&lt;/span&gt; if it falls short of &lt;i&gt;excellent&lt;/i&gt;, or &lt;span %3&gt;green&lt;/span&gt;.&lt;br&gt;&lt;br&gt;In addition, an accuracy restriction mode can be toggled on, which restricts vertex addition when locked to coordinate cursor to positions with an accuracy value worse than the bad threshold.</source>
-        <translation type="unfinished"/>
+        <translation>Quando o indicador de precisão está ativado, um emblema é anexado ao botão de localização e fica colorido em &lt;span %1&gt;vermelho&lt;/span&gt; se o valor de precisão for pior que&lt;i&gt; ruim&lt;/i&gt;, &lt;span %2&gt;amarelo &lt;/span&gt;se ficar abaixo de &lt;i&gt; excelente&lt;/i&gt; ou &lt;span %3&gt;verde&lt;/span&gt;.&lt;br&gt; &lt;br&gt;Além disso, um modo de restrição de precisão pode ser ativado, o que restringe a adição de vértices quando bloqueado para coordenar o cursor para posições com um valor de precisão pior que o limite ruim.</translation>
     </message>
     <message>
         <source>Render preview content around visible map canvas</source>
-        <translation type="unfinished"/>
+        <translation>Renderizar conteúdo de pré-visualização em torno da tela do mapa visível</translation>
     </message>
     <message>
         <source>When enabled, the feature form will open automatically if only one feature is identified, skipping the feature list.</source>
-        <translation type="unfinished"/>
+        <translation>Quando ativado, o formulário de recurso será aberto automaticamente se apenas um elemento for identificado, ignorando a lista de elementos.</translation>
     </message>
     <message>
         <source>Show zoom controls</source>
-        <translation type="unfinished"/>
+        <translation>Mostrar controles de zoom</translation>
     </message>
     <message>
         <source>Maximize feature form</source>
@@ -4370,7 +4370,7 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Open feature form for single feature identification</source>
-        <translation type="unfinished"/>
+        <translation>Formulário de elemento aberto para identificação de elemento único</translation>
     </message>
     <message>
         <source>If enabled, areas just outside of the visible map canvas extent will be partially rendered to allow preview when zooming and panning.</source>
@@ -4382,23 +4382,23 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>If enabled, newly-added features are stored as soon as it has having a valid geometry and the constraints are fulfilled and edited atributes are commited immediately.</source>
-        <translation type="unfinished"/>
+        <translation>Se ativado, o elemento é armazenado após haver uma geometria válida, as restrições forem cumpridas e os atributos forem imediatamente confirmados.</translation>
     </message>
     <message>
         <source>Auto-zoom to identified feature(s)</source>
-        <translation type="unfinished"/>
+        <translation>Zoom automático para o elemento</translation>
     </message>
     <message>
         <source>When enabled, the map will automatically zoom to show all identified features, as well as the individual selected feature when the feature form is opened.</source>
-        <translation type="unfinished"/>
+        <translation>Quando ativado, o mapa será automaticamente ampliado para mostrar todos os elementosidentificados, bem como o elemento selecionado individualmente quando o formulário de elementos for aberto.</translation>
     </message>
     <message>
         <source>Behavior when locked to position:</source>
-        <translation type="unfinished"/>
+        <translation>Comportamento quando travado na posição:</translation>
     </message>
     <message>
         <source>Follow position only</source>
-        <translation type="unfinished"/>
+        <translation>Siga apenas a posição</translation>
     </message>
     <message>
         <source>Follow position and compass orientation</source>
@@ -4406,11 +4406,11 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Follow position and movement direction</source>
-        <translation type="unfinished"/>
+        <translation>Siga a posição e a direção do movimento</translation>
     </message>
     <message>
         <source>When the map canvas is following or locked to position, it can also rotate to match compass orientation or movement direction.</source>
-        <translation type="unfinished"/>
+        <translation>Quando a tela do mapa está seguindo ou travada na posição, ela também pode girar para corresponder à orientação da bússola ou à direção do movimento.</translation>
     </message>
 </context>
 <context>
@@ -4532,7 +4532,7 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Skipped file %1 outside of the directory %2</source>
-        <translation type="unfinished"/>
+        <translation>Arquivo %1 ignorado fora do diretório %2</translation>
     </message>
     <message>
         <source>Failed to create a subdirectory %1/%2</source>
@@ -4556,35 +4556,35 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Circle #1: radius</source>
-        <translation type="unfinished"/>
+        <translation>Círculo #1: raio</translation>
     </message>
     <message>
         <source>Circle #2: radius</source>
-        <translation type="unfinished"/>
+        <translation>Círculo #2: raio</translation>
     </message>
     <message>
         <source>Candidate</source>
-        <translation type="unfinished"/>
+        <translation>Candidato</translation>
     </message>
     <message>
         <source>XYZ Parameters</source>
-        <translation type="unfinished"/>
+        <translation>Parâmetros XYZ</translation>
     </message>
     <message>
         <source>Distance/Angle from Point</source>
-        <translation type="unfinished"/>
+        <translation>Distância/Ângulo a partir do ponto</translation>
     </message>
     <message>
         <source>Circles Intersection</source>
-        <translation type="unfinished"/>
+        <translation>Interseção de círculos</translation>
     </message>
     <message>
         <source>Point</source>
-        <translation type="unfinished"/>
+        <translation>Ponto</translation>
     </message>
     <message>
         <source>Distance</source>
-        <translation>Distância (%1)</translation>
+        <translation>Distância</translation>
     </message>
     <message>
         <source>Angle</source>
@@ -4592,7 +4592,7 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Elevation</source>
-        <translation type="unfinished"/>
+        <translation>Elevação</translation>
     </message>
     <message>
         <source>Circle #1: point</source>
@@ -4726,7 +4726,7 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Project Plugin</source>
-        <translation type="unfinished"/>
+        <translation>Plugin do projeto</translation>
     </message>
     <message>
         <source>Could not load font: %1</source>
@@ -4734,7 +4734,7 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Can&apos;t load project, file &quot;%1&quot; does not exist</source>
-        <translation type="unfinished"/>
+        <translation>Não é possível carregar o projeto, o ficheiro &quot;%1&quot; não existe</translation>
     </message>
     <message>
         <source>Can&apos;t read project, file &quot;%1&quot; does not exist</source>
@@ -4894,11 +4894,11 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Cannot add child feature: attribute value linking parent and children is not set</source>
-        <translation type="unfinished"/>
+        <translation>Não é possível adicionar elemento filho: o valor do atributo que vincula pai e filhos não está definido</translation>
     </message>
     <message>
         <source>Unlink Feature</source>
-        <translation type="unfinished"/>
+        <translation>Elemento  Desvincular</translation>
     </message>
     <message>
         <source>Delete Feature</source>
@@ -4918,11 +4918,11 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Child Menu</source>
-        <translation type="unfinished"/>
+        <translation>Menu Infantil</translation>
     </message>
     <message>
         <source>Copy Feature Attributes</source>
-        <translation type="unfinished"/>
+        <translation>Copiar atributos de elementos</translation>
     </message>
     <message>
         <source>Print Atlas Feature to PDF</source>
@@ -5052,7 +5052,7 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>IP address</source>
-        <translation type="unfinished"/>
+        <translation>endereço IP</translation>
     </message>
     <message>
         <source>Port</source>
@@ -5187,7 +5187,7 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Wait for all active requirements</source>
-        <translation type="unfinished"/>
+        <translation>Esperar todos os requisitos ativos</translation>
     </message>
     <message>
         <source>When enabled, vertices will only be recorded when all active requirements are met. When disabled, individual requirement met will trigger vertex additions.</source>
@@ -5267,7 +5267,7 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Layer</source>
-        <translation type="unfinished"/>
+        <translation>Layer</translation>
     </message>
     <message>
         <source>Track on layer %1 resumed</source>
@@ -5318,7 +5318,7 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>When both constraints are disabled, vertex additions will occur as frequently as delivered by the positioning device.</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Quando ambas as restrições estiverem desativadas, as adições de vértices ocorrerão com a mesma frequência com que são fornecidas pelo dispositivo de posicionamento.</translation>
     </message>
     <message>
         <source>Measure (M) value attached to vertices:</source>
@@ -5554,7 +5554,7 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Upload finished.</source>
-        <translation type="unfinished"/>
+        <translation>Upload concluído.</translation>
     </message>
     <message>
         <source>No local paths provided.</source>
@@ -5562,35 +5562,35 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>WebDAV is busy.</source>
-        <translation type="unfinished"/>
+        <translation>O WebDAV está ocupado.</translation>
     </message>
     <message>
         <source>Not a WebDAV imported project.</source>
-        <translation type="unfinished"/>
+        <translation>Não é um projeto importado do WebDAV.</translation>
     </message>
     <message>
         <source>WebDAV config is missing required fields.</source>
-        <translation type="unfinished"/>
+        <translation>A configuração do WebDAV está com campos obrigatórios em falta.</translation>
     </message>
     <message>
         <source>No stored password available.</source>
-        <translation type="unfinished"/>
+        <translation>Sem sensor disponível</translation>
     </message>
     <message>
         <source>Selected items belong to different WebDAV projects.</source>
-        <translation type="unfinished"/>
+        <translation>Os itens selecionados pertencem a diferentes projetos WebDAV.</translation>
     </message>
     <message>
         <source>Nothing to upload.</source>
-        <translation type="unfinished"/>
+        <translation>Nada para   upload.</translation>
     </message>
     <message>
         <source>No local changes detected.</source>
-        <translation type="unfinished"/>
+        <translation>Nenhuma alteração local detectada.</translation>
     </message>
     <message>
         <source>Upload cancelled.</source>
-        <translation type="unfinished"/>
+        <translation>Pesquisa cancelada.</translation>
     </message>
     <message>
         <source>Upload skipped.</source>
@@ -5598,15 +5598,15 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Upload is locked by another process.</source>
-        <translation type="unfinished"/>
+        <translation>O upload está bloqueado por outro processo.</translation>
     </message>
     <message>
         <source>Failed to read WebDAV config file.</source>
-        <translation type="unfinished"/>
+        <translation>Falha ao ler o arquivo de configuração WebDAV.</translation>
     </message>
     <message>
         <source>Invalid WebDAV config JSON.</source>
-        <translation type="unfinished"/>
+        <translation>Configuração JSON do WebDAV inválida.</translation>
     </message>
 </context>
 <context>
@@ -5633,11 +5633,11 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Anonymized metrics collection has been disabled. You can re-enable through the settings panel.</source>
-        <translation type="unfinished"/>
+        <translation>A recolha de métricas anónimas foi desativada. Pode reativá-las através do painel de configurações.</translation>
     </message>
     <message>
         <source>To improve stability for everyone, QField collects and sends anonymized metrics.</source>
-        <translation type="unfinished"/>
+        <translation>Para melhorar a estabilidade para todos, o QField recolhe e envia métricas anónimas.</translation>
     </message>
     <message>
         <source>I agree</source>
@@ -5717,11 +5717,11 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a review.</source>
-        <translation type="unfinished"/>
+        <translation>Que ótimo! Adoraríamos que você clicasse no botão abaixo e deixasse um comentário na loja de aplicativos.</translation>
     </message>
     <message>
         <source>Return to map</source>
-        <translation type="unfinished"/>
+        <translation>Voltar ao mapa</translation>
     </message>
     <message>
         <source>QFieldCloud
@@ -5731,7 +5731,8 @@ projects</source>
     <message>
         <source>Local projects and
  datasets</source>
-        <translation type="unfinished"/>
+        <translation>Projetos locais e
+ datasets</translation>
     </message>
     <message>
         <source>Create new
@@ -5754,7 +5755,7 @@ project</source>
     </message>
     <message>
         <source>&lt;unknown&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;unknown&gt;</translation>
     </message>
     <message>
         <source>sqr. meters</source>
@@ -5820,7 +5821,7 @@ project</source>
     </message>
     <message>
         <source>&lt;unknown&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;unknown&gt;</translation>
     </message>
     <message>
         <source>meters</source>
@@ -5908,23 +5909,23 @@ project</source>
     </message>
     <message>
         <source>elevation</source>
-        <translation type="unfinished"/>
+        <translation>Elevação</translation>
     </message>
     <message>
         <source>easting [X]</source>
-        <translation type="unfinished"/>
+        <translation>Este  [X]</translation>
     </message>
     <message>
         <source>northing [Y]</source>
-        <translation type="unfinished"/>
+        <translation>Norte [Y]</translation>
     </message>
     <message>
         <source>elevation [Z]</source>
-        <translation type="unfinished"/>
+        <translation>Elevação [Z]</translation>
     </message>
     <message>
         <source>Point Feature Picker</source>
-        <translation type="unfinished"/>
+        <translation>Seletor de elementos pontuais</translation>
     </message>
 </context>
 <context>
@@ -6135,11 +6136,11 @@ project</source>
     </message>
     <message>
         <source>Precise View Settings</source>
-        <translation type="unfinished"/>
+        <translation>Configuração de Visualização Precisa</translation>
     </message>
     <message>
         <source>0.25m Precision</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">0.25m Precisão</translation>
     </message>
     <message>
         <source>0.5m Precision</source>
@@ -6147,11 +6148,11 @@ project</source>
     </message>
     <message>
         <source>1m Precision</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">1m Precisão</translation>
     </message>
     <message>
         <source>2.5m Precision</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Precisão de 2,5 m</translation>
     </message>
     <message>
         <source>5m Precision</source>
@@ -6379,51 +6380,51 @@ project</source>
     </message>
     <message>
         <source>Disconnecting sensor &apos;%1&apos;...</source>
-        <translation type="unfinished"/>
+        <translation>Desligar sensor &apos;%1&apos;...</translation>
     </message>
     <message>
         <source>Connecting sensor &apos;%1&apos;...</source>
-        <translation type="unfinished"/>
+        <translation>Ligar ao sensor &apos;%1&apos;...</translation>
     </message>
     <message>
         <source>Select layout below</source>
-        <translation type="unfinished"/>
+        <translation>Selecione o layout abaixo</translation>
     </message>
     <message>
         <source>Layer:</source>
-        <translation type="unfinished"/>
+        <translation>Camada:</translation>
     </message>
     <message>
         <source>Feature:</source>
-        <translation type="unfinished"/>
+        <translation>Elemento:</translation>
     </message>
     <message>
         <source>Open Feature Form</source>
-        <translation type="unfinished"/>
+        <translation>Abrir formulário do elemento</translation>
     </message>
     <message>
         <source>Feature duplication not available</source>
-        <translation type="unfinished"/>
+        <translation>Duplicação de elemento não disponível</translation>
     </message>
     <message>
         <source>Importing %1</source>
-        <translation type="unfinished"/>
+        <translation>A importar %1</translation>
     </message>
     <message>
         <source>Import URL failed</source>
-        <translation type="unfinished"/>
+        <translation>Falhou a importação do URL</translation>
     </message>
     <message>
         <source>Do you grant permission to activate `%1`?</source>
-        <translation type="unfinished"/>
+        <translation>Você concede permissão para ativar `%1`?</translation>
     </message>
     <message>
         <source>Remember my choice</source>
-        <translation type="unfinished"/>
+        <translation>Relembrar a minha escolha</translation>
     </message>
     <message>
         <source>Position has trespassed into ‘%1’</source>
-        <translation type="unfinished"/>
+        <translation>A posição ultrapassou ‘%1’</translation>
     </message>
     <message>
         <source>Position outside areas after leaving ‘%1’</source>
@@ -6439,15 +6440,15 @@ project</source>
     </message>
     <message>
         <source>Enable Map Rotation</source>
-        <translation type="unfinished"/>
+        <translation>Permitir rotação do mapa</translation>
     </message>
     <message>
         <source>Dashboard</source>
-        <translation type="unfinished"/>
+        <translation>Dashboard</translation>
     </message>
     <message>
         <source>This button opens the dashboard. With the dashboard you can interact with the legend and map theme, or start digitizing by activating the editing mode. Long-pressing the button gives you immediate access to the main menu.</source>
-        <translation type="unfinished"/>
+        <translation>Este botão abre o painel de controle. Com o painel de controle, você pode interagir com a legenda e o tema do mapa ou iniciar a digitalização ativando o modo de edição. Pressionar o botão por alguns segundos dá acesso imediato ao menu principal.</translation>
     </message>
     <message>
         <source>Positioning</source>
@@ -6459,19 +6460,19 @@ project</source>
     </message>
     <message>
         <source>The search bar provides you with a quick way to find features within your project, jump to a typed latitude and longitude point, and much more.</source>
-        <translation type="unfinished"/>
+        <translation>A barra de pesquisa oferece uma maneira rápida de encontrar elemento dentro do seu projeto, saltar para um ponto de latitude e longitude digitado e muito mais.</translation>
     </message>
     <message>
         <source>Cancel algorithm operation</source>
-        <translation type="unfinished"/>
+        <translation>Cancelar operação do algoritmo</translation>
     </message>
     <message>
         <source>You are about to dismiss the ongoing algorithm operation, proceed?</source>
-        <translation type="unfinished"/>
+        <translation>Você está prestes a encerrar a operação do algoritmo em andamento. Deseja continuar?</translation>
     </message>
     <message>
         <source>Unlock the screen to close project and app</source>
-        <translation type="unfinished"/>
+        <translation>Desbloqueie o ecrã para fechar o projeto e a aplicação</translation>
     </message>
     <message>
         <source>Borderless mode activated, use the top left and botom right corner to move and resize the window</source>
@@ -6487,31 +6488,31 @@ project</source>
     </message>
     <message>
         <source>Undo</source>
-        <translation type="unfinished"/>
+        <translation>Desfazer</translation>
     </message>
     <message>
         <source>Redo</source>
-        <translation type="unfinished"/>
+        <translation>Refazer</translation>
     </message>
     <message>
         <source>Replaying collected positions, hold on</source>
-        <translation type="unfinished"/>
+        <translation>Reproduzindo posições coletadas, aguarde</translation>
     </message>
     <message>
         <source>Snapping to every</source>
-        <translation type="unfinished"/>
+        <translation>Ajustando-se a cada</translation>
     </message>
     <message>
         <source>%1°</source>
-        <translation type="unfinished"/>
+        <translation>%1°</translation>
     </message>
     <message>
         <source>Snapping tolerance</source>
-        <translation type="unfinished"/>
+        <translation>Ajustando  tolerância</translation>
     </message>
     <message>
         <source>Narrow</source>
-        <translation type="unfinished"/>
+        <translation>Estreito</translation>
     </message>
     <message>
         <source>Normal</source>
@@ -6527,35 +6528,35 @@ project</source>
     </message>
     <message>
         <source>Import Confirmation</source>
-        <translation type="unfinished"/>
+        <translation>Confirmação de importação</translation>
     </message>
     <message>
         <source>Do you want to import &lt;b&gt;%1&lt;/b&gt; from &lt;b&gt;%2&lt;/b&gt; into QField?</source>
-        <translation type="unfinished"/>
+        <translation>Deseja importar &lt;b&gt;%1&lt;/b&gt; de &lt;b&gt;%2&lt;/b&gt; para o QField?</translation>
     </message>
     <message>
         <source>Plugin Permission</source>
-        <translation type="unfinished"/>
+        <translation>Permissão do plugin</translation>
     </message>
     <message>
         <source>Unlock</source>
-        <translation type="unfinished"/>
+        <translation>Desbloquear</translation>
     </message>
     <message>
         <source> Project Plugin</source>
-        <translation type="unfinished"/>
+        <translation>Plugin do Projeto</translation>
     </message>
     <message>
         <source>Do you grant permission to activate the plugin?</source>
-        <translation type="unfinished"/>
+        <translation>Você concede permissão para ativar o plugin?</translation>
     </message>
     <message>
         <source>Failed to create feature</source>
-        <translation type="unfinished"/>
+        <translation>Falha ao criar o elemento!</translation>
     </message>
     <message>
         <source>Failed to create feature due to feature addition permission disabled</source>
-        <translation type="unfinished"/>
+        <translation>Falha ao criar elemento devido à permissão de adição de elemento desativada</translation>
     </message>
     <message>
         <source>Failed to save feature</source>
@@ -6567,19 +6568,19 @@ project</source>
     </message>
     <message>
         <source>Switch between browse and digitize modes. Browse mode focuses on delivering the best experience viewing the map and its features, while digitize mode enables you to create features and edit geometries.</source>
-        <translation type="unfinished"/>
+        <translation>Alterne entre os modos de navegação e digitalização. O modo de navegação concentra-se em proporcionar a melhor experiência de visualização do mapa e de suas características, enquanto o modo de digitalização permite criar características e editar geometrias.</translation>
     </message>
     <message>
         <source>Measurement</source>
-        <translation type="unfinished"/>
+        <translation>Medição</translation>
     </message>
     <message>
         <source>Toggle the measurement tool to calculate distances and areas on the map.</source>
-        <translation type="unfinished"/>
+        <translation>Alterne a ferramenta de medição para calcular distâncias e áreas no mapa.</translation>
     </message>
     <message>
         <source>Export the map canvas to PDF using configured project print and atlas layouts.</source>
-        <translation type="unfinished"/>
+        <translation>Exporte a tela do mapa para PDF usando os layouts de impressão e atlas configurados do projeto.</translation>
     </message>
     <message>
         <source>QFieldCloud</source>
@@ -6587,7 +6588,7 @@ project</source>
     </message>
     <message>
         <source>Push changes, synchronize or revert changes to and from QFieldCloud when a cloud project is opened.</source>
-        <translation type="unfinished"/>
+        <translation>Envie alterações, sincronize ou reverta alterações de e para o QFieldCloud quando um projeto na nuvem for aberto.</translation>
     </message>
     <message>
         <source>Project folder</source>
@@ -6595,7 +6596,7 @@ project</source>
     </message>
     <message>
         <source>Open the project folder to access project files, data sources, and related documents. Useful for managing project resources, manually uploading data to QFieldCloud, and sharing datasets, attachments, and layouts.</source>
-        <translation type="unfinished"/>
+        <translation>Abra a pasta do projeto para acessar os arquivos do projeto, fontes de dados e documentos relacionados. Útil para gerenciar elementos do projeto, fazer upload manual de dados para o QFieldCloud e compartilhar conjuntos de dados, anexos e layouts.</translation>
     </message>
     <message>
         <source>Legend</source>
@@ -6607,23 +6608,23 @@ project</source>
     </message>
     <message>
         <source>Copy Feature</source>
-        <translation type="unfinished"/>
+        <translation>Cópia de elemento</translation>
     </message>
     <message>
         <source>Cut Feature</source>
-        <translation type="unfinished"/>
+        <translation>Elemento de corte</translation>
     </message>
     <message>
         <source>Feature pasted successfully</source>
-        <translation type="unfinished"/>
+        <translation>Elemento colado com sucesso</translation>
     </message>
     <message>
         <source>Failed to paste feature into layer</source>
-        <translation type="unfinished"/>
+        <translation>Falha ao colar elemento na camada</translation>
     </message>
     <message>
         <source>Paste Into Layer</source>
-        <translation type="unfinished"/>
+        <translation>Colar na camada</translation>
     </message>
     <message>
         <source>Editing of multipart geometry is not supported yet.</source>
@@ -6631,7 +6632,7 @@ project</source>
     </message>
     <message>
         <source>Coordinate cursor locked to location</source>
-        <translation type="unfinished"/>
+        <translation>Coordenada do cursor bloqueada na posição</translation>
     </message>
     <message>
         <source>Map canvas unlocked</source>
@@ -6651,7 +6652,7 @@ project</source>
     </message>
     <message>
         <source>Map canvas follows location</source>
-        <translation type="unfinished"/>
+        <translation>A tela está seguindo a localização</translation>
     </message>
     <message>
         <source>Lock Coordinate Cursor to Location</source>
@@ -6720,7 +6721,7 @@ to show actions</source>
     </message>
     <message>
         <source>Loading terrain...</source>
-        <translation type="unfinished"/>
+        <translation>Carregando Projeto</translation>
     </message>
     <message>
         <source>Close 3D view</source>
