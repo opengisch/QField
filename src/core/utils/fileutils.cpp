@@ -609,7 +609,7 @@ bool FileUtils::normalizeImageOrientation( const QString &imagePath, int additio
   // Apply transformations
   if ( needMirror )
   {
-    img = img.mirrored( true, false );
+    img = img.flipped( Qt::Horizontal );
   }
 
   if ( totalRotation != 0 )
