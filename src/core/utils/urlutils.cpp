@@ -155,10 +155,5 @@ QString UrlUtils::createEncodedUri( const QVariantMap &parameters )
   }
 
   const QString encodedUri = url.toString( QUrl::FullyEncoded );
-  if ( encodedUri.isEmpty() )
-  {
-    return encodedUri.isNull() ? QByteArray() : QByteArray( "" );
-  }
-
-  return encodedUri.toLatin1();
+  return encodedUri.isEmpty() ? QByteArray( "" ) : encodedUri.toLatin1();
 }
