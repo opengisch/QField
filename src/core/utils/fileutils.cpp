@@ -548,15 +548,36 @@ bool FileUtils::normalizeImageOrientation( const QString &imagePath, int additio
   bool needMirror = false;
   switch ( exifOrientation )
   {
-    case 1: exifRotation = 0; break;
-    case 2: exifRotation = 0; needMirror = true; break;
-    case 3: exifRotation = 180; break;
-    case 4: exifRotation = 180; needMirror = true; break;
-    case 5: exifRotation = 90; needMirror = true; break;
-    case 6: exifRotation = 90; break;
-    case 7: exifRotation = 270; needMirror = true; break;
-    case 8: exifRotation = 270; break;
-    default: break;
+    case 1:
+      exifRotation = 0;
+      break;
+    case 2:
+      exifRotation = 0;
+      needMirror = true;
+      break;
+    case 3:
+      exifRotation = 180;
+      break;
+    case 4:
+      exifRotation = 180;
+      needMirror = true;
+      break;
+    case 5:
+      exifRotation = 90;
+      needMirror = true;
+      break;
+    case 6:
+      exifRotation = 90;
+      break;
+    case 7:
+      exifRotation = 270;
+      needMirror = true;
+      break;
+    case 8:
+      exifRotation = 270;
+      break;
+    default:
+      break;
   }
 
   // Determine orientation after EXIF would be applied

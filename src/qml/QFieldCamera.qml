@@ -537,8 +537,7 @@ Popup {
                     currentPath = UrlUtils.toLocalFile(path);
                   }
                 } else if (cameraItem.state == "PhotoPreview" || cameraItem.state == "VideoPreview") {
-                  if (!currentPath || currentPath === "")
-                  {
+                  if (!currentPath || currentPath === "") {
                     return;
                   }
                   if (cameraItem.state == "PhotoPreview") {
