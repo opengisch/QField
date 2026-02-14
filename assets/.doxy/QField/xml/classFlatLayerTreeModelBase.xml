@@ -1,0 +1,1065 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classFlatLayerTreeModelBase" kind="class" language="C++" prot="public">
+    <compoundname>FlatLayerTreeModelBase</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QAbstractProxyModel</basecompoundref>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classFlatLayerTreeModelBase_1aebdf28d2452eff221fa9ff5d3c6e0518" prot="private" static="no" mutable="no">
+        <type>QMap&lt; QModelIndex, int &gt;</type>
+        <definition>QMap&lt;QModelIndex, int&gt; FlatLayerTreeModelBase::mRowMap</definition>
+        <argsstring></argsstring>
+        <name>mRowMap</name>
+        <qualifiedname>FlatLayerTreeModelBase::mRowMap</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/layertreemodel.h" line="115" column="10" bodyfile="src/core/layertreemodel.h" bodystart="115" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classFlatLayerTreeModelBase_1a1b75957c51ad6f6054822aaad694cabe" prot="private" static="no" mutable="no">
+        <type>QMap&lt; int, QModelIndex &gt;</type>
+        <definition>QMap&lt;int, QModelIndex&gt; FlatLayerTreeModelBase::mIndexMap</definition>
+        <argsstring></argsstring>
+        <name>mIndexMap</name>
+        <qualifiedname>FlatLayerTreeModelBase::mIndexMap</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/layertreemodel.h" line="116" column="10" bodyfile="src/core/layertreemodel.h" bodystart="116" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classFlatLayerTreeModelBase_1abd1d6e8402bcbb105c9152b6af316e35" prot="private" static="no" mutable="no">
+        <type>QMap&lt; int, int &gt;</type>
+        <definition>QMap&lt;int, int&gt; FlatLayerTreeModelBase::mTreeLevelMap</definition>
+        <argsstring></argsstring>
+        <name>mTreeLevelMap</name>
+        <qualifiedname>FlatLayerTreeModelBase::mTreeLevelMap</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/layertreemodel.h" line="117" column="10" bodyfile="src/core/layertreemodel.h" bodystart="117" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classFlatLayerTreeModelBase_1ab28ffecf8997cea804cca343775e6ab5" prot="private" static="no" mutable="no">
+        <type>QList&lt; QModelIndex &gt;</type>
+        <definition>QList&lt;QModelIndex&gt; FlatLayerTreeModelBase::mCollapsedItems</definition>
+        <argsstring></argsstring>
+        <name>mCollapsedItems</name>
+        <qualifiedname>FlatLayerTreeModelBase::mCollapsedItems</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/layertreemodel.h" line="118" column="11" bodyfile="src/core/layertreemodel.h" bodystart="118" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classFlatLayerTreeModelBase_1a7c6f4ac44a15f073695f50fc8b07e34c" prot="private" static="no" mutable="no">
+        <type>QgsLayerTreeModel *</type>
+        <definition>QgsLayerTreeModel* FlatLayerTreeModelBase::mLayerTreeModel</definition>
+        <argsstring></argsstring>
+        <name>mLayerTreeModel</name>
+        <qualifiedname>FlatLayerTreeModelBase::mLayerTreeModel</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/layertreemodel.h" line="120" column="23" bodyfile="src/core/layertreemodel.h" bodystart="120" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classFlatLayerTreeModelBase_1a7ca74291fbdca621b9de48bf19893f38" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString FlatLayerTreeModelBase::mMapTheme</definition>
+        <argsstring></argsstring>
+        <name>mMapTheme</name>
+        <qualifiedname>FlatLayerTreeModelBase::mMapTheme</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/layertreemodel.h" line="121" column="13" bodyfile="src/core/layertreemodel.h" bodystart="121" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classFlatLayerTreeModelBase_1ae99ef1956b667386db02c548fb5a62c4" prot="private" static="no" mutable="no">
+        <type>QgsProject *</type>
+        <definition>QgsProject* FlatLayerTreeModelBase::mProject</definition>
+        <argsstring></argsstring>
+        <name>mProject</name>
+        <qualifiedname>FlatLayerTreeModelBase::mProject</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/layertreemodel.h" line="122" column="16" bodyfile="src/core/layertreemodel.h" bodystart="122" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classFlatLayerTreeModelBase_1a077ff13b9b22a365951b0854e08c5a45" prot="private" static="no" mutable="no">
+        <type>QList&lt; QgsLayerTreeLayer * &gt;</type>
+        <definition>QList&lt;QgsLayerTreeLayer *&gt; FlatLayerTreeModelBase::mLayersInTracking</definition>
+        <argsstring></argsstring>
+        <name>mLayersInTracking</name>
+        <qualifiedname>FlatLayerTreeModelBase::mLayersInTracking</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/layertreemodel.h" line="123" column="11" bodyfile="src/core/layertreemodel.h" bodystart="123" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classFlatLayerTreeModelBase_1a9734bcfc654eb1e4695a16c3cc30b5d5" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool FlatLayerTreeModelBase::mHasCollapsibleItems</definition>
+        <argsstring></argsstring>
+        <name>mHasCollapsibleItems</name>
+        <qualifiedname>FlatLayerTreeModelBase::mHasCollapsibleItems</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/layertreemodel.h" line="125" column="10" bodyfile="src/core/layertreemodel.h" bodystart="125" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classFlatLayerTreeModelBase_1a23e7103d148750de035855fdb35283fa" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool FlatLayerTreeModelBase::mIsCollapsed</definition>
+        <argsstring></argsstring>
+        <name>mIsCollapsed</name>
+        <qualifiedname>FlatLayerTreeModelBase::mIsCollapsed</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/layertreemodel.h" line="126" column="10" bodyfile="src/core/layertreemodel.h" bodystart="126" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classFlatLayerTreeModelBase_1a0901f133869fc5681c6140073da61d62" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool FlatLayerTreeModelBase::mIsTemporal</definition>
+        <argsstring></argsstring>
+        <name>mIsTemporal</name>
+        <qualifiedname>FlatLayerTreeModelBase::mIsTemporal</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/layertreemodel.h" line="128" column="10" bodyfile="src/core/layertreemodel.h" bodystart="128" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classFlatLayerTreeModelBase_1a429c645351380a18a4bf9c2cd0a816b2" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int FlatLayerTreeModelBase::mFrozen</definition>
+        <argsstring></argsstring>
+        <name>mFrozen</name>
+        <qualifiedname>FlatLayerTreeModelBase::mFrozen</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/layertreemodel.h" line="129" column="9" bodyfile="src/core/layertreemodel.h" bodystart="129" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classFlatLayerTreeModelBase_1a5b9a79b8de012a9368ffa42b313f8f0c" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool FlatLayerTreeModelBase::mProjectLayersChanged</definition>
+        <argsstring></argsstring>
+        <name>mProjectLayersChanged</name>
+        <qualifiedname>FlatLayerTreeModelBase::mProjectLayersChanged</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/layertreemodel.h" line="131" column="10" bodyfile="src/core/layertreemodel.h" bodystart="131" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classFlatLayerTreeModelBase_1a5887a474a030eab289b3e5d5e8ddb882" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>FlatLayerTreeModelBase::FlatLayerTreeModelBase</definition>
+        <argsstring>(QgsLayerTree *layerTree, QgsProject *project, QObject *parent=nullptr)</argsstring>
+        <name>FlatLayerTreeModelBase</name>
+        <qualifiedname>FlatLayerTreeModelBase::FlatLayerTreeModelBase</qualifiedname>
+        <param>
+          <type>QgsLayerTree *</type>
+          <declname>layerTree</declname>
+        </param>
+        <param>
+          <type>QgsProject *</type>
+          <declname>project</declname>
+        </param>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/layertreemodel.h" line="36" column="14" bodyfile="src/core/layertreemodel.cpp" bodystart="136" bodyend="174"/>
+      </memberdef>
+      <memberdef kind="function" id="classFlatLayerTreeModelBase_1a182a36020a044fa5ec69a9bfeae7434f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FlatLayerTreeModelBase::setSourceModel</definition>
+        <argsstring>(QAbstractItemModel *sourceModel) override</argsstring>
+        <name>setSourceModel</name>
+        <qualifiedname>FlatLayerTreeModelBase::setSourceModel</qualifiedname>
+        <param>
+          <type>QAbstractItemModel *</type>
+          <declname>sourceModel</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/layertreemodel.h" line="38" column="10" bodyfile="src/core/layertreemodel.cpp" bodystart="505" bodyend="509"/>
+      </memberdef>
+      <memberdef kind="function" id="classFlatLayerTreeModelBase_1a11b3d2553aeac626e5ae8f8a2acbfa16" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QModelIndex</type>
+        <definition>QModelIndex FlatLayerTreeModelBase::mapToSource</definition>
+        <argsstring>(const QModelIndex &amp;proxyIndex) const override</argsstring>
+        <name>mapToSource</name>
+        <qualifiedname>FlatLayerTreeModelBase::mapToSource</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>proxyIndex</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/layertreemodel.h" line="39" column="17" bodyfile="src/core/layertreemodel.cpp" bodystart="511" bodyend="516"/>
+      </memberdef>
+      <memberdef kind="function" id="classFlatLayerTreeModelBase_1ad48238a345cc8ed8cd55eb80fda15b0b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QModelIndex</type>
+        <definition>QModelIndex FlatLayerTreeModelBase::mapFromSource</definition>
+        <argsstring>(const QModelIndex &amp;sourceIndex) const override</argsstring>
+        <name>mapFromSource</name>
+        <qualifiedname>FlatLayerTreeModelBase::mapFromSource</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>sourceIndex</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/layertreemodel.h" line="40" column="17" bodyfile="src/core/layertreemodel.cpp" bodystart="518" bodyend="523"/>
+      </memberdef>
+      <memberdef kind="function" id="classFlatLayerTreeModelBase_1a67c190f96ac44cf07b340e82e9c6acd4" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QModelIndex</type>
+        <definition>QModelIndex FlatLayerTreeModelBase::parent</definition>
+        <argsstring>(const QModelIndex &amp;child) const override</argsstring>
+        <name>parent</name>
+        <qualifiedname>FlatLayerTreeModelBase::parent</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>child</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/layertreemodel.h" line="42" column="17" bodyfile="src/core/layertreemodel.cpp" bodystart="525" bodyend="529"/>
+      </memberdef>
+      <memberdef kind="function" id="classFlatLayerTreeModelBase_1ad25ccae8dd8a3261b96f4d99478ee5b5" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int FlatLayerTreeModelBase::columnCount</definition>
+        <argsstring>(const QModelIndex &amp;parent=QModelIndex()) const override</argsstring>
+        <name>columnCount</name>
+        <qualifiedname>FlatLayerTreeModelBase::columnCount</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>parent</declname>
+          <defval>QModelIndex()</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/layertreemodel.h" line="43" column="9" bodyfile="src/core/layertreemodel.cpp" bodystart="530" bodyend="533"/>
+      </memberdef>
+      <memberdef kind="function" id="classFlatLayerTreeModelBase_1a2f03ccb41813c5ba58be1affe0c449da" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int FlatLayerTreeModelBase::rowCount</definition>
+        <argsstring>(const QModelIndex &amp;parent=QModelIndex()) const override</argsstring>
+        <name>rowCount</name>
+        <qualifiedname>FlatLayerTreeModelBase::rowCount</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>parent</declname>
+          <defval>QModelIndex()</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/layertreemodel.h" line="44" column="9" bodyfile="src/core/layertreemodel.cpp" bodystart="534" bodyend="537"/>
+      </memberdef>
+      <memberdef kind="function" id="classFlatLayerTreeModelBase_1aed030ffe3d3f45a3a2d9684b5da4006b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QModelIndex</type>
+        <definition>QModelIndex FlatLayerTreeModelBase::index</definition>
+        <argsstring>(int row, int column, const QModelIndex &amp;parent=QModelIndex()) const override</argsstring>
+        <name>index</name>
+        <qualifiedname>FlatLayerTreeModelBase::index</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>row</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>column</declname>
+        </param>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>parent</declname>
+          <defval>QModelIndex()</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/layertreemodel.h" line="46" column="17" bodyfile="src/core/layertreemodel.cpp" bodystart="539" bodyend="542"/>
+      </memberdef>
+      <memberdef kind="function" id="classFlatLayerTreeModelBase_1a2fce79e5a99fa0b8040e16db3df93039" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QVariant</type>
+        <definition>QVariant FlatLayerTreeModelBase::data</definition>
+        <argsstring>(const QModelIndex &amp;index, int role) const override</argsstring>
+        <name>data</name>
+        <qualifiedname>FlatLayerTreeModelBase::data</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>role</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/layertreemodel.h" line="48" column="14" bodyfile="src/core/layertreemodel.cpp" bodystart="544" bodyend="1196"/>
+      </memberdef>
+      <memberdef kind="function" id="classFlatLayerTreeModelBase_1a11b649b569f4fb2f24fb7924f68211c5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool FlatLayerTreeModelBase::setData</definition>
+        <argsstring>(const QModelIndex &amp;index, const QVariant &amp;value, int role) override</argsstring>
+        <name>setData</name>
+        <qualifiedname>FlatLayerTreeModelBase::setData</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type>const QVariant &amp;</type>
+          <declname>value</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>role</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/layertreemodel.h" line="49" column="10" bodyfile="src/core/layertreemodel.cpp" bodystart="1198" bodyend="1340"/>
+      </memberdef>
+      <memberdef kind="function" id="classFlatLayerTreeModelBase_1a043d94d243912bf6eb8c9994bc90daaa" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QHash&lt; int, QByteArray &gt;</type>
+        <definition>QHash&lt; int, QByteArray &gt; FlatLayerTreeModelBase::roleNames</definition>
+        <argsstring>() const override</argsstring>
+        <name>roleNames</name>
+        <qualifiedname>FlatLayerTreeModelBase::roleNames</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/layertreemodel.h" line="51" column="11" bodyfile="src/core/layertreemodel.cpp" bodystart="1347" bodyend="1381"/>
+      </memberdef>
+      <memberdef kind="function" id="classFlatLayerTreeModelBase_1a78e4baff8048be06da7d42a2fd629040" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QgsProject *</type>
+        <definition>QgsProject * FlatLayerTreeModelBase::project</definition>
+        <argsstring>() const</argsstring>
+        <name>project</name>
+        <qualifiedname>FlatLayerTreeModelBase::project</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/layertreemodel.h" line="53" column="16" bodyfile="src/core/layertreemodel.cpp" bodystart="1383" bodyend="1386"/>
+      </memberdef>
+      <memberdef kind="function" id="classFlatLayerTreeModelBase_1a9394051b6e6cfce1261624c219f40972" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QgsLayerTreeModel *</type>
+        <definition>QgsLayerTreeModel * FlatLayerTreeModelBase::layerTreeModel</definition>
+        <argsstring>() const</argsstring>
+        <name>layerTreeModel</name>
+        <qualifiedname>FlatLayerTreeModelBase::layerTreeModel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/layertreemodel.h" line="55" column="23" bodyfile="src/core/layertreemodel.cpp" bodystart="1388" bodyend="1391"/>
+      </memberdef>
+      <memberdef kind="function" id="classFlatLayerTreeModelBase_1a7957f7801dab30a40df27aaed3b09ec6" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QgsLayerTree *</type>
+        <definition>QgsLayerTree * FlatLayerTreeModelBase::layerTree</definition>
+        <argsstring>() const</argsstring>
+        <name>layerTree</name>
+        <qualifiedname>FlatLayerTreeModelBase::layerTree</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/layertreemodel.h" line="57" column="18" bodyfile="src/core/layertreemodel.cpp" bodystart="1393" bodyend="1396"/>
+      </memberdef>
+      <memberdef kind="function" id="classFlatLayerTreeModelBase_1a653b7b37f8eefdb11a3156b5de02ae74" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString FlatLayerTreeModelBase::mapTheme</definition>
+        <argsstring>() const</argsstring>
+        <name>mapTheme</name>
+        <qualifiedname>FlatLayerTreeModelBase::mapTheme</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/layertreemodel.h" line="59" column="13" bodyfile="src/core/layertreemodel.cpp" bodystart="1398" bodyend="1401"/>
+      </memberdef>
+      <memberdef kind="function" id="classFlatLayerTreeModelBase_1a1b3960286d9282650808eb021870e11a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FlatLayerTreeModelBase::setMapTheme</definition>
+        <argsstring>(const QString &amp;mapTheme)</argsstring>
+        <name>setMapTheme</name>
+        <qualifiedname>FlatLayerTreeModelBase::setMapTheme</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>mapTheme</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/layertreemodel.h" line="60" column="10" bodyfile="src/core/layertreemodel.cpp" bodystart="1403" bodyend="1416"/>
+      </memberdef>
+      <memberdef kind="function" id="classFlatLayerTreeModelBase_1a53e801a8018a1f5607517f72a01124e2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void FlatLayerTreeModelBase::updateCurrentMapTheme</definition>
+        <argsstring>()</argsstring>
+        <name>updateCurrentMapTheme</name>
+        <qualifiedname>FlatLayerTreeModelBase::updateCurrentMapTheme</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Update map theme as currently used by the model This should be triggered after a project has been loaded </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/layertreemodel.h" line="64" column="22" bodyfile="src/core/layertreemodel.cpp" bodystart="1418" bodyend="1434"/>
+      </memberdef>
+      <memberdef kind="function" id="classFlatLayerTreeModelBase_1acdbe58400a6d3bac18a10a694ebe6cb4" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool FlatLayerTreeModelBase::isFrozen</definition>
+        <argsstring>() const</argsstring>
+        <name>isFrozen</name>
+        <qualifiedname>FlatLayerTreeModelBase::isFrozen</qualifiedname>
+        <briefdescription>
+<para>Returns TRUE if the model is frozen. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/layertreemodel.h" line="67" column="10" bodyfile="src/core/layertreemodel.cpp" bodystart="176" bodyend="179"/>
+      </memberdef>
+      <memberdef kind="function" id="classFlatLayerTreeModelBase_1a7c98c931e974e90abe90a02698758619" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void FlatLayerTreeModelBase::freeze</definition>
+        <argsstring>()</argsstring>
+        <name>freeze</name>
+        <qualifiedname>FlatLayerTreeModelBase::freeze</qualifiedname>
+        <briefdescription>
+<para>Freezes the model as is, with any source model signals ignored. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/layertreemodel.h" line="69" column="22" bodyfile="src/core/layertreemodel.cpp" bodystart="181" bodyend="185"/>
+      </memberdef>
+      <memberdef kind="function" id="classFlatLayerTreeModelBase_1ae6dda1b08ae0cfabf55ef84ae40e1bd9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void FlatLayerTreeModelBase::unfreeze</definition>
+        <argsstring>(bool resetModel=false)</argsstring>
+        <name>unfreeze</name>
+        <qualifiedname>FlatLayerTreeModelBase::unfreeze</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>resetModel</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+<para>Unfreezes the model and resume listening to source model signals. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/layertreemodel.h" line="71" column="22" bodyfile="src/core/layertreemodel.cpp" bodystart="187" bodyend="196"/>
+      </memberdef>
+      <memberdef kind="function" id="classFlatLayerTreeModelBase_1a0e6e546c131fd63182e8f0499083eb4f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FlatLayerTreeModelBase::setLayerInTracking</definition>
+        <argsstring>(QgsLayerTreeLayer *nodeLayer, bool tracking)</argsstring>
+        <name>setLayerInTracking</name>
+        <qualifiedname>FlatLayerTreeModelBase::setLayerInTracking</qualifiedname>
+        <param>
+          <type>QgsLayerTreeLayer *</type>
+          <declname>nodeLayer</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>tracking</declname>
+        </param>
+        <briefdescription>
+<para>Sets the information if the <emphasis>nodeLayer</emphasis> is currently in <emphasis>tracking</emphasis> state. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/layertreemodel.h" line="74" column="10" bodyfile="src/core/layertreemodel.cpp" bodystart="1456" bodyend="1473"/>
+      </memberdef>
+      <memberdef kind="function" id="classFlatLayerTreeModelBase_1a1027d58e3c71888bbf494d13cf10b2c6" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool FlatLayerTreeModelBase::isTemporal</definition>
+        <argsstring>() const</argsstring>
+        <name>isTemporal</name>
+        <qualifiedname>FlatLayerTreeModelBase::isTemporal</qualifiedname>
+        <briefdescription>
+<para>Returns whether the current layer tree has temporal awareness. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/layertreemodel.h" line="77" column="10" bodyfile="src/core/layertreemodel.h" bodystart="77" bodyend="77"/>
+      </memberdef>
+      <memberdef kind="function" id="classFlatLayerTreeModelBase_1a4dd5ee801ec715514076b9b207eeeb2a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>QgsRectangle</type>
+        <definition>QgsRectangle FlatLayerTreeModelBase::nodeExtent</definition>
+        <argsstring>(const QModelIndex &amp;index, QgsQuickMapSettings *mapSettings, const float buffer)</argsstring>
+        <name>nodeExtent</name>
+        <qualifiedname>FlatLayerTreeModelBase::nodeExtent</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref> *</type>
+          <declname>mapSettings</declname>
+        </param>
+        <param>
+          <type>const float</type>
+          <declname>buffer</declname>
+        </param>
+        <briefdescription>
+<para>Calculate layer tree node extent and add optional buffer. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/layertreemodel.h" line="80" column="18" bodyfile="src/core/layertreemodel.cpp" bodystart="1475" bodyend="1569"/>
+      </memberdef>
+      <memberdef kind="function" id="classFlatLayerTreeModelBase_1a7403a5895178d97210668613392efd39" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FlatLayerTreeModelBase::setAllCollapsed</definition>
+        <argsstring>(bool collapsed)</argsstring>
+        <name>setAllCollapsed</name>
+        <qualifiedname>FlatLayerTreeModelBase::setAllCollapsed</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>collapsed</declname>
+        </param>
+        <briefdescription>
+<para>Collapses or expands all collapsible items in the layer tree. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/layertreemodel.h" line="83" column="10" bodyfile="src/core/layertreemodel.cpp" bodystart="1571" bodyend="1598"/>
+      </memberdef>
+      <memberdef kind="function" id="classFlatLayerTreeModelBase_1abf1d92588d9c8360fcdfcb5401a144ed" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool FlatLayerTreeModelBase::hasCollapsibleItems</definition>
+        <argsstring>() const</argsstring>
+        <name>hasCollapsibleItems</name>
+        <qualifiedname>FlatLayerTreeModelBase::hasCollapsibleItems</qualifiedname>
+        <briefdescription>
+<para>Returns TRUE if the layer tree has at least one collapsible item. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/layertreemodel.h" line="86" column="10" bodyfile="src/core/layertreemodel.cpp" bodystart="1600" bodyend="1603"/>
+      </memberdef>
+      <memberdef kind="function" id="classFlatLayerTreeModelBase_1a4415ec9809ac7cb64ee19c78f34f04fa" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool FlatLayerTreeModelBase::isCollapsed</definition>
+        <argsstring>() const</argsstring>
+        <name>isCollapsed</name>
+        <qualifiedname>FlatLayerTreeModelBase::isCollapsed</qualifiedname>
+        <briefdescription>
+<para>Returns TRUE if all collapsible items are currently collapsed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/layertreemodel.h" line="89" column="10" bodyfile="src/core/layertreemodel.cpp" bodystart="1626" bodyend="1629"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classFlatLayerTreeModelBase_1ab7f912a4eb598cec82fa7b1eda15de12" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FlatLayerTreeModelBase::layersAdded</definition>
+        <argsstring>()</argsstring>
+        <name>layersAdded</name>
+        <qualifiedname>FlatLayerTreeModelBase::layersAdded</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/layertreemodel.h" line="92" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classFlatLayerTreeModelBase_1ade3d25765876872062f8170b7aac8713" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FlatLayerTreeModelBase::layersRemoved</definition>
+        <argsstring>()</argsstring>
+        <name>layersRemoved</name>
+        <qualifiedname>FlatLayerTreeModelBase::layersRemoved</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/layertreemodel.h" line="93" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classFlatLayerTreeModelBase_1a6b6491d5e932cab6f4a3254c68b3da84" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FlatLayerTreeModelBase::mapThemeChanged</definition>
+        <argsstring>()</argsstring>
+        <name>mapThemeChanged</name>
+        <qualifiedname>FlatLayerTreeModelBase::mapThemeChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/layertreemodel.h" line="94" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classFlatLayerTreeModelBase_1ac37d033246a9c2a00956c2d564ef3abb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FlatLayerTreeModelBase::hasCollapsibleItemsChanged</definition>
+        <argsstring>()</argsstring>
+        <name>hasCollapsibleItemsChanged</name>
+        <qualifiedname>FlatLayerTreeModelBase::hasCollapsibleItemsChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/layertreemodel.h" line="95" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classFlatLayerTreeModelBase_1adc79bac126ac15ea7afee9e2183f97f2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FlatLayerTreeModelBase::isCollapsedChanged</definition>
+        <argsstring>()</argsstring>
+        <name>isCollapsedChanged</name>
+        <qualifiedname>FlatLayerTreeModelBase::isCollapsedChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/layertreemodel.h" line="96" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classFlatLayerTreeModelBase_1a55007842d9c7702ede09bf3e08faf102" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FlatLayerTreeModelBase::isTemporalChanged</definition>
+        <argsstring>()</argsstring>
+        <name>isTemporalChanged</name>
+        <qualifiedname>FlatLayerTreeModelBase::isTemporalChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/layertreemodel.h" line="97" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classFlatLayerTreeModelBase_1ac5402a83f4bc1f45bbcad1251534d44d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FlatLayerTreeModelBase::isFrozenChanged</definition>
+        <argsstring>()</argsstring>
+        <name>isFrozenChanged</name>
+        <qualifiedname>FlatLayerTreeModelBase::isFrozenChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/layertreemodel.h" line="98" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classFlatLayerTreeModelBase_1abbfb82e463791d2f90057e9e7d359b8c" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FlatLayerTreeModelBase::updateMap</definition>
+        <argsstring>(const QModelIndex &amp;topLeft, const QModelIndex &amp;bottomRight, const QVector&lt; int &gt; &amp;roles)</argsstring>
+        <name>updateMap</name>
+        <qualifiedname>FlatLayerTreeModelBase::updateMap</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>topLeft</declname>
+        </param>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>bottomRight</declname>
+        </param>
+        <param>
+          <type>const QVector&lt; int &gt; &amp;</type>
+          <declname>roles</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/layertreemodel.h" line="101" column="10" bodyfile="src/core/layertreemodel.cpp" bodystart="198" bodyend="209"/>
+      </memberdef>
+      <memberdef kind="function" id="classFlatLayerTreeModelBase_1ab28af6dda7b53f540bae1033bea5391c" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int FlatLayerTreeModelBase::buildMap</definition>
+        <argsstring>(QgsLayerTreeModel *model, const QModelIndex &amp;parent=QModelIndex(), int row=0, int treeLevel=0)</argsstring>
+        <name>buildMap</name>
+        <qualifiedname>FlatLayerTreeModelBase::buildMap</qualifiedname>
+        <param>
+          <type>QgsLayerTreeModel *</type>
+          <declname>model</declname>
+        </param>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>parent</declname>
+          <defval>QModelIndex()</defval>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>row</declname>
+          <defval>0</defval>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>treeLevel</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/layertreemodel.h" line="102" column="9" bodyfile="src/core/layertreemodel.cpp" bodystart="424" bodyend="503"/>
+      </memberdef>
+      <memberdef kind="function" id="classFlatLayerTreeModelBase_1a57bdf1c1facb65b1ab6dfb7508e0f85b" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FlatLayerTreeModelBase::clearMap</definition>
+        <argsstring>()</argsstring>
+        <name>clearMap</name>
+        <qualifiedname>FlatLayerTreeModelBase::clearMap</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/layertreemodel.h" line="103" column="10" bodyfile="src/core/layertreemodel.cpp" bodystart="408" bodyend="422"/>
+      </memberdef>
+      <memberdef kind="function" id="classFlatLayerTreeModelBase_1a20cd30e92498fda9ce5520f7f3248e38" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FlatLayerTreeModelBase::removeFromMap</definition>
+        <argsstring>(const QModelIndex &amp;parent, int first, int last)</argsstring>
+        <name>removeFromMap</name>
+        <qualifiedname>FlatLayerTreeModelBase::removeFromMap</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>parent</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>first</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>last</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/layertreemodel.h" line="105" column="10" bodyfile="src/core/layertreemodel.cpp" bodystart="305" bodyend="406"/>
+      </memberdef>
+      <memberdef kind="function" id="classFlatLayerTreeModelBase_1aa0356a6952cd98feeb29106573d1912c" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FlatLayerTreeModelBase::insertInMap</definition>
+        <argsstring>(const QModelIndex &amp;parent, int first, int last)</argsstring>
+        <name>insertInMap</name>
+        <qualifiedname>FlatLayerTreeModelBase::insertInMap</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>parent</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>first</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>last</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/layertreemodel.h" line="106" column="10" bodyfile="src/core/layertreemodel.cpp" bodystart="211" bodyend="303"/>
+      </memberdef>
+      <memberdef kind="function" id="classFlatLayerTreeModelBase_1aeb99aca242e33c120fb03ce5c479bf2b" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FlatLayerTreeModelBase::featureCountChanged</definition>
+        <argsstring>()</argsstring>
+        <name>featureCountChanged</name>
+        <qualifiedname>FlatLayerTreeModelBase::featureCountChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/layertreemodel.h" line="108" column="10" bodyfile="src/core/layertreemodel.cpp" bodystart="1342" bodyend="1345"/>
+      </memberdef>
+      <memberdef kind="function" id="classFlatLayerTreeModelBase_1ac68fe96f9f29666b412b35c01cd6fd70" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FlatLayerTreeModelBase::updateTemporalState</definition>
+        <argsstring>()</argsstring>
+        <name>updateTemporalState</name>
+        <qualifiedname>FlatLayerTreeModelBase::updateTemporalState</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/layertreemodel.h" line="109" column="10" bodyfile="src/core/layertreemodel.cpp" bodystart="1436" bodyend="1445"/>
+      </memberdef>
+      <memberdef kind="function" id="classFlatLayerTreeModelBase_1a01352d4549d0182773d10d1f080c793e" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FlatLayerTreeModelBase::adjustTemporalStateFromAddedLayers</definition>
+        <argsstring>(const QList&lt; QgsMapLayer * &gt; &amp;layers)</argsstring>
+        <name>adjustTemporalStateFromAddedLayers</name>
+        <qualifiedname>FlatLayerTreeModelBase::adjustTemporalStateFromAddedLayers</qualifiedname>
+        <param>
+          <type>const QList&lt; QgsMapLayer * &gt; &amp;</type>
+          <declname>layers</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/layertreemodel.h" line="110" column="10" bodyfile="src/core/layertreemodel.cpp" bodystart="1447" bodyend="1454"/>
+      </memberdef>
+      <memberdef kind="function" id="classFlatLayerTreeModelBase_1a3206ee00daf758ff6fa7c36ac88851db" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FlatLayerTreeModelBase::checkHasCollapsibleItems</definition>
+        <argsstring>()</argsstring>
+        <name>checkHasCollapsibleItems</name>
+        <qualifiedname>FlatLayerTreeModelBase::checkHasCollapsibleItems</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/layertreemodel.h" line="112" column="10" bodyfile="src/core/layertreemodel.cpp" bodystart="1605" bodyend="1624"/>
+      </memberdef>
+      <memberdef kind="function" id="classFlatLayerTreeModelBase_1af91523dd58f5273ddaf614b52625c58a" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FlatLayerTreeModelBase::checkIsCollapsed</definition>
+        <argsstring>()</argsstring>
+        <name>checkIsCollapsed</name>
+        <qualifiedname>FlatLayerTreeModelBase::checkIsCollapsed</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/layertreemodel.h" line="113" column="10" bodyfile="src/core/layertreemodel.cpp" bodystart="1631" bodyend="1657"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>FlatLayerTreeModelBase</label>
+        <link refid="classFlatLayerTreeModelBase"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QAbstractProxyModel</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>FlatLayerTreeModelBase</label>
+        <link refid="classFlatLayerTreeModelBase"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QAbstractProxyModel</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/layertreemodel.h" line="31" column="1" bodyfile="src/core/layertreemodel.h" bodystart="32" bodyend="132"/>
+    <listofallmembers>
+      <member refid="classFlatLayerTreeModelBase_1a01352d4549d0182773d10d1f080c793e" prot="private" virt="non-virtual"><scope>FlatLayerTreeModelBase</scope><name>adjustTemporalStateFromAddedLayers</name></member>
+      <member refid="classFlatLayerTreeModelBase_1ab28af6dda7b53f540bae1033bea5391c" prot="private" virt="non-virtual"><scope>FlatLayerTreeModelBase</scope><name>buildMap</name></member>
+      <member refid="classFlatLayerTreeModelBase_1a3206ee00daf758ff6fa7c36ac88851db" prot="private" virt="non-virtual"><scope>FlatLayerTreeModelBase</scope><name>checkHasCollapsibleItems</name></member>
+      <member refid="classFlatLayerTreeModelBase_1af91523dd58f5273ddaf614b52625c58a" prot="private" virt="non-virtual"><scope>FlatLayerTreeModelBase</scope><name>checkIsCollapsed</name></member>
+      <member refid="classFlatLayerTreeModelBase_1a57bdf1c1facb65b1ab6dfb7508e0f85b" prot="private" virt="non-virtual"><scope>FlatLayerTreeModelBase</scope><name>clearMap</name></member>
+      <member refid="classFlatLayerTreeModelBase_1ad25ccae8dd8a3261b96f4d99478ee5b5" prot="public" virt="non-virtual"><scope>FlatLayerTreeModelBase</scope><name>columnCount</name></member>
+      <member refid="classFlatLayerTreeModelBase_1a2fce79e5a99fa0b8040e16db3df93039" prot="public" virt="non-virtual"><scope>FlatLayerTreeModelBase</scope><name>data</name></member>
+      <member refid="classFlatLayerTreeModelBase_1aeb99aca242e33c120fb03ce5c479bf2b" prot="private" virt="non-virtual"><scope>FlatLayerTreeModelBase</scope><name>featureCountChanged</name></member>
+      <member refid="classFlatLayerTreeModelBase_1a5887a474a030eab289b3e5d5e8ddb882" prot="public" virt="non-virtual"><scope>FlatLayerTreeModelBase</scope><name>FlatLayerTreeModelBase</name></member>
+      <member refid="classFlatLayerTreeModelBase_1a7c98c931e974e90abe90a02698758619" prot="public" virt="non-virtual"><scope>FlatLayerTreeModelBase</scope><name>freeze</name></member>
+      <member refid="classFlatLayerTreeModelBase_1abf1d92588d9c8360fcdfcb5401a144ed" prot="public" virt="non-virtual"><scope>FlatLayerTreeModelBase</scope><name>hasCollapsibleItems</name></member>
+      <member refid="classFlatLayerTreeModelBase_1ac37d033246a9c2a00956c2d564ef3abb" prot="public" virt="non-virtual"><scope>FlatLayerTreeModelBase</scope><name>hasCollapsibleItemsChanged</name></member>
+      <member refid="classFlatLayerTreeModelBase_1aed030ffe3d3f45a3a2d9684b5da4006b" prot="public" virt="non-virtual"><scope>FlatLayerTreeModelBase</scope><name>index</name></member>
+      <member refid="classFlatLayerTreeModelBase_1aa0356a6952cd98feeb29106573d1912c" prot="private" virt="non-virtual"><scope>FlatLayerTreeModelBase</scope><name>insertInMap</name></member>
+      <member refid="classFlatLayerTreeModelBase_1a4415ec9809ac7cb64ee19c78f34f04fa" prot="public" virt="non-virtual"><scope>FlatLayerTreeModelBase</scope><name>isCollapsed</name></member>
+      <member refid="classFlatLayerTreeModelBase_1adc79bac126ac15ea7afee9e2183f97f2" prot="public" virt="non-virtual"><scope>FlatLayerTreeModelBase</scope><name>isCollapsedChanged</name></member>
+      <member refid="classFlatLayerTreeModelBase_1acdbe58400a6d3bac18a10a694ebe6cb4" prot="public" virt="non-virtual"><scope>FlatLayerTreeModelBase</scope><name>isFrozen</name></member>
+      <member refid="classFlatLayerTreeModelBase_1ac5402a83f4bc1f45bbcad1251534d44d" prot="public" virt="non-virtual"><scope>FlatLayerTreeModelBase</scope><name>isFrozenChanged</name></member>
+      <member refid="classFlatLayerTreeModelBase_1a1027d58e3c71888bbf494d13cf10b2c6" prot="public" virt="non-virtual"><scope>FlatLayerTreeModelBase</scope><name>isTemporal</name></member>
+      <member refid="classFlatLayerTreeModelBase_1a55007842d9c7702ede09bf3e08faf102" prot="public" virt="non-virtual"><scope>FlatLayerTreeModelBase</scope><name>isTemporalChanged</name></member>
+      <member refid="classFlatLayerTreeModelBase_1ab7f912a4eb598cec82fa7b1eda15de12" prot="public" virt="non-virtual"><scope>FlatLayerTreeModelBase</scope><name>layersAdded</name></member>
+      <member refid="classFlatLayerTreeModelBase_1ade3d25765876872062f8170b7aac8713" prot="public" virt="non-virtual"><scope>FlatLayerTreeModelBase</scope><name>layersRemoved</name></member>
+      <member refid="classFlatLayerTreeModelBase_1a7957f7801dab30a40df27aaed3b09ec6" prot="public" virt="non-virtual"><scope>FlatLayerTreeModelBase</scope><name>layerTree</name></member>
+      <member refid="classFlatLayerTreeModelBase_1a9394051b6e6cfce1261624c219f40972" prot="public" virt="non-virtual"><scope>FlatLayerTreeModelBase</scope><name>layerTreeModel</name></member>
+      <member refid="classFlatLayerTreeModelBase_1ad48238a345cc8ed8cd55eb80fda15b0b" prot="public" virt="non-virtual"><scope>FlatLayerTreeModelBase</scope><name>mapFromSource</name></member>
+      <member refid="classFlatLayerTreeModelBase_1a653b7b37f8eefdb11a3156b5de02ae74" prot="public" virt="non-virtual"><scope>FlatLayerTreeModelBase</scope><name>mapTheme</name></member>
+      <member refid="classFlatLayerTreeModelBase_1a6b6491d5e932cab6f4a3254c68b3da84" prot="public" virt="non-virtual"><scope>FlatLayerTreeModelBase</scope><name>mapThemeChanged</name></member>
+      <member refid="classFlatLayerTreeModelBase_1a11b3d2553aeac626e5ae8f8a2acbfa16" prot="public" virt="non-virtual"><scope>FlatLayerTreeModelBase</scope><name>mapToSource</name></member>
+      <member refid="classFlatLayerTreeModelBase_1ab28ffecf8997cea804cca343775e6ab5" prot="private" virt="non-virtual"><scope>FlatLayerTreeModelBase</scope><name>mCollapsedItems</name></member>
+      <member refid="classFlatLayerTreeModelBase_1a429c645351380a18a4bf9c2cd0a816b2" prot="private" virt="non-virtual"><scope>FlatLayerTreeModelBase</scope><name>mFrozen</name></member>
+      <member refid="classFlatLayerTreeModelBase_1a9734bcfc654eb1e4695a16c3cc30b5d5" prot="private" virt="non-virtual"><scope>FlatLayerTreeModelBase</scope><name>mHasCollapsibleItems</name></member>
+      <member refid="classFlatLayerTreeModelBase_1a1b75957c51ad6f6054822aaad694cabe" prot="private" virt="non-virtual"><scope>FlatLayerTreeModelBase</scope><name>mIndexMap</name></member>
+      <member refid="classFlatLayerTreeModelBase_1a23e7103d148750de035855fdb35283fa" prot="private" virt="non-virtual"><scope>FlatLayerTreeModelBase</scope><name>mIsCollapsed</name></member>
+      <member refid="classFlatLayerTreeModelBase_1a0901f133869fc5681c6140073da61d62" prot="private" virt="non-virtual"><scope>FlatLayerTreeModelBase</scope><name>mIsTemporal</name></member>
+      <member refid="classFlatLayerTreeModelBase_1a077ff13b9b22a365951b0854e08c5a45" prot="private" virt="non-virtual"><scope>FlatLayerTreeModelBase</scope><name>mLayersInTracking</name></member>
+      <member refid="classFlatLayerTreeModelBase_1a7c6f4ac44a15f073695f50fc8b07e34c" prot="private" virt="non-virtual"><scope>FlatLayerTreeModelBase</scope><name>mLayerTreeModel</name></member>
+      <member refid="classFlatLayerTreeModelBase_1a7ca74291fbdca621b9de48bf19893f38" prot="private" virt="non-virtual"><scope>FlatLayerTreeModelBase</scope><name>mMapTheme</name></member>
+      <member refid="classFlatLayerTreeModelBase_1ae99ef1956b667386db02c548fb5a62c4" prot="private" virt="non-virtual"><scope>FlatLayerTreeModelBase</scope><name>mProject</name></member>
+      <member refid="classFlatLayerTreeModelBase_1a5b9a79b8de012a9368ffa42b313f8f0c" prot="private" virt="non-virtual"><scope>FlatLayerTreeModelBase</scope><name>mProjectLayersChanged</name></member>
+      <member refid="classFlatLayerTreeModelBase_1aebdf28d2452eff221fa9ff5d3c6e0518" prot="private" virt="non-virtual"><scope>FlatLayerTreeModelBase</scope><name>mRowMap</name></member>
+      <member refid="classFlatLayerTreeModelBase_1abd1d6e8402bcbb105c9152b6af316e35" prot="private" virt="non-virtual"><scope>FlatLayerTreeModelBase</scope><name>mTreeLevelMap</name></member>
+      <member refid="classFlatLayerTreeModelBase_1a4dd5ee801ec715514076b9b207eeeb2a" prot="public" virt="non-virtual"><scope>FlatLayerTreeModelBase</scope><name>nodeExtent</name></member>
+      <member refid="classFlatLayerTreeModelBase_1a67c190f96ac44cf07b340e82e9c6acd4" prot="public" virt="non-virtual"><scope>FlatLayerTreeModelBase</scope><name>parent</name></member>
+      <member refid="classFlatLayerTreeModelBase_1a78e4baff8048be06da7d42a2fd629040" prot="public" virt="non-virtual"><scope>FlatLayerTreeModelBase</scope><name>project</name></member>
+      <member refid="classFlatLayerTreeModelBase_1a20cd30e92498fda9ce5520f7f3248e38" prot="private" virt="non-virtual"><scope>FlatLayerTreeModelBase</scope><name>removeFromMap</name></member>
+      <member refid="classFlatLayerTreeModelBase_1a043d94d243912bf6eb8c9994bc90daaa" prot="public" virt="non-virtual"><scope>FlatLayerTreeModelBase</scope><name>roleNames</name></member>
+      <member refid="classFlatLayerTreeModelBase_1a2f03ccb41813c5ba58be1affe0c449da" prot="public" virt="non-virtual"><scope>FlatLayerTreeModelBase</scope><name>rowCount</name></member>
+      <member refid="classFlatLayerTreeModelBase_1a7403a5895178d97210668613392efd39" prot="public" virt="non-virtual"><scope>FlatLayerTreeModelBase</scope><name>setAllCollapsed</name></member>
+      <member refid="classFlatLayerTreeModelBase_1a11b649b569f4fb2f24fb7924f68211c5" prot="public" virt="non-virtual"><scope>FlatLayerTreeModelBase</scope><name>setData</name></member>
+      <member refid="classFlatLayerTreeModelBase_1a0e6e546c131fd63182e8f0499083eb4f" prot="public" virt="non-virtual"><scope>FlatLayerTreeModelBase</scope><name>setLayerInTracking</name></member>
+      <member refid="classFlatLayerTreeModelBase_1a1b3960286d9282650808eb021870e11a" prot="public" virt="non-virtual"><scope>FlatLayerTreeModelBase</scope><name>setMapTheme</name></member>
+      <member refid="classFlatLayerTreeModelBase_1a182a36020a044fa5ec69a9bfeae7434f" prot="public" virt="non-virtual"><scope>FlatLayerTreeModelBase</scope><name>setSourceModel</name></member>
+      <member refid="classFlatLayerTreeModelBase_1ae6dda1b08ae0cfabf55ef84ae40e1bd9" prot="public" virt="non-virtual"><scope>FlatLayerTreeModelBase</scope><name>unfreeze</name></member>
+      <member refid="classFlatLayerTreeModelBase_1a53e801a8018a1f5607517f72a01124e2" prot="public" virt="non-virtual"><scope>FlatLayerTreeModelBase</scope><name>updateCurrentMapTheme</name></member>
+      <member refid="classFlatLayerTreeModelBase_1abbfb82e463791d2f90057e9e7d359b8c" prot="private" virt="non-virtual"><scope>FlatLayerTreeModelBase</scope><name>updateMap</name></member>
+      <member refid="classFlatLayerTreeModelBase_1ac68fe96f9f29666b412b35c01cd6fd70" prot="private" virt="non-virtual"><scope>FlatLayerTreeModelBase</scope><name>updateTemporalState</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

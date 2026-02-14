@@ -1,0 +1,733 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classTrackingModel" kind="class" language="C++" prot="public">
+    <compoundname>TrackingModel</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QAbstractItemModel</basecompoundref>
+    <innerclass refid="structTrackingModel_1_1TrackerRequest" prot="private">TrackingModel::TrackerRequest</innerclass>
+    <sectiondef kind="public-type">
+      <memberdef kind="enum" id="classTrackingModel_1a66d861abe4e0d889d867d0c58038c80d" prot="public" static="no" strong="no">
+        <type></type>
+        <name>TrackingRoles</name>
+        <qualifiedname>TrackingModel::TrackingRoles</qualifiedname>
+        <enumvalue id="classTrackingModel_1a66d861abe4e0d889d867d0c58038c80da6f4787476aca866016a74f0efcfa8998" prot="public">
+          <name>DisplayString</name>
+          <initializer>= Qt::UserRole</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classTrackingModel_1a66d861abe4e0d889d867d0c58038c80da8f6f676b3761aef6d3a3ba216d27e10d" prot="public">
+          <name>TrackerPointer</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/trackingmodel.h" line="38" column="5" bodyfile="src/core/trackingmodel.h" bodystart="39" bodyend="42"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classTrackingModel_1a1868d2386646b4d3710b90c0e2782ec3" prot="private" static="no" mutable="no">
+        <type>QList&lt; <ref refid="classTracker" kindref="compound">Tracker</ref> * &gt;</type>
+        <definition>QList&lt;Tracker *&gt; TrackingModel::mTrackers</definition>
+        <argsstring></argsstring>
+        <name>mTrackers</name>
+        <qualifiedname>TrackingModel::mTrackers</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/trackingmodel.h" line="123" column="11" bodyfile="src/core/trackingmodel.h" bodystart="123" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTrackingModel_1ab014a634806a612e4d5d6dd0dae00c11" prot="private" static="no" mutable="no">
+        <type>QList&lt; TrackerRequest &gt;</type>
+        <definition>QList&lt;TrackerRequest&gt; TrackingModel::mRequestedTrackers</definition>
+        <argsstring></argsstring>
+        <name>mRequestedTrackers</name>
+        <qualifiedname>TrackingModel::mRequestedTrackers</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/trackingmodel.h" line="124" column="11" bodyfile="src/core/trackingmodel.h" bodystart="124" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classTrackingModel_1a9fc763ece05a3583629abe78a921b1c4" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>TrackingModel::TrackingModel</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>TrackingModel</name>
+        <qualifiedname>TrackingModel::TrackingModel</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/trackingmodel.h" line="35" column="14" bodyfile="src/core/trackingmodel.cpp" bodystart="22" bodyend="25"/>
+      </memberdef>
+      <memberdef kind="function" id="classTrackingModel_1a2a7a5b26c83a73e7b9d04887e677e611" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>TrackingModel::~TrackingModel</definition>
+        <argsstring>() override</argsstring>
+        <name>~TrackingModel</name>
+        <qualifiedname>TrackingModel::~TrackingModel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/trackingmodel.h" line="36" column="5" bodyfile="src/core/trackingmodel.cpp" bodystart="27" bodyend="30"/>
+      </memberdef>
+      <memberdef kind="function" id="classTrackingModel_1a56c4c02b97c3b7f939e9ea398deff560" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QHash&lt; int, QByteArray &gt;</type>
+        <definition>QHash&lt; int, QByteArray &gt; TrackingModel::roleNames</definition>
+        <argsstring>() const override</argsstring>
+        <name>roleNames</name>
+        <qualifiedname>TrackingModel::roleNames</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/trackingmodel.h" line="44" column="11" bodyfile="src/core/trackingmodel.cpp" bodystart="32" bodyend="40"/>
+      </memberdef>
+      <memberdef kind="function" id="classTrackingModel_1a808bfa820f71c0bfef8c75baabe0aa54" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QModelIndex</type>
+        <definition>QModelIndex TrackingModel::index</definition>
+        <argsstring>(int row, int column, const QModelIndex &amp;parent=QModelIndex()) const override</argsstring>
+        <name>index</name>
+        <qualifiedname>TrackingModel::index</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>row</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>column</declname>
+        </param>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>parent</declname>
+          <defval>QModelIndex()</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/trackingmodel.h" line="45" column="17" bodyfile="src/core/trackingmodel.cpp" bodystart="42" bodyend="48"/>
+      </memberdef>
+      <memberdef kind="function" id="classTrackingModel_1a71ede13dc7e06b9230d8734d57a7d7ff" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QModelIndex</type>
+        <definition>QModelIndex TrackingModel::parent</definition>
+        <argsstring>(const QModelIndex &amp;index) const override</argsstring>
+        <name>parent</name>
+        <qualifiedname>TrackingModel::parent</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/trackingmodel.h" line="46" column="17" bodyfile="src/core/trackingmodel.cpp" bodystart="50" bodyend="55"/>
+      </memberdef>
+      <memberdef kind="function" id="classTrackingModel_1ac03ba8fb3fb995530ad863f72f2a5e67" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int TrackingModel::rowCount</definition>
+        <argsstring>(const QModelIndex &amp;parent=QModelIndex()) const override</argsstring>
+        <name>rowCount</name>
+        <qualifiedname>TrackingModel::rowCount</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>parent</declname>
+          <defval>QModelIndex()</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/trackingmodel.h" line="47" column="9" bodyfile="src/core/trackingmodel.cpp" bodystart="57" bodyend="61"/>
+      </memberdef>
+      <memberdef kind="function" id="classTrackingModel_1a27fe9ab0f2bf8475418a1f1dca1e810f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int TrackingModel::columnCount</definition>
+        <argsstring>(const QModelIndex &amp;parent=QModelIndex()) const override</argsstring>
+        <name>columnCount</name>
+        <qualifiedname>TrackingModel::columnCount</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>parent</declname>
+          <defval>QModelIndex()</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/trackingmodel.h" line="48" column="9" bodyfile="src/core/trackingmodel.cpp" bodystart="63" bodyend="67"/>
+      </memberdef>
+      <memberdef kind="function" id="classTrackingModel_1a95b200e9ce51e89f03e47a2f02fde5e6" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QVariant</type>
+        <definition>QVariant TrackingModel::data</definition>
+        <argsstring>(const QModelIndex &amp;index, int role=Qt::DisplayRole) const override</argsstring>
+        <name>data</name>
+        <qualifiedname>TrackingModel::data</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>role</declname>
+          <defval>Qt::DisplayRole</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/trackingmodel.h" line="49" column="14" bodyfile="src/core/trackingmodel.cpp" bodystart="69" bodyend="84"/>
+      </memberdef>
+      <memberdef kind="function" id="classTrackingModel_1a3737221f063727d24335e3d582376316" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>bool</type>
+        <definition>bool TrackingModel::setData</definition>
+        <argsstring>(const QModelIndex &amp;index, const QVariant &amp;value, int role) override</argsstring>
+        <name>setData</name>
+        <qualifiedname>TrackingModel::setData</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type>const QVariant &amp;</type>
+          <declname>value</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>role</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/trackingmodel.h" line="50" column="18" bodyfile="src/core/trackingmodel.cpp" bodystart="86" bodyend="89"/>
+      </memberdef>
+      <memberdef kind="function" id="classTrackingModel_1a02e4dfe06acd2a815e7e4177f8e10e01" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void TrackingModel::createProjectTrackers</definition>
+        <argsstring>(QgsProject *project)</argsstring>
+        <name>createProjectTrackers</name>
+        <qualifiedname>TrackingModel::createProjectTrackers</qualifiedname>
+        <param>
+          <type>QgsProject *</type>
+          <declname>project</declname>
+        </param>
+        <briefdescription>
+<para>Creates tracking sessions defined in a project being opened. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/trackingmodel.h" line="53" column="22" bodyfile="src/core/trackingmodel.cpp" bodystart="238" bodyend="282"/>
+      </memberdef>
+      <memberdef kind="function" id="classTrackingModel_1a7d930718806b1241b220babbe9b477aa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QModelIndex</type>
+        <definition>QModelIndex TrackingModel::createTracker</definition>
+        <argsstring>(QgsVectorLayer *layer)</argsstring>
+        <name>createTracker</name>
+        <qualifiedname>TrackingModel::createTracker</qualifiedname>
+        <param>
+          <type>QgsVectorLayer *</type>
+          <declname>layer</declname>
+        </param>
+        <briefdescription>
+<para>Creates a tracking session for the provided vector <emphasis>layer</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/trackingmodel.h" line="55" column="29" bodyfile="src/core/trackingmodel.cpp" bodystart="155" bodyend="162"/>
+      </memberdef>
+      <memberdef kind="function" id="classTrackingModel_1a7353398c80f68ff1d17afe874eeaf15b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void TrackingModel::startTracker</definition>
+        <argsstring>(QgsVectorLayer *layer, const GnssPositionInformation &amp;positionInformation=GnssPositionInformation(), const QgsPoint &amp;projectedPosition=QgsPoint())</argsstring>
+        <name>startTracker</name>
+        <qualifiedname>TrackingModel::startTracker</qualifiedname>
+        <param>
+          <type>QgsVectorLayer *</type>
+          <declname>layer</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classGnssPositionInformation" kindref="compound">GnssPositionInformation</ref> &amp;</type>
+          <declname>positionInformation</declname>
+          <defval><ref refid="classGnssPositionInformation" kindref="compound">GnssPositionInformation</ref>()</defval>
+        </param>
+        <param>
+          <type>const QgsPoint &amp;</type>
+          <declname>projectedPosition</declname>
+          <defval>QgsPoint()</defval>
+        </param>
+        <briefdescription>
+<para>Starts tracking for the provided vector <emphasis>layer</emphasis> provided it has a tracking session created. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/trackingmodel.h" line="57" column="22" bodyfile="src/core/trackingmodel.cpp" bodystart="164" bodyend="173"/>
+      </memberdef>
+      <memberdef kind="function" id="classTrackingModel_1a6db48ee5211a8a9e3bf47e65f20a9dd2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void TrackingModel::stopTracker</definition>
+        <argsstring>(QgsVectorLayer *layer)</argsstring>
+        <name>stopTracker</name>
+        <qualifiedname>TrackingModel::stopTracker</qualifiedname>
+        <param>
+          <type>QgsVectorLayer *</type>
+          <declname>layer</declname>
+        </param>
+        <briefdescription>
+<para>Stops the tracking session of the provided vector <emphasis>layer</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/trackingmodel.h" line="59" column="22" bodyfile="src/core/trackingmodel.cpp" bodystart="175" bodyend="188"/>
+      </memberdef>
+      <memberdef kind="function" id="classTrackingModel_1a406934e070532a1cc6121469434cda43" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void TrackingModel::stopTrackers</definition>
+        <argsstring>()</argsstring>
+        <name>stopTrackers</name>
+        <qualifiedname>TrackingModel::stopTrackers</qualifiedname>
+        <briefdescription>
+<para>Stops all tracking sessions. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/trackingmodel.h" line="61" column="22" bodyfile="src/core/trackingmodel.cpp" bodystart="190" bodyend="202"/>
+      </memberdef>
+      <memberdef kind="function" id="classTrackingModel_1a1baadde0bac7374d655177f538162fb1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void TrackingModel::setTrackerVisibility</definition>
+        <argsstring>(QgsVectorLayer *layer, bool visible)</argsstring>
+        <name>setTrackerVisibility</name>
+        <qualifiedname>TrackingModel::setTrackerVisibility</qualifiedname>
+        <param>
+          <type>QgsVectorLayer *</type>
+          <declname>layer</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>visible</declname>
+        </param>
+        <briefdescription>
+<para>Sets whether the tracking session rubber band is <emphasis>visible</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/trackingmodel.h" line="63" column="22" bodyfile="src/core/trackingmodel.cpp" bodystart="228" bodyend="236"/>
+      </memberdef>
+      <memberdef kind="function" id="classTrackingModel_1aac225e66ca29f9b0b439b235c3a7f626" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE bool</type>
+        <definition>bool TrackingModel::featureInTracking</definition>
+        <argsstring>(QgsVectorLayer *layer, QgsFeatureId featureId)</argsstring>
+        <name>featureInTracking</name>
+        <qualifiedname>TrackingModel::featureInTracking</qualifiedname>
+        <param>
+          <type>QgsVectorLayer *</type>
+          <declname>layer</declname>
+        </param>
+        <param>
+          <type>QgsFeatureId</type>
+          <declname>featureId</declname>
+        </param>
+        <briefdescription>
+<para>Returns TRUE if the <emphasis>featureId</emphasis> is attached to a vector <emphasis>layer</emphasis> tracking session. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/trackingmodel.h" line="65" column="22" bodyfile="src/core/trackingmodel.cpp" bodystart="91" bodyend="103"/>
+      </memberdef>
+      <memberdef kind="function" id="classTrackingModel_1a13da93136ecc7d24bb6fc2c1d09db360" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE bool</type>
+        <definition>bool TrackingModel::featuresInTracking</definition>
+        <argsstring>(QgsVectorLayer *layer, const QList&lt; QgsFeature &gt; &amp;features)</argsstring>
+        <name>featuresInTracking</name>
+        <qualifiedname>TrackingModel::featuresInTracking</qualifiedname>
+        <param>
+          <type>QgsVectorLayer *</type>
+          <declname>layer</declname>
+        </param>
+        <param>
+          <type>const QList&lt; QgsFeature &gt; &amp;</type>
+          <declname>features</declname>
+        </param>
+        <briefdescription>
+<para>Returns TRUE if the list of <emphasis>features</emphasis> is attached to a vector <emphasis>layer</emphasis> tracking session. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/trackingmodel.h" line="67" column="22" bodyfile="src/core/trackingmodel.cpp" bodystart="105" bodyend="118"/>
+      </memberdef>
+      <memberdef kind="function" id="classTrackingModel_1a493f4b262b0aae471f6d452268f7f61f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE bool</type>
+        <definition>bool TrackingModel::layerInTracking</definition>
+        <argsstring>(QgsVectorLayer *layer) const</argsstring>
+        <name>layerInTracking</name>
+        <qualifiedname>TrackingModel::layerInTracking</qualifiedname>
+        <param>
+          <type>QgsVectorLayer *</type>
+          <declname>layer</declname>
+        </param>
+        <briefdescription>
+<para>Returns TRUE if the vector <emphasis>layer</emphasis> has a tracking session. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/trackingmodel.h" line="69" column="22" bodyfile="src/core/trackingmodel.cpp" bodystart="120" bodyend="123"/>
+      </memberdef>
+      <memberdef kind="function" id="classTrackingModel_1a10295b0f6f4d24e9b2707b13416ea1bc" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE bool</type>
+        <definition>bool TrackingModel::layerInActiveTracking</definition>
+        <argsstring>(QgsVectorLayer *layer) const</argsstring>
+        <name>layerInActiveTracking</name>
+        <qualifiedname>TrackingModel::layerInActiveTracking</qualifiedname>
+        <param>
+          <type>QgsVectorLayer *</type>
+          <declname>layer</declname>
+        </param>
+        <briefdescription>
+<para>Returns TRUE if the vector <emphasis>layer</emphasis> has an active tracking session. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/trackingmodel.h" line="71" column="22" bodyfile="src/core/trackingmodel.cpp" bodystart="125" bodyend="134"/>
+      </memberdef>
+      <memberdef kind="function" id="classTrackingModel_1afb3073b1358437e27078326eb1d31bd6" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE <ref refid="classTracker" kindref="compound">Tracker</ref> *</type>
+        <definition>Tracker * TrackingModel::trackerForLayer</definition>
+        <argsstring>(QgsVectorLayer *layer) const</argsstring>
+        <name>trackerForLayer</name>
+        <qualifiedname>TrackingModel::trackerForLayer</qualifiedname>
+        <param>
+          <type>QgsVectorLayer *</type>
+          <declname>layer</declname>
+        </param>
+        <briefdescription>
+<para>Returns the tracker for the vector <emphasis>layer</emphasis> if a tracking session is present, otherwise returns NULLPTR. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/trackingmodel.h" line="73" column="25" bodyfile="src/core/trackingmodel.cpp" bodystart="136" bodyend="145"/>
+      </memberdef>
+      <memberdef kind="function" id="classTrackingModel_1a923dcf7dba0a1a958a19bc707d02d1ac" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void TrackingModel::replayPositionInformationList</definition>
+        <argsstring>(const QList&lt; GnssPositionInformation &gt; &amp;positionInformationList, QgsQuickCoordinateTransformer *coordinateTransformer=nullptr)</argsstring>
+        <name>replayPositionInformationList</name>
+        <qualifiedname>TrackingModel::replayPositionInformationList</qualifiedname>
+        <param>
+          <type>const QList&lt; <ref refid="classGnssPositionInformation" kindref="compound">GnssPositionInformation</ref> &gt; &amp;</type>
+          <declname>positionInformationList</declname>
+        </param>
+        <param>
+          <type><ref refid="classQgsQuickCoordinateTransformer" kindref="compound">QgsQuickCoordinateTransformer</ref> *</type>
+          <declname>coordinateTransformer</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+<para>Replays a list of position information for all active trackers. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/trackingmodel.h" line="76" column="22" bodyfile="src/core/trackingmodel.cpp" bodystart="204" bodyend="214"/>
+      </memberdef>
+      <memberdef kind="function" id="classTrackingModel_1a6847e851b21c195caf65da2db9ffdfe4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void TrackingModel::suspendUntilReplay</definition>
+        <argsstring>()</argsstring>
+        <name>suspendUntilReplay</name>
+        <qualifiedname>TrackingModel::suspendUntilReplay</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/trackingmodel.h" line="78" column="22" bodyfile="src/core/trackingmodel.cpp" bodystart="216" bodyend="226"/>
+      </memberdef>
+      <memberdef kind="function" id="classTrackingModel_1af199aeaf4ce510e3d49c601aa7c053ca" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void TrackingModel::reset</definition>
+        <argsstring>()</argsstring>
+        <name>reset</name>
+        <qualifiedname>TrackingModel::reset</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/trackingmodel.h" line="80" column="10" bodyfile="src/core/trackingmodel.cpp" bodystart="147" bodyend="153"/>
+      </memberdef>
+      <memberdef kind="function" id="classTrackingModel_1af6efafc05b1d97a0b1ee183585382922" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QList&lt; QgsVectorLayer * &gt;</type>
+        <definition>QList&lt; QgsVectorLayer * &gt; TrackingModel::availableLayers</definition>
+        <argsstring>(QgsProject *project) const</argsstring>
+        <name>availableLayers</name>
+        <qualifiedname>TrackingModel::availableLayers</qualifiedname>
+        <param>
+          <type>QgsProject *</type>
+          <declname>project</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns a list of available <emphasis>project</emphasis> vector layers with which a tracking session can be started. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/trackingmodel.h" line="85" column="23" bodyfile="src/core/trackingmodel.cpp" bodystart="284" bodyend="307"/>
+      </memberdef>
+      <memberdef kind="function" id="classTrackingModel_1aee267e3ac7b363e05842ead652afccdc" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QgsVectorLayer *</type>
+        <definition>QgsVectorLayer * TrackingModel::bestAvailableLayer</definition>
+        <argsstring>(QgsProject *project) const</argsstring>
+        <name>bestAvailableLayer</name>
+        <qualifiedname>TrackingModel::bestAvailableLayer</qualifiedname>
+        <param>
+          <type>QgsProject *</type>
+          <declname>project</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the best available <emphasis>project</emphasis> vector layer with which a tracking session can be started. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/trackingmodel.h" line="90" column="32" bodyfile="src/core/trackingmodel.cpp" bodystart="309" bodyend="349"/>
+      </memberdef>
+      <memberdef kind="function" id="classTrackingModel_1afed613848f375a7e9de6cc73477a6e89" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void TrackingModel::requestTrackingSetup</definition>
+        <argsstring>(QgsVectorLayer *layer, bool skipSettings=false)</argsstring>
+        <name>requestTrackingSetup</name>
+        <qualifiedname>TrackingModel::requestTrackingSetup</qualifiedname>
+        <param>
+          <type>QgsVectorLayer *</type>
+          <declname>layer</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>skipSettings</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Forwards a tracking setup request to the user interface consisting of a settings panel followed by a feature form (unless suppressed by the project configuration). <emphasis>layer</emphasis> the vector layer associated with the tracking <emphasis>skipSettings</emphasis> set to TRUE if the settings panel should be omitted and only show the feature form </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/trackingmodel.h" line="98" column="22" bodyfile="src/core/trackingmodel.cpp" bodystart="351" bodyend="362"/>
+      </memberdef>
+      <memberdef kind="function" id="classTrackingModel_1a407316826221dcdf60b112b61c4762e6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void TrackingModel::trackingSetupDone</definition>
+        <argsstring>()</argsstring>
+        <name>trackingSetupDone</name>
+        <qualifiedname>TrackingModel::trackingSetupDone</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/trackingmodel.h" line="100" column="22" bodyfile="src/core/trackingmodel.cpp" bodystart="364" bodyend="378"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classTrackingModel_1a61c915dae615beaeb65f65f34914f5fe" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void TrackingModel::layerInTrackingChanged</definition>
+        <argsstring>(QgsVectorLayer *layer, bool tracking)</argsstring>
+        <name>layerInTrackingChanged</name>
+        <qualifiedname>TrackingModel::layerInTrackingChanged</qualifiedname>
+        <param>
+          <type>QgsVectorLayer *</type>
+          <declname>layer</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>tracking</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/trackingmodel.h" line="104" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classTrackingModel_1aa6f85f85eace90511422b8998b614bf6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void TrackingModel::trackingSetupRequested</definition>
+        <argsstring>(QModelIndex trackerIndex, bool skipSettings)</argsstring>
+        <name>trackingSetupRequested</name>
+        <qualifiedname>TrackingModel::trackingSetupRequested</qualifiedname>
+        <param>
+          <type>QModelIndex</type>
+          <declname>trackerIndex</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>skipSettings</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/trackingmodel.h" line="105" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classTrackingModel_1a61039139972fb63efb5b6e55e89aecdf" prot="private" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QList&lt; <ref refid="classTracker" kindref="compound">Tracker</ref> * &gt;::const_iterator</type>
+        <definition>QList&lt; Tracker * &gt;::const_iterator TrackingModel::trackerIterator</definition>
+        <argsstring>(QgsVectorLayer *layer) const</argsstring>
+        <name>trackerIterator</name>
+        <qualifiedname>TrackingModel::trackerIterator</qualifiedname>
+        <param>
+          <type>QgsVectorLayer *</type>
+          <declname>layer</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/trackingmodel.h" line="126" column="28" bodyfile="src/core/trackingmodel.h" bodystart="126" bodyend="129"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>QAbstractItemModel</label>
+      </node>
+      <node id="1">
+        <label>TrackingModel</label>
+        <link refid="classTrackingModel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>QAbstractItemModel</label>
+      </node>
+      <node id="1">
+        <label>TrackingModel</label>
+        <link refid="classTrackingModel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/trackingmodel.h" line="30" column="1" bodyfile="src/core/trackingmodel.h" bodystart="31" bodyend="130"/>
+    <listofallmembers>
+      <member refid="classTrackingModel_1af6efafc05b1d97a0b1ee183585382922" prot="public" virt="non-virtual"><scope>TrackingModel</scope><name>availableLayers</name></member>
+      <member refid="classTrackingModel_1aee267e3ac7b363e05842ead652afccdc" prot="public" virt="non-virtual"><scope>TrackingModel</scope><name>bestAvailableLayer</name></member>
+      <member refid="classTrackingModel_1a27fe9ab0f2bf8475418a1f1dca1e810f" prot="public" virt="non-virtual"><scope>TrackingModel</scope><name>columnCount</name></member>
+      <member refid="classTrackingModel_1a02e4dfe06acd2a815e7e4177f8e10e01" prot="public" virt="non-virtual"><scope>TrackingModel</scope><name>createProjectTrackers</name></member>
+      <member refid="classTrackingModel_1a7d930718806b1241b220babbe9b477aa" prot="public" virt="non-virtual"><scope>TrackingModel</scope><name>createTracker</name></member>
+      <member refid="classTrackingModel_1a95b200e9ce51e89f03e47a2f02fde5e6" prot="public" virt="non-virtual"><scope>TrackingModel</scope><name>data</name></member>
+      <member refid="classTrackingModel_1a66d861abe4e0d889d867d0c58038c80da6f4787476aca866016a74f0efcfa8998" prot="public" virt="non-virtual"><scope>TrackingModel</scope><name>DisplayString</name></member>
+      <member refid="classTrackingModel_1aac225e66ca29f9b0b439b235c3a7f626" prot="public" virt="non-virtual"><scope>TrackingModel</scope><name>featureInTracking</name></member>
+      <member refid="classTrackingModel_1a13da93136ecc7d24bb6fc2c1d09db360" prot="public" virt="non-virtual"><scope>TrackingModel</scope><name>featuresInTracking</name></member>
+      <member refid="classTrackingModel_1a808bfa820f71c0bfef8c75baabe0aa54" prot="public" virt="non-virtual"><scope>TrackingModel</scope><name>index</name></member>
+      <member refid="classTrackingModel_1a10295b0f6f4d24e9b2707b13416ea1bc" prot="public" virt="non-virtual"><scope>TrackingModel</scope><name>layerInActiveTracking</name></member>
+      <member refid="classTrackingModel_1a493f4b262b0aae471f6d452268f7f61f" prot="public" virt="non-virtual"><scope>TrackingModel</scope><name>layerInTracking</name></member>
+      <member refid="classTrackingModel_1a61c915dae615beaeb65f65f34914f5fe" prot="public" virt="non-virtual"><scope>TrackingModel</scope><name>layerInTrackingChanged</name></member>
+      <member refid="classTrackingModel_1ab014a634806a612e4d5d6dd0dae00c11" prot="private" virt="non-virtual"><scope>TrackingModel</scope><name>mRequestedTrackers</name></member>
+      <member refid="classTrackingModel_1a1868d2386646b4d3710b90c0e2782ec3" prot="private" virt="non-virtual"><scope>TrackingModel</scope><name>mTrackers</name></member>
+      <member refid="classTrackingModel_1a71ede13dc7e06b9230d8734d57a7d7ff" prot="public" virt="non-virtual"><scope>TrackingModel</scope><name>parent</name></member>
+      <member refid="classTrackingModel_1a923dcf7dba0a1a958a19bc707d02d1ac" prot="public" virt="non-virtual"><scope>TrackingModel</scope><name>replayPositionInformationList</name></member>
+      <member refid="classTrackingModel_1afed613848f375a7e9de6cc73477a6e89" prot="public" virt="non-virtual"><scope>TrackingModel</scope><name>requestTrackingSetup</name></member>
+      <member refid="classTrackingModel_1af199aeaf4ce510e3d49c601aa7c053ca" prot="public" virt="non-virtual"><scope>TrackingModel</scope><name>reset</name></member>
+      <member refid="classTrackingModel_1a56c4c02b97c3b7f939e9ea398deff560" prot="public" virt="non-virtual"><scope>TrackingModel</scope><name>roleNames</name></member>
+      <member refid="classTrackingModel_1ac03ba8fb3fb995530ad863f72f2a5e67" prot="public" virt="non-virtual"><scope>TrackingModel</scope><name>rowCount</name></member>
+      <member refid="classTrackingModel_1a3737221f063727d24335e3d582376316" prot="public" virt="virtual"><scope>TrackingModel</scope><name>setData</name></member>
+      <member refid="classTrackingModel_1a1baadde0bac7374d655177f538162fb1" prot="public" virt="non-virtual"><scope>TrackingModel</scope><name>setTrackerVisibility</name></member>
+      <member refid="classTrackingModel_1a7353398c80f68ff1d17afe874eeaf15b" prot="public" virt="non-virtual"><scope>TrackingModel</scope><name>startTracker</name></member>
+      <member refid="classTrackingModel_1a6db48ee5211a8a9e3bf47e65f20a9dd2" prot="public" virt="non-virtual"><scope>TrackingModel</scope><name>stopTracker</name></member>
+      <member refid="classTrackingModel_1a406934e070532a1cc6121469434cda43" prot="public" virt="non-virtual"><scope>TrackingModel</scope><name>stopTrackers</name></member>
+      <member refid="classTrackingModel_1a6847e851b21c195caf65da2db9ffdfe4" prot="public" virt="non-virtual"><scope>TrackingModel</scope><name>suspendUntilReplay</name></member>
+      <member refid="classTrackingModel_1afb3073b1358437e27078326eb1d31bd6" prot="public" virt="non-virtual"><scope>TrackingModel</scope><name>trackerForLayer</name></member>
+      <member refid="classTrackingModel_1a61039139972fb63efb5b6e55e89aecdf" prot="private" virt="non-virtual"><scope>TrackingModel</scope><name>trackerIterator</name></member>
+      <member refid="classTrackingModel_1a66d861abe4e0d889d867d0c58038c80da8f6f676b3761aef6d3a3ba216d27e10d" prot="public" virt="non-virtual"><scope>TrackingModel</scope><name>TrackerPointer</name></member>
+      <member refid="classTrackingModel_1a9fc763ece05a3583629abe78a921b1c4" prot="public" virt="non-virtual"><scope>TrackingModel</scope><name>TrackingModel</name></member>
+      <member refid="classTrackingModel_1a66d861abe4e0d889d867d0c58038c80d" prot="public" virt="non-virtual"><scope>TrackingModel</scope><name>TrackingRoles</name></member>
+      <member refid="classTrackingModel_1a407316826221dcdf60b112b61c4762e6" prot="public" virt="non-virtual"><scope>TrackingModel</scope><name>trackingSetupDone</name></member>
+      <member refid="classTrackingModel_1aa6f85f85eace90511422b8998b614bf6" prot="public" virt="non-virtual"><scope>TrackingModel</scope><name>trackingSetupRequested</name></member>
+      <member refid="classTrackingModel_1a2a7a5b26c83a73e7b9d04887e677e611" prot="public" virt="non-virtual"><scope>TrackingModel</scope><name>~TrackingModel</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

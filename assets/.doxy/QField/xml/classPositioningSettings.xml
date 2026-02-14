@@ -1,0 +1,638 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classPositioningSettings" kind="class" language="C++" prot="public">
+    <compoundname>PositioningSettings</compoundname>
+    <basecompoundref refid="classSettings" prot="public" virt="non-virtual">Settings</basecompoundref>
+    <sectiondef kind="public-type">
+      <memberdef kind="enum" id="classPositioningSettings_1abdac4b59bafa3110257296ff422a7c43" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>FollowMode</name>
+        <qualifiedname>PositioningSettings::FollowMode</qualifiedname>
+        <enumvalue id="classPositioningSettings_1abdac4b59bafa3110257296ff422a7c43aae729b97e00ca6e39722e1ecb6247b75" prot="public">
+          <name>PositionOnly</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classPositioningSettings_1abdac4b59bafa3110257296ff422a7c43a21b3268526ca3d71430c78ec6bbdcfce" prot="public">
+          <name>PositionAndCompass</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classPositioningSettings_1abdac4b59bafa3110257296ff422a7c43add5e60703cf29720c6fbe6dbc232815f" prot="public">
+          <name>PositionAndDirection</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/PositioningSettings.qml" line="8" column="1" bodyfile="src/qml/PositioningSettings.qml" bodystart="8" bodyend="12"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classPositioningSettings_1a9f6f26460de157a4cae31229aeab8197" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool PositioningSettings::positioningActivated</definition>
+        <argsstring></argsstring>
+        <name>positioningActivated</name>
+        <qualifiedname>PositioningSettings::positioningActivated</qualifiedname>
+        <read>dummyGetter_positioningActivated_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/PositioningSettings.qml" line="14" column="1" bodyfile="src/qml/PositioningSettings.qml" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classPositioningSettings_1a10503b562c13ab9b0dafa31434157e4c" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool PositioningSettings::positioningCoordinateLock</definition>
+        <argsstring></argsstring>
+        <name>positioningCoordinateLock</name>
+        <qualifiedname>PositioningSettings::positioningCoordinateLock</qualifiedname>
+        <read>dummyGetter_positioningCoordinateLock_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/PositioningSettings.qml" line="16" column="1" bodyfile="src/qml/PositioningSettings.qml" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classPositioningSettings_1a8e14d10544cd27406fc2d2631117906d" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string PositioningSettings::positioningDevice</definition>
+        <argsstring></argsstring>
+        <name>positioningDevice</name>
+        <qualifiedname>PositioningSettings::positioningDevice</qualifiedname>
+        <read>dummyGetter_positioningDevice_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/PositioningSettings.qml" line="18" column="1" bodyfile="src/qml/PositioningSettings.qml" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classPositioningSettings_1aad5a1854a64697930db751d08a54f9ae" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string PositioningSettings::positioningDeviceName</definition>
+        <argsstring></argsstring>
+        <name>positioningDeviceName</name>
+        <qualifiedname>PositioningSettings::positioningDeviceName</qualifiedname>
+        <read>dummyGetter_positioningDeviceName_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/PositioningSettings.qml" line="20" column="1" bodyfile="src/qml/PositioningSettings.qml" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classPositioningSettings_1a29c033168d1ee676b07121dd5a7918ae" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int PositioningSettings::elevationCorrectionMode</definition>
+        <argsstring></argsstring>
+        <name>elevationCorrectionMode</name>
+        <qualifiedname>PositioningSettings::elevationCorrectionMode</qualifiedname>
+        <read>dummyGetter_elevationCorrectionMode_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/PositioningSettings.qml" line="22" column="1" bodyfile="src/qml/PositioningSettings.qml" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classPositioningSettings_1a99e8d9dff56b6d5a5f560ebe14d10e72" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool PositioningSettings::logging</definition>
+        <argsstring></argsstring>
+        <name>logging</name>
+        <qualifiedname>PositioningSettings::logging</qualifiedname>
+        <read>dummyGetter_logging_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/PositioningSettings.qml" line="24" column="1" bodyfile="src/qml/PositioningSettings.qml" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classPositioningSettings_1a728fb08892a5f4c2391ca0521a4475c2" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool PositioningSettings::showPositionInformation</definition>
+        <argsstring></argsstring>
+        <name>showPositionInformation</name>
+        <qualifiedname>PositioningSettings::showPositionInformation</qualifiedname>
+        <read>dummyGetter_showPositionInformation_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/PositioningSettings.qml" line="26" column="1" bodyfile="src/qml/PositioningSettings.qml" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classPositioningSettings_1a792a02a215d602563dbfb372aa3a77ad" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool PositioningSettings::alwaysShowPreciseView</definition>
+        <argsstring></argsstring>
+        <name>alwaysShowPreciseView</name>
+        <qualifiedname>PositioningSettings::alwaysShowPreciseView</qualifiedname>
+        <read>dummyGetter_alwaysShowPreciseView_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/PositioningSettings.qml" line="28" column="1" bodyfile="src/qml/PositioningSettings.qml" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classPositioningSettings_1a2451dcb46c1c03752d004c11e884be30" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>real</type>
+        <definition>real PositioningSettings::preciseViewPrecision</definition>
+        <argsstring></argsstring>
+        <name>preciseViewPrecision</name>
+        <qualifiedname>PositioningSettings::preciseViewPrecision</qualifiedname>
+        <read>dummyGetter_preciseViewPrecision_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/PositioningSettings.qml" line="30" column="1" bodyfile="src/qml/PositioningSettings.qml" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classPositioningSettings_1a12936ad325de81cf2d08da56660104d4" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool PositioningSettings::preciseViewProximityAlarm</definition>
+        <argsstring></argsstring>
+        <name>preciseViewProximityAlarm</name>
+        <qualifiedname>PositioningSettings::preciseViewProximityAlarm</qualifiedname>
+        <read>dummyGetter_preciseViewProximityAlarm_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/PositioningSettings.qml" line="32" column="1" bodyfile="src/qml/PositioningSettings.qml" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classPositioningSettings_1aee48a7113da7d24869c40064d6d23eb9" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool PositioningSettings::accuracyIndicator</definition>
+        <argsstring></argsstring>
+        <name>accuracyIndicator</name>
+        <qualifiedname>PositioningSettings::accuracyIndicator</qualifiedname>
+        <read>dummyGetter_accuracyIndicator_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/PositioningSettings.qml" line="34" column="1" bodyfile="src/qml/PositioningSettings.qml" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classPositioningSettings_1a75d656be7ae3261964f7e79785afa034" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>real</type>
+        <definition>real PositioningSettings::accuracyBad</definition>
+        <argsstring></argsstring>
+        <name>accuracyBad</name>
+        <qualifiedname>PositioningSettings::accuracyBad</qualifiedname>
+        <read>dummyGetter_accuracyBad_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/PositioningSettings.qml" line="36" column="1" bodyfile="src/qml/PositioningSettings.qml" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classPositioningSettings_1a8e3debdb3c5bc7cfcb62b3cd0373cd37" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>real</type>
+        <definition>real PositioningSettings::accuracyExcellent</definition>
+        <argsstring></argsstring>
+        <name>accuracyExcellent</name>
+        <qualifiedname>PositioningSettings::accuracyExcellent</qualifiedname>
+        <read>dummyGetter_accuracyExcellent_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/PositioningSettings.qml" line="38" column="1" bodyfile="src/qml/PositioningSettings.qml" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classPositioningSettings_1ae0c0d8224637fbf6c30c6e14f01bd80c" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool PositioningSettings::accuracyRequirement</definition>
+        <argsstring></argsstring>
+        <name>accuracyRequirement</name>
+        <qualifiedname>PositioningSettings::accuracyRequirement</qualifiedname>
+        <read>dummyGetter_accuracyRequirement_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/PositioningSettings.qml" line="40" column="1" bodyfile="src/qml/PositioningSettings.qml" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classPositioningSettings_1a8f65aa85b8e78c22c86adcea699f2b0b" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool PositioningSettings::averagedPositioning</definition>
+        <argsstring></argsstring>
+        <name>averagedPositioning</name>
+        <qualifiedname>PositioningSettings::averagedPositioning</qualifiedname>
+        <read>dummyGetter_averagedPositioning_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/PositioningSettings.qml" line="42" column="1" bodyfile="src/qml/PositioningSettings.qml" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classPositioningSettings_1a0aee43c3e684916a16040bd15faa6ed4" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int PositioningSettings::averagedPositioningMinimumCount</definition>
+        <argsstring></argsstring>
+        <name>averagedPositioningMinimumCount</name>
+        <qualifiedname>PositioningSettings::averagedPositioningMinimumCount</qualifiedname>
+        <read>dummyGetter_averagedPositioningMinimumCount_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/PositioningSettings.qml" line="44" column="1" bodyfile="src/qml/PositioningSettings.qml" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classPositioningSettings_1a042bd29ab4bba8864cbce603480e0b1a" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool PositioningSettings::averagedPositioningAutomaticStop</definition>
+        <argsstring></argsstring>
+        <name>averagedPositioningAutomaticStop</name>
+        <qualifiedname>PositioningSettings::averagedPositioningAutomaticStop</qualifiedname>
+        <read>dummyGetter_averagedPositioningAutomaticStop_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/PositioningSettings.qml" line="46" column="1" bodyfile="src/qml/PositioningSettings.qml" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classPositioningSettings_1a4b6b4fece702596717207141e27d4122" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>real</type>
+        <definition>real PositioningSettings::antennaHeight</definition>
+        <argsstring></argsstring>
+        <name>antennaHeight</name>
+        <qualifiedname>PositioningSettings::antennaHeight</qualifiedname>
+        <read>dummyGetter_antennaHeight_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/PositioningSettings.qml" line="48" column="1" bodyfile="src/qml/PositioningSettings.qml" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classPositioningSettings_1a9c976ab85612c86a850ed3fa52037f81" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool PositioningSettings::antennaHeightActivated</definition>
+        <argsstring></argsstring>
+        <name>antennaHeightActivated</name>
+        <qualifiedname>PositioningSettings::antennaHeightActivated</qualifiedname>
+        <read>dummyGetter_antennaHeightActivated_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/PositioningSettings.qml" line="50" column="1" bodyfile="src/qml/PositioningSettings.qml" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classPositioningSettings_1a5076335fb7983348c90610b8fbf0435e" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool PositioningSettings::skipAltitudeCorrection</definition>
+        <argsstring></argsstring>
+        <name>skipAltitudeCorrection</name>
+        <qualifiedname>PositioningSettings::skipAltitudeCorrection</qualifiedname>
+        <read>dummyGetter_skipAltitudeCorrection_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/PositioningSettings.qml" line="52" column="1" bodyfile="src/qml/PositioningSettings.qml" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classPositioningSettings_1abc4bf4be6ec4d76f1ce28dfc328d0f12" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string PositioningSettings::verticalGrid</definition>
+        <argsstring></argsstring>
+        <name>verticalGrid</name>
+        <qualifiedname>PositioningSettings::verticalGrid</qualifiedname>
+        <read>dummyGetter_verticalGrid_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/PositioningSettings.qml" line="54" column="1" bodyfile="src/qml/PositioningSettings.qml" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classPositioningSettings_1a9adfd41388fea2227ed8bfe7d8179570" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool PositioningSettings::trackerTimeIntervalConstraint</definition>
+        <argsstring></argsstring>
+        <name>trackerTimeIntervalConstraint</name>
+        <qualifiedname>PositioningSettings::trackerTimeIntervalConstraint</qualifiedname>
+        <read>dummyGetter_trackerTimeIntervalConstraint_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/PositioningSettings.qml" line="56" column="1" bodyfile="src/qml/PositioningSettings.qml" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classPositioningSettings_1acbf8fb2ee3fff5fe1e034f19a47857a8" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double PositioningSettings::trackerTimeInterval</definition>
+        <argsstring></argsstring>
+        <name>trackerTimeInterval</name>
+        <qualifiedname>PositioningSettings::trackerTimeInterval</qualifiedname>
+        <read>dummyGetter_trackerTimeInterval_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/PositioningSettings.qml" line="58" column="1" bodyfile="src/qml/PositioningSettings.qml" bodystart="58" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classPositioningSettings_1a02123af10110ee0c68c35ee46e097238" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool PositioningSettings::trackerMinimumDistanceConstraint</definition>
+        <argsstring></argsstring>
+        <name>trackerMinimumDistanceConstraint</name>
+        <qualifiedname>PositioningSettings::trackerMinimumDistanceConstraint</qualifiedname>
+        <read>dummyGetter_trackerMinimumDistanceConstraint_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/PositioningSettings.qml" line="60" column="1" bodyfile="src/qml/PositioningSettings.qml" bodystart="60" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classPositioningSettings_1a258da879ed780dca44e147a6214c1ae3" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double PositioningSettings::trackerMinimumDistance</definition>
+        <argsstring></argsstring>
+        <name>trackerMinimumDistance</name>
+        <qualifiedname>PositioningSettings::trackerMinimumDistance</qualifiedname>
+        <read>dummyGetter_trackerMinimumDistance_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/PositioningSettings.qml" line="62" column="1" bodyfile="src/qml/PositioningSettings.qml" bodystart="62" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classPositioningSettings_1a2da6c2462232f4a859df37f7b4154dc0" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool PositioningSettings::trackerSensorCaptureConstraint</definition>
+        <argsstring></argsstring>
+        <name>trackerSensorCaptureConstraint</name>
+        <qualifiedname>PositioningSettings::trackerSensorCaptureConstraint</qualifiedname>
+        <read>dummyGetter_trackerSensorCaptureConstraint_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/PositioningSettings.qml" line="64" column="1" bodyfile="src/qml/PositioningSettings.qml" bodystart="64" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classPositioningSettings_1a337a94faaf14c461d3eda97e9adb3073" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool PositioningSettings::trackerMeetAllConstraints</definition>
+        <argsstring></argsstring>
+        <name>trackerMeetAllConstraints</name>
+        <qualifiedname>PositioningSettings::trackerMeetAllConstraints</qualifiedname>
+        <read>dummyGetter_trackerMeetAllConstraints_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/PositioningSettings.qml" line="66" column="1" bodyfile="src/qml/PositioningSettings.qml" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classPositioningSettings_1a7761b5dc5609af07bbe6ae4fe1c675c7" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool PositioningSettings::trackerErroneousDistanceSafeguard</definition>
+        <argsstring></argsstring>
+        <name>trackerErroneousDistanceSafeguard</name>
+        <qualifiedname>PositioningSettings::trackerErroneousDistanceSafeguard</qualifiedname>
+        <read>dummyGetter_trackerErroneousDistanceSafeguard_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/PositioningSettings.qml" line="68" column="1" bodyfile="src/qml/PositioningSettings.qml" bodystart="68" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classPositioningSettings_1a237bac73d9688eedf5edad8fcc2e6085" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double PositioningSettings::trackerErroneousDistance</definition>
+        <argsstring></argsstring>
+        <name>trackerErroneousDistance</name>
+        <qualifiedname>PositioningSettings::trackerErroneousDistance</qualifiedname>
+        <read>dummyGetter_trackerErroneousDistance_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/PositioningSettings.qml" line="70" column="1" bodyfile="src/qml/PositioningSettings.qml" bodystart="70" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classPositioningSettings_1a8cd264cd8be6d1d7b38de5460e598daf" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int PositioningSettings::trackerMeasureType</definition>
+        <argsstring></argsstring>
+        <name>trackerMeasureType</name>
+        <qualifiedname>PositioningSettings::trackerMeasureType</qualifiedname>
+        <read>dummyGetter_trackerMeasureType_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/PositioningSettings.qml" line="72" column="1" bodyfile="src/qml/PositioningSettings.qml" bodystart="72" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classPositioningSettings_1ac332fd8d19b7594d3f313e3fcaf139df" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int PositioningSettings::digitizingMeasureType</definition>
+        <argsstring></argsstring>
+        <name>digitizingMeasureType</name>
+        <qualifiedname>PositioningSettings::digitizingMeasureType</qualifiedname>
+        <read>dummyGetter_digitizingMeasureType_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/PositioningSettings.qml" line="74" column="1" bodyfile="src/qml/PositioningSettings.qml" bodystart="74" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classPositioningSettings_1a194b297f051418f703d2fb3cb656409b" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool PositioningSettings::geofencingPreventDigitizingDuringAlert</definition>
+        <argsstring></argsstring>
+        <name>geofencingPreventDigitizingDuringAlert</name>
+        <qualifiedname>PositioningSettings::geofencingPreventDigitizingDuringAlert</qualifiedname>
+        <read>dummyGetter_geofencingPreventDigitizingDuringAlert_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/PositioningSettings.qml" line="76" column="1" bodyfile="src/qml/PositioningSettings.qml" bodystart="76" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classPositioningSettings_1ab719b99fa5e9ddc84b6fa0d15e220b89" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool PositioningSettings::egenioussEnabled</definition>
+        <argsstring></argsstring>
+        <name>egenioussEnabled</name>
+        <qualifiedname>PositioningSettings::egenioussEnabled</qualifiedname>
+        <read>dummyGetter_egenioussEnabled_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/PositioningSettings.qml" line="78" column="1" bodyfile="src/qml/PositioningSettings.qml" bodystart="78" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classPositioningSettings_1a538b8df6d2fb62bad64790933bc3799c" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int PositioningSettings::positionFollowMode</definition>
+        <argsstring></argsstring>
+        <name>positionFollowMode</name>
+        <qualifiedname>PositioningSettings::positionFollowMode</qualifiedname>
+        <read>dummyGetter_positionFollowMode_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/PositioningSettings.qml" line="80" column="1" bodyfile="src/qml/PositioningSettings.qml" bodystart="80" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>PositioningSettings</label>
+        <link refid="classPositioningSettings"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QSettings</label>
+      </node>
+      <node id="2">
+        <label>Settings</label>
+        <link refid="classSettings"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>PositioningSettings</label>
+        <link refid="classPositioningSettings"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QSettings</label>
+      </node>
+      <node id="2">
+        <label>Settings</label>
+        <link refid="classSettings"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/qml/PositioningSettings.qml" line="6" column="1" bodyfile="src/qml/PositioningSettings.qml" bodystart="6" bodyend="81"/>
+    <listofallmembers>
+      <member refid="classPositioningSettings_1a75d656be7ae3261964f7e79785afa034" prot="public" virt="non-virtual"><scope>PositioningSettings</scope><name>accuracyBad</name></member>
+      <member refid="classPositioningSettings_1a8e3debdb3c5bc7cfcb62b3cd0373cd37" prot="public" virt="non-virtual"><scope>PositioningSettings</scope><name>accuracyExcellent</name></member>
+      <member refid="classPositioningSettings_1aee48a7113da7d24869c40064d6d23eb9" prot="public" virt="non-virtual"><scope>PositioningSettings</scope><name>accuracyIndicator</name></member>
+      <member refid="classPositioningSettings_1ae0c0d8224637fbf6c30c6e14f01bd80c" prot="public" virt="non-virtual"><scope>PositioningSettings</scope><name>accuracyRequirement</name></member>
+      <member refid="classPositioningSettings_1a792a02a215d602563dbfb372aa3a77ad" prot="public" virt="non-virtual"><scope>PositioningSettings</scope><name>alwaysShowPreciseView</name></member>
+      <member refid="classPositioningSettings_1a4b6b4fece702596717207141e27d4122" prot="public" virt="non-virtual"><scope>PositioningSettings</scope><name>antennaHeight</name></member>
+      <member refid="classPositioningSettings_1a9c976ab85612c86a850ed3fa52037f81" prot="public" virt="non-virtual"><scope>PositioningSettings</scope><name>antennaHeightActivated</name></member>
+      <member refid="classPositioningSettings_1a8f65aa85b8e78c22c86adcea699f2b0b" prot="public" virt="non-virtual"><scope>PositioningSettings</scope><name>averagedPositioning</name></member>
+      <member refid="classPositioningSettings_1a042bd29ab4bba8864cbce603480e0b1a" prot="public" virt="non-virtual"><scope>PositioningSettings</scope><name>averagedPositioningAutomaticStop</name></member>
+      <member refid="classPositioningSettings_1a0aee43c3e684916a16040bd15faa6ed4" prot="public" virt="non-virtual"><scope>PositioningSettings</scope><name>averagedPositioningMinimumCount</name></member>
+      <member refid="classPositioningSettings_1ac332fd8d19b7594d3f313e3fcaf139df" prot="public" virt="non-virtual"><scope>PositioningSettings</scope><name>digitizingMeasureType</name></member>
+      <member refid="classPositioningSettings_1ab719b99fa5e9ddc84b6fa0d15e220b89" prot="public" virt="non-virtual"><scope>PositioningSettings</scope><name>egenioussEnabled</name></member>
+      <member refid="classPositioningSettings_1a29c033168d1ee676b07121dd5a7918ae" prot="public" virt="non-virtual"><scope>PositioningSettings</scope><name>elevationCorrectionMode</name></member>
+      <member refid="classPositioningSettings_1abdac4b59bafa3110257296ff422a7c43" prot="public" virt="non-virtual"><scope>PositioningSettings</scope><name>FollowMode</name></member>
+      <member refid="classPositioningSettings_1a194b297f051418f703d2fb3cb656409b" prot="public" virt="non-virtual"><scope>PositioningSettings</scope><name>geofencingPreventDigitizingDuringAlert</name></member>
+      <member refid="classPositioningSettings_1a99e8d9dff56b6d5a5f560ebe14d10e72" prot="public" virt="non-virtual"><scope>PositioningSettings</scope><name>logging</name></member>
+      <member refid="classPositioningSettings_1a538b8df6d2fb62bad64790933bc3799c" prot="public" virt="non-virtual"><scope>PositioningSettings</scope><name>positionFollowMode</name></member>
+      <member refid="classPositioningSettings_1a9f6f26460de157a4cae31229aeab8197" prot="public" virt="non-virtual"><scope>PositioningSettings</scope><name>positioningActivated</name></member>
+      <member refid="classPositioningSettings_1a10503b562c13ab9b0dafa31434157e4c" prot="public" virt="non-virtual"><scope>PositioningSettings</scope><name>positioningCoordinateLock</name></member>
+      <member refid="classPositioningSettings_1a8e14d10544cd27406fc2d2631117906d" prot="public" virt="non-virtual"><scope>PositioningSettings</scope><name>positioningDevice</name></member>
+      <member refid="classPositioningSettings_1aad5a1854a64697930db751d08a54f9ae" prot="public" virt="non-virtual"><scope>PositioningSettings</scope><name>positioningDeviceName</name></member>
+      <member refid="classPositioningSettings_1a2451dcb46c1c03752d004c11e884be30" prot="public" virt="non-virtual"><scope>PositioningSettings</scope><name>preciseViewPrecision</name></member>
+      <member refid="classPositioningSettings_1a12936ad325de81cf2d08da56660104d4" prot="public" virt="non-virtual"><scope>PositioningSettings</scope><name>preciseViewProximityAlarm</name></member>
+      <member refid="classSettings_1a3bffbef208c01e1d1dfdfae9c2ff74b4" prot="public" virt="non-virtual"><scope>PositioningSettings</scope><name>remove</name></member>
+      <member refid="classSettings_1a0ea7e963cbe534c958c86f04fa4dcef7" prot="public" virt="non-virtual"><scope>PositioningSettings</scope><name>settingChanged</name></member>
+      <member refid="classSettings_1a3abd21a33038a6a9392f9d79eece8a89" prot="public" virt="non-virtual"><scope>PositioningSettings</scope><name>Settings</name></member>
+      <member refid="classSettings_1a698a3505556a77d515c5a4c07f29ecee" prot="public" virt="non-virtual"><scope>PositioningSettings</scope><name>setValue</name></member>
+      <member refid="classPositioningSettings_1a728fb08892a5f4c2391ca0521a4475c2" prot="public" virt="non-virtual"><scope>PositioningSettings</scope><name>showPositionInformation</name></member>
+      <member refid="classPositioningSettings_1a5076335fb7983348c90610b8fbf0435e" prot="public" virt="non-virtual"><scope>PositioningSettings</scope><name>skipAltitudeCorrection</name></member>
+      <member refid="classSettings_1ac400a8d624512cf65be4fb918dd3b155" prot="public" virt="non-virtual"><scope>PositioningSettings</scope><name>sync</name></member>
+      <member refid="classPositioningSettings_1a237bac73d9688eedf5edad8fcc2e6085" prot="public" virt="non-virtual"><scope>PositioningSettings</scope><name>trackerErroneousDistance</name></member>
+      <member refid="classPositioningSettings_1a7761b5dc5609af07bbe6ae4fe1c675c7" prot="public" virt="non-virtual"><scope>PositioningSettings</scope><name>trackerErroneousDistanceSafeguard</name></member>
+      <member refid="classPositioningSettings_1a8cd264cd8be6d1d7b38de5460e598daf" prot="public" virt="non-virtual"><scope>PositioningSettings</scope><name>trackerMeasureType</name></member>
+      <member refid="classPositioningSettings_1a337a94faaf14c461d3eda97e9adb3073" prot="public" virt="non-virtual"><scope>PositioningSettings</scope><name>trackerMeetAllConstraints</name></member>
+      <member refid="classPositioningSettings_1a258da879ed780dca44e147a6214c1ae3" prot="public" virt="non-virtual"><scope>PositioningSettings</scope><name>trackerMinimumDistance</name></member>
+      <member refid="classPositioningSettings_1a02123af10110ee0c68c35ee46e097238" prot="public" virt="non-virtual"><scope>PositioningSettings</scope><name>trackerMinimumDistanceConstraint</name></member>
+      <member refid="classPositioningSettings_1a2da6c2462232f4a859df37f7b4154dc0" prot="public" virt="non-virtual"><scope>PositioningSettings</scope><name>trackerSensorCaptureConstraint</name></member>
+      <member refid="classPositioningSettings_1acbf8fb2ee3fff5fe1e034f19a47857a8" prot="public" virt="non-virtual"><scope>PositioningSettings</scope><name>trackerTimeInterval</name></member>
+      <member refid="classPositioningSettings_1a9adfd41388fea2227ed8bfe7d8179570" prot="public" virt="non-virtual"><scope>PositioningSettings</scope><name>trackerTimeIntervalConstraint</name></member>
+      <member refid="classSettings_1aa897da6683a2edf44b6fa6f3640b958c" prot="public" virt="non-virtual"><scope>PositioningSettings</scope><name>value</name></member>
+      <member refid="classSettings_1a3df7fd3ab9dbbe14b28259842cc607c7" prot="public" virt="non-virtual"><scope>PositioningSettings</scope><name>valueBool</name></member>
+      <member refid="classSettings_1a1500a2392ad8580d3949d4375c463095" prot="public" virt="non-virtual"><scope>PositioningSettings</scope><name>valueInt</name></member>
+      <member refid="classPositioningSettings_1abc4bf4be6ec4d76f1ce28dfc328d0f12" prot="public" virt="non-virtual"><scope>PositioningSettings</scope><name>verticalGrid</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="dir_3be62dd4600925273911e91e0c7964f3" kind="dir">
+    <compoundname>src/qml/imports</compoundname>
+    <innerdir refid="dir_1633596792308d5fdfbf00fb99c556ce">src/qml/imports/Theme</innerdir>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/qml/imports/"/>
+  </compounddef>
+</doxygen>

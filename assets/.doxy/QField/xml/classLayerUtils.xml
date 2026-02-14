@@ -1,0 +1,760 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classLayerUtils" kind="class" language="C++" prot="public">
+    <compoundname>LayerUtils</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QObject</basecompoundref>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classLayerUtils_1a9b392ba88fe4ceec20835255476e93c2" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>LayerUtils::LayerUtils</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>LayerUtils</name>
+        <qualifiedname>LayerUtils::LayerUtils</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/layerutils.h" line="96" column="14" bodyfile="src/core/utils/layerutils.cpp" bodystart="50" bodyend="53"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classLayerUtils_1a4b596b68ff7602434e3fd4d67bae7129" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>QgsSymbol *</type>
+        <definition>QgsSymbol * LayerUtils::defaultSymbol</definition>
+        <argsstring>(QgsVectorLayer *layer, const QString &amp;attachmentField=QString(), const QString &amp;colorField=QString())</argsstring>
+        <name>defaultSymbol</name>
+        <qualifiedname>LayerUtils::defaultSymbol</qualifiedname>
+        <param>
+          <type>QgsVectorLayer *</type>
+          <declname>layer</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>attachmentField</declname>
+          <defval>QString()</defval>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>colorField</declname>
+          <defval>QString()</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the default symbol for a given layer. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>layer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the vector layer used to create the default symbol </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/layerutils.h" line="102" column="22" bodyfile="src/core/utils/layerutils.cpp" bodystart="95" bodyend="189"/>
+      </memberdef>
+      <memberdef kind="function" id="classLayerUtils_1a43ba829ce2db4d43a6784064c639f879" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void LayerUtils::setDefaultRenderer</definition>
+        <argsstring>(QgsVectorLayer *layer, QgsProject *project=nullptr, const QString &amp;attachmentField=QString(), const QString &amp;colorField=QString())</argsstring>
+        <name>setDefaultRenderer</name>
+        <qualifiedname>LayerUtils::setDefaultRenderer</qualifiedname>
+        <param>
+          <type>QgsVectorLayer *</type>
+          <declname>layer</declname>
+        </param>
+        <param>
+          <type>QgsProject *</type>
+          <declname>project</declname>
+          <defval>nullptr</defval>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>attachmentField</declname>
+          <defval>QString()</defval>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>colorField</declname>
+          <defval>QString()</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the default symbology render for a given <emphasis>layer</emphasis>. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/layerutils.h" line="107" column="17" bodyfile="src/core/utils/layerutils.cpp" bodystart="55" bodyend="93"/>
+      </memberdef>
+      <memberdef kind="function" id="classLayerUtils_1a87d1bb22587d457393329415cef7db6a" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>QgsAbstractVectorLayerLabeling *</type>
+        <definition>QgsAbstractVectorLayerLabeling * LayerUtils::defaultLabeling</definition>
+        <argsstring>(QgsVectorLayer *layer, QgsTextFormat textFormat=QgsTextFormat())</argsstring>
+        <name>defaultLabeling</name>
+        <qualifiedname>LayerUtils::defaultLabeling</qualifiedname>
+        <param>
+          <type>QgsVectorLayer *</type>
+          <declname>layer</declname>
+        </param>
+        <param>
+          <type>QgsTextFormat</type>
+          <declname>textFormat</declname>
+          <defval>QgsTextFormat()</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the default vector layer labeling for a given <emphasis>layer</emphasis> and <emphasis>textFormat</emphasis>. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/layerutils.h" line="112" column="43" bodyfile="src/core/utils/layerutils.cpp" bodystart="208" bodyend="272"/>
+      </memberdef>
+      <memberdef kind="function" id="classLayerUtils_1a47b9c6bd17cd8e7af78070ab0922be2f" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void LayerUtils::setDefaultLabeling</definition>
+        <argsstring>(QgsVectorLayer *layer, QgsProject *project=nullptr)</argsstring>
+        <name>setDefaultLabeling</name>
+        <qualifiedname>LayerUtils::setDefaultLabeling</qualifiedname>
+        <param>
+          <type>QgsVectorLayer *</type>
+          <declname>layer</declname>
+        </param>
+        <param>
+          <type>QgsProject *</type>
+          <declname>project</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the default labeling for a given <emphasis>layer</emphasis>. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/layerutils.h" line="117" column="17" bodyfile="src/core/utils/layerutils.cpp" bodystart="191" bodyend="206"/>
+      </memberdef>
+      <memberdef kind="function" id="classLayerUtils_1ad6a88fdf1ccc30b0fbc6db16bfe2fed5" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>QgsRasterLayer *</type>
+        <definition>QgsRasterLayer * LayerUtils::createOnlineElevationLayer</definition>
+        <argsstring>()</argsstring>
+        <name>createOnlineElevationLayer</name>
+        <qualifiedname>LayerUtils::createOnlineElevationLayer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Creats an online raster elevation layer. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/layerutils.h" line="122" column="27" bodyfile="src/core/utils/layerutils.cpp" bodystart="274" bodyend="283"/>
+      </memberdef>
+      <memberdef kind="function" id="classLayerUtils_1a1d6121a9b6f1ca4e9e743521b34f2eef" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>QgsMapLayer *</type>
+        <definition>QgsMapLayer * LayerUtils::createBasemap</definition>
+        <argsstring>(const QString &amp;style=QString())</argsstring>
+        <name>createBasemap</name>
+        <qualifiedname>LayerUtils::createBasemap</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>style</declname>
+          <defval>QString()</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Creates an online basemap layer. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/layerutils.h" line="127" column="24" bodyfile="src/core/utils/layerutils.cpp" bodystart="285" bodyend="304"/>
+      </memberdef>
+      <memberdef kind="function" id="classLayerUtils_1a4781990d69412da259315595ee3a245a" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE bool</type>
+        <definition>bool LayerUtils::isAtlasCoverageLayer</definition>
+        <argsstring>(QgsVectorLayer *layer)</argsstring>
+        <name>isAtlasCoverageLayer</name>
+        <qualifiedname>LayerUtils::isAtlasCoverageLayer</qualifiedname>
+        <param>
+          <type>QgsVectorLayer *</type>
+          <declname>layer</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns TRUE if the vector layer is used as an atlas coverage layer in any of the print layouts of the currently opened project. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>layer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the vector layer to check against print layouts </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/layerutils.h" line="134" column="29" bodyfile="src/core/utils/layerutils.cpp" bodystart="306" bodyend="322"/>
+      </memberdef>
+      <memberdef kind="function" id="classLayerUtils_1af04ae2cf07e7eb97fe395883e9a904cc" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE bool</type>
+        <definition>bool LayerUtils::isFeatureAdditionLocked</definition>
+        <argsstring>(QgsMapLayer *layer)</argsstring>
+        <name>isFeatureAdditionLocked</name>
+        <qualifiedname>LayerUtils::isFeatureAdditionLocked</qualifiedname>
+        <param>
+          <type>QgsMapLayer *</type>
+          <declname>layer</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns TRUE if the <emphasis>layer</emphasis> permission state prevents feature addition. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/layerutils.h" line="139" column="29" bodyfile="src/core/utils/layerutils.cpp" bodystart="324" bodyend="327"/>
+      </memberdef>
+      <memberdef kind="function" id="classLayerUtils_1a486b55b609c0eef3eaee1ab7ec6eddf7" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void LayerUtils::selectFeaturesInLayer</definition>
+        <argsstring>(QgsVectorLayer *layer, const QList&lt; int &gt; &amp;fids, Qgis::SelectBehavior behavior=Qgis::SelectBehavior::SetSelection)</argsstring>
+        <name>selectFeaturesInLayer</name>
+        <qualifiedname>LayerUtils::selectFeaturesInLayer</qualifiedname>
+        <param>
+          <type>QgsVectorLayer *</type>
+          <declname>layer</declname>
+        </param>
+        <param>
+          <type>const QList&lt; int &gt; &amp;</type>
+          <declname>fids</declname>
+        </param>
+        <param>
+          <type>Qgis::SelectBehavior</type>
+          <declname>behavior</declname>
+          <defval>Qgis::SelectBehavior::SetSelection</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Selects features in a layer This method is required since QML cannot perform the conversion of a feature ID to a QgsFeatureId <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>layer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the vector layer </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>fids</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the list of feature IDs </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>behavior</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the selection behavior </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/layerutils.h" line="148" column="29" bodyfile="src/core/utils/layerutils.cpp" bodystart="329" bodyend="338"/>
+      </memberdef>
+      <memberdef kind="function" id="classLayerUtils_1af73bac4fce1ce6e729b25f551bc37b26" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE bool</type>
+        <definition>bool LayerUtils::deleteFeature</definition>
+        <argsstring>(QgsProject *project, QgsVectorLayer *layer, const QgsFeatureId fid, bool flushBuffer=true)</argsstring>
+        <name>deleteFeature</name>
+        <qualifiedname>LayerUtils::deleteFeature</qualifiedname>
+        <param>
+          <type>QgsProject *</type>
+          <declname>project</declname>
+        </param>
+        <param>
+          <type>QgsVectorLayer *</type>
+          <declname>layer</declname>
+        </param>
+        <param>
+          <type>const QgsFeatureId</type>
+          <declname>fid</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>flushBuffer</declname>
+          <defval>true</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Deletes a vector layer feature, including related features tied to relationships. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>project</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the project holding information on relationships </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>layer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the layer from which the feature will be deleted </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>fid</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the feature ID to be deleted </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>flushBuffer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>set to TRUE to immediately save the edit buffer </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/layerutils.h" line="157" column="29" bodyfile="src/core/utils/layerutils.cpp" bodystart="354" bodyend="441"/>
+      </memberdef>
+      <memberdef kind="function" id="classLayerUtils_1a69f7a7699d045d0454f1c5a96cb6f573" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QgsFeature</type>
+        <definition>QgsFeature LayerUtils::duplicateFeature</definition>
+        <argsstring>(QgsVectorLayer *layer, QgsFeature feature)</argsstring>
+        <name>duplicateFeature</name>
+        <qualifiedname>LayerUtils::duplicateFeature</qualifiedname>
+        <param>
+          <type>QgsVectorLayer *</type>
+          <declname>layer</declname>
+        </param>
+        <param>
+          <type>QgsFeature</type>
+          <declname>feature</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Duplicates a given <emphasis>feature</emphasis> within the provided vector <emphasis>layer</emphasis>. If successful, the function will return the duplicated feature with attribute values saved updated to match what was saved into the layer dataset. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/layerutils.h" line="164" column="35" bodyfile="src/core/utils/layerutils.cpp" bodystart="443" bodyend="538"/>
+      </memberdef>
+      <memberdef kind="function" id="classLayerUtils_1a2b2572b30ce6259f1be800e720e2f66e" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE bool</type>
+        <definition>bool LayerUtils::addFeature</definition>
+        <argsstring>(QgsVectorLayer *layer, QgsFeature feature)</argsstring>
+        <name>addFeature</name>
+        <qualifiedname>LayerUtils::addFeature</qualifiedname>
+        <param>
+          <type>QgsVectorLayer *</type>
+          <declname>layer</declname>
+        </param>
+        <param>
+          <type>QgsFeature</type>
+          <declname>feature</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Adds a <emphasis>feature</emphasis> into the <emphasis>layer</emphasis>. <simplesect kind="note"><para>The function will not call startEditing() and commitChanges() </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/layerutils.h" line="170" column="29" bodyfile="src/core/utils/layerutils.cpp" bodystart="345" bodyend="352"/>
+      </memberdef>
+      <memberdef kind="function" id="classLayerUtils_1a19529bb5f6d4a4500f427370b076813f" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QString</type>
+        <definition>QString LayerUtils::fieldType</definition>
+        <argsstring>(const QgsField &amp;field)</argsstring>
+        <name>fieldType</name>
+        <qualifiedname>LayerUtils::fieldType</qualifiedname>
+        <param>
+          <type>const QgsField &amp;</type>
+          <declname>field</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the QVariant typeName of a <emphasis>field</emphasis>. This is a stable identifier (compared to the provider field name). </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/layerutils.h" line="176" column="32" bodyfile="src/core/utils/layerutils.cpp" bodystart="340" bodyend="343"/>
+      </memberdef>
+      <memberdef kind="function" id="classLayerUtils_1a5c85b33b050dce481ac388a64f8ddb06" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE bool</type>
+        <definition>bool LayerUtils::hasMValue</definition>
+        <argsstring>(QgsVectorLayer *layer)</argsstring>
+        <name>hasMValue</name>
+        <qualifiedname>LayerUtils::hasMValue</qualifiedname>
+        <param>
+          <type>QgsVectorLayer *</type>
+          <declname>layer</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns TRUE if the vector <emphasis>layer</emphasis> geometry has an M value. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/layerutils.h" line="181" column="29" bodyfile="src/core/utils/layerutils.cpp" bodystart="540" bodyend="546"/>
+      </memberdef>
+      <memberdef kind="function" id="classLayerUtils_1a22de54e48964e0f6d7fbb99c180b8700" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QgsVectorLayer *</type>
+        <definition>QgsVectorLayer * LayerUtils::loadVectorLayer</definition>
+        <argsstring>(const QString &amp;uri, const QString &amp;name=QString(), const QString &amp;provider=QStringLiteral(&quot;ogr&quot;))</argsstring>
+        <name>loadVectorLayer</name>
+        <qualifiedname>LayerUtils::loadVectorLayer</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>uri</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>name</declname>
+          <defval>QString()</defval>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>provider</declname>
+          <defval>QStringLiteral(&quot;ogr&quot;)</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Loads a vector layer. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>uri</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the data source uri </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the layer name </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>provider</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the data provider name </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/layerutils.h" line="189" column="39" bodyfile="src/core/utils/layerutils.cpp" bodystart="548" bodyend="553"/>
+      </memberdef>
+      <memberdef kind="function" id="classLayerUtils_1a3c2e94d07a554137451eba00bdd7ccbd" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QgsRasterLayer *</type>
+        <definition>QgsRasterLayer * LayerUtils::loadRasterLayer</definition>
+        <argsstring>(const QString &amp;uri, const QString &amp;name=QString(), const QString &amp;provider=QStringLiteral(&quot;gdal&quot;))</argsstring>
+        <name>loadRasterLayer</name>
+        <qualifiedname>LayerUtils::loadRasterLayer</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>uri</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>name</declname>
+          <defval>QString()</defval>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>provider</declname>
+          <defval>QStringLiteral(&quot;gdal&quot;)</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Loads a raster layer. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>uri</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the data source uri </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the layer name </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>provider</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the data provider name </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/layerutils.h" line="197" column="39" bodyfile="src/core/utils/layerutils.cpp" bodystart="555" bodyend="560"/>
+      </memberdef>
+      <memberdef kind="function" id="classLayerUtils_1ac3fe4b42c3c1dbcce78aa6f48d73afdc" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QgsVectorLayer *</type>
+        <definition>QgsVectorLayer * LayerUtils::memoryLayerFromJsonString</definition>
+        <argsstring>(const QString &amp;name, const QString &amp;string, const QgsCoordinateReferenceSystem &amp;crs=QgsCoordinateReferenceSystem())</argsstring>
+        <name>memoryLayerFromJsonString</name>
+        <qualifiedname>LayerUtils::memoryLayerFromJsonString</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>string</declname>
+        </param>
+        <param>
+          <type>const QgsCoordinateReferenceSystem &amp;</type>
+          <declname>crs</declname>
+          <defval>QgsCoordinateReferenceSystem()</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Attempts to parse a GeoJSON string to a memory vector layer containing the collection of features. The geometry type will be taken from the first parsed feature. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>layer name </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>string</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the GeoJSON string </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>crs</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>optional layer CRS for layers with geometry </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/layerutils.h" line="206" column="39" bodyfile="src/core/utils/layerutils.cpp" bodystart="562" bodyend="577"/>
+      </memberdef>
+      <memberdef kind="function" id="classLayerUtils_1a51d48e89502489add44c6d067381e0e8" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QgsVectorLayer *</type>
+        <definition>QgsVectorLayer * LayerUtils::createMemoryLayer</definition>
+        <argsstring>(const QString &amp;name, const QgsFields &amp;fields=QgsFields(), Qgis::WkbType geometryType=Qgis::WkbType::NoGeometry, const QgsCoordinateReferenceSystem &amp;crs=QgsCoordinateReferenceSystem())</argsstring>
+        <name>createMemoryLayer</name>
+        <qualifiedname>LayerUtils::createMemoryLayer</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>const QgsFields &amp;</type>
+          <declname>fields</declname>
+          <defval>QgsFields()</defval>
+        </param>
+        <param>
+          <type>Qgis::WkbType</type>
+          <declname>geometryType</declname>
+          <defval>Qgis::WkbType::NoGeometry</defval>
+        </param>
+        <param>
+          <type>const QgsCoordinateReferenceSystem &amp;</type>
+          <declname>crs</declname>
+          <defval>QgsCoordinateReferenceSystem()</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Creates a new memory layer using the specified parameters. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>layer name </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>fields</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>fields for layer </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>geometryType</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>optional layer geometry type </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>crs</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>optional layer CRS for layers with geometry </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/layerutils.h" line="215" column="39" bodyfile="src/core/utils/layerutils.cpp" bodystart="579" bodyend="585"/>
+      </memberdef>
+      <memberdef kind="function" id="classLayerUtils_1a15e25aad9be461dd1389c86ae0f2af3a" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE <ref refid="classFeatureIterator" kindref="compound">FeatureIterator</ref></type>
+        <definition>FeatureIterator LayerUtils::createFeatureIteratorFromExpression</definition>
+        <argsstring>(QgsVectorLayer *layer, const QString &amp;expression)</argsstring>
+        <name>createFeatureIteratorFromExpression</name>
+        <qualifiedname>LayerUtils::createFeatureIteratorFromExpression</qualifiedname>
+        <param>
+          <type>QgsVectorLayer *</type>
+          <declname>layer</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>expression</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns a feature iterator to get features matching a given <emphasis>expression</emphasis> within the provided <emphasis>layer</emphasis>. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/layerutils.h" line="223" column="40" bodyfile="src/core/utils/layerutils.cpp" bodystart="587" bodyend="591"/>
+      </memberdef>
+      <memberdef kind="function" id="classLayerUtils_1ad2044764055654d042bb2ea0b6506779" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE <ref refid="classFeatureIterator" kindref="compound">FeatureIterator</ref></type>
+        <definition>FeatureIterator LayerUtils::createFeatureIteratorFromRectangle</definition>
+        <argsstring>(QgsVectorLayer *layer, const QgsRectangle &amp;rectangle)</argsstring>
+        <name>createFeatureIteratorFromRectangle</name>
+        <qualifiedname>LayerUtils::createFeatureIteratorFromRectangle</qualifiedname>
+        <param>
+          <type>QgsVectorLayer *</type>
+          <declname>layer</declname>
+        </param>
+        <param>
+          <type>const QgsRectangle &amp;</type>
+          <declname>rectangle</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns a feature iterator to get features overlapping a given <emphasis>rectangle</emphasis> within the provided <emphasis>layer</emphasis>. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/layerutils.h" line="228" column="40" bodyfile="src/core/utils/layerutils.cpp" bodystart="593" bodyend="597"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>LayerUtils</label>
+        <link refid="classLayerUtils"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>LayerUtils</label>
+        <link refid="classLayerUtils"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/utils/layerutils.h" line="91" column="1" bodyfile="src/core/utils/layerutils.h" bodystart="92" bodyend="229"/>
+    <listofallmembers>
+      <member refid="classLayerUtils_1a2b2572b30ce6259f1be800e720e2f66e" prot="public" virt="non-virtual"><scope>LayerUtils</scope><name>addFeature</name></member>
+      <member refid="classLayerUtils_1a1d6121a9b6f1ca4e9e743521b34f2eef" prot="public" virt="non-virtual"><scope>LayerUtils</scope><name>createBasemap</name></member>
+      <member refid="classLayerUtils_1a15e25aad9be461dd1389c86ae0f2af3a" prot="public" virt="non-virtual"><scope>LayerUtils</scope><name>createFeatureIteratorFromExpression</name></member>
+      <member refid="classLayerUtils_1ad2044764055654d042bb2ea0b6506779" prot="public" virt="non-virtual"><scope>LayerUtils</scope><name>createFeatureIteratorFromRectangle</name></member>
+      <member refid="classLayerUtils_1a51d48e89502489add44c6d067381e0e8" prot="public" virt="non-virtual"><scope>LayerUtils</scope><name>createMemoryLayer</name></member>
+      <member refid="classLayerUtils_1ad6a88fdf1ccc30b0fbc6db16bfe2fed5" prot="public" virt="non-virtual"><scope>LayerUtils</scope><name>createOnlineElevationLayer</name></member>
+      <member refid="classLayerUtils_1a87d1bb22587d457393329415cef7db6a" prot="public" virt="non-virtual"><scope>LayerUtils</scope><name>defaultLabeling</name></member>
+      <member refid="classLayerUtils_1a4b596b68ff7602434e3fd4d67bae7129" prot="public" virt="non-virtual"><scope>LayerUtils</scope><name>defaultSymbol</name></member>
+      <member refid="classLayerUtils_1af73bac4fce1ce6e729b25f551bc37b26" prot="public" virt="non-virtual"><scope>LayerUtils</scope><name>deleteFeature</name></member>
+      <member refid="classLayerUtils_1a69f7a7699d045d0454f1c5a96cb6f573" prot="public" virt="non-virtual"><scope>LayerUtils</scope><name>duplicateFeature</name></member>
+      <member refid="classLayerUtils_1a19529bb5f6d4a4500f427370b076813f" prot="public" virt="non-virtual"><scope>LayerUtils</scope><name>fieldType</name></member>
+      <member refid="classLayerUtils_1a5c85b33b050dce481ac388a64f8ddb06" prot="public" virt="non-virtual"><scope>LayerUtils</scope><name>hasMValue</name></member>
+      <member refid="classLayerUtils_1a4781990d69412da259315595ee3a245a" prot="public" virt="non-virtual"><scope>LayerUtils</scope><name>isAtlasCoverageLayer</name></member>
+      <member refid="classLayerUtils_1af04ae2cf07e7eb97fe395883e9a904cc" prot="public" virt="non-virtual"><scope>LayerUtils</scope><name>isFeatureAdditionLocked</name></member>
+      <member refid="classLayerUtils_1a9b392ba88fe4ceec20835255476e93c2" prot="public" virt="non-virtual"><scope>LayerUtils</scope><name>LayerUtils</name></member>
+      <member refid="classLayerUtils_1a3c2e94d07a554137451eba00bdd7ccbd" prot="public" virt="non-virtual"><scope>LayerUtils</scope><name>loadRasterLayer</name></member>
+      <member refid="classLayerUtils_1a22de54e48964e0f6d7fbb99c180b8700" prot="public" virt="non-virtual"><scope>LayerUtils</scope><name>loadVectorLayer</name></member>
+      <member refid="classLayerUtils_1ac3fe4b42c3c1dbcce78aa6f48d73afdc" prot="public" virt="non-virtual"><scope>LayerUtils</scope><name>memoryLayerFromJsonString</name></member>
+      <member refid="classLayerUtils_1a486b55b609c0eef3eaee1ab7ec6eddf7" prot="public" virt="non-virtual"><scope>LayerUtils</scope><name>selectFeaturesInLayer</name></member>
+      <member refid="classLayerUtils_1a47b9c6bd17cd8e7af78070ab0922be2f" prot="public" virt="non-virtual"><scope>LayerUtils</scope><name>setDefaultLabeling</name></member>
+      <member refid="classLayerUtils_1a43ba829ce2db4d43a6784064c639f879" prot="public" virt="non-virtual"><scope>LayerUtils</scope><name>setDefaultRenderer</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

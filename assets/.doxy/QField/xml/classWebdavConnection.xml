@@ -1,0 +1,2000 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classWebdavConnection" kind="class" language="C++" prot="public">
+    <compoundname>WebdavConnection</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QObject</basecompoundref>
+    <includes refid="webdavconnection_8h" local="no">webdavconnection.h</includes>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classWebdavConnection_1a510d41b4e852b35d8f3cb7a8332f908a" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString WebdavConnection::url</definition>
+        <argsstring></argsstring>
+        <name>url</name>
+        <qualifiedname>WebdavConnection::url</qualifiedname>
+        <read>url</read>
+        <write>setUrl</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/webdavconnection.h" line="44" column="5" bodyfile="src/core/webdavconnection.h" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classWebdavConnection_1a812e667d217c4a50263480fca32ad9b1" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString WebdavConnection::username</definition>
+        <argsstring></argsstring>
+        <name>username</name>
+        <qualifiedname>WebdavConnection::username</qualifiedname>
+        <read>username</read>
+        <write>setUsername</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/webdavconnection.h" line="45" column="5" bodyfile="src/core/webdavconnection.h" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classWebdavConnection_1afc5c63b87c2f25f729ced20d14f19863" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString WebdavConnection::password</definition>
+        <argsstring></argsstring>
+        <name>password</name>
+        <qualifiedname>WebdavConnection::password</qualifiedname>
+        <read>password</read>
+        <write>setPassword</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/webdavconnection.h" line="46" column="5" bodyfile="src/core/webdavconnection.h" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classWebdavConnection_1a873cd2688472803e69ece28322e01afd" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool WebdavConnection::storePassword</definition>
+        <argsstring></argsstring>
+        <name>storePassword</name>
+        <qualifiedname>WebdavConnection::storePassword</qualifiedname>
+        <read>storePassword</read>
+        <write>setStorePassword</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/webdavconnection.h" line="48" column="5" bodyfile="src/core/webdavconnection.h" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classWebdavConnection_1a53251cc5c7789dec2521d62a49262c9f" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool WebdavConnection::isPasswordStored</definition>
+        <argsstring></argsstring>
+        <name>isPasswordStored</name>
+        <qualifiedname>WebdavConnection::isPasswordStored</qualifiedname>
+        <read>isPasswordStored</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/webdavconnection.h" line="50" column="5" bodyfile="src/core/webdavconnection.h" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classWebdavConnection_1a03866351c7d8e3d935fd4e0c805bfdbd" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool WebdavConnection::isFetchingAvailablePaths</definition>
+        <argsstring></argsstring>
+        <name>isFetchingAvailablePaths</name>
+        <qualifiedname>WebdavConnection::isFetchingAvailablePaths</qualifiedname>
+        <read>isFetchingAvailablePaths</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/webdavconnection.h" line="51" column="5" bodyfile="src/core/webdavconnection.h" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classWebdavConnection_1a927c55d8089e118b68f3bb728de080df" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool WebdavConnection::isImportingPath</definition>
+        <argsstring></argsstring>
+        <name>isImportingPath</name>
+        <qualifiedname>WebdavConnection::isImportingPath</qualifiedname>
+        <read>isImportingPath</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/webdavconnection.h" line="52" column="5" bodyfile="src/core/webdavconnection.h" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classWebdavConnection_1aba4c89d64caa5c924c27b1d8f2b80099" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool WebdavConnection::isDownloadingPath</definition>
+        <argsstring></argsstring>
+        <name>isDownloadingPath</name>
+        <qualifiedname>WebdavConnection::isDownloadingPath</qualifiedname>
+        <read>isDownloadingPath</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/webdavconnection.h" line="53" column="5" bodyfile="src/core/webdavconnection.h" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classWebdavConnection_1a2d3639e438ff969ac8bcb8b1f8d28d59" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool WebdavConnection::isUploadingPath</definition>
+        <argsstring></argsstring>
+        <name>isUploadingPath</name>
+        <qualifiedname>WebdavConnection::isUploadingPath</qualifiedname>
+        <read>isUploadingPath</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/webdavconnection.h" line="54" column="5" bodyfile="src/core/webdavconnection.h" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classWebdavConnection_1aa9b21b662a8d9005323f242193340177" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QStringList</type>
+        <definition>QStringList WebdavConnection::availablePaths</definition>
+        <argsstring></argsstring>
+        <name>availablePaths</name>
+        <qualifiedname>WebdavConnection::availablePaths</qualifiedname>
+        <read>availablePaths</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/webdavconnection.h" line="56" column="5" bodyfile="src/core/webdavconnection.h" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classWebdavConnection_1abf4f494e61e653970bd9074ca42f94f7" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QStringList</type>
+        <definition>QStringList WebdavConnection::checkedPaths</definition>
+        <argsstring></argsstring>
+        <name>checkedPaths</name>
+        <qualifiedname>WebdavConnection::checkedPaths</qualifiedname>
+        <read>checkedPaths</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/webdavconnection.h" line="57" column="5" bodyfile="src/core/webdavconnection.h" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classWebdavConnection_1a1dc7b18757005b729f98cb228eff8fed" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double WebdavConnection::progress</definition>
+        <argsstring></argsstring>
+        <name>progress</name>
+        <qualifiedname>WebdavConnection::progress</qualifiedname>
+        <read>progress</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/webdavconnection.h" line="58" column="5" bodyfile="src/core/webdavconnection.h" bodystart="58" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classWebdavConnection_1a566b1bfdab3d22a9a1ff5144b5e21d27" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString WebdavConnection::lastError</definition>
+        <argsstring></argsstring>
+        <name>lastError</name>
+        <qualifiedname>WebdavConnection::lastError</qualifiedname>
+        <read>lastError</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/webdavconnection.h" line="59" column="5" bodyfile="src/core/webdavconnection.h" bodystart="59" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classWebdavConnection_1aa61437a2eb567709aad3f85f830a47c2" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString WebdavConnection::mUrl</definition>
+        <argsstring></argsstring>
+        <name>mUrl</name>
+        <qualifiedname>WebdavConnection::mUrl</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/webdavconnection.h" line="324" column="13" bodyfile="src/core/webdavconnection.h" bodystart="324" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classWebdavConnection_1aaa7fdef408e7c9ebb843413bf1ef2aff" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString WebdavConnection::mUsername</definition>
+        <argsstring></argsstring>
+        <name>mUsername</name>
+        <qualifiedname>WebdavConnection::mUsername</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/webdavconnection.h" line="325" column="13" bodyfile="src/core/webdavconnection.h" bodystart="325" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classWebdavConnection_1a433cd03815c7093567733818f241d76e" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString WebdavConnection::mPassword</definition>
+        <argsstring></argsstring>
+        <name>mPassword</name>
+        <qualifiedname>WebdavConnection::mPassword</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/webdavconnection.h" line="326" column="13" bodyfile="src/core/webdavconnection.h" bodystart="326" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classWebdavConnection_1a5ffca64978b86966a3a55854f46796da" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool WebdavConnection::mStorePassword</definition>
+        <argsstring></argsstring>
+        <name>mStorePassword</name>
+        <qualifiedname>WebdavConnection::mStorePassword</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/webdavconnection.h" line="328" column="10" bodyfile="src/core/webdavconnection.h" bodystart="328" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classWebdavConnection_1a9fa19d5298851ff59160712ea07226cc" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString WebdavConnection::mStoredPassword</definition>
+        <argsstring></argsstring>
+        <name>mStoredPassword</name>
+        <qualifiedname>WebdavConnection::mStoredPassword</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/webdavconnection.h" line="329" column="13" bodyfile="src/core/webdavconnection.h" bodystart="329" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classWebdavConnection_1a1a99a3f87690b7dc46557bba82c3989c" prot="private" static="no" mutable="no">
+        <type>QStringList</type>
+        <definition>QStringList WebdavConnection::mCheckedPaths</definition>
+        <argsstring></argsstring>
+        <name>mCheckedPaths</name>
+        <qualifiedname>WebdavConnection::mCheckedPaths</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/webdavconnection.h" line="331" column="17" bodyfile="src/core/webdavconnection.h" bodystart="331" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classWebdavConnection_1a61b4f22647da61bf68acff4cf777d60d" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool WebdavConnection::mIsFetchingAvailablePaths</definition>
+        <argsstring></argsstring>
+        <name>mIsFetchingAvailablePaths</name>
+        <qualifiedname>WebdavConnection::mIsFetchingAvailablePaths</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/webdavconnection.h" line="333" column="10" bodyfile="src/core/webdavconnection.h" bodystart="333" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classWebdavConnection_1a9ba6cf34cfc34f873cba8c7536ce2066" prot="private" static="no" mutable="no">
+        <type>QStringList</type>
+        <definition>QStringList WebdavConnection::mAvailablePaths</definition>
+        <argsstring></argsstring>
+        <name>mAvailablePaths</name>
+        <qualifiedname>WebdavConnection::mAvailablePaths</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/webdavconnection.h" line="334" column="17" bodyfile="src/core/webdavconnection.h" bodystart="334" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classWebdavConnection_1ad4cba5ab5cd0ee635e63958920486905" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool WebdavConnection::mIsImportingPath</definition>
+        <argsstring></argsstring>
+        <name>mIsImportingPath</name>
+        <qualifiedname>WebdavConnection::mIsImportingPath</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/webdavconnection.h" line="336" column="10" bodyfile="src/core/webdavconnection.h" bodystart="336" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classWebdavConnection_1abf5d079e5991f89541296ca8d1ad86de" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool WebdavConnection::mIsDownloadingPath</definition>
+        <argsstring></argsstring>
+        <name>mIsDownloadingPath</name>
+        <qualifiedname>WebdavConnection::mIsDownloadingPath</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/webdavconnection.h" line="337" column="10" bodyfile="src/core/webdavconnection.h" bodystart="337" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classWebdavConnection_1a479bb1f358ddd770ab458bfe93aa0a08" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool WebdavConnection::mIsUploadingPath</definition>
+        <argsstring></argsstring>
+        <name>mIsUploadingPath</name>
+        <qualifiedname>WebdavConnection::mIsUploadingPath</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/webdavconnection.h" line="338" column="10" bodyfile="src/core/webdavconnection.h" bodystart="338" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classWebdavConnection_1a476313d669258b511bb1eabaf70e5204" prot="private" static="no" mutable="no">
+        <type>QList&lt; QWebdavItem &gt;</type>
+        <definition>QList&lt;QWebdavItem&gt; WebdavConnection::mWebdavItems</definition>
+        <argsstring></argsstring>
+        <name>mWebdavItems</name>
+        <qualifiedname>WebdavConnection::mWebdavItems</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/webdavconnection.h" line="340" column="11" bodyfile="src/core/webdavconnection.h" bodystart="340" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classWebdavConnection_1a02fb9d22c46c15a573760e0d5dc5f656" prot="private" static="no" mutable="no">
+        <type>QList&lt; QString &gt;</type>
+        <definition>QList&lt;QString&gt; WebdavConnection::mWebdavMkDirs</definition>
+        <argsstring></argsstring>
+        <name>mWebdavMkDirs</name>
+        <qualifiedname>WebdavConnection::mWebdavMkDirs</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/webdavconnection.h" line="341" column="11" bodyfile="src/core/webdavconnection.h" bodystart="341" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classWebdavConnection_1a231c4729a5218841d014624687c9a909" prot="private" static="no" mutable="no">
+        <type>QList&lt; QFileInfo &gt;</type>
+        <definition>QList&lt;QFileInfo&gt; WebdavConnection::mLocalItems</definition>
+        <argsstring></argsstring>
+        <name>mLocalItems</name>
+        <qualifiedname>WebdavConnection::mLocalItems</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/webdavconnection.h" line="342" column="11" bodyfile="src/core/webdavconnection.h" bodystart="342" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classWebdavConnection_1aff0c17bc0430c0ccb3d65857c70579a3" prot="private" static="no" mutable="no">
+        <type>QList&lt; QString &gt;</type>
+        <definition>QList&lt;QString&gt; WebdavConnection::mWebdavLastModified</definition>
+        <argsstring></argsstring>
+        <name>mWebdavLastModified</name>
+        <qualifiedname>WebdavConnection::mWebdavLastModified</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/webdavconnection.h" line="343" column="11" bodyfile="src/core/webdavconnection.h" bodystart="343" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classWebdavConnection_1ac2bbe743f7a8f0277fa7211551a08c5f" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString WebdavConnection::mProcessRemotePath</definition>
+        <argsstring></argsstring>
+        <name>mProcessRemotePath</name>
+        <qualifiedname>WebdavConnection::mProcessRemotePath</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/webdavconnection.h" line="345" column="13" bodyfile="src/core/webdavconnection.h" bodystart="345" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classWebdavConnection_1a51a259b4de95bd70b8717889eef52077" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString WebdavConnection::mProcessLocalPath</definition>
+        <argsstring></argsstring>
+        <name>mProcessLocalPath</name>
+        <qualifiedname>WebdavConnection::mProcessLocalPath</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/webdavconnection.h" line="346" column="13" bodyfile="src/core/webdavconnection.h" bodystart="346" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classWebdavConnection_1a9f5fd94f0b7f85dcb559051288526702" prot="private" static="no" mutable="no">
+        <type>qint64</type>
+        <definition>qint64 WebdavConnection::mCurrentBytesProcessed</definition>
+        <argsstring></argsstring>
+        <name>mCurrentBytesProcessed</name>
+        <qualifiedname>WebdavConnection::mCurrentBytesProcessed</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/webdavconnection.h" line="347" column="12" bodyfile="src/core/webdavconnection.h" bodystart="347" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classWebdavConnection_1a95e932facc38935bae39c02457c93bd3" prot="private" static="no" mutable="no">
+        <type>qint64</type>
+        <definition>qint64 WebdavConnection::mBytesProcessed</definition>
+        <argsstring></argsstring>
+        <name>mBytesProcessed</name>
+        <qualifiedname>WebdavConnection::mBytesProcessed</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/webdavconnection.h" line="348" column="12" bodyfile="src/core/webdavconnection.h" bodystart="348" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classWebdavConnection_1a509d8d306baed02ffb1ee8bf8a3a3ec3" prot="private" static="no" mutable="no">
+        <type>qint64</type>
+        <definition>qint64 WebdavConnection::mBytesTotal</definition>
+        <argsstring></argsstring>
+        <name>mBytesTotal</name>
+        <qualifiedname>WebdavConnection::mBytesTotal</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/webdavconnection.h" line="349" column="12" bodyfile="src/core/webdavconnection.h" bodystart="349" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classWebdavConnection_1a39865c6d63d419144369fcc5c81b7c30" prot="private" static="no" mutable="no">
+        <type>qint64</type>
+        <definition>qint64 WebdavConnection::mCurrentUploadFileSize</definition>
+        <argsstring></argsstring>
+        <name>mCurrentUploadFileSize</name>
+        <qualifiedname>WebdavConnection::mCurrentUploadFileSize</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/webdavconnection.h" line="351" column="12" bodyfile="src/core/webdavconnection.h" bodystart="351" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classWebdavConnection_1a55bde75f8095d3283eed87ecd7b1f4d4" prot="private" static="no" mutable="no">
+        <type>qint64</type>
+        <definition>qint64 WebdavConnection::mCurrentUploadBytesSentMax</definition>
+        <argsstring></argsstring>
+        <name>mCurrentUploadBytesSentMax</name>
+        <qualifiedname>WebdavConnection::mCurrentUploadBytesSentMax</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/webdavconnection.h" line="352" column="12" bodyfile="src/core/webdavconnection.h" bodystart="352" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classWebdavConnection_1a25ff5fa8553f001fb6b473b090ce1be7" prot="private" static="no" mutable="no">
+        <type>QWebdav</type>
+        <definition>QWebdav WebdavConnection::mWebdavConnection</definition>
+        <argsstring></argsstring>
+        <name>mWebdavConnection</name>
+        <qualifiedname>WebdavConnection::mWebdavConnection</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/webdavconnection.h" line="354" column="13" bodyfile="src/core/webdavconnection.h" bodystart="354" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classWebdavConnection_1aed6fcaa1fd8bf123ce4cdc8f65c9c582" prot="private" static="no" mutable="no">
+        <type>QWebdavDirParser</type>
+        <definition>QWebdavDirParser WebdavConnection::mWebdavDirParser</definition>
+        <argsstring></argsstring>
+        <name>mWebdavDirParser</name>
+        <qualifiedname>WebdavConnection::mWebdavDirParser</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/webdavconnection.h" line="355" column="22" bodyfile="src/core/webdavconnection.h" bodystart="355" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classWebdavConnection_1a68d14df054a4ed8ba8ce230f8c980468" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString WebdavConnection::mLastError</definition>
+        <argsstring></argsstring>
+        <name>mLastError</name>
+        <qualifiedname>WebdavConnection::mLastError</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/webdavconnection.h" line="356" column="13" bodyfile="src/core/webdavconnection.h" bodystart="356" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classWebdavConnection_1ace8699260e9654c55422acccac9f0565" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool WebdavConnection::mAutoUploadActive</definition>
+        <argsstring></argsstring>
+        <name>mAutoUploadActive</name>
+        <qualifiedname>WebdavConnection::mAutoUploadActive</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/webdavconnection.h" line="358" column="10" bodyfile="src/core/webdavconnection.h" bodystart="358" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classWebdavConnection_1a414451ab183fc5d27ac5525020f03612" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString WebdavConnection::mAutoUploadRoot</definition>
+        <argsstring></argsstring>
+        <name>mAutoUploadRoot</name>
+        <qualifiedname>WebdavConnection::mAutoUploadRoot</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/webdavconnection.h" line="359" column="13" bodyfile="src/core/webdavconnection.h" bodystart="359" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classWebdavConnection_1a44859aedaa4f927be6f539eeaf62d3db" prot="private" static="no" mutable="no">
+        <type>QByteArray</type>
+        <definition>QByteArray WebdavConnection::mAutoUploadSignature</definition>
+        <argsstring></argsstring>
+        <name>mAutoUploadSignature</name>
+        <qualifiedname>WebdavConnection::mAutoUploadSignature</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/webdavconnection.h" line="360" column="16" bodyfile="src/core/webdavconnection.h" bodystart="360" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classWebdavConnection_1a2fac4c46db44d41b2ce728dbfc1a7b80" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString WebdavConnection::mAutoUploadSignatureRoot</definition>
+        <argsstring></argsstring>
+        <name>mAutoUploadSignatureRoot</name>
+        <qualifiedname>WebdavConnection::mAutoUploadSignatureRoot</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/webdavconnection.h" line="361" column="13" bodyfile="src/core/webdavconnection.h" bodystart="361" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classWebdavConnection_1a7c4653735e45974eb0b0375456e8a339" prot="private" static="no" mutable="no">
+        <type>std::unique_ptr&lt; QLockFile &gt;</type>
+        <definition>std::unique_ptr&lt;QLockFile&gt; WebdavConnection::mUploadLock</definition>
+        <argsstring></argsstring>
+        <name>mUploadLock</name>
+        <qualifiedname>WebdavConnection::mUploadLock</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/webdavconnection.h" line="362" column="21" bodyfile="src/core/webdavconnection.h" bodystart="362" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classWebdavConnection_1a407906236a3444a194728a3cd523dab5" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>WebdavConnection::WebdavConnection</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>WebdavConnection</name>
+        <qualifiedname>WebdavConnection::WebdavConnection</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/webdavconnection.h" line="62" column="14" bodyfile="src/core/webdavconnection.cpp" bodystart="43" bodyend="49"/>
+      </memberdef>
+      <memberdef kind="function" id="classWebdavConnection_1a076e924ba147000ad8b2380cfed25def" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>WebdavConnection::~WebdavConnection</definition>
+        <argsstring>()=default</argsstring>
+        <name>~WebdavConnection</name>
+        <qualifiedname>WebdavConnection::~WebdavConnection</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/webdavconnection.h" line="63" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classWebdavConnection_1a04de832b62d7042f28b259acaa0127cd" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString WebdavConnection::url</definition>
+        <argsstring>() const</argsstring>
+        <name>url</name>
+        <qualifiedname>WebdavConnection::url</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the WebDAV URL endpoint used to connect, list, and transfer files. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/webdavconnection.h" line="68" column="13" bodyfile="src/core/webdavconnection.h" bodystart="68" bodyend="68"/>
+      </memberdef>
+      <memberdef kind="function" id="classWebdavConnection_1ae64e8dfe57e146b9c50ee44d09d5de96" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void WebdavConnection::setUrl</definition>
+        <argsstring>(const QString &amp;url)</argsstring>
+        <name>setUrl</name>
+        <qualifiedname>WebdavConnection::setUrl</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>url</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the WebDAV URL endpoint used to connect, list, and transfer files. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>url</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the URL endpoint string </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/webdavconnection.h" line="74" column="10" bodyfile="src/core/webdavconnection.cpp" bodystart="51" bodyend="68"/>
+      </memberdef>
+      <memberdef kind="function" id="classWebdavConnection_1a20bd39187b07837659bc39959b9ca816" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString WebdavConnection::username</definition>
+        <argsstring>() const</argsstring>
+        <name>username</name>
+        <qualifiedname>WebdavConnection::username</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the authentication username. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/webdavconnection.h" line="79" column="13" bodyfile="src/core/webdavconnection.h" bodystart="79" bodyend="79"/>
+      </memberdef>
+      <memberdef kind="function" id="classWebdavConnection_1a5c54d65fd72f068ae4830a66e7184b4f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void WebdavConnection::setUsername</definition>
+        <argsstring>(const QString &amp;username)</argsstring>
+        <name>setUsername</name>
+        <qualifiedname>WebdavConnection::setUsername</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>username</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the authentication <emphasis>username</emphasis>. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/webdavconnection.h" line="84" column="10" bodyfile="src/core/webdavconnection.cpp" bodystart="70" bodyend="88"/>
+      </memberdef>
+      <memberdef kind="function" id="classWebdavConnection_1acbcf4e6e95ac27396491a656390abe20" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString WebdavConnection::password</definition>
+        <argsstring>() const</argsstring>
+        <name>password</name>
+        <qualifiedname>WebdavConnection::password</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the authentication password. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/webdavconnection.h" line="89" column="13" bodyfile="src/core/webdavconnection.h" bodystart="89" bodyend="89"/>
+      </memberdef>
+      <memberdef kind="function" id="classWebdavConnection_1abf669bb928e35729ca4d90e186b436c7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void WebdavConnection::setPassword</definition>
+        <argsstring>(const QString &amp;password)</argsstring>
+        <name>setPassword</name>
+        <qualifiedname>WebdavConnection::setPassword</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>password</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the authentication <emphasis>password</emphasis>. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/webdavconnection.h" line="94" column="10" bodyfile="src/core/webdavconnection.cpp" bodystart="90" bodyend="107"/>
+      </memberdef>
+      <memberdef kind="function" id="classWebdavConnection_1aca9930e821ddd91d6f38ddc2c3a804b1" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool WebdavConnection::storePassword</definition>
+        <argsstring>() const</argsstring>
+        <name>storePassword</name>
+        <qualifiedname>WebdavConnection::storePassword</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns TRUE if the current authentication password will be saved upon successful list or file transfer operation. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/webdavconnection.h" line="99" column="10" bodyfile="src/core/webdavconnection.h" bodystart="99" bodyend="99"/>
+      </memberdef>
+      <memberdef kind="function" id="classWebdavConnection_1a580244004caac4c78ac7f6de619cb806" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void WebdavConnection::setStorePassword</definition>
+        <argsstring>(bool storePassword)</argsstring>
+        <name>setStorePassword</name>
+        <qualifiedname>WebdavConnection::setStorePassword</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>storePassword</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets whether the current authentication password will be saved upon successful list or file transfer operation <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>storePassword</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>set to TRUE to store the current authentication password. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/webdavconnection.h" line="105" column="10" bodyfile="src/core/webdavconnection.cpp" bodystart="109" bodyend="118"/>
+      </memberdef>
+      <memberdef kind="function" id="classWebdavConnection_1a876ff54823f48f11c5ddff6e54c0314b" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool WebdavConnection::isPasswordStored</definition>
+        <argsstring>() const</argsstring>
+        <name>isPasswordStored</name>
+        <qualifiedname>WebdavConnection::isPasswordStored</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns TRUE if a password has been stored for a given pair of username and WebDAV URL endpoint. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/webdavconnection.h" line="110" column="10" bodyfile="src/core/webdavconnection.h" bodystart="110" bodyend="110"/>
+      </memberdef>
+      <memberdef kind="function" id="classWebdavConnection_1a8d4cd72e8a1c41da35eb4322e794731f" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool WebdavConnection::isFetchingAvailablePaths</definition>
+        <argsstring>() const</argsstring>
+        <name>isFetchingAvailablePaths</name>
+        <qualifiedname>WebdavConnection::isFetchingAvailablePaths</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns TRUE if the WebDAV connection is conducting a fetching of available remote paths. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/webdavconnection.h" line="115" column="10" bodyfile="src/core/webdavconnection.h" bodystart="115" bodyend="115"/>
+      </memberdef>
+      <memberdef kind="function" id="classWebdavConnection_1a6076772dda909a3dded1fe6876a4a49d" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool WebdavConnection::isImportingPath</definition>
+        <argsstring>() const</argsstring>
+        <name>isImportingPath</name>
+        <qualifiedname>WebdavConnection::isImportingPath</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns TRUE if the WebDAV connection is conducting an import operation. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/webdavconnection.h" line="120" column="10" bodyfile="src/core/webdavconnection.h" bodystart="120" bodyend="120"/>
+      </memberdef>
+      <memberdef kind="function" id="classWebdavConnection_1abb75ee584c9066559deb074872f05ee1" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool WebdavConnection::isDownloadingPath</definition>
+        <argsstring>() const</argsstring>
+        <name>isDownloadingPath</name>
+        <qualifiedname>WebdavConnection::isDownloadingPath</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns TRUE if the WebDAV connection is conducting a download operation. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/webdavconnection.h" line="125" column="10" bodyfile="src/core/webdavconnection.h" bodystart="125" bodyend="125"/>
+      </memberdef>
+      <memberdef kind="function" id="classWebdavConnection_1abe8370d5047135f1aea5f6293450181d" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool WebdavConnection::isUploadingPath</definition>
+        <argsstring>() const</argsstring>
+        <name>isUploadingPath</name>
+        <qualifiedname>WebdavConnection::isUploadingPath</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns TRUE if the WebDAV connection is conducting an upload operation. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/webdavconnection.h" line="130" column="10" bodyfile="src/core/webdavconnection.h" bodystart="130" bodyend="130"/>
+      </memberdef>
+      <memberdef kind="function" id="classWebdavConnection_1ab66e852964c49465b8e8b580d2a2007a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double WebdavConnection::progress</definition>
+        <argsstring>() const</argsstring>
+        <name>progress</name>
+        <qualifiedname>WebdavConnection::progress</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the progress of an ongoing import, download, or upload operation. <simplesect kind="note"><para>The returned value&apos;s range is 0.0 to 1.0. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/webdavconnection.h" line="136" column="12" bodyfile="src/core/webdavconnection.cpp" bodystart="1205" bodyend="1213"/>
+      </memberdef>
+      <memberdef kind="function" id="classWebdavConnection_1a95b92d81489705b688e08cdfd0e63bc2" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QStringList</type>
+        <definition>QStringList WebdavConnection::checkedPaths</definition>
+        <argsstring>() const</argsstring>
+        <name>checkedPaths</name>
+        <qualifiedname>WebdavConnection::checkedPaths</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns a list of checked paths. <simplesect kind="see"><para><ref refid="classWebdavConnection_1a3b01e54ea3a2e91ec6e067df68a94faa" kindref="member">fetchAvailablePaths</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/webdavconnection.h" line="142" column="17" bodyfile="src/core/webdavconnection.h" bodystart="142" bodyend="142"/>
+      </memberdef>
+      <memberdef kind="function" id="classWebdavConnection_1a7828fde6529d2b5b26b51632c6d224e0" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QStringList</type>
+        <definition>QStringList WebdavConnection::availablePaths</definition>
+        <argsstring>() const</argsstring>
+        <name>availablePaths</name>
+        <qualifiedname>WebdavConnection::availablePaths</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns a list of fetched available paths. <simplesect kind="see"><para><ref refid="classWebdavConnection_1a3b01e54ea3a2e91ec6e067df68a94faa" kindref="member">fetchAvailablePaths</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/webdavconnection.h" line="148" column="17" bodyfile="src/core/webdavconnection.h" bodystart="148" bodyend="148"/>
+      </memberdef>
+      <memberdef kind="function" id="classWebdavConnection_1ac9390109b1ef818f22985347b8a19285" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString WebdavConnection::lastError</definition>
+        <argsstring>() const</argsstring>
+        <name>lastError</name>
+        <qualifiedname>WebdavConnection::lastError</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the last error string captured by the WebDAV connection. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/webdavconnection.h" line="153" column="13" bodyfile="src/core/webdavconnection.h" bodystart="153" bodyend="153"/>
+      </memberdef>
+      <memberdef kind="function" id="classWebdavConnection_1a3b01e54ea3a2e91ec6e067df68a94faa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void WebdavConnection::fetchAvailablePaths</definition>
+        <argsstring>(const QString &amp;remotePath=QString())</argsstring>
+        <name>fetchAvailablePaths</name>
+        <qualifiedname>WebdavConnection::fetchAvailablePaths</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>remotePath</declname>
+          <defval>QString()</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Fetches available remote paths from the current WebDAV endpoint. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/webdavconnection.h" line="158" column="22" bodyfile="src/core/webdavconnection.cpp" bodystart="218" bodyend="247"/>
+      </memberdef>
+      <memberdef kind="function" id="classWebdavConnection_1a123ef488d1191335253e3f1dce13adf6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void WebdavConnection::importPath</definition>
+        <argsstring>(const QString &amp;remotePath, const QString &amp;localPath, QString localFolder=QString())</argsstring>
+        <name>importPath</name>
+        <qualifiedname>WebdavConnection::importPath</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>remotePath</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>localPath</declname>
+        </param>
+        <param>
+          <type>QString</type>
+          <declname>localFolder</declname>
+          <defval>QString()</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Imports a remote path into a local path stored on the device. <emphasis>remotePath</emphasis> the remote path on the WebDAV endpoint. <emphasis>localPath</emphasis> the local path <emphasis>localFolder</emphasis> the local folder name containing the imported remote path content </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/webdavconnection.h" line="166" column="22" bodyfile="src/core/webdavconnection.cpp" bodystart="855" bodyend="893"/>
+      </memberdef>
+      <memberdef kind="function" id="classWebdavConnection_1a141100f1db24edb98e865a545702c79c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void WebdavConnection::downloadPath</definition>
+        <argsstring>(const QString &amp;localPath)</argsstring>
+        <name>downloadPath</name>
+        <qualifiedname>WebdavConnection::downloadPath</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>localPath</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Download new and modified files from an imported remote path. <emphasis>localPath</emphasis> the local path within which a remote path was imported into <simplesect kind="note"><para>This is not a synchronization process; files removed remotely will <emphasis>not</emphasis> be removed locally. Furthermore, all files modified remotely will overwrite locally-stored files. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/webdavconnection.h" line="174" column="22" bodyfile="src/core/webdavconnection.cpp" bodystart="895" bodyend="941"/>
+      </memberdef>
+      <memberdef kind="function" id="classWebdavConnection_1ab891cb41d6381cf584906b645270cdd2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void WebdavConnection::uploadPaths</definition>
+        <argsstring>(const QStringList &amp;localPaths)</argsstring>
+        <name>uploadPaths</name>
+        <qualifiedname>WebdavConnection::uploadPaths</qualifiedname>
+        <param>
+          <type>const QStringList &amp;</type>
+          <declname>localPaths</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Uploads one or more local files and/or folders to the WebDAV endpoint associated with a project previously imported via WebDAV. The provided <emphasis>localPaths</emphasis> must all belong to the same imported project (i.e. share the same WebDAV configuration); otherwise no upload is started and lastError() is set.</para>
+<para><simplesect kind="note"><para>This is not a synchronization process; files removed locally will not be removed remotely. Modified local files will overwrite their remote versions. Hidden dot-folders are ignored, and the WebDAV configuration and lock files are never uploaded.</para>
+</simplesect>
+Before the upload starts, confirmationRequested() is emitted so the UI can ask the user to confirm. Call <ref refid="classWebdavConnection_1a1e8a20e7a7ff4bb54a3626038cd1474e" kindref="member">confirmRequest()</ref> to proceed or <ref refid="classWebdavConnection_1a26be35652afeec7eaf83e0fd34233bf9" kindref="member">cancelRequest()</ref> to abort. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/webdavconnection.h" line="189" column="22" bodyfile="src/core/webdavconnection.cpp" bodystart="1122" bodyend="1133"/>
+      </memberdef>
+      <memberdef kind="function" id="classWebdavConnection_1a1e8a20e7a7ff4bb54a3626038cd1474e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void WebdavConnection::confirmRequest</definition>
+        <argsstring>()</argsstring>
+        <name>confirmRequest</name>
+        <qualifiedname>WebdavConnection::confirmRequest</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Launches a requested download or upload operation after the user has confirmed they want to proceed. This is typically called in response to confirmationRequested(). <simplesect kind="see"><para>confirmationRequested </para>
+</simplesect>
+<simplesect kind="see"><para>isDownloadingPath </para>
+</simplesect>
+<simplesect kind="see"><para>isUploadingPath </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/webdavconnection.h" line="198" column="22" bodyfile="src/core/webdavconnection.cpp" bodystart="1168" bodyend="1180"/>
+      </memberdef>
+      <memberdef kind="function" id="classWebdavConnection_1a26be35652afeec7eaf83e0fd34233bf9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void WebdavConnection::cancelRequest</definition>
+        <argsstring>()</argsstring>
+        <name>cancelRequest</name>
+        <qualifiedname>WebdavConnection::cancelRequest</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Cancels a requested download or upload operation. If an upload is active, the per-project upload lock is released. For automatic uploads, uploadFinished() is emitted with a failure status. <simplesect kind="see"><para>confirmationRequested </para>
+</simplesect>
+<simplesect kind="see"><para>isDownloadingPath </para>
+</simplesect>
+<simplesect kind="see"><para>isUploadingPath </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/webdavconnection.h" line="207" column="22" bodyfile="src/core/webdavconnection.cpp" bodystart="1182" bodyend="1203"/>
+      </memberdef>
+      <memberdef kind="function" id="classWebdavConnection_1a90057009764a93aa10c43e10d940b5ad" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void WebdavConnection::requestUpload</definition>
+        <argsstring>(const QString &amp;projectPath, bool force=false)</argsstring>
+        <name>requestUpload</name>
+        <qualifiedname>WebdavConnection::requestUpload</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>projectPath</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>force</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Requests an automatic upload for the WebDAV imported project that contains <emphasis>projectPath</emphasis>. This is intended for background or scheduled upload workflows and will not prompt the user for credentials. The upload is skipped if the project is not WebDAV imported, if another upload is already running for the same project (upload lock), if no stored password is available, or if no local changes are detected since the last successful automatic upload (unless <emphasis>force</emphasis> is TRUE).</para>
+<para>If the upload does not start, uploadSkipped() is emitted with the reason. If it starts, uploadFinished() is emitted when the upload completes. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/webdavconnection.h" line="219" column="22" bodyfile="src/core/webdavconnection.cpp" bodystart="1227" bodyend="1241"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classWebdavConnection_1a9ad8a77407c8c4beac78a731880b1407" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE bool</type>
+        <definition>bool WebdavConnection::hasWebdavConfiguration</definition>
+        <argsstring>(const QString &amp;path)</argsstring>
+        <name>hasWebdavConfiguration</name>
+        <qualifiedname>WebdavConnection::hasWebdavConfiguration</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>path</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns TRUE if a given path contains a WebDAV configuration JSON file or is parented to a folder containing such a file. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/webdavconnection.h" line="225" column="29" bodyfile="src/core/webdavconnection.cpp" bodystart="1243" bodyend="1246"/>
+      </memberdef>
+      <memberdef kind="function" id="classWebdavConnection_1a194ad242801e93b2f66c594b4236457a" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QVariantMap</type>
+        <definition>QVariantMap WebdavConnection::importHistory</definition>
+        <argsstring>()</argsstring>
+        <name>importHistory</name>
+        <qualifiedname>WebdavConnection::importHistory</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns a list of import history. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/webdavconnection.h" line="230" column="36" bodyfile="src/core/webdavconnection.cpp" bodystart="591" bodyend="686"/>
+      </memberdef>
+      <memberdef kind="function" id="classWebdavConnection_1a60b89ba4786e9a072a0bfe3ae431199a" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QStringList</type>
+        <definition>QStringList WebdavConnection::findWebdavProjectFolders</definition>
+        <argsstring>(const QString &amp;basePath)</argsstring>
+        <name>findWebdavProjectFolders</name>
+        <qualifiedname>WebdavConnection::findWebdavProjectFolders</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>basePath</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Scans a directory recursively and returns all folders containing a WebDAV configuration file. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>basePath</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the directory to scan </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>list of absolute paths to WebDAV project folders </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/webdavconnection.h" line="237" column="36" bodyfile="src/core/webdavconnection.cpp" bodystart="688" bodyend="707"/>
+      </memberdef>
+      <memberdef kind="function" id="classWebdavConnection_1afef9e1f4e620233f6c5c5aa3300d72e2" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QString</type>
+        <definition>QString WebdavConnection::findWebdavRootForPath</definition>
+        <argsstring>(const QString &amp;path)</argsstring>
+        <name>findWebdavRootForPath</name>
+        <qualifiedname>WebdavConnection::findWebdavRootForPath</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>path</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Finds the WebDAV project root by walking up from the given path. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>path</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the file or folder path to start from </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the project root path, or empty string if not found </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/webdavconnection.h" line="244" column="32" bodyfile="src/core/webdavconnection.cpp" bodystart="1312" bodyend="1326"/>
+      </memberdef>
+      <memberdef kind="function" id="classWebdavConnection_1a5924907a0902be60746bdcecfad55a6e" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void WebdavConnection::forgetHistory</definition>
+        <argsstring>(const QString &amp;url=QString(), const QString &amp;username=QString())</argsstring>
+        <name>forgetHistory</name>
+        <qualifiedname>WebdavConnection::forgetHistory</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>url</declname>
+          <defval>QString()</defval>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>username</declname>
+          <defval>QString()</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/webdavconnection.h" line="246" column="29" bodyfile="src/core/webdavconnection.cpp" bodystart="535" bodyend="589"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classWebdavConnection_1a65aff6727cf89cc383dca1b98a226842" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void WebdavConnection::urlChanged</definition>
+        <argsstring>()</argsstring>
+        <name>urlChanged</name>
+        <qualifiedname>WebdavConnection::urlChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/webdavconnection.h" line="249" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classWebdavConnection_1add95100efe2e726aee3f8c7da635dcae" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void WebdavConnection::usernameChanged</definition>
+        <argsstring>()</argsstring>
+        <name>usernameChanged</name>
+        <qualifiedname>WebdavConnection::usernameChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/webdavconnection.h" line="250" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classWebdavConnection_1a53c0e3f2cd8b962d532a7f6c6afd700d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void WebdavConnection::passwordChanged</definition>
+        <argsstring>()</argsstring>
+        <name>passwordChanged</name>
+        <qualifiedname>WebdavConnection::passwordChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/webdavconnection.h" line="251" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classWebdavConnection_1a5c769d96cb7c2cfcdf0d224bde9e3d0b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void WebdavConnection::storePasswordChanged</definition>
+        <argsstring>()</argsstring>
+        <name>storePasswordChanged</name>
+        <qualifiedname>WebdavConnection::storePasswordChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/webdavconnection.h" line="252" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classWebdavConnection_1acd4c1fb4f22a9746806bde5378d340b3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void WebdavConnection::isPasswordStoredChanged</definition>
+        <argsstring>()</argsstring>
+        <name>isPasswordStoredChanged</name>
+        <qualifiedname>WebdavConnection::isPasswordStoredChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/webdavconnection.h" line="253" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classWebdavConnection_1a5b0a673bdec78e0d212ea8a4d481ba74" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void WebdavConnection::isFetchingAvailablePathsChanged</definition>
+        <argsstring>()</argsstring>
+        <name>isFetchingAvailablePathsChanged</name>
+        <qualifiedname>WebdavConnection::isFetchingAvailablePathsChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/webdavconnection.h" line="254" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classWebdavConnection_1ae975f501f9baaec296ff8a83f62be7b1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void WebdavConnection::isImportingPathChanged</definition>
+        <argsstring>()</argsstring>
+        <name>isImportingPathChanged</name>
+        <qualifiedname>WebdavConnection::isImportingPathChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/webdavconnection.h" line="255" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classWebdavConnection_1a26761ca60cfecbe524270c153631acec" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void WebdavConnection::isDownloadingPathChanged</definition>
+        <argsstring>()</argsstring>
+        <name>isDownloadingPathChanged</name>
+        <qualifiedname>WebdavConnection::isDownloadingPathChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/webdavconnection.h" line="256" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classWebdavConnection_1ac955d8787748ee6ce811587ab4e5a6ab" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void WebdavConnection::isUploadingPathChanged</definition>
+        <argsstring>()</argsstring>
+        <name>isUploadingPathChanged</name>
+        <qualifiedname>WebdavConnection::isUploadingPathChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/webdavconnection.h" line="257" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classWebdavConnection_1a5f7d6aa76b0777a8c2925a9bbe918d3c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void WebdavConnection::availablePathsChanged</definition>
+        <argsstring>()</argsstring>
+        <name>availablePathsChanged</name>
+        <qualifiedname>WebdavConnection::availablePathsChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/webdavconnection.h" line="258" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classWebdavConnection_1a7d3a09b2519bdeda0f7f4d31558bbd39" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void WebdavConnection::checkedPathsChanged</definition>
+        <argsstring>()</argsstring>
+        <name>checkedPathsChanged</name>
+        <qualifiedname>WebdavConnection::checkedPathsChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/webdavconnection.h" line="259" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classWebdavConnection_1aa5f610ad8a9567f2d22dd65137e5913a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void WebdavConnection::progressChanged</definition>
+        <argsstring>()</argsstring>
+        <name>progressChanged</name>
+        <qualifiedname>WebdavConnection::progressChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/webdavconnection.h" line="260" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classWebdavConnection_1a50af34a740b9c6a6abf18c745e115220" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void WebdavConnection::lastErrorChanged</definition>
+        <argsstring>()</argsstring>
+        <name>lastErrorChanged</name>
+        <qualifiedname>WebdavConnection::lastErrorChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/webdavconnection.h" line="261" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classWebdavConnection_1ab5b60322b7fb3130495de6b16bfed827" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void WebdavConnection::confirmationRequested</definition>
+        <argsstring>(const QString &amp;host, const QString &amp;username)</argsstring>
+        <name>confirmationRequested</name>
+        <qualifiedname>WebdavConnection::confirmationRequested</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>host</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>username</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/webdavconnection.h" line="263" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classWebdavConnection_1a3c61f319a0da868afb90b8cfb94aa4b7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void WebdavConnection::importSuccessful</definition>
+        <argsstring>(const QString &amp;path)</argsstring>
+        <name>importSuccessful</name>
+        <qualifiedname>WebdavConnection::importSuccessful</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>path</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/webdavconnection.h" line="265" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classWebdavConnection_1a4b2ccb78e1dd5adfaf22e95bf38ad4b6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void WebdavConnection::uploadFinished</definition>
+        <argsstring>(bool success, const QString &amp;message)</argsstring>
+        <name>uploadFinished</name>
+        <qualifiedname>WebdavConnection::uploadFinished</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>success</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>message</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/webdavconnection.h" line="267" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classWebdavConnection_1aac4bc199bdd6e51c1da68346dba08cee" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void WebdavConnection::uploadSkipped</definition>
+        <argsstring>(const QString &amp;reason)</argsstring>
+        <name>uploadSkipped</name>
+        <qualifiedname>WebdavConnection::uploadSkipped</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>reason</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/webdavconnection.h" line="268" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-slot">
+      <memberdef kind="slot" id="classWebdavConnection_1a0c25580c239cbc545906db5530a586d1" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void WebdavConnection::processDirParserFinished</definition>
+        <argsstring>()</argsstring>
+        <name>processDirParserFinished</name>
+        <qualifiedname>WebdavConnection::processDirParserFinished</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/webdavconnection.h" line="271" column="10" bodyfile="src/core/webdavconnection.cpp" bodystart="249" bodyend="441"/>
+      </memberdef>
+      <memberdef kind="slot" id="classWebdavConnection_1aed8fb8d7ec30db19efc8fb679bdd9087" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void WebdavConnection::processConnectionError</definition>
+        <argsstring>(const QString &amp;error)</argsstring>
+        <name>processConnectionError</name>
+        <qualifiedname>WebdavConnection::processConnectionError</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>error</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/webdavconnection.h" line="272" column="10" bodyfile="src/core/webdavconnection.cpp" bodystart="1215" bodyend="1219"/>
+      </memberdef>
+      <memberdef kind="slot" id="classWebdavConnection_1adc9ad6ade1eacfb13ef73e7c88f66e1f" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void WebdavConnection::processDirParserError</definition>
+        <argsstring>(const QString &amp;error)</argsstring>
+        <name>processDirParserError</name>
+        <qualifiedname>WebdavConnection::processDirParserError</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>error</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/webdavconnection.h" line="273" column="10" bodyfile="src/core/webdavconnection.cpp" bodystart="1221" bodyend="1225"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classWebdavConnection_1af9e1cde72a0df7443023d0f8d7b98064" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void WebdavConnection::checkStoredPassword</definition>
+        <argsstring>()</argsstring>
+        <name>checkStoredPassword</name>
+        <qualifiedname>WebdavConnection::checkStoredPassword</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/webdavconnection.h" line="276" column="10" bodyfile="src/core/webdavconnection.cpp" bodystart="120" bodyend="142"/>
+      </memberdef>
+      <memberdef kind="function" id="classWebdavConnection_1ad1b3d4b26f056b4e2f75509698fd6aa1" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void WebdavConnection::applyStoredPassword</definition>
+        <argsstring>()</argsstring>
+        <name>applyStoredPassword</name>
+        <qualifiedname>WebdavConnection::applyStoredPassword</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/webdavconnection.h" line="277" column="10" bodyfile="src/core/webdavconnection.cpp" bodystart="144" bodyend="209"/>
+      </memberdef>
+      <memberdef kind="function" id="classWebdavConnection_1a9eb9a89082539b80d75b88f325fccec5" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void WebdavConnection::setupConnection</definition>
+        <argsstring>()</argsstring>
+        <name>setupConnection</name>
+        <qualifiedname>WebdavConnection::setupConnection</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/webdavconnection.h" line="278" column="10" bodyfile="src/core/webdavconnection.cpp" bodystart="211" bodyend="216"/>
+      </memberdef>
+      <memberdef kind="function" id="classWebdavConnection_1a62b34bfb303318579a2fcf5ff63cff2b" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void WebdavConnection::getWebdavItems</definition>
+        <argsstring>()</argsstring>
+        <name>getWebdavItems</name>
+        <qualifiedname>WebdavConnection::getWebdavItems</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/webdavconnection.h" line="279" column="10" bodyfile="src/core/webdavconnection.cpp" bodystart="443" bodyend="533"/>
+      </memberdef>
+      <memberdef kind="function" id="classWebdavConnection_1ae3b467c385cba92156c7f25fe943508d" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void WebdavConnection::putLocalItems</definition>
+        <argsstring>()</argsstring>
+        <name>putLocalItems</name>
+        <qualifiedname>WebdavConnection::putLocalItems</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/webdavconnection.h" line="280" column="10" bodyfile="src/core/webdavconnection.cpp" bodystart="709" bodyend="829"/>
+      </memberdef>
+      <memberdef kind="function" id="classWebdavConnection_1a6840bc0d4b412afaf107430c215b2061" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void WebdavConnection::finishUpload</definition>
+        <argsstring>(bool success, const QString &amp;errorMessage)</argsstring>
+        <name>finishUpload</name>
+        <qualifiedname>WebdavConnection::finishUpload</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>success</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>errorMessage</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Common upload completion handler. Cleans up auto-upload state and emits appropriate signals. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/webdavconnection.h" line="285" column="10" bodyfile="src/core/webdavconnection.cpp" bodystart="831" bodyend="853"/>
+      </memberdef>
+      <memberdef kind="function" id="classWebdavConnection_1ae4c6e166e3c358cacde95311d2790c58" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString WebdavConnection::getCommonPath</definition>
+        <argsstring>(const QString &amp;addressA, const QString &amp;addressB)</argsstring>
+        <name>getCommonPath</name>
+        <qualifiedname>WebdavConnection::getCommonPath</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>addressA</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>addressB</declname>
+        </param>
+        <briefdescription>
+<para>! Computes the common path between two given paths. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/webdavconnection.h" line="288" column="13" bodyfile="src/core/webdavconnection.cpp" bodystart="1135" bodyend="1166"/>
+      </memberdef>
+      <memberdef kind="function" id="classWebdavConnection_1a7dbd0f380e062ea0d18b7be00dfa277f" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool WebdavConnection::isInHiddenDotFolder</definition>
+        <argsstring>(const QString &amp;relativePath) const</argsstring>
+        <name>isInHiddenDotFolder</name>
+        <qualifiedname>WebdavConnection::isInHiddenDotFolder</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>relativePath</declname>
+        </param>
+        <briefdescription>
+<para>Returns TRUE if the relative path is inside a hidden dot-folder. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/webdavconnection.h" line="291" column="10" bodyfile="src/core/webdavconnection.cpp" bodystart="1298" bodyend="1301"/>
+      </memberdef>
+      <memberdef kind="function" id="classWebdavConnection_1a05365f28e68d76eb5dbfe2441aeb1225" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString WebdavConnection::ensureTrailingSlash</definition>
+        <argsstring>(QString path) const</argsstring>
+        <name>ensureTrailingSlash</name>
+        <qualifiedname>WebdavConnection::ensureTrailingSlash</qualifiedname>
+        <param>
+          <type>QString</type>
+          <declname>path</declname>
+        </param>
+        <briefdescription>
+<para>Ensures the path ends with a trailing slash. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/webdavconnection.h" line="294" column="13" bodyfile="src/core/webdavconnection.cpp" bodystart="1303" bodyend="1310"/>
+      </memberdef>
+      <memberdef kind="function" id="classWebdavConnection_1ab2ccd08c0fb14fbc20fc0db704f36384" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool WebdavConnection::readWebdavConfig</definition>
+        <argsstring>(const QString &amp;rootPath, QVariantMap &amp;outConfig, QString &amp;errorMessage) const</argsstring>
+        <name>readWebdavConfig</name>
+        <qualifiedname>WebdavConnection::readWebdavConfig</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>rootPath</declname>
+        </param>
+        <param>
+          <type>QVariantMap &amp;</type>
+          <declname>outConfig</declname>
+        </param>
+        <param>
+          <type>QString &amp;</type>
+          <declname>errorMessage</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Reads and parses the WebDAV config JSON stored at on rootPath. On failure returns FALSE and sets the errorMessage. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/webdavconnection.h" line="300" column="10" bodyfile="src/core/webdavconnection.cpp" bodystart="1328" bodyend="1349"/>
+      </memberdef>
+      <memberdef kind="function" id="classWebdavConnection_1a5593d58b1af1d64b6b5610187878822b" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QByteArray</type>
+        <definition>QByteArray WebdavConnection::computeLocalSignature</definition>
+        <argsstring>(const QString &amp;rootPath) const</argsstring>
+        <name>computeLocalSignature</name>
+        <qualifiedname>WebdavConnection::computeLocalSignature</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>rootPath</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Computes a deterministic signature of the local project tree under on rootPath.</para>
+<para>The signature is based on each file&apos;s relative path, size, and modification time (not file contents). Hidden dot-folders are ignored, and the WebDAV configuration and lock files are excluded.</para>
+<para>Used to detect local changes for auto-upload. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/webdavconnection.h" line="311" column="16" bodyfile="src/core/webdavconnection.cpp" bodystart="1351" bodyend="1393"/>
+      </memberdef>
+      <memberdef kind="function" id="classWebdavConnection_1a39c8494079dcf7c94c2a7ea6f9836823" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool WebdavConnection::uploadPathsInternal</definition>
+        <argsstring>(const QStringList &amp;localPaths, bool requireConfirmation, bool autoUpload, bool force, QString *errorMessage)</argsstring>
+        <name>uploadPathsInternal</name>
+        <qualifiedname>WebdavConnection::uploadPathsInternal</qualifiedname>
+        <param>
+          <type>const QStringList &amp;</type>
+          <declname>localPaths</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>requireConfirmation</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>autoUpload</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>force</declname>
+        </param>
+        <param>
+          <type>QString *</type>
+          <declname>errorMessage</declname>
+        </param>
+        <briefdescription>
+<para>Resolves the WebDAV config root for the given localPaths, loads and validates the WebDAV configuration. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/webdavconnection.h" line="315" column="10" bodyfile="src/core/webdavconnection.cpp" bodystart="943" bodyend="1120"/>
+      </memberdef>
+      <memberdef kind="function" id="classWebdavConnection_1a3a07acfb8bfa84f31912350b07c2336e" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void WebdavConnection::beginUpload</definition>
+        <argsstring>(bool requireConfirmation)</argsstring>
+        <name>beginUpload</name>
+        <qualifiedname>WebdavConnection::beginUpload</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>requireConfirmation</declname>
+        </param>
+        <briefdescription>
+<para>Initializes upload progress state and transitions into &quot;uploading&quot; mode. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/webdavconnection.h" line="318" column="10" bodyfile="src/core/webdavconnection.cpp" bodystart="1277" bodyend="1296"/>
+      </memberdef>
+      <memberdef kind="function" id="classWebdavConnection_1ac9faed6cd343c8c75222c310f6799fdf" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool WebdavConnection::tryLockUpload</definition>
+        <argsstring>(const QString &amp;root, QString *errorMessage)</argsstring>
+        <name>tryLockUpload</name>
+        <qualifiedname>WebdavConnection::tryLockUpload</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>root</declname>
+        </param>
+        <param>
+          <type>QString *</type>
+          <declname>errorMessage</declname>
+        </param>
+        <briefdescription>
+<para>per-project upload lock </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/webdavconnection.h" line="321" column="10" bodyfile="src/core/webdavconnection.cpp" bodystart="1248" bodyend="1266"/>
+      </memberdef>
+      <memberdef kind="function" id="classWebdavConnection_1af546f15817cfc7337dccb73428883f4b" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void WebdavConnection::unlockUpload</definition>
+        <argsstring>()</argsstring>
+        <name>unlockUpload</name>
+        <qualifiedname>WebdavConnection::unlockUpload</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/webdavconnection.h" line="322" column="10" bodyfile="src/core/webdavconnection.cpp" bodystart="1268" bodyend="1275"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>The WebDAV connection object allows connecting to a WebDAV endpoint and performing push/pull operations for imported content. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+      <node id="1">
+        <label>WebdavConnection</label>
+        <link refid="classWebdavConnection"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+      <node id="1">
+        <label>WebdavConnection</label>
+        <link refid="classWebdavConnection"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/webdavconnection.h" line="40" column="1" bodyfile="src/core/webdavconnection.h" bodystart="41" bodyend="363"/>
+    <listofallmembers>
+      <member refid="classWebdavConnection_1ad1b3d4b26f056b4e2f75509698fd6aa1" prot="private" virt="non-virtual"><scope>WebdavConnection</scope><name>applyStoredPassword</name></member>
+      <member refid="classWebdavConnection_1aa9b21b662a8d9005323f242193340177" prot="public" virt="non-virtual"><scope>WebdavConnection</scope><name>availablePaths</name></member>
+      <member refid="classWebdavConnection_1a7828fde6529d2b5b26b51632c6d224e0" prot="public" virt="non-virtual"><scope>WebdavConnection</scope><name>availablePaths</name></member>
+      <member refid="classWebdavConnection_1a5f7d6aa76b0777a8c2925a9bbe918d3c" prot="public" virt="non-virtual"><scope>WebdavConnection</scope><name>availablePathsChanged</name></member>
+      <member refid="classWebdavConnection_1a3a07acfb8bfa84f31912350b07c2336e" prot="private" virt="non-virtual"><scope>WebdavConnection</scope><name>beginUpload</name></member>
+      <member refid="classWebdavConnection_1a26be35652afeec7eaf83e0fd34233bf9" prot="public" virt="non-virtual"><scope>WebdavConnection</scope><name>cancelRequest</name></member>
+      <member refid="classWebdavConnection_1abf4f494e61e653970bd9074ca42f94f7" prot="public" virt="non-virtual"><scope>WebdavConnection</scope><name>checkedPaths</name></member>
+      <member refid="classWebdavConnection_1a95b92d81489705b688e08cdfd0e63bc2" prot="public" virt="non-virtual"><scope>WebdavConnection</scope><name>checkedPaths</name></member>
+      <member refid="classWebdavConnection_1a7d3a09b2519bdeda0f7f4d31558bbd39" prot="public" virt="non-virtual"><scope>WebdavConnection</scope><name>checkedPathsChanged</name></member>
+      <member refid="classWebdavConnection_1af9e1cde72a0df7443023d0f8d7b98064" prot="private" virt="non-virtual"><scope>WebdavConnection</scope><name>checkStoredPassword</name></member>
+      <member refid="classWebdavConnection_1a5593d58b1af1d64b6b5610187878822b" prot="private" virt="non-virtual"><scope>WebdavConnection</scope><name>computeLocalSignature</name></member>
+      <member refid="classWebdavConnection_1ab5b60322b7fb3130495de6b16bfed827" prot="public" virt="non-virtual"><scope>WebdavConnection</scope><name>confirmationRequested</name></member>
+      <member refid="classWebdavConnection_1a1e8a20e7a7ff4bb54a3626038cd1474e" prot="public" virt="non-virtual"><scope>WebdavConnection</scope><name>confirmRequest</name></member>
+      <member refid="classWebdavConnection_1a141100f1db24edb98e865a545702c79c" prot="public" virt="non-virtual"><scope>WebdavConnection</scope><name>downloadPath</name></member>
+      <member refid="classWebdavConnection_1a05365f28e68d76eb5dbfe2441aeb1225" prot="private" virt="non-virtual"><scope>WebdavConnection</scope><name>ensureTrailingSlash</name></member>
+      <member refid="classWebdavConnection_1a3b01e54ea3a2e91ec6e067df68a94faa" prot="public" virt="non-virtual"><scope>WebdavConnection</scope><name>fetchAvailablePaths</name></member>
+      <member refid="classWebdavConnection_1a60b89ba4786e9a072a0bfe3ae431199a" prot="public" virt="non-virtual"><scope>WebdavConnection</scope><name>findWebdavProjectFolders</name></member>
+      <member refid="classWebdavConnection_1afef9e1f4e620233f6c5c5aa3300d72e2" prot="public" virt="non-virtual"><scope>WebdavConnection</scope><name>findWebdavRootForPath</name></member>
+      <member refid="classWebdavConnection_1a6840bc0d4b412afaf107430c215b2061" prot="private" virt="non-virtual"><scope>WebdavConnection</scope><name>finishUpload</name></member>
+      <member refid="classWebdavConnection_1a5924907a0902be60746bdcecfad55a6e" prot="public" virt="non-virtual"><scope>WebdavConnection</scope><name>forgetHistory</name></member>
+      <member refid="classWebdavConnection_1ae4c6e166e3c358cacde95311d2790c58" prot="private" virt="non-virtual"><scope>WebdavConnection</scope><name>getCommonPath</name></member>
+      <member refid="classWebdavConnection_1a62b34bfb303318579a2fcf5ff63cff2b" prot="private" virt="non-virtual"><scope>WebdavConnection</scope><name>getWebdavItems</name></member>
+      <member refid="classWebdavConnection_1a9ad8a77407c8c4beac78a731880b1407" prot="public" virt="non-virtual"><scope>WebdavConnection</scope><name>hasWebdavConfiguration</name></member>
+      <member refid="classWebdavConnection_1a194ad242801e93b2f66c594b4236457a" prot="public" virt="non-virtual"><scope>WebdavConnection</scope><name>importHistory</name></member>
+      <member refid="classWebdavConnection_1a123ef488d1191335253e3f1dce13adf6" prot="public" virt="non-virtual"><scope>WebdavConnection</scope><name>importPath</name></member>
+      <member refid="classWebdavConnection_1a3c61f319a0da868afb90b8cfb94aa4b7" prot="public" virt="non-virtual"><scope>WebdavConnection</scope><name>importSuccessful</name></member>
+      <member refid="classWebdavConnection_1aba4c89d64caa5c924c27b1d8f2b80099" prot="public" virt="non-virtual"><scope>WebdavConnection</scope><name>isDownloadingPath</name></member>
+      <member refid="classWebdavConnection_1abb75ee584c9066559deb074872f05ee1" prot="public" virt="non-virtual"><scope>WebdavConnection</scope><name>isDownloadingPath</name></member>
+      <member refid="classWebdavConnection_1a26761ca60cfecbe524270c153631acec" prot="public" virt="non-virtual"><scope>WebdavConnection</scope><name>isDownloadingPathChanged</name></member>
+      <member refid="classWebdavConnection_1a03866351c7d8e3d935fd4e0c805bfdbd" prot="public" virt="non-virtual"><scope>WebdavConnection</scope><name>isFetchingAvailablePaths</name></member>
+      <member refid="classWebdavConnection_1a8d4cd72e8a1c41da35eb4322e794731f" prot="public" virt="non-virtual"><scope>WebdavConnection</scope><name>isFetchingAvailablePaths</name></member>
+      <member refid="classWebdavConnection_1a5b0a673bdec78e0d212ea8a4d481ba74" prot="public" virt="non-virtual"><scope>WebdavConnection</scope><name>isFetchingAvailablePathsChanged</name></member>
+      <member refid="classWebdavConnection_1a927c55d8089e118b68f3bb728de080df" prot="public" virt="non-virtual"><scope>WebdavConnection</scope><name>isImportingPath</name></member>
+      <member refid="classWebdavConnection_1a6076772dda909a3dded1fe6876a4a49d" prot="public" virt="non-virtual"><scope>WebdavConnection</scope><name>isImportingPath</name></member>
+      <member refid="classWebdavConnection_1ae975f501f9baaec296ff8a83f62be7b1" prot="public" virt="non-virtual"><scope>WebdavConnection</scope><name>isImportingPathChanged</name></member>
+      <member refid="classWebdavConnection_1a7dbd0f380e062ea0d18b7be00dfa277f" prot="private" virt="non-virtual"><scope>WebdavConnection</scope><name>isInHiddenDotFolder</name></member>
+      <member refid="classWebdavConnection_1a53251cc5c7789dec2521d62a49262c9f" prot="public" virt="non-virtual"><scope>WebdavConnection</scope><name>isPasswordStored</name></member>
+      <member refid="classWebdavConnection_1a876ff54823f48f11c5ddff6e54c0314b" prot="public" virt="non-virtual"><scope>WebdavConnection</scope><name>isPasswordStored</name></member>
+      <member refid="classWebdavConnection_1acd4c1fb4f22a9746806bde5378d340b3" prot="public" virt="non-virtual"><scope>WebdavConnection</scope><name>isPasswordStoredChanged</name></member>
+      <member refid="classWebdavConnection_1a2d3639e438ff969ac8bcb8b1f8d28d59" prot="public" virt="non-virtual"><scope>WebdavConnection</scope><name>isUploadingPath</name></member>
+      <member refid="classWebdavConnection_1abe8370d5047135f1aea5f6293450181d" prot="public" virt="non-virtual"><scope>WebdavConnection</scope><name>isUploadingPath</name></member>
+      <member refid="classWebdavConnection_1ac955d8787748ee6ce811587ab4e5a6ab" prot="public" virt="non-virtual"><scope>WebdavConnection</scope><name>isUploadingPathChanged</name></member>
+      <member refid="classWebdavConnection_1a566b1bfdab3d22a9a1ff5144b5e21d27" prot="public" virt="non-virtual"><scope>WebdavConnection</scope><name>lastError</name></member>
+      <member refid="classWebdavConnection_1ac9390109b1ef818f22985347b8a19285" prot="public" virt="non-virtual"><scope>WebdavConnection</scope><name>lastError</name></member>
+      <member refid="classWebdavConnection_1a50af34a740b9c6a6abf18c745e115220" prot="public" virt="non-virtual"><scope>WebdavConnection</scope><name>lastErrorChanged</name></member>
+      <member refid="classWebdavConnection_1ace8699260e9654c55422acccac9f0565" prot="private" virt="non-virtual"><scope>WebdavConnection</scope><name>mAutoUploadActive</name></member>
+      <member refid="classWebdavConnection_1a414451ab183fc5d27ac5525020f03612" prot="private" virt="non-virtual"><scope>WebdavConnection</scope><name>mAutoUploadRoot</name></member>
+      <member refid="classWebdavConnection_1a44859aedaa4f927be6f539eeaf62d3db" prot="private" virt="non-virtual"><scope>WebdavConnection</scope><name>mAutoUploadSignature</name></member>
+      <member refid="classWebdavConnection_1a2fac4c46db44d41b2ce728dbfc1a7b80" prot="private" virt="non-virtual"><scope>WebdavConnection</scope><name>mAutoUploadSignatureRoot</name></member>
+      <member refid="classWebdavConnection_1a9ba6cf34cfc34f873cba8c7536ce2066" prot="private" virt="non-virtual"><scope>WebdavConnection</scope><name>mAvailablePaths</name></member>
+      <member refid="classWebdavConnection_1a95e932facc38935bae39c02457c93bd3" prot="private" virt="non-virtual"><scope>WebdavConnection</scope><name>mBytesProcessed</name></member>
+      <member refid="classWebdavConnection_1a509d8d306baed02ffb1ee8bf8a3a3ec3" prot="private" virt="non-virtual"><scope>WebdavConnection</scope><name>mBytesTotal</name></member>
+      <member refid="classWebdavConnection_1a1a99a3f87690b7dc46557bba82c3989c" prot="private" virt="non-virtual"><scope>WebdavConnection</scope><name>mCheckedPaths</name></member>
+      <member refid="classWebdavConnection_1a9f5fd94f0b7f85dcb559051288526702" prot="private" virt="non-virtual"><scope>WebdavConnection</scope><name>mCurrentBytesProcessed</name></member>
+      <member refid="classWebdavConnection_1a55bde75f8095d3283eed87ecd7b1f4d4" prot="private" virt="non-virtual"><scope>WebdavConnection</scope><name>mCurrentUploadBytesSentMax</name></member>
+      <member refid="classWebdavConnection_1a39865c6d63d419144369fcc5c81b7c30" prot="private" virt="non-virtual"><scope>WebdavConnection</scope><name>mCurrentUploadFileSize</name></member>
+      <member refid="classWebdavConnection_1abf5d079e5991f89541296ca8d1ad86de" prot="private" virt="non-virtual"><scope>WebdavConnection</scope><name>mIsDownloadingPath</name></member>
+      <member refid="classWebdavConnection_1a61b4f22647da61bf68acff4cf777d60d" prot="private" virt="non-virtual"><scope>WebdavConnection</scope><name>mIsFetchingAvailablePaths</name></member>
+      <member refid="classWebdavConnection_1ad4cba5ab5cd0ee635e63958920486905" prot="private" virt="non-virtual"><scope>WebdavConnection</scope><name>mIsImportingPath</name></member>
+      <member refid="classWebdavConnection_1a479bb1f358ddd770ab458bfe93aa0a08" prot="private" virt="non-virtual"><scope>WebdavConnection</scope><name>mIsUploadingPath</name></member>
+      <member refid="classWebdavConnection_1a68d14df054a4ed8ba8ce230f8c980468" prot="private" virt="non-virtual"><scope>WebdavConnection</scope><name>mLastError</name></member>
+      <member refid="classWebdavConnection_1a231c4729a5218841d014624687c9a909" prot="private" virt="non-virtual"><scope>WebdavConnection</scope><name>mLocalItems</name></member>
+      <member refid="classWebdavConnection_1a433cd03815c7093567733818f241d76e" prot="private" virt="non-virtual"><scope>WebdavConnection</scope><name>mPassword</name></member>
+      <member refid="classWebdavConnection_1a51a259b4de95bd70b8717889eef52077" prot="private" virt="non-virtual"><scope>WebdavConnection</scope><name>mProcessLocalPath</name></member>
+      <member refid="classWebdavConnection_1ac2bbe743f7a8f0277fa7211551a08c5f" prot="private" virt="non-virtual"><scope>WebdavConnection</scope><name>mProcessRemotePath</name></member>
+      <member refid="classWebdavConnection_1a9fa19d5298851ff59160712ea07226cc" prot="private" virt="non-virtual"><scope>WebdavConnection</scope><name>mStoredPassword</name></member>
+      <member refid="classWebdavConnection_1a5ffca64978b86966a3a55854f46796da" prot="private" virt="non-virtual"><scope>WebdavConnection</scope><name>mStorePassword</name></member>
+      <member refid="classWebdavConnection_1a7c4653735e45974eb0b0375456e8a339" prot="private" virt="non-virtual"><scope>WebdavConnection</scope><name>mUploadLock</name></member>
+      <member refid="classWebdavConnection_1aa61437a2eb567709aad3f85f830a47c2" prot="private" virt="non-virtual"><scope>WebdavConnection</scope><name>mUrl</name></member>
+      <member refid="classWebdavConnection_1aaa7fdef408e7c9ebb843413bf1ef2aff" prot="private" virt="non-virtual"><scope>WebdavConnection</scope><name>mUsername</name></member>
+      <member refid="classWebdavConnection_1a25ff5fa8553f001fb6b473b090ce1be7" prot="private" virt="non-virtual"><scope>WebdavConnection</scope><name>mWebdavConnection</name></member>
+      <member refid="classWebdavConnection_1aed6fcaa1fd8bf123ce4cdc8f65c9c582" prot="private" virt="non-virtual"><scope>WebdavConnection</scope><name>mWebdavDirParser</name></member>
+      <member refid="classWebdavConnection_1a476313d669258b511bb1eabaf70e5204" prot="private" virt="non-virtual"><scope>WebdavConnection</scope><name>mWebdavItems</name></member>
+      <member refid="classWebdavConnection_1aff0c17bc0430c0ccb3d65857c70579a3" prot="private" virt="non-virtual"><scope>WebdavConnection</scope><name>mWebdavLastModified</name></member>
+      <member refid="classWebdavConnection_1a02fb9d22c46c15a573760e0d5dc5f656" prot="private" virt="non-virtual"><scope>WebdavConnection</scope><name>mWebdavMkDirs</name></member>
+      <member refid="classWebdavConnection_1afc5c63b87c2f25f729ced20d14f19863" prot="public" virt="non-virtual"><scope>WebdavConnection</scope><name>password</name></member>
+      <member refid="classWebdavConnection_1acbcf4e6e95ac27396491a656390abe20" prot="public" virt="non-virtual"><scope>WebdavConnection</scope><name>password</name></member>
+      <member refid="classWebdavConnection_1a53c0e3f2cd8b962d532a7f6c6afd700d" prot="public" virt="non-virtual"><scope>WebdavConnection</scope><name>passwordChanged</name></member>
+      <member refid="classWebdavConnection_1aed8fb8d7ec30db19efc8fb679bdd9087" prot="private" virt="non-virtual"><scope>WebdavConnection</scope><name>processConnectionError</name></member>
+      <member refid="classWebdavConnection_1adc9ad6ade1eacfb13ef73e7c88f66e1f" prot="private" virt="non-virtual"><scope>WebdavConnection</scope><name>processDirParserError</name></member>
+      <member refid="classWebdavConnection_1a0c25580c239cbc545906db5530a586d1" prot="private" virt="non-virtual"><scope>WebdavConnection</scope><name>processDirParserFinished</name></member>
+      <member refid="classWebdavConnection_1a1dc7b18757005b729f98cb228eff8fed" prot="public" virt="non-virtual"><scope>WebdavConnection</scope><name>progress</name></member>
+      <member refid="classWebdavConnection_1ab66e852964c49465b8e8b580d2a2007a" prot="public" virt="non-virtual"><scope>WebdavConnection</scope><name>progress</name></member>
+      <member refid="classWebdavConnection_1aa5f610ad8a9567f2d22dd65137e5913a" prot="public" virt="non-virtual"><scope>WebdavConnection</scope><name>progressChanged</name></member>
+      <member refid="classWebdavConnection_1ae3b467c385cba92156c7f25fe943508d" prot="private" virt="non-virtual"><scope>WebdavConnection</scope><name>putLocalItems</name></member>
+      <member refid="classWebdavConnection_1ab2ccd08c0fb14fbc20fc0db704f36384" prot="private" virt="non-virtual"><scope>WebdavConnection</scope><name>readWebdavConfig</name></member>
+      <member refid="classWebdavConnection_1a90057009764a93aa10c43e10d940b5ad" prot="public" virt="non-virtual"><scope>WebdavConnection</scope><name>requestUpload</name></member>
+      <member refid="classWebdavConnection_1abf669bb928e35729ca4d90e186b436c7" prot="public" virt="non-virtual"><scope>WebdavConnection</scope><name>setPassword</name></member>
+      <member refid="classWebdavConnection_1a580244004caac4c78ac7f6de619cb806" prot="public" virt="non-virtual"><scope>WebdavConnection</scope><name>setStorePassword</name></member>
+      <member refid="classWebdavConnection_1a9eb9a89082539b80d75b88f325fccec5" prot="private" virt="non-virtual"><scope>WebdavConnection</scope><name>setupConnection</name></member>
+      <member refid="classWebdavConnection_1ae64e8dfe57e146b9c50ee44d09d5de96" prot="public" virt="non-virtual"><scope>WebdavConnection</scope><name>setUrl</name></member>
+      <member refid="classWebdavConnection_1a5c54d65fd72f068ae4830a66e7184b4f" prot="public" virt="non-virtual"><scope>WebdavConnection</scope><name>setUsername</name></member>
+      <member refid="classWebdavConnection_1a873cd2688472803e69ece28322e01afd" prot="public" virt="non-virtual"><scope>WebdavConnection</scope><name>storePassword</name></member>
+      <member refid="classWebdavConnection_1aca9930e821ddd91d6f38ddc2c3a804b1" prot="public" virt="non-virtual"><scope>WebdavConnection</scope><name>storePassword</name></member>
+      <member refid="classWebdavConnection_1a5c769d96cb7c2cfcdf0d224bde9e3d0b" prot="public" virt="non-virtual"><scope>WebdavConnection</scope><name>storePasswordChanged</name></member>
+      <member refid="classWebdavConnection_1ac9faed6cd343c8c75222c310f6799fdf" prot="private" virt="non-virtual"><scope>WebdavConnection</scope><name>tryLockUpload</name></member>
+      <member refid="classWebdavConnection_1af546f15817cfc7337dccb73428883f4b" prot="private" virt="non-virtual"><scope>WebdavConnection</scope><name>unlockUpload</name></member>
+      <member refid="classWebdavConnection_1a4b2ccb78e1dd5adfaf22e95bf38ad4b6" prot="public" virt="non-virtual"><scope>WebdavConnection</scope><name>uploadFinished</name></member>
+      <member refid="classWebdavConnection_1ab891cb41d6381cf584906b645270cdd2" prot="public" virt="non-virtual"><scope>WebdavConnection</scope><name>uploadPaths</name></member>
+      <member refid="classWebdavConnection_1a39c8494079dcf7c94c2a7ea6f9836823" prot="private" virt="non-virtual"><scope>WebdavConnection</scope><name>uploadPathsInternal</name></member>
+      <member refid="classWebdavConnection_1aac4bc199bdd6e51c1da68346dba08cee" prot="public" virt="non-virtual"><scope>WebdavConnection</scope><name>uploadSkipped</name></member>
+      <member refid="classWebdavConnection_1a510d41b4e852b35d8f3cb7a8332f908a" prot="public" virt="non-virtual"><scope>WebdavConnection</scope><name>url</name></member>
+      <member refid="classWebdavConnection_1a04de832b62d7042f28b259acaa0127cd" prot="public" virt="non-virtual"><scope>WebdavConnection</scope><name>url</name></member>
+      <member refid="classWebdavConnection_1a65aff6727cf89cc383dca1b98a226842" prot="public" virt="non-virtual"><scope>WebdavConnection</scope><name>urlChanged</name></member>
+      <member refid="classWebdavConnection_1a812e667d217c4a50263480fca32ad9b1" prot="public" virt="non-virtual"><scope>WebdavConnection</scope><name>username</name></member>
+      <member refid="classWebdavConnection_1a20bd39187b07837659bc39959b9ca816" prot="public" virt="non-virtual"><scope>WebdavConnection</scope><name>username</name></member>
+      <member refid="classWebdavConnection_1add95100efe2e726aee3f8c7da635dcae" prot="public" virt="non-virtual"><scope>WebdavConnection</scope><name>usernameChanged</name></member>
+      <member refid="classWebdavConnection_1a407906236a3444a194728a3cd523dab5" prot="public" virt="non-virtual"><scope>WebdavConnection</scope><name>WebdavConnection</name></member>
+      <member refid="classWebdavConnection_1a076e924ba147000ad8b2380cfed25def" prot="public" virt="non-virtual"><scope>WebdavConnection</scope><name>~WebdavConnection</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

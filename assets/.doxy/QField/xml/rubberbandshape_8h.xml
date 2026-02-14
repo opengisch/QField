@@ -1,0 +1,162 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="rubberbandshape_8h" kind="file" language="C++">
+    <compoundname>rubberbandshape.h</compoundname>
+    <includes local="no">QList</includes>
+    <includes local="no">QQuickItem</includes>
+    <includes local="no">qgspoint.h</includes>
+    <includes local="no">qgswkbtypes.h</includes>
+    <includedby refid="qgismobileapp_8cpp" local="yes">src/core/qgismobileapp.cpp</includedby>
+    <includedby refid="rubberbandshape_8cpp" local="yes">src/core/rubberbandshape.cpp</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>src/core/rubberbandshape.h</label>
+        <link refid="rubberbandshape_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QList</label>
+      </node>
+      <node id="3">
+        <label>QQuickItem</label>
+      </node>
+      <node id="4">
+        <label>qgspoint.h</label>
+      </node>
+      <node id="5">
+        <label>qgswkbtypes.h</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="classRubberbandShape" prot="public">RubberbandShape</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/***************************************************************************</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/><sp/>rubberbandshape.h<sp/>-<sp/>RubberbandShape</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"></highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>---------------------</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>begin<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>11.6.2016</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>copyright<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>(C)<sp/>2016<sp/>by<sp/>Matthias<sp/>Kuhn</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>email<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>matthias@opengis.ch</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>***************************************************************************</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>*<sp/><sp/><sp/>This<sp/>program<sp/>is<sp/>free<sp/>software;<sp/>you<sp/>can<sp/>redistribute<sp/>it<sp/>and/or<sp/>modify<sp/><sp/>*</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>*<sp/><sp/><sp/>it<sp/>under<sp/>the<sp/>terms<sp/>of<sp/>the<sp/>GNU<sp/>General<sp/>Public<sp/>License<sp/>as<sp/>published<sp/>by<sp/><sp/>*</highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*<sp/><sp/><sp/>the<sp/>Free<sp/>Software<sp/>Foundation;<sp/>either<sp/>version<sp/>2<sp/>of<sp/>the<sp/>License,<sp/>or<sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>*<sp/><sp/><sp/>(at<sp/>your<sp/>option)<sp/>any<sp/>later<sp/>version.<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="15"><highlight class="comment"><sp/>***************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>RUBBERBANDSHAPE_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>RUBBERBANDSHAPE_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QList&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QQuickItem&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;qgspoint.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;qgswkbtypes.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classRubberbandModel" kindref="compound">RubberbandModel</ref>;</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classVertexModel" kindref="compound">VertexModel</ref>;</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref>;</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34" refid="classRubberbandShape" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classRubberbandShape" kindref="compound">RubberbandShape</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>QQuickItem</highlight></codeline>
+<codeline lineno="35"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_OBJECT</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39" refid="classRubberbandShape_1a7d11328768347a7ea8d654f3c9723203" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classRubberbandShape_1a7d11328768347a7ea8d654f3c9723203" kindref="member">freeze</ref><sp/>READ<sp/><ref refid="classRubberbandShape_1a7d11328768347a7ea8d654f3c9723203" kindref="member">freeze</ref><sp/>WRITE<sp/><ref refid="classRubberbandShape_1ab4a1d73a48d0471a6218830651ccb10a" kindref="member">setFreeze</ref><sp/>NOTIFY<sp/><ref refid="classRubberbandShape_1a68309d11d2db52617d9b0e55d9918234" kindref="member">freezeChanged</ref><sp/>)</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/><ref refid="classRubberbandModel" kindref="compound">RubberbandModel</ref><sp/>*model<sp/>READ<sp/>model<sp/>WRITE<sp/>setModel<sp/>NOTIFY<sp/>modelChanged<sp/>)</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/><ref refid="classVertexModel" kindref="compound">VertexModel</ref><sp/>*vertexModel<sp/>READ<sp/>vertexModel<sp/>WRITE<sp/>setVertexModel<sp/>NOTIFY<sp/>vertexModelChanged<sp/>)</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref><sp/>*mapSettings<sp/>READ<sp/>mapSettings<sp/>WRITE<sp/>setMapSettings<sp/>NOTIFY<sp/>mapSettingsChanged<sp/>)</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="46" refid="classRubberbandShape_1a06fb80eac97826353a1ae61bb0b26398" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/>Qgis::GeometryType<sp/><ref refid="classRubberbandShape_1a06fb80eac97826353a1ae61bb0b26398" kindref="member">geometryType</ref><sp/>READ<sp/><ref refid="classRubberbandShape_1a06fb80eac97826353a1ae61bb0b26398" kindref="member">geometryType</ref><sp/>WRITE<sp/><ref refid="classRubberbandShape_1a06ae3eda037cd921322b1784369aa163" kindref="member">setGeometryType</ref><sp/>NOTIFY<sp/><ref refid="classRubberbandShape_1ac886c4c9e39dc279bc05aa2bc8e673b6" kindref="member">geometryTypeChanged</ref><sp/>)</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight></codeline>
+<codeline lineno="49" refid="classRubberbandShape_1a4860b45c0f75c3f3e60007329a711774" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/>QColor<sp/><ref refid="classRubberbandShape_1a4860b45c0f75c3f3e60007329a711774" kindref="member">color</ref><sp/>READ<sp/><ref refid="classRubberbandShape_1a4860b45c0f75c3f3e60007329a711774" kindref="member">color</ref><sp/>WRITE<sp/><ref refid="classRubberbandShape_1a092cede3127b434ee79a06863db33402" kindref="member">setColor</ref><sp/>NOTIFY<sp/><ref refid="classRubberbandShape_1a03e78eb3e461ceacfeb8c9f91c81c630" kindref="member">colorChanged</ref><sp/>)</highlight></codeline>
+<codeline lineno="51" refid="classRubberbandShape_1a2b98a9896f7e51144c25221e94eac191" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/>QColor<sp/><ref refid="classRubberbandShape_1a2b98a9896f7e51144c25221e94eac191" kindref="member">outlineColor</ref><sp/>READ<sp/><ref refid="classRubberbandShape_1a2b98a9896f7e51144c25221e94eac191" kindref="member">outlineColor</ref><sp/>WRITE<sp/><ref refid="classRubberbandShape_1acd188ef4a99e60e8a4ad16f1bc2049be" kindref="member">setOutlineColor</ref><sp/>NOTIFY<sp/><ref refid="classRubberbandShape_1a6b3fbd5600ce6c8a7ddcd22b99d7d05e" kindref="member">outlineColorChanged</ref><sp/>)</highlight></codeline>
+<codeline lineno="53" refid="classRubberbandShape_1ae5cb4b9f8c9b66d29d967778f4bf6de2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/>qreal<sp/><ref refid="classRubberbandShape_1ae5cb4b9f8c9b66d29d967778f4bf6de2" kindref="member">lineWidth</ref><sp/>READ<sp/><ref refid="classRubberbandShape_1ae5cb4b9f8c9b66d29d967778f4bf6de2" kindref="member">lineWidth</ref><sp/>WRITE<sp/><ref refid="classRubberbandShape_1a7a17254a186e222c962e2e7878e643f1" kindref="member">setLineWidth</ref><sp/>NOTIFY<sp/><ref refid="classRubberbandShape_1ab964611dd37d91290338fda2ef0e6644" kindref="member">lineWidthChanged</ref><sp/>)</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight></codeline>
+<codeline lineno="56" refid="classRubberbandShape_1ab9316579dcbe35c74866f477e99d9fb4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/>QList&lt;QList&lt;QPointF&gt;&gt;<sp/><ref refid="classRubberbandShape_1ab9316579dcbe35c74866f477e99d9fb4" kindref="member">polylines</ref><sp/>READ<sp/><ref refid="classRubberbandShape_1ab9316579dcbe35c74866f477e99d9fb4" kindref="member">polylines</ref><sp/>NOTIFY<sp/><ref refid="classRubberbandShape_1a38f34f18a5be37aac1f914a940f85af9" kindref="member">polylinesChanged</ref><sp/>)</highlight></codeline>
+<codeline lineno="58" refid="classRubberbandShape_1a9bf65387d82e6a3bd00be7285f12c353" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/>Qgis::GeometryType<sp/><ref refid="classRubberbandShape_1a9bf65387d82e6a3bd00be7285f12c353" kindref="member">polylinesType</ref><sp/>READ<sp/><ref refid="classRubberbandShape_1a9bf65387d82e6a3bd00be7285f12c353" kindref="member">polylinesType</ref><sp/>NOTIFY<sp/><ref refid="classRubberbandShape_1a1993a3ed8bd445326bef6ec086a8bb64" kindref="member">polylinesTypeChanged</ref><sp/>)</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/>public:</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/>explicit<sp/><ref refid="classRubberbandShape" kindref="compound">RubberbandShape</ref>(<sp/>QQuickItem<sp/>*parent<sp/>=<sp/></highlight><highlight class="keywordtype">nullptr</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classRubberbandModel" kindref="compound">RubberbandModel</ref><sp/>*model()<sp/>const;</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setModel(<sp/><ref refid="classRubberbandModel" kindref="compound">RubberbandModel</ref><sp/>*model<sp/>);</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classVertexModel" kindref="compound">VertexModel</ref><sp/>*vertexModel()<sp/>const;</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setVertexModel(<sp/><ref refid="classVertexModel" kindref="compound">VertexModel</ref><sp/>*vertexModel<sp/>);</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref><sp/>*mapSettings()<sp/>const;</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setMapSettings(<sp/><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref><sp/>*mapSettings<sp/>);</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classRubberbandShape_1a7d11328768347a7ea8d654f3c9723203" kindref="member">freeze</ref>()<sp/>const;</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classRubberbandShape_1ab4a1d73a48d0471a6218830651ccb10a" kindref="member">setFreeze</ref>(<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classRubberbandShape_1a7d11328768347a7ea8d654f3c9723203" kindref="member">freeze</ref><sp/>);</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/>QColor<sp/><ref refid="classRubberbandShape_1a4860b45c0f75c3f3e60007329a711774" kindref="member">color</ref>()<sp/>const;</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classRubberbandShape_1a092cede3127b434ee79a06863db33402" kindref="member">setColor</ref>(<sp/>const<sp/>QColor<sp/>&amp;<ref refid="classRubberbandShape_1a4860b45c0f75c3f3e60007329a711774" kindref="member">color</ref><sp/>);</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/>QColor<sp/><ref refid="classRubberbandShape_1a2b98a9896f7e51144c25221e94eac191" kindref="member">outlineColor</ref>()<sp/>const;</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classRubberbandShape_1acd188ef4a99e60e8a4ad16f1bc2049be" kindref="member">setOutlineColor</ref>(<sp/>const<sp/>QColor<sp/>&amp;<ref refid="classRubberbandShape_1a4860b45c0f75c3f3e60007329a711774" kindref="member">color</ref><sp/>);</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="classRubberbandShape_1ae5cb4b9f8c9b66d29d967778f4bf6de2" kindref="member">lineWidth</ref>()<sp/>const;</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classRubberbandShape_1a7a17254a186e222c962e2e7878e643f1" kindref="member">setLineWidth</ref>(<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>width<sp/>);</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight></codeline>
+<codeline lineno="93" refid="classRubberbandShape_1a08939bfa96aae87c8a0018540d900309" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Qgis::GeometryType<sp/><ref refid="classRubberbandShape_1a06fb80eac97826353a1ae61bb0b26398" kindref="member">geometryType</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>mGeometryType;<sp/>}</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classRubberbandShape_1a06ae3eda037cd921322b1784369aa163" kindref="member">setGeometryType</ref>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Qgis::GeometryType<sp/><ref refid="classRubberbandShape_1a06fb80eac97826353a1ae61bb0b26398" kindref="member">geometryType</ref><sp/>);</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight></codeline>
+<codeline lineno="98" refid="classRubberbandShape_1a7c65b68b2f4f6a3b45b860e4d721d879" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>QList&lt;QList&lt;QPointF&gt;&gt;<sp/><ref refid="classRubberbandShape_1a7c65b68b2f4f6a3b45b860e4d721d879" kindref="member">polylines</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>mPolylines;<sp/>}</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"></highlight></codeline>
+<codeline lineno="101" refid="classRubberbandShape_1a676dace9acfc5b240d0515e6c5ed9e97" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Qgis::GeometryType<sp/><ref refid="classRubberbandShape_1a676dace9acfc5b240d0515e6c5ed9e97" kindref="member">polylinesType</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>mPolylinesType;<sp/>}</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"></highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/>signals:</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>modelChanged();</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>vertexModelChanged();</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>mapSettingsChanged();</highlight></codeline>
+<codeline lineno="108" refid="classRubberbandShape_1a68309d11d2db52617d9b0e55d9918234" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classRubberbandShape_1a68309d11d2db52617d9b0e55d9918234" kindref="member">freezeChanged</ref>();</highlight></codeline>
+<codeline lineno="110" refid="classRubberbandShape_1a03e78eb3e461ceacfeb8c9f91c81c630" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classRubberbandShape_1a03e78eb3e461ceacfeb8c9f91c81c630" kindref="member">colorChanged</ref>();</highlight></codeline>
+<codeline lineno="112" refid="classRubberbandShape_1a6b3fbd5600ce6c8a7ddcd22b99d7d05e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classRubberbandShape_1a6b3fbd5600ce6c8a7ddcd22b99d7d05e" kindref="member">outlineColorChanged</ref>();</highlight></codeline>
+<codeline lineno="114" refid="classRubberbandShape_1ab964611dd37d91290338fda2ef0e6644" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classRubberbandShape_1ab964611dd37d91290338fda2ef0e6644" kindref="member">lineWidthChanged</ref>();</highlight></codeline>
+<codeline lineno="116" refid="classRubberbandShape_1ac886c4c9e39dc279bc05aa2bc8e673b6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classRubberbandShape_1ac886c4c9e39dc279bc05aa2bc8e673b6" kindref="member">geometryTypeChanged</ref>();</highlight></codeline>
+<codeline lineno="118" refid="classRubberbandShape_1a38f34f18a5be37aac1f914a940f85af9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classRubberbandShape_1a38f34f18a5be37aac1f914a940f85af9" kindref="member">polylinesChanged</ref>();</highlight></codeline>
+<codeline lineno="120" refid="classRubberbandShape_1a1993a3ed8bd445326bef6ec086a8bb64" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classRubberbandShape_1a1993a3ed8bd445326bef6ec086a8bb64" kindref="member">polylinesTypeChanged</ref>();</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"></highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/>slots:</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>markDirty();</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>visibleExtentChanged();</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>rotationChanged();</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"></highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>updateTransform();</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>createPolylines();</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"></highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classRubberbandModel" kindref="compound">RubberbandModel</ref><sp/>*mRubberbandModel<sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classVertexModel" kindref="compound">VertexModel</ref><sp/>*mVertexModel<sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref><sp/>*mMapSettings<sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>mFreeze<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>mDirty<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/>QColor<sp/>mColor<sp/>=<sp/>QColor(<sp/>192,<sp/>57,<sp/>43,<sp/>150<sp/>);</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/>QColor<sp/>mOutlineColor<sp/>=<sp/>QColor(<sp/>255,<sp/>255,<sp/>255,<sp/>100<sp/>);</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>mWidth<sp/>=<sp/>4;</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/>Qgis::GeometryType<sp/>mGeometryType<sp/>=<sp/>Qgis::GeometryType::Null;</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/>QgsPoint<sp/>mGeometryCorner;</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>mGeometryMUPP<sp/>=<sp/>0.0;</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/>QList&lt;QList&lt;QPointF&gt;&gt;<sp/>mPolylines;</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/>Qgis::GeometryType<sp/>mPolylinesType<sp/>=<sp/>Qgis::GeometryType::Null;</highlight></codeline>
+<codeline lineno="144"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"></highlight></codeline>
+<codeline lineno="146"><highlight class="normal"></highlight></codeline>
+<codeline lineno="147"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>RUBBERBANDSHAPE_H</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="src/core/rubberbandshape.h"/>
+  </compounddef>
+</doxygen>

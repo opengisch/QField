@@ -1,0 +1,111 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classAndroidProjectSource" kind="class" language="C++" prot="public">
+    <compoundname>AndroidProjectSource</compoundname>
+    <basecompoundref refid="classProjectSource" prot="public" virt="non-virtual">ProjectSource</basecompoundref>
+    <basecompoundref prot="public" virt="non-virtual">QAndroidActivityResultReceiver</basecompoundref>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classAndroidProjectSource_1a6f2631c01fd80e28824f6b23529161a8" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>AndroidProjectSource::AndroidProjectSource</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>AndroidProjectSource</name>
+        <qualifiedname>AndroidProjectSource::AndroidProjectSource</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/platforms/android/androidprojectsource.h" line="30" column="14" bodyfile="src/core/platforms/android/androidprojectsource.cpp" bodystart="24" bodyend="28"/>
+      </memberdef>
+      <memberdef kind="function" id="classAndroidProjectSource_1aed2985c7c15775e7145eb0313aaf9dcd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void AndroidProjectSource::handleActivityResult</definition>
+        <argsstring>(int receiverRequestCode, int resultCode, const QJniObject &amp;data) override</argsstring>
+        <name>handleActivityResult</name>
+        <qualifiedname>AndroidProjectSource::handleActivityResult</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>receiverRequestCode</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>resultCode</declname>
+        </param>
+        <param>
+          <type>const QJniObject &amp;</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/platforms/android/androidprojectsource.h" line="32" column="10" bodyfile="src/core/platforms/android/androidprojectsource.cpp" bodystart="30" bodyend="44"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>AndroidProjectSource</label>
+        <link refid="classAndroidProjectSource"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>ProjectSource</label>
+        <link refid="classProjectSource"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>QAndroidActivityResultReceiver</label>
+      </node>
+      <node id="3">
+        <label>QObject</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>AndroidProjectSource</label>
+        <link refid="classAndroidProjectSource"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>ProjectSource</label>
+        <link refid="classProjectSource"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>QAndroidActivityResultReceiver</label>
+      </node>
+      <node id="3">
+        <label>QObject</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/platforms/android/androidprojectsource.h" line="25" column="1" bodyfile="src/core/platforms/android/androidprojectsource.h" bodystart="26" bodyend="33"/>
+    <listofallmembers>
+      <member refid="classAndroidProjectSource_1a6f2631c01fd80e28824f6b23529161a8" prot="public" virt="non-virtual"><scope>AndroidProjectSource</scope><name>AndroidProjectSource</name></member>
+      <member refid="classAndroidProjectSource_1aed2985c7c15775e7145eb0313aaf9dcd" prot="public" virt="non-virtual"><scope>AndroidProjectSource</scope><name>handleActivityResult</name></member>
+      <member refid="classProjectSource_1a2dea7b551dd13f5f0c1f51fcd57215ad" prot="public" virt="non-virtual"><scope>AndroidProjectSource</scope><name>projectOpened</name></member>
+      <member refid="classProjectSource_1ae95256cbdacb3dc494a7fe7926594405" prot="public" virt="non-virtual"><scope>AndroidProjectSource</scope><name>ProjectSource</name></member>
+      <member refid="classProjectSource_1a9a0471d0ea2af0e23e1c3d22cab84326" prot="public" virt="virtual"><scope>AndroidProjectSource</scope><name>~ProjectSource</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

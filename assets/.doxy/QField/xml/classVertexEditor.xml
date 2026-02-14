@@ -1,0 +1,371 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classVertexEditor" kind="class" language="C++" prot="public">
+    <compoundname>VertexEditor</compoundname>
+    <basecompoundref refid="classGeometryEditorBase" prot="public" virt="non-virtual">GeometryEditorBase</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classVertexEditor_1ad9ac03cedb9b2cfca891e524088b8d87" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool VertexEditor::screenHovering</definition>
+        <argsstring></argsstring>
+        <name>screenHovering</name>
+        <qualifiedname>VertexEditor::screenHovering</qualifiedname>
+        <read>dummyGetter_screenHovering_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/geometryeditors/VertexEditor.qml" line="8" column="1" bodyfile="src/qml/geometryeditors/VertexEditor.qml" bodystart="8" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classVertexEditor_1ae2688762b93bdb3dad161266a127c8eb" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool VertexEditor::vertexRubberbandVisible</definition>
+        <argsstring></argsstring>
+        <name>vertexRubberbandVisible</name>
+        <qualifiedname>VertexEditor::vertexRubberbandVisible</qualifiedname>
+        <read>dummyGetter_vertexRubberbandVisible_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/geometryeditors/VertexEditor.qml" line="10" column="1" bodyfile="src/qml/geometryeditors/VertexEditor.qml" bodystart="10" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classVertexEditor_1abc525fcdecc7d08bf084d3c018685620" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int VertexEditor::currentVertexId</definition>
+        <argsstring></argsstring>
+        <name>currentVertexId</name>
+        <qualifiedname>VertexEditor::currentVertexId</qualifiedname>
+        <read>dummyGetter_currentVertexId_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/geometryeditors/VertexEditor.qml" line="12" column="1" bodyfile="src/qml/geometryeditors/VertexEditor.qml" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classVertexEditor_1a37b012f59f6e5e9d47ba1870af9c4aa8" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool VertexEditor::currentVertexModified</definition>
+        <argsstring></argsstring>
+        <name>currentVertexModified</name>
+        <qualifiedname>VertexEditor::currentVertexModified</qualifiedname>
+        <read>dummyGetter_currentVertexModified_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/geometryeditors/VertexEditor.qml" line="14" column="1" bodyfile="src/qml/geometryeditors/VertexEditor.qml" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classVertexEditor_1ae9369f8ff6ca8fb134f01f91ced47fa1" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool VertexEditor::blocking</definition>
+        <argsstring></argsstring>
+        <name>blocking</name>
+        <qualifiedname>VertexEditor::blocking</qualifiedname>
+        <read>dummyGetter_blocking_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="remark"><para>This property is read-only </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/geometryeditors/VertexEditor.qml" line="17" column="1" bodyfile="src/qml/geometryeditors/VertexEditor.qml" bodystart="17" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classVertexEditor_1a4413b1fa1c132edb426175deb43ef73e" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var VertexEditor::spacing</definition>
+        <argsstring></argsstring>
+        <name>spacing</name>
+        <qualifiedname>VertexEditor::spacing</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/geometryeditors/VertexEditor.qml" line="19" column="5" bodyfile="src/qml/geometryeditors/VertexEditor.qml" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classVertexEditor_1ad5cfdd0c1a853693138a8856b004d40c" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton VertexEditor::undoButton</definition>
+        <argsstring></argsstring>
+        <name>undoButton</name>
+        <qualifiedname>VertexEditor::undoButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/geometryeditors/VertexEditor.qml" line="30" column="14" bodyfile="src/qml/geometryeditors/VertexEditor.qml" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classVertexEditor_1a6cca5cc19b06ec2fdab9ebb69acb0c78" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton VertexEditor::cancelButton</definition>
+        <argsstring></argsstring>
+        <name>cancelButton</name>
+        <qualifiedname>VertexEditor::cancelButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/geometryeditors/VertexEditor.qml" line="31" column="14" bodyfile="src/qml/geometryeditors/VertexEditor.qml" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classVertexEditor_1aa446aaf88f395f1f3cd0fc44b2b94822" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton VertexEditor::applyButton</definition>
+        <argsstring></argsstring>
+        <name>applyButton</name>
+        <qualifiedname>VertexEditor::applyButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/geometryeditors/VertexEditor.qml" line="32" column="14" bodyfile="src/qml/geometryeditors/VertexEditor.qml" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classVertexEditor_1a3e666a2270ba5a34c88c25388b21889b" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton VertexEditor::removeVertexButton</definition>
+        <argsstring></argsstring>
+        <name>removeVertexButton</name>
+        <qualifiedname>VertexEditor::removeVertexButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/geometryeditors/VertexEditor.qml" line="33" column="14" bodyfile="src/qml/geometryeditors/VertexEditor.qml" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classVertexEditor_1aa0160967d2be7d1c91d2110fb6a087b4" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton VertexEditor::addVertexButton</definition>
+        <argsstring></argsstring>
+        <name>addVertexButton</name>
+        <qualifiedname>VertexEditor::addVertexButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/geometryeditors/VertexEditor.qml" line="34" column="14" bodyfile="src/qml/geometryeditors/VertexEditor.qml" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classVertexEditor_1adad71c7d01daf9ee809b2ec0032d0eef" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton VertexEditor::previousVertexButton</definition>
+        <argsstring></argsstring>
+        <name>previousVertexButton</name>
+        <qualifiedname>VertexEditor::previousVertexButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/geometryeditors/VertexEditor.qml" line="35" column="14" bodyfile="src/qml/geometryeditors/VertexEditor.qml" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classVertexEditor_1a7cd5ac23f892eb26c05279a2403350fc" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton VertexEditor::nextVertexButton</definition>
+        <argsstring></argsstring>
+        <name>nextVertexButton</name>
+        <qualifiedname>VertexEditor::nextVertexButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/geometryeditors/VertexEditor.qml" line="36" column="14" bodyfile="src/qml/geometryeditors/VertexEditor.qml" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classVertexEditor_1a2d6118ae7b5326f059e6cb03e959db6a" prot="private" static="no" mutable="no">
+        <type><ref refid="classDigitizingLogger" kindref="compound">DigitizingLogger</ref></type>
+        <definition>DigitizingLogger VertexEditor::digitizingLogger</definition>
+        <argsstring></argsstring>
+        <name>digitizingLogger</name>
+        <qualifiedname>VertexEditor::digitizingLogger</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/geometryeditors/VertexEditor.qml" line="37" column="18" bodyfile="src/qml/geometryeditors/VertexEditor.qml" bodystart="37" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classVertexEditor_1adf200c6adac3ff8b47caf8248bf3b082" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void VertexEditor::init</definition>
+        <argsstring>(featureModel, mapSettings, editorRubberbandModel, editorRenderer)</argsstring>
+        <name>init</name>
+        <qualifiedname>VertexEditor::init</qualifiedname>
+        <param>
+          <type>featureModel</type>
+        </param>
+        <param>
+          <type>mapSettings</type>
+        </param>
+        <param>
+          <type>editorRubberbandModel</type>
+        </param>
+        <param>
+          <type>editorRenderer</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/geometryeditors/VertexEditor.qml" line="22" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classVertexEditor_1a5c8c2f45160abe1ef3a6d3c5c1120a18" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void VertexEditor::cancel</definition>
+        <argsstring>()</argsstring>
+        <name>cancel</name>
+        <qualifiedname>VertexEditor::cancel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/geometryeditors/VertexEditor.qml" line="24" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classVertexEditor_1a73a479ba22c4c7aa995e23fe8fd73fad" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void VertexEditor::applyChanges</definition>
+        <argsstring>(apply)</argsstring>
+        <name>applyChanges</name>
+        <qualifiedname>VertexEditor::applyChanges</qualifiedname>
+        <param>
+          <type>apply</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/geometryeditors/VertexEditor.qml" line="26" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classVertexEditor_1a3b375bf4cdb96a52492e07aa599a4081" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void VertexEditor::canvasClicked</definition>
+        <argsstring>(point, type)</argsstring>
+        <name>canvasClicked</name>
+        <qualifiedname>VertexEditor::canvasClicked</qualifiedname>
+        <param>
+          <type><ref refid="classpoint" kindref="compound">point</ref></type>
+        </param>
+        <param>
+          <type>type</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/geometryeditors/VertexEditor.qml" line="28" column="6"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>GeometryEditorBase</label>
+        <link refid="classGeometryEditorBase"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>Row</label>
+      </node>
+      <node id="3">
+        <label>Theme::QfVisibilityFadingRow</label>
+        <link refid="classTheme_1_1QfVisibilityFadingRow"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>VertexEditor</label>
+        <link refid="classVertexEditor"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>GeometryEditorBase</label>
+        <link refid="classGeometryEditorBase"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>Row</label>
+      </node>
+      <node id="3">
+        <label>Theme::QfVisibilityFadingRow</label>
+        <link refid="classTheme_1_1QfVisibilityFadingRow"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>VertexEditor</label>
+        <link refid="classVertexEditor"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/qml/geometryeditors/VertexEditor.qml" line="5" column="1" bodyfile="src/qml/geometryeditors/VertexEditor.qml" bodystart="5" bodyend="38"/>
+    <listofallmembers>
+      <member refid="classVertexEditor_1aa0160967d2be7d1c91d2110fb6a087b4" prot="private" virt="non-virtual"><scope>VertexEditor</scope><name>addVertexButton</name></member>
+      <member refid="classVertexEditor_1aa446aaf88f395f1f3cd0fc44b2b94822" prot="private" virt="non-virtual"><scope>VertexEditor</scope><name>applyButton</name></member>
+      <member refid="classVertexEditor_1a73a479ba22c4c7aa995e23fe8fd73fad" prot="public" virt="non-virtual"><scope>VertexEditor</scope><name>applyChanges</name></member>
+      <member refid="classVertexEditor_1ae9369f8ff6ca8fb134f01f91ced47fa1" prot="public" virt="non-virtual"><scope>VertexEditor</scope><name>blocking</name></member>
+      <member refid="classVertexEditor_1a5c8c2f45160abe1ef3a6d3c5c1120a18" prot="public" virt="non-virtual"><scope>VertexEditor</scope><name>cancel</name></member>
+      <member refid="classVertexEditor_1a6cca5cc19b06ec2fdab9ebb69acb0c78" prot="private" virt="non-virtual"><scope>VertexEditor</scope><name>cancelButton</name></member>
+      <member refid="classVertexEditor_1a3b375bf4cdb96a52492e07aa599a4081" prot="public" virt="non-virtual"><scope>VertexEditor</scope><name>canvasClicked</name></member>
+      <member refid="classVertexEditor_1abc525fcdecc7d08bf084d3c018685620" prot="public" virt="non-virtual"><scope>VertexEditor</scope><name>currentVertexId</name></member>
+      <member refid="classVertexEditor_1a37b012f59f6e5e9d47ba1870af9c4aa8" prot="public" virt="non-virtual"><scope>VertexEditor</scope><name>currentVertexModified</name></member>
+      <member refid="classVertexEditor_1a2d6118ae7b5326f059e6cb03e959db6a" prot="private" virt="non-virtual"><scope>VertexEditor</scope><name>digitizingLogger</name></member>
+      <member refid="classGeometryEditorBase_1a812216b79434d6d6574cd15f4882812d" prot="public" virt="non-virtual"><scope>VertexEditor</scope><name>editorRenderer</name></member>
+      <member refid="classGeometryEditorBase_1a6643fdabf1ea07e1838aa9763af7abbf" prot="public" virt="non-virtual"><scope>VertexEditor</scope><name>featureModel</name></member>
+      <member refid="classGeometryEditorBase_1a45fa84fa67ccbe332d28bf989ad6602c" prot="public" virt="non-virtual"><scope>VertexEditor</scope><name>finished</name></member>
+      <member refid="classVertexEditor_1adf200c6adac3ff8b47caf8248bf3b082" prot="public" virt="non-virtual"><scope>VertexEditor</scope><name>init</name></member>
+      <member refid="classGeometryEditorBase_1a2caaddaad7be03263eda29824c88c722" prot="public" virt="non-virtual"><scope>VertexEditor</scope><name>mapSettings</name></member>
+      <member refid="classVertexEditor_1a7cd5ac23f892eb26c05279a2403350fc" prot="private" virt="non-virtual"><scope>VertexEditor</scope><name>nextVertexButton</name></member>
+      <member refid="classVertexEditor_1adad71c7d01daf9ee809b2ec0032d0eef" prot="private" virt="non-virtual"><scope>VertexEditor</scope><name>previousVertexButton</name></member>
+      <member refid="classVertexEditor_1a3e666a2270ba5a34c88c25388b21889b" prot="private" virt="non-virtual"><scope>VertexEditor</scope><name>removeVertexButton</name></member>
+      <member refid="classGeometryEditorBase_1a7f750f40a04cdd685b84c95719e3fb83" prot="public" virt="non-virtual"><scope>VertexEditor</scope><name>requestJumpToPoint</name></member>
+      <member refid="classVertexEditor_1ad9ac03cedb9b2cfca891e524088b8d87" prot="public" virt="non-virtual"><scope>VertexEditor</scope><name>screenHovering</name></member>
+      <member refid="classVertexEditor_1a4413b1fa1c132edb426175deb43ef73e" prot="private" virt="non-virtual"><scope>VertexEditor</scope><name>spacing</name></member>
+      <member refid="classTheme_1_1QfVisibilityFadingRow_1a5757c98a1693481e83314781b5d3433e" prot="public" virt="non-virtual"><scope>VertexEditor</scope><name>stateVisible</name></member>
+      <member refid="classVertexEditor_1ad5cfdd0c1a853693138a8856b004d40c" prot="private" virt="non-virtual"><scope>VertexEditor</scope><name>undoButton</name></member>
+      <member refid="classVertexEditor_1ae2688762b93bdb3dad161266a127c8eb" prot="public" virt="non-virtual"><scope>VertexEditor</scope><name>vertexRubberbandVisible</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,118 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classTerrainMesh" kind="class" language="C++" prot="public">
+    <compoundname>TerrainMesh</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Node</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classTerrainMesh_1aa775f11901b6c5adaaef06806b53694b" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias TerrainMesh::mapTerrainGeometry</definition>
+        <argsstring></argsstring>
+        <name>mapTerrainGeometry</name>
+        <qualifiedname>TerrainMesh::mapTerrainGeometry</qualifiedname>
+        <read>dummyGetter_mapTerrainGeometry_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/3d/TerrainMesh.qml" line="7" column="1" bodyfile="src/qml/3d/TerrainMesh.qml" bodystart="7" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classTerrainMesh_1ac8e1d4f08830274ae9a60035da0f5ff5" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>var</type>
+        <definition>var TerrainMesh::texture</definition>
+        <argsstring></argsstring>
+        <name>texture</name>
+        <qualifiedname>TerrainMesh::texture</qualifiedname>
+        <read>dummyGetter_texture_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/3d/TerrainMesh.qml" line="9" column="1" bodyfile="src/qml/3d/TerrainMesh.qml" bodystart="9" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classTerrainMesh_1abd5cbd3332734d8360a77d5fdf4cb591" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool TerrainMesh::textureReady</definition>
+        <argsstring></argsstring>
+        <name>textureReady</name>
+        <qualifiedname>TerrainMesh::textureReady</qualifiedname>
+        <read>dummyGetter_textureReady_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/3d/TerrainMesh.qml" line="11" column="1" bodyfile="src/qml/3d/TerrainMesh.qml" bodystart="11" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classTerrainMesh_1ab66994f32ed0471c824dca85f8b72648" prot="private" static="no" mutable="no">
+        <type>Texture</type>
+        <definition>Texture TerrainMesh::neutralTexture</definition>
+        <argsstring></argsstring>
+        <name>neutralTexture</name>
+        <qualifiedname>TerrainMesh::neutralTexture</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/3d/TerrainMesh.qml" line="13" column="9" bodyfile="src/qml/3d/TerrainMesh.qml" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTerrainMesh_1ab8b0add5429e728c298072b0436bdd6a" prot="private" static="no" mutable="no">
+        <type>Model</type>
+        <definition>Model TerrainMesh::terrainModel</definition>
+        <argsstring></argsstring>
+        <name>terrainModel</name>
+        <qualifiedname>TerrainMesh::terrainModel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/3d/TerrainMesh.qml" line="14" column="7" bodyfile="src/qml/3d/TerrainMesh.qml" bodystart="14" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>Node</label>
+      </node>
+      <node id="1">
+        <label>TerrainMesh</label>
+        <link refid="classTerrainMesh"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>Node</label>
+      </node>
+      <node id="1">
+        <label>TerrainMesh</label>
+        <link refid="classTerrainMesh"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/qml/3d/TerrainMesh.qml" line="4" column="1" bodyfile="src/qml/3d/TerrainMesh.qml" bodystart="4" bodyend="15"/>
+    <listofallmembers>
+      <member refid="classTerrainMesh_1aa775f11901b6c5adaaef06806b53694b" prot="public" virt="non-virtual"><scope>TerrainMesh</scope><name>mapTerrainGeometry</name></member>
+      <member refid="classTerrainMesh_1ab66994f32ed0471c824dca85f8b72648" prot="private" virt="non-virtual"><scope>TerrainMesh</scope><name>neutralTexture</name></member>
+      <member refid="classTerrainMesh_1ab8b0add5429e728c298072b0436bdd6a" prot="private" virt="non-virtual"><scope>TerrainMesh</scope><name>terrainModel</name></member>
+      <member refid="classTerrainMesh_1ac8e1d4f08830274ae9a60035da0f5ff5" prot="public" virt="non-virtual"><scope>TerrainMesh</scope><name>texture</name></member>
+      <member refid="classTerrainMesh_1abd5cbd3332734d8360a77d5fdf4cb591" prot="public" virt="non-virtual"><scope>TerrainMesh</scope><name>textureReady</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

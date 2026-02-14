@@ -1,0 +1,667 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classFeatureHistory" kind="class" language="C++" prot="public">
+    <compoundname>FeatureHistory</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QObject</basecompoundref>
+    <innerclass refid="structFeatureHistory_1_1FeatureModifications" prot="public">FeatureHistory::FeatureModifications</innerclass>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classFeatureHistory_1a12aa85c72fed33d37f9e7368aa5f32f0" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool FeatureHistory::isUndoAvailable</definition>
+        <argsstring></argsstring>
+        <name>isUndoAvailable</name>
+        <qualifiedname>FeatureHistory::isUndoAvailable</qualifiedname>
+        <read>isUndoAvailable</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurehistory.h" line="36" column="5" bodyfile="src/core/featurehistory.h" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classFeatureHistory_1a28945826e977f501b60c766b1d66101a" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool FeatureHistory::isRedoAvailable</definition>
+        <argsstring></argsstring>
+        <name>isRedoAvailable</name>
+        <qualifiedname>FeatureHistory::isRedoAvailable</qualifiedname>
+        <read>isRedoAvailable</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurehistory.h" line="37" column="5" bodyfile="src/core/featurehistory.h" bodystart="37" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="classFeatureHistory_1a5ead7302723b31e171856168cc3b9993" prot="private" static="yes" mutable="no">
+        <type>const int</type>
+        <definition>const int FeatureHistory::sTimeoutMs</definition>
+        <argsstring></argsstring>
+        <name>sTimeoutMs</name>
+        <qualifiedname>FeatureHistory::sTimeoutMs</qualifiedname>
+        <initializer>= 50</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurehistory.h" line="110" column="22" bodyfile="src/core/featurehistory.h" bodystart="110" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classFeatureHistory_1a91ad74848939c1ba6d08a7b1c218694b" prot="private" static="no" mutable="no">
+        <type>const QgsProject *</type>
+        <definition>const QgsProject* FeatureHistory::mProject</definition>
+        <argsstring></argsstring>
+        <name>mProject</name>
+        <qualifiedname>FeatureHistory::mProject</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+<para>The current project instance. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurehistory.h" line="122" column="22" bodyfile="src/core/featurehistory.h" bodystart="122" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classFeatureHistory_1a0c2dc9fa1297706ac78b50cb7ce5b425" prot="private" static="no" mutable="no">
+        <type><ref refid="classTrackingModel" kindref="compound">TrackingModel</ref> *</type>
+        <definition>TrackingModel* FeatureHistory::mTrackingModel</definition>
+        <argsstring></argsstring>
+        <name>mTrackingModel</name>
+        <qualifiedname>FeatureHistory::mTrackingModel</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+<para>Tracking model. Used to check if the currently modified layer is in tracking, so all changes should be ignored to prevent cluttering the undo history. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurehistory.h" line="125" column="19" bodyfile="src/core/featurehistory.h" bodystart="125" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classFeatureHistory_1add89e28515ce25c48e16505d89719bcc" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool FeatureHistory::mIsApplyingModifications</definition>
+        <argsstring></argsstring>
+        <name>mIsApplyingModifications</name>
+        <qualifiedname>FeatureHistory::mIsApplyingModifications</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+<para>If currently applying undo or redo feature modifications. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurehistory.h" line="128" column="10" bodyfile="src/core/featurehistory.h" bodystart="128" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classFeatureHistory_1aa0c8f5c7f3526a25a02af3ffb0d075dd" prot="private" static="no" mutable="no">
+        <type>QTimer</type>
+        <definition>QTimer FeatureHistory::mTimer</definition>
+        <argsstring></argsstring>
+        <name>mTimer</name>
+        <qualifiedname>FeatureHistory::mTimer</qualifiedname>
+        <briefdescription>
+<para>Timer to wait for short time before all features (and child features) are saved. When timeouts, all temporary modifications are added as a new undo step. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurehistory.h" line="131" column="12" bodyfile="src/core/featurehistory.h" bodystart="131" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classFeatureHistory_1ad00a78641361e190c4d74b1c54da20d4" prot="private" static="no" mutable="no">
+        <type>QMap&lt; QString, <ref refid="structFeatureHistory_1_1FeatureModifications" kindref="compound">FeatureModifications</ref> &gt;</type>
+        <definition>QMap&lt;QString, FeatureModifications&gt; FeatureHistory::mTempHistoryStep</definition>
+        <argsstring></argsstring>
+        <name>mTempHistoryStep</name>
+        <qualifiedname>FeatureHistory::mTempHistoryStep</qualifiedname>
+        <briefdescription>
+<para>Temporary storage of all modifications before creating a new undo step. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurehistory.h" line="134" column="10" bodyfile="src/core/featurehistory.h" bodystart="134" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classFeatureHistory_1a5167a58ffbd5676335014ffbd398c020" prot="private" static="no" mutable="no">
+        <type>QMap&lt; QString, QgsFeatureIds &gt;</type>
+        <definition>QMap&lt;QString, QgsFeatureIds&gt; FeatureHistory::mTempModifiedFeatureIdsByLayerId</definition>
+        <argsstring></argsstring>
+        <name>mTempModifiedFeatureIdsByLayerId</name>
+        <qualifiedname>FeatureHistory::mTempModifiedFeatureIdsByLayerId</qualifiedname>
+        <briefdescription>
+<para>Track committed feature IDs that were added, modified, or removed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurehistory.h" line="137" column="10" bodyfile="src/core/featurehistory.h" bodystart="137" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classFeatureHistory_1a403ba57629f8be527d9c203f925cf8ef" prot="private" static="no" mutable="no">
+        <type>QMap&lt; QString, QMap&lt; QgsFeatureId, QgsFeature &gt; &gt;</type>
+        <definition>QMap&lt;QString, QMap&lt;QgsFeatureId, QgsFeature&gt; &gt; FeatureHistory::mTempModifiedFeaturesByLayerId</definition>
+        <argsstring></argsstring>
+        <name>mTempModifiedFeaturesByLayerId</name>
+        <qualifiedname>FeatureHistory::mTempModifiedFeaturesByLayerId</qualifiedname>
+        <briefdescription>
+<para>Temporary storage of all features that have been modified before creating a new undo step. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurehistory.h" line="140" column="10" bodyfile="src/core/featurehistory.h" bodystart="140" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classFeatureHistory_1a73e3b834c4e82dcfa1b67d71b5d4d83b" prot="private" static="no" mutable="no">
+        <type>QMap&lt; QString, QgsFeatureIds &gt;</type>
+        <definition>QMap&lt;QString, QgsFeatureIds&gt; FeatureHistory::mTempDeletedFeatureIdsByLayerId</definition>
+        <argsstring></argsstring>
+        <name>mTempDeletedFeatureIdsByLayerId</name>
+        <qualifiedname>FeatureHistory::mTempDeletedFeatureIdsByLayerId</qualifiedname>
+        <briefdescription>
+<para>Temporary storage of the deleted feature ids before creating a new undo step. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurehistory.h" line="143" column="10" bodyfile="src/core/featurehistory.h" bodystart="143" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classFeatureHistory_1a8a223a6d771d381466305380059a2794" prot="private" static="no" mutable="no">
+        <type>QList&lt; QMap&lt; QString, <ref refid="structFeatureHistory_1_1FeatureModifications" kindref="compound">FeatureModifications</ref> &gt; &gt;</type>
+        <definition>QList&lt;QMap&lt;QString, FeatureModifications&gt; &gt; FeatureHistory::mUndoHistory</definition>
+        <argsstring></argsstring>
+        <name>mUndoHistory</name>
+        <qualifiedname>FeatureHistory::mUndoHistory</qualifiedname>
+        <briefdescription>
+<para>Undo history records. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurehistory.h" line="146" column="11" bodyfile="src/core/featurehistory.h" bodystart="146" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classFeatureHistory_1a5cedae91f1d67996211bb207671ed6c9" prot="private" static="no" mutable="no">
+        <type>QList&lt; QMap&lt; QString, <ref refid="structFeatureHistory_1_1FeatureModifications" kindref="compound">FeatureModifications</ref> &gt; &gt;</type>
+        <definition>QList&lt;QMap&lt;QString, FeatureModifications&gt; &gt; FeatureHistory::mRedoHistory</definition>
+        <argsstring></argsstring>
+        <name>mRedoHistory</name>
+        <qualifiedname>FeatureHistory::mRedoHistory</qualifiedname>
+        <briefdescription>
+<para>Redo history records. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurehistory.h" line="149" column="11" bodyfile="src/core/featurehistory.h" bodystart="149" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classFeatureHistory_1a595aed8c50383b00e7c0dad9b32e24b6" prot="private" static="no" mutable="no">
+        <type>QSet&lt; QString &gt;</type>
+        <definition>QSet&lt;QString&gt; FeatureHistory::mObservedLayerIds</definition>
+        <argsstring></argsstring>
+        <name>mObservedLayerIds</name>
+        <qualifiedname>FeatureHistory::mObservedLayerIds</qualifiedname>
+        <briefdescription>
+<para>Layer ids being observed for changes. Should reset when the project is changed. Used to prevent double event listeners. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurehistory.h" line="152" column="10" bodyfile="src/core/featurehistory.h" bodystart="152" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classFeatureHistory_1ae0316ca5fed1672834e43617624793cf" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>FeatureHistory::FeatureHistory</definition>
+        <argsstring>(const QgsProject *project, TrackingModel *trackingModel=nullptr)</argsstring>
+        <name>FeatureHistory</name>
+        <qualifiedname>FeatureHistory::FeatureHistory</qualifiedname>
+        <param>
+          <type>const QgsProject *</type>
+          <declname>project</declname>
+        </param>
+        <param>
+          <type><ref refid="classTrackingModel" kindref="compound">TrackingModel</ref> *</type>
+          <declname>trackingModel</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Construct a new Feature history object</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>project</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the current project instance </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>trackingModel</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the tracking model </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurehistory.h" line="59" column="14" bodyfile="src/core/featurehistory.cpp" bodystart="26" bodyend="38"/>
+      </memberdef>
+      <memberdef kind="function" id="classFeatureHistory_1aca6484adee1fc95ba57e9215ca006906" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE bool</type>
+        <definition>bool FeatureHistory::undo</definition>
+        <argsstring>()</argsstring>
+        <name>undo</name>
+        <qualifiedname>FeatureHistory::undo</qualifiedname>
+        <briefdescription>
+<para>Perform undo of the most recent modification step. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurehistory.h" line="62" column="22" bodyfile="src/core/featurehistory.cpp" bodystart="396" bodyend="417"/>
+      </memberdef>
+      <memberdef kind="function" id="classFeatureHistory_1adeaae4266f7c4bde9bbaf928f18a6732" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE bool</type>
+        <definition>bool FeatureHistory::redo</definition>
+        <argsstring>()</argsstring>
+        <name>redo</name>
+        <qualifiedname>FeatureHistory::redo</qualifiedname>
+        <briefdescription>
+<para>Perform redo of the most recent modification step. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurehistory.h" line="65" column="22" bodyfile="src/core/featurehistory.cpp" bodystart="420" bodyend="441"/>
+      </memberdef>
+      <memberdef kind="function" id="classFeatureHistory_1a89fdd7a1a8dc9f64f090b3c9d460dacc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE const QString</type>
+        <definition>const QString FeatureHistory::undoMessage</definition>
+        <argsstring>()</argsstring>
+        <name>undoMessage</name>
+        <qualifiedname>FeatureHistory::undoMessage</qualifiedname>
+        <briefdescription>
+<para>Get the undo message to be show in the UI. NOTE should be called before calling <emphasis>undo</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurehistory.h" line="68" column="31" bodyfile="src/core/featurehistory.cpp" bodystart="455" bodyend="502"/>
+      </memberdef>
+      <memberdef kind="function" id="classFeatureHistory_1a22edbe5048f9640b99adebf583fefb01" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE const QString</type>
+        <definition>const QString FeatureHistory::redoMessage</definition>
+        <argsstring>()</argsstring>
+        <name>redoMessage</name>
+        <qualifiedname>FeatureHistory::redoMessage</qualifiedname>
+        <briefdescription>
+<para>Get the redo message to be show in the UI. NOTE should be called before calling <emphasis>redo</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurehistory.h" line="71" column="31" bodyfile="src/core/featurehistory.cpp" bodystart="505" bodyend="552"/>
+      </memberdef>
+      <memberdef kind="function" id="classFeatureHistory_1a73e04dff9703bb470fe0fab87cee3b80" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool FeatureHistory::isUndoAvailable</definition>
+        <argsstring>()</argsstring>
+        <name>isUndoAvailable</name>
+        <qualifiedname>FeatureHistory::isUndoAvailable</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurehistory.h" line="73" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="classFeatureHistory_1a14f060ac6b18a434297d61edfc2b9d9f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool FeatureHistory::isRedoAvailable</definition>
+        <argsstring>()</argsstring>
+        <name>isRedoAvailable</name>
+        <qualifiedname>FeatureHistory::isRedoAvailable</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurehistory.h" line="74" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classFeatureHistory_1a18d1f2d497756a30937e014b4f4d14b0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FeatureHistory::isUndoAvailableChanged</definition>
+        <argsstring>()</argsstring>
+        <name>isUndoAvailableChanged</name>
+        <qualifiedname>FeatureHistory::isUndoAvailableChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurehistory.h" line="77" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classFeatureHistory_1ae4e15d615e2a094d101255764719f837" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FeatureHistory::isRedoAvailableChanged</definition>
+        <argsstring>()</argsstring>
+        <name>isRedoAvailableChanged</name>
+        <qualifiedname>FeatureHistory::isRedoAvailableChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurehistory.h" line="78" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-slot">
+      <memberdef kind="slot" id="classFeatureHistory_1a4002e64f04536ea0aa179720449512cf" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FeatureHistory::onLayersAdded</definition>
+        <argsstring>(const QList&lt; QgsMapLayer * &gt; &amp;layers)</argsstring>
+        <name>onLayersAdded</name>
+        <qualifiedname>FeatureHistory::onLayersAdded</qualifiedname>
+        <param>
+          <type>const QList&lt; QgsMapLayer * &gt; &amp;</type>
+          <declname>layers</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Monitors the current project for new layers.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>layers</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>layers added </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurehistory.h" line="86" column="10" bodyfile="src/core/featurehistory.cpp" bodystart="241" bodyend="245"/>
+      </memberdef>
+      <memberdef kind="slot" id="classFeatureHistory_1a19beb8e8969ab75a318b598332b6709c" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FeatureHistory::onHomePathChanged</definition>
+        <argsstring>()</argsstring>
+        <name>onHomePathChanged</name>
+        <qualifiedname>FeatureHistory::onHomePathChanged</qualifiedname>
+        <briefdescription>
+<para>The project file has been changed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurehistory.h" line="89" column="10" bodyfile="src/core/featurehistory.cpp" bodystart="40" bodyend="48"/>
+      </memberdef>
+      <memberdef kind="slot" id="classFeatureHistory_1ab69a7357c27f9bf28abe8ad2b5e93cb7" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FeatureHistory::onCommittedFeaturesAdded</definition>
+        <argsstring>(const QString &amp;localLayerId, const QgsFeatureList &amp;addedFeatures)</argsstring>
+        <name>onCommittedFeaturesAdded</name>
+        <qualifiedname>FeatureHistory::onCommittedFeaturesAdded</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>localLayerId</declname>
+        </param>
+        <param>
+          <type>const QgsFeatureList &amp;</type>
+          <declname>addedFeatures</declname>
+        </param>
+        <briefdescription>
+<para>Called when features are added on the layer. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurehistory.h" line="92" column="10" bodyfile="src/core/featurehistory.cpp" bodystart="150" bodyend="174"/>
+      </memberdef>
+      <memberdef kind="slot" id="classFeatureHistory_1afe884e78063073e7af311ca7cbeffcf4" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FeatureHistory::onCommittedFeaturesRemoved</definition>
+        <argsstring>(const QString &amp;layerId, const QgsFeatureIds &amp;deletedFeatureIds)</argsstring>
+        <name>onCommittedFeaturesRemoved</name>
+        <qualifiedname>FeatureHistory::onCommittedFeaturesRemoved</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>layerId</declname>
+        </param>
+        <param>
+          <type>const QgsFeatureIds &amp;</type>
+          <declname>deletedFeatureIds</declname>
+        </param>
+        <briefdescription>
+<para>Called after features are committed for deletion. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurehistory.h" line="95" column="10" bodyfile="src/core/featurehistory.cpp" bodystart="176" bodyend="198"/>
+      </memberdef>
+      <memberdef kind="slot" id="classFeatureHistory_1a7e030dd82fae6a0eefc48318d28ea56d" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FeatureHistory::onBeforeCommitChanges</definition>
+        <argsstring>()</argsstring>
+        <name>onBeforeCommitChanges</name>
+        <qualifiedname>FeatureHistory::onBeforeCommitChanges</qualifiedname>
+        <briefdescription>
+<para>Called before features are committed. Used to prepare the old state of the features and store it in <emphasis>mHistry</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurehistory.h" line="98" column="10" bodyfile="src/core/featurehistory.cpp" bodystart="83" bodyend="147"/>
+      </memberdef>
+      <memberdef kind="slot" id="classFeatureHistory_1a2664b300bff90521923e95ce4ff4b24e" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FeatureHistory::onAfterCommitChanges</definition>
+        <argsstring>()</argsstring>
+        <name>onAfterCommitChanges</name>
+        <qualifiedname>FeatureHistory::onAfterCommitChanges</qualifiedname>
+        <briefdescription>
+<para>Called after features are committed. Used because the added features do not have FID before they are committed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurehistory.h" line="101" column="10" bodyfile="src/core/featurehistory.cpp" bodystart="200" bodyend="239"/>
+      </memberdef>
+      <memberdef kind="slot" id="classFeatureHistory_1ab8fd7147d3adb21bbcbd5f43f4e239e5" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FeatureHistory::onTimerTimeout</definition>
+        <argsstring>()</argsstring>
+        <name>onTimerTimeout</name>
+        <qualifiedname>FeatureHistory::onTimerTimeout</qualifiedname>
+        <briefdescription>
+<para>Timer&apos;s timeout slot. Used to collect multiple feature changes (calls of <emphasis>onBeforeCommitChanges</emphasis> and <emphasis>onAfterCommitChanges</emphasis>) into one undo step. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurehistory.h" line="104" column="10" bodyfile="src/core/featurehistory.cpp" bodystart="265" bodyend="275"/>
+      </memberdef>
+      <memberdef kind="slot" id="classFeatureHistory_1ae047db3f9bc8fa0129dd1b0f18418c64" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FeatureHistory::onLayerInTrackingChanged</definition>
+        <argsstring>(QgsVectorLayer *vl, bool isTracking)</argsstring>
+        <name>onLayerInTrackingChanged</name>
+        <qualifiedname>FeatureHistory::onLayerInTrackingChanged</qualifiedname>
+        <param>
+          <type>QgsVectorLayer *</type>
+          <declname>vl</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>isTracking</declname>
+        </param>
+        <briefdescription>
+<para>Layer in tracking changed. If layer is in tracking mode, we should not track changes. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurehistory.h" line="107" column="10" bodyfile="src/core/featurehistory.cpp" bodystart="247" bodyend="263"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classFeatureHistory_1a42ad513d639f5efbe25ddfcbcd90c644" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FeatureHistory::addLayerListeners</definition>
+        <argsstring>()</argsstring>
+        <name>addLayerListeners</name>
+        <qualifiedname>FeatureHistory::addLayerListeners</qualifiedname>
+        <briefdescription>
+<para>Add the needed event listeners to monitor for changes. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurehistory.h" line="113" column="10" bodyfile="src/core/featurehistory.cpp" bodystart="50" bodyend="80"/>
+      </memberdef>
+      <memberdef kind="function" id="classFeatureHistory_1a9ce5e9e6e4e77af296ad1fa9a96e2dff" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool FeatureHistory::applyModifications</definition>
+        <argsstring>(QMap&lt; QString, FeatureModifications &gt; &amp;modificationsByLayerId)</argsstring>
+        <name>applyModifications</name>
+        <qualifiedname>FeatureHistory::applyModifications</qualifiedname>
+        <param>
+          <type>QMap&lt; QString, <ref refid="structFeatureHistory_1_1FeatureModifications" kindref="compound">FeatureModifications</ref> &gt; &amp;</type>
+          <declname>modificationsByLayerId</declname>
+        </param>
+        <briefdescription>
+<para>Apply given modifications on all layers in the current project. Used both by undo and redo operations. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurehistory.h" line="116" column="10" bodyfile="src/core/featurehistory.cpp" bodystart="315" bodyend="394"/>
+      </memberdef>
+      <memberdef kind="function" id="classFeatureHistory_1a893da070146f3dc3b61f61331564d512" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>QMap&lt; QString, <ref refid="structFeatureHistory_1_1FeatureModifications" kindref="compound">FeatureModifications</ref> &gt;</type>
+        <definition>QMap&lt; QString, FeatureHistory::FeatureModifications &gt; FeatureHistory::reverseModifications</definition>
+        <argsstring>(QMap&lt; QString, FeatureModifications &gt; &amp;modificationsByLayerId)</argsstring>
+        <name>reverseModifications</name>
+        <qualifiedname>FeatureHistory::reverseModifications</qualifiedname>
+        <param>
+          <type>QMap&lt; QString, <ref refid="structFeatureHistory_1_1FeatureModifications" kindref="compound">FeatureModifications</ref> &gt; &amp;</type>
+          <declname>modificationsByLayerId</declname>
+        </param>
+        <briefdescription>
+<para>Reverse the modification. Used to make undo modifications into redo modifications. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurehistory.h" line="119" column="10" bodyfile="src/core/featurehistory.cpp" bodystart="277" bodyend="312"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>FeatureHistory</label>
+        <link refid="classFeatureHistory"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>FeatureHistory</label>
+        <link refid="classFeatureHistory"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/featurehistory.h" line="32" column="1" bodyfile="src/core/featurehistory.h" bodystart="33" bodyend="153"/>
+    <listofallmembers>
+      <member refid="classFeatureHistory_1a42ad513d639f5efbe25ddfcbcd90c644" prot="private" virt="non-virtual"><scope>FeatureHistory</scope><name>addLayerListeners</name></member>
+      <member refid="classFeatureHistory_1a9ce5e9e6e4e77af296ad1fa9a96e2dff" prot="private" virt="non-virtual"><scope>FeatureHistory</scope><name>applyModifications</name></member>
+      <member refid="classFeatureHistory_1ae0316ca5fed1672834e43617624793cf" prot="public" virt="non-virtual"><scope>FeatureHistory</scope><name>FeatureHistory</name></member>
+      <member refid="classFeatureHistory_1a28945826e977f501b60c766b1d66101a" prot="public" virt="non-virtual"><scope>FeatureHistory</scope><name>isRedoAvailable</name></member>
+      <member refid="classFeatureHistory_1a14f060ac6b18a434297d61edfc2b9d9f" prot="public" virt="non-virtual"><scope>FeatureHistory</scope><name>isRedoAvailable</name></member>
+      <member refid="classFeatureHistory_1ae4e15d615e2a094d101255764719f837" prot="public" virt="non-virtual"><scope>FeatureHistory</scope><name>isRedoAvailableChanged</name></member>
+      <member refid="classFeatureHistory_1a12aa85c72fed33d37f9e7368aa5f32f0" prot="public" virt="non-virtual"><scope>FeatureHistory</scope><name>isUndoAvailable</name></member>
+      <member refid="classFeatureHistory_1a73e04dff9703bb470fe0fab87cee3b80" prot="public" virt="non-virtual"><scope>FeatureHistory</scope><name>isUndoAvailable</name></member>
+      <member refid="classFeatureHistory_1a18d1f2d497756a30937e014b4f4d14b0" prot="public" virt="non-virtual"><scope>FeatureHistory</scope><name>isUndoAvailableChanged</name></member>
+      <member refid="classFeatureHistory_1add89e28515ce25c48e16505d89719bcc" prot="private" virt="non-virtual"><scope>FeatureHistory</scope><name>mIsApplyingModifications</name></member>
+      <member refid="classFeatureHistory_1a595aed8c50383b00e7c0dad9b32e24b6" prot="private" virt="non-virtual"><scope>FeatureHistory</scope><name>mObservedLayerIds</name></member>
+      <member refid="classFeatureHistory_1a91ad74848939c1ba6d08a7b1c218694b" prot="private" virt="non-virtual"><scope>FeatureHistory</scope><name>mProject</name></member>
+      <member refid="classFeatureHistory_1a5cedae91f1d67996211bb207671ed6c9" prot="private" virt="non-virtual"><scope>FeatureHistory</scope><name>mRedoHistory</name></member>
+      <member refid="classFeatureHistory_1a73e3b834c4e82dcfa1b67d71b5d4d83b" prot="private" virt="non-virtual"><scope>FeatureHistory</scope><name>mTempDeletedFeatureIdsByLayerId</name></member>
+      <member refid="classFeatureHistory_1ad00a78641361e190c4d74b1c54da20d4" prot="private" virt="non-virtual"><scope>FeatureHistory</scope><name>mTempHistoryStep</name></member>
+      <member refid="classFeatureHistory_1a5167a58ffbd5676335014ffbd398c020" prot="private" virt="non-virtual"><scope>FeatureHistory</scope><name>mTempModifiedFeatureIdsByLayerId</name></member>
+      <member refid="classFeatureHistory_1a403ba57629f8be527d9c203f925cf8ef" prot="private" virt="non-virtual"><scope>FeatureHistory</scope><name>mTempModifiedFeaturesByLayerId</name></member>
+      <member refid="classFeatureHistory_1aa0c8f5c7f3526a25a02af3ffb0d075dd" prot="private" virt="non-virtual"><scope>FeatureHistory</scope><name>mTimer</name></member>
+      <member refid="classFeatureHistory_1a0c2dc9fa1297706ac78b50cb7ce5b425" prot="private" virt="non-virtual"><scope>FeatureHistory</scope><name>mTrackingModel</name></member>
+      <member refid="classFeatureHistory_1a8a223a6d771d381466305380059a2794" prot="private" virt="non-virtual"><scope>FeatureHistory</scope><name>mUndoHistory</name></member>
+      <member refid="classFeatureHistory_1a2664b300bff90521923e95ce4ff4b24e" prot="private" virt="non-virtual"><scope>FeatureHistory</scope><name>onAfterCommitChanges</name></member>
+      <member refid="classFeatureHistory_1a7e030dd82fae6a0eefc48318d28ea56d" prot="private" virt="non-virtual"><scope>FeatureHistory</scope><name>onBeforeCommitChanges</name></member>
+      <member refid="classFeatureHistory_1ab69a7357c27f9bf28abe8ad2b5e93cb7" prot="private" virt="non-virtual"><scope>FeatureHistory</scope><name>onCommittedFeaturesAdded</name></member>
+      <member refid="classFeatureHistory_1afe884e78063073e7af311ca7cbeffcf4" prot="private" virt="non-virtual"><scope>FeatureHistory</scope><name>onCommittedFeaturesRemoved</name></member>
+      <member refid="classFeatureHistory_1a19beb8e8969ab75a318b598332b6709c" prot="private" virt="non-virtual"><scope>FeatureHistory</scope><name>onHomePathChanged</name></member>
+      <member refid="classFeatureHistory_1ae047db3f9bc8fa0129dd1b0f18418c64" prot="private" virt="non-virtual"><scope>FeatureHistory</scope><name>onLayerInTrackingChanged</name></member>
+      <member refid="classFeatureHistory_1a4002e64f04536ea0aa179720449512cf" prot="private" virt="non-virtual"><scope>FeatureHistory</scope><name>onLayersAdded</name></member>
+      <member refid="classFeatureHistory_1ab8fd7147d3adb21bbcbd5f43f4e239e5" prot="private" virt="non-virtual"><scope>FeatureHistory</scope><name>onTimerTimeout</name></member>
+      <member refid="classFeatureHistory_1adeaae4266f7c4bde9bbaf928f18a6732" prot="public" virt="non-virtual"><scope>FeatureHistory</scope><name>redo</name></member>
+      <member refid="classFeatureHistory_1a22edbe5048f9640b99adebf583fefb01" prot="public" virt="non-virtual"><scope>FeatureHistory</scope><name>redoMessage</name></member>
+      <member refid="classFeatureHistory_1a893da070146f3dc3b61f61331564d512" prot="private" virt="non-virtual"><scope>FeatureHistory</scope><name>reverseModifications</name></member>
+      <member refid="classFeatureHistory_1a5ead7302723b31e171856168cc3b9993" prot="private" virt="non-virtual"><scope>FeatureHistory</scope><name>sTimeoutMs</name></member>
+      <member refid="classFeatureHistory_1aca6484adee1fc95ba57e9215ca006906" prot="public" virt="non-virtual"><scope>FeatureHistory</scope><name>undo</name></member>
+      <member refid="classFeatureHistory_1a89fdd7a1a8dc9f64f090b3c9d460dacc" prot="public" virt="non-virtual"><scope>FeatureHistory</scope><name>undoMessage</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

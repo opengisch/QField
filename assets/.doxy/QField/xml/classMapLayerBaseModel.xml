@@ -1,0 +1,398 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classMapLayerBaseModel" kind="class" language="C++" prot="public">
+    <compoundname>MapLayerBaseModel</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QAbstractListModel</basecompoundref>
+    <includes refid="maplayermodel_8h" local="no">maplayermodel.h</includes>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classMapLayerBaseModel_1a0db89e2c221c5500bd17556e14a9e4f8" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool MapLayerBaseModel::mEnabled</definition>
+        <argsstring></argsstring>
+        <name>mEnabled</name>
+        <qualifiedname>MapLayerBaseModel::mEnabled</qualifiedname>
+        <initializer>= true</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/maplayermodel.h" line="67" column="10" bodyfile="src/core/maplayermodel.h" bodystart="67" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classMapLayerBaseModel_1a029cb7a1779a389eee85d7c8469bade5" prot="private" static="no" mutable="no">
+        <type>QList&lt; QgsMapLayer * &gt;</type>
+        <definition>QList&lt;QgsMapLayer *&gt; MapLayerBaseModel::mLayers</definition>
+        <argsstring></argsstring>
+        <name>mLayers</name>
+        <qualifiedname>MapLayerBaseModel::mLayers</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/maplayermodel.h" line="68" column="11" bodyfile="src/core/maplayermodel.h" bodystart="68" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classMapLayerBaseModel_1a7f9a3aa162ac44b46a85ecd3225b7f47" prot="private" static="no" mutable="no">
+        <type>QgsProject *</type>
+        <definition>QgsProject* MapLayerBaseModel::mProject</definition>
+        <argsstring></argsstring>
+        <name>mProject</name>
+        <qualifiedname>MapLayerBaseModel::mProject</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/maplayermodel.h" line="69" column="16" bodyfile="src/core/maplayermodel.h" bodystart="69" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classMapLayerBaseModel_1ad324e1344f9e771b585677a6eeaa634d" prot="private" static="no" mutable="no">
+        <type><ref refid="classTrackingModel" kindref="compound">TrackingModel</ref> *</type>
+        <definition>TrackingModel* MapLayerBaseModel::mTrackingModel</definition>
+        <argsstring></argsstring>
+        <name>mTrackingModel</name>
+        <qualifiedname>MapLayerBaseModel::mTrackingModel</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/maplayermodel.h" line="70" column="19" bodyfile="src/core/maplayermodel.h" bodystart="70" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classMapLayerBaseModel_1a32cd9a767fb49b5a7a07eb8487c098d1" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>MapLayerBaseModel::MapLayerBaseModel</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>MapLayerBaseModel</name>
+        <qualifiedname>MapLayerBaseModel::MapLayerBaseModel</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/maplayermodel.h" line="34" column="14" bodyfile="src/core/maplayermodel.cpp" bodystart="20" bodyend="23"/>
+      </memberdef>
+      <memberdef kind="function" id="classMapLayerBaseModel_1a2d85f085533b620e2f2239fa2c9b2837" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int MapLayerBaseModel::rowCount</definition>
+        <argsstring>(const QModelIndex &amp;parent) const override</argsstring>
+        <name>rowCount</name>
+        <qualifiedname>MapLayerBaseModel::rowCount</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>parent</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/maplayermodel.h" line="36" column="9" bodyfile="src/core/maplayermodel.cpp" bodystart="130" bodyend="138"/>
+      </memberdef>
+      <memberdef kind="function" id="classMapLayerBaseModel_1a17d728c7369ea6c5a88d365bf038e940" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QVariant</type>
+        <definition>QVariant MapLayerBaseModel::data</definition>
+        <argsstring>(const QModelIndex &amp;index, int role) const override</argsstring>
+        <name>data</name>
+        <qualifiedname>MapLayerBaseModel::data</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>role</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/maplayermodel.h" line="37" column="14" bodyfile="src/core/maplayermodel.cpp" bodystart="140" bodyend="190"/>
+      </memberdef>
+      <memberdef kind="function" id="classMapLayerBaseModel_1aa46bc748e25dff877a9cf58527a03f02" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QHash&lt; int, QByteArray &gt;</type>
+        <definition>QHash&lt; int, QByteArray &gt; MapLayerBaseModel::roleNames</definition>
+        <argsstring>() const override</argsstring>
+        <name>roleNames</name>
+        <qualifiedname>MapLayerBaseModel::roleNames</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/maplayermodel.h" line="38" column="11" bodyfile="src/core/maplayermodel.cpp" bodystart="192" bodyend="203"/>
+      </memberdef>
+      <memberdef kind="function" id="classMapLayerBaseModel_1ae71599afe47177cfad8171be4d61ccf7" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool MapLayerBaseModel::enabled</definition>
+        <argsstring>() const</argsstring>
+        <name>enabled</name>
+        <qualifiedname>MapLayerBaseModel::enabled</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The enabled state of the model. <simplesect kind="note"><para>When disabled, any changes to the project&apos;s map layers registry will be ignored   </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/maplayermodel.h" line="41" column="10" bodyfile="src/core/maplayermodel.h" bodystart="41" bodyend="41"/>
+      </memberdef>
+      <memberdef kind="function" id="classMapLayerBaseModel_1a9228f576f648e522d8e4831ee3cb113c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void MapLayerBaseModel::setEnabled</definition>
+        <argsstring>(bool enabled)</argsstring>
+        <name>setEnabled</name>
+        <qualifiedname>MapLayerBaseModel::setEnabled</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>enabled</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The enabled state of the model. <simplesect kind="note"><para>When disabled, any changes to the project&apos;s map layers registry will be ignored   </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/maplayermodel.h" line="43" column="10" bodyfile="src/core/maplayermodel.cpp" bodystart="38" bodyend="63"/>
+      </memberdef>
+      <memberdef kind="function" id="classMapLayerBaseModel_1aa0143f0c8e462efab41ac7b4b26b5f74" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QgsProject *</type>
+        <definition>QgsProject * MapLayerBaseModel::project</definition>
+        <argsstring>() const</argsstring>
+        <name>project</name>
+        <qualifiedname>MapLayerBaseModel::project</qualifiedname>
+        <briefdescription>
+<para>The project from which map layers will be taken from.   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/maplayermodel.h" line="46" column="16" bodyfile="src/core/maplayermodel.h" bodystart="46" bodyend="46"/>
+      </memberdef>
+      <memberdef kind="function" id="classMapLayerBaseModel_1ac51a2b36ae9dd369d91351fb8f22bdfa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void MapLayerBaseModel::setProject</definition>
+        <argsstring>(QgsProject *project)</argsstring>
+        <name>setProject</name>
+        <qualifiedname>MapLayerBaseModel::setProject</qualifiedname>
+        <param>
+          <type>QgsProject *</type>
+          <declname>project</declname>
+        </param>
+        <briefdescription>
+<para>The project from which map layers will be taken from.   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/maplayermodel.h" line="48" column="10" bodyfile="src/core/maplayermodel.cpp" bodystart="65" bodyend="88"/>
+      </memberdef>
+      <memberdef kind="function" id="classMapLayerBaseModel_1aa3bd542741c9fded2a34ceac477072c2" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classTrackingModel" kindref="compound">TrackingModel</ref> *</type>
+        <definition>TrackingModel * MapLayerBaseModel::trackingModel</definition>
+        <argsstring>() const</argsstring>
+        <name>trackingModel</name>
+        <qualifiedname>MapLayerBaseModel::trackingModel</qualifiedname>
+        <briefdescription>
+<para>The tracking model against which map layers&apos; tracking availability will be checked against.   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/maplayermodel.h" line="51" column="19" bodyfile="src/core/maplayermodel.h" bodystart="51" bodyend="51"/>
+      </memberdef>
+      <memberdef kind="function" id="classMapLayerBaseModel_1a6825b366d5db6bf034f039ec40dd09dc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void MapLayerBaseModel::setTrackingModel</definition>
+        <argsstring>(TrackingModel *trackingModel)</argsstring>
+        <name>setTrackingModel</name>
+        <qualifiedname>MapLayerBaseModel::setTrackingModel</qualifiedname>
+        <param>
+          <type><ref refid="classTrackingModel" kindref="compound">TrackingModel</ref> *</type>
+          <declname>trackingModel</declname>
+        </param>
+        <briefdescription>
+<para>The tracking model against which map layers&apos; tracking availability will be checked against.   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/maplayermodel.h" line="53" column="10" bodyfile="src/core/maplayermodel.cpp" bodystart="90" bodyend="99"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classMapLayerBaseModel_1aae8b6e669c6f7414a957aa4e9236f087" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void MapLayerBaseModel::enabledChanged</definition>
+        <argsstring>()</argsstring>
+        <name>enabledChanged</name>
+        <qualifiedname>MapLayerBaseModel::enabledChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/maplayermodel.h" line="56" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classMapLayerBaseModel_1a753e69ada5d9cdc54c1ce922b9708898" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void MapLayerBaseModel::projectChanged</definition>
+        <argsstring>()</argsstring>
+        <name>projectChanged</name>
+        <qualifiedname>MapLayerBaseModel::projectChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/maplayermodel.h" line="57" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classMapLayerBaseModel_1a2a1de8872657307d3b52fe9e0cd48ad7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void MapLayerBaseModel::trackingModelChanged</definition>
+        <argsstring>()</argsstring>
+        <name>trackingModelChanged</name>
+        <qualifiedname>MapLayerBaseModel::trackingModelChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/maplayermodel.h" line="58" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="protected-slot">
+      <memberdef kind="slot" id="classMapLayerBaseModel_1a1d6cc78faa83eb1c56f33d60068490ab" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void MapLayerBaseModel::removeLayers</definition>
+        <argsstring>(const QStringList &amp;layerIds)</argsstring>
+        <name>removeLayers</name>
+        <qualifiedname>MapLayerBaseModel::removeLayers</qualifiedname>
+        <param>
+          <type>const QStringList &amp;</type>
+          <declname>layerIds</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/maplayermodel.h" line="61" column="10" bodyfile="src/core/maplayermodel.cpp" bodystart="101" bodyend="115"/>
+      </memberdef>
+      <memberdef kind="slot" id="classMapLayerBaseModel_1a1c31e055538413bbd1e40772a8bbdc43" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void MapLayerBaseModel::addLayers</definition>
+        <argsstring>(const QList&lt; QgsMapLayer * &gt; &amp;layers)</argsstring>
+        <name>addLayers</name>
+        <qualifiedname>MapLayerBaseModel::addLayers</qualifiedname>
+        <param>
+          <type>const QList&lt; QgsMapLayer * &gt; &amp;</type>
+          <declname>layers</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/maplayermodel.h" line="62" column="10" bodyfile="src/core/maplayermodel.cpp" bodystart="117" bodyend="128"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classMapLayerBaseModel_1a8ceaf742d378a58a37f0d308e768888a" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void MapLayerBaseModel::resetModel</definition>
+        <argsstring>()</argsstring>
+        <name>resetModel</name>
+        <qualifiedname>MapLayerBaseModel::resetModel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/maplayermodel.h" line="65" column="10" bodyfile="src/core/maplayermodel.cpp" bodystart="25" bodyend="36"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>A project map layers base model. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>MapLayerBaseModel</label>
+        <link refid="classMapLayerBaseModel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QAbstractListModel</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>MapLayerBaseModel</label>
+        <link refid="classMapLayerBaseModel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QAbstractListModel</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/maplayermodel.h" line="29" column="1" bodyfile="src/core/maplayermodel.h" bodystart="30" bodyend="71"/>
+    <listofallmembers>
+      <member refid="classMapLayerBaseModel_1a1c31e055538413bbd1e40772a8bbdc43" prot="protected" virt="non-virtual"><scope>MapLayerBaseModel</scope><name>addLayers</name></member>
+      <member refid="classMapLayerBaseModel_1a17d728c7369ea6c5a88d365bf038e940" prot="public" virt="non-virtual"><scope>MapLayerBaseModel</scope><name>data</name></member>
+      <member refid="classMapLayerBaseModel_1ae71599afe47177cfad8171be4d61ccf7" prot="public" virt="non-virtual"><scope>MapLayerBaseModel</scope><name>enabled</name></member>
+      <member refid="classMapLayerBaseModel_1aae8b6e669c6f7414a957aa4e9236f087" prot="public" virt="non-virtual"><scope>MapLayerBaseModel</scope><name>enabledChanged</name></member>
+      <member refid="classMapLayerBaseModel_1a32cd9a767fb49b5a7a07eb8487c098d1" prot="public" virt="non-virtual"><scope>MapLayerBaseModel</scope><name>MapLayerBaseModel</name></member>
+      <member refid="classMapLayerBaseModel_1a0db89e2c221c5500bd17556e14a9e4f8" prot="private" virt="non-virtual"><scope>MapLayerBaseModel</scope><name>mEnabled</name></member>
+      <member refid="classMapLayerBaseModel_1a029cb7a1779a389eee85d7c8469bade5" prot="private" virt="non-virtual"><scope>MapLayerBaseModel</scope><name>mLayers</name></member>
+      <member refid="classMapLayerBaseModel_1a7f9a3aa162ac44b46a85ecd3225b7f47" prot="private" virt="non-virtual"><scope>MapLayerBaseModel</scope><name>mProject</name></member>
+      <member refid="classMapLayerBaseModel_1ad324e1344f9e771b585677a6eeaa634d" prot="private" virt="non-virtual"><scope>MapLayerBaseModel</scope><name>mTrackingModel</name></member>
+      <member refid="classMapLayerBaseModel_1aa0143f0c8e462efab41ac7b4b26b5f74" prot="public" virt="non-virtual"><scope>MapLayerBaseModel</scope><name>project</name></member>
+      <member refid="classMapLayerBaseModel_1a753e69ada5d9cdc54c1ce922b9708898" prot="public" virt="non-virtual"><scope>MapLayerBaseModel</scope><name>projectChanged</name></member>
+      <member refid="classMapLayerBaseModel_1a1d6cc78faa83eb1c56f33d60068490ab" prot="protected" virt="non-virtual"><scope>MapLayerBaseModel</scope><name>removeLayers</name></member>
+      <member refid="classMapLayerBaseModel_1a8ceaf742d378a58a37f0d308e768888a" prot="private" virt="non-virtual"><scope>MapLayerBaseModel</scope><name>resetModel</name></member>
+      <member refid="classMapLayerBaseModel_1aa46bc748e25dff877a9cf58527a03f02" prot="public" virt="non-virtual"><scope>MapLayerBaseModel</scope><name>roleNames</name></member>
+      <member refid="classMapLayerBaseModel_1a2d85f085533b620e2f2239fa2c9b2837" prot="public" virt="non-virtual"><scope>MapLayerBaseModel</scope><name>rowCount</name></member>
+      <member refid="classMapLayerBaseModel_1a9228f576f648e522d8e4831ee3cb113c" prot="public" virt="non-virtual"><scope>MapLayerBaseModel</scope><name>setEnabled</name></member>
+      <member refid="classMapLayerBaseModel_1ac51a2b36ae9dd369d91351fb8f22bdfa" prot="public" virt="non-virtual"><scope>MapLayerBaseModel</scope><name>setProject</name></member>
+      <member refid="classMapLayerBaseModel_1a6825b366d5db6bf034f039ec40dd09dc" prot="public" virt="non-virtual"><scope>MapLayerBaseModel</scope><name>setTrackingModel</name></member>
+      <member refid="classMapLayerBaseModel_1aa3bd542741c9fded2a34ceac477072c2" prot="public" virt="non-virtual"><scope>MapLayerBaseModel</scope><name>trackingModel</name></member>
+      <member refid="classMapLayerBaseModel_1a2a1de8872657307d3b52fe9e0cd48ad7" prot="public" virt="non-virtual"><scope>MapLayerBaseModel</scope><name>trackingModelChanged</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

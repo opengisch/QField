@@ -1,0 +1,303 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classTcpReceiver" kind="class" language="C++" prot="public">
+    <compoundname>TcpReceiver</compoundname>
+    <basecompoundref refid="classNmeaGnssReceiver" prot="public" virt="non-virtual">NmeaGnssReceiver</basecompoundref>
+    <includes refid="tcpreceiver_8h" local="no">tcpreceiver.h</includes>
+    <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="classTcpReceiver_1a71348e73fd2d33c507895d5da32e481c" prot="public" static="yes" mutable="no">
+        <type>QLatin1String</type>
+        <definition>QLatin1String TcpReceiver::identifier</definition>
+        <argsstring></argsstring>
+        <name>identifier</name>
+        <qualifiedname>TcpReceiver::identifier</qualifiedname>
+        <initializer>= QLatin1String( &quot;tcp&quot; )</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/tcpreceiver.h" line="38" column="26" bodyfile="src/core/positioning/tcpreceiver.h" bodystart="38" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classTcpReceiver_1a686e342f245af591653af2207cda8c29" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString TcpReceiver::mAddress</definition>
+        <argsstring></argsstring>
+        <name>mAddress</name>
+        <qualifiedname>TcpReceiver::mAddress</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/tcpreceiver.h" line="48" column="13" bodyfile="src/core/positioning/tcpreceiver.h" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTcpReceiver_1a32b155dea6027faf842fb339e002cc54" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int TcpReceiver::mPort</definition>
+        <argsstring></argsstring>
+        <name>mPort</name>
+        <qualifiedname>TcpReceiver::mPort</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/tcpreceiver.h" line="49" column="9" bodyfile="src/core/positioning/tcpreceiver.h" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTcpReceiver_1ab083a0d531310e24c98a6d8375710acd" prot="private" static="no" mutable="no">
+        <type>QTcpSocket *</type>
+        <definition>QTcpSocket* TcpReceiver::mSocket</definition>
+        <argsstring></argsstring>
+        <name>mSocket</name>
+        <qualifiedname>TcpReceiver::mSocket</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/tcpreceiver.h" line="50" column="16" bodyfile="src/core/positioning/tcpreceiver.h" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTcpReceiver_1ac72b698e56d288c8a51b201b6f80c88e" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool TcpReceiver::mReconnectOnDisconnect</definition>
+        <argsstring></argsstring>
+        <name>mReconnectOnDisconnect</name>
+        <qualifiedname>TcpReceiver::mReconnectOnDisconnect</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/tcpreceiver.h" line="52" column="10" bodyfile="src/core/positioning/tcpreceiver.h" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTcpReceiver_1afc5cb1e5c01165c68274ec1b239631ce" prot="private" static="no" mutable="no">
+        <type>QTimer</type>
+        <definition>QTimer TcpReceiver::mReconnectTimer</definition>
+        <argsstring></argsstring>
+        <name>mReconnectTimer</name>
+        <qualifiedname>TcpReceiver::mReconnectTimer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/tcpreceiver.h" line="53" column="12" bodyfile="src/core/positioning/tcpreceiver.h" bodystart="53" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classTcpReceiver_1a0a2284885ce5ce6e4b4324259132101b" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>TcpReceiver::TcpReceiver</definition>
+        <argsstring>(const QString &amp;address=QString(), const int port=0, QObject *parent=nullptr)</argsstring>
+        <name>TcpReceiver</name>
+        <qualifiedname>TcpReceiver::TcpReceiver</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>address</declname>
+          <defval>QString()</defval>
+        </param>
+        <param>
+          <type>const int</type>
+          <declname>port</declname>
+          <defval>0</defval>
+        </param>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/tcpreceiver.h" line="35" column="14" bodyfile="src/core/positioning/tcpreceiver.cpp" bodystart="21" bodyend="48"/>
+      </memberdef>
+      <memberdef kind="function" id="classTcpReceiver_1a60a726de850ab03687f45b4054b41f6b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>TcpReceiver::~TcpReceiver</definition>
+        <argsstring>() override</argsstring>
+        <name>~TcpReceiver</name>
+        <qualifiedname>TcpReceiver::~TcpReceiver</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/tcpreceiver.h" line="36" column="5" bodyfile="src/core/positioning/tcpreceiver.cpp" bodystart="50" bodyend="54"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-slot">
+      <memberdef kind="slot" id="classTcpReceiver_1a970c7e11c512752d9959f00aec7b3820" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString TcpReceiver::socketStateString</definition>
+        <argsstring>() override</argsstring>
+        <name>socketStateString</name>
+        <qualifiedname>TcpReceiver::socketStateString</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/tcpreceiver.h" line="41" column="13" bodyfile="src/core/positioning/tcpreceiver.cpp" bodystart="72" bodyend="81"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classTcpReceiver_1af8320d7565270a3a43a651e57f49dec0" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void TcpReceiver::handleConnectDevice</definition>
+        <argsstring>() override</argsstring>
+        <name>handleConnectDevice</name>
+        <qualifiedname>TcpReceiver::handleConnectDevice</qualifiedname>
+        <reimplements refid="classAbstractGnssReceiver_1ab5f4dc91f3711881f4fb6217e4e4f1b9">handleConnectDevice</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/tcpreceiver.h" line="44" column="10" bodyfile="src/core/positioning/tcpreceiver.cpp" bodystart="56" bodyend="64"/>
+      </memberdef>
+      <memberdef kind="function" id="classTcpReceiver_1ab6964e810ac434313ee07e4b4279e224" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void TcpReceiver::handleDisconnectDevice</definition>
+        <argsstring>() override</argsstring>
+        <name>handleDisconnectDevice</name>
+        <qualifiedname>TcpReceiver::handleDisconnectDevice</qualifiedname>
+        <reimplements refid="classAbstractGnssReceiver_1a66579ca4823f700826dcf66fcdad18e0">handleDisconnectDevice</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/tcpreceiver.h" line="45" column="10" bodyfile="src/core/positioning/tcpreceiver.cpp" bodystart="66" bodyend="70"/>
+      </memberdef>
+      <memberdef kind="function" id="classTcpReceiver_1a248be5bd2e485bf02a1d0eebbe9f0bab" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void TcpReceiver::handleError</definition>
+        <argsstring>(QAbstractSocket::SocketError error)</argsstring>
+        <name>handleError</name>
+        <qualifiedname>TcpReceiver::handleError</qualifiedname>
+        <param>
+          <type>QAbstractSocket::SocketError</type>
+          <declname>error</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/tcpreceiver.h" line="46" column="10" bodyfile="src/core/positioning/tcpreceiver.cpp" bodystart="83" bodyend="103"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>The <ref refid="classTcpReceiver" kindref="compound">TcpReceiver</ref> connects to a device and feeds the QgsNmeaConnection over a TCP socket. It receives QgsGpsInformation and converts it to <ref refid="classGnssPositionInformation" kindref="compound">GnssPositionInformation</ref> </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="3">
+        <label>AbstractGnssReceiver</label>
+        <link refid="classAbstractGnssReceiver"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>NmeaGnssReceiver</label>
+        <link refid="classNmeaGnssReceiver"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>QObject</label>
+      </node>
+      <node id="1">
+        <label>TcpReceiver</label>
+        <link refid="classTcpReceiver"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="3">
+        <label>AbstractGnssReceiver</label>
+        <link refid="classAbstractGnssReceiver"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>NmeaGnssReceiver</label>
+        <link refid="classNmeaGnssReceiver"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>QObject</label>
+      </node>
+      <node id="1">
+        <label>TcpReceiver</label>
+        <link refid="classTcpReceiver"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/positioning/tcpreceiver.h" line="30" column="1" bodyfile="src/core/positioning/tcpreceiver.h" bodystart="31" bodyend="54"/>
+    <listofallmembers>
+      <member refid="classAbstractGnssReceiver_1a1609d1d8c1a316b44ffdbcc83bf4a766" prot="public" virt="non-virtual"><scope>TcpReceiver</scope><name>AbstractGnssReceiver</name></member>
+      <member refid="classAbstractGnssReceiver_1ae59d2b8077ab097a16f63dd369a60975" prot="public" virt="non-virtual"><scope>TcpReceiver</scope><name>Capability</name></member>
+      <member refid="classAbstractGnssReceiver_1a44f38d0bb07d582b9b301aeb1b834c71" prot="public" virt="non-virtual"><scope>TcpReceiver</scope><name>connectDevice</name></member>
+      <member refid="classAbstractGnssReceiver_1a8238eb63f6cea17e0269188394fad4d8" prot="public" virt="non-virtual"><scope>TcpReceiver</scope><name>disconnectDevice</name></member>
+      <member refid="classTcpReceiver_1af8320d7565270a3a43a651e57f49dec0" prot="private" virt="virtual"><scope>TcpReceiver</scope><name>handleConnectDevice</name></member>
+      <member refid="classTcpReceiver_1ab6964e810ac434313ee07e4b4279e224" prot="private" virt="virtual"><scope>TcpReceiver</scope><name>handleDisconnectDevice</name></member>
+      <member refid="classTcpReceiver_1a248be5bd2e485bf02a1d0eebbe9f0bab" prot="private" virt="non-virtual"><scope>TcpReceiver</scope><name>handleError</name></member>
+      <member refid="classTcpReceiver_1a71348e73fd2d33c507895d5da32e481c" prot="public" virt="non-virtual"><scope>TcpReceiver</scope><name>identifier</name></member>
+      <member refid="classNmeaGnssReceiver_1a9c49ff486907cd866c2caa732b47a0d6" prot="public" virt="non-virtual"><scope>TcpReceiver</scope><name>initNmeaConnection</name></member>
+      <member refid="classAbstractGnssReceiver_1aaca96579de6a3a47f6af8f3872b9b727" prot="public" virt="non-virtual"><scope>TcpReceiver</scope><name>lastError</name></member>
+      <member refid="classAbstractGnssReceiver_1afe956f57b712d23f7ffc7988293aea3e" prot="public" virt="non-virtual"><scope>TcpReceiver</scope><name>lastErrorChanged</name></member>
+      <member refid="classAbstractGnssReceiver_1acae5ab4648a4eaa9aae76c1b76d4915c" prot="public" virt="non-virtual"><scope>TcpReceiver</scope><name>lastGnssPositionInformation</name></member>
+      <member refid="classAbstractGnssReceiver_1a4f9353d27fc14bbbc9f157a3aea8429f" prot="public" virt="non-virtual"><scope>TcpReceiver</scope><name>lastGnssPositionInformationChanged</name></member>
+      <member refid="classAbstractGnssReceiver_1ae59d2b8077ab097a16f63dd369a60975a627bf82746c2007f651b25f6a9f4e76d" prot="public" virt="non-virtual"><scope>TcpReceiver</scope><name>Logging</name></member>
+      <member refid="classTcpReceiver_1a686e342f245af591653af2207cda8c29" prot="private" virt="non-virtual"><scope>TcpReceiver</scope><name>mAddress</name></member>
+      <member refid="classNmeaGnssReceiver_1a2820ae5b15d27fbada2b3d6437701c9b" prot="protected" virt="non-virtual"><scope>TcpReceiver</scope><name>mLastGnssPositionValid</name></member>
+      <member refid="classNmeaGnssReceiver_1a825488688149acfdc3f38967fbf1c480" prot="protected" virt="non-virtual"><scope>TcpReceiver</scope><name>mNmeaConnection</name></member>
+      <member refid="classTcpReceiver_1a32b155dea6027faf842fb339e002cc54" prot="private" virt="non-virtual"><scope>TcpReceiver</scope><name>mPort</name></member>
+      <member refid="classTcpReceiver_1ac72b698e56d288c8a51b201b6f80c88e" prot="private" virt="non-virtual"><scope>TcpReceiver</scope><name>mReconnectOnDisconnect</name></member>
+      <member refid="classTcpReceiver_1afc5cb1e5c01165c68274ec1b239631ce" prot="private" virt="non-virtual"><scope>TcpReceiver</scope><name>mReconnectTimer</name></member>
+      <member refid="classTcpReceiver_1ab083a0d531310e24c98a6d8375710acd" prot="private" virt="non-virtual"><scope>TcpReceiver</scope><name>mSocket</name></member>
+      <member refid="classNmeaGnssReceiver_1aff510bf60aa7f7ad90f953e070c608fd" prot="public" virt="non-virtual"><scope>TcpReceiver</scope><name>NmeaGnssReceiver</name></member>
+      <member refid="classAbstractGnssReceiver_1ae59d2b8077ab097a16f63dd369a60975aed9e46fde2ff0acea44bc8137ac4d21a" prot="public" virt="non-virtual"><scope>TcpReceiver</scope><name>NoCapabilities</name></member>
+      <member refid="classAbstractGnssReceiver_1ae59d2b8077ab097a16f63dd369a60975a26d16bd4c6171e893dd7303886a782e5" prot="public" virt="non-virtual"><scope>TcpReceiver</scope><name>OrthometricAltitude</name></member>
+      <member refid="classAbstractGnssReceiver_1a579d81115c16bc5a498cc8532f44fcb3" prot="protected" virt="non-virtual"><scope>TcpReceiver</scope><name>setSocketState</name></member>
+      <member refid="classAbstractGnssReceiver_1a61a9a4baf3e854038b0cd6bd9f969366" prot="public" virt="non-virtual"><scope>TcpReceiver</scope><name>setValid</name></member>
+      <member refid="classAbstractGnssReceiver_1a778bd4ee7e98f891e42396a953eba4b4" prot="public" virt="virtual"><scope>TcpReceiver</scope><name>socketState</name></member>
+      <member refid="classAbstractGnssReceiver_1a251c5c7ac7a3e6a8795fd9004b729e2e" prot="public" virt="non-virtual"><scope>TcpReceiver</scope><name>socketStateChanged</name></member>
+      <member refid="classTcpReceiver_1a970c7e11c512752d9959f00aec7b3820" prot="public" virt="non-virtual"><scope>TcpReceiver</scope><name>socketStateString</name></member>
+      <member refid="classAbstractGnssReceiver_1ad9d28fec49b2faf94fe187453b540d00" prot="public" virt="non-virtual"><scope>TcpReceiver</scope><name>socketStateStringChanged</name></member>
+      <member refid="classAbstractGnssReceiver_1acb8e0d5ddd87eb007bf55a2a9a231801" prot="public" virt="non-virtual"><scope>TcpReceiver</scope><name>startLogging</name></member>
+      <member refid="classAbstractGnssReceiver_1a098f12276d444f455473ffb9b95735d0" prot="public" virt="non-virtual"><scope>TcpReceiver</scope><name>stopLogging</name></member>
+      <member refid="classTcpReceiver_1a0a2284885ce5ce6e4b4324259132101b" prot="public" virt="non-virtual"><scope>TcpReceiver</scope><name>TcpReceiver</name></member>
+      <member refid="classAbstractGnssReceiver_1a0738727cbe42715b16564e8ea5863875" prot="public" virt="non-virtual"><scope>TcpReceiver</scope><name>valid</name></member>
+      <member refid="classAbstractGnssReceiver_1a3fa79a03f84f0f9b0938cf9cc76513ba" prot="public" virt="non-virtual"><scope>TcpReceiver</scope><name>validChanged</name></member>
+      <member refid="classAbstractGnssReceiver_1a79bb78bb03066de84106cd0a72579378" prot="public" virt="virtual"><scope>TcpReceiver</scope><name>~AbstractGnssReceiver</name></member>
+      <member refid="classNmeaGnssReceiver_1a01427d39adc04c08330d0812f0e89482" prot="public" virt="non-virtual"><scope>TcpReceiver</scope><name>~NmeaGnssReceiver</name></member>
+      <member refid="classTcpReceiver_1a60a726de850ab03687f45b4054b41f6b" prot="public" virt="non-virtual"><scope>TcpReceiver</scope><name>~TcpReceiver</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>
