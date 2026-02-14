@@ -38,11 +38,17 @@ class Quick3DRubberbandGeometry : public QQuick3DGeometry
     Q_OBJECT
     QML_ELEMENT
 
+    //! The rubberband model providing the vertex coordinates
     Q_PROPERTY( RubberbandModel *rubberbandModel READ rubberbandModel WRITE setRubberbandModel NOTIFY rubberbandModelChanged )
+    //! The terrain provider used for geo-to-3D coordinate conversion
     Q_PROPERTY( Quick3DTerrainProvider *terrainProvider READ terrainProvider WRITE setTerrainProvider NOTIFY terrainProviderChanged )
+    //! Tube thickness in scene units
     Q_PROPERTY( float radius READ radius WRITE setRadius NOTIFY radiusChanged )
+    //! Number of sides in the tube cross-section
     Q_PROPERTY( int segments READ segments WRITE setSegments NOTIFY segmentsChanged )
+    //! Extra vertical offset above the terrain surface
     Q_PROPERTY( float heightOffset READ heightOffset WRITE setHeightOffset NOTIFY heightOffsetChanged )
+    //! Per-vertex color applied to both tubes and joint spheres
     Q_PROPERTY( QColor color READ color WRITE setColor NOTIFY colorChanged )
 
   public:

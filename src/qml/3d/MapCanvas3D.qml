@@ -210,7 +210,6 @@ Item {
         rubberbandModel: modelData.tracker ? modelData.tracker.rubberbandModel : null
         terrainProvider: mapTerrainProvider
         visible: modelData.tracker ? modelData.tracker.visible : false
-        radius: 3.0
       }
     }
   }
