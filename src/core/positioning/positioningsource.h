@@ -62,6 +62,7 @@ class PositioningSource : public QObject
     Q_PROPERTY( QString ntripMountpoint READ ntripMountpoint WRITE setNtripMountpoint NOTIFY ntripMountpointChanged )
     Q_PROPERTY( QString ntripUsername READ ntripUsername WRITE setNtripUsername NOTIFY ntripUsernameChanged )
     Q_PROPERTY( QString ntripPassword READ ntripPassword WRITE setNtripPassword NOTIFY ntripPasswordChanged )
+    Q_PROPERTY( int ntripVersion READ ntripVersion WRITE setNtripVersion NOTIFY ntripVersionChanged )
     Q_PROPERTY( NtripState ntripState READ ntripState NOTIFY ntripStateChanged )
     Q_PROPERTY( QString ntripLastError READ ntripLastError NOTIFY ntripLastErrorChanged )
     Q_PROPERTY( qint64 ntripBytesSent READ ntripBytesSent NOTIFY ntripBytesSentChanged )
@@ -301,6 +302,16 @@ class PositioningSource : public QObject
     void setNtripPassword( const QString &ntripPassword );
 
     /**
+     * Returns the NTRIP protocol version (1 or 2).
+     */
+    int ntripVersion() const { return mNtripVersion; }
+
+    /**
+     * Sets the NTRIP protocol version (1 or 2).
+     */
+    void setNtripVersion( int ntripVersion );
+
+    /**
      * Returns the current NTRIP connection state.
      */
     NtripState ntripState() const { return mNtripState; }
@@ -351,6 +362,7 @@ class PositioningSource : public QObject
     void ntripMountpointChanged();
     void ntripUsernameChanged();
     void ntripPasswordChanged();
+    void ntripVersionChanged();
     void ntripStateChanged();
     void ntripLastErrorChanged();
     void ntripBytesSentChanged();
@@ -398,6 +410,7 @@ class PositioningSource : public QObject
     QString mNtripMountpoint = "NEAR";
     QString mNtripUsername = "QfieldNtripClient";
     QString mNtripPassword = "QfieldNtripClient";
+    int mNtripVersion = 1;
     NtripState mNtripState = NtripState::Disconnected;
     QString mNtripLastError;
     qint64 mLastNtripGgaSentMs = 0;

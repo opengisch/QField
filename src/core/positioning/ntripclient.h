@@ -11,7 +11,7 @@ class NtripClient : public QObject
     explicit NtripClient( QObject *parent = nullptr );
     ~NtripClient();
 
-    void start( const QString &ntripHost, const quint16 &port, const QString &mountpoint, const QString &username, const QString &password );
+    void start( const QString &ntripHost, const quint16 &port, const QString &mountpoint, const QString &username, const QString &password, int version = 1 );
     void stop();
 
     void sendNmeaSentence( const QString &sentence );

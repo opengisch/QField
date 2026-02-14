@@ -347,6 +347,7 @@ ApplicationWindow {
     ntripMountpoint: positioningSettings.ntripMountpoint
     ntripUsername: positioningSettings.ntripUsername
     ntripPassword: positioningSettings.ntripPassword
+    ntripVersion: positioningSettings.ntripVersion
 
     onNtripStateChanged: {
       positioningSettings.ntripStatus = ntripStatus;

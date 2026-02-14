@@ -13,7 +13,7 @@ NtripClient::~NtripClient()
   stop();
 }
 
-void NtripClient::start( const QString &ntripHost, const quint16 &port, const QString &mountpoint, const QString &username, const QString &password )
+void NtripClient::start( const QString &ntripHost, const quint16 &port, const QString &mountpoint, const QString &username, const QString &password, int version )
 {
   if ( mSocketClient )
   {
@@ -50,7 +50,8 @@ void NtripClient::start( const QString &ntripHost, const quint16 &port, const QS
     port,
     "/" + mountpoint,
     username,
-    password );
+    password,
+    version );
 
   // Emit immediately to show sent bytes
   emit bytesCountersChanged();

@@ -28,6 +28,7 @@ Settings {
   property string ntripMountpoint: "NEAR"
   property string ntripUsername: "QfieldNtripClient"
   property string ntripPassword: "QfieldNtripClient"
+  property int ntripVersion: 1
   property string ntripStatus: ""
   property int ntripBytesSent: 0
   property int ntripBytesReceived: 0

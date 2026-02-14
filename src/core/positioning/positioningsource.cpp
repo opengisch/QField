@@ -279,6 +279,23 @@ void PositioningSource::setNtripPassword( const QString &ntripPassword )
   emit ntripPasswordChanged();
 }
 
+void PositioningSource::setNtripVersion( int ntripVersion )
+{
+  if ( mNtripVersion == ntripVersion )
+    return;
+
+  mNtripVersion = ntripVersion;
+
+  // Restart NTRIP client if enabled and parameters changed
+  if ( mEnableNtripClient && mNtripClient )
+  {
+    stopNtripClient();
+    startNtripClient();
+  }
+
+  emit ntripVersionChanged();
+}
+
 QList<GnssPositionInformation> PositioningSource::getBackgroundPositionInformation() const
 {
   QList<GnssPositionInformation> positionInformationList;
@@ -543,7 +560,7 @@ void PositioningSource::startNtripClient()
     emit ntripBytesReceivedChanged();
 
     setNtripState( NtripState::Connecting );
-    mNtripClient->start( mNtripHost, static_cast<quint16>( mNtripPort ), mNtripMountpoint, mNtripUsername, mNtripPassword );
+    mNtripClient->start( mNtripHost, static_cast<quint16>( mNtripPort ), mNtripMountpoint, mNtripUsername, mNtripPassword, mNtripVersion );
 
     // Forward RTCM corrections to the active GNSS receiver
     connect( mNtripClient.get(), &NtripClient::correctionDataReceived, this, [this]( const QByteArray &data ) {
@@ -685,7 +702,7 @@ void PositioningSource::attemptNtripReconnect()
 
   mNtripClient->stop();
   setNtripState( NtripState::Connecting );
-  mNtripClient->start( mNtripHost, static_cast<quint16>( mNtripPort ), mNtripMountpoint, mNtripUsername, mNtripPassword );
+  mNtripClient->start( mNtripHost, static_cast<quint16>( mNtripPort ), mNtripMountpoint, mNtripUsername, mNtripPassword, mNtripVersion );
 }
 
 void PositioningSource::setNtripState( NtripState state )

@@ -42,16 +42,21 @@ qint64 NtripSocketClient::start(
   quint16 port,
   const QString &mountpoint,
   const QString &username,
-  const QString &password )
+  const QString &password,
+  int version )
 {
   mHost = host;
   mPort = port;
   mMountpoint = mountpoint;
   mUsername = username;
   mPassword = password;
+  mVersion = version;
 
   mHeadersSent = false;
   mPendingError = false;
+  mChunkedEncoding = false;
+  mChunkBuffer.clear();
+  mChunkRemaining = -1;
 
   if ( mSocket.isOpen() )
     stop();
@@ -106,13 +111,27 @@ void NtripSocketClient::onConnected()
     mp.prepend( '/' );
 
   QByteArray request;
-  request.append( "GET " + mp + " HTTP/1.0\r\n" );
-  request.append( "Host: " + mHost.toUtf8() + ":" + QByteArray::number( mPort ) + "\r\n" );
-  request.append( "User-Agent: QField NTRIP QtSocketClient/1.0\r\n" );
-  request.append( "Accept: */*\r\n" );
-  request.append( "Authorization: Basic " + base64 + "\r\n" );
-  request.append( "Connection: close\r\n" );
-  request.append( "\r\n" );
+  if ( mVersion == 2 )
+  {
+    request.append( "GET " + mp + " HTTP/1.1\r\n" );
+    request.append( "Host: " + mHost.toUtf8() + ":" + QByteArray::number( mPort ) + "\r\n" );
+    request.append( "Ntrip-Version: Ntrip/2.0\r\n" );
+    request.append( "User-Agent: QField NTRIP QtSocketClient/2.0\r\n" );
+    request.append( "Accept: */*\r\n" );
+    request.append( "Authorization: Basic " + base64 + "\r\n" );
+    request.append( "Connection: close\r\n" );
+    request.append( "\r\n" );
+  }
+  else
+  {
+    request.append( "GET " + mp + " HTTP/1.0\r\n" );
+    request.append( "Host: " + mHost.toUtf8() + ":" + QByteArray::number( mPort ) + "\r\n" );
+    request.append( "User-Agent: QField NTRIP QtSocketClient/1.0\r\n" );
+    request.append( "Accept: */*\r\n" );
+    request.append( "Authorization: Basic " + base64 + "\r\n" );
+    request.append( "Connection: close\r\n" );
+    request.append( "\r\n" );
+  }
 
   mSocket.write( request );
   mSocket.flush();
@@ -146,6 +165,13 @@ void NtripSocketClient::onReadyRead()
         return;
       }
 
+      // Check for chunked transfer encoding (case-insensitive)
+      const QString headers = QString::fromLatin1( headerBlock );
+      if ( headers.contains( QLatin1String( "Transfer-Encoding: chunked" ), Qt::CaseInsensitive ) )
+      {
+        mChunkedEncoding = true;
+      }
+
       const int statusCode = parseHttpStatusCode( headerBlock );
 
       if ( statusCode == 200 )
@@ -155,7 +181,14 @@ void NtripSocketClient::onReadyRead()
 
         if ( !body.isEmpty() )
         {
-          emit correctionDataReceived( body );
+          if ( mChunkedEncoding )
+          {
+            processChunkedData( body );
+          }
+          else
+          {
+            emit correctionDataReceived( body );
+          }
         }
       }
       else if ( statusCode > 0 && isPermanentHttpError( statusCode ) )
@@ -196,7 +229,70 @@ void NtripSocketClient::onReadyRead()
 
   if ( !data.isEmpty() )
   {
-    emit correctionDataReceived( data );
+    if ( mChunkedEncoding )
+    {
+      processChunkedData( data );
+    }
+    else
+    {
+      emit correctionDataReceived( data );
+    }
+  }
+}
+
+void NtripSocketClient::processChunkedData( const QByteArray &data )
+{
+  mChunkBuffer.append( data );
+
+  while ( !mChunkBuffer.isEmpty() )
+  {
+    if ( mChunkRemaining == -1 )
+    {
+      // Reading chunk size line
+      const int lineEnd = mChunkBuffer.indexOf( "\r\n" );
+      if ( lineEnd == -1 )
+        break; // Need more data
+
+      const QByteArray sizeLine = mChunkBuffer.left( lineEnd ).trimmed();
+      bool ok = false;
+      const int chunkSize = sizeLine.toInt( &ok, 16 );
+      if ( !ok )
+      {
+        // Invalid chunk size, treat remaining buffer as raw data
+        emit correctionDataReceived( mChunkBuffer );
+        mChunkBuffer.clear();
+        break;
+      }
+
+      mChunkBuffer.remove( 0, lineEnd + 2 );
+
+      if ( chunkSize == 0 )
+      {
+        // Final chunk, stream done
+        mChunkBuffer.clear();
+        break;
+      }
+
+      mChunkRemaining = chunkSize;
+    }
+    else if ( mChunkRemaining > 0 )
+    {
+      // Reading chunk data
+      const int available = std::min( static_cast<int>( mChunkBuffer.size() ), mChunkRemaining );
+      const QByteArray chunk = mChunkBuffer.left( available );
+      mChunkBuffer.remove( 0, available );
+      mChunkRemaining -= available;
+      emit correctionDataReceived( chunk );
+    }
+    else
+    {
+      // mChunkRemaining == 0: between chunks, skip trailing \r\n
+      if ( mChunkBuffer.size() < 2 )
+        break; // Need more data
+
+      mChunkBuffer.remove( 0, 2 );
+      mChunkRemaining = -1;
+    }
   }
 }
 

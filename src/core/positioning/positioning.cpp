@@ -99,6 +99,7 @@ void Positioning::setupSource()
   connect( mPositioningSourceReplica.data(), SIGNAL( ntripMountpointChanged() ), this, SIGNAL( ntripMountpointChanged() ) );
   connect( mPositioningSourceReplica.data(), SIGNAL( ntripUsernameChanged() ), this, SIGNAL( ntripUsernameChanged() ) );
   connect( mPositioningSourceReplica.data(), SIGNAL( ntripPasswordChanged() ), this, SIGNAL( ntripPasswordChanged() ) );
+  connect( mPositioningSourceReplica.data(), SIGNAL( ntripVersionChanged() ), this, SIGNAL( ntripVersionChanged() ) );
   connect( mPositioningSourceReplica.data(), SIGNAL( ntripStateChanged() ), this, SIGNAL( ntripStateChanged() ) );
   connect( mPositioningSourceReplica.data(), SIGNAL( ntripLastErrorChanged() ), this, SIGNAL( ntripStateChanged() ) );
   connect( mPositioningSourceReplica.data(), SIGNAL( ntripBytesSentChanged() ), this, SIGNAL( ntripBytesSentChanged() ) );
@@ -632,6 +633,24 @@ void Positioning::setNtripPassword( const QString &ntripPassword )
   {
     mProperties["ntripPassword"] = ntripPassword;
     emit ntripPasswordChanged();
+  }
+}
+
+int Positioning::ntripVersion() const
+{
+  return ( isSourceAvailable() ? mPositioningSourceReplica->property( "ntripVersion" ) : mProperties.value( "ntripVersion", 1 ) ).toInt();
+}
+
+void Positioning::setNtripVersion( int ntripVersion )
+{
+  if ( isSourceAvailable() )
+  {
+    mPositioningSourceReplica->setProperty( "ntripVersion", ntripVersion );
+  }
+  else
+  {
+    mProperties["ntripVersion"] = ntripVersion;
+    emit ntripVersionChanged();
   }
 }
 

@@ -16,7 +16,8 @@ class NtripSocketClient : public QObject
       quint16 port,
       const QString &mountpoint,
       const QString &username,
-      const QString &password );
+      const QString &password,
+      int version = 1 );
 
     qint64 sendNmeaSentence( const QByteArray &sentence );
 
@@ -36,6 +37,8 @@ class NtripSocketClient : public QObject
     qint64 estimateRequestSize() const;
 
   private:
+    void processChunkedData( const QByteArray &data );
+
     QTcpSocket mSocket;
     bool mHeadersSent = false;
     QByteArray mHeaderBuffer;
@@ -45,4 +48,8 @@ class NtripSocketClient : public QObject
     QString mUsername;
     QString mPassword;
     bool mPendingError = false;
+    int mVersion = 1;
+    bool mChunkedEncoding = false;
+    QByteArray mChunkBuffer;
+    int mChunkRemaining = -1;
 };
