@@ -96,6 +96,7 @@
 #include "permissions.h"
 #include "platformutilities.h"
 #include "pluginmodel.h"
+#include "mountpointmodel.h"
 #include "positioning.h"
 #include "positioningdevicemodel.h"
 #include "positioninginformationmodel.h"
@@ -549,6 +550,7 @@ void QgisMobileapp::initDeclarative( QQmlEngine *engine )
   qmlRegisterType<NavigationModel>( "org.qfield", 1, 0, "NavigationModel" );
   qmlRegisterType<Positioning>( "org.qfield", 1, 0, "Positioning" );
   qmlRegisterType<PositioningInformationModel>( "org.qfield", 1, 0, "PositioningInformationModel" );
+  qmlRegisterType<MountpointModel>( "org.qfield", 1, 0, "MountpointModel" );
   qmlRegisterType<PositioningDeviceModel>( "org.qfield", 1, 0, "PositioningDeviceModel" );
   qmlRegisterType<WebdavConnection>( "org.qfield", 1, 0, "WebdavConnection" );
   qmlRegisterType<AppExpressionContextScopesGenerator>( "org.qfield", 1, 0, "AppExpressionContextScopesGenerator" );

@@ -1749,6 +1749,57 @@ Page {
                 spacing: 10
 
                 Label {
+                  text: qsTr("NTRIP Version")
+                  font: Theme.defaultFont
+                  color: Theme.mainTextColor
+                  wrapMode: Text.WordWrap
+                  Layout.preferredWidth: 200
+                }
+
+                QfComboBox {
+                  id: ntripVersionComboBox
+                  Layout.fillWidth: true
+                  font: Theme.defaultFont
+
+                  popup.font: Theme.defaultFont
+                  popup.topMargin: mainWindow.sceneTopMargin
+                  popup.bottomMargin: mainWindow.sceneTopMargin
+
+                  model: ListModel {
+                    ListElement {
+                      name: "v1"
+                      value: 1
+                    }
+                    ListElement {
+                      name: "v2"
+                      value: 2
+                    }
+                  }
+                  textRole: "name"
+                  valueRole: "value"
+
+                  property bool initialized: false
+
+                  onCurrentValueChanged: {
+                    if (initialized) {
+                      positioningSettings.ntripVersion = currentValue;
+                    }
+                  }
+
+                  Component.onCompleted: {
+                    currentIndex = indexOfValue(positioningSettings.ntripVersion);
+                    initialized = true;
+                  }
+                }
+              }
+
+              RowLayout {
+                Layout.fillWidth: true
+                Layout.columnSpan: 2
+                Layout.topMargin: 8
+                spacing: 10
+
+                Label {
                   text: qsTr("NTRIP Host")
                   font: Theme.defaultFont
                   color: Theme.mainTextColor
@@ -1868,6 +1919,59 @@ Page {
                     positioningSettings.ntripMountpoint = text;
                   }
                 }
+
+                QfButton {
+                  leftPadding: 10
+                  rightPadding: 10
+                  text: mountpointModel.fetchStatus === MountpointModel.Fetching ? qsTr("Fetching...") : qsTr("Fetch")
+                  enabled: mountpointModel.fetchStatus !== MountpointModel.Fetching && ntripHost.text.length > 0
+                  onClicked: {
+                    mountpointModel.fetchMountpoints(ntripHost.text, parseInt(ntripPort.text) || 2101, ntripUsername.text, ntripPassword.text, positioningSettings.ntripVersion);
+                  }
+                }
+              }
+
+              QfComboBox {
+                id: mountpointComboBox
+                Layout.fillWidth: true
+                Layout.columnSpan: 2
+                visible: mountpointModel.fetchStatus === MountpointModel.Success
+                font: Theme.defaultFont
+
+                popup.font: Theme.defaultFont
+                popup.topMargin: mainWindow.sceneTopMargin
+                popup.bottomMargin: mainWindow.sceneTopMargin
+
+                model: MountpointModel {
+                  id: mountpointModel
+                }
+                textRole: "name"
+
+                delegate: ItemDelegate {
+                  width: mountpointComboBox.width
+                  height: 36
+                  text: name + " (" + format + ")" + (country ? " — " + country : "")
+                  font: Theme.defaultFont
+                  highlighted: mountpointComboBox.highlightedIndex === index
+                }
+
+                onCurrentIndexChanged: {
+                  if (currentIndex >= 0) {
+                    var modelIdx = mountpointModel.index(currentIndex, 0);
+                    var mpName = mountpointModel.data(modelIdx, MountpointModel.NameRole);
+                    ntripMountpoint.text = mpName;
+                  }
+                }
+              }
+
+              Label {
+                Layout.fillWidth: true
+                Layout.columnSpan: 2
+                visible: mountpointModel.fetchStatus === MountpointModel.Error
+                text: mountpointModel.lastError
+                font: Theme.tipFont
+                color: Theme.errorColor
+                wrapMode: Text.WordWrap
               }
             }
 
