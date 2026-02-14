@@ -20,6 +20,9 @@
 #include <QtMath>
 #include <qgsrectangle.h>
 
+#include <algorithm>
+#include <cmath>
+
 Quick3DRubberbandGeometry::Quick3DRubberbandGeometry( QQuick3DObject *parent )
   : QQuick3DGeometry( parent )
 {
@@ -74,7 +77,7 @@ void Quick3DRubberbandGeometry::setTerrainProvider( Quick3DTerrainProvider *prov
 
 void Quick3DRubberbandGeometry::setRadius( float radius )
 {
-  radius = qMax( 0.1f, radius );
+  radius = std::max( 0.1f, radius );
   if ( qFuzzyCompare( mRadius, radius ) )
     return;
 
@@ -219,12 +222,12 @@ void Quick3DRubberbandGeometry::updateGeometry()
   QVector3D maxBound( std::numeric_limits<float>::lowest(), std::numeric_limits<float>::lowest(), std::numeric_limits<float>::lowest() );
 
   auto updateBounds = [&]( const QVector3D &pos ) {
-    minBound.setX( qMin( minBound.x(), pos.x() ) );
-    minBound.setY( qMin( minBound.y(), pos.y() ) );
-    minBound.setZ( qMin( minBound.z(), pos.z() ) );
-    maxBound.setX( qMax( maxBound.x(), pos.x() ) );
-    maxBound.setY( qMax( maxBound.y(), pos.y() ) );
-    maxBound.setZ( qMax( maxBound.z(), pos.z() ) );
+    minBound.setX( std::min( minBound.x(), pos.x() ) );
+    minBound.setY( std::min( minBound.y(), pos.y() ) );
+    minBound.setZ( std::min( minBound.z(), pos.z() ) );
+    maxBound.setX( std::max( maxBound.x(), pos.x() ) );
+    maxBound.setY( std::max( maxBound.y(), pos.y() ) );
+    maxBound.setZ( std::max( maxBound.z(), pos.z() ) );
   };
 
   // --- Tube: one circular cross-section ("ring") per path point ---
@@ -253,7 +256,7 @@ void Quick3DRubberbandGeometry::updateGeometry()
     // Build a local coordinate frame (right, up) perpendicular to the tube direction.
     // If the tube is nearly vertical, switch the reference vector to avoid degeneracy.
     QVector3D up( 0, 1, 0 );
-    if ( qAbs( QVector3D::dotProduct( forward, up ) ) > 0.99f )
+    if ( std::fabs( QVector3D::dotProduct( forward, up ) ) > 0.99f )
     {
       up = QVector3D( 1, 0, 0 );
     }
