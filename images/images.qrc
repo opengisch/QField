@@ -203,5 +203,6 @@
         <file>themes/qfield/nodpi/ic_collapse_all_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_expand_all_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_3d_24dp.svg</file>
+        <file>themes/qfield/nodpi/ic_phone_rotate_black_24dp.svg</file>
     </qresource>
 </RCC>
