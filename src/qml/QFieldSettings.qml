@@ -1926,7 +1926,7 @@ Page {
                   text: mountpointModel.fetchStatus === MountpointModel.Fetching ? qsTr("Fetching...") : qsTr("Fetch")
                   enabled: mountpointModel.fetchStatus !== MountpointModel.Fetching && ntripHost.text.length > 0
                   onClicked: {
-                    mountpointModel.fetchMountpoints(ntripHost.text, parseInt(ntripPort.text) || 2101, ntripUsername.text, ntripPassword.text, positioningSettings.ntripVersion);
+                    mountpointModel.fetchMountpoints(ntripHost.text, parseInt(ntripPort.text, 10) || 2101, ntripUsername.text, ntripPassword.text, positioningSettings.ntripVersion);
                   }
                 }
               }
@@ -1944,14 +1944,30 @@ Page {
 
                 model: MountpointModel {
                   id: mountpointModel
+
+                  onFetchStatusChanged: {
+                    if (fetchStatus === MountpointModel.Success && positionSource.positionInformation && positionSource.positionInformation.latitudeValid) {
+                      updatePosition(positionSource.positionInformation.latitude, positionSource.positionInformation.longitude);
+                    }
+                  }
                 }
                 textRole: "name"
 
                 delegate: ItemDelegate {
                   width: mountpointComboBox.width
                   height: 36
-                  text: name + " (" + format + ")" + (country ? " — " + country : "")
-                  font: Theme.defaultFont
+                  text: {
+                    var label = name + " (" + format + ")";
+                    if (distance >= 0) {
+                      label += " — " + distance.toFixed(1) + " km";
+                    } else if (country) {
+                      label += " — " + country;
+                    }
+                    return label;
+                  }
+                  font.family: Theme.defaultFont.family
+                  font.pointSize: Theme.defaultFont.pointSize
+                  font.bold: isNearest
                   highlighted: mountpointComboBox.highlightedIndex === index
                 }
 

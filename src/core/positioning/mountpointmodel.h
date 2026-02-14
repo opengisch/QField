@@ -48,6 +48,8 @@ class MountpointModel : public QAbstractListModel
       NavSystemRole,
       LatitudeRole,
       LongitudeRole,
+      DistanceRole,
+      IsNearestRole,
     };
     Q_ENUM( Role )
 
@@ -63,6 +65,8 @@ class MountpointModel : public QAbstractListModel
       int version = 1 );
 
     Q_INVOKABLE void cancelFetch();
+
+    Q_INVOKABLE void updatePosition( double latitude, double longitude );
 
     FetchStatus fetchStatus() const;
     QString lastError() const;
@@ -82,7 +86,12 @@ class MountpointModel : public QAbstractListModel
     void setLastError( const QString &error );
     void cleanup();
 
+    static double haversineDistance( double lat1, double lon1, double lat2, double lon2 );
+
     QList<SourcetableParser::MountpointInfo> mMountpoints;
+    QVector<double> mDistances;
+    int mNearestIndex = -1;
+    bool mHasPosition = false;
     QTcpSocket mSocket;
     QByteArray mBuffer;
     bool mHeadersParsed = false;
