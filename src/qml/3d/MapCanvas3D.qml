@@ -19,6 +19,8 @@ Item {
   property real gnssSpeed: -1
   property real gnssDirection: -1
 
+  property var trackingModel: null
+
   signal cameraInteractionDetected
 
   Quick3DTerrainProvider {
@@ -44,6 +46,7 @@ Item {
     mapSettings: mapArea.mapSettings
     extent: mapTerrainProvider.extent
     incrementalRendering: true
+    forceDeferredLayersRepaint: mapArea.trackingModel ? mapArea.trackingModel.count > 0 : false
   }
 
   Texture {
@@ -194,6 +197,20 @@ Item {
           metalness: 0.6
           roughness: 0.2
         }
+      }
+    }
+
+    Repeater3D {
+      id: trackingRubberbands
+      model: mapArea.trackingModel
+
+      Rubberband3D {
+        required property var model
+        required property int index
+        rubberbandModel: model.tracker ? model.tracker.rubberbandModel : null
+        terrainProvider: mapTerrainProvider
+        visible: model.tracker ? model.tracker.visible : false
+        radius: 3.0
       }
     }
   }
