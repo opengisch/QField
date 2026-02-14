@@ -329,44 +329,9 @@ QString ProjectUtils::createProject( const QVariantMap &options, const GnssPosit
   // Basemap
   QgsMapLayer *basemapLayer = nullptr;
   const QString basemap = options.value( QStringLiteral( "basemap" ), QStringLiteral( "color" ) ).toString();
-  if ( basemap.compare( QStringLiteral( "custom" ) ) == 0 )
-  {
-    QString basemapUrl = options.value( QStringLiteral( "basemap_url" ) ).toString();
-    if ( !basemapUrl.isEmpty() )
-    {
-      if ( basemapUrl.endsWith( QStringLiteral( ".json" ), Qt::CaseInsensitive ) )
-      {
-        // Vector tile layer style URL
-        QgsDataSourceUri uri;
-        uri.setParam( QStringLiteral( "type" ), QStringLiteral( "xyz" ) );
-        uri.setParam( QStringLiteral( "styleUrl" ), basemapUrl );
-        uri.setParam( QStringLiteral( "zmin" ), QString::number( 0 ) );
-        uri.setParam( QStringLiteral( "zmax" ), QString::number( 14 ) );
-        basemapUrl = uri.encodedUri();
-
-        QgsVectorTileUtils::updateUriSources( basemapUrl );
-        QgsVectorTileLayer *layer = new QgsVectorTileLayer( basemapUrl, tr( "Basemap" ) );
-        QString error;
-        QStringList warnings;
-        QList<QgsMapLayer *> subLayers;
-        layer->loadDefaultStyleAndSubLayers( error, warnings, subLayers );
-        basemapLayer = layer;
-      }
-      else if ( basemapUrl.contains( QStringLiteral( "{z}" ), Qt::CaseInsensitive ) || basemapUrl.contains( QStringLiteral( "{q}" ), Qt::CaseInsensitive ) )
-      {
-        // XYZ raster layer URL
-        QgsDataSourceUri uri;
-        uri.setParam( QStringLiteral( "type" ), QStringLiteral( "xyz" ) );
-        uri.setParam( QStringLiteral( "url" ), basemapUrl );
-        uri.setParam( QStringLiteral( "zmin" ), QString::number( 0 ) );
-        uri.setParam( QStringLiteral( "zmax" ), QString::number( 19 ) );
-        basemapUrl = uri.encodedUri();
-
-        basemapLayer = new QgsRasterLayer( basemapUrl, tr( "Basemap" ), QStringLiteral( "wms" ) );
-      }
-    }
-  }
-  else if ( basemap.compare( QStringLiteral( "blank" ) ) != 0 )
+  const QString basemapCustomProvider = options.value( QStringLiteral( "basemap_custom_provider" ) ).toString();
+  QString basemapCustomSource = options.value( QStringLiteral( "basemap_custom_source" ) ).toString();
+  if ( basemap.compare( QStringLiteral( "colorful" ) ) == 0 || basemap.compare( QStringLiteral( "darkgray" ) ) == 0 || basemap.compare( QStringLiteral( "lightgray" ) ) == 0 )
   {
     basemapLayer = LayerUtils::createBasemap( basemap );
     if ( basemap.compare( QStringLiteral( "darkgray" ) ) == 0 )
@@ -380,6 +345,23 @@ QString ProjectUtils::createProject( const QVariantMap &options, const GnssPosit
     else
     {
       createdProject->setBackgroundColor( QColor( 242, 239, 233 ) );
+    }
+  }
+  else if ( basemap.compare( QStringLiteral( "custom" ) ) == 0 || ( !basemapCustomSource.isEmpty() && !basemapCustomProvider.isEmpty() ) )
+  {
+    if ( basemapCustomProvider.toLower() == QStringLiteral( "vectortile" ) )
+    {
+      QgsVectorTileUtils::updateUriSources( basemapCustomSource );
+      QgsVectorTileLayer *layer = new QgsVectorTileLayer( basemapCustomSource, tr( "Basemap" ) );
+      QString error;
+      QStringList warnings;
+      QList<QgsMapLayer *> subLayers;
+      layer->loadDefaultStyleAndSubLayers( error, warnings, subLayers );
+      basemapLayer = layer;
+    }
+    else
+    {
+      basemapLayer = new QgsRasterLayer( basemapCustomSource, tr( "Basemap" ), basemapCustomProvider );
     }
   }
 
