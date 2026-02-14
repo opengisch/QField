@@ -520,6 +520,129 @@ void FileUtils::addImageStamp( const QString &imagePath, const QString &text, co
   }
 }
 
+bool FileUtils::normalizeImageOrientation( const QString &imagePath, int additionalRotation, bool expectLandscape )
+{
+  if ( !QFileInfo::exists( imagePath ) )
+  {
+    return false;
+  }
+
+  // Read EXIF tags
+  QVariantMap metadata = QgsExifTools::readTags( imagePath );
+  const int exifOrientation = metadata.value( "Exif.Image.Orientation", 1 ).toInt();
+
+  // Read raw image without auto-transform
+  QImageReader reader( imagePath );
+  reader.setAutoTransform( false );
+  QImage img = reader.read();
+
+  if ( img.isNull() )
+  {
+    return false;
+  }
+
+  const bool rawIsLandscape = img.width() > img.height();
+
+  // Determine EXIF-implied rotation and mirroring
+  int exifRotation = 0;
+  bool needMirror = false;
+  switch ( exifOrientation )
+  {
+    case 1: exifRotation = 0; break;
+    case 2: exifRotation = 0; needMirror = true; break;
+    case 3: exifRotation = 180; break;
+    case 4: exifRotation = 180; needMirror = true; break;
+    case 5: exifRotation = 90; needMirror = true; break;
+    case 6: exifRotation = 90; break;
+    case 7: exifRotation = 270; needMirror = true; break;
+    case 8: exifRotation = 270; break;
+    default: break;
+  }
+
+  // Determine orientation after EXIF would be applied
+  bool afterExifLandscape = rawIsLandscape;
+  if ( exifRotation == 90 || exifRotation == 270 )
+  {
+    afterExifLandscape = !rawIsLandscape;
+  }
+
+  // Add 90° correction if dimensions don't match expected orientation
+  const int dimCorrection = ( expectLandscape != afterExifLandscape ) ? 90 : 0;
+
+  // Normalize additional rotation to [0, 360)
+  int addRot = additionalRotation % 360;
+  if ( addRot < 0 )
+  {
+    addRot += 360;
+  }
+
+  // Total rotation combines EXIF + dimension fix + user preference
+  const int totalRotation = ( exifRotation + dimCorrection + addRot ) % 360;
+
+  // Early exit if no changes needed
+  if ( totalRotation == 0 && !needMirror && exifOrientation == 1 )
+  {
+    return true;
+  }
+
+  // Apply transformations
+  if ( needMirror )
+  {
+    img = img.mirrored( true, false );
+  }
+
+  if ( totalRotation != 0 )
+  {
+    QTransform xform;
+    xform.rotate( totalRotation );
+    img = img.transformed( xform, Qt::SmoothTransformation );
+  }
+
+  // Save image
+  QSaveFile out( imagePath );
+  if ( !out.open( QIODevice::WriteOnly ) )
+  {
+    return false;
+  }
+
+  QByteArray fmt = QFileInfo( imagePath ).suffix().toLower().toLatin1();
+  if ( fmt == "jpeg" )
+  {
+    fmt = "jpg";
+  }
+  if ( fmt.isEmpty() )
+  {
+    fmt = "jpg";
+  }
+
+  QImageWriter writer( &out, fmt );
+  if ( fmt == "jpg" )
+  {
+    writer.setQuality( 90 );
+  }
+
+  if ( !writer.write( img ) )
+  {
+    out.cancelWriting();
+    return false;
+  }
+
+  if ( !out.commit() )
+  {
+    return false;
+  }
+
+  // Reset EXIF orientation to normal
+  metadata["Exif.Image.Orientation"] = 1;
+  metadata["Xmp.tiff.Orientation"] = 1;
+  for ( auto it = metadata.constBegin(); it != metadata.constEnd(); ++it )
+  {
+    QgsExifTools::tagImage( imagePath, it.key(), it.value() );
+  }
+
+  return true;
+}
+
 bool FileUtils::rotateImageInPlace( const QString &imagePath, int clockwiseDegrees )
 {
   if ( !QFileInfo::exists( imagePath ) )
@@ -527,8 +650,8 @@ bool FileUtils::rotateImageInPlace( const QString &imagePath, int clockwiseDegre
     return false;
   }
 
-  // normalize to [0, 359]
-  int deg = ( clockwiseDegrees % 360 ) + 90; //somehow, the offset is - 90degree, if added 90" it keeps the previewed orientation from qml
+  // Normalize to [0, 360)
+  int deg = clockwiseDegrees % 360;
   if ( deg < 0 )
   {
     deg += 360;
@@ -539,22 +662,23 @@ bool FileUtils::rotateImageInPlace( const QString &imagePath, int clockwiseDegre
     return true;
   }
 
-  // read all tags first so we can restore them after rewriting the file
+  // Read metadata and image with EXIF auto-transform
   QVariantMap metadata = QgsExifTools::readTags( imagePath );
-
-  // apply any existing EXIF orientation before rotating (autoTransform)
   QImageReader reader( imagePath );
   reader.setAutoTransform( true );
   QImage img = reader.read();
+
   if ( img.isNull() )
   {
     return false;
   }
 
+  // Apply rotation
   QTransform transform;
   transform.rotate( deg );
   QImage rotated = img.transformed( transform, Qt::SmoothTransformation );
 
+  // Save image
   QSaveFile out( imagePath );
   if ( !out.open( QIODevice::WriteOnly ) )
   {
@@ -588,19 +712,16 @@ bool FileUtils::rotateImageInPlace( const QString &imagePath, int clockwiseDegre
     return false;
   }
 
-  // normalize orientation tag so external viewers don't rotate AGAIN
+  // Reset EXIF orientation since we've physically rotated the pixels
   metadata["Exif.Image.Orientation"] = 1;
   metadata["Xmp.tiff.Orientation"] = 1;
-
-  // restore tags
-  for ( const QString &key : metadata.keys() )
+  for ( auto it = metadata.constBegin(); it != metadata.constEnd(); ++it )
   {
-    QgsExifTools::tagImage( imagePath, key, metadata[key] );
+    QgsExifTools::tagImage( imagePath, it.key(), it.value() );
   }
 
   return true;
 }
-
 
 bool FileUtils::isWithinProjectDirectory( const QString &filePath )
 {

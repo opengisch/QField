@@ -538,12 +538,16 @@ Popup {
                   }
                 } else if (cameraItem.state == "PhotoPreview" || cameraItem.state == "VideoPreview") {
                   if (!currentPath || currentPath === "")
+                  {
                     return;
+                  }
                   if (cameraItem.state == "PhotoPreview") {
-                    const rotate = captureLoader.item ? captureLoader.item.previewRotation : 0;
-                    if (rotate !== 0) {
-                      FileUtils.rotateImageInPlace(currentPath, rotate);
-                    }
+                    // Normalize the image orientation
+                    // In landscape mode, apply the user's rotation preference
+                    // In portrait mode, just normalize EXIF without additional rotation
+                    const userRotation = cameraItem.isPortraitMode ? 0 : cameraSettings.landscapeRotation;
+                    const expectLandscape = !cameraItem.isPortraitMode;
+                    FileUtils.normalizeImageOrientation(currentPath, userRotation, expectLandscape);
                     if (cameraSettings.geoTagging && positionSource.active) {
                       FileUtils.addImageMetadata(currentPath, currentPosition);
                     }

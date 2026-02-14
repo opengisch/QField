@@ -127,11 +127,21 @@ class QFIELD_CORE_EXPORT FileUtils : public QObject
     Q_INVOKABLE static void addImageStamp( const QString &imagePath, const QString &text, const QString &textFormat = QString(), Qgis::TextHorizontalAlignment horizontalAlignment = Qgis::TextHorizontalAlignment::Left, const QString &imageDecoration = QString() );
 
     /**
+     * Normalizes an image orientation for camera captures.
+     * Handles EXIF orientation tags and dimension mismatches between expected
+     * capture orientation and actual saved image orientation across different devices.
+     * \param imagePath the image file path
+     * \param additionalRotation additional clockwise rotation in degrees (0/90/180/270)
+     * \param expectLandscape whether the capture was made in landscape orientation
+     * \returns TRUE on success, FALSE otherwise
+     */
+    Q_INVOKABLE static bool normalizeImageOrientation( const QString &imagePath, int additionalRotation, bool expectLandscape );
+
+    /**
      * Rotates an image file in-place by a clockwise angle.
-     * Used to ensure saved photos match the orientation shown in the camera preview on mobile devices.
      * \param imagePath the image file path
      * \param clockwiseDegrees clockwise rotation in degrees (0/90/180/270; other values are normalized)
-     * \returns TRUE on success, FALSE otherwise.
+     * \returns TRUE on success, FALSE otherwise
      */
     Q_INVOKABLE static bool rotateImageInPlace( const QString &imagePath, int clockwiseDegrees );
 
