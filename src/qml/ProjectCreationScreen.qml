@@ -60,7 +60,7 @@ Page {
       }
 
       QfExpandableGroupBox {
-        id: baseMapExpandablePanel
+        id: basemapExpandablePanel
         title: qsTr("Select your basemap")
         width: parent.width
         checked: true
@@ -82,94 +82,232 @@ Page {
             width: parent.width
           }
 
-          ListView {
-            id: baseMapList
+          Container {
+            id: basemapProviders
+            objectName: "basemapProviders"
             width: parent.width
-            height: 105
-            orientation: ListView.Horizontal
-            spacing: 10
-            model: [
-              {
-                "icon": "qrc:/pictures/pictures/colorful.jpg",
-                "name": "colorful",
-                "displayName": qsTr("Colorful")
-              },
-              {
-                "icon": "qrc:/pictures/pictures/dark.jpg",
-                "name": "darkgray",
-                "displayName": qsTr("Darkgray")
-              },
-              {
-                "icon": "qrc:/pictures/pictures/lightgray.jpg",
-                "name": "lightgray",
-                "displayName": qsTr("Lightgray")
-              },
-              {
-                "icon": "",
-                "name": "blank",
-                "displayName": qsTr("Blank")
-              },
-              {
-                "icon": "",
-                "name": "custom",
-                "displayName": qsTr("Custom")
-              }
-            ]
+            height: 95
 
-            clip: true
+            contentItem: ListView {
+              width: parent.width
+              height: parent.height
+              model: parent.contentModel
+              snapMode: ListView.SnapToItem
+              orientation: ListView.Horizontal
+              spacing: 4
+            }
 
-            delegate: QfProjectThumbnail {
+            QfProjectThumbnail {
               width: 150
               implicitHeight: 95
               radius: 4
-              bgColor: modelData.name === "Blank" ? "white" : Theme.groupBoxSurfaceColor
-              previewImageSource: modelData.icon
-              projectTitle.text: modelData.displayName
+              bgColor: Theme.groupBoxSurfaceColor
+              previewImageSource: "qrc:/pictures/pictures/colorful.jpg"
+              projectTitle.text: qsTr("Colorful")
               showType: false
-              selected: baseMapList.currentIndex == index
+              selected: basemapProviders.currentItem === this
               fillHeight: true
-              showCustomizeIcon: modelData.name === "custom"
+              showCustomizeIcon: false
+
+              property Component settings: Component {
+                Item {
+                  property string name: "colorful"
+                  property string customUrl: ""
+                  property string customProvider: ""
+                }
+              }
 
               MouseArea {
                 anchors.fill: parent
+                onPressed: parent.isPressed = true
+                onReleased: parent.isPressed = false
+                onCanceled: parent.isPressed = false
                 onClicked: {
                   Qt.inputMethod.hide();
-                  baseMapList.currentIndex = index;
+                  basemapProviders.currentIndex = parent.ObjectModel.index;
                 }
+              }
+            }
+            QfProjectThumbnail {
+              width: 150
+              implicitHeight: 95
+              radius: 4
+              bgColor: Theme.groupBoxSurfaceColor
+              previewImageSource: "qrc:/pictures/pictures/dark.jpg"
+              projectTitle.text: qsTr("Darkgray")
+              showType: false
+              selected: basemapProviders.currentItem === this
+              fillHeight: true
+              showCustomizeIcon: false
 
-                onPressed: {
-                  parent.isPressed = true;
+              property Component settings: Component {
+                Item {
+                  property string name: "darkgray"
+                  property string customUrl: ""
+                  property string customProvider: ""
                 }
-                onReleased: {
-                  parent.isPressed = false;
+              }
+
+              MouseArea {
+                anchors.fill: parent
+                onPressed: parent.isPressed = true
+                onReleased: parent.isPressed = false
+                onCanceled: parent.isPressed = false
+                onClicked: {
+                  Qt.inputMethod.hide();
+                  basemapProviders.currentIndex = parent.ObjectModel.index;
                 }
-                onCanceled: {
-                  parent.isPressed = false;
+              }
+            }
+            QfProjectThumbnail {
+              width: 150
+              implicitHeight: 95
+              radius: 4
+              bgColor: Theme.groupBoxSurfaceColor
+              previewImageSource: "qrc:/pictures/pictures/lightgray.jpg"
+              projectTitle.text: qsTr("Lightgray")
+              showType: false
+              selected: basemapProviders.currentItem === this
+              fillHeight: true
+              showCustomizeIcon: false
+
+              property Component settings: Component {
+                Item {
+                  property string name: "lightgray"
+                  property string customUrl: ""
+                  property string customProvider: ""
+                }
+              }
+
+              MouseArea {
+                anchors.fill: parent
+                onPressed: parent.isPressed = true
+                onReleased: parent.isPressed = false
+                onCanceled: parent.isPressed = false
+                onClicked: {
+                  Qt.inputMethod.hide();
+                  basemapProviders.currentIndex = parent.ObjectModel.index;
+                }
+              }
+            }
+            QfProjectThumbnail {
+              width: 150
+              implicitHeight: 95
+              radius: 4
+              bgColor: "white"
+              previewImageSource: ""
+              projectTitle.text: qsTr("Blank")
+              showType: false
+              selected: basemapProviders.currentItem === this
+              fillHeight: true
+              showCustomizeIcon: false
+
+              property Component settings: Component {
+                Item {
+                  property string name: "blank"
+                  property string customSource: ""
+                  property string customProvider: ""
+                }
+              }
+
+              MouseArea {
+                anchors.fill: parent
+                onPressed: parent.isPressed = true
+                onReleased: parent.isPressed = false
+                onCanceled: parent.isPressed = false
+                onClicked: {
+                  Qt.inputMethod.hide();
+                  basemapProviders.currentIndex = parent.ObjectModel.index;
+                }
+              }
+            }
+            QfProjectThumbnail {
+              width: 150
+              implicitHeight: 95
+              radius: 4
+              bgColor: Theme.groupBoxSurfaceColor
+              previewImageSource: ""
+              projectTitle.text: qsTr("Custom")
+              showType: false
+              selected: basemapProviders.currentItem === this
+              fillHeight: true
+              showCustomizeIcon: true
+
+              property Component settings: Component {
+                Column {
+                  property string name: "custom"
+                  property string customSource: ""
+                  property string customProvider: ""
+
+                  spacing: 4
+                  width: parent.width
+                  height: childrenRect.height
+
+                  Label {
+                    text: qsTr("Custom basemap URL")
+                    font: Theme.defaultFont
+                    color: Theme.mainTextColor
+                    wrapMode: Text.WordWrap
+                    width: parent.width
+                  }
+
+                  TextField {
+                    id: basemapURL
+                    font: Theme.defaultFont
+                    placeholderText: text === "" && !focus ? "e.g., https://your-map-service.com/{z}/{x}/{y}.png" : ""
+                    placeholderTextColor: Theme.secondaryTextColor
+                    width: parent.width
+
+                    onTextEdited: {
+                      if (text !== "") {
+                        if (text.indexOf(".json") >= 0) {
+                          // Vector tile layer style URL
+                          const params = {
+                            "type": "xyz",
+                            "styleUrl": text,
+                            "zmin": 0,
+                            "zmax": 14
+                          };
+                          customSource = UrlUtils.createEncodedUri(params);
+                          customProvider = "vectortile";
+                          return;
+                        } else if (text.indexOf("{z}") >= 0 || text.indexOf("{q}") >= 0) {
+                          // XYZ raster layer URL
+                          const params = {
+                            "type": "xyz",
+                            "url": text,
+                            "zmin": 0,
+                            "zmax": 19
+                          };
+                          customSource = UrlUtils.createEncodedUri(params);
+                          customProvider = "wms";
+                          return;
+                        }
+                      }
+                      customSource = "";
+                      customProvider = "";
+                    }
+                  }
+                }
+              }
+
+              MouseArea {
+                anchors.fill: parent
+                onPressed: parent.isPressed = true
+                onReleased: parent.isPressed = false
+                onCanceled: parent.isPressed = false
+                onClicked: {
+                  Qt.inputMethod.hide();
+                  basemapProviders.currentIndex = parent.ObjectModel.index;
                 }
               }
             }
           }
 
-          Column {
-            spacing: 4
+          Loader {
+            id: basemapLoader
             width: parent.width
-            visible: baseMapList.currentIndex === 4
-
-            Label {
-              text: qsTr("Custom basemap URL")
-              font: Theme.defaultFont
-              color: Theme.mainTextColor
-              wrapMode: Text.WordWrap
-              width: parent.width
-            }
-
-            TextField {
-              id: baseMapURL
-              font: Theme.defaultFont
-              placeholderText: text === "" && !focus ? "e.g., https://your-map-service.com/{z}/{x}/{y}.png" : ""
-              placeholderTextColor: Theme.secondaryTextColor
-              width: parent.width
-            }
+            sourceComponent: basemapProviders.currentItem.settings
           }
         }
       }
@@ -306,8 +444,9 @@ Page {
         }
         let projectConfig = {
           "title": projectName.text,
-          "basemap": baseMapList.model[Math.max(0, baseMapList.currentIndex)].name,
-          "basemap_url": baseMapURL.text,
+          "basemap": basemapLoader.item ? basemapLoader.item.name || "" : "colorful",
+          "basemap_custom_source": basemapLoader.item ? basemapLoader.item.customSource || "" : "",
+          "basemap_custom_provider": basemapLoader.item ? basemapLoader.item.customProvider || "" : "",
           "notes": takeNotesGroupBox.checked,
           "camera_capture": takeMediaCheckBox.checked,
           "tracks": trackPositionGroupBox.checked,
