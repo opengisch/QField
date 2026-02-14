@@ -157,5 +157,6 @@
         <file>3d/MapCanvas3D.qml</file>
         <file>3d/TouchCameraController.qml</file>
         <file>3d/TerrainMesh.qml</file>
+        <file>3d/Rubberband3D.qml</file>
     </qresource>
 </RCC>
