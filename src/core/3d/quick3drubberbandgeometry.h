@@ -90,9 +90,6 @@ class Quick3DRubberbandGeometry : public QQuick3DGeometry
     void markDirtyAndUpdate();
 
   private:
-    //! Maps geo coords to the 3D scene (same logic as MapCanvas3D.geoTo3D)
-    QVector3D geoTo3D( double geoX, double geoY ) const;
-
     //! Rebuilds the whole tube + sphere mesh from scratch
     void updateGeometry();
 

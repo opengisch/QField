@@ -18,7 +18,6 @@
 
 #include <QVector3D>
 #include <QtMath>
-#include <qgsrectangle.h>
 
 #include <algorithm>
 #include <cmath>
@@ -127,31 +126,6 @@ void Quick3DRubberbandGeometry::markDirtyAndUpdate()
   updateGeometry();
 }
 
-QVector3D Quick3DRubberbandGeometry::geoTo3D( double geoX, double geoY ) const
-{
-  if ( !mTerrainProvider )
-    return QVector3D();
-
-  const QgsRectangle extent = mTerrainProvider->extent();
-  const QSizeF size = mTerrainProvider->size();
-  const double extW = extent.width();
-  const double extH = extent.height();
-
-  if ( extW <= 0 || extH <= 0 )
-    return QVector3D();
-
-  const double nx = ( geoX - extent.xMinimum() ) / extW;
-  const double nz = ( geoY - extent.yMinimum() ) / extH;
-
-  const float x3d = static_cast<float>( ( nx - 0.5 ) * size.width() );
-  const float z3d = static_cast<float>( ( 0.5 - nz ) * size.height() );
-
-  float y3d = mTerrainProvider->normalizedHeightAt( geoX, geoY );
-  y3d += mHeightOffset;
-
-  return QVector3D( x3d, y3d, z3d );
-}
-
 void Quick3DRubberbandGeometry::updateGeometry()
 {
   if ( !mDirty )
@@ -172,7 +146,7 @@ void Quick3DRubberbandGeometry::updateGeometry()
 
   for ( const QgsPoint &pt : vertices )
   {
-    const QVector3D pos = geoTo3D( pt.x(), pt.y() );
+    const QVector3D pos = mTerrainProvider->geoTo3D( pt.x(), pt.y(), mHeightOffset );
     if ( !pos.isNull() )
     {
       path.append( pos );
