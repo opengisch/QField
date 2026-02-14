@@ -164,8 +164,8 @@ void Quick3DRubberbandGeometry::updateGeometry()
 
   // UV sphere at each vertex – stacks are latitude rings, slices are longitude rings
   const float sphereRadius = mRadius * 2.25f;
-  const int sphereStacks = 16;
-  const int sphereSlices = 24;
+  const int sphereStacks = 6;
+  const int sphereSlices = 8;
   const int sphereVertexCount = ( sphereStacks + 1 ) * ( sphereSlices + 1 );
   const int sphereIndexCount = sphereStacks * sphereSlices * 6;
 
