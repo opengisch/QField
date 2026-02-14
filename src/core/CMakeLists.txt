@@ -7,6 +7,7 @@ set(QFIELD_CORE_SRCS
     3d/quick3dterraingeometry.cpp
     3d/quick3dterrainprovider.cpp
     3d/quick3dmaptexturedata.cpp
+    3d/quick3drubberbandgeometry.cpp
     utils/coordinatereferencesystemutils.cpp
     utils/expressioncontextutils.cpp
     utils/featureutils.cpp
@@ -148,6 +149,7 @@ set(QFIELD_CORE_HDRS
     3d/quick3dterraingeometry.h
     3d/quick3dterrainprovider.h
     3d/quick3dmaptexturedata.h
+    3d/quick3drubberbandgeometry.h
     utils/coordinatereferencesystemutils.h
     utils/expressioncontextutils.h
     utils/featureutils.h
