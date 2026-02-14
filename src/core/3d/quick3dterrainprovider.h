@@ -23,6 +23,7 @@ email                : mohsen@opengis.ch
 #include <QPointer>
 #include <QSize>
 #include <QVariantList>
+#include <QVector3D>
 #include <qgsproject.h>
 #include <qgsrectangle.h>
 
@@ -123,6 +124,15 @@ class Quick3DTerrainProvider : public QObject
      * \returns Normalized height between 0 and 1, or 0 if outside extent
      */
     Q_INVOKABLE double normalizedHeightAt( double x, double y ) const;
+
+    /**
+     * Converts geographic coordinates to a 3D scene position.
+     * \param geoX X coordinate in map CRS
+     * \param geoY Y coordinate in map CRS
+     * \param heightOffset additional vertical offset (default 0)
+     * \returns 3D position in scene space, or a null vector if the extent is invalid
+     */
+    Q_INVOKABLE QVector3D geoTo3D( double geoX, double geoY, float heightOffset = 0.0f ) const;
 
     /**
      * Calculates recommended vertical exaggeration factor based on terrain height range.
