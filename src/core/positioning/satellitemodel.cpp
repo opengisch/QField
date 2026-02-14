@@ -76,22 +76,23 @@ void SatelliteModel::updateSatellites( const QList<QgsSatelliteInfo> &satellites
 
 QString SatelliteModel::constellationName( const QgsSatelliteInfo &info )
 {
-  // Use satType from QGIS when available
-  switch ( static_cast<int>( info.satType ) )
+  // Use satType from NMEA $GxGSV message: P=GPS, L=GLONASS, A=Galileo, B=BeiDou, S=SBAS, Q=QZSS
+  const char satTypeChar = info.satType.toLatin1();
+  switch ( satTypeChar )
   {
     case 0: // Unknown — fall through to PRN-based detection
       break;
-    case 1:
+    case 'P':
       return QStringLiteral( "GPS" );
-    case 2:
+    case 'L':
       return QStringLiteral( "GLONASS" );
-    case 4:
+    case 'A':
       return QStringLiteral( "Galileo" );
-    case 16:
+    case 'B':
       return QStringLiteral( "BeiDou" );
-    case 8:
+    case 'S':
       return QStringLiteral( "SBAS" );
-    case 32:
+    case 'Q':
       return QStringLiteral( "QZSS" );
     default:
       break;
