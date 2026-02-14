@@ -32,9 +32,9 @@ void NtripClient::start( const QString &ntripHost, const quint16 &port, const QS
     emit bytesCountersChanged();
   } );
 
-  connect( mSocketClient, &NtripSocketClient::errorOccurred, [this]( const QString &msg ) {
+  connect( mSocketClient, &NtripSocketClient::errorOccurred, [this]( const QString &msg, bool isPermanent ) {
     qWarning() << msg;
-    emit errorOccurred( msg );
+    emit errorOccurred( msg, isPermanent );
   } );
 
   connect( mSocketClient, &NtripSocketClient::streamConnected, [this]() {

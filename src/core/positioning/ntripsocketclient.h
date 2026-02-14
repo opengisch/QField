@@ -24,7 +24,7 @@ class NtripSocketClient : public QObject
 
   signals:
     void correctionDataReceived( const QByteArray &data );
-    void errorOccurred( const QString &message );
+    void errorOccurred( const QString &message, bool isPermanent );
     void streamConnected();
     void streamDisconnected();
 
@@ -44,4 +44,5 @@ class NtripSocketClient : public QObject
     QString mMountpoint;
     QString mUsername;
     QString mPassword;
+    bool mPendingError = false;
 };

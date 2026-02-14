@@ -575,10 +575,14 @@ void PositioningSource::startNtripClient()
              } );
 
     connect( mNtripClient.get(), &NtripClient::errorOccurred,
-             this, [this]( const QString &msg ) {
+             this, [this]( const QString &msg, bool isPermanent ) {
                setNtripLastError( msg );
                qWarning() << "NTRIP Client Error:" << msg;
-               if ( mEnableNtripClient )
+               if ( isPermanent )
+               {
+                 setNtripState( NtripState::Error );
+               }
+               else if ( mEnableNtripClient )
                {
                  scheduleNtripReconnect();
                }
@@ -654,7 +658,7 @@ void PositioningSource::scheduleNtripReconnect()
     return;
   }
 
-  // Exponential backoff: 1s, 2s, 4s, 8s, 16s, 32s, capped at 60s
+  // Exponential backoff: 1s, 2s, 4s, 8s, 16s, capped at 30s
   const int shift = std::min( mNtripReconnectAttempts, 6 );
   const int delayMs = std::min( 1000 * ( 1 << shift ), NTRIP_MAX_RECONNECT_INTERVAL_MS );
   mNtripReconnectAttempts++;

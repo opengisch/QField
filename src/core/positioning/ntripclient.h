@@ -21,7 +21,7 @@ class NtripClient : public QObject
 
   signals:
     void correctionDataReceived( const QByteArray &rtcmData );
-    void errorOccurred( const QString &message );
+    void errorOccurred( const QString &message, bool isPermanent );
     void bytesCountersChanged();
     void streamConnected();
     void streamDisconnected();

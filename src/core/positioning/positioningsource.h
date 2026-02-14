@@ -408,7 +408,7 @@ class PositioningSource : public QObject
     std::unique_ptr<NtripClient> mNtripClient;
     QTimer mNtripReconnectTimer;
     int mNtripReconnectAttempts = 0;
-    static constexpr int NTRIP_MAX_RECONNECT_INTERVAL_MS = 60000;
+    static constexpr int NTRIP_MAX_RECONNECT_INTERVAL_MS = 30000;
 
     QCompass mCompass;
     QTimer mCompassTimer;
