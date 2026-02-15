@@ -218,6 +218,18 @@ QtObject {
     return styles;
   }
 
+  function fixTypeColor(quality) {
+    switch (quality) {
+      case 4: return fixRtkFixed;
+      case 5: return fixRtkFloat;
+      case 3: return fixRtkFixed;
+      case 2: return fixDGPS;
+      case 1: return fixAutonomous;
+      case 6: return fixDGPS;
+      default: return fixInvalid;
+    }
+  }
+
   function constellationColor(constellation) {
     switch (constellation) {
       case "GPS": return constellationGPS;

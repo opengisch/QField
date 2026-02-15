@@ -36,25 +36,6 @@ Page {
     }
   }
 
-  function fixTypeColor(quality) {
-    switch (quality) {
-    case 4:
-      return Theme.fixRtkFixed;
-    case 5:
-      return Theme.fixRtkFloat;
-    case 3:
-      return Theme.fixRtkFixed;
-    case 2:
-      return Theme.fixDGPS;
-    case 1:
-      return Theme.fixAutonomous;
-    case 6:
-      return Theme.fixDGPS;
-    default:
-      return Theme.fixInvalid;
-    }
-  }
-
   function constellationPrefix(constellation) {
     switch (constellation) {
     case "GPS":
@@ -114,7 +95,7 @@ Page {
         }
         Text {
           font: Theme.strongTipFont
-          color: skyplotPage.fixTypeColor(positionSource.positionInformation.quality)
+          color: Theme.fixTypeColor(positionSource.positionInformation.quality)
           text: positionSource.positionInformation.qualityDescription
           Layout.fillWidth: true
         }
