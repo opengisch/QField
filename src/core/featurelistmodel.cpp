@@ -426,7 +426,7 @@ void FeatureListModel::processFeatureList()
 
   for ( const FeatureExpressionValuesGatherer::Entry &gatheredEntry : gatheredEntries )
   {
-    Entry entry( Entry( gatheredEntry.value, gatheredEntry.identifierFields.at( 0 ), gatheredEntry.identifierFields.at( 1 ), gatheredEntry.featureId ) );
+    Entry entry( gatheredEntry.value, gatheredEntry.identifierFields.at( 0 ), gatheredEntry.identifierFields.at( 1 ), gatheredEntry.featureId );
 
     if ( !mSearchTerm.isEmpty() )
     {
@@ -568,7 +568,9 @@ void FeatureListModel::setSearchTerm( const QString &searchTerm )
 {
   const QString lowerSearchTerm = searchTerm.toLower();
   if ( mSearchTerm == lowerSearchTerm )
+  {
     return;
+  }
 
   mSearchTerm = lowerSearchTerm;
   reloadLayer();
