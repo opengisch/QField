@@ -44,6 +44,7 @@ FileReceiver::FileReceiver( const QString &filePath, const int interval, QObject
 
 FileReceiver::~FileReceiver()
 {
+  disconnectDevice();
   mBuffer->deleteLater();
   mBuffer = nullptr;
 }

@@ -32,7 +32,7 @@ class InternalGnssReceiver : public AbstractGnssReceiver
 
   public:
     explicit InternalGnssReceiver( QObject *parent = nullptr );
-    ~InternalGnssReceiver() override = default;
+    ~InternalGnssReceiver();
 
   private slots:
 

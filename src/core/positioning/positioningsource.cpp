@@ -202,8 +202,10 @@ void PositioningSource::setAntennaHeight( double antennaHeight )
 
 void PositioningSource::setupDevice()
 {
+  qInfo() << "yyy setupDevice";
   if ( mReceiver )
   {
+    qInfo() << "yyy remove previous receiver";
     mReceiver->disconnectDevice();
     mReceiver->stopLogging();
     disconnect( mReceiver.get(), &AbstractGnssReceiver::lastGnssPositionInformationChanged, this, &PositioningSource::lastGnssPositionInformationChanged );
@@ -214,6 +216,7 @@ void PositioningSource::setupDevice()
     mReceiver.reset();
   }
 
+  qInfo() << "yyy create receiver:" << mDeviceId;
   if ( mDeviceId.isEmpty() )
   {
     mReceiver = std::make_unique<InternalGnssReceiver>( this );

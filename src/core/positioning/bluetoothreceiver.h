@@ -33,7 +33,7 @@ class BluetoothReceiver : public NmeaGnssReceiver
 
   public:
     explicit BluetoothReceiver( const QString &address = QString(), QObject *parent = nullptr );
-    ~BluetoothReceiver() override;
+    ~BluetoothReceiver();
 
   public slots:
     QString socketStateString() override;
@@ -49,7 +49,9 @@ class BluetoothReceiver : public NmeaGnssReceiver
   private:
     void handleConnectDevice() override;
     void handleDisconnectDevice() override;
-    void handleError( QBluetoothSocket::SocketError error );
+
+    void handleStateChanged( QBluetoothSocket::SocketState state );
+    void handleErrorOccurred( QBluetoothSocket::SocketError error );
 
     void repairDevice( const QBluetoothAddress &address );
 
@@ -64,6 +66,7 @@ class BluetoothReceiver : public NmeaGnssReceiver
     bool mPoweringOn = false;
     bool mDisconnecting = false;
     bool mConnectOnDisconnect = false;
+    int mConnectionFailureCount = 0;
 };
 
 #endif // BLUETOOTHRECEIVER_H
