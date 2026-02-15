@@ -106,6 +106,11 @@ QtObject {
   property color fixRtkFloat: "#42A5F5"
   property color fixRtkFixed: "#4CAF50"
 
+  property color constellationGPS: "#4CAF50"
+  property color constellationGLONASS: "#FF5722"
+  property color constellationGalileo: "#FFC107"
+  property color constellationBeiDou: "#2196F3"
+
   property color navigationColor: "#984ea3"
   property color navigationColorSemiOpaque: "#99984ea3"
   property color navigationBackgroundColor: "#33984ea3"
@@ -211,6 +216,16 @@ QtObject {
       styles += ';';
     }
     return styles;
+  }
+
+  function constellationColor(constellation) {
+    switch (constellation) {
+      case "GPS": return constellationGPS;
+      case "GLONASS": return constellationGLONASS;
+      case "Galileo": return constellationGalileo;
+      case "BeiDou": return constellationBeiDou;
+      default: return mainTextColor;
+    }
   }
 
   function applyColors(colors) {
