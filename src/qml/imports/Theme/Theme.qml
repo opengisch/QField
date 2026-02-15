@@ -230,6 +230,14 @@ QtObject {
     }
   }
 
+  function accuracyColor(valueInMeters) {
+    if (valueInMeters < 0.020)
+      return accuracyExcellent;
+    if (valueInMeters < 0.050)
+      return accuracyTolerated;
+    return accuracyBad;
+  }
+
   function constellationColor(constellation) {
     switch (constellation) {
       case "GPS": return constellationGPS;

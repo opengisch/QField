@@ -206,6 +206,54 @@ Page {
       DataRow {
         label: qsTr("In view")
         value: gnssStatusPage.isDataCurrent && positionSource.satelliteModel.count > 0 ? positionSource.satelliteModel.count.toString() : "\u2014"
+      }
+
+      // === Precision ===
+      SectionHeader {
+        title: qsTr("Precision")
+      }
+
+      DataRow {
+        label: qsTr("H. Accuracy")
+        value: gnssStatusPage.isDataCurrent && positionSource.positionInformation.haccValid ? (positionSource.positionInformation.hacc * 1000).toFixed(1) + " mm" : "\u2014"
+        valueColor: gnssStatusPage.isDataCurrent && positionSource.positionInformation.haccValid ? Theme.accuracyColor(positionSource.positionInformation.hacc) : Theme.secondaryTextColor
+      }
+
+      DataRow {
+        label: qsTr("V. Accuracy")
+        value: gnssStatusPage.isDataCurrent && positionSource.positionInformation.vaccValid ? (positionSource.positionInformation.vacc * 1000).toFixed(1) + " mm" : "\u2014"
+        valueColor: gnssStatusPage.isDataCurrent && positionSource.positionInformation.vaccValid ? Theme.accuracyColor(positionSource.positionInformation.vacc) : Theme.secondaryTextColor
+      }
+
+      // === Differential ===
+      SectionHeader {
+        title: qsTr("Differential")
+      }
+
+      DataRow {
+        label: qsTr("Differential age")
+      }
+
+      DataRow {
+        label: qsTr("Station ID")
+      }
+
+      // === Baseline ===
+      SectionHeader {
+        title: qsTr("Baseline")
+      }
+
+      DataRow {
+        label: qsTr("Length")
+      }
+
+      // === Battery ===
+      SectionHeader {
+        title: qsTr("Battery")
+      }
+
+      DataRow {
+        label: qsTr("Level")
         Layout.bottomMargin: 16
       }
     }
