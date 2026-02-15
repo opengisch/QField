@@ -38,6 +38,14 @@ Page {
   // Data freshness check for AC4 (stale >30s → show "—")
   readonly property bool isDataCurrent: positionSource.positionInformation.isValid && positionSource.currentness
 
+  function formatBytes(bytes) {
+    if (bytes < 1024)
+      return bytes + " B";
+    if (bytes < 1048576)
+      return (bytes / 1024).toFixed(1) + " KB";
+    return (bytes / 1048576).toFixed(1) + " MB";
+  }
+
   // Inline component for section headers
   component SectionHeader: ColumnLayout {
     required property string title
@@ -223,6 +231,44 @@ Page {
         label: qsTr("V. Accuracy")
         value: gnssStatusPage.isDataCurrent && positionSource.positionInformation.vaccValid ? (positionSource.positionInformation.vacc * 1000).toFixed(1) + " mm" : "\u2014"
         valueColor: gnssStatusPage.isDataCurrent && positionSource.positionInformation.vaccValid ? Theme.accuracyColor(positionSource.positionInformation.vacc) : Theme.secondaryTextColor
+      }
+
+      // === NTRIP ===
+      SectionHeader {
+        visible: positioningSettings.enableNtripClient
+        title: qsTr("NTRIP")
+      }
+
+      DataRow {
+        visible: positioningSettings.enableNtripClient
+        label: qsTr("State")
+        value: {
+          switch (positionSource.ntripState) {
+          case 1:
+            return qsTr("Connecting...");
+          case 2:
+            return qsTr("Connected");
+          case 3:
+            return qsTr("Reconnecting...");
+          case 4:
+            return qsTr("Error");
+          default:
+            return qsTr("Disconnected");
+          }
+        }
+        valueColor: Theme.ntripStateColor(positionSource.ntripState)
+      }
+
+      DataRow {
+        visible: positioningSettings.enableNtripClient
+        label: qsTr("Details")
+        value: positionSource.ntripStatus || "\u2014"
+      }
+
+      DataRow {
+        visible: positioningSettings.enableNtripClient
+        label: qsTr("Data")
+        value: positionSource.ntripState > 0 ? "\u2193 " + gnssStatusPage.formatBytes(positionSource.ntripBytesReceived) + " / \u2191 " + gnssStatusPage.formatBytes(positionSource.ntripBytesSent) : "\u2014"
       }
 
       // === Differential ===

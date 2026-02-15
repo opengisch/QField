@@ -2807,6 +2807,12 @@ ApplicationWindow {
           visible: gnssButton.state === "On" && positionSource.positionInformation
           color: Theme.fixTypeColor(positionSource.positionInformation.quality)
         }
+
+        QfBadge {
+          alignment: QfBadge.Alignment.TopLeft
+          visible: gnssButton.state === "On" && positionSource.ntripState > 0
+          color: Theme.ntripStateColor(positionSource.ntripState)
+        }
       }
 
       Connections {

@@ -238,6 +238,20 @@ QtObject {
     return accuracyBad;
   }
 
+  function ntripStateColor(state) {
+    switch (state) {
+    case 2:
+      return fixRtkFixed;
+    case 1:
+    case 3:
+      return fixAutonomous;
+    case 4:
+      return fixInvalid;
+    default:
+      return secondaryTextColor;
+    }
+  }
+
   function constellationColor(constellation) {
     switch (constellation) {
       case "GPS": return constellationGPS;
