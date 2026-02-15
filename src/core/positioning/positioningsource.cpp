@@ -128,6 +128,18 @@ void PositioningSource::setLogging( bool logging )
     }
   }
 
+  if ( mNtripClient )
+  {
+    if ( mLogging && !mLoggingPath.isEmpty() )
+    {
+      mNtripClient->startLogging( mLoggingPath );
+    }
+    else
+    {
+      mNtripClient->stopLogging();
+    }
+  }
+
   emit loggingChanged();
 }
 
@@ -138,9 +150,17 @@ void PositioningSource::setLoggingPath( const QString &path )
 
   mLoggingPath = path;
 
-  if ( mReceiver && mLogging )
+  if ( mLogging )
   {
-    mReceiver->startLogging( mLoggingPath );
+    if ( mReceiver )
+    {
+      mReceiver->startLogging( mLoggingPath );
+    }
+    if ( mNtripClient )
+    {
+      mNtripClient->stopLogging();
+      mNtripClient->startLogging( mLoggingPath );
+    }
   }
 
   emit loggingPathChanged();
@@ -646,6 +666,11 @@ void PositioningSource::startNtripClient()
         mNtripClient->sendNmeaSentence( sentence );
       } );
     }
+
+    if ( mLogging && !mLoggingPath.isEmpty() )
+    {
+      mNtripClient->startLogging( mLoggingPath );
+    }
   }
   else
   {
@@ -660,6 +685,7 @@ void PositioningSource::stopNtripClient()
   mNtripReconnectAttempts = 0;
   if ( mNtripClient )
   {
+    mNtripClient->stopLogging();
     mNtripClient->stop();
     mNtripClient.reset();
   }
@@ -703,6 +729,11 @@ void PositioningSource::attemptNtripReconnect()
   mNtripClient->stop();
   setNtripState( NtripState::Connecting );
   mNtripClient->start( mNtripHost, static_cast<quint16>( mNtripPort ), mNtripMountpoint, mNtripUsername, mNtripPassword, mNtripVersion );
+
+  if ( mLogging && !mLoggingPath.isEmpty() )
+  {
+    mNtripClient->startLogging( mLoggingPath );
+  }
 }
 
 void PositioningSource::setNtripState( NtripState state )

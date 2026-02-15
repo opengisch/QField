@@ -1,5 +1,6 @@
 #pragma once
 
+#include <QFile>
 #include <QObject>
 
 class NtripSocketClient;
@@ -16,6 +17,9 @@ class NtripClient : public QObject
 
     void sendNmeaSentence( const QString &sentence );
 
+    void startLogging( const QString &path );
+    void stopLogging();
+
     qint64 bytesSent() const { return mBytesSent; }
     qint64 bytesReceived() const { return mBytesReceived; }
 
@@ -27,7 +31,11 @@ class NtripClient : public QObject
     void streamDisconnected();
 
   private:
+    void logRtcmData( const QByteArray &data );
+
     NtripSocketClient *mSocketClient = nullptr;
     qint64 mBytesSent = 0;
     qint64 mBytesReceived = 0;
+    QFile mLogFile;
+    int mLogBlockCount = 0;
 };
