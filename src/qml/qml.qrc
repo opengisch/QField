@@ -48,6 +48,8 @@
         <file>QFieldAudioRecorder.qml</file>
         <file>QFieldCamera.qml</file>
         <file>QFieldSettings.qml</file>
+        <file>GnssStatusView.qml</file>
+        <file>SkyplotView.qml</file>
         <file>ScaleBar.qml</file>
         <file>SensorInformationView.qml</file>
         <file>Toast.qml</file>

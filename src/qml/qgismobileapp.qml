@@ -675,7 +675,7 @@ ApplicationWindow {
       id: mapCanvasMap
       objectName: "mapCanvas"
 
-      property bool isEnabled: !dashBoard.opened && !aboutDialog.visible && !welcomeScreen.visible && !qfieldSettings.visible && !qfieldLocalDataPickerScreen.visible && !qfieldCloudScreen.visible && !qfieldCloudPopup.visible && !codeReader.visible && !sketcher.visible && !overlayFeatureFormDrawer.opened && !rotateFeaturesToolbar.rotateFeaturesRequested
+      property bool isEnabled: !dashBoard.opened && !aboutDialog.visible && !welcomeScreen.visible && !qfieldSettings.visible && !qfieldLocalDataPickerScreen.visible && !qfieldCloudScreen.visible && !qfieldCloudPopup.visible && !codeReader.visible && !sketcher.visible && !overlayFeatureFormDrawer.opened && !rotateFeaturesToolbar.rotateFeaturesRequested && !skyplotView.visible && !gnssStatusView.visible
 
       interactive: isEnabled && !screenLocker.enabled && !snapToCommonAngleMenu.visible
       isMapRotationEnabled: qfieldSettings.enableMapRotation
@@ -2441,6 +2441,47 @@ ApplicationWindow {
         }
       }
 
+      QfToolButtonDrawer {
+        name: "gnssDrawer"
+        size: 48
+        round: true
+        bgcolor: Theme.toolButtonBackgroundColor
+        iconSource: Theme.getThemeVectorIcon('ic_location_valid_white_24dp')
+        iconColor: Theme.toolButtonColor
+        spacing: 4
+        visible: positionSource.active && positionSource.deviceId !== ""
+
+        QfToolButton {
+          id: skyplotButton
+          width: 40
+          height: 40
+          padding: 2
+          round: true
+          iconSource: Theme.getThemeVectorIcon("ic_compass_arrow_24dp")
+          iconColor: Theme.toolButtonColor
+          bgcolor: Theme.toolButtonBackgroundSemiOpaqueColor
+
+          onClicked: {
+            skyplotView.visible = true;
+          }
+        }
+
+        QfToolButton {
+          id: gnssStatusButton
+          width: 40
+          height: 40
+          padding: 2
+          round: true
+          iconSource: Theme.getThemeVectorIcon("ic_baseline-list_white_24dp")
+          iconColor: Theme.toolButtonColor
+          bgcolor: Theme.toolButtonBackgroundSemiOpaqueColor
+
+          onClicked: {
+            gnssStatusView.visible = true;
+          }
+        }
+      }
+
       QfToolButton {
         id: elevationProfileButton
         round: true
@@ -3110,7 +3151,7 @@ ApplicationWindow {
     objectName: "dashBoard"
 
     allowActiveLayerChange: !digitizingToolbar.isDigitizing
-    allowInteractive: !welcomeScreen.visible && !qfieldSettings.visible && !qfieldCloudScreen.visible && !qfieldLocalDataPickerScreen.visible && !codeReader.visible && !screenLocker.enabled
+    allowInteractive: !welcomeScreen.visible && !qfieldSettings.visible && !qfieldCloudScreen.visible && !qfieldLocalDataPickerScreen.visible && !codeReader.visible && !screenLocker.enabled && !skyplotView.visible && !gnssStatusView.visible
     mapSettings: mapCanvas.mapSettings
 
     Component.onCompleted: focusstack.addFocusTaker(this)
@@ -4956,6 +4997,30 @@ ApplicationWindow {
     focus: visible
 
     onFinished: loading => {
+      visible = false;
+    }
+
+    Component.onCompleted: focusstack.addFocusTaker(this)
+  }
+
+  SkyplotView {
+    id: skyplotView
+    objectName: 'skyplotView'
+    anchors.fill: parent
+
+    onFinished: {
+      visible = false;
+    }
+
+    Component.onCompleted: focusstack.addFocusTaker(this)
+  }
+
+  GnssStatusView {
+    id: gnssStatusView
+    objectName: 'gnssStatusView'
+    anchors.fill: parent
+
+    onFinished: {
       visible = false;
     }
 
