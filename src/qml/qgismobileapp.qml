@@ -2804,21 +2804,8 @@ ApplicationWindow {
 
         QfBadge {
           alignment: QfBadge.Alignment.BottomRight
-          visible: gnssButton.state === "On" && positionSource.positionInformation && positionSource.positionInformation.quality >= 2
-          color: {
-            if (!positionSource.positionInformation)
-              return Theme.fixInvalid;
-            switch (positionSource.positionInformation.quality) {
-            case 4:
-              return Theme.fixRtkFixed;
-            case 5:
-              return Theme.fixRtkFloat;
-            case 2:
-              return Theme.fixDGPS;
-            default:
-              return Theme.fixAutonomous;
-            }
-          }
+          visible: gnssButton.state === "On" && positionSource.positionInformation
+          color: Theme.fixTypeColor(positionSource.positionInformation.quality)
         }
       }
 
