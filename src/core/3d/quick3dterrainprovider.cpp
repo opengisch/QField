@@ -241,6 +241,11 @@ QVector3D Quick3DTerrainProvider::geoTo3D( double geoX, double geoY, float heigh
   const double nx = ( geoX - mExtent.xMinimum() ) / extW;
   const double nz = ( geoY - mExtent.yMinimum() ) / extH;
 
+  if ( nx < 0 || nx > 1 || nz < 0 || nz > 1 )
+  {
+    return QVector3D( std::numeric_limits<float>::quiet_NaN(), 0, 0 );
+  }
+
   const float x3d = static_cast<float>( ( nx - 0.5 ) * mSize.width() );
   const float z3d = static_cast<float>( ( 0.5 - nz ) * mSize.height() );
 

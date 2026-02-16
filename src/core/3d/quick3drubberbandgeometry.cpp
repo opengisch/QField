@@ -140,20 +140,30 @@ void Quick3DRubberbandGeometry::updateGeometry()
     return;
   }
 
+  // Build sub-paths: split at points that fall outside the terrain extent
   const QVector<QgsPoint> vertices = mRubberbandModel->vertices();
-  QVector<QVector3D> path;
-  path.reserve( vertices.size() );
-
-  for ( const QgsPoint &pt : vertices )
+  QVector<QVector<QVector3D>> subPaths;
   {
-    const QVector3D pos = mTerrainProvider->geoTo3D( pt.x(), pt.y(), mHeightOffset );
-    if ( !pos.isNull() )
+    QVector<QVector3D> current;
+    for ( const QgsPoint &pt : vertices )
     {
-      path.append( pos );
+      const QVector3D pos = mTerrainProvider->geoTo3D( pt.x(), pt.y(), mHeightOffset );
+      if ( std::isnan( pos.x() ) )
+      {
+        if ( current.size() >= 2 )
+          subPaths.append( std::move( current ) );
+        current.clear();
+      }
+      else
+      {
+        current.append( pos );
+      }
     }
+    if ( current.size() >= 2 )
+      subPaths.append( std::move( current ) );
   }
 
-  if ( path.size() < 2 )
+  if ( subPaths.isEmpty() )
   {
     clear();
     setPrimitiveType( QQuick3DGeometry::PrimitiveType::Triangles );
@@ -169,13 +179,19 @@ void Quick3DRubberbandGeometry::updateGeometry()
   const int sphereVertexCount = ( sphereStacks + 1 ) * ( sphereSlices + 1 );
   const int sphereIndexCount = sphereStacks * sphereSlices * 6;
 
-  const int ringCount = path.size();
-  const int tubeVertexCount = ringCount * mSegments;
-  const int tubeTriangleCount = ( ringCount - 1 ) * mSegments * 2;
-  const int tubeIndexCount = tubeTriangleCount * 3;
+  // Calculate totals across all sub-paths
+  int totalPoints = 0;
+  int totalTubeConnections = 0;
+  for ( const QVector<QVector3D> &path : subPaths )
+  {
+    totalPoints += path.size();
+    totalTubeConnections += ( path.size() - 1 );
+  }
 
-  const int totalVertexCount = tubeVertexCount + path.size() * sphereVertexCount;
-  const int totalIndexCount = tubeIndexCount + path.size() * sphereIndexCount;
+  const int tubeVertexCount = totalPoints * mSegments;
+  const int tubeIndexCount = totalTubeConnections * mSegments * 2 * 3;
+  const int totalVertexCount = tubeVertexCount + totalPoints * sphereVertexCount;
+  const int totalIndexCount = tubeIndexCount + totalPoints * sphereIndexCount;
 
   // Per-vertex layout: pos(3) + normal(3) + rgba(4) = 10 floats
   const int stride = 10 * sizeof( float );
@@ -204,106 +220,53 @@ void Quick3DRubberbandGeometry::updateGeometry()
     maxBound.setZ( std::max( maxBound.z(), pos.z() ) );
   };
 
-  // --- Tube: one circular cross-section ("ring") per path point ---
-  for ( int ring = 0; ring < ringCount; ++ring )
+  // --- Tubes: one circular cross-section ("ring") per path point ---
+  quint32 tubeVertexOffset = 0;
+
+  for ( const QVector<QVector3D> &path : subPaths )
   {
-    // Tangent direction at this ring – averaged from neighbours for smooth bends
-    QVector3D forward;
-    if ( ring == 0 )
+    const int ringCount = path.size();
+
+    for ( int ring = 0; ring < ringCount; ++ring )
     {
-      forward = ( path[1] - path[0] ).normalized();
-    }
-    else if ( ring == ringCount - 1 )
-    {
-      forward = ( path[ring] - path[ring - 1] ).normalized();
-    }
-    else
-    {
-      forward = ( ( path[ring] - path[ring - 1] ).normalized() + ( path[ring + 1] - path[ring] ).normalized() ).normalized();
-    }
-
-    if ( forward.isNull() )
-    {
-      forward = QVector3D( 0, 0, 1 );
-    }
-
-    // Build a local coordinate frame (right, up) perpendicular to the tube direction.
-    // If the tube is nearly vertical, switch the reference vector to avoid degeneracy.
-    QVector3D up( 0, 1, 0 );
-    if ( std::fabs( QVector3D::dotProduct( forward, up ) ) > 0.99f )
-    {
-      up = QVector3D( 1, 0, 0 );
-    }
-    const QVector3D right = QVector3D::crossProduct( forward, up ).normalized();
-    const QVector3D actualUp = QVector3D::crossProduct( right, forward ).normalized();
-
-    for ( int seg = 0; seg < mSegments; ++seg )
-    {
-      const float angle = 2.0f * M_PI * seg / mSegments;
-      const float cosA = qCos( angle );
-      const float sinA = qSin( angle );
-
-      const QVector3D normal = ( right * cosA + actualUp * sinA ).normalized();
-      const QVector3D pos = path[ring] + normal * mRadius;
-
-      *vptr++ = pos.x();
-      *vptr++ = pos.y();
-      *vptr++ = pos.z();
-      *vptr++ = normal.x();
-      *vptr++ = normal.y();
-      *vptr++ = normal.z();
-      *vptr++ = colR;
-      *vptr++ = colG;
-      *vptr++ = colB;
-      *vptr++ = colA;
-
-      updateBounds( pos );
-    }
-  }
-
-  // Stitch adjacent rings into quads (2 triangles each)
-  for ( int ring = 0; ring < ringCount - 1; ++ring )
-  {
-    const quint32 ringOffset = ring * mSegments;
-    const quint32 nextRingOffset = ( ring + 1 ) * mSegments;
-
-    for ( int seg = 0; seg < mSegments; ++seg )
-    {
-      const quint32 nextSeg = ( seg + 1 ) % mSegments;
-
-      *iptr++ = ringOffset + seg;
-      *iptr++ = nextRingOffset + seg;
-      *iptr++ = ringOffset + nextSeg;
-
-      *iptr++ = ringOffset + nextSeg;
-      *iptr++ = nextRingOffset + seg;
-      *iptr++ = nextRingOffset + nextSeg;
-    }
-  }
-
-  // --- Sphere joints: a UV sphere at each path vertex ---
-  const quint32 sphereBaseVertex = tubeVertexCount;
-
-  for ( int si = 0; si < path.size(); ++si )
-  {
-    const QVector3D &center = path[si];
-    const quint32 thisBaseVertex = sphereBaseVertex + si * sphereVertexCount;
-
-    // Walk latitude (phi: 0=north pole → PI=south pole)
-    for ( int stack = 0; stack <= sphereStacks; ++stack )
-    {
-      const float phi = M_PI * stack / sphereStacks;
-      const float sinPhi = qSin( phi );
-      const float cosPhi = qCos( phi );
-
-      for ( int slice = 0; slice <= sphereSlices; ++slice )
+      // Tangent direction at this ring – averaged from neighbours for smooth bends
+      QVector3D forward;
+      if ( ring == 0 )
       {
-        const float theta = 2.0f * M_PI * slice / sphereSlices;
-        const float sinTheta = qSin( theta );
-        const float cosTheta = qCos( theta );
+        forward = ( path[1] - path[0] ).normalized();
+      }
+      else if ( ring == ringCount - 1 )
+      {
+        forward = ( path[ring] - path[ring - 1] ).normalized();
+      }
+      else
+      {
+        forward = ( ( path[ring] - path[ring - 1] ).normalized() + ( path[ring + 1] - path[ring] ).normalized() ).normalized();
+      }
 
-        const QVector3D normal( sinPhi * cosTheta, cosPhi, sinPhi * sinTheta );
-        const QVector3D pos = center + normal * sphereRadius;
+      if ( forward.isNull() )
+      {
+        forward = QVector3D( 0, 0, 1 );
+      }
+
+      // Build a local coordinate frame (right, up) perpendicular to the tube direction.
+      // If the tube is nearly vertical, switch the reference vector to avoid degeneracy.
+      QVector3D up( 0, 1, 0 );
+      if ( std::fabs( QVector3D::dotProduct( forward, up ) ) > 0.99f )
+      {
+        up = QVector3D( 1, 0, 0 );
+      }
+      const QVector3D right = QVector3D::crossProduct( forward, up ).normalized();
+      const QVector3D actualUp = QVector3D::crossProduct( right, forward ).normalized();
+
+      for ( int seg = 0; seg < mSegments; ++seg )
+      {
+        const float angle = 2.0f * M_PI * seg / mSegments;
+        const float cosA = qCos( angle );
+        const float sinA = qSin( angle );
+
+        const QVector3D normal = ( right * cosA + actualUp * sinA ).normalized();
+        const QVector3D pos = path[ring] + normal * mRadius;
 
         *vptr++ = pos.x();
         *vptr++ = pos.y();
@@ -320,21 +283,88 @@ void Quick3DRubberbandGeometry::updateGeometry()
       }
     }
 
-    for ( int stack = 0; stack < sphereStacks; ++stack )
+    // Stitch adjacent rings into quads (2 triangles each)
+    for ( int ring = 0; ring < ringCount - 1; ++ring )
     {
-      for ( int slice = 0; slice < sphereSlices; ++slice )
+      const quint32 ringOffset = tubeVertexOffset + ring * mSegments;
+      const quint32 nextRingOffset = tubeVertexOffset + ( ring + 1 ) * mSegments;
+
+      for ( int seg = 0; seg < mSegments; ++seg )
       {
-        const quint32 first = thisBaseVertex + stack * ( sphereSlices + 1 ) + slice;
-        const quint32 second = first + sphereSlices + 1;
+        const quint32 nextSeg = ( seg + 1 ) % mSegments;
 
-        *iptr++ = first;
-        *iptr++ = first + 1;
-        *iptr++ = second;
+        *iptr++ = ringOffset + seg;
+        *iptr++ = nextRingOffset + seg;
+        *iptr++ = ringOffset + nextSeg;
 
-        *iptr++ = first + 1;
-        *iptr++ = second + 1;
-        *iptr++ = second;
+        *iptr++ = ringOffset + nextSeg;
+        *iptr++ = nextRingOffset + seg;
+        *iptr++ = nextRingOffset + nextSeg;
       }
+    }
+
+    tubeVertexOffset += ringCount * mSegments;
+  }
+
+  // --- Sphere joints: a UV sphere at each path vertex ---
+  quint32 sphereBaseVertex = tubeVertexCount;
+
+  for ( const QVector<QVector3D> &path : subPaths )
+  {
+    for ( int si = 0; si < path.size(); ++si )
+    {
+      const QVector3D &center = path[si];
+      const quint32 thisBaseVertex = sphereBaseVertex;
+
+      // Walk latitude (phi: 0=north pole → PI=south pole)
+      for ( int stack = 0; stack <= sphereStacks; ++stack )
+      {
+        const float phi = M_PI * stack / sphereStacks;
+        const float sinPhi = qSin( phi );
+        const float cosPhi = qCos( phi );
+
+        for ( int slice = 0; slice <= sphereSlices; ++slice )
+        {
+          const float theta = 2.0f * M_PI * slice / sphereSlices;
+          const float sinTheta = qSin( theta );
+          const float cosTheta = qCos( theta );
+
+          const QVector3D normal( sinPhi * cosTheta, cosPhi, sinPhi * sinTheta );
+          const QVector3D pos = center + normal * sphereRadius;
+
+          *vptr++ = pos.x();
+          *vptr++ = pos.y();
+          *vptr++ = pos.z();
+          *vptr++ = normal.x();
+          *vptr++ = normal.y();
+          *vptr++ = normal.z();
+          *vptr++ = colR;
+          *vptr++ = colG;
+          *vptr++ = colB;
+          *vptr++ = colA;
+
+          updateBounds( pos );
+        }
+      }
+
+      for ( int stack = 0; stack < sphereStacks; ++stack )
+      {
+        for ( int slice = 0; slice < sphereSlices; ++slice )
+        {
+          const quint32 first = thisBaseVertex + stack * ( sphereSlices + 1 ) + slice;
+          const quint32 second = first + sphereSlices + 1;
+
+          *iptr++ = first;
+          *iptr++ = first + 1;
+          *iptr++ = second;
+
+          *iptr++ = first + 1;
+          *iptr++ = second + 1;
+          *iptr++ = second;
+        }
+      }
+
+      sphereBaseVertex += sphereVertexCount;
     }
   }
 
