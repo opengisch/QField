@@ -18,6 +18,7 @@
 
 #include "gnsspositioninformation.h"
 
+#include <QColor>
 #include <QPointer>
 #include <QTimer>
 #include <qgsdistancearea.h>
@@ -58,6 +59,8 @@ class Tracker : public QObject
 
     Q_PROPERTY( bool filterAccuracy READ filterAccuracy WRITE setFilterAccuracy NOTIFY filterAccuracyChanged )
 
+    Q_PROPERTY( QColor color READ color CONSTANT )
+
   public:
     enum MeasureType
     {
@@ -74,6 +77,9 @@ class Tracker : public QObject
     Q_ENUM( MeasureType )
 
     explicit Tracker( QgsVectorLayer *vectorLayer );
+
+    //! Returns the randomly generated track color
+    QColor color() const { return mColor; }
 
     //! Returns the rubber band model used to generate the track geometry
     RubberbandModel *rubberbandModel() const;
@@ -220,6 +226,8 @@ class Tracker : public QObject
 
     bool mVisible = true;
     bool mFilterAccuracy = false;
+
+    QColor mColor;
 
     QDateTime mStartPositionTimestamp;
     qint64 mLastDevicePositionTimestampMSecsSinceEpoch = 0;

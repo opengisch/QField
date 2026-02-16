@@ -209,6 +209,7 @@ Item {
         required property int index
         rubberbandModel: modelData.tracker ? modelData.tracker.rubberbandModel : null
         terrainProvider: mapTerrainProvider
+        color: modelData.tracker ? modelData.tracker.color : "#FFFF3232"
         visible: modelData.tracker ? modelData.tracker.visible : false
       }
     }
