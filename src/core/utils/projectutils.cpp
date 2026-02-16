@@ -421,5 +421,8 @@ QString ProjectUtils::createProject( const QVariantMap &options, const GnssPosit
   createdProject->clear();
   createdProject->deleteLater();
 
+  // Remove any pre-existing settings
+  QSettings().remove( QStringLiteral( "/qgis/projectInfo/%1" ).arg( projectFilepath ) );
+
   return written ? projectFilepath : QString();
 }
