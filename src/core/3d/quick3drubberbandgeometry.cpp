@@ -30,7 +30,9 @@ Quick3DRubberbandGeometry::Quick3DRubberbandGeometry( QQuick3DObject *parent )
 void Quick3DRubberbandGeometry::setRubberbandModel( RubberbandModel *model )
 {
   if ( mRubberbandModel == model )
+  {
     return;
+  }
 
   if ( mRubberbandModel )
   {
@@ -55,7 +57,9 @@ void Quick3DRubberbandGeometry::setRubberbandModel( RubberbandModel *model )
 void Quick3DRubberbandGeometry::setTerrainProvider( Quick3DTerrainProvider *provider )
 {
   if ( mTerrainProvider == provider )
+  {
     return;
+  }
 
   if ( mTerrainProvider )
   {
@@ -78,7 +82,9 @@ void Quick3DRubberbandGeometry::setRadius( float radius )
 {
   radius = std::max( 0.1f, radius );
   if ( qFuzzyCompare( mRadius, radius ) )
+  {
     return;
+  }
 
   mRadius = radius;
   mDirty = true;
@@ -90,7 +96,9 @@ void Quick3DRubberbandGeometry::setSegments( int segments )
 {
   segments = qBound( 3, segments, 32 );
   if ( mSegments == segments )
+  {
     return;
+  }
 
   mSegments = segments;
   mDirty = true;
@@ -101,7 +109,9 @@ void Quick3DRubberbandGeometry::setSegments( int segments )
 void Quick3DRubberbandGeometry::setHeightOffset( float offset )
 {
   if ( qFuzzyCompare( mHeightOffset, offset ) )
+  {
     return;
+  }
 
   mHeightOffset = offset;
   mDirty = true;
@@ -112,7 +122,9 @@ void Quick3DRubberbandGeometry::setHeightOffset( float offset )
 void Quick3DRubberbandGeometry::setColor( const QColor &color )
 {
   if ( mColor == color )
+  {
     return;
+  }
 
   mColor = color;
   mDirty = true;
@@ -129,7 +141,9 @@ void Quick3DRubberbandGeometry::markDirtyAndUpdate()
 void Quick3DRubberbandGeometry::updateGeometry()
 {
   if ( !mDirty )
+  {
     return;
+  }
 
   if ( !mRubberbandModel || !mTerrainProvider || mRubberbandModel->vertexCount() < 2 )
   {
@@ -151,8 +165,10 @@ void Quick3DRubberbandGeometry::updateGeometry()
       if ( std::isnan( pos.x() ) )
       {
         if ( current.size() >= 2 )
+        {
           subPaths.append( std::move( current ) );
-        current.clear();
+        }
+        current = {};
       }
       else
       {
@@ -160,7 +176,9 @@ void Quick3DRubberbandGeometry::updateGeometry()
       }
     }
     if ( current.size() >= 2 )
+    {
       subPaths.append( std::move( current ) );
+    }
   }
 
   if ( subPaths.isEmpty() )
