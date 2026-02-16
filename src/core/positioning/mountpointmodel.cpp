@@ -212,7 +212,11 @@ void MountpointModel::onSocketDisconnected()
 
 void MountpointModel::onSocketError( QAbstractSocket::SocketError error )
 {
-  Q_UNUSED( error )
+  // RemoteHostClosedError is expected: the NTRIP caster closes the connection
+  // after sending the sourcetable. Let onSocketDisconnected() handle it.
+  if ( error == QAbstractSocket::RemoteHostClosedError )
+    return;
+
   setLastError( tr( "Connection error: %1" ).arg( mSocket.errorString() ) );
   setFetchStatus( Error );
   cleanup();
