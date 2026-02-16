@@ -151,7 +151,7 @@ QString UrlUtils::createEncodedUri( const QVariantMap &parameters )
   for ( const QString &key : keys )
   {
     // Exclusion of : and / characters needed to generate URIs compatible with QGIS < 4
-    url.addQueryItem( key, QUrl::toPercentEncoding( parameters[key].toString(), ":/" ) );
+    url.addQueryItem( key, QUrl::toPercentEncoding( parameters[key].toString(), ":/?" ) );
   }
 
   const QString encodedUri = url.toString( QUrl::FullyEncoded );

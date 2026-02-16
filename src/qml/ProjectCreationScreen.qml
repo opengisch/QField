@@ -447,6 +447,7 @@ Page {
           "basemap": basemapLoader.item ? basemapLoader.item.name || "" : "colorful",
           "basemap_custom_source": basemapLoader.item ? basemapLoader.item.customSource || "" : "",
           "basemap_custom_provider": basemapLoader.item ? basemapLoader.item.customProvider || "" : "",
+          "basemap_custom_extent": basemapLoader.item ? basemapLoader.item.customExtent || "" : "",
           "notes": takeNotesGroupBox.checked,
           "camera_capture": takeMediaCheckBox.checked,
           "tracks": trackPositionGroupBox.checked,
