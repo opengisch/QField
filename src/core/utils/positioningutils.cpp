@@ -239,22 +239,31 @@ QgsRectangle PositioningUtils::createExtentForDevice( const GnssPositionInformat
     }
   }
 
+  if ( !extent.isEmpty() )
+  {
+    if ( extentCrs != crs )
+    {
+      QgsCoordinateTransform transform( extentCrs, crs, QgsProject::instance()->transformContext() );
+      try
+      {
+        extent = transform.transform( extent );
+      }
+      catch ( const QgsException &e )
+      {
+        extent = QgsRectangle();
+      }
+    }
+
+    if ( !extent.isEmpty() )
+    {
+      extent.intersect( crs.bounds() );
+    }
+  }
+
   if ( extent.isEmpty() )
   {
     extent = crs.bounds();
-  }
-
-  if ( extentCrs != crs )
-  {
-    QgsCoordinateTransform transform( extentCrs, crs, QgsProject::instance()->transformContext() );
-    try
-    {
-      extent = transform.transform( extent );
-    }
-    catch ( const QgsException &e )
-    {
-      extent = QgsRectangle();
-    }
+    extentCrs = crs;
   }
 
   return extent;

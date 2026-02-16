@@ -379,7 +379,7 @@ QString ProjectUtils::createProject( const QVariantMap &options, const GnssPosit
 
   createdProject->addMapLayers( createdProjectLayers );
 
-  connect( createdProject, &QgsProject::writeProject, [createdProject, basemapLayer, positionInformation]( QDomDocument &document ) {
+  connect( createdProject, &QgsProject::writeProject, [createdProject, positionInformation]( QDomDocument &document ) {
     QDomNodeList nodes = document.elementsByTagName( "qgis" );
     if ( !nodes.isEmpty() )
     {
