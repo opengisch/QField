@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+  <g transform="rotate(45 16 6)" fill="#fff">
+    <rect x="14.75" y="4.75" width="2.5" height="2.5" rx="0.5"/>
+    <rect x="10.5" y="5.25" width="3.75" height="1.5" rx="0.3"/>
+    <rect x="17.75" y="5.25" width="3.75" height="1.5" rx="0.3"/>
+  </g>
+  <g fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round">
+    <path d="M10 8 A4 4 0 0 1 14 12"/>
+    <path d="M7 8 A7 7 0 0 1 14 15"/>
+    <path d="M4 8 A10 10 0 0 1 14 18"/>
+  </g>
+</svg>

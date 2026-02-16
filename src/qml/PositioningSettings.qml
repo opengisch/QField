@@ -26,8 +26,8 @@ Settings {
   property string ntripHost: "crtk.net"
   property int ntripPort: 2101
   property string ntripMountpoint: "NEAR"
-  property string ntripUsername: "QfieldNtripClient"
-  property string ntripPassword: "QfieldNtripClient"
+  property string ntripUsername: "centipede"
+  property string ntripPassword: "centipede"
   property int ntripVersion: 1
   property string ntripStatus: ""
   property int ntripBytesSent: 0
