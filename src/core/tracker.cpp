@@ -34,6 +34,17 @@ Tracker::Tracker( QgsVectorLayer *vectorLayer )
   mDa.setSourceCrs( QgsProject::instance()->crs(), QgsProject::instance()->transformContext() );
 }
 
+void Tracker::setColor( const QColor &color )
+{
+  if ( mColor == color )
+  {
+    return;
+  }
+
+  mColor = color;
+  emit colorChanged();
+}
+
 void Tracker::setVisible( bool visible )
 {
   if ( mVisible == visible )

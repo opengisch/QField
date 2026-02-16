@@ -59,7 +59,7 @@ class Tracker : public QObject
 
     Q_PROPERTY( bool filterAccuracy READ filterAccuracy WRITE setFilterAccuracy NOTIFY filterAccuracyChanged )
 
-    Q_PROPERTY( QColor color READ color CONSTANT )
+    Q_PROPERTY( QColor color READ color WRITE setColor NOTIFY colorChanged )
 
   public:
     enum MeasureType
@@ -78,8 +78,10 @@ class Tracker : public QObject
 
     explicit Tracker( QgsVectorLayer *vectorLayer );
 
-    //! Returns the randomly generated track color
+    //! Returns the track rubberband color
     QColor color() const { return mColor; }
+    //! Sets the track rubberband color
+    void setColor( const QColor &color );
 
     //! Returns the rubber band model used to generate the track geometry
     RubberbandModel *rubberbandModel() const;
@@ -191,6 +193,7 @@ class Tracker : public QObject
     void startPositionTimestampChanged();
 
     void filterAccuracyChanged();
+    void colorChanged();
 
   private slots:
     void positionReceived();
