@@ -185,8 +185,8 @@ Rectangle {
             anchors.margins: 4
             fillMode: Image.PreserveAspectCrop
             source: "qrc:/themes/qfield/nodpi/ic_check_white_24dp.svg"
-            sourceSize.width: width * screen.devicePixelRatio
-            sourceSize.height: height * screen.devicePixelRatio
+            sourceSize.width: width * Screen.devicePixelRatio
+            sourceSize.height: height * Screen.devicePixelRatio
           }
         }
       }

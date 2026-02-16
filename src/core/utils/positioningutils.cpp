@@ -219,10 +219,9 @@ double PositioningUtils::bearingTrueNorth( const QgsPoint &position, const QgsCo
   return bearing;
 }
 
-QgsRectangle PositioningUtils::createExtentForDevice( const GnssPositionInformation &positionInformation, const QgsCoordinateReferenceSystem &crs )
+QgsRectangle PositioningUtils::createExtentForDevice( const GnssPositionInformation &positionInformation, const QgsCoordinateReferenceSystem &crs, const QgsRectangle &withinRectangle )
 {
   QgsRectangle extent;
-  QgsCoordinateReferenceSystem extentCrs = QgsCoordinateReferenceSystem::fromEpsgId( 4326 );
   if ( positionInformation.latitudeValid() && positionInformation.longitudeValid() && positionInformation.hvaccValid() )
   {
     extent = QgsRectangle( positionInformation.longitude() - 1.0, positionInformation.latitude() - 1.0, positionInformation.longitude() + 1.0, positionInformation.latitude() + 1.0 );
@@ -239,31 +238,52 @@ QgsRectangle PositioningUtils::createExtentForDevice( const GnssPositionInformat
     }
   }
 
-  if ( !extent.isEmpty() )
-  {
-    if ( extentCrs != crs )
-    {
-      QgsCoordinateTransform transform( extentCrs, crs, QgsProject::instance()->transformContext() );
-      try
-      {
-        extent = transform.transform( extent );
-      }
-      catch ( const QgsException &e )
-      {
-        extent = QgsRectangle();
-      }
-    }
-
-    if ( !extent.isEmpty() )
-    {
-      extent.intersect( crs.bounds() );
-    }
-  }
-
   if ( extent.isEmpty() )
   {
     extent = crs.bounds();
-    extentCrs = crs;
+  }
+
+  if ( !extent.isEmpty() )
+  {
+    const QgsCoordinateReferenceSystem wgs84Crs = QgsCoordinateReferenceSystem::fromEpsgId( 4326 );
+    QgsCoordinateTransform transform( wgs84Crs, crs, QgsProject::instance()->transformContext() );
+    try
+    {
+      extent = transform.transform( extent );
+    }
+    catch ( const QgsException &e )
+    {
+      extent = QgsRectangle();
+    }
+
+    if ( !withinRectangle.isEmpty() )
+    {
+      extent = extent.intersect( withinRectangle );
+      if ( extent.isEmpty() )
+      {
+        extent = withinRectangle;
+      }
+    }
+    else
+    {
+      QgsRectangle crsBounds = crs.bounds();
+      try
+      {
+        crsBounds = transform.transform( crsBounds );
+      }
+      catch ( const QgsException &e )
+      {
+        crsBounds = QgsRectangle();
+      }
+      if ( !crsBounds.isEmpty() )
+      {
+        extent = extent.intersect( crsBounds );
+        if ( extent.isEmpty() )
+        {
+          extent = crsBounds;
+        }
+      }
+    }
   }
 
   return extent;

@@ -328,8 +328,10 @@ QString ProjectUtils::createProject( const QVariantMap &options, const GnssPosit
 
   // Basemap
   QgsMapLayer *basemapLayer = nullptr;
+  QgsRectangle basemapExtent;
   const QString basemap = options.value( QStringLiteral( "basemap" ), QStringLiteral( "color" ) ).toString();
   const QString basemapCustomProvider = options.value( QStringLiteral( "basemap_custom_provider" ) ).toString();
+  const QString basemapCustomExtent = options.value( QStringLiteral( "basemap_custom_extent" ) ).toString();
   QString basemapCustomSource = options.value( QStringLiteral( "basemap_custom_source" ) ).toString();
   if ( basemap.compare( QStringLiteral( "colorful" ) ) == 0 || basemap.compare( QStringLiteral( "darkgray" ) ) == 0 || basemap.compare( QStringLiteral( "lightgray" ) ) == 0 )
   {
@@ -363,12 +365,24 @@ QString ProjectUtils::createProject( const QVariantMap &options, const GnssPosit
     {
       basemapLayer = new QgsRasterLayer( basemapCustomSource, tr( "Basemap" ), basemapCustomProvider );
     }
+
+    basemapExtent = basemapLayer->extent();
+    if ( !basemapCustomExtent.isEmpty() )
+    {
+      const QgsRectangle customExtent = QgsRectangle::fromWkt( basemapCustomExtent );
+      if ( !customExtent.isEmpty() )
+      {
+        basemapExtent = customExtent;
+      }
+    }
   }
 
+  QgsRectangle createdProjectExtent;
   if ( basemapLayer && basemapLayer->isValid() )
   {
     createdProjectLayers << basemapLayer;
     createdProject->setCrs( basemapLayer->crs() );
+    createdProjectExtent = basemapExtent;
   }
 
   // Insure attachment directories are populated in preparation for cloud project
@@ -379,7 +393,7 @@ QString ProjectUtils::createProject( const QVariantMap &options, const GnssPosit
 
   createdProject->addMapLayers( createdProjectLayers );
 
-  connect( createdProject, &QgsProject::writeProject, [createdProject, positionInformation]( QDomDocument &document ) {
+  connect( createdProject, &QgsProject::writeProject, [createdProject, createdProjectExtent, positionInformation]( QDomDocument &document ) {
     QDomNodeList nodes = document.elementsByTagName( "qgis" );
     if ( !nodes.isEmpty() )
     {
@@ -391,7 +405,7 @@ QString ProjectUtils::createProject( const QVariantMap &options, const GnssPosit
 
       node.appendChild( canvasElement );
 
-      QgsRectangle extent = PositioningUtils::createExtentForDevice( positionInformation, createdProject->crs() );
+      QgsRectangle extent = PositioningUtils::createExtentForDevice( positionInformation, createdProject->crs(), createdProjectExtent );
       if ( !extent.isEmpty() )
       {
         QgsMapSettings mapSettings;
