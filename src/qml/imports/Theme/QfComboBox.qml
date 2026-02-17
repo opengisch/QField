@@ -13,6 +13,8 @@ ComboBox {
 
   property alias text: contentText
 
+  Material.accent: Material.primaryTextColor
+
   contentItem: T.TextField {
     id: contentText
     leftPadding: comboBox.background.visible ? Material.textFieldHorizontalPadding : 0
