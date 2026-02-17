@@ -50,10 +50,11 @@ class Quick3DMapTextureData : public QQuick3DTextureData
     //! Whether the texture data is ready to use
     Q_PROPERTY( bool ready READ isReady NOTIFY readyChanged )
 
-    /**
-     * When the incrementalRendering property is set to true, the incremental refresh of the terrain data during rendering is allowed.
-     */
+    //! When the incrementalRendering property is set to true, the incremental refresh of the terrain data during rendering is allowed
     Q_PROPERTY( bool incrementalRendering READ incrementalRendering WRITE setIncrementalRendering NOTIFY incrementalRenderingChanged )
+
+    //! Defers layer repaint requests while a render job is running
+    Q_PROPERTY( bool forceDeferredLayersRepaint READ forceDeferredLayersRepaint WRITE setForceDeferredLayersRepaint NOTIFY forceDeferredLayersRepaintChanged )
 
   public:
     //! Creates a new map texture data provider
@@ -81,6 +82,12 @@ class Quick3DMapTextureData : public QQuick3DTextureData
     //! Sets whether incremental rendering is enabled.
     void setIncrementalRendering( bool incrementalRendering );
 
+    //! Returns whether deferred layers repaint is forced.
+    bool forceDeferredLayersRepaint() const;
+
+    //! Sets whether deferred layers repaint is forced.
+    void setForceDeferredLayersRepaint( bool deferred );
+
     /**
      * Starts the asynchronous map rendering process.
      * The readyChanged signal is emitted when rendering completes.
@@ -100,18 +107,26 @@ class Quick3DMapTextureData : public QQuick3DTextureData
     //! Emitted when incremental rendering setting changes
     void incrementalRenderingChanged();
 
+    //! Emitted when forceDeferredLayersRepaint changes
+    void forceDeferredLayersRepaintChanged();
+
   private slots:
     void onRenderJobUpdated();
     void onRenderFinished();
+    void layerRepaintRequested();
 
   private:
     void updateTextureData( const QImage &image );
+    void refresh();
 
     QgsQuickMapSettings *mMapSettings = nullptr;
     QgsRectangle mExtent;
     QObjectUniquePtr<QgsMapRendererParallelJob> mRenderJob;
     QTimer mMapUpdateTimer;
+    QTimer mRefreshTimer;
     bool mIncrementalRendering = false;
+    bool mForceDeferredLayersRepaint = false;
+    bool mDeferredRefreshPending = false;
     bool mReady = false;
     QVector<QMetaObject::Connection> mLayerConnections;
 };

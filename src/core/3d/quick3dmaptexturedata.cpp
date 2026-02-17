@@ -30,6 +30,9 @@ Quick3DMapTextureData::Quick3DMapTextureData( QQuick3DObject *parent )
   connect( &mMapUpdateTimer, &QTimer::timeout, this, &Quick3DMapTextureData::onRenderJobUpdated );
   mMapUpdateTimer.setSingleShot( false );
   mMapUpdateTimer.setInterval( 250 );
+
+  connect( &mRefreshTimer, &QTimer::timeout, this, &Quick3DMapTextureData::render );
+  mRefreshTimer.setSingleShot( true );
 }
 
 Quick3DMapTextureData::~Quick3DMapTextureData()
@@ -73,7 +76,7 @@ void Quick3DMapTextureData::setMapSettings( QgsQuickMapSettings *mapSettings )
     const QList<QgsMapLayer *> layers = mMapSettings->layers();
     for ( const QgsMapLayer *layer : layers )
     {
-      mLayerConnections << connect( layer, &QgsMapLayer::repaintRequested, this, &Quick3DMapTextureData::render );
+      mLayerConnections << connect( layer, &QgsMapLayer::repaintRequested, this, &Quick3DMapTextureData::layerRepaintRequested );
     }
   }
 
@@ -117,6 +120,44 @@ void Quick3DMapTextureData::setIncrementalRendering( bool incrementalRendering )
   emit incrementalRenderingChanged();
 }
 
+bool Quick3DMapTextureData::forceDeferredLayersRepaint() const
+{
+  return mForceDeferredLayersRepaint;
+}
+
+void Quick3DMapTextureData::setForceDeferredLayersRepaint( bool deferred )
+{
+  if ( mForceDeferredLayersRepaint == deferred )
+    return;
+
+  mForceDeferredLayersRepaint = deferred;
+  emit forceDeferredLayersRepaintChanged();
+}
+
+void Quick3DMapTextureData::layerRepaintRequested()
+{
+  if ( mForceDeferredLayersRepaint )
+  {
+    if ( !mRenderJob && !mRefreshTimer.isActive() )
+    {
+      refresh();
+    }
+    else
+    {
+      mDeferredRefreshPending = true;
+    }
+  }
+  else
+  {
+    refresh();
+  }
+}
+
+void Quick3DMapTextureData::refresh()
+{
+  mRefreshTimer.start( 1 );
+}
+
 void Quick3DMapTextureData::render()
 {
   if ( !mMapSettings || mExtent.isEmpty() )
@@ -124,6 +165,7 @@ void Quick3DMapTextureData::render()
     return;
   }
 
+  mRefreshTimer.stop();
   mMapUpdateTimer.stop();
   if ( mRenderJob )
   {
@@ -200,6 +242,12 @@ void Quick3DMapTextureData::onRenderFinished()
   {
     updateTextureData( renderedImage );
   }
+
+  if ( mDeferredRefreshPending )
+  {
+    mDeferredRefreshPending = false;
+    refresh();
+  }
 }
 
 void Quick3DMapTextureData::updateTextureData( const QImage &image )
@@ -210,7 +258,7 @@ void Quick3DMapTextureData::updateTextureData( const QImage &image )
   setFormat( QQuick3DTextureData::RGBA8 );
   setHasTransparency( true );
 
-  const int dataSize = rgbaImage.sizeInBytes();
+  const qsizetype dataSize = rgbaImage.sizeInBytes();
   QByteArray textureData( reinterpret_cast<const char *>( rgbaImage.constBits() ), dataSize );
   setTextureData( textureData );
 

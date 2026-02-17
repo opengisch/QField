@@ -695,6 +695,7 @@ ApplicationWindow {
 
       onLoaded: {
         item.mapSettings = mapCanvas.mapSettings;
+        item.trackingModel = trackingModel;
 
         // Bind GNSS position updates
         item.gnssActive = Qt.binding(() => positionSource.active && positionSource.positionInformation && positionSource.positionInformation.latitudeValid);

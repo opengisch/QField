@@ -19,6 +19,8 @@ Item {
   property real gnssSpeed: -1
   property real gnssDirection: -1
 
+  property TrackingModel trackingModel: null
+
   signal cameraInteractionDetected
 
   Quick3DTerrainProvider {
@@ -44,6 +46,7 @@ Item {
     mapSettings: mapArea.mapSettings
     extent: mapTerrainProvider.extent
     incrementalRendering: true
+    forceDeferredLayersRepaint: mapArea.trackingModel ? mapArea.trackingModel.count > 0 : false
   }
 
   Texture {
@@ -196,6 +199,20 @@ Item {
         }
       }
     }
+
+    Repeater3D {
+      id: trackingRubberbands
+      model: mapArea.trackingModel
+
+      Rubberband3D {
+        required property var modelData
+        required property int index
+        rubberbandModel: modelData.tracker ? modelData.tracker.rubberbandModel : null
+        terrainProvider: mapTerrainProvider
+        color: modelData.tracker ? modelData.tracker.color : "#FFFF3232"
+        visible: modelData.tracker ? modelData.tracker.visible : false
+      }
+    }
   }
 
   TouchCameraController {
@@ -275,28 +292,7 @@ Item {
   }
 
   function geoTo3D(geoX, geoY) {
-    const extW = mapTerrainProvider.extent.width;
-    const extH = mapTerrainProvider.extent.height;
-
-    if (extW <= 0 || extH <= 0)
-      return null;
-
-    const nx = (geoX - mapTerrainProvider.extent.xMinimum) / extW;
-    const nz = (geoY - mapTerrainProvider.extent.yMinimum) / extH;
-
-    if (nx < 0 || nx > 1 || nz < 0 || nz > 1) {
-      return null;
-    }
-
-    const width = mapTerrainProvider.size.width;
-    const height = mapTerrainProvider.size.height;
-    const x3d = (nx - 0.5) * width;
-    const z3d = (0.5 - nz) * height;
-
-    let y3d = mapTerrainProvider.normalizedHeightAt(geoX, geoY);
-    y3d += 15;
-
-    return Qt.vector3d(x3d, y3d, z3d);
+    return mapTerrainProvider.geoTo3D(geoX, geoY, 15);
   }
 
   function lookAtPoint(pos3d, distance) {

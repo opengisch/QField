@@ -228,6 +228,33 @@ double Quick3DTerrainProvider::normalizedHeightAt( double x, double y ) const
   return ( realHeight - mMinRealHeight ) * scale;
 }
 
+QVector3D Quick3DTerrainProvider::geoTo3D( double geoX, double geoY, float heightOffset ) const
+{
+  const double extW = mExtent.width();
+  const double extH = mExtent.height();
+
+  if ( extW <= 0 || extH <= 0 )
+  {
+    return QVector3D( std::numeric_limits<float>::quiet_NaN(), 0, 0 );
+  }
+
+  const double nx = ( geoX - mExtent.xMinimum() ) / extW;
+  const double nz = ( geoY - mExtent.yMinimum() ) / extH;
+
+  if ( nx < 0 || nx > 1 || nz < 0 || nz > 1 )
+  {
+    return QVector3D( std::numeric_limits<float>::quiet_NaN(), 0, 0 );
+  }
+
+  const float x3d = static_cast<float>( ( nx - 0.5 ) * mSize.width() );
+  const float z3d = static_cast<float>( ( 0.5 - nz ) * mSize.height() );
+
+  float y3d = static_cast<float>( normalizedHeightAt( geoX, geoY ) );
+  y3d += heightOffset;
+
+  return QVector3D( x3d, y3d, z3d );
+}
+
 double Quick3DTerrainProvider::calculateVisualExaggeration() const
 {
   const double extentSize = std::max( mExtent.width(), mExtent.height() );

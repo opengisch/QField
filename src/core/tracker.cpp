@@ -18,6 +18,7 @@
 #include "rubberbandmodel.h"
 #include "tracker.h"
 
+#include <QRandomGenerator>
 #include <qgsproject.h>
 #include <qgssensormanager.h>
 
@@ -26,8 +27,22 @@
 Tracker::Tracker( QgsVectorLayer *vectorLayer )
   : mVectorLayer( vectorLayer )
 {
+  QRandomGenerator *rng = QRandomGenerator::global();
+  mColor = QColor::fromRgbF( std::min( 0.75, rng->generateDouble() ), std::min( 0.75, rng->generateDouble() ), std::min( 0.75, rng->generateDouble() ), 0.6 );
+
   mDa.setEllipsoid( QgsProject::instance()->ellipsoid() );
   mDa.setSourceCrs( QgsProject::instance()->crs(), QgsProject::instance()->transformContext() );
+}
+
+void Tracker::setColor( const QColor &color )
+{
+  if ( mColor == color )
+  {
+    return;
+  }
+
+  mColor = color;
+  emit colorChanged();
 }
 
 void Tracker::setVisible( bool visible )
