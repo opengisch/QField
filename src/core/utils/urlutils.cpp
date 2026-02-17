@@ -143,7 +143,7 @@ QString UrlUtils::createActionUrl( const QString &scheme, const QString &type, c
   return url.toString();
 }
 
-QString UrlUtils::createEncodedUri( const QVariantMap &parameters )
+QString UrlUtils::createEncodedUrl( const QVariantMap &parameters )
 {
   QUrlQuery url;
 
@@ -154,6 +154,6 @@ QString UrlUtils::createEncodedUri( const QVariantMap &parameters )
     url.addQueryItem( key, QUrl::toPercentEncoding( parameters[key].toString(), ":/?" ) );
   }
 
-  const QString encodedUri = url.toString( QUrl::FullyEncoded );
-  return encodedUri.isEmpty() ? QByteArray( "" ) : encodedUri.toLatin1();
+  const QString encodedUrl = url.toString( QUrl::FullyEncoded );
+  return encodedUrl.isEmpty() ? QByteArray( "" ) : encodedUrl.toLatin1();
 }
