@@ -67,7 +67,11 @@ class QFIELD_CORE_EXPORT UrlUtils : public QObject
      */
     static Q_INVOKABLE QString createActionUrl( const QString &scheme, const QString &type, const QVariantMap &details );
 
-    static Q_INVOKABLE QString createEncodedUri( const QVariantMap &parameters );
+    /**
+     * Returns an encoded URL built using parameters' pair of key and value as
+     * query items.
+     */
+    static Q_INVOKABLE QString createEncodedUrl( const QVariantMap &parameters );
 };
 
 #endif // URLUTILS_H

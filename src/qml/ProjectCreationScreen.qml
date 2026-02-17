@@ -268,7 +268,7 @@ Page {
                             "zmin": 0,
                             "zmax": 14
                           };
-                          customSource = UrlUtils.createEncodedUri(params);
+                          customSource = UrlUtils.createEncodedUrl(params);
                           customProvider = "vectortile";
                           return;
                         } else if (text.indexOf("{z}") >= 0 || text.indexOf("{q}") >= 0) {
@@ -279,7 +279,7 @@ Page {
                             "zmin": 0,
                             "zmax": 19
                           };
-                          customSource = UrlUtils.createEncodedUri(params);
+                          customSource = UrlUtils.createEncodedUrl(params);
                           customProvider = "wms";
                           return;
                         }
@@ -307,7 +307,7 @@ Page {
           Loader {
             id: basemapLoader
             width: parent.width
-            sourceComponent: basemapProviders.currentItem.settings
+            sourceComponent: basemapProviders.currentItem ? basemapProviders.currentItem.settings : null
           }
         }
       }
