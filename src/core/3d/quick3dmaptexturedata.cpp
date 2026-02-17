@@ -258,7 +258,7 @@ void Quick3DMapTextureData::updateTextureData( const QImage &image )
   setFormat( QQuick3DTextureData::RGBA8 );
   setHasTransparency( true );
 
-  const int dataSize = rgbaImage.sizeInBytes();
+  const qsizetype dataSize = rgbaImage.sizeInBytes();
   QByteArray textureData( reinterpret_cast<const char *>( rgbaImage.constBits() ), dataSize );
   setTextureData( textureData );
 

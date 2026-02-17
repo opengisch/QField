@@ -41,6 +41,7 @@ class Tracker : public QObject
     Q_PROPERTY( bool isReplaying READ isReplaying NOTIFY isReplayingChanged )
 
     Q_PROPERTY( bool visible READ visible WRITE setVisible NOTIFY visibleChanged )
+    Q_PROPERTY( QColor color READ color WRITE setColor NOTIFY colorChanged )
 
     Q_PROPERTY( QgsVectorLayer *vectorLayer READ vectorLayer WRITE setVectorLayer NOTIFY vectorLayerChanged )
     Q_PROPERTY( QgsFeature feature READ feature WRITE setFeature NOTIFY featureChanged )
@@ -58,8 +59,6 @@ class Tracker : public QObject
     Q_PROPERTY( QDateTime startPositionTimestamp READ startPositionTimestamp WRITE setStartPositionTimestamp NOTIFY startPositionTimestampChanged )
 
     Q_PROPERTY( bool filterAccuracy READ filterAccuracy WRITE setFilterAccuracy NOTIFY filterAccuracyChanged )
-
-    Q_PROPERTY( QColor color READ color WRITE setColor NOTIFY colorChanged )
 
   public:
     enum MeasureType

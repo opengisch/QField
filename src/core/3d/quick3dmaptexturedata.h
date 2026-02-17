@@ -50,10 +50,10 @@ class Quick3DMapTextureData : public QQuick3DTextureData
     //! Whether the texture data is ready to use
     Q_PROPERTY( bool ready READ isReady NOTIFY readyChanged )
 
-    //! When the incrementalRendering property is set to true, the incremental refresh of the terrain data during rendering is allowed.
+    //! When the incrementalRendering property is set to true, the incremental refresh of the terrain data during rendering is allowed
     Q_PROPERTY( bool incrementalRendering READ incrementalRendering WRITE setIncrementalRendering NOTIFY incrementalRenderingChanged )
 
-    //! Defers layer repaint requests while a render job is running (avoids flicker during tracking)
+    //! Defers layer repaint requests while a render job is running
     Q_PROPERTY( bool forceDeferredLayersRepaint READ forceDeferredLayersRepaint WRITE setForceDeferredLayersRepaint NOTIFY forceDeferredLayersRepaintChanged )
 
   public:

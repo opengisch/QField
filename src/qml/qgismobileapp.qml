@@ -695,7 +695,6 @@ ApplicationWindow {
 
       onLoaded: {
         item.mapSettings = mapCanvas.mapSettings;
-
         item.trackingModel = trackingModel;
 
         // Bind GNSS position updates
