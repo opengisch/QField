@@ -1951,9 +1951,16 @@ ApplicationWindow {
       }
 
       onClicked: {
-        if (gnssButton.followActive && gnssButton.followOrientationActive) {
-          gnssButton.click();
+        if (gnssButton.followActive) {
+          mapCanvasMap.unfreeze('follow');
+          gnssButton.followActive = false;
+          if (gnssButton.autoRefollow) {
+            showAutoLockToast();
+          }
+        } else if (gnssButton.autoRefollow) {
+          showAutoLockToast();
         }
+
         mapCanvas.mapSettings.rotation = 0;
       }
     }
@@ -2895,12 +2902,12 @@ ApplicationWindow {
           if (gnssButton.followActive) {
             if (gnssButton.followActiveSkipExtentChanged) {
               gnssButton.followActiveSkipExtentChanged = false;
-            } else {
-              mapCanvasMap.unfreeze('follow');
-              gnssButton.followActive = false;
-              if (gnssButton.autoRefollow) {
-                showAutoLockToast();
-              }
+              return;
+            }
+            mapCanvasMap.unfreeze('follow');
+            gnssButton.followActive = false;
+            if (gnssButton.autoRefollow) {
+              showAutoLockToast();
             }
           } else if (gnssButton.autoRefollow) {
             showAutoLockToast();
@@ -2911,16 +2918,16 @@ ApplicationWindow {
           if (mapCanvasMap.jumping) {
             return;
           }
-          if (gnssButton.followActive && gnssButton.followOrientationActive) {
-            if (gnssButton.followActiveSkipRotationChanged) {
+          if (gnssButton.followActive) {
+            if (gnssButton.followOrientationActive && gnssButton.followActiveSkipRotationChanged) {
               gnssButton.followActiveSkipRotationChanged = false;
               return;
             }
-          }
-          if (gnssButton.followActive && gnssButton.autoRefollow) {
             mapCanvasMap.unfreeze('follow');
             gnssButton.followActive = false;
-            showAutoLockToast();
+            if (gnssButton.autoRefollow) {
+              showAutoLockToast();
+            }
           } else if (gnssButton.autoRefollow) {
             showAutoLockToast();
           }
