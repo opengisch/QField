@@ -656,8 +656,12 @@ bool FeatureModel::save( bool flushBuffer )
         // We take charge of default values that are set to be applied on feature update to take into account positioning and cloud context
         updateDefaultValues();
 
-        QgsFeature temporaryFeature = mFeature;
-        if ( !mLayer->updateFeature( temporaryFeature, true ) )
+        QgsGeometry temporaryGeometry = mFeature.geometry();
+        QgsAttributeMap temporaryAttributeMap = mFeature.attributes().toMap();
+        bool changed = false;
+        changed = mLayer->changeGeometry( mFeature.id(), temporaryGeometry, true );
+        changed |= mLayer->changeAttributeValues( mFeature.id(), temporaryAttributeMap, QgsAttributeMap(), true );
+        if ( !changed )
         {
           QgsMessageLog::logMessage( tr( "Cannot update feature" ), QStringLiteral( "QField" ), Qgis::Warning );
         }
@@ -665,7 +669,7 @@ bool FeatureModel::save( bool flushBuffer )
         if ( flushBuffer )
         {
           isSuccess &= commit( !wasEditing );
-          if ( isSuccess )
+          if ( isSuccess && !wasEditing )
           {
             QgsFeature modifiedFeature;
             if ( mLayer->getFeatures( QgsFeatureRequest().setFilterFid( mFeature.id() ) ).nextFeature( modifiedFeature ) )
