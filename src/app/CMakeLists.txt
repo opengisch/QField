@@ -20,18 +20,17 @@ find_package(Qt6 COMPONENTS LinguistTools)
 file(GLOB QM_FILES_MANUAL ${CMAKE_SOURCE_DIR}/i18n/*.qm)
 
 if(APP_ICON_PATH AND EXISTS "${APP_ICON_PATH}/${APP_ICON}.svg")
-  set(QFIELD_APP_LOGO_SVG_PATH "${APP_ICON_PATH}/${APP_ICON}.svg")
-  message(STATUS "Using custom SVG logo: ${QFIELD_APP_LOGO_SVG_PATH}")
+  set(APP_LOGO_SVG_PATH "${APP_ICON_PATH}/${APP_ICON}.svg")
+  message(STATUS "Using custom SVG logo: ${APP_LOGO_SVG_PATH}")
 else()
-  set(QFIELD_APP_LOGO_SVG_PATH
-      "${CMAKE_SOURCE_DIR}/images/icons/${APP_ICON}.svg")
-  message(STATUS "Using built-in SVG logo: ${QFIELD_APP_LOGO_SVG_PATH}")
+  set(APP_LOGO_SVG_PATH "${CMAKE_SOURCE_DIR}/images/icons/${APP_ICON}.svg")
+  message(STATUS "Using built-in SVG logo: ${APP_LOGO_SVG_PATH}")
 endif()
 
-if(NOT EXISTS "${QFIELD_APP_LOGO_SVG_PATH}")
+if(NOT EXISTS "${APP_LOGO_SVG_PATH}")
   message(
     FATAL_ERROR
-      "App logo SVG not found: ${QFIELD_APP_LOGO_SVG_PATH}\n"
+      "App logo SVG not found: ${APP_LOGO_SVG_PATH}\n"
       "Please either:\n"
       "  1. Set APP_ICON_PATH to a directory containing ${APP_ICON}.svg, or\n"
       "  2. Ensure images/icons/${APP_ICON}.svg exists in the QField source tree."

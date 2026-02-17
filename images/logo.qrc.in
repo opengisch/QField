@@ -1,5 +1,5 @@
 <RCC>
     <qresource prefix="/images">
-        <file alias="qfield_logo.svg">@QFIELD_APP_LOGO_SVG_PATH@</file>
+        <file alias="app_logo.svg">@APP_LOGO_SVG_PATH@</file>
     </qresource>
 </RCC>
