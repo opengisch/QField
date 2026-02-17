@@ -1951,6 +1951,15 @@ Page {
                     }
                   }
                 }
+
+                Connections {
+                  target: positionSource
+                  function onPositionInformationChanged() {
+                    if (mountpointModel.fetchStatus === MountpointModel.Success && positionSource.positionInformation && positionSource.positionInformation.latitudeValid) {
+                      mountpointModel.updatePosition(positionSource.positionInformation.latitude, positionSource.positionInformation.longitude);
+                    }
+                  }
+                }
                 textRole: "name"
 
                 delegate: ItemDelegate {
