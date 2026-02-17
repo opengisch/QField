@@ -1,6 +1,7 @@
 import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
+import org.qfield
 import Theme
 
 /**
@@ -36,7 +37,7 @@ Page {
   }
 
   // Data freshness check for AC4 (stale >30s → show "—")
-  readonly property bool isDataCurrent: positionSource.positionInformation.isValid && positionSource.currentness
+  readonly property bool isDataCurrent: positionSource.positionInformation && positionSource.positionInformation.isValid && positionSource.currentness
 
   function formatBytes(bytes) {
     if (bytes < 1024)
@@ -117,7 +118,7 @@ Page {
 
       DataRow {
         label: qsTr("Source")
-        value: positionSource.positionInformation.sourceName || "\u2014"
+        value: positionSource.positionInformation && positionSource.positionInformation.sourceName ? positionSource.positionInformation.sourceName : "\u2014"
       }
 
       DataRow {
@@ -223,13 +224,13 @@ Page {
 
       DataRow {
         label: qsTr("H. Accuracy")
-        value: gnssStatusPage.isDataCurrent && positionSource.positionInformation.haccValid ? (positionSource.positionInformation.hacc * 1000).toFixed(1) + " mm" : "\u2014"
+        value: gnssStatusPage.isDataCurrent && positionSource.positionInformation.haccValid ? (positionSource.positionInformation.hacc * 100).toFixed(1) + " cm" : "\u2014"
         valueColor: gnssStatusPage.isDataCurrent && positionSource.positionInformation.haccValid ? Theme.accuracyColor(positionSource.positionInformation.hacc) : Theme.secondaryTextColor
       }
 
       DataRow {
         label: qsTr("V. Accuracy")
-        value: gnssStatusPage.isDataCurrent && positionSource.positionInformation.vaccValid ? (positionSource.positionInformation.vacc * 1000).toFixed(1) + " mm" : "\u2014"
+        value: gnssStatusPage.isDataCurrent && positionSource.positionInformation.vaccValid ? (positionSource.positionInformation.vacc * 100).toFixed(1) + " cm" : "\u2014"
         valueColor: gnssStatusPage.isDataCurrent && positionSource.positionInformation.vaccValid ? Theme.accuracyColor(positionSource.positionInformation.vacc) : Theme.secondaryTextColor
       }
 

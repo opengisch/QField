@@ -69,9 +69,14 @@ QVariant SatelliteModel::data( const QModelIndex &index, int role ) const
 
 void SatelliteModel::updateSatellites( const QList<QgsSatelliteInfo> &satellites )
 {
+  const int oldCount = static_cast<int>( mSatellites.size() );
   beginResetModel();
   mSatellites = satellites;
   endResetModel();
+  if ( static_cast<int>( mSatellites.size() ) != oldCount )
+  {
+    emit countChanged();
+  }
 }
 
 QString SatelliteModel::constellationName( const QgsSatelliteInfo &info )

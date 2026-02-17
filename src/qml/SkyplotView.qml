@@ -2,6 +2,7 @@ import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
 import QtQuick.Shapes
+import org.qfield
 import Theme
 
 /**
@@ -85,7 +86,7 @@ Page {
         Text {
           font: Theme.tipFont
           color: Theme.mainTextColor
-          text: positionSource.positionInformation.utcDateTime.toLocaleTimeString(Qt.locale(), "HH:mm:ss")
+          text: positionSource.positionInformation && positionSource.positionInformation.utcDateTime ? positionSource.positionInformation.utcDateTime.toLocaleTimeString(Qt.locale(), "HH:mm:ss") : qsTr("N/A")
           Layout.fillWidth: true
         }
         Text {
@@ -95,8 +96,8 @@ Page {
         }
         Text {
           font: Theme.strongTipFont
-          color: Theme.fixTypeColor(positionSource.positionInformation.quality)
-          text: positionSource.positionInformation.qualityDescription
+          color: positionSource.positionInformation ? Theme.fixTypeColor(positionSource.positionInformation.quality) : Theme.secondaryTextColor
+          text: positionSource.positionInformation ? positionSource.positionInformation.qualityDescription : qsTr("N/A")
           Layout.fillWidth: true
         }
 
@@ -109,7 +110,7 @@ Page {
         Text {
           font: Theme.tipFont
           color: Theme.mainTextColor
-          text: positionSource.positionInformation.latitudeValid ? positionSource.positionInformation.latitude.toFixed(6) + "°" : qsTr("N/A")
+          text: positionSource.positionInformation && positionSource.positionInformation.latitudeValid ? positionSource.positionInformation.latitude.toFixed(6) + "°" : qsTr("N/A")
           Layout.fillWidth: true
         }
         Text {
@@ -120,7 +121,7 @@ Page {
         Text {
           font: Theme.tipFont
           color: Theme.mainTextColor
-          text: positionSource.positionInformation.hdop > 0 ? positionSource.positionInformation.hdop.toFixed(1) : qsTr("N/A")
+          text: positionSource.positionInformation && positionSource.positionInformation.hdop > 0 ? positionSource.positionInformation.hdop.toFixed(1) : qsTr("N/A")
           Layout.fillWidth: true
         }
 
@@ -133,7 +134,7 @@ Page {
         Text {
           font: Theme.tipFont
           color: Theme.mainTextColor
-          text: positionSource.positionInformation.longitudeValid ? positionSource.positionInformation.longitude.toFixed(6) + "°" : qsTr("N/A")
+          text: positionSource.positionInformation && positionSource.positionInformation.longitudeValid ? positionSource.positionInformation.longitude.toFixed(6) + "°" : qsTr("N/A")
           Layout.fillWidth: true
         }
         Text {
@@ -144,7 +145,7 @@ Page {
         Text {
           font: Theme.tipFont
           color: Theme.mainTextColor
-          text: positionSource.positionInformation.satellitesUsed + " / " + positionSource.satelliteModel.count
+          text: (positionSource.positionInformation ? positionSource.positionInformation.satellitesUsed : 0) + " / " + positionSource.satelliteModel.count
           Layout.fillWidth: true
         }
       }

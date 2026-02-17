@@ -30,6 +30,8 @@ class SatelliteModel : public QAbstractListModel
 {
     Q_OBJECT
 
+    Q_PROPERTY( int count READ rowCount NOTIFY countChanged )
+
   public:
     enum Role
     {
@@ -52,6 +54,9 @@ class SatelliteModel : public QAbstractListModel
      * Updates the model with a new list of satellite information.
      */
     void updateSatellites( const QList<QgsSatelliteInfo> &satellites );
+
+  signals:
+    void countChanged();
 
   private:
     /**

@@ -2446,7 +2446,7 @@ ApplicationWindow {
         size: 48
         round: true
         bgcolor: Theme.toolButtonBackgroundColor
-        iconSource: Theme.getThemeVectorIcon('ic_gnss_satellite_white_24dp')
+        iconSource: Theme.getThemeVectorIcon('ic_gnss_antenna_white_24dp')
         iconColor: Theme.toolButtonColor
         spacing: 4
         visible: positionSource.active && positionSource.deviceId !== ""
@@ -2457,7 +2457,7 @@ ApplicationWindow {
           height: 40
           padding: 2
           round: true
-          iconSource: Theme.getThemeVectorIcon("ic_gnss_antenna_white_24dp")
+          iconSource: Theme.getThemeVectorIcon("ic_gnss_satellite_white_24dp")
           iconColor: Theme.toolButtonColor
           bgcolor: Theme.toolButtonBackgroundSemiOpaqueColor
 
