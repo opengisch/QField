@@ -18,6 +18,8 @@
 
 #include <QVector3D>
 #include <QtMath>
+#include <qgslinestring.h>
+#include <qgsmultilinestring.h>
 
 #include <algorithm>
 #include <cmath>
@@ -36,7 +38,7 @@ void Quick3DRubberbandGeometry::setRubberbandModel( RubberbandModel *model )
 
   if ( mRubberbandModel )
   {
-    disconnect( mRubberbandModel, nullptr, this, nullptr );
+    disconnect( mRubberbandModel );
   }
 
   mRubberbandModel = model;
@@ -63,7 +65,7 @@ void Quick3DRubberbandGeometry::setTerrainProvider( Quick3DTerrainProvider *prov
 
   if ( mTerrainProvider )
   {
-    disconnect( mTerrainProvider, nullptr, this, nullptr );
+    disconnect( mTerrainProvider );
   }
 
   mTerrainProvider = provider;
@@ -154,28 +156,25 @@ void Quick3DRubberbandGeometry::updateGeometry()
     return;
   }
 
-  // Build sub-paths: split at points that fall outside the terrain extent
-  const QVector<QgsPoint> vertices = mRubberbandModel->vertices();
   QVector<QVector<QVector3D>> subPaths;
+  //const ;
+  const QgsMultiLineString multiLineString( QList<QgsLineString>() << QgsLineString( mRubberbandModel->vertices() ) );
+  const QgsGeometry lineGeometry( multiLineString.clone() );
+  const QVector<QgsGeometry> lineCollection = lineGeometry.intersection( QgsGeometry::fromRect( mTerrainProvider->extent() ) ).asGeometryCollection();
+  for ( const QgsGeometry &line : lineCollection )
   {
     QVector<QVector3D> current;
-    for ( const QgsPoint &pt : vertices )
+    QgsVertexIterator vertices = line.vertices();
+    while ( vertices.hasNext() )
     {
-      const QVector3D pos = mTerrainProvider->geoTo3D( pt.x(), pt.y(), mHeightOffset );
-      if ( std::isnan( pos.x() ) )
-      {
-        if ( current.size() >= 2 )
-        {
-          subPaths.append( std::move( current ) );
-        }
-        current = {};
-      }
-      else
+      const QgsPoint vertex = vertices.next();
+      const QVector3D pos = mTerrainProvider->geoTo3D( vertex.x(), vertex.y(), mHeightOffset );
+      if ( !std::isnan( pos.x() ) )
       {
         current.append( pos );
       }
     }
-    if ( current.size() >= 2 )
+    if ( current.size() > 1 )
     {
       subPaths.append( std::move( current ) );
     }
@@ -243,7 +242,7 @@ void Quick3DRubberbandGeometry::updateGeometry()
 
   for ( const QVector<QVector3D> &path : subPaths )
   {
-    const int ringCount = path.size();
+    const int ringCount = static_cast<int>( path.size() );
 
     for ( int ring = 0; ring < ringCount; ++ring )
     {
