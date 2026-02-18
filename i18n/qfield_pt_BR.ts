@@ -295,8 +295,7 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Bluetooth permission is required to scan for bluetooth devices</source>
-        <translation>É necessária permissão Bluetooth para procurar dispositivos Bluetooth
-</translation>
+        <translation>É necessária permissão de localização para procurar dispositivos Bluetooth</translation>
     </message>
     <message>
         <source>Location permission denied</source>
@@ -546,7 +545,7 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Paste failed: commitChanges failed on layer %1</source>
-        <translation>Colar falhou: o registro de alterações falhou na camada %1</translation>
+        <translation>Colar falhou: commitChanges falhou na camada %1</translation>
     </message>
     <message>
         <source>Cut commit failed on source layer %1</source>
@@ -4374,7 +4373,7 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>If enabled, areas just outside of the visible map canvas extent will be partially rendered to allow preview when zooming and panning.</source>
-        <translation type="unfinished"/>
+        <translation>Se ativado, as áreas fora da extensão visível da tela do mapa serão parcialmente renderizadas para permitir a visualização ao ampliar e deslocar.</translation>
     </message>
     <message>
         <source>Enable auto-save mode</source>
@@ -4886,7 +4885,7 @@ Cancele para fazer uma verificação mínima.</translation>
     <name>RelationEditorBase</name>
     <message>
         <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
-        <translation type="unfinished"/>
+        <translation>Não é possível adicionar o elemento filho: certifique-se de que o elemento pai cumpre todas as restrições e pode ser guardado</translation>
     </message>
     <message>
         <source>Adding child feature in layer %1</source>
@@ -5183,7 +5182,7 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>When enabled, vertex additions will occur when sensors have captured new data.</source>
-        <translation type="unfinished"/>
+        <translation>Quando ativado, as adições de vértices ocorrrem quando os sensores recolherem novos dados.</translation>
     </message>
     <message>
         <source>Wait for all active requirements</source>
@@ -5525,7 +5524,7 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Project variables</source>
-        <translation type="unfinished"/>
+        <translation>Variáveis ​​do projeto</translation>
     </message>
 </context>
 <context>
@@ -5558,7 +5557,7 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>No local paths provided.</source>
-        <translation type="unfinished"/>
+        <translation>Nenhum caminho local fornecido.</translation>
     </message>
     <message>
         <source>WebDAV is busy.</source>
@@ -6628,7 +6627,7 @@ project</source>
     </message>
     <message>
         <source>Editing of multipart geometry is not supported yet.</source>
-        <translation type="unfinished"/>
+        <translation>A edição de geometria multipartes ainda não é suportada.</translation>
     </message>
     <message>
         <source>Coordinate cursor locked to location</source>
@@ -6636,19 +6635,19 @@ project</source>
     </message>
     <message>
         <source>Map canvas unlocked</source>
-        <translation type="unfinished"/>
+        <translation>Tela do mapa desbloqueada</translation>
     </message>
     <message>
         <source>Map canvas locked to location</source>
-        <translation type="unfinished"/>
+        <translation>Tela do mapa bloqueada na localização</translation>
     </message>
     <message>
         <source>Map canvas locked to location and compass orientation</source>
-        <translation type="unfinished"/>
+        <translation>Tela do mapa bloqueada na localização e orientação da bússola</translation>
     </message>
     <message>
         <source>Map canvas follows location and compass orientation</source>
-        <translation type="unfinished"/>
+        <translation>O mapa segue a localização e a orientação da bússola</translation>
     </message>
     <message>
         <source>Map canvas follows location</source>
@@ -6656,24 +6655,25 @@ project</source>
     </message>
     <message>
         <source>Lock Coordinate Cursor to Location</source>
-        <translation type="unfinished"/>
+        <translation>Bloquear o cursor de coordenadas na localização</translation>
     </message>
     <message>
         <source>Lock Map Canvas to Location</source>
-        <translation type="unfinished"/>
+        <translation>Bloquear o mapa da tela na localização</translation>
     </message>
     <message>
         <source>Map canvas lock paused</source>
-        <translation type="unfinished"/>
+        <translation>Bloqueio da tela do mapa pausado</translation>
     </message>
     <message>
         <source>Tap on your location marker
 to show actions</source>
-        <translation type="unfinished"/>
+        <translation>Toque no marcador da sua localização
+para mostrar as ações</translation>
     </message>
     <message>
         <source>This button toggles the positioning system. When enabled, a position marker will appear top of the map. Long-pressing the button will open the positioning menu where additional functionalities can be explored.</source>
-        <translation type="unfinished"/>
+        <translation>Este botão ativa o sistema de posicionamento. Quando ativado, um marcador de posição aparecerá na parte superior do mapa. Pressionar o botão por um longo tempo abrirá o menu de posicionamento, onde funcionalidades adicionais podem ser exploradas.</translation>
     </message>
     <message numerus="yes">
         <source>Tracking active on %n layer(s)</source>
@@ -6681,7 +6681,7 @@ to show actions</source>
     </message>
     <message>
         <source>Stop all</source>
-        <translation type="unfinished"/>
+        <translation>Pare tudo</translation>
     </message>
     <message numerus="yes">
         <source>Tracking on %n layer(s) stopped</source>
@@ -6689,35 +6689,35 @@ to show actions</source>
     </message>
     <message>
         <source>No compatible layers available to launch tracking</source>
-        <translation type="unfinished"/>
+        <translation>Nenhuma camada compatível disponível para iniciar o rastreamento.</translation>
     </message>
     <message>
         <source>COGO digitizing turned on</source>
-        <translation type="unfinished"/>
+        <translation>Digitalização COGO ativada</translation>
     </message>
     <message>
         <source>COGO digitizing turned off</source>
-        <translation type="unfinished"/>
+        <translation>Digitalização COGO desativada</translation>
     </message>
     <message>
         <source>Enable positioning service to get points at your location</source>
-        <translation type="unfinished"/>
+        <translation>Habilite o serviço de posicionamento para obter pontos na sua localização</translation>
     </message>
     <message>
         <source>Positioning service has not yet received a valid location</source>
-        <translation type="unfinished"/>
+        <translation>O serviço de posicionamento ainda não recebeu uma localização válida.</translation>
     </message>
     <message>
         <source>Map canvas locked to location and movement direction</source>
-        <translation type="unfinished"/>
+        <translation>Tela do mapa bloqueada na localização e direção do movimento</translation>
     </message>
     <message>
         <source>Map canvas follows location and movement direction</source>
-        <translation type="unfinished"/>
+        <translation>O mapa acompanha a localização e a direção do movimento</translation>
     </message>
     <message>
         <source>Failed to load 3D view</source>
-        <translation type="unfinished"/>
+        <translation>Falha ao carregar a visualização 3D</translation>
     </message>
     <message>
         <source>Loading terrain...</source>
@@ -6725,7 +6725,7 @@ to show actions</source>
     </message>
     <message>
         <source>Close 3D view</source>
-        <translation type="unfinished"/>
+        <translation>Fechar visualização 3D</translation>
     </message>
 </context>
 <context>
