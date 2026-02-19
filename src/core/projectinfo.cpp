@@ -799,7 +799,7 @@ QVariantMap ProjectInfo::getImageDecorationConfiguration()
     }
     else
     {
-      imagePath = QStringLiteral( ":/images/qfield_logo.svg" );
+      imagePath = QStringLiteral( ":/images/app_logo.svg.svg" );
     }
 
     QColor fillColor = QgsColorUtils::colorFromString( QgsProject::instance()->readEntry( configurationName, QStringLiteral( "/Color" ), QStringLiteral( "#000000" ) ) );
