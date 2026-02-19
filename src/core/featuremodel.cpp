@@ -693,7 +693,29 @@ bool FeatureModel::save()
 
             feature.setAttribute( i, referenceFeature.attributes().at( i ) );
           }
-          if ( !mLayer->updateFeature( feature ) )
+
+          QgsExpressionContext expressionContext = createExpressionContext();
+          expressionContext.setFeature( mFeature );
+
+          QgsFields fields = mLayer->fields();
+          for ( int i = 0; i < fields.count(); ++i )
+          {
+            if ( fields.at( i ).defaultValueDefinition().isValid() && fields.at( i ).defaultValueDefinition().applyOnUpdate() )
+            {
+              QgsExpression exp( fields.at( i ).defaultValueDefinition().expression() );
+              exp.prepare( &expressionContext );
+              if ( exp.hasParserError() )
+                QgsMessageLog::logMessage( tr( "Default value expression for %1:%2 has parser error: %3" ).arg( mLayer->name(), fields.at( i ).name(), exp.parserErrorString() ), QStringLiteral( "QField" ) );
+
+              QVariant value = exp.evaluate( &expressionContext );
+              if ( exp.hasEvalError() )
+                QgsMessageLog::logMessage( tr( "Default value expression for %1:%2 has evaluation error: %3" ).arg( mLayer->name(), fields.at( i ).name(), exp.evalErrorString() ), QStringLiteral( "QField" ) );
+
+              feature.setAttribute( i, value );
+            }
+          }
+
+          if ( !mLayer->updateFeature( feature, true ) )
           {
             QgsMessageLog::logMessage( tr( "Cannot update feature" ), QStringLiteral( "QField" ), Qgis::Warning );
           }
