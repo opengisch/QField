@@ -66,6 +66,9 @@ class AttributeFormModelBase : public QStandardItemModel
     //! \copydoc AttributeFormModel::attribute
     QVariant attribute( const QString &name );
 
+    //! \copydoc AttributeFormModel::setAttribute
+    bool setAttribute( const QString &name, const QVariant &value );
+
     //! \copydoc AttributeFormModel::applyFeatureModel
     void applyFeatureModel();
 
@@ -113,7 +116,6 @@ class AttributeFormModelBase : public QStandardItemModel
                     QList<QStandardItem *> &containers,
                     int currentTabIndex = 0,
                     int columnCount = 1 );
-
 
     //! Synchronize all items linked to the \a fieldIndex to have the same \a value.
     void synchronizeFieldValue( int fieldIndex, QVariant value );

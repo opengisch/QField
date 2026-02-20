@@ -87,6 +87,11 @@ QVariant AttributeFormModel::attribute( const QString &name )
   return mSourceModel->attribute( name );
 }
 
+bool AttributeFormModel::setAttribute( const QString &name, const QVariant &value )
+{
+  return mSourceModel->setAttribute( name, value );
+}
+
 void AttributeFormModel::applyFeatureModel()
 {
   return mSourceModel->applyFeatureModel();
