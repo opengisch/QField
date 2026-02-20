@@ -651,7 +651,7 @@ Page {
 
               function onAboutToSave() {
                 // it may not be implemented
-                if (attributeEditorLoader.item.pushChanges) {
+                if (attributeEditorLoader.item && attributeEditorLoader.item.pushChanges) {
                   attributeEditorLoader.item.pushChanges(form.model.featureModel.feature);
                 }
               }
