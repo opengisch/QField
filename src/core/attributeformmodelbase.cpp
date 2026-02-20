@@ -1106,9 +1106,9 @@ QVariant AttributeFormModelBase::attribute( const QString &name )
   return mFeatureModel->data( mFeatureModel->index( fieldIndex ), FeatureModel::AttributeValue );
 }
 
-bool AttributeFormModelBase::setAttribute( const QString &name, const QVariant &value )
+bool AttributeFormModelBase::changeAttribute( const QString &name, const QVariant &value )
 {
-  if ( !mLayer )
+  if ( !mLayer || !mFeatureModel )
     return false;
 
   const int fieldIndex = mLayer->fields().indexOf( name );
@@ -1121,6 +1121,24 @@ bool AttributeFormModelBase::setAttribute( const QString &name, const QVariant &
     updateDefaultValues( fieldIndex );
     updateVisibilityAndConstraints( fieldIndex );
   }
+
+  return changed;
+}
+
+bool AttributeFormModelBase::changeGeometry( const QgsGeometry &geometry )
+{
+  if ( !mLayer || !mFeatureModel )
+    return false;
+
+  const bool changed = mFeatureModel->changeGeometry( geometry );
+  if ( changed )
+  {
+    mExpressionContext.popScope();
+    mExpressionContext << QgsExpressionContextUtils::formScope( mFeatureModel->feature() );
+    updateDefaultValues();
+    updateVisibilityAndConstraints();
+  }
+
   return changed;
 }
 

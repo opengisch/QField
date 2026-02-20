@@ -622,6 +622,25 @@ QgsExpressionContext FeatureModel::createExpressionContext() const
   return expressionContext;
 }
 
+bool FeatureModel::changeGeometry( const QgsGeometry &geometry )
+{
+  if ( !mLayer )
+  {
+    return false;
+  }
+
+
+  if ( geometry.wkbType() != mLayer->wkbType() || mModelMode != SingleFeatureModel )
+  {
+    return false;
+  }
+
+  mFeature.setGeometry( geometry );
+  emit featureChanged();
+  updatePermissions();
+  return true;
+}
+
 bool FeatureModel::save( bool flushBuffer )
 {
   if ( !mLayer )
