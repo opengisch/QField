@@ -101,11 +101,18 @@ class AttributeFormModel : public QSortFilterProxyModel
     Q_INVOKABLE bool deleteFeature();
 
     /**
-     * Get the attribute of the current feature by name
+     * Gets an attribute value of the current feature by name.
      * \param name the name of the attribute
      * \return value of the attribute
      */
     Q_INVOKABLE QVariant attribute( const QString &name );
+
+    /**
+     * Sets an attribute value of the current feature by name
+     * \param name the name of the attribute
+     * \return value of the attribute
+     */
+    Q_INVOKABLE bool setAttribute( const QString &name, const QVariant &value );
 
     //! Applies feature model data such as attribute values, constraints, visibility to the attribute form model
     Q_INVOKABLE void applyFeatureModel();
