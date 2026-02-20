@@ -141,9 +141,16 @@ class FeatureModel : public QAbstractListModel
     void setCurrentLayer( QgsVectorLayer *layer );
     QgsVectorLayer *layer() const;
 
-    //! Returns the geometry object that will drive the feature geometry.
+    /**
+     * Returns the geometry object that will drive the feature geometry.
+     */
     Geometry *geometry();
-    //! Sets the geometry object that will drive the feature geometry.
+
+    /**
+     * Sets the geometry object that will drive the feature geometry.
+     * \note This is not the QgsGeometry of the feature. To change that,
+     * use the changeGeometry function.
+     */
     void setGeometry( Geometry *geometry );
 
     //! Returns the vertex model is used to highlight vertices on the map.
@@ -160,6 +167,11 @@ class FeatureModel : public QAbstractListModel
     int rowCount( const QModelIndex &parent ) const override;
     QVariant data( const QModelIndex &index, int role ) const override;
     bool setData( const QModelIndex &index, const QVariant &value, int role = Qt::EditRole ) override;
+
+    /**
+     * Sets the \a geometry of the feature.
+     */
+    Q_INVOKABLE bool changeGeometry( const QgsGeometry &geometry );
 
     /**
      * Will commit the edit buffer of this layer.

@@ -67,7 +67,10 @@ class AttributeFormModelBase : public QStandardItemModel
     QVariant attribute( const QString &name );
 
     //! \copydoc AttributeFormModel::setAttribute
-    bool setAttribute( const QString &name, const QVariant &value );
+    bool changeAttribute( const QString &name, const QVariant &value );
+
+    //! \copydoc AttributeFormModel::changeGeometry
+    bool changeGeometry( const QgsGeometry &geometry );
 
     //! \copydoc AttributeFormModel::applyFeatureModel
     void applyFeatureModel();
