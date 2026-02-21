@@ -325,7 +325,7 @@ void WebdavConnection::processDirParserFinished()
     if ( !mWebdavLastModified.isEmpty() )
     {
       // Adjust modified date to match upload files
-      for ( const QWebdavItem &item : list )
+      for ( const QWebdavItem &item : mWebdavItems )
       {
         if ( mWebdavLastModified.contains( item.path() ) )
         {
@@ -352,7 +352,7 @@ void WebdavConnection::processDirParserFinished()
       const QString normalizedRemotePath = ensureTrailingSlash( mProcessRemotePath );
 
       QStringList remoteDirs;
-      for ( const QWebdavItem &item : list )
+      for ( const QWebdavItem &item : mWebdavItems )
       {
         if ( item.isDir() )
         {
@@ -1035,7 +1035,7 @@ bool WebdavConnection::uploadPathsInternal( const QStringList &localPaths, bool 
       }
 
       mProcessRemotePath = webdavConfigurationRemote;
-      mProcessLocalPath = fileLocalPath;
+      mProcessLocalPath = QDir::cleanPath( fileLocalPath ) + QDir::separator();
 
       webdavConfigurationLoaded = true;
     }
@@ -1054,7 +1054,7 @@ bool WebdavConnection::uploadPathsInternal( const QStringList &localPaths, bool 
       }
 
       mProcessRemotePath = getCommonPath( newRemotePath, mProcessRemotePath );
-      mProcessLocalPath = getCommonPath( fileLocalPath, mProcessLocalPath );
+      mProcessLocalPath = QDir::cleanPath( getCommonPath( fileLocalPath, mProcessLocalPath ) ) + QDir::separator();
     }
 
     const QDir base( configRoot );
