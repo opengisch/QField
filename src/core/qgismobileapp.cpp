@@ -622,6 +622,7 @@ void QgisMobileapp::initDeclarative( QQmlEngine *engine )
 
   // Register some globally available variables
   engine->rootContext()->setContextProperty( "qVersion", qVersion() );
+  engine->rootContext()->setContextProperty( "appName", qfield::appName );
   engine->rootContext()->setContextProperty( "qgisVersion", Qgis::version() );
   engine->rootContext()->setContextProperty( "gdalVersion", GDAL_RELEASE_NAME );
   engine->rootContext()->setContextProperty( "withNfc", QVariant( NearFieldReader::isSupported() ) );

@@ -203,13 +203,13 @@ Page {
     }
     ListElement {
       title: qsTr("Use native camera")
-      description: qsTr("If disabled, QField will use a minimalist internal camera instead of the camera app on the device.<br>Tip: Enable this option and install the open camera app to create geo tagged photos.")
+      description: qsTr("If disabled, %1 will use a minimalist internal camera instead of the camera app on the device.<br>Tip: Enable this option and install the open camera app to create geo tagged photos.").arg(appName)
       settingAlias: "nativeCamera2"
       isVisible: true
     }
     ListElement {
       title: qsTr("Send anonymized metrics")
-      description: qsTr("If enabled, anonymized metrics will be collected and sent to help improve QField for everyone.")
+      description: qsTr("If enabled, anonymized metrics will be collected and sent to help improve %1 for everyone.").arg(appName)
       settingAlias: "enableInfoCollection"
       isVisible: true
     }
@@ -1475,7 +1475,7 @@ Page {
               }
 
               Label {
-                text: qsTr("This value will correct the Z values recorded from the positioning device. If a value of 1.6 is entered, QField will automatically subtract 1.6 from each recorded value. Make sure to insert the effective antenna height, i.e. pole length + antenna phase centre offset.")
+                text: qsTr("This value will correct the Z values recorded from the positioning device. If a value of 1.6 is entered, %1 will automatically subtract 1.6 from each recorded value. Make sure to insert the effective antenna height, i.e. pole length + antenna phase centre offset.").arg(appName)
                 font: Theme.tipFont
                 color: Theme.secondaryTextColor
 
@@ -1696,7 +1696,7 @@ Page {
   }
 
   header: QfPageHeader {
-    title: qsTr("QField Settings")
+    title: qsTr("%1 Settings").arg(appName)
 
     showBackButton: true
     showApplyButton: false
