@@ -95,9 +95,8 @@ set(WITH_SAMPLE_PROJECTS
     ON
     CACHE BOOL "Enable sample projects")
 
-install(DIRECTORY ${CMAKE_SOURCE_DIR}/resources DESTINATION ${CMAKE_INSTALL_DATADIR}/qfield)
-if (NOT WITH_SAMPLE_PROJECTS)
-  file(REMOVE_RECURSE ${CMAKE_INSTALL_DATADIR}/qfield/sample_projects)
+if (WITH_SAMPLE_PROJECTS)
+  install(DIRECTORY ${CMAKE_SOURCE_DIR}/resources/sample_projects DESTINATION ${CMAKE_INSTALL_DATADIR}/qfield)
 endif()
 
 if (APP_BUNDLED_PLUGINS)
@@ -282,17 +281,12 @@ if(WITH_VCPKG)
 
   copy_resource("${PROJ_DATA_PATH}" "proj")
   copy_resource("${VCPKG_BASE_DIR}/share/gdal" "gdal")
-  copy_resource("${CMAKE_SOURCE_DIR}/resources/" "qfield")
 
-  if (NOT WITH_SAMPLE_PROJECTS)
-    add_custom_command(TARGET deploy
-      POST_BUILD
-      COMMAND ${CMAKE_COMMAND} -E rm -R -- "${SHARE_DIR}/qfield/sample_projects"
-    )
+  if (WITH_SAMPLE_PROJECTS)
+    copy_resource("${CMAKE_SOURCE_DIR}/resources/sample_projects" "qfield/sample_projects")
   endif()
 
   if (APP_BUNDLED_PLUGINS)
-    message(STATUS "Copying bundled plugins")
     copy_resource("${APP_BUNDLED_PLUGINS}" "qfield/plugins")
   endif()
 
