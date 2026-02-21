@@ -72,12 +72,6 @@ if(WITH_CCACHE)
   include(ccache)
 endif()
 
-install(DIRECTORY ${CMAKE_SOURCE_DIR}/resources DESTINATION ${CMAKE_INSTALL_DATADIR}/qfield)
-if (APP_BUNDLED_PLUGINS)
-  file(MAKE_DIRECTORY ${CMAKE_INSTALL_DATADIR}/qfield/plugins)
-  install(DIRECTORY APP_BUNDLED_PLUGINS DESTINATION ${CMAKE_INSTALL_DATADIR}/qfield/plugins)
-endif()
-
 set(WITH_BLUETOOTH
     ON
     CACHE BOOL "Enable bluetooth support")
@@ -95,6 +89,20 @@ if(SENTRY_DSN)
   set(WITH_SENTRY 1)
 else()
   set(WITH_SENTRY 0)
+endif()
+
+set(WITH_SAMPLE_PROJECTS
+    ON
+    CACHE BOOL "Enable sample projects")
+
+install(DIRECTORY ${CMAKE_SOURCE_DIR}/resources DESTINATION ${CMAKE_INSTALL_DATADIR}/qfield)
+if (NOT WITH_SAMPLE_PROJECTS)
+  file(REMOVE_RECURSE ${CMAKE_INSTALL_DATADIR}/qfield/sample_projects)
+endif()
+
+if (APP_BUNDLED_PLUGINS)
+  file(MAKE_DIRECTORY ${CMAKE_INSTALL_DATADIR}/qfield/plugins)
+  install(DIRECTORY APP_BUNDLED_PLUGINS DESTINATION ${CMAKE_INSTALL_DATADIR}/qfield/plugins)
 endif()
 
 set(QT_MIN_VERSION 6.6.0)
@@ -275,6 +283,13 @@ if(WITH_VCPKG)
   copy_resource("${PROJ_DATA_PATH}" "proj")
   copy_resource("${VCPKG_BASE_DIR}/share/gdal" "gdal")
   copy_resource("${CMAKE_SOURCE_DIR}/resources/" "qfield")
+
+  if (NOT WITH_SAMPLE_PROJECTS)
+    add_custom_command(TARGET deploy
+      POST_BUILD
+      COMMAND ${CMAKE_COMMAND} -E rm -R -- "${SHARE_DIR}/qfield/sample_projects"
+    )
+  endif()
 
   if (APP_BUNDLED_PLUGINS)
     message(STATUS "Copying bundled plugins")
