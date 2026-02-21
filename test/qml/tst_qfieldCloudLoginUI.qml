@@ -9,15 +9,15 @@ TestCase {
   name: "QFieldCloudLoginUI"
   when: windowShown
 
-  // QFieldCloud CI credentials
-  property string ciUrl: typeof (qfcCiUrl) !== "undefined" ? qfcCiUrl : ""
-  property string ciUsername: typeof (qfcCiUsername) !== "undefined" ? qfcCiUsername : ""
-  property string ciPassword: typeof (qfcCiPassword) !== "undefined" ? qfcCiPassword : ""
+  // QFieldCloud local credentials
+  property string localUrl: typeof (qfcUrl) !== "undefined" ? qfcUrl : ""
+  property string localUsername: typeof (qfcUsername) !== "undefined" ? qfcUsername : ""
+  property string localPassword: typeof (qfcPassword) !== "undefined" ? qfcPassword : ""
 
-  // QFieldCloud production credentials
-  property string productionUrl: typeof (qfcProductionUrl) !== "undefined" ? qfcProductionUrl : ""
-  property string productionUsername: typeof (qfcProductionUsername) !== "undefined" ? qfcProductionUsername : ""
-  property string productionPassword: typeof (qfcProductionPassword) !== "undefined" ? qfcProductionPassword : ""
+  // QFieldCloud remote credentials
+  property string remoteUrl: typeof (qfcRemoteUrl) !== "undefined" ? qfcRemoteUrl : ""
+  property string remoteUsername: typeof (qfcRemoteUsername) !== "undefined" ? qfcRemoteUsername : ""
+  property string remotePassword: typeof (qfcRemotePassword) !== "undefined" ? qfcRemotePassword : ""
 
   // Dummy mainWindow required by some components
   Item {
@@ -68,30 +68,30 @@ TestCase {
     signalName: "availableProvidersChanged"
   }
 
-  // Returns all available server configurations (CI always, production if provided)
+  // Returns all available server configurations (local always, remote if provided)
   function serverConfigs() {
     var configs = [
       {
-        tag: "ci",
-        url: ciUrl,
-        username: ciUsername,
-        password: ciPassword
+        tag: "local",
+        url: localUrl,
+        username: localUsername,
+        password: localPassword
       }
     ];
-    if (productionUrl && productionUsername && productionPassword) {
+    if (remoteUrl && remoteUsername && remotePassword) {
       configs.push({
-        tag: "production",
-        url: productionUrl,
-        username: productionUsername,
-        password: productionPassword
+        tag: "remote",
+        url: remoteUrl,
+        username: remoteUsername,
+        password: remotePassword
       });
     }
     return configs;
   }
 
-  // CI credentials must always be available
+  // QFieldCloud credentials must always be available
   function init() {
-    verify(ciUrl && ciUsername && ciPassword, "CI QFieldCloud credentials are required");
+    verify(localUrl && localUsername && localPassword, "QFieldCloud local credentials are required");
   }
 
   // This function is called after each test function that is executed in the TestCase type.
