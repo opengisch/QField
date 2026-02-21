@@ -1,5 +1,5 @@
 <RCC>
     <qresource prefix="/images">
-        <file alias="app_logo.svg">@APP_LOGO_SVG_PATH@</file>
+        <file alias="app_logo.svg">@CMAKE_SOURCE_DIR@/images/icons/@APP_ICON@.svg</file>
     </qresource>
 </RCC>
