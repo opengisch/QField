@@ -84,6 +84,7 @@ QHash<int, QByteArray> PluginModel::roleNames() const
 {
   return {
     { UuidRole, "Uuid" },
+    { BundledRole, "Bundled" },
     { TrustedRole, "Trusted" },
     { EnabledRole, "Enabled" },
     { ConfigurableRole, "Configurable" },
