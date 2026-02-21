@@ -290,14 +290,21 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
     QgsApplication::instance()->localizedDataPathRegistry()->setPaths( localizedDataPaths );
   }
 
-  QFontDatabase::addApplicationFont( ":/fonts/Cadastra-Bold.ttf" );
-  QFontDatabase::addApplicationFont( ":/fonts/Cadastra-BoldItalic.ttf" );
-  QFontDatabase::addApplicationFont( ":/fonts/Cadastra-Condensed.ttf" );
-  QFontDatabase::addApplicationFont( ":/fonts/Cadastra-Italic.ttf" );
-  QFontDatabase::addApplicationFont( ":/fonts/Cadastra-Regular.ttf" );
-  QFontDatabase::addApplicationFont( ":/fonts/Cadastra-Semibolditalic.ttf" );
-  QFontDatabase::addApplicationFont( ":/fonts/CadastraSymbol-Mask.ttf" );
-  QFontDatabase::addApplicationFont( ":/fonts/CadastraSymbol-Regular.ttf" );
+  // Add app resource font(s)
+  const QDir resourceFontDir = QStringLiteral( ":/fonts/" );
+  const QStringList resourceFontExts = QStringList() << "*.ttf"
+                                                     << "*.TTF"
+                                                     << "*.otf"
+                                                     << "*.OTF";
+  const QStringList resourceFontFiles = resourceFontDir.entryList( resourceFontExts, QDir::Files );
+  for ( const QString &resourceFontFile : resourceFontFiles )
+  {
+    const int id = QFontDatabase::addApplicationFont( QStringLiteral( ":/fonts/%1" ).arg( resourceFontFile ) );
+    if ( id == -1 )
+    {
+      QgsMessageLog::logMessage( tr( "Could not load resource font: %1" ).arg( resourceFontFile ) );
+    }
+  }
 
   QgsApplication::fontManager()->enableFontDownloadsForSession();
 
