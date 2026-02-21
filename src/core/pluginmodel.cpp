@@ -49,6 +49,8 @@ QVariant PluginModel::data( const QModelIndex &index, int role ) const
   {
     case UuidRole:
       return plugin.uuid;
+    case BundledRole:
+      return plugin.bundled;
     case TrustedRole:
       return plugin.trusted;
     case EnabledRole:
@@ -341,18 +343,22 @@ void PluginModel::populateRemotePlugins()
 void PluginModel::populateLocalPlugins()
 {
   QMap<QString, PluginInformation> foundLocalPlugins;
-  const QStringList dataDirs = PlatformUtilities::instance()->appDataDirs();
-  for ( QString dataDir : dataDirs )
+  const QStringList dirs = QStringList() << QStringLiteral( "%1/qfield" ).arg( PlatformUtilities::instance()->systemSharedDataLocation() ) << PlatformUtilities::instance()->appDataDirs();
+  qDebug() << "dirs" << dirs;
+  for ( QString dir : dirs )
   {
-    const QDir pluginsDir( dataDir += QStringLiteral( "plugins" ) );
-    const QList<QFileInfo> candidates = pluginsDir.entryInfoList( QDir::Dirs | QDir::NoDotAndDotDot );
-    for ( const QFileInfo &candidate : candidates )
+    QDir pluginsDir( dir );
+    if ( pluginsDir.cd( QStringLiteral( "plugins" ) ) )
     {
-      const QString path = QStringLiteral( "%1/main.qml" ).arg( candidate.absoluteFilePath() );
-      if ( QFileInfo::exists( path ) )
+      const QList<QFileInfo> candidates = pluginsDir.entryInfoList( QDir::Dirs | QDir::NoDotAndDotDot );
+      for ( const QFileInfo &candidate : candidates )
       {
-        const PluginInformation plugin = readPluginMetadata( candidate );
-        foundLocalPlugins[plugin.uuid] = plugin;
+        const QString path = QStringLiteral( "%1/main.qml" ).arg( candidate.absoluteFilePath() );
+        if ( QFileInfo::exists( path ) )
+        {
+          const PluginInformation plugin = readPluginMetadata( candidate );
+          foundLocalPlugins[plugin.uuid] = plugin;
+        }
       }
     }
   }
@@ -385,6 +391,7 @@ PluginInformation PluginModel::readPluginMetadata( const QFileInfo &pluginDir )
   }
 
   PluginInformation plugin( pluginDir.fileName(), name, description, author, homepage, icon );
+  plugin.bundled = path.startsWith( PlatformUtilities::instance()->systemSharedDataLocation() );
   plugin.version = version;
   plugin.path = path;
   plugin.locallyAvailable = true;
