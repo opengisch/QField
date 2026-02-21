@@ -344,7 +344,6 @@ void PluginModel::populateLocalPlugins()
 {
   QMap<QString, PluginInformation> foundLocalPlugins;
   const QStringList dirs = QStringList() << QStringLiteral( "%1/qfield" ).arg( PlatformUtilities::instance()->systemSharedDataLocation() ) << PlatformUtilities::instance()->appDataDirs();
-  qDebug() << "dirs" << dirs;
   for ( QString dir : dirs )
   {
     QDir pluginsDir( dir );

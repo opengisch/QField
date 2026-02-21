@@ -234,7 +234,6 @@ void PluginManager::restoreAppPlugins()
   }
   settings.endGroup();
 
-  qDebug() << "xxx" << checkedPluginUUids;
   const QList<PluginInformation> plugins = availableAppPlugins();
   for ( const PluginInformation &plugin : plugins )
   {
