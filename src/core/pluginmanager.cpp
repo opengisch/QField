@@ -256,7 +256,7 @@ void PluginManager::enableAppPlugin( const QString &uuid )
       pluginKey.replace( QChar( '/' ), QChar( '_' ) );
       settings.beginGroup( QStringLiteral( "/qfield/plugins/%1" ).arg( pluginKey ) );
       settings.setValue( QStringLiteral( "uuid" ), uuid );
-      if ( settings.value( QStringLiteral( "permissionGranted" ), false ).toBool() || pluginInformation.remotelyAvailable || pluginInformation.remotelyAvailable )
+      if ( settings.value( QStringLiteral( "permissionGranted" ), false ).toBool() || pluginInformation.bundled || pluginInformation.remotelyAvailable )
       {
         settings.setValue( QStringLiteral( "userEnabled" ), true );
       }
