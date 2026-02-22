@@ -132,6 +132,7 @@ set(QFIELD_CORE_SRCS
     settings.cpp
     snappingresult.cpp
     submodel.cpp
+    theme.cpp
     tracker.cpp
     trackingmodel.cpp
     valuemapmodel.cpp
@@ -275,6 +276,7 @@ set(QFIELD_CORE_HDRS
     settings.h
     snappingresult.h
     submodel.h
+    theme.h
     tracker.h
     trackingmodel.h
     valuemapmodel.h
@@ -346,6 +348,13 @@ endif()
 
 include(GenerateExportHeader)
 generate_export_header(qfield_core)
+
+# At runtime it is accessible as:  :/theme/theme.json
+qt_add_resources(qfield_core "theme_resources"
+  PREFIX "/theme"
+  FILES
+    theme/theme.json
+)
 
 configure_file(qfield.h.in ${CMAKE_CURRENT_BINARY_DIR}/qfield.h @ONLY)
 
