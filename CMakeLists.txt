@@ -118,18 +118,16 @@ if (ANDROID)
 
     if(APP_ICON_PATH AND EXISTS "${APP_ICON_PATH}/android/drawable-${DENSITY}/${APP_ICON}.png")
       message(STATUS "Using custom icon [${DENSITY}]: ${APP_ICON_PATH}/android/drawable-${DENSITY}/${APP_ICON}.png")
-      configure_file(
-        "${APP_ICON_PATH}/android/drawable-${DENSITY}/${APP_ICON}.png"
-        "${DST_DIR}/${APP_ICON}.png"
-        COPYONLY
-      )
+      file(COPY
+            "${APP_ICON_PATH}/android/drawable-${DENSITY}/${APP_ICON}.png"
+            DESTINATION "${DST_DIR}"
+          )
     else()
       message(STATUS "Using default icon [${DENSITY}]: qfield_logo.png -> ${APP_ICON}.png")
-      configure_file(
-        "${CMAKE_SOURCE_DIR}/platform/android/res/drawable-${DENSITY}/qfield_logo.png"
-        "${DST_DIR}/${APP_ICON}.png"
-        COPYONLY
-      )
+      file(COPY
+            "${CMAKE_SOURCE_DIR}/platform/android/res/drawable-${DENSITY}/${APP_ICON}.png"
+            DESTINATION "${DST_DIR}"
+          )
     endif()
   endforeach()
 
@@ -138,18 +136,16 @@ if (ANDROID)
 
   if(APP_ICON_PATH AND EXISTS "${APP_ICON_PATH}/android/drawable/${APP_ICON}_vector.xml")
     message(STATUS "Using custom vector drawable: ${APP_ICON_PATH}/android/drawable/${APP_ICON}_vector.xml")
-    configure_file(
-      "${APP_ICON_PATH}/android/drawable/${APP_ICON}_vector.xml"
-      "${DST_DRAWABLE_DIR}/${APP_ICON}_vector.xml"
-      COPYONLY
-    )
+    file(COPY
+        "${APP_ICON_PATH}/android/drawable/${APP_ICON}_vector.xml"
+        DESTINATION "${DST_DRAWABLE_DIR}"
+      )
   else()
     message(STATUS "Using default vector drawable: qfield_logo_vector.xml -> ${APP_ICON}_vector.xml")
-    configure_file(
-      "${CMAKE_SOURCE_DIR}/platform/android/res/drawable/qfield_logo_vector.xml"
-      "${DST_DRAWABLE_DIR}/${APP_ICON}_vector.xml"
-      COPYONLY
-    )
+    file(COPY
+        "${CMAKE_SOURCE_DIR}/platform/android/res/drawable/${APP_ICON}_vector.xml"
+        DESTINATION "${DST_DRAWABLE_DIR}"
+      )
   endif()
 
 endif()
