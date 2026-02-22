@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/themes">
+        <file alias="appTheme.json">@APP_THEME_JSON_PATH@</file>
+    </qresource>
+</RCC>

@@ -16,6 +16,14 @@ endif()
 # lrelease .ts files
 find_package(Qt6 COMPONENTS LinguistTools)
 
+if(APP_ICON_PATH AND EXISTS "${APP_ICON_PATH}/${APP_ICON}.svg")
+  set(APP_LOGO_SVG_PATH "${APP_ICON_PATH}/${APP_ICON}.svg")
+  message(STATUS "Using custom SVG logo: ${APP_LOGO_SVG_PATH}")
+else()
+  set(APP_LOGO_SVG_PATH "${CMAKE_SOURCE_DIR}/images/icons/qfield_logo.svg")
+  message(STATUS "Using default SVG logo: ${APP_LOGO_SVG_PATH}")
+endif()
+
 configure_file(${CMAKE_SOURCE_DIR}/images/logo.qrc.in
                ${CMAKE_BINARY_DIR}/images/logo.qrc @ONLY)
 

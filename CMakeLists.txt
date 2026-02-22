@@ -9,6 +9,7 @@ set(QML_IMPORT_PATH ${CMAKE_SOURCE_DIR}/src/qml/imports CACHE PATH "QML import p
 set(CMAKE_COLOR_MAKEFILE ON)
 set(APP_NAME "QField" CACHE STRING "Application Name")
 set(APP_ICON "qfield_logo" CACHE STRING "Application Icon (must exist as images/icons/{APP_ICON}.svg and platform/android/res/drawable/{APP_ICON}_vector.xml)")
+set(APP_ICON_PATH "" CACHE PATH "Path to custom icon assets. Structure: {APP_ICON}.svg at root, android/drawable-*/{APP_ICON}.png, android/drawable/{APP_ICON}_vector.xml")
 set(APK_VERSION_CODE "1" CACHE STRING "Apk Version Code (Example: 1)")
 set(APP_VERSION "0" CACHE STRING "Application Version (Example: v1.0.0)")
 set(APP_VERSION_STR "local - dev" CACHE STRING "Application Version Name (Example: 1.0.0 - Homerun)")
@@ -109,28 +110,47 @@ if (ANDROID)
   list(APPEND CMAKE_FIND_ROOT_PATH /)
 
   set(ANDROID_PACKAGE_SOURCE_DIR ${CMAKE_BINARY_DIR}/android-template)
-
   set(ANDROID_DRAWABLE_DENSITIES mdpi hdpi xhdpi xxhdpi xxxhdpi)
 
   foreach(DENSITY ${ANDROID_DRAWABLE_DENSITIES})
     set(DST_DIR "${ANDROID_PACKAGE_SOURCE_DIR}/res/drawable-${DENSITY}")
     file(MAKE_DIRECTORY "${DST_DIR}")
 
-    configure_file(
-      "${CMAKE_SOURCE_DIR}/platform/android/res/drawable-${DENSITY}/${APP_ICON}.png"
-      "${DST_DIR}/${APP_ICON}.png"
-      COPYONLY
-    )
+    if(APP_ICON_PATH AND EXISTS "${APP_ICON_PATH}/android/drawable-${DENSITY}/${APP_ICON}.png")
+      message(STATUS "Using custom icon [${DENSITY}]: ${APP_ICON_PATH}/android/drawable-${DENSITY}/${APP_ICON}.png")
+      configure_file(
+        "${APP_ICON_PATH}/android/drawable-${DENSITY}/${APP_ICON}.png"
+        "${DST_DIR}/${APP_ICON}.png"
+        COPYONLY
+      )
+    else()
+      message(STATUS "Using default icon [${DENSITY}]: qfield_logo.png -> ${APP_ICON}.png")
+      configure_file(
+        "${CMAKE_SOURCE_DIR}/platform/android/res/drawable-${DENSITY}/qfield_logo.png"
+        "${DST_DIR}/${APP_ICON}.png"
+        COPYONLY
+      )
+    endif()
   endforeach()
 
   set(DST_DRAWABLE_DIR "${ANDROID_PACKAGE_SOURCE_DIR}/res/drawable")
   file(MAKE_DIRECTORY "${DST_DRAWABLE_DIR}")
 
-  configure_file(
-    "${CMAKE_SOURCE_DIR}/platform/android/res/drawable/${APP_ICON}_vector.xml"
-    "${DST_DRAWABLE_DIR}/${APP_ICON}_vector.xml"
-    COPYONLY
-  )
+  if(APP_ICON_PATH AND EXISTS "${APP_ICON_PATH}/android/drawable/${APP_ICON}_vector.xml")
+    message(STATUS "Using custom vector drawable: ${APP_ICON_PATH}/android/drawable/${APP_ICON}_vector.xml")
+    configure_file(
+      "${APP_ICON_PATH}/android/drawable/${APP_ICON}_vector.xml"
+      "${DST_DRAWABLE_DIR}/${APP_ICON}_vector.xml"
+      COPYONLY
+    )
+  else()
+    message(STATUS "Using default vector drawable: qfield_logo_vector.xml -> ${APP_ICON}_vector.xml")
+    configure_file(
+      "${CMAKE_SOURCE_DIR}/platform/android/res/drawable/qfield_logo_vector.xml"
+      "${DST_DRAWABLE_DIR}/${APP_ICON}_vector.xml"
+      COPYONLY
+    )
+  endif()
 
 endif()
 
