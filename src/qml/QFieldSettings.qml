@@ -203,13 +203,13 @@ Page {
     }
     ListElement {
       title: qsTr("Use native camera")
-      description: qsTr("If disabled, %1 will use a minimalist internal camera instead of the camera app on the device.<br>Tip: Enable this option and install the open camera app to create geo tagged photos.").arg(appName)
+      description: qsTr("If disabled, %1 will use a minimalist internal camera instead of the camera app on the device.<br>Tip: Enable this option and install the open camera app to create geo tagged photos.")
       settingAlias: "nativeCamera2"
       isVisible: true
     }
     ListElement {
       title: qsTr("Send anonymized metrics")
-      description: qsTr("If enabled, anonymized metrics will be collected and sent to help improve %1 for everyone.").arg(appName)
+      description: qsTr("If enabled, anonymized metrics will be collected and sent to help improve %1 for everyone.")
       settingAlias: "enableInfoCollection"
       isVisible: true
     }
@@ -283,7 +283,7 @@ Page {
               padding: description !== '' ? 8 : 0
               topPadding: 0
               leftPadding: 20
-              text: description
+              text: description.arg(appName)
               font: Theme.tipFont
               color: Theme.secondaryTextColor
               wrapMode: Text.WordWrap
