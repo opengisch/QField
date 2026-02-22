@@ -3536,7 +3536,7 @@ ApplicationWindow {
     }
 
     MenuItem {
-      text: qsTr("About QField")
+      text: qsTr("About %1").arg(appName)
 
       font: Theme.defaultFont
       icon.source: Theme.getThemeVectorIcon("ic_qfield_black_24dp")

@@ -402,7 +402,7 @@ Page {
           width: parent.width
 
           Label {
-            text: qsTr("QFieldCloud allows to synchronize and merge the data collected by your team in QField. From small individual projects to large data collection campaigns. ") + "<a href=\"https://qfield.cloud/\">" + qsTr("Learn more about QFieldCloud here") + "</a>."
+            text: qsTr("QFieldCloud allows to synchronize and merge the data collected by your team in %1. From small individual projects to large data collection campaigns. ").arg(appName) + "<a href=\"https://qfield.cloud/\">" + qsTr("Learn more about QFieldCloud here") + "</a>."
             font: Theme.defaultFont
             color: Theme.secondaryTextColor
             wrapMode: Text.WordWrap

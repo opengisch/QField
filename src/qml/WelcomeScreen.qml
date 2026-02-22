@@ -927,7 +927,7 @@ Page {
           settings.setValue("/QField/FirstRunDone", true);
           settings.setValue("/QField/showMapCanvasGuide", true);
         } else {
-          welcomeText.text = qsTr("Welcome back to QField.");
+          welcomeText.text = qsTr("Welcome back to %1.").arg(appName);
         }
       }
     }
