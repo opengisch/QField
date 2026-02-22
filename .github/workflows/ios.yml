@@ -16,6 +16,7 @@ concurrency:
 
 env:
   SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+  IOS_SDK_VERSION: 26.3
 
 jobs:
   build:
@@ -68,7 +69,7 @@ jobs:
         if: ${{ env.SENTRY_AUTH_TOKEN != '' }}
         run: |
           xcrun simctl list > /dev/null
-          xcodebuild -downloadPlatform iOS -buildVersion 18.2
+          xcodebuild -downloadPlatform iOS -buildVersion ${{ env.IOS_SDK_VERSION }}
           brew uninstall cmake
           # Workaround GitHub Actions Python issues
           brew unlink python && brew link --overwrite python
