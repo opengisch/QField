@@ -4742,6 +4742,10 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
         <source>Map printed on %1 using QField</source>
         <translation>%1 üzerinde QField kullanılarak harita yazdırıldı</translation>
     </message>
+    <message>
+        <source>Could not load resource font: %1</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QgsGpsInformation</name>

@@ -4747,6 +4747,10 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
         <source>Map printed on %1 using QField</source>
         <translation>Mapa impreso en %1 utilizando QField</translation>
     </message>
+    <message>
+        <source>Could not load resource font: %1</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QgsGpsInformation</name>

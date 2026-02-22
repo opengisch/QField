@@ -4753,6 +4753,10 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
         <source>Map printed on %1 using QField</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Could not load resource font: %1</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QgsGpsInformation</name>

@@ -4747,6 +4747,10 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
         <source>Map printed on %1 using QField</source>
         <translation>Mapa impreso en %1 usando QField</translation>
     </message>
+    <message>
+        <source>Could not load resource font: %1</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QgsGpsInformation</name>

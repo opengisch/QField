@@ -4743,6 +4743,10 @@ Cancel to make a minimal device scan instead.</source>
         <source>Map printed on %1 using QField</source>
         <translation>QField ஐப் பயன்படுத்தி % 1 இல் வரைபடம் அச்சிடப்பட்டது</translation>
     </message>
+    <message>
+        <source>Could not load resource font: %1</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QgsGpsInformation</name>

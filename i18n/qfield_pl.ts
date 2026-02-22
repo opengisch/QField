@@ -4751,6 +4751,10 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
         <source>Map printed on %1 using QField</source>
         <translation>Mapa wydrukowana na %1 przy użyciu QField</translation>
     </message>
+    <message>
+        <source>Could not load resource font: %1</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QgsGpsInformation</name>
