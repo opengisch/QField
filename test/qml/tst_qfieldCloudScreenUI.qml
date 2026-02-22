@@ -9,10 +9,15 @@ TestCase {
   name: "QFieldCloudScreenUI"
   when: windowShown
 
-  // QFieldCloud test credentials — injected via context properties..
-  property string qfcTestServerUrl: typeof (qfcTestServerUrl) !== "undefined" ? qfcTestServerUrl : ""
-  property string qfcTestUsername: typeof (qfcTestUsername) !== "undefined" ? qfcTestUsername : ""
-  property string qfcTestPassword: typeof (qfcTestPassword) !== "undefined" ? qfcTestPassword : ""
+  // QFieldCloud local credentials
+  property string localUrl: typeof (qfcUrl) !== "undefined" ? qfcUrl : ""
+  property string localUsername: typeof (qfcUsername) !== "undefined" ? qfcUsername : ""
+  property string localPassword: typeof (qfcPassword) !== "undefined" ? qfcPassword : ""
+
+  // QFieldCloud remote credentials
+  property string remoteUrl: typeof (qfcRemoteUrl) !== "undefined" ? qfcRemoteUrl : ""
+  property string remoteUsername: typeof (qfcRemoteUsername) !== "undefined" ? qfcRemoteUsername : ""
+  property string remotePassword: typeof (qfcRemotePassword) !== "undefined" ? qfcRemotePassword : ""
 
   // Dummy mainWindow required by QFieldCloudScreen
   Item {
@@ -112,18 +117,51 @@ TestCase {
     currentProjectSpy.clear();
   }
 
-  // Skip tests if QFieldCloud credentials are not available
+  // QFieldCloud credentials must always be available
   function init() {
-    if (!qfcTestServerUrl || !qfcTestUsername || !qfcTestPassword) {
-      skip("QFieldCloud test credentials not available, skipping");
+    verify(localUrl && localUsername && localPassword, "QFieldCloud local credentials are required");
+  }
+
+  // Returns all available server configurations (local always, remote if provided)
+  function serverConfigs() {
+    var configs = [
+      {
+        tag: "local",
+        url: localUrl,
+        username: localUsername,
+        password: localPassword
+      }
+    ];
+    if (remoteUrl && remoteUsername && remotePassword) {
+      configs.push({
+        tag: "remote",
+        url: remoteUrl,
+        username: remoteUsername,
+        password: remotePassword
+      });
     }
+    return configs;
+  }
+
+  // Returns only remote config (for tests requiring specific projects)
+  function remoteConfigs() {
+    var configs = [];
+    if (remoteUrl && remoteUsername && remotePassword) {
+      configs.push({
+        tag: "remote",
+        url: remoteUrl,
+        username: remoteUsername,
+        password: remotePassword
+      });
+    }
+    return configs;
   }
 
   // Helper: Login and refresh projects list
-  function loginAndRefresh() {
-    cloudConnection.url = qfcTestServerUrl;
-    cloudConnection.username = qfcTestUsername;
-    cloudConnection.login(qfcTestPassword);
+  function loginAndRefresh(data) {
+    cloudConnection.url = data.url;
+    cloudConnection.username = data.username;
+    cloudConnection.login(data.password);
     tryCompare(cloudConnection, "status", QFieldCloudConnection.LoggedIn, 15000);
     cloudProjectsModel.refreshProjectsList(true, false, 0);
     tryCompare(cloudProjectsModel, "isRefreshing", true, 5000);
@@ -159,13 +197,16 @@ TestCase {
    *
    * Scenario: When disconnected, show login form. When logged in, show projects list.
    */
-  function test_01_viewVisibilityByConnectionStatus() {
+  function test_01_viewVisibilityByConnectionStatus_data() {
+    return serverConfigs();
+  }
+  function test_01_viewVisibilityByConnectionStatus(data) {
     compare(cloudConnection.status, QFieldCloudConnection.Disconnected);
     verify(connectionSettings.visible);
     compare(projectsSwipeView.visible, false);
-    cloudConnection.url = qfcTestServerUrl;
-    cloudConnection.username = qfcTestUsername;
-    cloudConnection.login(qfcTestPassword);
+    cloudConnection.url = data.url;
+    cloudConnection.username = data.username;
+    cloudConnection.login(data.password);
     tryCompare(cloudConnection, "status", QFieldCloudConnection.LoggedIn, 15000);
     wait(500);
     verify(projectsSwipeView.visible);
@@ -178,10 +219,13 @@ TestCase {
    *
    * Scenario: Switching between 'My Projects' and 'Community' tabs changes the table filter.
    */
-  function test_02_filterBarTabSwitching() {
-    cloudConnection.url = qfcTestServerUrl;
-    cloudConnection.username = qfcTestUsername;
-    cloudConnection.login(qfcTestPassword);
+  function test_02_filterBarTabSwitching_data() {
+    return serverConfigs();
+  }
+  function test_02_filterBarTabSwitching(data) {
+    cloudConnection.url = data.url;
+    cloudConnection.username = data.username;
+    cloudConnection.login(data.password);
     tryCompare(cloudConnection, "status", QFieldCloudConnection.LoggedIn, 15000);
     wait(500);
     compare(filterBar.currentIndex, 0);
@@ -200,9 +244,12 @@ TestCase {
    *
    * Scenario: Entering search text filters the projects list and clearing it restores full list.
    */
-  function test_03_searchBarFiltering() {
+  function test_03_searchBarFiltering_data() {
+    return remoteConfigs();
+  }
+  function test_03_searchBarFiltering(data) {
     compare(table.count, 0);
-    loginAndRefresh();
+    loginAndRefresh(data);
     const initialCount = table.count;
     searchBarTextArea.text = "---";
     wait(300);
@@ -218,12 +265,15 @@ TestCase {
    *
    * Scenario: Login shows projects view, logout returns to login form and clears project list.
    */
-  function test_04_loginLogoutViewTransitions() {
+  function test_04_loginLogoutViewTransitions_data() {
+    return serverConfigs();
+  }
+  function test_04_loginLogoutViewTransitions(data) {
     verify(connectionSettings.visible);
     compare(projectsSwipeView.visible, false);
-    cloudConnection.url = qfcTestServerUrl;
-    cloudConnection.username = qfcTestUsername;
-    cloudConnection.login(qfcTestPassword);
+    cloudConnection.url = data.url;
+    cloudConnection.username = data.username;
+    cloudConnection.login(data.password);
     tryCompare(cloudConnection, "status", QFieldCloudConnection.LoggedIn, 15000);
     wait(500);
     verify(projectsSwipeView.visible);
@@ -240,8 +290,11 @@ TestCase {
    *
    * Scenario: TestCloudLargeProject and QFieldCloudTesting appear as visible delegates in table.
    */
-  function test_05_verifyTestProjectsExist() {
-    loginAndRefresh();
+  function test_05_verifyTestProjectsExist_data() {
+    return remoteConfigs();
+  }
+  function test_05_verifyTestProjectsExist(data) {
+    loginAndRefresh(data);
     verify(table.count > 0);
     let foundLargeProject = false;
     let foundTestingProject = false;
@@ -270,8 +323,11 @@ TestCase {
    *
    * Scenario: Click download button, wait for download to complete, verify project is locally available.
    */
-  function test_06_completeDownloadWorkflow() {
-    loginAndRefresh();
+  function test_06_completeDownloadWorkflow_data() {
+    return remoteConfigs();
+  }
+  function test_06_completeDownloadWorkflow(data) {
+    loginAndRefresh(data);
     const projectInfo = prepareProjectForDownload("QFieldCloudTesting");
     let project = cloudProjectsModel.findProject(projectInfo.id);
     compare(project.localPath, "");
@@ -300,8 +356,11 @@ TestCase {
    *
    * Scenario: Start download then cancel by clicking the button again during download.
    */
-  function test_07_cancelDownload() {
-    loginAndRefresh();
+  function test_07_cancelDownload_data() {
+    return remoteConfigs();
+  }
+  function test_07_cancelDownload(data) {
+    loginAndRefresh(data);
     const projectInfo = prepareProjectForDownload("TestCloudLargeProject");
     let project = cloudProjectsModel.findProject(projectInfo.id);
     compare(project.localPath, "");
@@ -330,8 +389,11 @@ TestCase {
    *
    * Scenario: Start downloads for two projects simultaneously and verify both complete successfully.
    */
-  function test_08_concurrentDownloads() {
-    loginAndRefresh();
+  function test_08_concurrentDownloads_data() {
+    return remoteConfigs();
+  }
+  function test_08_concurrentDownloads(data) {
+    loginAndRefresh(data);
     const project1Info = prepareProjectForDownload("QFieldCloudTesting");
     const project2Info = prepareProjectForDownload("TestCloudLargeProject");
 
@@ -376,8 +438,11 @@ TestCase {
    *
    * Scenario: Download and cancel same project multiple times, then complete final download successfully.
    */
-  function test_09_repeatedDownloadCancel() {
-    loginAndRefresh();
+  function test_09_repeatedDownloadCancel_data() {
+    return remoteConfigs();
+  }
+  function test_09_repeatedDownloadCancel(data) {
+    loginAndRefresh(data);
     const projectInfo = prepareProjectForDownload("TestCloudLargeProject");
     let project = cloudProjectsModel.findProject(projectInfo.id);
 
@@ -431,8 +496,11 @@ TestCase {
    * Scenario: Setting currentProjectId emits both currentProjectIdChanged and
    * currentProjectChanged, and currentProject matches the expected project.
    */
-  function test_10_setCurrentProjectIdSignalsAndBinding() {
-    loginAndRefresh();
+  function test_10_setCurrentProjectIdSignalsAndBinding_data() {
+    return remoteConfigs();
+  }
+  function test_10_setCurrentProjectIdSignalsAndBinding(data) {
+    loginAndRefresh(data);
     verify(cloudProjectsModel.rowCount() > 0);
     const index = cloudProjectsModel.index(0, 0);
     const projectId = cloudProjectsModel.data(index, QFieldCloudProjectsModel.IdRole);

@@ -173,14 +173,15 @@ class Setup : public QObject
       engine->rootContext()->setContextProperty( QStringLiteral( "qgisProject" ), QgsProject::instance() );
       engine->rootContext()->setContextProperty( QStringLiteral( "dataDir" ), mDataDir );
 
-      // Test credentials from environment variables (for CI/CD)
-      QString testUsername = QString::fromUtf8( qgetenv( "QFIELDCLOUD_TEST_USERNAME" ) );
-      QString testPassword = QString::fromUtf8( qgetenv( "QFIELDCLOUD_TEST_PASSWORD" ) );
-      QString testServerUrl = QString::fromUtf8( qgetenv( "QFIELDCLOUD_TEST_SERVER_URL" ) );
+      // QFieldCloud credentials
+      engine->rootContext()->setContextProperty( QStringLiteral( "qfcUrl" ), QString::fromUtf8( qgetenv( "QFIELDCLOUD_URL" ) ) );
+      engine->rootContext()->setContextProperty( QStringLiteral( "qfcUsername" ), QString::fromUtf8( qgetenv( "QFIELDCLOUD_USERNAME" ) ) );
+      engine->rootContext()->setContextProperty( QStringLiteral( "qfcPassword" ), QString::fromUtf8( qgetenv( "QFIELDCLOUD_PASSWORD" ) ) );
 
-      engine->rootContext()->setContextProperty( QStringLiteral( "qfcTestUsername" ), testUsername );
-      engine->rootContext()->setContextProperty( QStringLiteral( "qfcTestPassword" ), testPassword );
-      engine->rootContext()->setContextProperty( QStringLiteral( "qfcTestServerUrl" ), testServerUrl );
+      // QFieldCloud remote credentials
+      engine->rootContext()->setContextProperty( QStringLiteral( "qfcRemoteUrl" ), QString::fromUtf8( qgetenv( "QFIELDCLOUD_REMOTE_URL" ) ) );
+      engine->rootContext()->setContextProperty( QStringLiteral( "qfcRemoteUsername" ), QString::fromUtf8( qgetenv( "QFIELDCLOUD_REMOTE_USERNAME" ) ) );
+      engine->rootContext()->setContextProperty( QStringLiteral( "qfcRemotePassword" ), QString::fromUtf8( qgetenv( "QFIELDCLOUD_REMOTE_PASSWORD" ) ) );
 
       QgsExifTools mExifTools;
       engine->rootContext()->setContextProperty( "ExifTools", QVariant::fromValue<QgsExifTools>( mExifTools ) );
