@@ -16,7 +16,7 @@ concurrency:
 
 env:
   SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
-  IOS_SDK_VERSION: 26.3
+  IOS_SDK_VERSION: 26.1
 
 jobs:
   build:
