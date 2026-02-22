@@ -88,7 +88,7 @@ Page {
         Layout.preferredWidth: Math.min(138, mainWindow.height / 8)
         Layout.preferredHeight: Math.min(138, mainWindow.height / 8)
 
-        source: "qrc:/images/qfield_logo.svg"
+        source: "qrc:/images/app_logo.svg"
         rotationOffset: 220
       }
 
