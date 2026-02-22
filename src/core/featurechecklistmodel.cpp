@@ -266,8 +266,6 @@ QMetaType::Type FeatureCheckListModelBase::fkType() const
 FeatureCheckListModel::FeatureCheckListModel( QObject *parent )
   : QSortFilterProxyModel( parent )
   , mSourceModel( new FeatureCheckListModelBase( parent ) )
-  , mSearchTerm( "" )
-  , mSortCheckedFirst( false )
 {
   connect( mSourceModel, &FeatureListModel::currentLayerChanged, this, &FeatureCheckListModel::currentLayerChanged );
   connect( mSourceModel, &FeatureListModel::keyFieldChanged, this, &FeatureCheckListModel::keyFieldChanged );
@@ -277,6 +275,7 @@ FeatureCheckListModel::FeatureCheckListModel( QObject *parent )
   connect( mSourceModel, &FeatureListModel::orderByValueChanged, this, &FeatureCheckListModel::orderByValueChanged );
   connect( mSourceModel, &FeatureListModel::addNullChanged, this, &FeatureCheckListModel::addNullChanged );
   connect( mSourceModel, &FeatureListModel::filterExpressionChanged, this, &FeatureCheckListModel::filterExpressionChanged );
+  connect( mSourceModel, &FeatureListModel::searchTermChanged, this, &FeatureCheckListModel::searchTermChanged );
   connect( mSourceModel, &FeatureListModel::currentFormFeatureChanged, this, &FeatureCheckListModel::currentFormFeatureChanged );
   connect( mSourceModel, &FeatureListModel::appExpressionContextScopesGeneratorChanged, this, &FeatureCheckListModel::appExpressionContextScopesGeneratorChanged );
   connect( mSourceModel, &FeatureCheckListModelBase::attributeValueChanged, this, &FeatureCheckListModel::attributeValueChanged );
@@ -285,7 +284,6 @@ FeatureCheckListModel::FeatureCheckListModel( QObject *parent )
   connect( mSourceModel, &FeatureCheckListModelBase::listUpdated, this, &FeatureCheckListModel::listUpdated );
 
   setSourceModel( mSourceModel );
-  setFilterCaseSensitivity( Qt::CaseInsensitive );
   setDynamicSortFilter( false );
   sort( 0 );
 }
@@ -453,20 +451,12 @@ void FeatureCheckListModel::toggleCheckAll( bool toggleChecked )
 
 QString FeatureCheckListModel::searchTerm() const
 {
-  return mSearchTerm;
+  return mSourceModel->searchTerm();
 }
 
 void FeatureCheckListModel::setSearchTerm( const QString &searchTerm )
 {
-  if ( mSearchTerm == searchTerm )
-  {
-    return;
-  }
-  mSearchTerm = searchTerm;
-  emit searchTermChanged();
-
-  invalidate();
-  sort( 0 );
+  mSourceModel->setSearchTerm( searchTerm );
 }
 
 bool FeatureCheckListModel::sortCheckedFirst() const
@@ -489,15 +479,7 @@ void FeatureCheckListModel::setSortCheckedFirst( bool enabled )
 
 bool FeatureCheckListModel::filterAcceptsRow( int sourceRow, const QModelIndex &sourceParent ) const
 {
-  const QStringList searchFragments = mSearchTerm.trimmed().toLower().split( " ", Qt::SkipEmptyParts );
-  if ( searchFragments.isEmpty() )
-  {
-    return true;
-  }
-
-  const QModelIndex index = sourceModel()->index( sourceRow, 0, sourceParent );
-  const QString displayText = sourceModel()->data( index, Qt::DisplayRole ).toString().toLower();
-  return std::all_of( searchFragments.begin(), searchFragments.end(), [this, &displayText]( const QString &fragment ) { return displayText.contains( fragment ); } );
+  return true;
 }
 
 bool FeatureCheckListModel::lessThan( const QModelIndex &left, const QModelIndex &right ) const
@@ -507,27 +489,29 @@ bool FeatureCheckListModel::lessThan( const QModelIndex &left, const QModelIndex
     return left.row() < right.row();
   }
 
-  if ( !groupField().isEmpty() )
+  if ( ( mSourceModel->mSearchTerm.isEmpty() && mSortCheckedFirst ) )
   {
-    const QString leftGroup = sourceModel()->data( left, FeatureListModel::GroupFieldRole ).toString();
-    const QString rightGroup = sourceModel()->data( right, FeatureListModel::GroupFieldRole ).toString();
+    const FeatureListModel::Entry entryLeft = mSourceModel->entryFromRow( left.row() );
+    const FeatureListModel::Entry entryRight = mSourceModel->entryFromRow( right.row() );
 
-    if ( leftGroup.isEmpty() && !rightGroup.isEmpty() )
+    if ( !groupField().isEmpty() )
     {
-      return true;
+      const bool entryLeftGroupIsNull = entryLeft.group.isNull();
+      const bool entryRightGroupIsNull = entryRight.group.isNull();
+      if ( entryLeftGroupIsNull && !entryRightGroupIsNull )
+      {
+        return true;
+      }
+      else if ( !entryLeftGroupIsNull && entryRightGroupIsNull )
+      {
+        return false;
+      }
+      else if ( entryLeft.group != entryRight.group )
+      {
+        return entryLeft.group < entryRight.group;
+      }
     }
-    else if ( !leftGroup.isEmpty() && rightGroup.isEmpty() )
-    {
-      return false;
-    }
-    else if ( leftGroup != rightGroup )
-    {
-      return leftGroup < rightGroup;
-    }
-  }
 
-  if ( ( mSearchTerm.isEmpty() && mSortCheckedFirst ) )
-  {
     const bool leftItemSelected = sourceModel()->data( left, FeatureCheckListModelBase::CheckedRole ).toBool();
     const bool rightItemSelected = sourceModel()->data( right, FeatureCheckListModelBase::CheckedRole ).toBool();
 
@@ -541,58 +525,5 @@ bool FeatureCheckListModel::lessThan( const QModelIndex &left, const QModelIndex
     }
   }
 
-  if ( orderByValue() || !mSearchTerm.isEmpty() )
-  {
-    const QString leftDisplay = sourceModel()->data( left, Qt::DisplayRole ).toString().toLower();
-    const QString rightDisplay = sourceModel()->data( right, Qt::DisplayRole ).toString().toLower();
-    if ( !mSearchTerm.isEmpty() )
-    {
-      const bool leftStartsWithSearchTerm = leftDisplay.startsWith( mSearchTerm.toLower() );
-      const bool rightStartsWithSearchTerm = rightDisplay.startsWith( mSearchTerm.toLower() );
-
-      if ( rightStartsWithSearchTerm && !leftStartsWithSearchTerm )
-      {
-        return false;
-      }
-      else if ( !rightStartsWithSearchTerm && leftStartsWithSearchTerm )
-      {
-        return true;
-      }
-
-      const double leftFuzzyScore = calcFuzzyScore( leftDisplay, mSearchTerm.toLower() );
-      const double rightFuzzyScore = calcFuzzyScore( rightDisplay, mSearchTerm.toLower() );
-
-      if ( leftFuzzyScore != rightFuzzyScore )
-      {
-        return leftFuzzyScore > rightFuzzyScore;
-      }
-    }
-    if ( orderByValue() )
-    {
-      return leftDisplay < rightDisplay;
-    }
-  }
-
-  // Order By Key (as a fallback)
-  const QString leftKey = sourceModel()->data( left, FeatureListModel::KeyFieldRole ).toString().toLower();
-  const QString rightKey = sourceModel()->data( right, FeatureListModel::KeyFieldRole ).toString().toLower();
-
-  if ( leftKey.isEmpty() && !rightKey.isEmpty() )
-  {
-    return true;
-  }
-  else if ( !leftKey.isEmpty() && rightKey.isEmpty() )
-  {
-    return false;
-  }
-
-  return leftKey < rightKey;
+  return false;
 }
-
-double FeatureCheckListModel::calcFuzzyScore( const QString &displayString, const QString &searchTerm ) const
-{
-  double fuzzyScore = 0;
-  fuzzyScore = StringUtils::fuzzyMatch( displayString, searchTerm ) ? 0.5 : 0;
-  fuzzyScore += QgsStringUtils::fuzzyScore( displayString, searchTerm ) * 0.5;
-  return fuzzyScore;
-};
