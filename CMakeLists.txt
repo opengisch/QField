@@ -13,6 +13,7 @@ set(APK_VERSION_CODE "1" CACHE STRING "Apk Version Code (Example: 1)")
 set(APP_VERSION "0" CACHE STRING "Application Version (Example: v1.0.0)")
 set(APP_VERSION_STR "local - dev" CACHE STRING "Application Version Name (Example: 1.0.0 - Homerun)")
 set(APP_PACKAGE_NAME "qfield" CACHE STRING "Package name suffix. E.g. qfield --> ch.opengis.qfield")
+set(APP_BUNDLED_PLUGINS "" CACHE STRING "Application bundled plugins path")
 
 string(REGEX REPLACE "v" "" CLEAN_APP_VERSION "${APP_VERSION}")
 
@@ -71,8 +72,6 @@ if(WITH_CCACHE)
   include(ccache)
 endif()
 
-install(DIRECTORY ${CMAKE_SOURCE_DIR}/resources DESTINATION ${CMAKE_INSTALL_DATADIR}/qfield)
-
 set(WITH_BLUETOOTH
     ON
     CACHE BOOL "Enable bluetooth support")
@@ -90,6 +89,19 @@ if(SENTRY_DSN)
   set(WITH_SENTRY 1)
 else()
   set(WITH_SENTRY 0)
+endif()
+
+set(WITH_SAMPLE_PROJECTS
+    ON
+    CACHE BOOL "Enable sample projects")
+
+if (WITH_SAMPLE_PROJECTS)
+  install(DIRECTORY ${CMAKE_SOURCE_DIR}/resources/sample_projects DESTINATION ${CMAKE_INSTALL_DATADIR}/qfield)
+endif()
+
+if (APP_BUNDLED_PLUGINS)
+  file(MAKE_DIRECTORY ${CMAKE_INSTALL_DATADIR}/qfield/plugins)
+  install(DIRECTORY APP_BUNDLED_PLUGINS DESTINATION ${CMAKE_INSTALL_DATADIR}/qfield/plugins)
 endif()
 
 set(QT_MIN_VERSION 6.6.0)
@@ -269,7 +281,15 @@ if(WITH_VCPKG)
 
   copy_resource("${PROJ_DATA_PATH}" "proj")
   copy_resource("${VCPKG_BASE_DIR}/share/gdal" "gdal")
-  copy_resource("${CMAKE_SOURCE_DIR}/resources/" "qfield")
+
+  if (WITH_SAMPLE_PROJECTS)
+    copy_resource("${CMAKE_SOURCE_DIR}/resources/sample_projects" "qfield/sample_projects")
+  endif()
+
+  if (APP_BUNDLED_PLUGINS)
+    copy_resource("${APP_BUNDLED_PLUGINS}" "qfield/plugins")
+  endif()
+
   install(DIRECTORY "${VCPKG_BASE_DIR}/share/qgis/resources/" DESTINATION "${CMAKE_INSTALL_DATADIR}/qgis/resources")
   install(DIRECTORY "${VCPKG_BASE_DIR}/share/qgis/svg/" DESTINATION "${CMAKE_INSTALL_DATADIR}/qgis/svg")
   install(DIRECTORY "${PROJ_DATA_PATH}/" DESTINATION "${CMAKE_INSTALL_DATADIR}/proj/")

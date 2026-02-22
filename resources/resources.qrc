@@ -15,4 +15,7 @@
 <qresource prefix="/oauth2method">
     <file alias="oauth2_verification_finished.html">templates/oauth2_verification_finished.html</file>
 </qresource>
+<qresource prefix="/templates">
+    <file alias="layout.qpt">templates/layout.qpt</file>
+</qresource>
 </RCC>

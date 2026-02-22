@@ -35,6 +35,7 @@ class PluginModel : public QAbstractListModel
     {
       UuidRole = Qt::UserRole + 1,
       TrustedRole,
+      BundledRole,
       EnabledRole,
       ConfigurableRole,
       NameRole,

@@ -419,7 +419,6 @@ void AppInterface::importUrl( const QString &url, bool loadOnImport )
         {
           // Check if this is a compressed project and handle accordingly
           QStringList zipFiles = QgsZipUtils::files( filePath );
-          qDebug() << zipFiles;
           const bool isCompressedProject = std::find_if( zipFiles.begin(),
                                                          zipFiles.end(),
                                                          []( const QString &zipFile ) {
