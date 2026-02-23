@@ -360,6 +360,13 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
 
   load( QUrl( "qrc:/qml/qgismobileapp.qml" ) );
 
+  QObject *themeObject = singletonInstance<QObject *>( qmlTypeId( "Theme", 1, 0, "Theme" ) );
+  if ( Theme *theme = qobject_cast<Theme *>( themeObject ) )
+  {
+    theme->setScreenPpi( mDpi );
+    theme->setSystemFontPointSize( PlatformUtilities::instance()->systemFontPointSize() );
+  }
+
   mMapCanvas = rootObjects().first()->findChild<QgsQuickMapCanvasMap *>();
   Q_ASSERT_X( mMapCanvas, "QML Init", "QgsQuickMapCanvasMap not found. It is likely that we failed to load the QML files. Check debug output for related messages." );
   mMapCanvas->mapSettings()->setProject( mProject );
@@ -592,10 +599,7 @@ void QgisMobileapp::initDeclarative( QQmlEngine *engine )
   qmlRegisterType<QgsLocatorContext>( "org.qgis", 1, 0, "QgsLocatorContext" );
   qmlRegisterType<QFieldLocatorFilter>( "org.qfield", 1, 0, "QFieldLocatorFilter" );
 
-  qmlRegisterSingletonType<Theme>( "Theme", 1, 0, "Theme", []( QQmlEngine *, QJSEngine * ) -> QObject * {
-    return new Theme();
-  } );
-
+  REGISTER_SINGLETON( "Theme", Theme, "Theme" );
   REGISTER_SINGLETON( "org.qfield", ExpressionContextUtils, "ExpressionContextUtils" );
   REGISTER_SINGLETON( "org.qfield", GeometryEditorsModel, "GeometryEditorsModelSingleton" );
   REGISTER_SINGLETON( "org.qfield", GeometryUtils, "GeometryUtils" );
@@ -641,9 +645,8 @@ void QgisMobileapp::initDeclarative( QQmlEngine *engine )
 void QgisMobileapp::registerGlobalVariables()
 {
   // Calculate device pixels
-  qreal dpi = mApp ? mApp->primaryScreen()->logicalDotsPerInch() * mApp->primaryScreen()->devicePixelRatio() : 96;
-
-  rootContext()->setContextProperty( "ppi", dpi );
+  mDpi = mApp ? mApp->primaryScreen()->logicalDotsPerInch() * mApp->primaryScreen()->devicePixelRatio() : 96;
+  rootContext()->setContextProperty( "ppi", mDpi );
   rootContext()->setContextProperty( "qgisProject", mProject );
   rootContext()->setContextProperty( "iface", mIface );
   rootContext()->setContextProperty( "pluginManager", mPluginManager );

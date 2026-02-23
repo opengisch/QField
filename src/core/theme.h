@@ -128,7 +128,7 @@ class QFIELD_CORE_EXPORT Theme final : public QObject
    * \note Material.theme and Application.styleHints.colorScheme are QML-only
    * APIs; bind them in QML to \c Theme.darkTheme instead
    */
-    Q_INVOKABLE void applyAppearance( const QVariantMap &extraColors = QVariantMap(), const QString &baseAppearance = QString() );
+    Q_INVOKABLE void applyAppearance( const QVariantMap &extraColors = QVariantMap(), BaseAppearance baseAppearance = UseSettingsAppearance );
 
     /**
    * Applies a map of { propertyName -> color } to this object.
@@ -292,6 +292,14 @@ class QFIELD_CORE_EXPORT Theme final : public QObject
     int menuItemLeftPadding() const { return 12; }
     int menuItemCheckLeftPadding() const { return 16; }
 
+    enum BaseAppearance
+    {
+      UseSettingsAppearance,
+      SystemAppearance,
+      DarkAppearance,
+      LightAppearance
+    };
+
   signals:
     void mainColorChanged();
     void mainOverlayColorChanged();
@@ -318,16 +326,6 @@ class QFIELD_CORE_EXPORT Theme final : public QObject
   private:
     QFont makeFont( qreal scaleFactor, bool bold ) const;
     void loadFromJson();
-
-    enum BaseAppearance
-    {
-      UseSettingsAppearance,
-      SystemAppearance,
-      DarkAppearance,
-      LightAppearance
-    };
-
-    BaseAppearance resolveBaseAppearance( const QString &baseAppearance ) const;
 
     QVariantMap mDarkThemeColors;
     QVariantMap mLightThemeColors;

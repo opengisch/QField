@@ -103,36 +103,22 @@ void Theme::loadFromJson()
   emit themeDataLoaded();
 }
 
-Theme::BaseAppearance Theme::resolveBaseAppearance( const QString &baseAppearance ) const
+void Theme::applyAppearance( const QVariantMap &extraColors, BaseAppearance baseAppearance )
 {
-  if ( baseAppearance.isEmpty() )
-  {
-    return UseSettingsAppearance;
-  }
-
-  if ( baseAppearance == QStringLiteral( "system" ) )
-  {
-    return SystemAppearance;
-  }
-
-  if ( baseAppearance == QStringLiteral( "dark" ) )
-  {
-    return DarkAppearance;
-  }
-
-  return LightAppearance;
-}
-
-void Theme::applyAppearance( const QVariantMap &extraColors, const QString &baseAppearance )
-{
-  BaseAppearance appearance = resolveBaseAppearance( baseAppearance );
+  BaseAppearance appearance = baseAppearance;
 
   if ( appearance == UseSettingsAppearance )
   {
     const QString settingsAppearance = QSettings().value( QStringLiteral( "appearance" ), QStringLiteral( "system" ) ).toString();
-    appearance = resolveBaseAppearance( settingsAppearance );
-
-    if ( appearance == UseSettingsAppearance )
+    if ( settingsAppearance == QStringLiteral( "dark" ) )
+    {
+      appearance = DarkAppearance;
+    }
+    else if ( settingsAppearance == QStringLiteral( "light" ) )
+    {
+      appearance = LightAppearance;
+    }
+    else
     {
       appearance = SystemAppearance;
     }

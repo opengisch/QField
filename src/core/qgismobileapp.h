@@ -265,6 +265,7 @@ class QFIELD_CORE_EXPORT QgisMobileapp : public QQmlApplicationEngine
     std::unique_ptr<ScreenDimmer> mScreenDimmer;
     std::unique_ptr<QFieldUrlHandler> mUrlHandler;
     QgsApplication *mApp;
+    qreal mDpi = 96.0;
 };
 
 
