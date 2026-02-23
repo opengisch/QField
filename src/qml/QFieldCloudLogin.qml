@@ -13,7 +13,7 @@ Item {
   property bool hasCredentialsAuthentication: true
   property bool isServerUrlEditingActive: false
   property bool isVisible: false
-  property QFieldCloudStatus cloudServiceStatus: null
+  property alias cloudServiceStatus: cloudStatusBanner.statusSource
 
   width: parent.width
   height: connectionSettings.childrenRect.height
@@ -219,8 +219,8 @@ Item {
     }
 
     QFieldCloudStatusBanner {
+      id: cloudStatusBanner
       Layout.fillWidth: true
-      statusSource: qfieldCloudLogin.cloudServiceStatus
     }
 
     QfButton {
