@@ -4920,7 +4920,6 @@ ApplicationWindow {
       });
     }
   }
-
   QFieldCloudConnection {
     id: cloudConnection
 

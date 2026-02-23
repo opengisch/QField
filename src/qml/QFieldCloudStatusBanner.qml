@@ -15,11 +15,7 @@ Item {
 
   property QFieldCloudStatus statusSource: null
 
-  visible: {
-    console.log("=>", statusSource);
-    console.log("=>", statusSource.hasProblem);
-    return statusSource && statusSource.hasProblem;
-  }
+  visible: statusSource && statusSource.hasProblem
 
   Layout.fillWidth: true
   Layout.minimumHeight: visible ? collapsibleMessage.height : 0
