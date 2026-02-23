@@ -334,6 +334,8 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
 
   mPluginManager = new PluginManager( this );
 
+  mDpi = mApp ? mApp->primaryScreen()->logicalDotsPerInch() * mApp->primaryScreen()->devicePixelRatio() : 96;
+
   // cppcheck-suppress leakReturnValNotUsed
   initDeclarative( this );
 
@@ -359,14 +361,6 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
   PlatformUtilities::instance()->setScreenLockPermission( false );
 
   load( QUrl( "qrc:/qml/qgismobileapp.qml" ) );
-
-  QObject *themeObject = singletonInstance<QObject *>( qmlTypeId( "Theme", 1, 0, "Theme" ) );
-  if ( Theme *theme = qobject_cast<Theme *>( themeObject ) )
-  {
-    theme->setScreenPpi( mDpi );
-    theme->setSystemFontPointSize( PlatformUtilities::instance()->systemFontPointSize() );
-  }
-
   mMapCanvas = rootObjects().first()->findChild<QgsQuickMapCanvasMap *>();
   Q_ASSERT_X( mMapCanvas, "QML Init", "QgsQuickMapCanvasMap not found. It is likely that we failed to load the QML files. Check debug output for related messages." );
   mMapCanvas->mapSettings()->setProject( mProject );
@@ -599,7 +593,12 @@ void QgisMobileapp::initDeclarative( QQmlEngine *engine )
   qmlRegisterType<QgsLocatorContext>( "org.qgis", 1, 0, "QgsLocatorContext" );
   qmlRegisterType<QFieldLocatorFilter>( "org.qfield", 1, 0, "QFieldLocatorFilter" );
 
-  REGISTER_SINGLETON( "Theme", Theme, "Theme" );
+  qmlRegisterSingletonType<Theme>( "org.qfield", 1, 0, "Theme", [this]( QQmlEngine *, QJSEngine * ) -> QObject * {
+    Theme *t = new Theme();
+    t->setScreenPpi( mDpi );
+    t->setSystemFontPointSize( PlatformUtilities::instance()->systemFontPointSize() );
+    return t;
+  } );
   REGISTER_SINGLETON( "org.qfield", ExpressionContextUtils, "ExpressionContextUtils" );
   REGISTER_SINGLETON( "org.qfield", GeometryEditorsModel, "GeometryEditorsModelSingleton" );
   REGISTER_SINGLETON( "org.qfield", GeometryUtils, "GeometryUtils" );
