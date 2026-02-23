@@ -426,9 +426,16 @@ Popup {
             Layout.fillWidth: true
           }
 
-          QFieldCloudStatusBanner {
+          QfCollapsibleMessage {
+            visible: popup.cloudServiceStatus && popup.cloudServiceStatus.hasProblem
             Layout.fillWidth: true
-            statusSource: popup.cloudServiceStatus
+            Layout.minimumHeight: visible ? height : 0
+            color: Theme.darkRed
+            detailsColor: Theme.secondaryTextColor
+            font: Theme.tipFont
+            titleText: popup.cloudServiceStatus ? popup.cloudServiceStatus.statusMessage : ''
+            detailsText: popup.cloudServiceStatus ? popup.cloudServiceStatus.detailsMessage : ''
+            externalLink: popup.cloudServiceStatus ? popup.cloudServiceStatus.statusPageUrl : ''
           }
 
           QfButton {

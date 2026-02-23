@@ -205,9 +205,16 @@ Page {
           placeHolderText: qsTr("Search for project")
         }
 
-        QFieldCloudStatusBanner {
+        QfCollapsibleMessage {
+          visible: qfieldCloudScreen.cloudServiceStatus && qfieldCloudScreen.cloudServiceStatus.hasProblem
           Layout.fillWidth: true
-          statusSource: qfieldCloudScreen.cloudServiceStatus
+          Layout.minimumHeight: visible ? height : 0
+          color: Theme.darkRed
+          detailsColor: Theme.secondaryTextColor
+          font: Theme.tipFont
+          titleText: qfieldCloudScreen.cloudServiceStatus ? qfieldCloudScreen.cloudServiceStatus.statusMessage : ''
+          detailsText: qfieldCloudScreen.cloudServiceStatus ? qfieldCloudScreen.cloudServiceStatus.detailsMessage : ''
+          externalLink: qfieldCloudScreen.cloudServiceStatus ? qfieldCloudScreen.cloudServiceStatus.statusPageUrl : ''
         }
 
         Item {

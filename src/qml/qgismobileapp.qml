@@ -4910,11 +4910,6 @@ ApplicationWindow {
     }
   }
 
-  QFieldCloudStatus {
-    id: cloudStatus
-    url: cloudConnection.url
-  }
-
   QFieldCloudConnection {
     id: cloudConnection
 
@@ -4941,6 +4936,11 @@ ApplicationWindow {
     onLoginFailed: function (reason) {
       displayToast(reason);
     }
+  }
+
+  QFieldCloudStatus {
+    id: cloudStatus
+    url: cloudConnection.url
   }
 
   QFieldCloudProjectsModel {

@@ -2,7 +2,7 @@
     qfieldcloudstatus.h
     ---------------------
     begin                : February 2026
-    copyright            : (C) 2024 by Mohsen Dehghanzadeh
+    copyright            : (C) 2026 by Mohsen Dehghanzadeh
     email                : mohsen@opengis.ch
  ***************************************************************************
  *                                                                         *
@@ -90,14 +90,9 @@ class QFieldCloudStatus : public QObject
     QString mUrl;
     QTimer mRefreshTimer;
 
-    QString mDatabaseStatus;
-    QString mStorageStatus;
     QString mStatusPageUrl;
     QString mIncidentMessage;
-    QString mIncidentTimestamp;
     QString mMaintenanceMessage;
-    QString mMaintenanceStartTimestamp;
-    QString mMaintenanceEndTimestamp;
 
     bool mHasProblem = false;
     QString mStatusMessage;
