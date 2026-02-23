@@ -4747,7 +4747,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Could not load resource font: %1</source>
-        <translation type="unfinished"/>
+        <translation>无法加载源字体: %1</translation>
     </message>
 </context>
 <context>
