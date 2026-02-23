@@ -26,7 +26,6 @@
 QFieldCloudStatus::QFieldCloudStatus( QObject *parent )
   : QObject( parent )
 {
-  mRefreshTimer.setInterval( 5 * 60 * 1000 ); // 5 minutes
   mRefreshTimer.setSingleShot( false );
   connect( &mRefreshTimer, &QTimer::timeout, this, &QFieldCloudStatus::fetchStatus );
 }
@@ -46,22 +45,20 @@ void QFieldCloudStatus::setUrl( const QString &url )
   mUrl = url;
   emit urlChanged();
 
-  if ( !mSimulating )
-  {
-    // Reset state when URL changes
-    mHasProblem = false;
-    mStatusMessage.clear();
-    mDetailsMessage.clear();
-    mStatusPageUrl.clear();
-    emit statusUpdated();
-  }
+  // Reset state when URL changes
+  mHasProblem = false;
+  mStatusMessage.clear();
+  mDetailsMessage.clear();
+  mStatusPageUrl.clear();
+  emit statusUpdated();
 
-  if ( !mUrl.isEmpty() && !mSimulating )
+  if ( !mUrl.isEmpty() )
   {
+    mRefreshTimer.setInterval( 5 * 60 * 1000 );
     fetchStatus();
     mRefreshTimer.start();
   }
-  else if ( mUrl.isEmpty() )
+  else
   {
     mRefreshTimer.stop();
   }
@@ -92,59 +89,6 @@ void QFieldCloudStatus::refresh()
   fetchStatus();
 }
 
-void QFieldCloudStatus::simulateStatus( const QString &scenario )
-{
-  mStatusPageUrl = QStringLiteral( "https://status.qfield.cloud/" );
-  mRefreshTimer.stop();
-
-  // Disconnect any in-flight request so its response won't overwrite the simulation
-  if ( mPendingReply )
-  {
-    disconnect( mPendingReply, nullptr, this, nullptr );
-    mPendingReply->deleteLater();
-    mPendingReply = nullptr;
-  }
-
-  if ( scenario == QStringLiteral( "degraded" ) )
-  {
-    mSimulating = true;
-    mHasProblem = true;
-    mStatusMessage = tr( "QFieldCloud service is degraded" );
-    mDetailsMessage = tr( "Database or storage services are not operating normally." );
-  }
-  else if ( scenario == QStringLiteral( "incident" ) )
-  {
-    mSimulating = true;
-    mHasProblem = true;
-    mStatusMessage = tr( "There is an ongoing incident" );
-    mDetailsMessage = QStringLiteral( "We are currently investigating increased error rates on project synchronization. Some users may experience timeouts." );
-  }
-  else if ( scenario == QStringLiteral( "maintenance" ) )
-  {
-    mSimulating = true;
-    mHasProblem = true;
-    mStatusMessage = tr( "QFieldCloud is under maintenance" );
-    mDetailsMessage = QStringLiteral( "Scheduled database migration. Service may be intermittently unavailable." );
-  }
-  else if ( scenario == QStringLiteral( "full" ) )
-  {
-    mSimulating = true;
-    mHasProblem = true;
-    mStatusMessage = tr( "QFieldCloud service is degraded" ) + QStringLiteral( ". " ) + tr( "There is an ongoing incident" ) + QStringLiteral( ". " ) + tr( "QFieldCloud is under maintenance" );
-    mDetailsMessage = QStringLiteral( "Major outage affecting all services.\n\nEmergency maintenance in progress." );
-  }
-  else
-  {
-    // "ok" or anything else: clear the simulated state
-    mSimulating = false;
-    mHasProblem = false;
-    mStatusMessage.clear();
-    mDetailsMessage.clear();
-  }
-
-  emit statusUpdated();
-}
-
 void QFieldCloudStatus::fetchStatus()
 {
   if ( mUrl.isEmpty() )
@@ -172,11 +116,11 @@ void QFieldCloudStatus::fetchStatus()
       return;
     }
     QNetworkReply *rawReply = mPendingReply->currentRawReply();
-    if ( rawReply->error() == QNetworkReply::NoError && !mSimulating )
+    if ( rawReply->error() == QNetworkReply::NoError )
     {
       parseStatusResponse( rawReply->readAll() );
     }
-    // On network error, silently ignore — do not infer service status from network errors
+    // On network error ignore
     mPendingReply->deleteLater();
     mPendingReply = nullptr;
   } );
@@ -211,7 +155,9 @@ void QFieldCloudStatus::parseStatusResponse( const QByteArray &data )
 
   mHasProblem = databaseDegraded || storageDegraded || hasIncident || hasMaintenance;
 
-  // Build status message
+  // Adjust polling interval: faster when there's a problem, slower when ok
+  mRefreshTimer.setInterval( mHasProblem ? 30 * 1000 : 5 * 60 * 1000 );
+
   if ( mHasProblem )
   {
     QStringList messages;
@@ -233,7 +179,6 @@ void QFieldCloudStatus::parseStatusResponse( const QByteArray &data )
 
     mStatusMessage = messages.join( QStringLiteral( ". " ) );
 
-    // Build details message
     QStringList details;
     if ( !mIncidentMessage.isEmpty() )
     {

@@ -4913,13 +4913,8 @@ ApplicationWindow {
   QFieldCloudStatus {
     id: cloudStatus
     url: cloudConnection.url
-
-    Component.onCompleted: {
-      Qt.callLater(function () {
-        simulateStatus("maintenance");
-      });
-    }
   }
+
   QFieldCloudConnection {
     id: cloudConnection
 

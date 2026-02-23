@@ -79,14 +79,6 @@ class QFieldCloudStatus : public QObject
      */
     Q_INVOKABLE void refresh();
 
-    /**
-     * Simulates a service status for testing purposes.
-     *
-     * Supported scenarios: "degraded", "incident", "maintenance", "full", "ok"
-     * Calling with "ok" or an empty string clears the simulated state.
-     */
-    Q_INVOKABLE void simulateStatus( const QString &scenario );
-
   signals:
     void urlChanged();
     void statusUpdated();
@@ -98,7 +90,6 @@ class QFieldCloudStatus : public QObject
     QString mUrl;
     QTimer mRefreshTimer;
 
-    // Parsed status fields
     QString mDatabaseStatus;
     QString mStorageStatus;
     QString mStatusPageUrl;
@@ -113,7 +104,6 @@ class QFieldCloudStatus : public QObject
     QString mDetailsMessage;
 
     NetworkReply *mPendingReply = nullptr;
-    bool mSimulating = false;
 };
 
 #endif // QFIELDCLOUDSTATUS_H
