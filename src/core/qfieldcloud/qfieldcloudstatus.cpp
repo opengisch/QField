@@ -2,7 +2,7 @@
     qfieldcloudstatus.cpp
     ---------------------
     begin                : February 2026
-    copyright            : (C) 2024 by Mohsen Dehghanzadeh
+    copyright            : (C) 2026 by Mohsen Dehghanzadeh
     email                : mohsen@opengis.ch
  ***************************************************************************
  *                                                                         *
@@ -21,6 +21,7 @@
 #include <QJsonObject>
 #include <QNetworkReply>
 #include <QNetworkRequest>
+#include <qgsmessagelog.h>
 
 
 QFieldCloudStatus::QFieldCloudStatus( QObject *parent )
@@ -120,7 +121,10 @@ void QFieldCloudStatus::fetchStatus()
     {
       parseStatusResponse( rawReply->readAll() );
     }
-    // On network error ignore
+    else
+    {
+      QgsMessageLog::logMessage( QStringLiteral( "QFieldCloud status check failed: %1" ).arg( rawReply->errorString() ), QStringLiteral( "QFieldCloud" ), Qgis::MessageLevel::Warning );
+    }
     mPendingReply->deleteLater();
     mPendingReply = nullptr;
   } );
@@ -138,19 +142,17 @@ void QFieldCloudStatus::parseStatusResponse( const QByteArray &data )
 
   const QJsonObject obj = doc.object();
 
-  mDatabaseStatus = obj.value( QStringLiteral( "database" ) ).toString();
-  mStorageStatus = obj.value( QStringLiteral( "storage" ) ).toString();
+  const QString databaseStatus = obj.value( QStringLiteral( "database" ) ).toString();
+  const QString storageStatus = obj.value( QStringLiteral( "storage" ) ).toString();
   mStatusPageUrl = obj.value( QStringLiteral( "status_page_url" ) ).toString();
   mIncidentMessage = obj.value( QStringLiteral( "incident_message" ) ).toString();
-  mIncidentTimestamp = obj.value( QStringLiteral( "incident_timestamp_utc" ) ).toString();
+  const QString incidentTimestamp = obj.value( QStringLiteral( "incident_timestamp_utc" ) ).toString();
   mMaintenanceMessage = obj.value( QStringLiteral( "maintenance_message" ) ).toString();
-  mMaintenanceStartTimestamp = obj.value( QStringLiteral( "maintenance_start_timestamp_utc" ) ).toString();
-  mMaintenanceEndTimestamp = obj.value( QStringLiteral( "maintenance_end_timestamp_utc" ) ).toString();
 
   // Determine if there is a problem
-  const bool databaseDegraded = !mDatabaseStatus.isEmpty() && mDatabaseStatus != QStringLiteral( "ok" );
-  const bool storageDegraded = !mStorageStatus.isEmpty() && mStorageStatus != QStringLiteral( "ok" );
-  const bool hasIncident = !mIncidentTimestamp.isEmpty();
+  const bool databaseDegraded = !databaseStatus.isEmpty() && databaseStatus != QStringLiteral( "ok" );
+  const bool storageDegraded = !storageStatus.isEmpty() && storageStatus != QStringLiteral( "ok" );
+  const bool hasIncident = !incidentTimestamp.isEmpty();
   const bool hasMaintenance = !mMaintenanceMessage.isEmpty();
 
   mHasProblem = databaseDegraded || storageDegraded || hasIncident || hasMaintenance;
