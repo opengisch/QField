@@ -14,8 +14,9 @@ email                : kaustuv@opengis.ch
 *                                                                         *
 ***************************************************************************/
 
-#include "theme.h"
 #include "platformutilities.h"
+#include "theme.h"
+
 #include <QFile>
 #include <QFont>
 #include <QJsonDocument>
@@ -55,8 +56,7 @@ void Theme::loadFromJson()
   // Fixed colors have no WRITE accessor so they cannot go through applyColors()
   // Assign directly via a lambda, only applied if the color string is valid
   const QVariantMap fixed = root.value( QStringLiteral( "fixedColors" ) ).toObject().toVariantMap();
-  const auto set = [&fixed]( QColor &member, const char *key )
-  {
+  const auto set = [&fixed]( QColor &member, const char *key ) {
     const QColor color( fixed.value( QLatin1String( key ) ).toString() );
     if ( color.isValid() )
     {
@@ -221,7 +221,7 @@ QString Theme::getThemeVectorIcon( const QString &name ) const
 QString Theme::colorToHtml( const QColor &color ) const
 {
   return QStringLiteral( "rgba(%1,%2,%3,%4)" )
-  .arg( static_cast<int>( color.redF() * 255 ) )
+    .arg( static_cast<int>( color.redF() * 255 ) )
     .arg( static_cast<int>( color.greenF() * 255 ) )
     .arg( static_cast<int>( color.blueF() * 255 ) )
     .arg( static_cast<int>( color.alphaF() * 255 ) );

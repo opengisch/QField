@@ -21,7 +21,10 @@ if(APP_THEME_PATH AND EXISTS "${APP_THEME_PATH}")
   message(STATUS "Using custom theme: ${APP_THEME_JSON_PATH}")
 else()
   if(APP_THEME_PATH)
-    message(WARNING "APP_THEME_PATH '${APP_THEME_PATH}' does not exist — using default theme")
+    message(
+      WARNING
+        "APP_THEME_PATH '${APP_THEME_PATH}' does not exist — using default theme"
+    )
   endif()
   set(APP_THEME_JSON_PATH "${CMAKE_SOURCE_DIR}/resources/theme/theme.json")
   message(STATUS "Using default theme: ${APP_THEME_JSON_PATH}")
@@ -50,10 +53,13 @@ function(create_executable)
   cmake_parse_arguments(exe "" "TARGET" "EXTRA_ARGS" "" ${ARGN})
 
   set(QFIELD_SOURCES
-      main.cpp ${RESOURCES} ${CMAKE_SOURCE_DIR}/images/images.qrc
+      main.cpp
+      ${RESOURCES}
+      ${CMAKE_SOURCE_DIR}/images/images.qrc
       ${CMAKE_BINARY_DIR}/images/logo.qrc
       ${CMAKE_BINARY_DIR}/resources/theme.qrc
-      ${CMAKE_SOURCE_DIR}/resources/resources.qrc ${ICON_SRC})
+      ${CMAKE_SOURCE_DIR}/resources/resources.qrc
+      ${ICON_SRC})
 
   if(ANDROID)
     qt_add_executable(${exe_TARGET} ${QFIELD_SOURCES})

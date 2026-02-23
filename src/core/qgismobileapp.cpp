@@ -592,8 +592,7 @@ void QgisMobileapp::initDeclarative( QQmlEngine *engine )
   qmlRegisterType<QgsLocatorContext>( "org.qgis", 1, 0, "QgsLocatorContext" );
   qmlRegisterType<QFieldLocatorFilter>( "org.qfield", 1, 0, "QFieldLocatorFilter" );
 
-  qmlRegisterSingletonType<Theme>( "Theme", 1, 0, "Theme", []( QQmlEngine *, QJSEngine * ) -> QObject *
-  {
+  qmlRegisterSingletonType<Theme>( "Theme", 1, 0, "Theme", []( QQmlEngine *, QJSEngine * ) -> QObject * {
     return new Theme();
   } );
 
