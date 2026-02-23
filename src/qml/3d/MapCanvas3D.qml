@@ -8,9 +8,10 @@ import Theme
 Item {
   id: mapArea
   focus: true
-  visible: !isLoading
+  visible: !mapTerrainProvider.isFirstLoad || !isLoading
 
   property alias mapSettings: mapTerrainProvider.mapSettings
+  property alias terrainExtent: mapTerrainProvider.extent
   property bool isLoading: mapTerrainProvider.isLoading
   property bool wireframeMode: false
 
@@ -29,15 +30,23 @@ Item {
     mapSettings: mapArea.mapSettings
     forceSquareSize: true
 
+    property bool isFirstLoad: true
+
     onTerrainDataReady: {
       if (normalizedData.length === 0) {
         return;
       }
 
-      positionCameraForTerrain();
+      // Reset any panning offset before showing the new terrain
+      terrainMesh.position = Qt.vector3d(0, 0, 0);
+
       mapTextureData.render();
 
-      Qt.callLater(mapArea.playOpeningAnimation);
+      if (isFirstLoad) {
+        isFirstLoad = false;
+        positionCameraForTerrain();
+        Qt.callLater(mapArea.playOpeningAnimation);
+      }
     }
   }
 
@@ -215,6 +224,9 @@ Item {
     }
   }
 
+  property real panOffsetX: 0
+  property real panOffsetZ: 0
+
   TouchCameraController {
     id: cameraController
     anchors.fill: parent
@@ -230,6 +242,19 @@ Item {
     }
     onUserInteractionStarted: {
       mapArea.cameraInteractionDetected();
+    }
+    onExtentPanMoved: function (sceneX, sceneZ) {
+      panOffsetX += sceneX;
+      panOffsetZ += sceneZ;
+      terrainMesh.position = Qt.vector3d(panOffsetX, 0, panOffsetZ);
+    }
+    onExtentPanFinished: {
+      applyExtentShift(panOffsetX, panOffsetZ);
+      panOffsetX = 0;
+      panOffsetZ = 0;
+    }
+    onExtentZoomRequested: function (factor) {
+      applyExtentZoom(factor);
     }
   }
 
@@ -305,5 +330,28 @@ Item {
 
   function zoomOut() {
     cameraController.distance = cameraController.clampDistance(cameraController.distance * 1.25);
+  }
+
+  // Converts scene displacement to a geo offset.
+  // Scene +X -> geo +X
+  // Scene +Z -> geo -Y
+  function applyExtentShift(sceneX, sceneZ) {
+    const ext = mapTerrainProvider.extent;
+    const sz = mapTerrainProvider.size;
+    const geoPerSceneX = ext.width / sz.width;
+    const geoPerSceneY = ext.height / sz.height;
+    const geoOffsetX = -sceneX * geoPerSceneX;
+    const geoOffsetY = sceneZ * geoPerSceneY;
+    mapTerrainProvider.setCustomExtent(ext.xMinimum + geoOffsetX, ext.yMinimum + geoOffsetY, ext.xMaximum + geoOffsetX, ext.yMaximum + geoOffsetY);
+  }
+
+  // Scales the extent around its center by the given factor, then regenerates.
+  function applyExtentZoom(factor) {
+    const ext = mapTerrainProvider.extent;
+    const cx = (ext.xMinimum + ext.xMaximum) / 2;
+    const cy = (ext.yMinimum + ext.yMaximum) / 2;
+    const halfW = ext.width / 2 * factor;
+    const halfH = ext.height / 2 * factor;
+    mapTerrainProvider.setCustomExtent(cx - halfW, cy - halfH, cx + halfW, cy + halfH);
   }
 }
