@@ -4910,6 +4910,17 @@ ApplicationWindow {
     }
   }
 
+  QFieldCloudStatus {
+    id: cloudStatus
+    url: cloudConnection.url
+
+    Component.onCompleted: {
+      Qt.callLater(function () {
+        simulateStatus("maintenance");
+      });
+    }
+  }
+
   QFieldCloudConnection {
     id: cloudConnection
 
@@ -5042,6 +5053,7 @@ ApplicationWindow {
     anchors.fill: parent
     visible: false
     focus: visible
+    cloudServiceStatus: cloudStatus
 
     onFinished: {
       visible = false;
@@ -5061,6 +5073,7 @@ ApplicationWindow {
     visible: false
     focus: visible
     parent: Overlay.overlay
+    cloudServiceStatus: cloudStatus
 
     width: parent.width
     height: parent.height
