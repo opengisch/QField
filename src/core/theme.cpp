@@ -103,21 +103,48 @@ void Theme::loadFromJson()
   emit themeDataLoaded();
 }
 
-void Theme::applyAppearance( const QVariantMap &extraColors, const QString &baseAppearance )
+Theme::BaseAppearance Theme::resolveBaseAppearance( const QString &baseAppearance ) const
 {
-  QString appearance = baseAppearance;
-  if ( appearance.isEmpty() )
+  if ( baseAppearance.isEmpty() )
   {
-    appearance = QSettings().value( QStringLiteral( "appearance" ), QStringLiteral( "system" ) ).toString();
+    return UseSettingsAppearance;
   }
 
-  if ( appearance == QStringLiteral( "system" ) )
+  if ( baseAppearance == QStringLiteral( "system" ) )
+  {
+    return SystemAppearance;
+  }
+
+  if ( baseAppearance == QStringLiteral( "dark" ) )
+  {
+    return DarkAppearance;
+  }
+
+  return LightAppearance;
+}
+
+void Theme::applyAppearance( const QVariantMap &extraColors, const QString &baseAppearance )
+{
+  BaseAppearance appearance = resolveBaseAppearance( baseAppearance );
+
+  if ( appearance == UseSettingsAppearance )
+  {
+    const QString settingsAppearance = QSettings().value( QStringLiteral( "appearance" ), QStringLiteral( "system" ) ).toString();
+    appearance = resolveBaseAppearance( settingsAppearance );
+
+    if ( appearance == UseSettingsAppearance )
+    {
+      appearance = SystemAppearance;
+    }
+  }
+
+  if ( appearance == SystemAppearance )
   {
     mDarkTheme = PlatformUtilities::instance()->isSystemDarkTheme();
   }
   else
   {
-    mDarkTheme = ( appearance == QStringLiteral( "dark" ) );
+    mDarkTheme = ( appearance == DarkAppearance );
   }
 
   emit darkThemeChanged();
@@ -177,6 +204,186 @@ void Theme::setScreenPpi( qreal ppi )
   if ( ppi > 0.0 )
   {
     mScreenPpi = ppi;
+  }
+}
+
+void Theme::setMainColor( const QColor &c )
+{
+  if ( mMainColor != c )
+  {
+    mMainColor = c;
+    emit mainColorChanged();
+  }
+}
+
+void Theme::setMainOverlayColor( const QColor &c )
+{
+  if ( mMainOverlayColor != c )
+  {
+    mMainOverlayColor = c;
+    emit mainOverlayColorChanged();
+  }
+}
+
+void Theme::setMainBackgroundColor( const QColor &c )
+{
+  if ( mMainBackgroundColor != c )
+  {
+    mMainBackgroundColor = c;
+    emit mainBackgroundColorChanged();
+  }
+}
+
+void Theme::setMainBackgroundColorSemiOpaque( const QColor &c )
+{
+  if ( mMainBackgroundColorSemiOpaque != c )
+  {
+    mMainBackgroundColorSemiOpaque = c;
+    emit mainBackgroundColorSemiOpaqueChanged();
+  }
+}
+
+void Theme::setMainTextColor( const QColor &c )
+{
+  if ( mMainTextColor != c )
+  {
+    mMainTextColor = c;
+    emit mainTextColorChanged();
+  }
+}
+
+void Theme::setMainTextDisabledColor( const QColor &c )
+{
+  if ( mMainTextDisabledColor != c )
+  {
+    mMainTextDisabledColor = c;
+    emit mainTextDisabledColorChanged();
+  }
+}
+
+void Theme::setSecondaryTextColor( const QColor &c )
+{
+  if ( mSecondaryTextColor != c )
+  {
+    mSecondaryTextColor = c;
+    emit secondaryTextColorChanged();
+  }
+}
+
+void Theme::setControlBackgroundColor( const QColor &c )
+{
+  if ( mControlBackgroundColor != c )
+  {
+    mControlBackgroundColor = c;
+    emit controlBackgroundColorChanged();
+  }
+}
+
+void Theme::setControlBackgroundAlternateColor( const QColor &c )
+{
+  if ( mControlBackgroundAlternateColor != c )
+  {
+    mControlBackgroundAlternateColor = c;
+    emit controlBackgroundAlternateColorChanged();
+  }
+}
+
+void Theme::setControlBackgroundDisabledColor( const QColor &c )
+{
+  if ( mControlBackgroundDisabledColor != c )
+  {
+    mControlBackgroundDisabledColor = c;
+    emit controlBackgroundDisabledColorChanged();
+  }
+}
+
+void Theme::setControlBorderColor( const QColor &c )
+{
+  if ( mControlBorderColor != c )
+  {
+    mControlBorderColor = c;
+    emit controlBorderColorChanged();
+  }
+}
+
+void Theme::setButtonTextColor( const QColor &c )
+{
+  if ( mButtonTextColor != c )
+  {
+    mButtonTextColor = c;
+    emit buttonTextColorChanged();
+  }
+}
+
+void Theme::setToolButtonColor( const QColor &c )
+{
+  if ( mToolButtonColor != c )
+  {
+    mToolButtonColor = c;
+    emit toolButtonColorChanged();
+  }
+}
+
+void Theme::setToolButtonBackgroundColor( const QColor &c )
+{
+  if ( mToolButtonBackgroundColor != c )
+  {
+    mToolButtonBackgroundColor = c;
+    emit toolButtonBackgroundColorChanged();
+  }
+}
+
+void Theme::setToolButtonBackgroundSemiOpaqueColor( const QColor &c )
+{
+  if ( mToolButtonBackgroundSemiOpaqueColor != c )
+  {
+    mToolButtonBackgroundSemiOpaqueColor = c;
+    emit toolButtonBackgroundSemiOpaqueColorChanged();
+  }
+}
+
+void Theme::setScrollBarBackgroundColor( const QColor &c )
+{
+  if ( mScrollBarBackgroundColor != c )
+  {
+    mScrollBarBackgroundColor = c;
+    emit scrollBarBackgroundColorChanged();
+  }
+}
+
+void Theme::setGroupBoxBackgroundColor( const QColor &c )
+{
+  if ( mGroupBoxBackgroundColor != c )
+  {
+    mGroupBoxBackgroundColor = c;
+    emit groupBoxBackgroundColorChanged();
+  }
+}
+
+void Theme::setGroupBoxSurfaceColor( const QColor &c )
+{
+  if ( mGroupBoxSurfaceColor != c )
+  {
+    mGroupBoxSurfaceColor = c;
+    emit groupBoxSurfaceColorChanged();
+  }
+}
+
+void Theme::setDarkTheme( bool dark )
+{
+  if ( mDarkTheme != dark )
+  {
+    mDarkTheme = dark;
+    emit darkThemeChanged();
+  }
+}
+
+void Theme::setFontScale( qreal scale )
+{
+  if ( !qFuzzyCompare( mFontScale, scale ) )
+  {
+    mFontScale = scale;
+    emit fontScaleChanged();
   }
 }
 

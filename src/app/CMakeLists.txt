@@ -30,8 +30,8 @@ else()
   message(STATUS "Using default theme: ${APP_THEME_JSON_PATH}")
 endif()
 
-configure_file(${CMAKE_SOURCE_DIR}/resources/theme.qrc.in
-               ${CMAKE_BINARY_DIR}/resources/theme.qrc @ONLY)
+configure_file(${CMAKE_SOURCE_DIR}/resources/resources.qrc.in
+               ${CMAKE_BINARY_DIR}/resources/resources.qrc @ONLY)
 
 if(APP_ICON_PATH AND EXISTS "${APP_ICON_PATH}/${APP_ICON}.svg")
   set(APP_LOGO_SVG_PATH "${APP_ICON_PATH}/${APP_ICON}.svg")
@@ -57,8 +57,7 @@ function(create_executable)
       ${RESOURCES}
       ${CMAKE_SOURCE_DIR}/images/images.qrc
       ${CMAKE_BINARY_DIR}/images/logo.qrc
-      ${CMAKE_BINARY_DIR}/resources/theme.qrc
-      ${CMAKE_SOURCE_DIR}/resources/resources.qrc
+      ${CMAKE_BINARY_DIR}/resources/resources.qrc
       ${ICON_SRC})
 
   if(ANDROID)

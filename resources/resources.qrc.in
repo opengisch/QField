@@ -19,6 +19,6 @@
     <file alias="layout.qpt">templates/layout.qpt</file>
 </qresource>
 <qresource prefix="/theme">
-    <file alias="theme.json">theme/theme.json</file>
+    <file alias="theme.json">@APP_THEME_JSON_PATH@</file>
 </qresource>
 </RCC>

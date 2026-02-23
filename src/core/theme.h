@@ -30,9 +30,9 @@ email                : kaustuv@opengis.ch
  * \brief Provides all color, font scale, and layout constants used throughout
  * the QField UI. Registered as a QML singleton under URI "Theme" 1.0.
  *
- * Colors are loaded from :/theme/theme.json, embedded at compile time.
+ * \note Default colors are loaded from :/theme/theme.json
  */
-class QFIELD_CORE_EXPORT Theme final: public QObject
+class QFIELD_CORE_EXPORT Theme final : public QObject
 {
     Q_OBJECT
 
@@ -179,184 +179,58 @@ class QFIELD_CORE_EXPORT Theme final: public QObject
     QVariantMap lightThemeColors() const { return mLightThemeColors; }
 
     QColor mainColor() const { return mMainColor; }
-    void setMainColor( const QColor &c )
-    {
-      if ( mMainColor != c )
-      {
-        mMainColor = c;
-        emit mainColorChanged();
-      }
-    }
+    void setMainColor( const QColor &c );
 
     QColor mainOverlayColor() const { return mMainOverlayColor; }
-    void setMainOverlayColor( const QColor &c )
-    {
-      if ( mMainOverlayColor != c )
-      {
-        mMainOverlayColor = c;
-        emit mainOverlayColorChanged();
-      }
-    }
+    void setMainOverlayColor( const QColor &c );
 
     QColor mainBackgroundColor() const { return mMainBackgroundColor; }
-    void setMainBackgroundColor( const QColor &c )
-    {
-      if ( mMainBackgroundColor != c )
-      {
-        mMainBackgroundColor = c;
-        emit mainBackgroundColorChanged();
-      }
-    }
+    void setMainBackgroundColor( const QColor &c );
 
     QColor mainBackgroundColorSemiOpaque() const { return mMainBackgroundColorSemiOpaque; }
-    void setMainBackgroundColorSemiOpaque( const QColor &c )
-    {
-      if ( mMainBackgroundColorSemiOpaque != c )
-      {
-        mMainBackgroundColorSemiOpaque = c;
-        emit mainBackgroundColorSemiOpaqueChanged();
-      }
-    }
+    void setMainBackgroundColorSemiOpaque( const QColor &c );
 
     QColor mainTextColor() const { return mMainTextColor; }
-    void setMainTextColor( const QColor &c )
-    {
-      if ( mMainTextColor != c )
-      {
-        mMainTextColor = c;
-        emit mainTextColorChanged();
-      }
-    }
+    void setMainTextColor( const QColor &c );
 
     QColor mainTextDisabledColor() const { return mMainTextDisabledColor; }
-    void setMainTextDisabledColor( const QColor &c )
-    {
-      if ( mMainTextDisabledColor != c )
-      {
-        mMainTextDisabledColor = c;
-        emit mainTextDisabledColorChanged();
-      }
-    }
+    void setMainTextDisabledColor( const QColor &c );
 
     QColor secondaryTextColor() const { return mSecondaryTextColor; }
-    void setSecondaryTextColor( const QColor &c )
-    {
-      if ( mSecondaryTextColor != c )
-      {
-        mSecondaryTextColor = c;
-        emit secondaryTextColorChanged();
-      }
-    }
+    void setSecondaryTextColor( const QColor &c );
 
     QColor controlBackgroundColor() const { return mControlBackgroundColor; }
-    void setControlBackgroundColor( const QColor &c )
-    {
-      if ( mControlBackgroundColor != c )
-      {
-        mControlBackgroundColor = c;
-        emit controlBackgroundColorChanged();
-      }
-    }
+    void setControlBackgroundColor( const QColor &c );
 
     QColor controlBackgroundAlternateColor() const { return mControlBackgroundAlternateColor; }
-    void setControlBackgroundAlternateColor( const QColor &c )
-    {
-      if ( mControlBackgroundAlternateColor != c )
-      {
-        mControlBackgroundAlternateColor = c;
-        emit controlBackgroundAlternateColorChanged();
-      }
-    }
+    void setControlBackgroundAlternateColor( const QColor &c );
 
     QColor controlBackgroundDisabledColor() const { return mControlBackgroundDisabledColor; }
-    void setControlBackgroundDisabledColor( const QColor &c )
-    {
-      if ( mControlBackgroundDisabledColor != c )
-      {
-        mControlBackgroundDisabledColor = c;
-        emit controlBackgroundDisabledColorChanged();
-      }
-    }
+    void setControlBackgroundDisabledColor( const QColor &c );
 
     QColor controlBorderColor() const { return mControlBorderColor; }
-    void setControlBorderColor( const QColor &c )
-    {
-      if ( mControlBorderColor != c )
-      {
-        mControlBorderColor = c;
-        emit controlBorderColorChanged();
-      }
-    }
+    void setControlBorderColor( const QColor &c );
 
     QColor buttonTextColor() const { return mButtonTextColor; }
-    void setButtonTextColor( const QColor &c )
-    {
-      if ( mButtonTextColor != c )
-      {
-        mButtonTextColor = c;
-        emit buttonTextColorChanged();
-      }
-    }
+    void setButtonTextColor( const QColor &c );
 
     QColor toolButtonColor() const { return mToolButtonColor; }
-    void setToolButtonColor( const QColor &c )
-    {
-      if ( mToolButtonColor != c )
-      {
-        mToolButtonColor = c;
-        emit toolButtonColorChanged();
-      }
-    }
+    void setToolButtonColor( const QColor &c );
 
     QColor toolButtonBackgroundColor() const { return mToolButtonBackgroundColor; }
-    void setToolButtonBackgroundColor( const QColor &c )
-    {
-      if ( mToolButtonBackgroundColor != c )
-      {
-        mToolButtonBackgroundColor = c;
-        emit toolButtonBackgroundColorChanged();
-      }
-    }
+    void setToolButtonBackgroundColor( const QColor &c );
 
     QColor toolButtonBackgroundSemiOpaqueColor() const { return mToolButtonBackgroundSemiOpaqueColor; }
-    void setToolButtonBackgroundSemiOpaqueColor( const QColor &c )
-    {
-      if ( mToolButtonBackgroundSemiOpaqueColor != c )
-      {
-        mToolButtonBackgroundSemiOpaqueColor = c;
-        emit toolButtonBackgroundSemiOpaqueColorChanged();
-      }
-    }
+    void setToolButtonBackgroundSemiOpaqueColor( const QColor &c );
 
     QColor scrollBarBackgroundColor() const { return mScrollBarBackgroundColor; }
-    void setScrollBarBackgroundColor( const QColor &c )
-    {
-      if ( mScrollBarBackgroundColor != c )
-      {
-        mScrollBarBackgroundColor = c;
-        emit scrollBarBackgroundColorChanged();
-      }
-    }
+    void setScrollBarBackgroundColor( const QColor &c );
 
     QColor groupBoxBackgroundColor() const { return mGroupBoxBackgroundColor; }
-    void setGroupBoxBackgroundColor( const QColor &c )
-    {
-      if ( mGroupBoxBackgroundColor != c )
-      {
-        mGroupBoxBackgroundColor = c;
-        emit groupBoxBackgroundColorChanged();
-      }
-    }
+    void setGroupBoxBackgroundColor( const QColor &c );
 
     QColor groupBoxSurfaceColor() const { return mGroupBoxSurfaceColor; }
-    void setGroupBoxSurfaceColor( const QColor &c )
-    {
-      if ( mGroupBoxSurfaceColor != c )
-      {
-        mGroupBoxSurfaceColor = c;
-        emit groupBoxSurfaceColorChanged();
-      }
-    }
+    void setGroupBoxSurfaceColor( const QColor &c );
 
     QColor mainColorSemiOpaque() const { return mMainColorSemiOpaque; }
     QColor darkRed() const { return mDarkRed; }
@@ -397,24 +271,10 @@ class QFIELD_CORE_EXPORT Theme final: public QObject
     QColor errorColor() const { return mDarkTheme ? QColor( QStringLiteral( "#df3422" ) ) : QColor( QStringLiteral( "#c0392b" ) ); }
 
     bool darkTheme() const { return mDarkTheme; }
-    void setDarkTheme( bool dark )
-    {
-      if ( mDarkTheme != dark )
-      {
-        mDarkTheme = dark;
-        emit darkThemeChanged();
-      }
-    }
+    void setDarkTheme( bool dark );
 
     qreal fontScale() const { return mFontScale; }
-    void setFontScale( qreal scale )
-    {
-      if ( !qFuzzyCompare( mFontScale, scale ) )
-      {
-        mFontScale = scale;
-        emit fontScaleChanged();
-      }
-    }
+    void setFontScale( qreal scale );
 
     QFont defaultFont() const { return makeFont( 1.0, false ); }
     QFont tinyFont() const { return makeFont( 0.75, false ); }
@@ -458,6 +318,16 @@ class QFIELD_CORE_EXPORT Theme final: public QObject
   private:
     QFont makeFont( qreal scaleFactor, bool bold ) const;
     void loadFromJson();
+
+    enum BaseAppearance
+    {
+      UseSettingsAppearance,
+      SystemAppearance,
+      DarkAppearance,
+      LightAppearance
+    };
+
+    BaseAppearance resolveBaseAppearance( const QString &baseAppearance ) const;
 
     QVariantMap mDarkThemeColors;
     QVariantMap mLightThemeColors;
