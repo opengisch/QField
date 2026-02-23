@@ -199,6 +199,15 @@ void Theme::setMainColor( const QColor &c )
   {
     mMainColor = c;
     emit mainColorChanged();
+
+    // mainColorSemiOpaque always tracks mainColor with reduced opacity
+    QColor semiOpaque = c;
+    semiOpaque.setAlpha( 0xbb );
+    if ( mMainColorSemiOpaque != semiOpaque )
+    {
+      mMainColorSemiOpaque = semiOpaque;
+      emit themeDataLoaded();
+    }
   }
 }
 

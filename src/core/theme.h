@@ -122,6 +122,15 @@ class QFIELD_CORE_EXPORT Theme final : public QObject
   public:
     explicit Theme( QObject *parent = nullptr );
 
+    enum BaseAppearance
+    {
+      UseSettingsAppearance,
+      SystemAppearance,
+      DarkAppearance,
+      LightAppearance
+    };
+    Q_ENUM( BaseAppearance )
+
     /**
    * Applies the dark/light/system appearance setting and the matching color palette.
    * An optional \a extraColors map is applied on top for per-call overrides.
@@ -291,14 +300,6 @@ class QFIELD_CORE_EXPORT Theme final : public QObject
     int menuItemIconlessLeftPadding() const { return 52; }
     int menuItemLeftPadding() const { return 12; }
     int menuItemCheckLeftPadding() const { return 16; }
-
-    enum BaseAppearance
-    {
-      UseSettingsAppearance,
-      SystemAppearance,
-      DarkAppearance,
-      LightAppearance
-    };
 
   signals:
     void mainColorChanged();
