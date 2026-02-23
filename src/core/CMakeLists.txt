@@ -349,13 +349,6 @@ endif()
 include(GenerateExportHeader)
 generate_export_header(qfield_core)
 
-# At runtime it is accessible as:  :/theme/theme.json
-qt_add_resources(qfield_core "theme_resources"
-  PREFIX "/theme"
-  FILES
-    theme/theme.json
-)
-
 configure_file(qfield.h.in ${CMAKE_CURRENT_BINARY_DIR}/qfield.h @ONLY)
 
 target_include_directories(qfield_core SYSTEM

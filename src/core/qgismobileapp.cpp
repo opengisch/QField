@@ -141,6 +141,7 @@
 #include "snappingutils.h"
 #include "stringutils.h"
 #include "submodel.h"
+#include "theme.h"
 #include "trackingmodel.h"
 #include "urlutils.h"
 #include "valuemapmodel.h"
@@ -590,6 +591,11 @@ void QgisMobileapp::initDeclarative( QQmlEngine *engine )
 
   qmlRegisterType<QgsLocatorContext>( "org.qgis", 1, 0, "QgsLocatorContext" );
   qmlRegisterType<QFieldLocatorFilter>( "org.qfield", 1, 0, "QFieldLocatorFilter" );
+
+  qmlRegisterSingletonType<Theme>( "Theme", 1, 0, "Theme", []( QQmlEngine *, QJSEngine * ) -> QObject *
+  {
+    return new Theme();
+  } );
 
   REGISTER_SINGLETON( "org.qfield", ExpressionContextUtils, "ExpressionContextUtils" );
   REGISTER_SINGLETON( "org.qfield", GeometryEditorsModel, "GeometryEditorsModelSingleton" );
