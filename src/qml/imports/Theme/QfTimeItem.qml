@@ -1,6 +1,7 @@
 import QtQuick
 import QtQuick.Layouts
 import QtQuick.Controls
+import org.qfield
 
 Item {
   property alias hours: hoursSpinBox.value

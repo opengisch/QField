@@ -3,7 +3,6 @@ import QtQuick.Controls.Material
 import QtQuick.Controls.Material.impl
 import org.qfield
 import org.qgis
-import Theme
 
 /**
  * Provides a consistent UI for selecting single values from a list of options.

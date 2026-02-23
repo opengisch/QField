@@ -2,6 +2,7 @@ import QtQuick
 import QtQuick.Controls
 import QtQuick.Controls.Material
 import QtQuick.Controls.Material.impl
+import org.qfield
 
 /**
  * \ingroup qml

@@ -4,6 +4,7 @@ import QtQuick.Templates as T
 import QtQuick.Controls.impl
 import QtQuick.Controls.Material
 import QtQuick.Controls.Material.impl
+import org.qfield
 
 /**
  * \ingroup qml
