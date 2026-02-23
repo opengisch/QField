@@ -132,7 +132,7 @@ void Theme::applyAppearance( const QVariantMap &extraColors, const QString &base
 
 void Theme::applyColors( const QVariantMap &colors )
 {
-  const QMetaObject *meta = metaObject();
+  const QMetaObject *meta = &Theme::staticMetaObject;
   for ( auto it = colors.cbegin(); it != colors.cend(); ++it )
   {
     const int idx = meta->indexOfProperty( qPrintable( it.key() ) );
@@ -174,7 +174,10 @@ void Theme::setSystemFontPointSize( qreal size )
 
 void Theme::setScreenPpi( qreal ppi )
 {
-  mScreenPpi = ppi;
+  if ( ppi > 0.0 )
+  {
+    mScreenPpi = ppi;
+  }
 }
 
 QFont Theme::makeFont( qreal scaleFactor, bool bold ) const

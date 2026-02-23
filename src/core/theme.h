@@ -32,7 +32,7 @@ email                : kaustuv@opengis.ch
  *
  * Colors are loaded from :/theme/theme.json, embedded at compile time.
  */
-class QFIELD_CORE_EXPORT Theme : public QObject
+class QFIELD_CORE_EXPORT Theme final: public QObject
 {
     Q_OBJECT
 
@@ -61,8 +61,6 @@ class QFIELD_CORE_EXPORT Theme : public QObject
     Q_PROPERTY( QColor groupBoxSurfaceColor READ groupBoxSurfaceColor WRITE setGroupBoxSurfaceColor NOTIFY groupBoxSurfaceColorChanged )
 
     // Fixed colors, set once from JSON, never change at runtime
-    // NOTIFY themeDataLoaded rather than CONSTANT so direct member assignment is valid;
-    // CONSTANT would make QMetaProperty::write() silently fail.
     Q_PROPERTY( QColor mainColorSemiOpaque READ mainColorSemiOpaque NOTIFY themeDataLoaded )
     Q_PROPERTY( QColor darkRed READ darkRed NOTIFY themeDataLoaded )
     Q_PROPERTY( QColor darkGray READ darkGray NOTIFY themeDataLoaded )
