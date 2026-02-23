@@ -60,6 +60,7 @@ set(QFIELD_CORE_SRCS
     qfieldcloud/qfieldcloudconnection.cpp
     qfieldcloud/qfieldcloudproject.cpp
     qfieldcloud/qfieldcloudprojectsmodel.cpp
+    qfieldcloud/qfieldcloudstatus.cpp
     appcoordinateoperationhandlers.cpp
     appexpressioncontextscopesgenerator.cpp
     appinterface.cpp
@@ -203,6 +204,7 @@ set(QFIELD_CORE_HDRS
     qfieldcloud/qfieldcloudconnection.h
     qfieldcloud/qfieldcloudproject.h
     qfieldcloud/qfieldcloudprojectsmodel.h
+    qfieldcloud/qfieldcloudstatus.h
     appcoordinateoperationhandlers.h
     appexpressioncontextscopesgenerator.h
     appinterface.h
