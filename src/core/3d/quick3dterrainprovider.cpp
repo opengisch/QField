@@ -124,41 +124,58 @@ void Quick3DTerrainProvider::updateFromMapSettings()
     return;
   }
 
-  QgsRectangle visibleExtent = mMapSettings->visibleExtent();
+  applyExtent( mMapSettings->visibleExtent() );
+}
+
+
+void Quick3DTerrainProvider::setCustomExtent( double xMin, double yMin, double xMax, double yMax )
+{
+  if ( !mProject )
+  {
+    return;
+  }
+
+  applyExtent( QgsRectangle( xMin, yMin, xMax, yMax ) );
+}
+
+void Quick3DTerrainProvider::applyExtent( const QgsRectangle &extent )
+{
+  QgsRectangle adjustedExtent = extent;
   if ( mForceSquareSize )
   {
-    if ( visibleExtent.width() >= visibleExtent.height() )
+    if ( adjustedExtent.width() >= adjustedExtent.height() )
     {
-      const double adjustement = ( visibleExtent.width() - visibleExtent.height() ) / 2;
-      visibleExtent.setYMinimum( visibleExtent.yMinimum() - adjustement );
-      visibleExtent.setYMaximum( visibleExtent.yMaximum() + adjustement );
+      const double adjustment = ( adjustedExtent.width() - adjustedExtent.height() ) / 2;
+      adjustedExtent.setYMinimum( adjustedExtent.yMinimum() - adjustment );
+      adjustedExtent.setYMaximum( adjustedExtent.yMaximum() + adjustment );
     }
     else
     {
-      const double adjustement = ( visibleExtent.height() - visibleExtent.width() ) / 2;
-      visibleExtent.setXMinimum( visibleExtent.xMinimum() - adjustement );
-      visibleExtent.setXMaximum( visibleExtent.xMaximum() + adjustement );
+      const double adjustment = ( adjustedExtent.height() - adjustedExtent.width() ) / 2;
+      adjustedExtent.setXMinimum( adjustedExtent.xMinimum() - adjustment );
+      adjustedExtent.setXMaximum( adjustedExtent.xMaximum() + adjustment );
     }
   }
 
-  bool changed = mExtent != visibleExtent;
-  if ( changed )
+  if ( mExtent == adjustedExtent )
   {
-    mExtent = visibleExtent;
-    if ( mExtent.width() >= mExtent.height() )
-    {
-      mSize = QSizeF( mBaseSize, mExtent.height() * mBaseSize / mExtent.width() );
-    }
-    else
-    {
-      mSize = QSizeF( mExtent.width() * mBaseSize / mExtent.height(), mBaseSize );
-    }
-    emit extentChanged();
+    return;
   }
+
+  mExtent = adjustedExtent;
+  if ( mExtent.width() >= mExtent.height() )
+  {
+    mSize = QSizeF( mBaseSize, mExtent.height() * mBaseSize / mExtent.width() );
+  }
+  else
+  {
+    mSize = QSizeF( mExtent.width() * mBaseSize / mExtent.height(), mBaseSize );
+  }
+  emit extentChanged();
 
   calculateResolution();
 
-  if ( changed && mTerrainProvider )
+  if ( mTerrainProvider )
   {
     calcNormalizedData();
   }
