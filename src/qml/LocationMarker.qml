@@ -2,6 +2,7 @@ import QtQuick
 import QtQuick.Shapes
 import QtQuick.Window
 import org.qgis
+import org.qfield
 import Theme
 
 /**

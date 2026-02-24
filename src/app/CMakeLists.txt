@@ -16,6 +16,36 @@ endif()
 # lrelease .ts files
 find_package(Qt6 COMPONENTS LinguistTools)
 
+if(APP_THEME_PATH AND EXISTS "${APP_THEME_PATH}")
+  if(IS_ABSOLUTE "${APP_THEME_PATH}")
+    set(APP_THEME_JSON_PATH "${APP_THEME_PATH}")
+  else()
+    set(APP_THEME_JSON_PATH "${CMAKE_SOURCE_DIR}/${APP_THEME_PATH}")
+  endif()
+  file(TO_CMAKE_PATH "${APP_THEME_JSON_PATH}" APP_THEME_JSON_PATH)
+  message(STATUS "Using custom theme: ${APP_THEME_JSON_PATH}")
+else()
+  if(APP_THEME_PATH)
+    message(
+      WARNING
+        "APP_THEME_PATH '${APP_THEME_PATH}' does not exist — using default theme"
+    )
+  endif()
+  set(APP_THEME_JSON_PATH "${CMAKE_SOURCE_DIR}/resources/theme/theme.json")
+  file(TO_CMAKE_PATH "${APP_THEME_JSON_PATH}" APP_THEME_JSON_PATH)
+  message(STATUS "Using default theme: ${APP_THEME_JSON_PATH}")
+endif()
+
+set(RESOURCES_DIR "${CMAKE_SOURCE_DIR}/resources")
+file(TO_CMAKE_PATH "${RESOURCES_DIR}" RESOURCES_DIR)
+
+configure_file(${CMAKE_SOURCE_DIR}/resources/resources.qrc.in
+               ${CMAKE_BINARY_DIR}/resources/resources.qrc @ONLY)
+
+set_source_files_properties(
+  ${CMAKE_BINARY_DIR}/resources/resources.qrc
+  PROPERTIES AUTORCC_BASE_DIR "${CMAKE_SOURCE_DIR}/resources")
+
 if(APP_ICON_PATH AND EXISTS "${APP_ICON_PATH}/${APP_ICON}.svg")
   set(APP_LOGO_SVG_PATH "${APP_ICON_PATH}/${APP_ICON}.svg")
   message(STATUS "Using custom SVG logo: ${APP_LOGO_SVG_PATH}")
@@ -38,7 +68,7 @@ function(create_executable)
   set(QFIELD_SOURCES
       main.cpp ${RESOURCES} ${CMAKE_SOURCE_DIR}/images/images.qrc
       ${CMAKE_BINARY_DIR}/images/logo.qrc
-      ${CMAKE_SOURCE_DIR}/resources/resources.qrc ${ICON_SRC})
+      ${CMAKE_BINARY_DIR}/resources/resources.qrc ${ICON_SRC})
 
   if(ANDROID)
     qt_add_executable(${exe_TARGET} ${QFIELD_SOURCES})

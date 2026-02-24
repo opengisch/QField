@@ -5,11 +5,23 @@ include(Catch)
 
 set(CMAKE_AUTORCC ON)
 
+set(APP_THEME_JSON_PATH "${CMAKE_SOURCE_DIR}/resources/theme/theme.json")
+file(TO_CMAKE_PATH "${APP_THEME_JSON_PATH}" APP_THEME_JSON_PATH)
+
+set(RESOURCES_DIR "${CMAKE_SOURCE_DIR}/resources")
+file(TO_CMAKE_PATH "${RESOURCES_DIR}" RESOURCES_DIR)
+
+configure_file(${CMAKE_SOURCE_DIR}/resources/resources.qrc.in
+               ${CMAKE_BINARY_DIR}/resources/resources.qrc @ONLY)
+
 # Set WITH_CATCH2_MAIN to TRUE when qgis or qfield specific initialization is NOT needed
 function(ADD_CATCH2_TEST TESTNAME TESTSRC WITH_CATCH2_MAIN)
   set(TESTSOURCES
-      ${TESTSRC} ${CMAKE_SOURCE_DIR}/images/images.qrc
+      ${TESTSRC}
+      ${CMAKE_SOURCE_DIR}/images/images.qrc
+      ${CMAKE_BINARY_DIR}/resources/resources.qrc
   )
+
   add_executable(${TESTNAME} ${TESTSOURCES})
   set_target_properties(${TESTNAME} PROPERTIES AUTOMOC TRUE)
   target_link_libraries(${TESTNAME} PRIVATE
@@ -48,7 +60,9 @@ endfunction()
 
 macro (ADD_QFIELD_TEST TESTNAME TESTSRC)
   set(TESTSOURCES
-      ${TESTSRC} ${CMAKE_SOURCE_DIR}/images/images.qrc
+      ${TESTSRC}
+      ${CMAKE_SOURCE_DIR}/images/images.qrc
+      ${CMAKE_BINARY_DIR}/resources/resources.qrc
   )
   add_executable(${TESTNAME} ${TESTSOURCES})
   set_target_properties(${TESTNAME} PROPERTIES AUTOMOC TRUE)
@@ -64,8 +78,11 @@ endmacro (ADD_QFIELD_TEST)
 
 macro (ADD_QFIELD_QML_TEST TESTNAME TESTSRC)
   set(TESTSOURCES
-      ${TESTSRC} ${CMAKE_SOURCE_DIR}/images/images.qrc
+      ${TESTSRC}
+      ${CMAKE_SOURCE_DIR}/images/images.qrc
+      ${CMAKE_BINARY_DIR}/resources/resources.qrc
   )
+
   file(GLOB test_qmlfiles "${CMAKE_CURRENT_SOURCE_DIR}/qml/*.qml")
   add_executable(${TESTNAME} ${TESTSOURCES} ${test_qmlfiles})
   # This should be in src/qml/CMakeLists.txt but that's not possible with Qt5. Retry with Qt6

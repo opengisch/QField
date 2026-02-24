@@ -1,0 +1,24 @@
+<!DOCTYPE RCC><RCC version="1.0">
+<qresource prefix="/fonts">
+    <file alias="Cadastra-Bold.ttf">@RESOURCES_DIR@/fonts/ch.cadastra/Cadastra-Bold.ttf</file>
+    <file alias="Cadastra-BoldItalic.ttf">@RESOURCES_DIR@/fonts/ch.cadastra/Cadastra-BoldItalic.ttf</file>
+    <file alias="Cadastra-Condensed.ttf">@RESOURCES_DIR@/fonts/ch.cadastra/Cadastra-Condensed.ttf</file>
+    <file alias="Cadastra-Italic.ttf">@RESOURCES_DIR@/fonts/ch.cadastra/Cadastra-Italic.ttf</file>
+    <file alias="Cadastra-Regular.ttf">@RESOURCES_DIR@/fonts/ch.cadastra/Cadastra-Regular.ttf</file>
+    <file alias="Cadastra-Semibolditalic.ttf">@RESOURCES_DIR@/fonts/ch.cadastra/Cadastra-Semibolditalic.ttf</file>
+    <file alias="CadastraSymbol-Mask.ttf">@RESOURCES_DIR@/fonts/ch.cadastra/CadastraSymbol-Mask.ttf</file>
+    <file alias="CadastraSymbol-Regular.ttf">@RESOURCES_DIR@/fonts/ch.cadastra/CadastraSymbol-Regular.ttf</file>
+</qresource>
+<qresource prefix="/sounds">
+    <file alias="proximity_alarm.wav">@RESOURCES_DIR@/sounds/proximity_alarm.wav</file>
+</qresource>
+<qresource prefix="/oauth2method">
+    <file alias="oauth2_verification_finished.html">@RESOURCES_DIR@/templates/oauth2_verification_finished.html</file>
+</qresource>
+<qresource prefix="/templates">
+    <file alias="layout.qpt">@RESOURCES_DIR@/templates/layout.qpt</file>
+</qresource>
+<qresource prefix="/theme">
+    <file alias="theme.json">@APP_THEME_JSON_PATH@</file>
+</qresource>
+</RCC>

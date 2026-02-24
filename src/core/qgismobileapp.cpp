@@ -141,6 +141,7 @@
 #include "snappingutils.h"
 #include "stringutils.h"
 #include "submodel.h"
+#include "theme.h"
 #include "trackingmodel.h"
 #include "urlutils.h"
 #include "valuemapmodel.h"
@@ -358,7 +359,6 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
   PlatformUtilities::instance()->setScreenLockPermission( false );
 
   load( QUrl( "qrc:/qml/qgismobileapp.qml" ) );
-
   mMapCanvas = rootObjects().first()->findChild<QgsQuickMapCanvasMap *>();
   Q_ASSERT_X( mMapCanvas, "QML Init", "QgsQuickMapCanvasMap not found. It is likely that we failed to load the QML files. Check debug output for related messages." );
   mMapCanvas->mapSettings()->setProject( mProject );
@@ -591,6 +591,16 @@ void QgisMobileapp::initDeclarative( QQmlEngine *engine )
   qmlRegisterType<QgsLocatorContext>( "org.qgis", 1, 0, "QgsLocatorContext" );
   qmlRegisterType<QFieldLocatorFilter>( "org.qfield", 1, 0, "QFieldLocatorFilter" );
 
+  QScreen *screen = QGuiApplication::primaryScreen();
+  const qreal dpi = screen ? screen->logicalDotsPerInch() * screen->devicePixelRatio() : 96.0;
+  const qreal systemFontPointSize = PlatformUtilities::instance()->systemFontPointSize();
+  qmlRegisterSingletonType<Theme>( "org.qfield", 1, 0, "Theme", [dpi, systemFontPointSize]( QQmlEngine *, QJSEngine * ) -> QObject * {
+    Theme *t = new Theme();
+    t->setScreenPpi( dpi );
+    t->setSystemFontPointSize( systemFontPointSize );
+    return t;
+  } );
+
   REGISTER_SINGLETON( "org.qfield", ExpressionContextUtils, "ExpressionContextUtils" );
   REGISTER_SINGLETON( "org.qfield", GeometryEditorsModel, "GeometryEditorsModelSingleton" );
   REGISTER_SINGLETON( "org.qfield", GeometryUtils, "GeometryUtils" );
@@ -636,9 +646,6 @@ void QgisMobileapp::initDeclarative( QQmlEngine *engine )
 void QgisMobileapp::registerGlobalVariables()
 {
   // Calculate device pixels
-  qreal dpi = mApp ? mApp->primaryScreen()->logicalDotsPerInch() * mApp->primaryScreen()->devicePixelRatio() : 96;
-
-  rootContext()->setContextProperty( "ppi", dpi );
   rootContext()->setContextProperty( "qgisProject", mProject );
   rootContext()->setContextProperty( "iface", mIface );
   rootContext()->setContextProperty( "pluginManager", mPluginManager );

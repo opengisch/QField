@@ -111,6 +111,8 @@ class Setup : public QObject
   public:
     Setup()
     {
+      qputenv( "QT_QUICK_CONTROLS_STYLE", QByteArray( "Material" ) );
+      qputenv( "QT_QUICK_CONTROLS_MATERIAL_VARIANT", QByteArray( "Dense" ) );
       Q_INIT_RESOURCE( qml );
     }
 
@@ -169,7 +171,6 @@ class Setup : public QObject
 
       QgsProject::instance()->read( mDataDir + "/test_bees.qgz", Qgis::ProjectReadFlag::DontLoadProjectStyles | Qgis::ProjectReadFlag::DontLoad3DViews | Qgis::ProjectReadFlag::DontLoadLayouts );
 
-      engine->rootContext()->setContextProperty( QStringLiteral( "ppi" ), 96 );
       engine->rootContext()->setContextProperty( QStringLiteral( "qgisProject" ), QgsProject::instance() );
       engine->rootContext()->setContextProperty( QStringLiteral( "dataDir" ), mDataDir );
 

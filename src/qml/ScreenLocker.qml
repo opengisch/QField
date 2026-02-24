@@ -1,6 +1,6 @@
 import QtQuick
 import QtQuick.Controls
-import Theme
+import org.qfield
 
 Item {
   id: screenLocker

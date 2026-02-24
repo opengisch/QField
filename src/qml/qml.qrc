@@ -103,7 +103,6 @@
         <file>Changelog.qml</file>
         <file>Nyuki.qml</file>
         <file>LayerLoginDialog.qml</file>
-        <file>imports/Theme/Theme.qml</file>
         <file>imports/Theme/QfActionButton.qml</file>
         <file>imports/Theme/QfComboBox.qml</file>
         <file>imports/Theme/QfDropShadow.qml</file>
