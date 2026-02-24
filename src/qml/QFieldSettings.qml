@@ -52,6 +52,22 @@ Page {
     variableEditor.reset();
   }
 
+  NtripSourceTableFetcher {
+    id: ntripFetcher
+    onMountpointsChanged: {
+      // Preserve edited mountpoint text after model update
+      var savedText = positioningSettings.ntripMountpoint
+      Qt.callLater( function() {
+        if ( ntripMountpointCombo.editText !== savedText )
+          ntripMountpointCombo.editText = savedText
+      } )
+    }
+    onFetchError: function( message ) {
+      ntripFetchErrorLabel.text = message
+      ntripFetchErrorLabel.visible = true
+    }
+  }
+
   Settings {
     id: registry
     property bool showScaleBar: true
@@ -1860,12 +1876,73 @@ Page {
                   Layout.preferredWidth: 200
                 }
 
-                QfTextField {
-                  id: ntripMountpoint
+                ColumnLayout {
                   Layout.fillWidth: true
-                  text: positioningSettings.ntripMountpoint || "NEAR"
-                  onTextChanged: {
-                    positioningSettings.ntripMountpoint = text;
+                  spacing: 2
+
+                  RowLayout {
+                    Layout.fillWidth: true
+                    spacing: 4
+
+                    QfComboBox {
+                      id: ntripMountpointCombo
+                      Layout.fillWidth: true
+                      font: Theme.defaultFont
+                      popup.font: Theme.defaultFont
+                      popup.topMargin: mainWindow.sceneTopMargin
+                      popup.bottomMargin: mainWindow.sceneBottomMargin
+                      editable: true
+                      model: ntripFetcher.mountpoints
+
+                      Component.onCompleted: {
+                        editText = positioningSettings.ntripMountpoint || ""
+                      }
+
+                      onEditTextChanged: {
+                        ntripFetchErrorLabel.visible = false
+                        positioningSettings.ntripMountpoint = editText
+                      }
+
+                      onActivated: {
+                        positioningSettings.ntripMountpoint = currentText
+                      }
+                    }
+
+                    QfToolButton {
+                      iconSource: Theme.getThemeVectorIcon( "refresh_24dp" )
+                      iconColor: Theme.mainTextColor
+                      bgcolor: "transparent"
+                      width: 36
+                      height: 36
+                      padding: 0
+                      enabled: !ntripFetcher.fetching
+
+                      onClicked: {
+                        ntripFetcher.fetch(
+                          positioningSettings.ntripHost,
+                          positioningSettings.ntripPort,
+                          positioningSettings.ntripUsername,
+                          positioningSettings.ntripPassword
+                        )
+                      }
+
+                      BusyIndicator {
+                        anchors.centerIn: parent
+                        running: ntripFetcher.fetching
+                        visible: running
+                        width: 24
+                        height: 24
+                      }
+                    }
+                  }
+
+                  Label {
+                    id: ntripFetchErrorLabel
+                    Layout.fillWidth: true
+                    visible: false
+                    font: Theme.tipFont
+                    color: Theme.errorColor
+                    wrapMode: Text.WordWrap
                   }
                 }
               }

@@ -44,6 +44,7 @@ set(QFIELD_CORE_SRCS
     positioning/positioningsource.cpp
     positioning/ntripclient.cpp
     positioning/ntripsocketclient.cpp
+    positioning/ntripsourcetablefetcher.cpp
     positioning/positioningdevicemodel.cpp
     positioning/geofencer.cpp
     positioning/positioninginformationmodel.cpp

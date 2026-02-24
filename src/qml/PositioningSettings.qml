@@ -25,7 +25,7 @@ Settings {
   property bool ntripSendNmea: true
   property string ntripHost: "crtk.net"
   property int ntripPort: 2101
-  property string ntripMountpoint: "NEAR"
+  property string ntripMountpoint: ""
   property string ntripUsername: "QfieldNtripClient"
   property string ntripPassword: "QfieldNtripClient"
   property string ntripStatus: ""
