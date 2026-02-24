@@ -195,6 +195,24 @@ Page {
             }
 
             Image {
+              id: thumbnail
+              Layout.alignment: Qt.AlignVCenter
+              Layout.topMargin: 5
+              Layout.bottomMargin: 5
+              Layout.leftMargin: 4
+              Layout.preferredWidth: 48
+              Layout.preferredHeight: 48
+              visible: ItemHasThumbnail
+              asynchronous: true
+              source: ItemHasThumbnail ? "image://localfiles/" + ItemPath : ""
+              sourceSize.width: 92
+              sourceSize.height: 92
+              fillMode: Image.PreserveAspectFit
+              width: 48
+              height: 48
+            }
+
+            ParametizedImage {
               id: type
               Layout.alignment: Qt.AlignVCenter
               Layout.topMargin: 5
@@ -202,32 +220,27 @@ Page {
               Layout.leftMargin: 4
               Layout.preferredWidth: 48
               Layout.preferredHeight: 48
-              asynchronous: true
+              visible: !ItemHasThumbnail
+
+              fillColor: Theme.secondaryTextColor
+              strokeColor: Theme.mainColor
+
               source: {
-                if (ItemHasThumbnail) {
-                  return "image://localfiles/" + ItemPath;
-                } else {
-                  switch (ItemType) {
-                  case LocalFilesModel.ApplicationFolder:
-                    return Theme.getThemeVectorIcon('ic_folder_qfield_gray_48dp');
-                  case LocalFilesModel.ExternalStorage:
-                    return Theme.getThemeVectorIcon('ic_sd_card_gray_48dp');
-                  case LocalFilesModel.SimpleFolder:
-                    return Theme.getThemeVectorIcon(ItemMetaType == LocalFilesModel.Folder && ItemIsFavorite ? 'ic_folder_favorite_gray_48dp' : 'ic_folder_gray_48dp');
-                  case LocalFilesModel.ProjectFile:
-                    return Theme.getThemeVectorIcon('ic_map_green_48dp');
-                  case LocalFilesModel.VectorDataset:
-                  case LocalFilesModel.RasterDataset:
-                  case LocalFilesModel.OtherFile:
-                    return Theme.getThemeVectorIcon('ic_file_green_48dp');
-                  }
+                switch (ItemType) {
+                case LocalFilesModel.ApplicationFolder:
+                  return Theme.getThemeVectorIcon('ic_folder_qfield_param_48dp');
+                case LocalFilesModel.ExternalStorage:
+                  return Theme.getThemeVectorIcon('ic_sd_card_param_48dp');
+                case LocalFilesModel.SimpleFolder:
+                  return Theme.getThemeVectorIcon(ItemMetaType == LocalFilesModel.Folder && ItemIsFavorite ? 'ic_folder_favorite_param_48dp' : 'ic_folder_param_48dp');
+                case LocalFilesModel.ProjectFile:
+                  return Theme.getThemeVectorIcon('ic_map_param_48dp');
+                case LocalFilesModel.VectorDataset:
+                case LocalFilesModel.RasterDataset:
+                case LocalFilesModel.OtherFile:
+                  return Theme.getThemeVectorIcon('ic_file_param_48dp');
                 }
               }
-              sourceSize.width: 92
-              sourceSize.height: 92
-              fillMode: Image.PreserveAspectFit
-              width: 48
-              height: 48
             }
 
             ColumnLayout {

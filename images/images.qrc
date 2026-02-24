@@ -63,12 +63,18 @@
         <file>themes/qfield/nodpi/ic_location_disabled_white_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_map_white_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_map_green_48dp.svg</file>
-        <file>themes/qfield/nodpi/ic_file_green_48dp.svg</file>
+        <file>themes/qfield/nodpi/ic_map_param_48dp.svg</file>
         <file>themes/qfield/nodpi/ic_file_black_24dp.svg</file>
+        <file>themes/qfield/nodpi/ic_file_green_48dp.svg</file>
+        <file>themes/qfield/nodpi/ic_file_param_48dp.svg</file>
         <file>themes/qfield/nodpi/ic_folder_gray_48dp.svg</file>
+        <file>themes/qfield/nodpi/ic_folder_param_48dp.svg</file>
         <file>themes/qfield/nodpi/ic_folder_favorite_gray_48dp.svg</file>
+        <file>themes/qfield/nodpi/ic_folder_favorite_param_48dp.svg</file>
         <file>themes/qfield/nodpi/ic_folder_qfield_gray_48dp.svg</file>
+        <file>themes/qfield/nodpi/ic_folder_qfield_param_48dp.svg</file>
         <file>themes/qfield/nodpi/ic_sd_card_gray_48dp.svg</file>
+        <file>themes/qfield/nodpi/ic_sd_card_param_48dp.svg</file>
         <file>themes/qfield/nodpi/ic_sensor_on_black_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_sensor_off_black_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_merge_features_white_24dp.svg</file>
@@ -80,6 +86,7 @@
         <file>themes/qfield/nodpi/ic_cloud_active_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_cloud_attention_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_cloud_project_48dp.svg</file>
+        <file>themes/qfield/nodpi/ic_cloud_project_param_48dp.svg</file>
         <file>themes/qfield/nodpi/ic_cloud_off_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_cloud_upload_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_cloud_download_24dp.svg</file>
