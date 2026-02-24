@@ -5044,10 +5044,10 @@ ApplicationWindow {
   QFieldCloudScreen {
     id: qfieldCloudScreen
 
+    cloudServiceStatus: cloudStatus
     anchors.fill: parent
     visible: false
     focus: visible
-    cloudServiceStatus: cloudStatus
 
     onFinished: {
       visible = false;
@@ -5064,10 +5064,10 @@ ApplicationWindow {
 
   QFieldCloudPopup {
     id: qfieldCloudPopup
+    cloudServiceStatus: cloudStatus
     visible: false
     focus: visible
     parent: Overlay.overlay
-    cloudServiceStatus: cloudStatus
 
     width: parent.width
     height: parent.height

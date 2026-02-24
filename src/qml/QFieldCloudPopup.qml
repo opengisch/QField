@@ -155,6 +155,11 @@ Popup {
           }
         }
 
+        QFieldCloudStatusBanner {
+          cloudServiceStatus: popup.cloudServiceStatus
+          Layout.margins: 10
+        }
+
         Text {
           id: wrongAccountText
           visible: cloudProjectsModel.currentProjectId != '' && cloudProjectsModel.currentProject && cloudProjectsModel.currentProjectId !== cloudProjectsModel.currentProject.id
@@ -424,18 +429,6 @@ Popup {
             horizontalAlignment: Text.AlignHCenter
             Layout.bottomMargin: 20
             Layout.fillWidth: true
-          }
-
-          QfCollapsibleMessage {
-            visible: popup.cloudServiceStatus && popup.cloudServiceStatus.hasProblem
-            Layout.fillWidth: true
-            Layout.minimumHeight: visible ? height : 0
-            color: Theme.darkRed
-            detailsColor: Theme.secondaryTextColor
-            font: Theme.tipFont
-            titleText: popup.cloudServiceStatus ? popup.cloudServiceStatus.statusMessage : ''
-            detailsText: popup.cloudServiceStatus ? popup.cloudServiceStatus.detailsMessage : ''
-            externalLink: popup.cloudServiceStatus ? popup.cloudServiceStatus.statusPageUrl : ''
           }
 
           QfButton {

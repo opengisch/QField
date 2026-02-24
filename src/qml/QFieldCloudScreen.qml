@@ -191,6 +191,10 @@ Page {
         id: projects
         spacing: 2
 
+        QFieldCloudStatusBanner {
+          cloudServiceStatus: qfieldCloudScreen.cloudServiceStatus
+        }
+
         QfTabBar {
           id: filterBar
           model: [qsTr("My Projects"), qsTr("Community")]
@@ -203,18 +207,6 @@ Page {
           Layout.fillWidth: true
           Layout.preferredHeight: 41
           placeHolderText: qsTr("Search for project")
-        }
-
-        QfCollapsibleMessage {
-          visible: qfieldCloudScreen.cloudServiceStatus && qfieldCloudScreen.cloudServiceStatus.hasProblem
-          Layout.fillWidth: true
-          Layout.minimumHeight: visible ? height : 0
-          color: Theme.darkRed
-          detailsColor: Theme.secondaryTextColor
-          font: Theme.tipFont
-          titleText: qfieldCloudScreen.cloudServiceStatus ? qfieldCloudScreen.cloudServiceStatus.statusMessage : ''
-          detailsText: qfieldCloudScreen.cloudServiceStatus ? qfieldCloudScreen.cloudServiceStatus.detailsMessage : ''
-          externalLink: qfieldCloudScreen.cloudServiceStatus ? qfieldCloudScreen.cloudServiceStatus.statusPageUrl : ''
         }
 
         Item {

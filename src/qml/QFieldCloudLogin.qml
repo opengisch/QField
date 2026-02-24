@@ -218,16 +218,8 @@ Item {
       }
     }
 
-    QfCollapsibleMessage {
-      visible: cloudServiceStatus && cloudServiceStatus.hasProblem
-      Layout.fillWidth: true
-      Layout.minimumHeight: visible ? height : 0
-      color: Theme.darkRed
-      detailsColor: Theme.secondaryTextColor
-      font: Theme.tipFont
-      titleText: cloudServiceStatus ? cloudServiceStatus.statusMessage : ''
-      detailsText: cloudServiceStatus ? cloudServiceStatus.detailsMessage : ''
-      externalLink: cloudServiceStatus ? cloudServiceStatus.statusPageUrl : ''
+    QFieldCloudStatusBanner {
+      cloudServiceStatus: qfieldCloudLogin.cloudServiceStatus
     }
 
     QfButton {

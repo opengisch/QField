@@ -36,18 +36,33 @@ class QFieldCloudStatus : public QObject
     Q_OBJECT
 
     Q_PROPERTY( QString url READ url WRITE setUrl NOTIFY urlChanged )
+    Q_PROPERTY( StatusType statusType READ statusType NOTIFY statusUpdated )
     Q_PROPERTY( bool hasProblem READ hasProblem NOTIFY statusUpdated )
     Q_PROPERTY( QString statusMessage READ statusMessage NOTIFY statusUpdated )
     Q_PROPERTY( QString detailsMessage READ detailsMessage NOTIFY statusUpdated )
     Q_PROPERTY( QString statusPageUrl READ statusPageUrl NOTIFY statusUpdated )
 
   public:
+    enum class StatusType
+    {
+      Ok,
+      Maintenance,
+      Degraded,
+      Incident,
+    };
+    Q_ENUM( StatusType )
+
     explicit QFieldCloudStatus( QObject *parent = nullptr );
 
     /**
      * Returns the base URL of the QFieldCloud server.
      */
     QString url() const;
+
+    /**
+     * Returns the current status type of the QFieldCloud service.
+     */
+    StatusType statusType() const;
 
     /**
      * Sets the base URL of the QFieldCloud server and triggers a status fetch.
@@ -94,6 +109,7 @@ class QFieldCloudStatus : public QObject
     QString mIncidentMessage;
     QString mMaintenanceMessage;
 
+    StatusType mStatusType = StatusType::Ok;
     bool mHasProblem = false;
     QString mStatusMessage;
     QString mDetailsMessage;
