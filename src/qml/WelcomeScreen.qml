@@ -564,6 +564,8 @@ Page {
                   }
                   return 0;
                 }
+                readonly property bool showSync: isOutdated
+                readonly property bool showPush: changesCount > 0
 
                 objectName: "loadProjectItem_1" // todo, suffix with e.g. ProjectTitle
                 previewImageSource: welcomeScreen.visible ? 'image://projects/' + ProjectPath : ''
@@ -577,16 +579,13 @@ Page {
                 primaryBadge.border.width: 1
                 primaryBadge.enableGradient: showSync && showPush
 
-                readonly property bool showSync: isOutdated
-                readonly property bool showPush: changesCount > 0
-
                 projectTypeSource: switch (ProjectType) {
                 case 0:
-                  return Theme.getThemeVectorIcon('ic_map_green_48dp');     // local project
+                  return Theme.getThemeVectorIcon('ic_map_param_48dp');     // local project
                 case 1:
-                  return Theme.getThemeVectorIcon('ic_cloud_project_48dp'); // cloud project
+                  return Theme.getThemeVectorIcon('ic_cloud_project_param_48dp'); // cloud project
                 case 2:
-                  return Theme.getThemeVectorIcon('ic_file_green_48dp');    // local dataset
+                  return Theme.getThemeVectorIcon('ic_file_param_48dp');    // local dataset
                 default:
                   return '';
                 }

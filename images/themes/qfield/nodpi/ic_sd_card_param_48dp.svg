@@ -2,5 +2,5 @@
 <svg width="64" height="64" version="1.1" viewBox="0 0 16.933 16.933" xmlns="http://www.w3.org/2000/svg">
  <style type="text/css"/>
  <path d="m7.0114 1.7198-4.2333 3.9687v9.5249h11.112v-13.494zm-1.1906 2.7781h1.5875v3.7041h-1.5875zm2.3812 0h1.5875v3.7041h-1.5875zm2.3812 0h1.5875v3.7041h-1.5875z" fill="none" stroke="#fff" stroke-opacity=".5" stroke-width="1.3229"/>
- <path transform="scale(.26458)" d="m26.5 6.5-16 15v36h42v-51zm-4.5 10.5h6v14h-6zm9 0h6v14h-6zm9 0h6v14h-6z" fill="#212121" stroke="#212121"/>
+ <path transform="scale(.26458)" d="m26.5 6.5-16 15v36h42v-51zm-4.5 10.5h6v14h-6zm9 0h6v14h-6zm9 0h6v14h-6z" fill="param(fill) #212121" stroke="param(fill) #212121"/>
 </svg>

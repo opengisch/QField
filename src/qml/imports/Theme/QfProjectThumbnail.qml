@@ -94,13 +94,15 @@ Rectangle {
         bottomPadding: 3
         spacing: 0
 
-        Image {
+        ParametizedImage {
           id: type
           anchors.verticalCenter: parent.verticalCenter
-          sourceSize.width: 80
-          sourceSize.height: 80
           width: 40
           height: visible ? 40 : 0
+          strokeColor: Theme.mainColor
+          parameters: {
+            "cloud": Theme.cloudColor
+          }
           visible: source !== ""
 
           QfBadge {
