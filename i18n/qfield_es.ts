@@ -4749,7 +4749,7 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     </message>
     <message>
         <source>Could not load resource font: %1</source>
-        <translation type="unfinished"/>
+        <translation>No se pudo cargar el tipo de letra del recurso: %1</translation>
     </message>
 </context>
 <context>
@@ -5932,7 +5932,7 @@ proyecto</translation>
     </message>
     <message>
         <source>Point Feature Picker</source>
-        <translation type="unfinished"/>
+        <translation>Capturador de objetos tipo punto</translation>
     </message>
 </context>
 <context>
@@ -6685,7 +6685,7 @@ para mostrar las acciones</translation>
     </message>
     <message numerus="yes">
         <source>Tracking active on %n layer(s)</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Seguimiento activo en una capa</numerusform><numerusform>Seguimiento activo en %n capa(s)</numerusform><numerusform>Seguimiento activo en %n capa(s)</numerusform></translation>
     </message>
     <message>
         <source>Stop all</source>
@@ -6693,7 +6693,7 @@ para mostrar las acciones</translation>
     </message>
     <message numerus="yes">
         <source>Tracking on %n layer(s) stopped</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Se detuvo el seguimiento de una capa</numerusform><numerusform>Se detuvo el seguimiento de %n capa(s)</numerusform><numerusform>Se detuvo el seguimiento de %n capa(s)</numerusform></translation>
     </message>
     <message>
         <source>No compatible layers available to launch tracking</source>

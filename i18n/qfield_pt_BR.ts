@@ -2037,7 +2037,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Audio files (*.mp3 *.aac *.ogg *.m4a *.mp4 *.mov)</source>
-        <translation type="unfinished"/>
+        <translation>Arquivos de áudio (*.mp3 *.aac *.ogg *.m4a *.mp4 *.mov)</translation>
     </message>
     <message>
         <source>Removal Confirmation</source>
@@ -2484,11 +2484,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Darkgray</source>
-        <translation type="unfinished"/>
+        <translation>Cinza escuro</translation>
     </message>
     <message>
         <source>Lightgray</source>
-        <translation type="unfinished"/>
+        <translation>Cinza claro</translation>
     </message>
     <message>
         <source>Blank</source>
@@ -2496,7 +2496,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Custom</source>
-        <translation type="unfinished"/>
+        <translation>Personalizado</translation>
     </message>
     <message>
         <source>Custom basemap URL</source>
@@ -2575,7 +2575,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Tracks</source>
-        <translation type="unfinished"/>
+        <translation>Percursos</translation>
     </message>
     <message>
         <source>Basemap</source>
@@ -2583,7 +2583,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Media</source>
-        <translation type="unfinished"/>
+        <translation>Mídia</translation>
     </message>
     <message>
         <source>Track color</source>
@@ -4297,7 +4297,7 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Map Canvas</source>
-        <translation type="unfinished"/>
+        <translation>Tela do Mapa</translation>
     </message>
     <message>
         <source>Digitizing &amp; Editing</source>
@@ -5266,7 +5266,7 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Resume tracking</source>
-        <translation type="unfinished"/>
+        <translation>Retomar rastreamento</translation>
     </message>
     <message>
         <source>Layer</source>
@@ -5774,11 +5774,11 @@ project</source>
     </message>
     <message>
         <source>sqr. yards</source>
-        <translation type="unfinished"/>
+        <translation>jardas quadradas</translation>
     </message>
     <message>
         <source>sqr. miles</source>
-        <translation type="unfinished"/>
+        <translation>milhas quadradas</translation>
     </message>
     <message>
         <source>hectares</source>
@@ -5790,19 +5790,19 @@ project</source>
     </message>
     <message>
         <source>sqr. nautical miles</source>
-        <translation type="unfinished"/>
+        <translation>milhas náuticas quadradas </translation>
     </message>
     <message>
         <source>sqr. centimeters</source>
-        <translation type="unfinished"/>
+        <translation>centímetros quadrados</translation>
     </message>
     <message>
         <source>sqr. millimeters</source>
-        <translation type="unfinished"/>
+        <translation>milímetros quadrados</translation>
     </message>
     <message>
         <source>sqr. inches</source>
-        <translation type="unfinished"/>
+        <translation>polegadas quadradas</translation>
     </message>
 </context>
 <context>
