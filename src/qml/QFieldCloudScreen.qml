@@ -306,37 +306,41 @@ Page {
                 bottomPadding: 8
                 spacing: 2
 
-                Image {
+                ParametizedImage {
                   id: type
                   anchors.verticalCenter: line.verticalCenter
+
+                  strokeColor: Theme.mainColor
+                  parameters: {
+                    "cloud": Theme.cloudColor
+                  }
+
                   source: {
                     if (cloudConnection.status !== QFieldCloudConnection.LoggedIn) {
-                      return Theme.getThemeVectorIcon('ic_cloud_project_localonly_48dp');
+                      return Theme.getThemeVectorIcon('ic_cloud_project_localonly_param_48dp');
                     } else {
                       var status = '';
                       switch (Status) {
                       case QFieldCloudProject.ProjectStatus.Downloading:
-                        return Theme.getThemeVectorIcon('ic_cloud_project_download_48dp');
+                        return Theme.getThemeVectorIcon('ic_cloud_project_download_param_48dp');
                       case QFieldCloudProject.ProjectStatus.Pushing:
-                        return Theme.getThemeVectorIcon('ic_cloud_project_upload_48dp');
+                        return Theme.getThemeVectorIcon('ic_cloud_project_upload_param_48dp');
                       case QFieldCloudProject.ProjectStatus.Failing:
-                        return Theme.getThemeVectorIcon('ic_cloud_project_failed_48dp');
+                        return Theme.getThemeVectorIcon('ic_cloud_project_failed_param_48dp');
                       default:
                         break;
                       }
                       switch (Checkout) {
                       case QFieldCloudProject.LocalCheckout:
-                        return Theme.getThemeVectorIcon('ic_cloud_project_localonly_48dp');
+                        return Theme.getThemeVectorIcon('ic_cloud_project_localonly_param_48dp');
                       case QFieldCloudProject.RemoteCheckout:
-                        return Theme.getThemeVectorIcon('ic_cloud_project_download_48dp');
+                        return Theme.getThemeVectorIcon('ic_cloud_project_download_param_48dp');
                       default:
                         break;
                       }
-                      return Theme.getThemeVectorIcon('ic_cloud_project_48dp');
+                      return Theme.getThemeVectorIcon('ic_cloud_project_param_48dp');
                     }
                   }
-                  sourceSize.width: 80
-                  sourceSize.height: 80
                   width: 40
                   height: 40
                   opacity: Status === QFieldCloudProject.ProjectStatus.Downloading ? 0.3 : 1
