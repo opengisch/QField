@@ -16,6 +16,10 @@ endif()
 # lrelease .ts files
 find_package(Qt6 COMPONENTS LinguistTools)
 
+set_source_files_properties(
+  ${CMAKE_BINARY_DIR}/resources/resources.qrc
+  PROPERTIES AUTORCC_BASE_DIR "${CMAKE_SOURCE_DIR}/resources")
+
 if(APP_THEME_PATH AND EXISTS "${APP_THEME_PATH}")
   if(IS_ABSOLUTE "${APP_THEME_PATH}")
     set(APP_THEME_JSON_PATH "${APP_THEME_PATH}")
@@ -41,10 +45,6 @@ file(TO_CMAKE_PATH "${RESOURCES_DIR}" RESOURCES_DIR)
 
 configure_file(${CMAKE_SOURCE_DIR}/resources/resources.qrc.in
                ${CMAKE_BINARY_DIR}/resources/resources.qrc @ONLY)
-
-set_source_files_properties(
-  ${CMAKE_BINARY_DIR}/resources/resources.qrc
-  PROPERTIES AUTORCC_BASE_DIR "${CMAKE_SOURCE_DIR}/resources")
 
 if(APP_ICON_PATH AND EXISTS "${APP_ICON_PATH}/${APP_ICON}.svg")
   set(APP_LOGO_SVG_PATH "${APP_ICON_PATH}/${APP_ICON}.svg")
