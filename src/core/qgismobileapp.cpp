@@ -632,12 +632,12 @@ void QgisMobileapp::initDeclarative( QQmlEngine *engine )
 
   // Register some globally available variables
   engine->rootContext()->setContextProperty( "qVersion", qVersion() );
-  engine->rootContext()->setContextProperty( "appName", qfield::appName );
   engine->rootContext()->setContextProperty( "qgisVersion", Qgis::version() );
   engine->rootContext()->setContextProperty( "gdalVersion", GDAL_RELEASE_NAME );
   engine->rootContext()->setContextProperty( "withNfc", QVariant( NearFieldReader::isSupported() ) );
   engine->rootContext()->setContextProperty( "systemFontPointSize", PlatformUtilities::instance()->systemFontPointSize() );
   engine->rootContext()->setContextProperty( "mouseDoubleClickInterval", QApplication::styleHints()->mouseDoubleClickInterval() );
+  engine->rootContext()->setContextProperty( "appName", qfield::appName );
   engine->rootContext()->setContextProperty( "appVersion", qfield::appVersion );
   engine->rootContext()->setContextProperty( "appVersionStr", qfield::appVersionStr );
   engine->rootContext()->setContextProperty( "gitRev", qfield::gitRev );
