@@ -88,7 +88,7 @@ Item {
               if (appName === "QField") {
                 title += "<br>" + appVersionStr + " (" + links + ")";
               } else {
-                title += "<br>" + qsTr("Powered by QField") + " " + appVersionStr + " (" + links + ")";
+                title += "<br>" + qsTr("Powered by QField") + " (" + links + ")";
               }
 
               // the `qgisVersion` has the format `<int>.<int>.<int>-<any text>`, so we get everything before the first `-`
