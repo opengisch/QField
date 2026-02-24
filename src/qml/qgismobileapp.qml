@@ -5090,11 +5090,13 @@ ApplicationWindow {
     parent: Overlay.overlay
 
     Component.onCompleted: {
-      const changelogVersion = settings.value("/QField/ChangelogVersion", "");
-      if (changelogVersion === "") {
-        settings.setValue("/QField/ChangelogVersion", appVersion);
-      } else if (changelogVersion !== appVersion) {
-        open();
+      if (appName === "QField") {
+        const changelogVersion = settings.value("/QField/ChangelogVersion", "");
+        if (changelogVersion === "") {
+          settings.setValue("/QField/ChangelogVersion", appVersion);
+        } else if (changelogVersion !== appVersion) {
+          open();
+        }
       }
     }
   }

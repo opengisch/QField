@@ -80,14 +80,20 @@ Item {
 
             text: {
               let links = '<a href="https://github.com/opengisch/QField/commit/' + gitRev + '">' + gitRev.substr(0, 7) + '</a>';
-              if (appVersion && appVersion !== '1.0.0') {
+              if (appVersion && appVersion !== '1.0.0' && appVersion !== '0') {
                 links += ' <a href="https://github.com/opengisch/QField/releases/tag/' + appVersion + '">' + appVersion + '</a>';
               }
+
+              let title = appName;
+              if (appName === "QField") {
+                title += "<br>" + appVersionStr + " (" + links + ")";
+              } else {
+                title += "<br>" + qsTr("Powered by QField") + " " + appVersionStr + " (" + links + ")";
+              }
+
               // the `qgisVersion` has the format `<int>.<int>.<int>-<any text>`, so we get everything before the first `-`
-              const qgisVersionWithoutName = qgisVersion.split("-", 1)[0];
-              const dependencies = [["QGIS", qgisVersionWithoutName], ["GDAL/OGR", gdalVersion], ["Qt", qVersion]];
-              const dependenciesStr = dependencies.map(pair => pair.join(" ")).join(" | ");
-              return "QField<br>" + appVersionStr + " (" + links + ")<br>" + dependenciesStr;
+              const dependencies = [["QGIS", qgisVersion.split("-", 1)[0]], ["GDAL/OGR", gdalVersion], ["Qt", qVersion]];
+              return title + "<br>" + dependencies.map(pair => pair.join(" ")).join(" | ");
             }
 
             onLinkActivated: link => Qt.openUrlExternally(link)
@@ -165,7 +171,7 @@ Item {
       id: sponsorshipButton
       Layout.fillWidth: true
       icon.source: Theme.getThemeVectorIcon('ic_sponsor_white_24dp')
-      enabled: appName == "QField"
+      enabled: appName === "QField"
       visible: enabled
 
       text: qsTr('Support QField')
@@ -174,7 +180,7 @@ Item {
 
     QfButton {
       id: linksButton
-      dropdown: true
+      dropdown: appName === "QField"
       Layout.fillWidth: true
       icon.source: Theme.getThemeVectorIcon('ic_book_white_24dp')
 
