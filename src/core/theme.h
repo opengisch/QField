@@ -36,11 +36,12 @@ class QFIELD_CORE_EXPORT Theme final : public QObject
 {
     Q_OBJECT
 
+    Q_PROPERTY( bool darkTheme READ darkTheme WRITE setDarkTheme NOTIFY darkThemeChanged )
+
     // Palette tables, exposed for QML code that reads them directly
     Q_PROPERTY( QVariantMap darkThemeColors READ darkThemeColors CONSTANT )
     Q_PROPERTY( QVariantMap lightThemeColors READ lightThemeColors CONSTANT )
 
-    // Switchable colors, replaced on every applyAppearance() call
     Q_PROPERTY( QColor mainColor READ mainColor WRITE setMainColor NOTIFY mainColorChanged )
     Q_PROPERTY( QColor mainOverlayColor READ mainOverlayColor WRITE setMainOverlayColor NOTIFY mainOverlayColorChanged )
     Q_PROPERTY( QColor mainBackgroundColor READ mainBackgroundColor WRITE setMainBackgroundColor NOTIFY mainBackgroundColorChanged )
@@ -60,7 +61,6 @@ class QFIELD_CORE_EXPORT Theme final : public QObject
     Q_PROPERTY( QColor groupBoxBackgroundColor READ groupBoxBackgroundColor WRITE setGroupBoxBackgroundColor NOTIFY groupBoxBackgroundColorChanged )
     Q_PROPERTY( QColor groupBoxSurfaceColor READ groupBoxSurfaceColor WRITE setGroupBoxSurfaceColor NOTIFY groupBoxSurfaceColorChanged )
 
-    // Fixed colors, set once from JSON, never change at runtime
     Q_PROPERTY( QColor mainColorSemiOpaque READ mainColorSemiOpaque NOTIFY themeDataLoaded )
     Q_PROPERTY( QColor darkRed READ darkRed NOTIFY themeDataLoaded )
     Q_PROPERTY( QColor darkGray READ darkGray NOTIFY themeDataLoaded )
@@ -97,10 +97,8 @@ class QFIELD_CORE_EXPORT Theme final : public QObject
     Q_PROPERTY( QColor vertexNewColorSemiOpaque READ vertexNewColorSemiOpaque NOTIFY themeDataLoaded )
     Q_PROPERTY( QColor processingPreview READ processingPreview NOTIFY themeDataLoaded )
 
-    // Derived from darkTheme state
     Q_PROPERTY( QColor errorColor READ errorColor NOTIFY darkThemeChanged )
 
-    Q_PROPERTY( bool darkTheme READ darkTheme WRITE setDarkTheme NOTIFY darkThemeChanged )
     Q_PROPERTY( qreal fontScale READ fontScale WRITE setFontScale NOTIFY fontScaleChanged )
 
     Q_PROPERTY( QFont defaultFont READ defaultFont NOTIFY fontScaleChanged )
@@ -188,58 +186,58 @@ class QFIELD_CORE_EXPORT Theme final : public QObject
     QVariantMap lightThemeColors() const { return mLightThemeColors; }
 
     QColor mainColor() const { return mMainColor; }
-    void setMainColor( const QColor &c );
+    void setMainColor( const QColor &color );
 
     QColor mainOverlayColor() const { return mMainOverlayColor; }
-    void setMainOverlayColor( const QColor &c );
+    void setMainOverlayColor( const QColor &color );
 
     QColor mainBackgroundColor() const { return mMainBackgroundColor; }
-    void setMainBackgroundColor( const QColor &c );
+    void setMainBackgroundColor( const QColor &color );
 
     QColor mainBackgroundColorSemiOpaque() const { return mMainBackgroundColorSemiOpaque; }
-    void setMainBackgroundColorSemiOpaque( const QColor &c );
+    void setMainBackgroundColorSemiOpaque( const QColor &color );
 
     QColor mainTextColor() const { return mMainTextColor; }
-    void setMainTextColor( const QColor &c );
+    void setMainTextColor( const QColor &color );
 
     QColor mainTextDisabledColor() const { return mMainTextDisabledColor; }
-    void setMainTextDisabledColor( const QColor &c );
+    void setMainTextDisabledColor( const QColor &color );
 
     QColor secondaryTextColor() const { return mSecondaryTextColor; }
-    void setSecondaryTextColor( const QColor &c );
+    void setSecondaryTextColor( const QColor &color );
 
     QColor controlBackgroundColor() const { return mControlBackgroundColor; }
-    void setControlBackgroundColor( const QColor &c );
+    void setControlBackgroundColor( const QColor &color );
 
     QColor controlBackgroundAlternateColor() const { return mControlBackgroundAlternateColor; }
-    void setControlBackgroundAlternateColor( const QColor &c );
+    void setControlBackgroundAlternateColor( const QColor &color );
 
     QColor controlBackgroundDisabledColor() const { return mControlBackgroundDisabledColor; }
-    void setControlBackgroundDisabledColor( const QColor &c );
+    void setControlBackgroundDisabledColor( const QColor &color );
 
     QColor controlBorderColor() const { return mControlBorderColor; }
-    void setControlBorderColor( const QColor &c );
+    void setControlBorderColor( const QColor &color );
 
     QColor buttonTextColor() const { return mButtonTextColor; }
-    void setButtonTextColor( const QColor &c );
+    void setButtonTextColor( const QColor &color );
 
     QColor toolButtonColor() const { return mToolButtonColor; }
-    void setToolButtonColor( const QColor &c );
+    void setToolButtonColor( const QColor &color );
 
     QColor toolButtonBackgroundColor() const { return mToolButtonBackgroundColor; }
-    void setToolButtonBackgroundColor( const QColor &c );
+    void setToolButtonBackgroundColor( const QColor &color );
 
     QColor toolButtonBackgroundSemiOpaqueColor() const { return mToolButtonBackgroundSemiOpaqueColor; }
-    void setToolButtonBackgroundSemiOpaqueColor( const QColor &c );
+    void setToolButtonBackgroundSemiOpaqueColor( const QColor &color );
 
     QColor scrollBarBackgroundColor() const { return mScrollBarBackgroundColor; }
-    void setScrollBarBackgroundColor( const QColor &c );
+    void setScrollBarBackgroundColor( const QColor &color );
 
     QColor groupBoxBackgroundColor() const { return mGroupBoxBackgroundColor; }
-    void setGroupBoxBackgroundColor( const QColor &c );
+    void setGroupBoxBackgroundColor( const QColor &color );
 
     QColor groupBoxSurfaceColor() const { return mGroupBoxSurfaceColor; }
-    void setGroupBoxSurfaceColor( const QColor &c );
+    void setGroupBoxSurfaceColor( const QColor &color );
 
     QColor mainColorSemiOpaque() const { return mMainColorSemiOpaque; }
     QColor darkRed() const { return mDarkRed; }
@@ -277,7 +275,7 @@ class QFIELD_CORE_EXPORT Theme final : public QObject
     QColor vertexNewColorSemiOpaque() const { return mVertexNewColorSemiOpaque; }
     QColor processingPreview() const { return mProcessingPreview; }
 
-    QColor errorColor() const { return mDarkTheme ? QColor( QStringLiteral( "#df3422" ) ) : QColor( QStringLiteral( "#c0392b" ) ); }
+    QColor errorColor() const { return mDarkTheme ? QColor( 223, 52, 34 ) : QColor( 192, 57, 43 ); }
 
     bool darkTheme() const { return mDarkTheme; }
     void setDarkTheme( bool dark );
@@ -323,6 +321,7 @@ class QFIELD_CORE_EXPORT Theme final : public QObject
     void darkThemeChanged();
     void fontScaleChanged();
     void themeDataLoaded();
+    void screenPpiChanged();
 
   private:
     QFont makeFont( qreal scaleFactor, bool bold ) const;

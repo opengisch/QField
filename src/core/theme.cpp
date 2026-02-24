@@ -191,208 +191,246 @@ void Theme::applyFontScale()
 
 void Theme::setSystemFontPointSize( qreal size )
 {
-  if ( size > 0.0 && !qFuzzyCompare( mSystemFontPointSize, size ) )
+  if ( size == 0.0 || qFuzzyCompare( mSystemFontPointSize, size ) )
   {
-    mSystemFontPointSize = size;
-    emit fontScaleChanged();
+    return;
   }
+
+  mSystemFontPointSize = size;
+  emit fontScaleChanged();
 }
 
 void Theme::setScreenPpi( qreal ppi )
 {
-  if ( ppi > 0.0 )
+  if ( ppi == 0.0 || qFuzzyCompare( mScreenPpi, ppi ) )
   {
-    mScreenPpi = ppi;
+    return;
   }
+
+  mScreenPpi = ppi;
+  emit screenPpiChanged();
 }
 
-void Theme::setMainColor( const QColor &c )
+void Theme::setMainColor( const QColor &color )
 {
-  if ( mMainColor != c )
+  if ( mMainColor == color )
   {
-    mMainColor = c;
-    emit mainColorChanged();
-
-    // mainColorSemiOpaque always tracks mainColor with reduced opacity
-    QColor semiOpaque = c;
-    semiOpaque.setAlpha( 0xbb );
-    if ( mMainColorSemiOpaque != semiOpaque )
-    {
-      mMainColorSemiOpaque = semiOpaque;
-      emit themeDataLoaded();
-    }
+    return;
   }
+
+  mMainColor = color;
+  emit mainColorChanged();
+
+  // mainColorSemiOpaque always tracks mainColor with reduced opacity
+  QColor semiOpaque = color;
+  semiOpaque.setAlpha( 0xbb );
+  mMainColorSemiOpaque = semiOpaque;
+  emit themeDataLoaded();
 }
 
-void Theme::setMainOverlayColor( const QColor &c )
+void Theme::setMainOverlayColor( const QColor &color )
 {
-  if ( mMainOverlayColor != c )
+  if ( mMainOverlayColor == color )
   {
-    mMainOverlayColor = c;
-    emit mainOverlayColorChanged();
+    return;
   }
+
+  mMainOverlayColor = color;
+  emit mainOverlayColorChanged();
 }
 
-void Theme::setMainBackgroundColor( const QColor &c )
+void Theme::setMainBackgroundColor( const QColor &color )
 {
-  if ( mMainBackgroundColor != c )
+  if ( mMainBackgroundColor == color )
   {
-    mMainBackgroundColor = c;
-    emit mainBackgroundColorChanged();
+    return;
   }
+
+  mMainBackgroundColor = color;
+  emit mainBackgroundColorChanged();
 }
 
-void Theme::setMainBackgroundColorSemiOpaque( const QColor &c )
+void Theme::setMainBackgroundColorSemiOpaque( const QColor &color )
 {
-  if ( mMainBackgroundColorSemiOpaque != c )
+  if ( mMainBackgroundColorSemiOpaque == color )
   {
-    mMainBackgroundColorSemiOpaque = c;
-    emit mainBackgroundColorSemiOpaqueChanged();
+    return;
   }
+
+  mMainBackgroundColorSemiOpaque = color;
+  emit mainBackgroundColorSemiOpaqueChanged();
 }
 
-void Theme::setMainTextColor( const QColor &c )
+void Theme::setMainTextColor( const QColor &color )
 {
-  if ( mMainTextColor != c )
+  if ( mMainTextColor == color )
   {
-    mMainTextColor = c;
-    emit mainTextColorChanged();
+    return;
   }
+
+  mMainTextColor = color;
+  emit mainTextColorChanged();
 }
 
-void Theme::setMainTextDisabledColor( const QColor &c )
+void Theme::setMainTextDisabledColor( const QColor &color )
 {
-  if ( mMainTextDisabledColor != c )
+  if ( mMainTextDisabledColor == color )
   {
-    mMainTextDisabledColor = c;
-    emit mainTextDisabledColorChanged();
+    return;
   }
+
+  mMainTextDisabledColor = color;
+  emit mainTextDisabledColorChanged();
 }
 
-void Theme::setSecondaryTextColor( const QColor &c )
+void Theme::setSecondaryTextColor( const QColor &color )
 {
-  if ( mSecondaryTextColor != c )
+  if ( mSecondaryTextColor == color )
   {
-    mSecondaryTextColor = c;
-    emit secondaryTextColorChanged();
+    return;
   }
+
+  mSecondaryTextColor = color;
+  emit secondaryTextColorChanged();
 }
 
-void Theme::setControlBackgroundColor( const QColor &c )
+void Theme::setControlBackgroundColor( const QColor &color )
 {
-  if ( mControlBackgroundColor != c )
+  if ( mControlBackgroundColor == color )
   {
-    mControlBackgroundColor = c;
-    emit controlBackgroundColorChanged();
+    return;
   }
+
+  mControlBackgroundColor = color;
+  emit controlBackgroundColorChanged();
 }
 
-void Theme::setControlBackgroundAlternateColor( const QColor &c )
+void Theme::setControlBackgroundAlternateColor( const QColor &color )
 {
-  if ( mControlBackgroundAlternateColor != c )
+  if ( mControlBackgroundAlternateColor == color )
   {
-    mControlBackgroundAlternateColor = c;
-    emit controlBackgroundAlternateColorChanged();
+    return;
   }
+
+  mControlBackgroundAlternateColor = color;
+  emit controlBackgroundAlternateColorChanged();
 }
 
-void Theme::setControlBackgroundDisabledColor( const QColor &c )
+void Theme::setControlBackgroundDisabledColor( const QColor &color )
 {
-  if ( mControlBackgroundDisabledColor != c )
+  if ( mControlBackgroundDisabledColor == color )
   {
-    mControlBackgroundDisabledColor = c;
-    emit controlBackgroundDisabledColorChanged();
+    return;
   }
+
+  mControlBackgroundDisabledColor = color;
+  emit controlBackgroundDisabledColorChanged();
 }
 
-void Theme::setControlBorderColor( const QColor &c )
+void Theme::setControlBorderColor( const QColor &color )
 {
-  if ( mControlBorderColor != c )
+  if ( mControlBorderColor == color )
   {
-    mControlBorderColor = c;
-    emit controlBorderColorChanged();
+    return;
   }
+
+  mControlBorderColor = color;
+  emit controlBorderColorChanged();
 }
 
-void Theme::setButtonTextColor( const QColor &c )
+void Theme::setButtonTextColor( const QColor &color )
 {
-  if ( mButtonTextColor != c )
+  if ( mButtonTextColor == color )
   {
-    mButtonTextColor = c;
-    emit buttonTextColorChanged();
+    return;
   }
+
+  mButtonTextColor = color;
+  emit buttonTextColorChanged();
 }
 
-void Theme::setToolButtonColor( const QColor &c )
+void Theme::setToolButtonColor( const QColor &color )
 {
-  if ( mToolButtonColor != c )
+  if ( mToolButtonColor == color )
   {
-    mToolButtonColor = c;
-    emit toolButtonColorChanged();
+    return;
   }
+
+  mToolButtonColor = color;
+  emit toolButtonColorChanged();
 }
 
-void Theme::setToolButtonBackgroundColor( const QColor &c )
+void Theme::setToolButtonBackgroundColor( const QColor &color )
 {
-  if ( mToolButtonBackgroundColor != c )
+  if ( mToolButtonBackgroundColor == color )
   {
-    mToolButtonBackgroundColor = c;
-    emit toolButtonBackgroundColorChanged();
+    return;
   }
+
+  mToolButtonBackgroundColor = color;
+  emit toolButtonBackgroundColorChanged();
 }
 
-void Theme::setToolButtonBackgroundSemiOpaqueColor( const QColor &c )
+void Theme::setToolButtonBackgroundSemiOpaqueColor( const QColor &color )
 {
-  if ( mToolButtonBackgroundSemiOpaqueColor != c )
+  if ( mToolButtonBackgroundSemiOpaqueColor == color )
   {
-    mToolButtonBackgroundSemiOpaqueColor = c;
+    mToolButtonBackgroundSemiOpaqueColor = color;
     emit toolButtonBackgroundSemiOpaqueColorChanged();
   }
 }
 
-void Theme::setScrollBarBackgroundColor( const QColor &c )
+void Theme::setScrollBarBackgroundColor( const QColor &color )
 {
-  if ( mScrollBarBackgroundColor != c )
+  if ( mScrollBarBackgroundColor == color )
   {
-    mScrollBarBackgroundColor = c;
-    emit scrollBarBackgroundColorChanged();
+    return;
   }
+
+  mScrollBarBackgroundColor = color;
+  emit scrollBarBackgroundColorChanged();
 }
 
-void Theme::setGroupBoxBackgroundColor( const QColor &c )
+void Theme::setGroupBoxBackgroundColor( const QColor &color )
 {
-  if ( mGroupBoxBackgroundColor != c )
+  if ( mGroupBoxBackgroundColor == color )
   {
-    mGroupBoxBackgroundColor = c;
+    mGroupBoxBackgroundColor = color;
     emit groupBoxBackgroundColorChanged();
   }
 }
 
-void Theme::setGroupBoxSurfaceColor( const QColor &c )
+void Theme::setGroupBoxSurfaceColor( const QColor &color )
 {
-  if ( mGroupBoxSurfaceColor != c )
+  if ( mGroupBoxSurfaceColor == color )
   {
-    mGroupBoxSurfaceColor = c;
-    emit groupBoxSurfaceColorChanged();
+    return;
   }
+
+  mGroupBoxSurfaceColor = color;
+  emit groupBoxSurfaceColorChanged();
 }
 
 void Theme::setDarkTheme( bool dark )
 {
-  if ( mDarkTheme != dark )
+  if ( mDarkTheme == dark )
   {
-    mDarkTheme = dark;
-    emit darkThemeChanged();
+    return;
   }
+
+  mDarkTheme = dark;
+  emit darkThemeChanged();
 }
 
 void Theme::setFontScale( qreal scale )
 {
   if ( !qFuzzyCompare( mFontScale, scale ) )
   {
-    mFontScale = scale;
-    emit fontScaleChanged();
+    return;
   }
+
+  mFontScale = scale;
+  emit fontScaleChanged();
 }
 
 QFont Theme::makeFont( qreal scaleFactor, bool bold ) const
