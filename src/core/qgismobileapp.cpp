@@ -227,12 +227,6 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
   // Increase maximum concurrent connections allowed
   QgsApplication::settingsConnectionPoolMaximumConcurrentConnections->setValue( 10 );
 
-  // Set a nicer default hyperlink color to be used in QML Text items
-  QPalette palette = app->palette();
-  palette.setColor( QPalette::Link, QColor( 128, 204, 40 ) );
-  palette.setColor( QPalette::LinkVisited, QColor( 128, 204, 40 ) );
-  app->setPalette( palette );
-
   mUrlHandler.reset( new QFieldUrlHandler( mIface, this ) );
   QDesktopServices::setUrlHandler( QStringLiteral( "qfield" ), mUrlHandler.get(), "handleUrl" );
 
