@@ -17,12 +17,14 @@ email                : kaustuv@opengis.ch
 #include "platformutilities.h"
 #include "theme.h"
 
+#include <QApplication>
 #include <QFile>
 #include <QFont>
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QMetaObject>
 #include <QMetaProperty>
+#include <QPalette>
 #include <QSettings>
 
 Theme::Theme( QObject *parent )
@@ -147,6 +149,11 @@ void Theme::applyAppearance( const QVariantMap &extraColors, BaseAppearance base
   {
     applyColors( extraColors );
   }
+
+  QPalette palette = qApp->palette();
+  palette.setColor( QPalette::Link, mMainColor );
+  palette.setColor( QPalette::LinkVisited, mMainColor );
+  qApp->setPalette( palette );
 }
 
 void Theme::applyColors( const QVariantMap &colors )
