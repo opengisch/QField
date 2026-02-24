@@ -289,7 +289,7 @@ Item {
     visible: false
 
     iconSource: withNfc ? Theme.getThemeVectorIcon("ic_qr_nfc_code_black_24dp") : Theme.getThemeVectorIcon("ic_qr_code_black_24dp")
-    iconColor: Theme.darkTheme ? Theme.mainTextColor : "transparent"
+    iconColor: Theme.mainTextColor
     bgcolor: "transparent"
 
     onClicked: {
