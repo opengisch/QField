@@ -5,15 +5,6 @@ include(Catch)
 
 set(CMAKE_AUTORCC ON)
 
-set(APP_THEME_JSON_PATH "${CMAKE_SOURCE_DIR}/resources/theme/theme.json")
-file(TO_CMAKE_PATH "${APP_THEME_JSON_PATH}" APP_THEME_JSON_PATH)
-
-set(RESOURCES_DIR "${CMAKE_SOURCE_DIR}/resources")
-file(TO_CMAKE_PATH "${RESOURCES_DIR}" RESOURCES_DIR)
-
-configure_file(${CMAKE_SOURCE_DIR}/resources/resources.qrc.in
-               ${CMAKE_BINARY_DIR}/resources/resources.qrc @ONLY)
-
 # Set WITH_CATCH2_MAIN to TRUE when qgis or qfield specific initialization is NOT needed
 function(ADD_CATCH2_TEST TESTNAME TESTSRC WITH_CATCH2_MAIN)
   set(TESTSOURCES
