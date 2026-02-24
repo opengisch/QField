@@ -146,7 +146,7 @@ Item {
         let isDesktopPlatform = Qt.platform.os !== "ios" && Qt.platform.os !== "android";
         let dataDirs = platformUtilities.appDataDirs();
         if (dataDirs.length > 0) {
-          label = dataDirs.length > 1 ? qsTr('QField app directories') : qsTr('QField app directory');
+          label = dataDirs.length > 1 ? qsTr('%1 app directories').arg(appName) : qsTr('%1 app directory').arg(appName);
           for (let dataDir of dataDirs) {
             if (isDesktopPlatform) {
               label += '<br><a href="' + UrlUtils.fromString(dataDir) + '">' + dataDir + '</a>';
@@ -165,6 +165,8 @@ Item {
       id: sponsorshipButton
       Layout.fillWidth: true
       icon.source: Theme.getThemeVectorIcon('ic_sponsor_white_24dp')
+      enabled: appName == "QField"
+      visible: enabled
 
       text: qsTr('Support QField')
       onClicked: Qt.openUrlExternally("https://github.com/sponsors/opengisch")

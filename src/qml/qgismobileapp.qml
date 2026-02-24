@@ -3536,7 +3536,7 @@ ApplicationWindow {
     }
 
     MenuItem {
-      text: qsTr("About QField")
+      text: qsTr("About %1").arg(appName)
 
       font: Theme.defaultFont
       icon.source: Theme.getThemeVectorIcon("ic_qfield_black_24dp")
@@ -5260,7 +5260,7 @@ ApplicationWindow {
       Label {
         width: parent.width
         wrapMode: Text.WordWrap
-        text: qsTr("Do you want to import <b>%1</b> from <b>%2</b> into QField?").arg(importPermissionDialog.fileName).arg(importPermissionDialog.serverName)
+        text: qsTr("Do you want to import <b>%1</b> from <b>%2</b> into %3?").arg(importPermissionDialog.fileName).arg(importPermissionDialog.serverName).arg(appName)
       }
     }
 
