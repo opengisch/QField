@@ -283,7 +283,7 @@ Page {
               padding: description !== '' ? 8 : 0
               topPadding: 0
               leftPadding: 20
-              text: description.arg(appName)
+              text: description
               font: Theme.tipFont
               color: Theme.secondaryTextColor
               wrapMode: Text.WordWrap
