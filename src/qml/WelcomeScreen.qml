@@ -470,7 +470,7 @@ Page {
               model: [
                 {
                   "icon": Theme.getThemeVectorIcon("ic_cloud_active_24dp"),
-                  "iconColor": "transparent",
+                  "iconColor": Theme.cloudColor,
                   "action": function () {
                     showQFieldCloudScreen();
                   }

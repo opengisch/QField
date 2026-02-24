@@ -199,7 +199,7 @@ Drawer {
               if (cloudConnection.status !== QFieldCloudConnection.LoggedIn || !cloudProjectsModel.currentProject) {
                 return Theme.mainTextColor;
               } else {
-                return "transparent";
+                return Theme.cloudColor;
               }
             }
             bgcolor: "transparent"

@@ -93,8 +93,11 @@
         <file>themes/qfield/nodpi/ic_cloud_synchronize_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_cloud_project_offline_48dp.svg</file>
         <file>themes/qfield/nodpi/ic_cloud_project_download_48dp.svg</file>
+        <file>themes/qfield/nodpi/ic_cloud_project_download_param_48dp.svg</file>
         <file>themes/qfield/nodpi/ic_cloud_project_upload_48dp.svg</file>
+        <file>themes/qfield/nodpi/ic_cloud_project_upload_param_48dp.svg</file>
         <file>themes/qfield/nodpi/ic_cloud_project_localonly_48dp.svg</file>
+        <file>themes/qfield/nodpi/ic_cloud_project_localonly_param_48dp.svg</file>
         <file>themes/qfield/nodpi/ic_cogo_white_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_cogo_angle_distance_white_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_cogo_intersection_circles_white_24dp.svg</file>
@@ -203,6 +206,7 @@
         <file>themes/qfield/nodpi/ic_message_log_black_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_qfield_black_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_cloud_project_failed_48dp.svg</file>
+        <file>themes/qfield/nodpi/ic_cloud_project_failed_param_48dp.svg</file>
         <file>themes/qfield/nodpi/ic_logout_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_login_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_download_white_24dp.svg</file>
