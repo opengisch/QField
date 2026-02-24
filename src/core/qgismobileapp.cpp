@@ -646,8 +646,6 @@ void QgisMobileapp::initDeclarative( QQmlEngine *engine )
 void QgisMobileapp::registerGlobalVariables()
 {
   // Calculate device pixels
-  qreal dpi = mApp ? mApp->primaryScreen()->logicalDotsPerInch() * mApp->primaryScreen()->devicePixelRatio() : 96;
-  rootContext()->setContextProperty( "ppi", dpi );
   rootContext()->setContextProperty( "qgisProject", mProject );
   rootContext()->setContextProperty( "iface", mIface );
   rootContext()->setContextProperty( "pluginManager", mPluginManager );

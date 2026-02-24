@@ -29,6 +29,7 @@ Theme::Theme( QObject *parent )
   : QObject( parent )
 {
   loadFromJson();
+
   applyAppearance();
   applyFontScale();
 }
@@ -124,16 +125,21 @@ void Theme::applyAppearance( const QVariantMap &extraColors, BaseAppearance base
     }
   }
 
+  bool darkTheme = false;
   if ( appearance == SystemAppearance )
   {
-    mDarkTheme = PlatformUtilities::instance()->isSystemDarkTheme();
+    darkTheme = PlatformUtilities::instance()->isSystemDarkTheme();
   }
   else
   {
-    mDarkTheme = ( appearance == DarkAppearance );
+    darkTheme = ( appearance == DarkAppearance );
   }
 
-  emit darkThemeChanged();
+  if ( mDarkTheme != darkTheme )
+  {
+    mDarkTheme = darkTheme;
+    emit darkThemeChanged();
+  }
 
   applyColors( mDarkTheme ? mDarkThemeColors : mLightThemeColors );
 

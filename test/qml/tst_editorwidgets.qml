@@ -955,7 +955,7 @@ TestCase {
     }
     wait(500);
     const itemToClick = searchFeatureResultsList.itemAtIndex(2);
-    compare(itemToClick.children[0].children[2].text, "Soph<span style=\"text-decoration:underline;color:#000000\">ia</span>"); // `Sophia` highlighted!
+    compare(itemToClick.children[0].children[2].text, "Soph<span style=\"text-decoration:underline;color:#1c1b1f\">ia</span>"); // `Sophia` highlighted!
     const clickX = itemToClick.x + itemToClick.width / 2;
     const clickY = itemToClick.y + itemToClick.height / 2;
     mouseClick(searchFeatureResultsList, clickX, clickY);
