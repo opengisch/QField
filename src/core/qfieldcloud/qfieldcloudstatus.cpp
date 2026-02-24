@@ -47,6 +47,7 @@ void QFieldCloudStatus::setUrl( const QString &url )
   emit urlChanged();
 
   // Reset state when URL changes
+  mStatusType = StatusType::Ok;
   mHasProblem = false;
   mStatusMessage.clear();
   mDetailsMessage.clear();
@@ -63,6 +64,11 @@ void QFieldCloudStatus::setUrl( const QString &url )
   {
     mRefreshTimer.stop();
   }
+}
+
+QFieldCloudStatus::StatusType QFieldCloudStatus::statusType() const
+{
+  return mStatusType;
 }
 
 bool QFieldCloudStatus::hasProblem() const
@@ -160,36 +166,37 @@ void QFieldCloudStatus::parseStatusResponse( const QByteArray &data )
   // Adjust polling interval: faster when there's a problem, slower when ok
   mRefreshTimer.setInterval( mHasProblem ? 30 * 1000 : 5 * 60 * 1000 );
 
+  mStatusType = StatusType::Ok;
+
   if ( mHasProblem )
   {
     QStringList messages;
+    QStringList details;
+
+    if ( hasMaintenance )
+    {
+      messages << tr( "QFieldCloud is under maintenance" );
+      details << mMaintenanceMessage;
+      mStatusType = StatusType::Maintenance;
+    }
 
     if ( databaseDegraded || storageDegraded )
     {
       messages << tr( "QFieldCloud service is degraded" );
+      mStatusType = StatusType::Degraded;
     }
 
     if ( hasIncident )
     {
       messages << tr( "There is an ongoing incident" );
-    }
-
-    if ( hasMaintenance )
-    {
-      messages << tr( "QFieldCloud is under maintenance" );
+      if ( !mIncidentMessage.isEmpty() )
+      {
+        details << mIncidentMessage;
+      }
+      mStatusType = StatusType::Incident;
     }
 
     mStatusMessage = messages.join( QStringLiteral( ". " ) );
-
-    QStringList details;
-    if ( !mIncidentMessage.isEmpty() )
-    {
-      details << mIncidentMessage;
-    }
-    if ( !mMaintenanceMessage.isEmpty() )
-    {
-      details << mMaintenanceMessage;
-    }
     mDetailsMessage = details.join( QStringLiteral( "\n\n" ) );
   }
   else
