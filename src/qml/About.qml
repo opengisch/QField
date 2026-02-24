@@ -46,7 +46,7 @@ Item {
         id: information
         spacing: 6
         width: aboutPanel.width - 40
-        height: Math.max(mainWindow.height - sponsorshipButton.height - linksButton.height - qfieldAppDirectoryLabel.height - aboutContainer.spacing * 3 - aboutContainer.anchors.topMargin - aboutContainer.anchors.bottomMargin - 10, qfieldPart.height + opengisPart.height + spacing)
+        height: Math.max(mainWindow.height - sponsorshipButtonLoader.height - linksButton.height - qfieldAppDirectoryLabel.height - aboutContainer.spacing * 3 - aboutContainer.anchors.topMargin - aboutContainer.anchors.bottomMargin - 10, qfieldPart.height + opengisPart.height + spacing)
 
         ColumnLayout {
           id: qfieldPart
@@ -161,13 +161,22 @@ Item {
       onLinkActivated: link => Qt.openUrlExternally(link)
     }
 
-    QfButton {
-      id: sponsorshipButton
+    Loader {
+      id: sponsorshipButtonLoader
       Layout.fillWidth: true
-      icon.source: Theme.getThemeVectorIcon('ic_sponsor_white_24dp')
+      readonly property bool showSponsorButton: (appName || "").trim() === "QField"
+      active: showSponsorButton
+      sourceComponent: sponsorButtonComponent
+    }
 
-      text: qsTr('Support %1').arg(appName)
-      onClicked: Qt.openUrlExternally("https://github.com/sponsors/opengisch")
+    Component {
+      id: sponsorButtonComponent
+      QfButton {
+        width: sponsorshipButtonLoader.width
+        icon.source: Theme.getThemeVectorIcon("ic_sponsor_white_24dp")
+        text: qsTr("Support QField")
+        onClicked: Qt.openUrlExternally("https://github.com/sponsors/opengisch")
+      }
     }
 
     QfButton {

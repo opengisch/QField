@@ -203,7 +203,7 @@ Page {
     }
     ListElement {
       title: qsTr("Use native camera")
-      description: qsTr("If disabled, %1 will use a minimalist internal camera instead of the camera app on the device.<br>Tip: Enable this option and install the open camera app to create geo tagged photos.")
+      description: qsTr("If enabled, anonymized metrics will be collected and sent to help improve the experience for everyone.")
       settingAlias: "nativeCamera2"
       isVisible: true
     }
@@ -1475,7 +1475,7 @@ Page {
               }
 
               Label {
-                text: qsTr("This value will correct the Z values recorded from the positioning device. If a value of 1.6 is entered, %1 will automatically subtract 1.6 from each recorded value. Make sure to insert the effective antenna height, i.e. pole length + antenna phase centre offset.").arg(appName)
+                text: qsTr("This value will correct the Z values recorded from the positioning device. If a value of 1.6 is entered, the system will automatically subtract 1.6 from each recorded value. Make sure to insert the effective antenna height, i.e. pole length + antenna phase center offset.")
                 font: Theme.tipFont
                 color: Theme.secondaryTextColor
 
