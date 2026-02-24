@@ -3539,9 +3539,9 @@ ApplicationWindow {
       text: qsTr("About %1").arg(appName)
 
       font: Theme.defaultFont
-      icon.source: Theme.getThemeVectorIcon("ic_qfield_black_24dp")
+      icon.source: appName === "QField" ? Theme.getThemeVectorIcon("ic_qfield_black_24dp") : ""
       height: 48
-      leftPadding: Theme.menuItemLeftPadding
+      leftPadding: appName === "QField" ? Theme.menuItemLeftPadding : Theme.menuItemIconlessLeftPadding
 
       onTriggered: {
         dashBoard.close();
