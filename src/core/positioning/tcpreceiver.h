@@ -33,7 +33,7 @@ class TcpReceiver : public NmeaGnssReceiver
 
   public:
     explicit TcpReceiver( const QString &address = QString(), const int port = 0, QObject *parent = nullptr );
-    ~TcpReceiver() override;
+    ~TcpReceiver();
 
     static QLatin1String identifier;
 

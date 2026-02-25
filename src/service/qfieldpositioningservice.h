@@ -40,7 +40,7 @@ class QFIELD_SERVICE_EXPORT QFieldPositioningService : public QAndroidService
     void triggerStopNotification();
 
   private:
-    PositioningSource *mPositioningSource = nullptr;
+    std::unique_ptr<PositioningSource> mPositioningSource;
     QRemoteObjectHost mHost;
 
     QTimer mNotificationTimer;

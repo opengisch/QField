@@ -46,6 +46,11 @@ InternalGnssReceiver::InternalGnssReceiver( QObject *parent )
   }
 }
 
+InternalGnssReceiver::~InternalGnssReceiver()
+{
+  disconnectDevice();
+}
+
 void InternalGnssReceiver::handleDisconnectDevice()
 {
   if ( mGeoPositionSource )

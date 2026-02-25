@@ -30,22 +30,23 @@ QFieldPositioningService::QFieldPositioningService( int &argc, char **argv )
 {
   qRegisterMetaType<GnssPositionInformation>( "GnssPositionInformation" );
 
-  mPositioningSource = new PositioningSource( this );
+  mPositioningSource.reset( new PositioningSource( this ) );
   mHost.setHostUrl( QUrl( QStringLiteral( "localabstract:" APP_PACKAGE_NAME "replica" ) ) );
-  mHost.enableRemoting( mPositioningSource, "PositioningSource" );
+  mHost.enableRemoting( mPositioningSource.get(), "PositioningSource" );
 
   mNotificationTimer.setInterval( 1000 );
   mNotificationTimer.setSingleShot( false );
   connect( &mNotificationTimer, &QTimer::timeout, this, &QFieldPositioningService::triggerShowNotification );
 
-  connect( mPositioningSource, &PositioningSource::positionInformationChanged, this, [=] {
+  connect( mPositioningSource.get(), &PositioningSource::positionInformationChanged, this, [=] {
+    qInfo() << "sss got one";
     if ( !mPositioningSource->backgroundMode() && QFile::exists( PositioningSource::backgroundFilePath ) )
     {
       mPositioningSource->setBackgroundMode( true );
     }
   } );
 
-  connect( mPositioningSource, &PositioningSource::backgroundModeChanged, this, [=] {
+  connect( mPositioningSource.get(), &PositioningSource::backgroundModeChanged, this, [=] {
     if ( mPositioningSource->active() )
     {
       if ( mPositioningSource->backgroundMode() )
@@ -61,7 +62,7 @@ QFieldPositioningService::QFieldPositioningService( int &argc, char **argv )
     }
   } );
 
-  connect( mPositioningSource, &PositioningSource::activeChanged, this, [=] {
+  connect( mPositioningSource.get(), &PositioningSource::activeChanged, this, [=] {
     if ( mPositioningSource->active() )
     {
       if ( mPositioningSource->backgroundMode() )
@@ -112,4 +113,6 @@ void QFieldPositioningService::triggerStopNotification()
 
 QFieldPositioningService::~QFieldPositioningService()
 {
+  qInfo() << "Switching positioning service's source off";
+  mPositioningSource->setActive( false );
 }
