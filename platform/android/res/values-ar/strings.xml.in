@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="done_unpacking_msg">تم فك الضغط، يمكن بدء QGIS.</string>
+    <string name="unpacking_title">جار تجهيز @APP_NAME@</string>
+    <string name="unpacking_msg">ستأخذ عملية التشغيل هذه أول مرة بعض الوقت</string>
+    <string name="unpacking_msg_following">تقريباً انتهينا، انتظر قليلاً</string>
+    <string name="use_internal_storage">استخدام الذكرة الداخلية</string>
+    <string name="external_storage_unavailable">جار فك ضغط ملفات التنصيب، ربما نحتاج بعض الوقت</string>
+    <string name="noexternalstorage_dialog">يبدو أن الذاكرة الخارجية (/sdcard) غير متاحة. يحدث هذا عن توصيل الجهازك إلى الحاسب عبر وصلة USB.
+يمكن لـ QGIS أن يعمل على الذاكرة الداخلية، ولكننا لا ننصح بذلك.
+الأفضل أن تختار إلغاء الأمر وأن تفصل الجاهز عن USB وتعيد تشغيل .QGIS</string>
+    <string name="primary_storage">الذاكرة الداخلية</string>
+    <string name="secondary_storage">مسار مجلد @APP_NAME@</string>
+    <string name="secondary_storage_extra">مسار الملفات الإضافية</string>
+    <string name="secondary_storage_read_only">الذاكرة الخارجية (قراءة فقط)</string>
+    <string name="inaccessible">غير قابل للوصول</string>
+    <string name="loading">جار التحميل</string>
+    <string name="select_project">حدد مشورع QGIS أو قاعدة بيانات</string>
+    <string name="recent_projects">المشاريع وقواعد البيانات الأخيرة</string>
+    <string name="rate_title">قيّم @APP_NAME@</string>
+    <string name="rate_message">إذا أعجبك تطبيق @APP_NAME@، فالرجاء أعطينا بعض الوقت وقيًم التطبيق. نشكرك على دعمك.</string>
+    <string name="rate_now">قيّم</string>
+    <string name="remind_later">ذكرّني لاحقاً</string>
+    <string name="no_thanks">لا، شكراً</string>
+    <string name="favorite_directories">المسارات المُفضّلة</string>
+    <string name="favorites_sample_projects">عينات المشاريع</string>
+    <string name="favorites_imported_projects">المشاريع المُستوردة</string>
+    <string name="favorites_imported_datasets">مجموعة البيانات المُستوردة</string>
+    <string name="added_to_favorites">المُضافة إلى المُفضّلة</string>
+    <string name="removed_from_favorites">المحذوفة من المُفضّلة</string>
+    <string name="external_files_title">ملاحظات هامة</string>
+    <string name="external_files_message"><![CDATA[يمكن استخدام مسار ملفات @APP_NAME@ من أجل نسخ الملفات والمشاريع إلى جهازك باستخدام منفذ USB. يمكنك مشاهدة المسار المطلق في شريط التروسية. <br/><br/> كن مدركاً أن محتويات هذا المسار <i> ستيم حذفها </i> إذا ألغيت تنصيب @APP_NAME@ من جهازك.]]></string>
+    <string name="external_files_ok">حسناً</string>
+    <string name="grant_permission">تم الوصول لجميع الملفات</string>
+    <string name="grant_all_files_permission"><![CDATA[ يحتاج @APP_NAME@ إلى صلاحيات للوصول إلى جميع الملفات  من أجل فتح المشاريع وقواعد البيانات المحلية، بالإضافة إلى إظهار الشبكات والخطوط وخرائط الأساسية. <i>لذلك نفضل السماح بالوصول إلى الملفات</i>. <br/><br/>في الشاشة التالية، اختر <b>  @APP_NAME@ </b>واختر خيار <b> السماح بالوصول إلى الملفات</b>.]]></string>
+    <string name="grant">مسموح</string>
+    <string name="deny_always">الحظر دائماً</string>
+    <string name="deny_once">حظر مرة واحدة</string>
+    <string name="import_error">خطأ في الاستيراد</string>
+    <string name="import_dataset_error">لا يمكن استراد قاعدة البيانات (أو أكثر) المُحددة بشكل صحيح</string>
+    <string name="import_project_archive_error">لا يمكن استيراد أرشيف المشروع المُحدد بشكل صحيح</string>
+    <string name="import_project_folder_error">لا يمكن استيراد مجلد المشروع المُحدد بشكل صحيح</string>
+    <string name="import_overwrite_title">تحذير في الاستيراد</string>
+    <string name="import_overwrite_folder">مجلد المشروع هذا موجود بالفعل، ستم الكتابة فوقه، أمتأكدٌ من الاستيراد؟</string>
+    <string name="import_overwrite_dataset_single">قاعدة البيانات هذه موجودة بالفعل، ستم الكاتبة فوقها، أمتأكدٌ من الاستيراد؟</string>
+    <string name="import_overwrite_dataset_multiple">قاعدة بيانات أو أكثر موجودة بالفعل، سيتم الكتابة فوقها، أمتأكدٌ من الاستيراد؟</string>
+    <string name="import_overwrite_confirm">استيراد والكتابة فوق</string>
+    <string name="import_overwrite_cancel">إلغاء الأمر</string>
+    <string name="export_error">خطأ في التصدير</string>
+    <string name="export_to_folder_error">لم يتم تصدير مجلد المشورع بشكل صحيح.</string>
+    <string name="delete_confirm_title">تأكيد الإزالة</string>
+    <string name="delete_confirm_dataset">سيتم حذف قاعدة البيانات بشكل نهائي، أمتأكدٌ من الإزالة؟</string>
+    <string name="delete_confirm_folder">سيتم حذف مجلد المشروع بشكل نهائي، أمتأكدٌ من الإزالة؟</string>
+    <string name="delete_confirm">إزالة</string>
+    <string name="delete_cancel">إلغاء الأمر</string>
+    <string name="storage_information_title">معلومات التخزين</string>
+    <string name="storage_information_message">في حال كنت مستخدم لتطبيق @APP_NAME@ 1.x، فقد تفقد بعض قواعد البيانات والمشاريع، نقترح عليك تفريغ بعض الوقت لقراءة وثائق التعامل مع الذاكرة. سيبقى اختصار لهذه الوثائق متاح في شريط التسمية في القائمة.</string>
+    <string name="storage_information_view">إظهار الوثائق</string>
+    <string name="storage_information_dismiss">ساقرأها لاحقاً</string>
+    <string name="import_project_wait">يرجى الانتظار بينما ينهي @APP_NAME@ استيراد المشروع</string>
+    <string name="import_dataset_wait">يرجى الانتظار بينما ينهي @APP_NAME@ استيراد قاعدة (ات) البيانات</string>
+    <string name="positioning_title">التموضع</string>
+    </resources>

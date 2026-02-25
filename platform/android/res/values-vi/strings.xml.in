@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="unpacking_title">@APP_NAME@ đang chuẩn bị sẵn sàng</string>
+    <string name="unpacking_msg_following">Sắp xong rồi, chờ chút nhé!</string>
+    <string name="use_internal_storage">Sử dụng bộ lưu trữ trong</string>
+    <string name="primary_storage">Bộ nhớ trong</string>
+    <string name="secondary_storage">Thư mục tệp @APP_NAME@</string>
+    <string name="secondary_storage_read_only">Lưu trữ ngoài (chỉ đọc)</string>
+    <string name="loading">Đang tải</string>
+    <string name="select_project">Chọn một dự án hoặc bộ dữ liệu QGIS</string>
+    <string name="recent_projects">Các dự án và bộ dữ liệu gần đây</string>
+    <string name="rate_title">Đánh giá @APP_NAME@</string>
+    <string name="rate_now">Đánh giá</string>
+    <string name="remind_later">Nhắc tôi lần sau</string>
+    <string name="no_thanks">Không, cảm ơn!</string>
+    <string name="favorite_directories">Các thư mục ưa thích</string>
+    <string name="favorites_sample_projects">Các dự án mẫu</string>
+    <string name="favorites_imported_projects">Các dự án đã nạp</string>
+    <string name="favorites_imported_datasets">Các bộ dữ liệu đã nạp</string>
+    <string name="external_files_title">Ghi chú quan trọng</string>
+    <string name="external_files_ok">Đồng ý</string>
+    <string name="grant">Cho phép</string>
+    <string name="deny_always">Từ chối vĩnh viễn</string>
+    <string name="deny_once">Từ chối lần này</string>
+    <string name="import_error">Lỗi nạp dữ liệu</string>
+    <string name="import_overwrite_title">Cảnh báo nạp liệu</string>
+    <string name="import_overwrite_confirm">Nạp và ghi đè</string>
+    <string name="import_overwrite_cancel">Hủy</string>
+    <string name="export_error">Lỗi xuất dữ liệu</string>
+    <string name="delete_cancel">Hủy</string>
+    <string name="storage_information_title">Thông tin lưu trữ</string>
+    <string name="storage_information_view">Cho tôi xem tài liệu</string>
+    <string name="storage_information_dismiss">Tôi sẽ đọc sau</string>
+    </resources>
