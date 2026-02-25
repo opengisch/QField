@@ -22,12 +22,16 @@
         <translation>ເມນູລິ້ງຄ໌</translation>
     </message>
     <message>
-        <source>QField app directories</source>
-        <translation>ບັນຊີລາຍການຂອງແອັບ QField</translation>
+        <source>Powered by QField</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>QField app directory</source>
-        <translation>ບັນຊີລາຍການຂອງແອັບ QField</translation>
+        <source>%1 app directories</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>%1 app directory</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -840,10 +844,6 @@ Cancel to make a minimal device scan instead.</source>
         <translation>ແຕ້ມຮູບ</translation>
     </message>
     <message>
-        <source>The external storage&apos;s authentication configuration ID is missing, please insure it is imported into QField</source>
-        <translation>ຂາດລະຫັດການຕັ້ງຄ່າການຢືນຢັນບ່ອນເກັບຂໍ້ມູນພາຍນອກ, ກະລຸນາກວດເບິ່ງວ່າລະຫັດດັ່ງກ່າວໄດ້ຖືກນຳເຂົ້າມາໃນ QField</translation>
-    </message>
-    <message>
         <source>Learn more</source>
         <translation>ຮຽນ​ຮູ້​ເພີ່ມ​ເຕີມ</translation>
     </message>
@@ -858,6 +858,10 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>NULL</source>
         <translation>NULL</translation>
+    </message>
+    <message>
+        <source>The external storage&apos;s authentication configuration ID is missing, please insure it is imported into %1</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2526,10 +2530,6 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation>ສຳຮອງ ແລະຮ່ວມມືບໍ?</translation>
     </message>
     <message>
-        <source>QFieldCloud allows to synchronize and merge the data collected by your team in QField. From small individual projects to large data collection campaigns. </source>
-        <translation>QFieldCloud ອະນຸຍາດໃຫ້ synchronize ແລະ ລວມຂໍ້ມູນທີ່ເກັບກໍາໂດຍທີມງານຂອງທ່ານໃນ QField. ຈາກໂຄງການຂະຫນາດນ້ອຍໄປຫາຂະບວນການເກັບກໍາຂໍ້ມູນຂະຫນາດໃຫຍ່.</translation>
-    </message>
-    <message>
         <source>Learn more about QFieldCloud here</source>
         <translation>ສຶກສາເພີ່ມເຕີມກ່ຽວກັບ QFieldCloud ທີ່ນີ້</translation>
     </message>
@@ -2540,6 +2540,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>My Project</source>
         <translation>ໂຄງ​ການ​ຂອງ​ຂ້າ​ພະ​ເຈົ້າ​</translation>
+    </message>
+    <message>
+        <source>QFieldCloud allows to synchronize and merge the data collected by your team in %1. From small individual projects to large data collection campaigns. </source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3945,7 +3949,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>If disabled, QField will use a minimalist internal camera instead of the camera app on the device.&lt;br&gt;Tip: Enable this option and install the open camera app to create geo tagged photos.</source>
-        <translation>ຖ້າປິດການໃຊ້ງານ, QField ຈະໃຊ້ກ້ອງຖ່າຍຮູບພາຍໃນແທນທີ່ຈະເປັນແອັບຯກ້ອງຖ່າຍຮູບໃນອຸປະກອນ. ໝາຍເຫດ: ເປີດໃຊ້ຕົວເລືອກນີ້ ແລະຕິດຕັ້ງແອັບຯກ້ອງຖ່າຍຮູບເພື່ອສ້າງຮູບພາບທີ່ຖືກແທັກທາງພູມສາດ.</translation>
+        <translation type="vanished">ຖ້າປິດການໃຊ້ງານ, QField ຈະໃຊ້ກ້ອງຖ່າຍຮູບພາຍໃນແທນທີ່ຈະເປັນແອັບຯກ້ອງຖ່າຍຮູບໃນອຸປະກອນ. ໝາຍເຫດ: ເປີດໃຊ້ຕົວເລືອກນີ້ ແລະຕິດຕັ້ງແອັບຯກ້ອງຖ່າຍຮູບເພື່ອສ້າງຮູບພາບທີ່ຖືກແທັກທາງພູມສາດ.</translation>
     </message>
     <message>
         <source>Fast editing mode</source>
@@ -3977,7 +3981,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>If enabled, anonymized metrics will be collected and sent to help improve QField for everyone.</source>
-        <translation>ຖ້າເປີດໃຊ້ງານ, ເມຕຣິກທີ່ບໍ່ເປີດເຜີຍຊື່ຈະຖືກລວບລວມ ແລະ ສົ່ງເພື່ອຊ່ວຍປັບປຸງ QField ສໍາລັບທຸກຄົນ.</translation>
+        <translation type="vanished">ຖ້າເປີດໃຊ້ງານ, ເມຕຣິກທີ່ບໍ່ເປີດເຜີຍຊື່ຈະຖືກລວບລວມ ແລະ ສົ່ງເພື່ອຊ່ວຍປັບປຸງ QField ສໍາລັບທຸກຄົນ.</translation>
     </message>
     <message>
         <source>General</source>
@@ -4138,7 +4142,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>QField Settings</source>
-        <translation>ການຕັ້ງຄ່າ QField</translation>
+        <translation type="vanished">ການຕັ້ງຄ່າ QField</translation>
     </message>
     <message>
         <source>Time of inactivity in seconds before the screen brightness get be dimmed to preserve battery.</source>
@@ -4251,10 +4255,6 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>A lower quality trades rendering precision in favor of lower memory usage and rendering time.</source>
         <translation>ຄຸນນະພາບທີ່ຕໍ່າລົງຈະຫຼຸດຜ່ອນຄວາມລະອຽດຂອງການສະແດງຜົນ ເພື່ອໃຫ້ໃຊ້ໜ່ວຍຄວາມຈຳນ້ອຍລົງ ແລະ ໃຊ້ເວລາສະແດງຜົນສັ້ນລົງ.</translation>
-    </message>
-    <message>
-        <source>This value will correct the Z values recorded from the positioning device. If a value of 1.6 is entered, QField will automatically subtract 1.6 from each recorded value. Make sure to insert the effective antenna height, i.e. pole length + antenna phase centre offset.</source>
-        <translation>ຄ່ານີ້ຈະແກ້ໄຂຄ່າ Z ທີ່ບັນທຶກໄວ້ຈາກອຸປະກອນການຈັດຕຳແໜ່ງ. ຖ້າຄ່າຂອງ 1.6 ຖືກໃສ່, QField ຈະລົບ 1.6 ໂດຍອັດຕະໂນມັດຈາກແຕ່ລະຄ່າທີ່ບັນທຶກໄວ້. ກວດເບິ່ງເພື່ອໃສ່ຄວາມສູງຂອງເສົາອາກາດທີ່ມີປະສິດທິພາບ, ເຊັ່ນ: ຄວາມຍາວຂອງເສົາ + ເສົາອາກາດສູນຊົດເຊີຍໄລຍະກາງ.</translation>
     </message>
     <message>
         <source>Orthometric from device</source>
@@ -4395,6 +4395,22 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>When the map canvas is following or locked to position, it can also rotate to match compass orientation or movement direction.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>If enabled, anonymized metrics will be collected and sent to help improve the experience for everyone.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>If enabled, anonymized metrics will be collected and sent to help improve %1 for everyone.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>This value will correct the Z values recorded from the positioning device. If a value of 1.6 is entered, the system will automatically subtract 1.6 from each recorded value. Make sure to insert the effective antenna height, i.e. pole length + antenna phase center offset.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>%1 Settings</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -5612,7 +5628,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Hey there, how do you like your experience with QField so far?</source>
-        <translation>ສະບາຍດີ, ທ່ານຄິດແນວໃດກັບປະສົບການທີ່ໄດ້ໃຊ້ QField ຈົນເຖິງຕອນນີ້?</translation>
+        <translation type="vanished">ສະບາຍດີ, ທ່ານຄິດແນວໃດກັບປະສົບການທີ່ໄດ້ໃຊ້ QField ຈົນເຖິງຕອນນີ້?</translation>
     </message>
     <message>
         <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a comment on the store.</source>
@@ -5628,7 +5644,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>To improve stability for everyone, QField collects and sends anonymized metrics.</source>
-        <translation>ເພື່ອປັບປຸງຄວາມສະຖຽນສຳລັບທຸກຄົນ, QField ໄດ້ເກັບກຳ ແລະ ສົ່ງຂໍ້ມູນສະຖິຕິທີ່ບໍ່ເປີດເຜີຍຊື່.</translation>
+        <translation type="vanished">ເພື່ອປັບປຸງຄວາມສະຖຽນສຳລັບທຸກຄົນ, QField ໄດ້ເກັບກຳ ແລະ ສົ່ງຂໍ້ມູນສະຖິຕິທີ່ບໍ່ເປີດເຜີຍຊື່.</translation>
     </message>
     <message>
         <source>I agree</source>
@@ -5672,7 +5688,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Welcome back to QField.</source>
-        <translation>ຍິນດີຕ້ອນຮັບກັບມາທີ່ QField</translation>
+        <translation type="vanished">ຍິນດີຕ້ອນຮັບກັບມາທີ່ QField</translation>
     </message>
     <message>
         <source>Default project</source>
@@ -5703,10 +5719,6 @@ Cancel to make a minimal device scan instead.</source>
         <translation>ການເຄື່ອນໄຫວໂຄງການລ່າສຸດ</translation>
     </message>
     <message>
-        <source>Welcome to QField. First time using this application? Try the sample projects listed below.</source>
-        <translation>ຍິນດີຕ້ອນຮັບສູ່ QField. ໃຊ້ແອັບພລິເຄຊັ່ນນີ້ ເປັນເທື່ອທຳອິດບໍ? ລອງໃຊ້ບັນດາໂຄງການຕົວຢ່າງທີ່ລະບຸໄວ້ຂ້າງລຸ່ມນີ້.</translation>
-    </message>
-    <message>
         <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a review.</source>
         <translation>ດີຫຼາຍ! ພວກເຮົາຢາກໃຫ້ທ່ານກົດປຸ່ມດ້ານລຸ່ມນີ້ ແລະ ຂຽນຄຳຕິຊົມໃຫ້ແດ່. </translation>
     </message>
@@ -5728,6 +5740,22 @@ projects</source>
         <source>Create new
 project</source>
         <translation>ສ້າງໂຄງການໃໝ່</translation>
+    </message>
+    <message>
+        <source>Hey there, how do you like your experience with %1 so far?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>To improve stability for everyone, %1 collects and sends anonymized metrics.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Welcome to %1. First time using this application? Try the sample projects listed below.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Welcome back to %1.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -6068,7 +6096,7 @@ project</source>
     </message>
     <message>
         <source>About QField</source>
-        <translation>ກ່ຽວກັບ QField</translation>
+        <translation type="vanished">ກ່ຽວກັບ QField</translation>
     </message>
     <message>
         <source>Select template below</source>
@@ -6519,10 +6547,6 @@ project</source>
         <translation>ການຢືນຢັນການນໍາເຂົ້າ</translation>
     </message>
     <message>
-        <source>Do you want to import &lt;b&gt;%1&lt;/b&gt; from &lt;b&gt;%2&lt;/b&gt; into QField?</source>
-        <translation>ທ່ານຕ້ອງການນໍາເຂົ້າ %1 ຈາກ %2 ເຂົ້າໄປໃນ QField ບໍ?</translation>
-    </message>
-    <message>
         <source>Plugin Permission</source>
         <translation>ການ​ອະ​ນຸ​ຍາດ Plugin​</translation>
     </message>
@@ -6713,6 +6737,14 @@ to show actions</source>
     </message>
     <message>
         <source>Close 3D view</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>About %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Do you want to import &lt;b&gt;%1&lt;/b&gt; from &lt;b&gt;%2&lt;/b&gt; into %3?</source>
         <translation type="unfinished"/>
     </message>
 </context>

@@ -22,12 +22,16 @@
         <translation>链接菜单</translation>
     </message>
     <message>
-        <source>QField app directories</source>
-        <translation>QField应用程序目录</translation>
+        <source>Powered by QField</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>QField app directory</source>
-        <translation>QField应用程序目录</translation>
+        <source>%1 app directories</source>
+        <translation>%1应用程序目录</translation>
+    </message>
+    <message>
+        <source>%1 app directory</source>
+        <translation>%1应用程序目录</translation>
     </message>
 </context>
 <context>
@@ -841,10 +845,6 @@ Cancel to make a minimal device scan instead.</source>
         <translation>绘制草图</translation>
     </message>
     <message>
-        <source>The external storage&apos;s authentication configuration ID is missing, please insure it is imported into QField</source>
-        <translation>外部存储的认证配置ID缺失，请确保已将其导入QField</translation>
-    </message>
-    <message>
         <source>Learn more</source>
         <translation>点击了解更多信息</translation>
     </message>
@@ -859,6 +859,10 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>NULL</source>
         <translation>空</translation>
+    </message>
+    <message>
+        <source>The external storage&apos;s authentication configuration ID is missing, please insure it is imported into %1</source>
+        <translation>外部存储的认证配置ID缺失，请确保已将其导入%1</translation>
     </message>
 </context>
 <context>
@@ -2533,10 +2537,6 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation>备份和协作？</translation>
     </message>
     <message>
-        <source>QFieldCloud allows to synchronize and merge the data collected by your team in QField. From small individual projects to large data collection campaigns. </source>
-        <translation>QFieldCloud允许同步与合并您的团队在QField中收集的数据。从小型个人工程到大型数据收集活动。</translation>
-    </message>
-    <message>
         <source>Learn more about QFieldCloud here</source>
         <translation>在此了解有关QFieldCloud的更多信息</translation>
     </message>
@@ -2547,6 +2547,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>My Project</source>
         <translation>我的工程</translation>
+    </message>
+    <message>
+        <source>QFieldCloud allows to synchronize and merge the data collected by your team in %1. From small individual projects to large data collection campaigns. </source>
+        <translation>QFieldCloud允许同步与合并您的团队在%1中收集的数据。从小型个人工程到大型数据收集活动。</translation>
     </message>
 </context>
 <context>
@@ -3961,7 +3965,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>If disabled, QField will use a minimalist internal camera instead of the camera app on the device.&lt;br&gt;Tip: Enable this option and install the open camera app to create geo tagged photos.</source>
-        <translation>如禁用，QField将使用简易的内部相机替代设备上的相机应用程序。&lt;br&gt;提示：开启此选项并安装相机应用程序可以创建带有地理位置标签的照片。</translation>
+        <translation type="vanished">如禁用，QField将使用简易的内部相机替代设备上的相机应用程序。&lt;br&gt;提示：开启此选项并安装相机应用程序可以创建带有地理位置标签的照片。</translation>
     </message>
     <message>
         <source>Fast editing mode</source>
@@ -3993,7 +3997,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>If enabled, anonymized metrics will be collected and sent to help improve QField for everyone.</source>
-        <translation>如果启用，将收集并发送匿名测评数据，以帮助改善QField的个人使用体验。</translation>
+        <translation type="vanished">如果启用，将收集并发送匿名测评数据，以帮助改善QField的个人使用体验。</translation>
     </message>
     <message>
         <source>General</source>
@@ -4155,7 +4159,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>QField Settings</source>
-        <translation>QField设置</translation>
+        <translation type="vanished">QField设置</translation>
     </message>
     <message>
         <source>Time of inactivity in seconds before the screen brightness get be dimmed to preserve battery.</source>
@@ -4268,10 +4272,6 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>A lower quality trades rendering precision in favor of lower memory usage and rendering time.</source>
         <translation>较低质量是以较低内存使用率和渲染时间而降低渲染精度。</translation>
-    </message>
-    <message>
-        <source>This value will correct the Z values recorded from the positioning device. If a value of 1.6 is entered, QField will automatically subtract 1.6 from each recorded value. Make sure to insert the effective antenna height, i.e. pole length + antenna phase centre offset.</source>
-        <translation>该值将校正定位设备记录的Z值。如果输入的值为1.6，QField将自动从每个记录的值中减去1.6。请确保输入有效天线高度，即杆长 + 天线相位中心偏移。</translation>
     </message>
     <message>
         <source>Orthometric from device</source>
@@ -4412,6 +4412,22 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>When the map canvas is following or locked to position, it can also rotate to match compass orientation or movement direction.</source>
         <translation>当地图画布遵循或锁定到位置时，它也可以旋转以匹配指南针朝向或移动方向。</translation>
+    </message>
+    <message>
+        <source>If enabled, anonymized metrics will be collected and sent to help improve the experience for everyone.</source>
+        <translation>如果启用，将收集并发送匿名测评数据，帮助改善所有用户的使用体验。</translation>
+    </message>
+    <message>
+        <source>If enabled, anonymized metrics will be collected and sent to help improve %1 for everyone.</source>
+        <translation>如果启用，将收集并发送匿名测评数据，帮助改善%1的所有用户使用体验。</translation>
+    </message>
+    <message>
+        <source>This value will correct the Z values recorded from the positioning device. If a value of 1.6 is entered, the system will automatically subtract 1.6 from each recorded value. Make sure to insert the effective antenna height, i.e. pole length + antenna phase center offset.</source>
+        <translation>该值将校正定位设备记录的Z值。如果输入值为1.6，系统将自动从每条记录的值中减去1.6。请确保插入有效天线高度，即杆长+天线相位中心偏移。</translation>
+    </message>
+    <message>
+        <source>%1 Settings</source>
+        <translation>%1设置</translation>
     </message>
 </context>
 <context>
@@ -5626,7 +5642,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Hey there, how do you like your experience with QField so far?</source>
-        <translation>嘿，到目前为止，您如何看待QField？</translation>
+        <translation type="vanished">嘿，到目前为止，您如何看待QField？</translation>
     </message>
     <message>
         <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a comment on the store.</source>
@@ -5642,7 +5658,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>To improve stability for everyone, QField collects and sends anonymized metrics.</source>
-        <translation>为了提高稳定性，QField将收集并发送匿名测评数据。</translation>
+        <translation type="vanished">为了提高稳定性，QField将收集并发送匿名测评数据。</translation>
     </message>
     <message>
         <source>I agree</source>
@@ -5686,7 +5702,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Welcome back to QField.</source>
-        <translation>欢迎使用QField</translation>
+        <translation type="vanished">欢迎使用QField</translation>
     </message>
     <message>
         <source>Default project</source>
@@ -5717,10 +5733,6 @@ Cancel to make a minimal device scan instead.</source>
         <translation>最近工程动作</translation>
     </message>
     <message>
-        <source>Welcome to QField. First time using this application? Try the sample projects listed below.</source>
-        <translation>欢迎来到QField！是第一次使用本应用吗？请试试下面的示例工程吧。</translation>
-    </message>
-    <message>
         <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a review.</source>
         <translation>太棒了！希望您点击下面的按钮并留下评论。</translation>
     </message>
@@ -5745,6 +5757,22 @@ projects</source>
 project</source>
         <translation>创建新
 工程</translation>
+    </message>
+    <message>
+        <source>Hey there, how do you like your experience with %1 so far?</source>
+        <translation>嘿，到目前为止，您对%1的体验如何？</translation>
+    </message>
+    <message>
+        <source>To improve stability for everyone, %1 collects and sends anonymized metrics.</source>
+        <translation>为了提高稳定性，%1将收集并发送匿名测评数据。</translation>
+    </message>
+    <message>
+        <source>Welcome to %1. First time using this application? Try the sample projects listed below.</source>
+        <translation>欢迎来到%1！是首次使用本应用程序吗？请试试下面的示例工程吧。</translation>
+    </message>
+    <message>
+        <source>Welcome back to %1.</source>
+        <translation>欢迎使用%1。</translation>
     </message>
 </context>
 <context>
@@ -6085,7 +6113,7 @@ project</source>
     </message>
     <message>
         <source>About QField</source>
-        <translation>关于QField</translation>
+        <translation type="vanished">关于QField</translation>
     </message>
     <message>
         <source>Select template below</source>
@@ -6536,10 +6564,6 @@ project</source>
         <translation>确认导入</translation>
     </message>
     <message>
-        <source>Do you want to import &lt;b&gt;%1&lt;/b&gt; from &lt;b&gt;%2&lt;/b&gt; into QField?</source>
-        <translation>您想将 &lt;b&gt;%1&lt;/b&gt; 从 &lt;b&gt;%2&lt;/b&gt; 导入QField吗？</translation>
-    </message>
-    <message>
         <source>Plugin Permission</source>
         <translation>插件权限</translation>
     </message>
@@ -6732,6 +6756,14 @@ to show actions</source>
     <message>
         <source>Close 3D view</source>
         <translation>关闭3D视图</translation>
+    </message>
+    <message>
+        <source>About %1</source>
+        <translation>关于%1</translation>
+    </message>
+    <message>
+        <source>Do you want to import &lt;b&gt;%1&lt;/b&gt; from &lt;b&gt;%2&lt;/b&gt; into %3?</source>
+        <translation>您希望将 &lt;b&gt;%1&lt;/b&gt; 从 &lt;b&gt;%2&lt;/b&gt; 导入%3吗？</translation>
     </message>
 </context>
 <context>

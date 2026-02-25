@@ -22,11 +22,15 @@
         <translation>Izbornik s poveznicama</translation>
     </message>
     <message>
-        <source>QField app directories</source>
+        <source>Powered by QField</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>QField app directory</source>
+        <source>%1 app directories</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>%1 app directory</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -841,10 +845,6 @@ Otkažite za pokretanje minimalnog skeniranja uređaja.</translation>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>The external storage&apos;s authentication configuration ID is missing, please insure it is imported into QField</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Learn more</source>
         <translation>Saznaj više</translation>
     </message>
@@ -859,6 +859,10 @@ Otkažite za pokretanje minimalnog skeniranja uređaja.</translation>
     <message>
         <source>NULL</source>
         <translation>NULL</translation>
+    </message>
+    <message>
+        <source>The external storage&apos;s authentication configuration ID is missing, please insure it is imported into %1</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2537,10 +2541,6 @@ Geometrija elemenata će se spojiti u element &apos;%1&apos;, koji će zadržati
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>QFieldCloud allows to synchronize and merge the data collected by your team in QField. From small individual projects to large data collection campaigns. </source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Learn more about QFieldCloud here</source>
         <translation type="unfinished"/>
     </message>
@@ -2550,6 +2550,10 @@ Geometrija elemenata će se spojiti u element &apos;%1&apos;, koji će zadržati
     </message>
     <message>
         <source>My Project</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>QFieldCloud allows to synchronize and merge the data collected by your team in %1. From small individual projects to large data collection campaigns. </source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3961,7 +3965,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>If disabled, QField will use a minimalist internal camera instead of the camera app on the device.&lt;br&gt;Tip: Enable this option and install the open camera app to create geo tagged photos.</source>
-        <translation>Ako je isključeno, QField koristi internu kameru umjesto aplikacije kamere na uređaju&lt;br&gt;Savjet: Uključite ovu opciju i instalirajte aplikaciju open camera za kreiranje geotagiranih fotografija.</translation>
+        <translation type="vanished">Ako je isključeno, QField koristi internu kameru umjesto aplikacije kamere na uređaju&lt;br&gt;Savjet: Uključite ovu opciju i instalirajte aplikaciju open camera za kreiranje geotagiranih fotografija.</translation>
     </message>
     <message>
         <source>Fast editing mode</source>
@@ -3993,7 +3997,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>If enabled, anonymized metrics will be collected and sent to help improve QField for everyone.</source>
-        <translation>Ako je uključeno, anonimna metrika će se prikupljati i slati u svrhu unaprjeđenja QField-a za sve.</translation>
+        <translation type="vanished">Ako je uključeno, anonimna metrika će se prikupljati i slati u svrhu unaprjeđenja QField-a za sve.</translation>
     </message>
     <message>
         <source>General</source>
@@ -4155,7 +4159,7 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     </message>
     <message>
         <source>QField Settings</source>
-        <translation>QField postavke</translation>
+        <translation type="vanished">QField postavke</translation>
     </message>
     <message>
         <source>Time of inactivity in seconds before the screen brightness get be dimmed to preserve battery.</source>
@@ -4268,10 +4272,6 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     <message>
         <source>A lower quality trades rendering precision in favor of lower memory usage and rendering time.</source>
         <translation>Lošija kvaliteta žrtvuje preciznost iscrtavanja u korist manje potrošnje memorije i potrebnog vremena za iscrtavanje</translation>
-    </message>
-    <message>
-        <source>This value will correct the Z values recorded from the positioning device. If a value of 1.6 is entered, QField will automatically subtract 1.6 from each recorded value. Make sure to insert the effective antenna height, i.e. pole length + antenna phase centre offset.</source>
-        <translation>Ova vrijednost će ispraviti snimljenu Z vrijednosti dobivenu od uređaja za pozicioniranje. Ako je unesena vrijednost 1.6, QField će automatski oduzeti 1.6 od svake snimljene vrijednosti. Pripazite da unesete stvarnu visinu antene, tj. visina štapa + fazni offset središta antene.</translation>
     </message>
     <message>
         <source>Orthometric from device</source>
@@ -4411,6 +4411,22 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     </message>
     <message>
         <source>When the map canvas is following or locked to position, it can also rotate to match compass orientation or movement direction.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>If enabled, anonymized metrics will be collected and sent to help improve the experience for everyone.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>If enabled, anonymized metrics will be collected and sent to help improve %1 for everyone.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>This value will correct the Z values recorded from the positioning device. If a value of 1.6 is entered, the system will automatically subtract 1.6 from each recorded value. Make sure to insert the effective antenna height, i.e. pole length + antenna phase center offset.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>%1 Settings</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -5626,7 +5642,7 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     </message>
     <message>
         <source>Hey there, how do you like your experience with QField so far?</source>
-        <translation>Pozdrav, kako vam se sviđa iskustvo u QFieldu za sada?</translation>
+        <translation type="vanished">Pozdrav, kako vam se sviđa iskustvo u QFieldu za sada?</translation>
     </message>
     <message>
         <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a comment on the store.</source>
@@ -5642,7 +5658,7 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     </message>
     <message>
         <source>To improve stability for everyone, QField collects and sends anonymized metrics.</source>
-        <translation>Da poboljša stabilnost za sve, QField skuplja i šalje anonimnu metriku.</translation>
+        <translation type="vanished">Da poboljša stabilnost za sve, QField skuplja i šalje anonimnu metriku.</translation>
     </message>
     <message>
         <source>I agree</source>
@@ -5686,7 +5702,7 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     </message>
     <message>
         <source>Welcome back to QField.</source>
-        <translation>Dobrodošli nazad u QField.</translation>
+        <translation type="vanished">Dobrodošli nazad u QField.</translation>
     </message>
     <message>
         <source>Default project</source>
@@ -5717,10 +5733,6 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
         <translation>Nedavne akcije projekta</translation>
     </message>
     <message>
-        <source>Welcome to QField. First time using this application? Try the sample projects listed below.</source>
-        <translation>Dobrodošli u QField. Prvi puta koristite aplikaciju? Probajte primjere projekata koji su popisani ispod.</translation>
-    </message>
-    <message>
         <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a review.</source>
         <translation type="unfinished"/>
     </message>
@@ -5741,6 +5753,22 @@ projects</source>
     <message>
         <source>Create new
 project</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Hey there, how do you like your experience with %1 so far?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>To improve stability for everyone, %1 collects and sends anonymized metrics.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Welcome to %1. First time using this application? Try the sample projects listed below.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Welcome back to %1.</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -6082,7 +6110,7 @@ project</source>
     </message>
     <message>
         <source>About QField</source>
-        <translation>O aplikaciji QField</translation>
+        <translation type="vanished">O aplikaciji QField</translation>
     </message>
     <message>
         <source>Select template below</source>
@@ -6533,10 +6561,6 @@ project</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Do you want to import &lt;b&gt;%1&lt;/b&gt; from &lt;b&gt;%2&lt;/b&gt; into QField?</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Plugin Permission</source>
         <translation type="unfinished"/>
     </message>
@@ -6727,6 +6751,14 @@ to show actions</source>
     </message>
     <message>
         <source>Close 3D view</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>About %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Do you want to import &lt;b&gt;%1&lt;/b&gt; from &lt;b&gt;%2&lt;/b&gt; into %3?</source>
         <translation type="unfinished"/>
     </message>
 </context>

@@ -22,12 +22,16 @@
         <translation>இணைப்புகள் பட்டியல்</translation>
     </message>
     <message>
-        <source>QField app directories</source>
-        <translation>QField பயன்பாட்டு கோப்பகங்கள்</translation>
+        <source>Powered by QField</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>QField app directory</source>
-        <translation>QField பயன்பாட்டு கோப்பகம்</translation>
+        <source>%1 app directories</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>%1 app directory</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -841,10 +845,6 @@ Cancel to make a minimal device scan instead.</source>
         <translation>ஒரு ஓவியத்தை வரையவும்</translation>
     </message>
     <message>
-        <source>The external storage&apos;s authentication configuration ID is missing, please insure it is imported into QField</source>
-        <translation>வெளிப்புற சேமிப்பகத்தின் அங்கீகரிப்பு உள்ளமைவு அடையாளம் இல்லை, QField இல் அது இறக்குமதி செய்யப்பட்டுள்ளதா என்பதை உறுதிப்படுத்தவும்</translation>
-    </message>
-    <message>
         <source>Learn more</source>
         <translation>மேலும் அறிக</translation>
     </message>
@@ -859,6 +859,10 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>NULL</source>
         <translation>NULL</translation>
+    </message>
+    <message>
+        <source>The external storage&apos;s authentication configuration ID is missing, please insure it is imported into %1</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2531,10 +2535,6 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation>காப்புப்பிரதி &amp; கூட்டுப்பணியா?</translation>
     </message>
     <message>
-        <source>QFieldCloud allows to synchronize and merge the data collected by your team in QField. From small individual projects to large data collection campaigns. </source>
-        <translation>QField இல் உங்கள் குழுவால் சேகரிக்கப்பட்ட தரவை ஒத்திசைக்கவும் ஒன்றிணைக்கவும் QFieldCloud அனுமதிக்கிறது. சிறிய தனிப்பட்ட திட்டங்கள் முதல் பெரிய தரவு சேகரிப்பு பிரச்சாரங்கள் வரை.</translation>
-    </message>
-    <message>
         <source>Learn more about QFieldCloud here</source>
         <translation>QFieldCloud பற்றி இங்கே மேலும் அறிக</translation>
     </message>
@@ -2545,6 +2545,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>My Project</source>
         <translation>எனது திட்டம்</translation>
+    </message>
+    <message>
+        <source>QFieldCloud allows to synchronize and merge the data collected by your team in %1. From small individual projects to large data collection campaigns. </source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3959,7 +3963,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>If disabled, QField will use a minimalist internal camera instead of the camera app on the device.&lt;br&gt;Tip: Enable this option and install the open camera app to create geo tagged photos.</source>
-        <translation>முடக்கப்பட்டிருந்தால், சாதனத்தில் கேமரா பயன்பாட்டிற்குப் பதிலாக QField குறைந்தபட்ச உள் கேமராவைப் பயன்படுத்தும்.&lt;br&gt;உதவிக்குறிப்பு: உலகம் குறியிடப்பட்ட புகைப்படங்களை உருவாக்க, இந்த விருப்பத்தை இயக்கி, திறந்த கேமரா பயன்பாட்டை நிறுவவும்.</translation>
+        <translation type="vanished">முடக்கப்பட்டிருந்தால், சாதனத்தில் கேமரா பயன்பாட்டிற்குப் பதிலாக QField குறைந்தபட்ச உள் கேமராவைப் பயன்படுத்தும்.&lt;br&gt;உதவிக்குறிப்பு: உலகம் குறியிடப்பட்ட புகைப்படங்களை உருவாக்க, இந்த விருப்பத்தை இயக்கி, திறந்த கேமரா பயன்பாட்டை நிறுவவும்.</translation>
     </message>
     <message>
         <source>Fast editing mode</source>
@@ -3991,7 +3995,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>If enabled, anonymized metrics will be collected and sent to help improve QField for everyone.</source>
-        <translation>இயக்கப்பட்டால், அநாமதேய அளவீடுகள் சேகரிக்கப்பட்டு அனைவருக்கும் QField ஐ மேம்படுத்த உதவுவதற்காக அனுப்பப்படும்.</translation>
+        <translation type="vanished">இயக்கப்பட்டால், அநாமதேய அளவீடுகள் சேகரிக்கப்பட்டு அனைவருக்கும் QField ஐ மேம்படுத்த உதவுவதற்காக அனுப்பப்படும்.</translation>
     </message>
     <message>
         <source>General</source>
@@ -4153,7 +4157,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>QField Settings</source>
-        <translation>QField அமைப்புகள்</translation>
+        <translation type="vanished">QField அமைப்புகள்</translation>
     </message>
     <message>
         <source>Time of inactivity in seconds before the screen brightness get be dimmed to preserve battery.</source>
@@ -4266,10 +4270,6 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>A lower quality trades rendering precision in favor of lower memory usage and rendering time.</source>
         <translation>குறைந்த தகுதி, குறைந்த நினைவக பயன்பாடு மற்றும் வழங்குதல் நேரத்திற்கு ஆதரவாக வழங்குதல் துல்லியம்.</translation>
-    </message>
-    <message>
-        <source>This value will correct the Z values recorded from the positioning device. If a value of 1.6 is entered, QField will automatically subtract 1.6 from each recorded value. Make sure to insert the effective antenna height, i.e. pole length + antenna phase centre offset.</source>
-        <translation>இந்த மதிப்பு பொருத்துதல் சாதனத்திலிருந்து பதிவுசெய்யப்பட்ட சட் மதிப்புகளை சரிசெய்யும். 1.6 இன் மதிப்பு உள்ளிடப்பட்டால், பதிவுசெய்யப்பட்ட ஒவ்வொரு மதிப்பிலிருந்தும் QField தானாகவே 1.6ஐக் கழிக்கும். பயனுள்ள ஆண்டெனா உயரத்தை, அதாவது துருவ நீளம் + ஆண்டெனா கட்ட மைய ஆஃப்செட்டைச் செருகுவதை உறுதிசெய்யவும்.</translation>
     </message>
     <message>
         <source>Orthometric from device</source>
@@ -4410,6 +4410,22 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>When the map canvas is following or locked to position, it can also rotate to match compass orientation or movement direction.</source>
         <translation>வரைபட கேன்வாச் பின்தொடரும் போது அல்லது நிலைக்கு பூட்டப்பட்டிருக்கும் போது, ​​திசைகாட்டி நோக்குநிலை அல்லது இயக்கத்தின் திசையுடன் பொருந்துமாறு சுழற்றலாம்.</translation>
+    </message>
+    <message>
+        <source>If enabled, anonymized metrics will be collected and sent to help improve the experience for everyone.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>If enabled, anonymized metrics will be collected and sent to help improve %1 for everyone.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>This value will correct the Z values recorded from the positioning device. If a value of 1.6 is entered, the system will automatically subtract 1.6 from each recorded value. Make sure to insert the effective antenna height, i.e. pole length + antenna phase center offset.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>%1 Settings</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -5624,7 +5640,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Hey there, how do you like your experience with QField so far?</source>
-        <translation>வணக்கம், QField உடனான உங்கள் அனுபவத்தை நீங்கள் எப்படி விரும்புகிறீர்கள்?</translation>
+        <translation type="vanished">வணக்கம், QField உடனான உங்கள் அனுபவத்தை நீங்கள் எப்படி விரும்புகிறீர்கள்?</translation>
     </message>
     <message>
         <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a comment on the store.</source>
@@ -5640,7 +5656,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>To improve stability for everyone, QField collects and sends anonymized metrics.</source>
-        <translation>அனைவருக்கும் நிலைத்தன்மையை மேம்படுத்த, QField அநாமதேய அளவீடுகளைச் சேகரித்து அனுப்புகிறது.</translation>
+        <translation type="vanished">அனைவருக்கும் நிலைத்தன்மையை மேம்படுத்த, QField அநாமதேய அளவீடுகளைச் சேகரித்து அனுப்புகிறது.</translation>
     </message>
     <message>
         <source>I agree</source>
@@ -5684,7 +5700,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Welcome back to QField.</source>
-        <translation>QFieldக்கு மீண்டும் வரவேற்கிறோம்.</translation>
+        <translation type="vanished">QFieldக்கு மீண்டும் வரவேற்கிறோம்.</translation>
     </message>
     <message>
         <source>Default project</source>
@@ -5715,10 +5731,6 @@ Cancel to make a minimal device scan instead.</source>
         <translation>அண்மைக் கால திட்ட நடவடிக்கைகள்</translation>
     </message>
     <message>
-        <source>Welcome to QField. First time using this application? Try the sample projects listed below.</source>
-        <translation>QFieldக்கு வரவேற்கிறோம். இந்த பயன்பாட்டை முதல் முறையாக பயன்படுத்துகிறீர்களா? கீழே பட்டியலிடப்பட்டுள்ள மாதிரி திட்டங்களை முயற்சிக்கவும்.</translation>
-    </message>
-    <message>
         <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a review.</source>
         <translation>அருமை! நீங்கள் கீழே உள்ள பொத்தானைக் சொடுக்கு செய்து மதிப்பாய்வு செய்ய விரும்புகிறோம்.</translation>
     </message>
@@ -5743,6 +5755,22 @@ projects</source>
 project</source>
         <translation>புதிதாக உருவாக்கவும் 
 திட்டம்</translation>
+    </message>
+    <message>
+        <source>Hey there, how do you like your experience with %1 so far?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>To improve stability for everyone, %1 collects and sends anonymized metrics.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Welcome to %1. First time using this application? Try the sample projects listed below.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Welcome back to %1.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -6083,7 +6111,7 @@ project</source>
     </message>
     <message>
         <source>About QField</source>
-        <translation>QField பற்றி</translation>
+        <translation type="vanished">QField பற்றி</translation>
     </message>
     <message>
         <source>Select template below</source>
@@ -6534,10 +6562,6 @@ project</source>
         <translation>இறக்குமதி உறுதிப்படுத்தல்</translation>
     </message>
     <message>
-        <source>Do you want to import &lt;b&gt;%1&lt;/b&gt; from &lt;b&gt;%2&lt;/b&gt; into QField?</source>
-        <translation>&lt;b&gt;%2&lt;/b&gt; இலிருந்து QField க்கு &lt;b&gt;%1&lt;/b&gt; ஐ இறக்குமதி செய்ய விரும்புகிறீர்களா?</translation>
-    </message>
-    <message>
         <source>Plugin Permission</source>
         <translation>செருகுநிரல் இசைவு</translation>
     </message>
@@ -6729,6 +6753,14 @@ to show actions</source>
     </message>
     <message>
         <source>Close 3D view</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>About %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Do you want to import &lt;b&gt;%1&lt;/b&gt; from &lt;b&gt;%2&lt;/b&gt; into %3?</source>
         <translation type="unfinished"/>
     </message>
 </context>
