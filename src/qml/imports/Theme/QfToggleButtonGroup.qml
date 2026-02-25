@@ -91,7 +91,7 @@ Item {
           elide: Text.ElideRight
           anchors.centerIn: parent
           font: fontMetrics.font
-          color: !toggleButtonGroup.editable && toggleButtonGroup.editing ? Theme.mainTextDisabledColor : selected && toggleButtonGroup.editing ? Theme.buttonTextColor : Theme.mainTextColor
+          color: !toggleButtonGroup.editable && toggleButtonGroup.editing ? Theme.mainTextDisabledColor : selected && toggleButtonGroup.editing ? Theme.buttonColor : Theme.mainTextColor
         }
 
         MouseArea {

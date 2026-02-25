@@ -11,13 +11,17 @@
     "controlBackgroundAlternateColor": "#303030",
     "controlBackgroundDisabledColor": "#33555555",
     "controlBorderColor": "#404040",
-    "buttonTextColor": "#202020",
+    "buttonColor": "#202020",
+    "buttonBackgroundColor": "#80cc28",
     "toolButtonColor": "#ffffff",
     "toolButtonBackgroundColor": "#212121",
     "toolButtonBackgroundSemiOpaqueColor": "#4d212121",
     "scrollBarBackgroundColor": "#bb1c1b1f",
     "groupBoxBackgroundColor": "#2a2a2e",
-    "groupBoxSurfaceColor": "#343437"
+    "groupBoxSurfaceColor": "#343437",
+    "goodColor": "#80cc28",
+    "warningColor": "#ffa500",
+    "errorColor": "#df3422"
   },
   "lightThemeColors": {
     "mainColor": "#80cc28",
@@ -31,13 +35,17 @@
     "controlBackgroundAlternateColor": "#e6e6e6",
     "controlBackgroundDisabledColor": "#33555555",
     "controlBorderColor": "#e6e6e6",
-    "buttonTextColor": "#ffffff",
+    "buttonColor": "#ffffff",
+    "buttonBackgroundColor": "#80cc28",
     "toolButtonColor": "#ffffff",
     "toolButtonBackgroundColor": "#212121",
     "toolButtonBackgroundSemiOpaqueColor": "#4d212121",
     "scrollBarBackgroundColor": "#aafffbfe",
     "groupBoxBackgroundColor": "#f2f0f5",
-    "groupBoxSurfaceColor": "#e4e1e8"
+    "groupBoxSurfaceColor": "#e4e1e8",
+    "goodColor": "#80cc28",
+    "warningColor": "#ffa500",
+    "errorColor": "#c0392b"
   },
   "fixedColors": {
     "darkRed": "#c0392b",
@@ -48,8 +56,6 @@
     "lightestGray": "#eeeeee",
     "lightestGraySemiOpaque": "#e0eeeeee",
     "light": "#ffffff",
-    "goodColor": "#80cc28",
-    "warningColor": "#ffa500",
     "cloudColor": "#4c6dac",
     "positionColor": "#64b5f6",
     "positionColorSemiOpaque": "#3364b5f6",
