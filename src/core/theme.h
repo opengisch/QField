@@ -53,13 +53,17 @@ class QFIELD_CORE_EXPORT Theme final : public QObject
     Q_PROPERTY( QColor controlBackgroundAlternateColor READ controlBackgroundAlternateColor WRITE setControlBackgroundAlternateColor NOTIFY controlBackgroundAlternateColorChanged )
     Q_PROPERTY( QColor controlBackgroundDisabledColor READ controlBackgroundDisabledColor WRITE setControlBackgroundDisabledColor NOTIFY controlBackgroundDisabledColorChanged )
     Q_PROPERTY( QColor controlBorderColor READ controlBorderColor WRITE setControlBorderColor NOTIFY controlBorderColorChanged )
-    Q_PROPERTY( QColor buttonTextColor READ buttonTextColor WRITE setButtonTextColor NOTIFY buttonTextColorChanged )
+    Q_PROPERTY( QColor buttonColor READ buttonColor WRITE setButtonColor NOTIFY buttonColorChanged )
+    Q_PROPERTY( QColor buttonBackgroundColor READ buttonBackgroundColor WRITE setButtonBackgroundColor NOTIFY buttonBackgroundColorChanged )
     Q_PROPERTY( QColor toolButtonColor READ toolButtonColor WRITE setToolButtonColor NOTIFY toolButtonColorChanged )
     Q_PROPERTY( QColor toolButtonBackgroundColor READ toolButtonBackgroundColor WRITE setToolButtonBackgroundColor NOTIFY toolButtonBackgroundColorChanged )
     Q_PROPERTY( QColor toolButtonBackgroundSemiOpaqueColor READ toolButtonBackgroundSemiOpaqueColor WRITE setToolButtonBackgroundSemiOpaqueColor NOTIFY toolButtonBackgroundSemiOpaqueColorChanged )
     Q_PROPERTY( QColor scrollBarBackgroundColor READ scrollBarBackgroundColor WRITE setScrollBarBackgroundColor NOTIFY scrollBarBackgroundColorChanged )
     Q_PROPERTY( QColor groupBoxBackgroundColor READ groupBoxBackgroundColor WRITE setGroupBoxBackgroundColor NOTIFY groupBoxBackgroundColorChanged )
     Q_PROPERTY( QColor groupBoxSurfaceColor READ groupBoxSurfaceColor WRITE setGroupBoxSurfaceColor NOTIFY groupBoxSurfaceColorChanged )
+    Q_PROPERTY( QColor goodColor READ goodColor WRITE setGoodColor NOTIFY goodColorChanged )
+    Q_PROPERTY( QColor warningColor READ warningColor WRITE setWarningColor NOTIFY warningColorChanged )
+    Q_PROPERTY( QColor errorColor READ errorColor WRITE setErrorColor NOTIFY errorColorChanged )
 
     Q_PROPERTY( QColor mainColorSemiOpaque READ mainColorSemiOpaque NOTIFY themeDataLoaded )
     Q_PROPERTY( QColor darkRed READ darkRed NOTIFY themeDataLoaded )
@@ -70,8 +74,6 @@ class QFIELD_CORE_EXPORT Theme final : public QObject
     Q_PROPERTY( QColor lightestGray READ lightestGray NOTIFY themeDataLoaded )
     Q_PROPERTY( QColor lightestGraySemiOpaque READ lightestGraySemiOpaque NOTIFY themeDataLoaded )
     Q_PROPERTY( QColor light READ light NOTIFY themeDataLoaded )
-    Q_PROPERTY( QColor goodColor READ goodColor NOTIFY themeDataLoaded )
-    Q_PROPERTY( QColor warningColor READ warningColor NOTIFY themeDataLoaded )
     Q_PROPERTY( QColor cloudColor READ cloudColor NOTIFY themeDataLoaded )
     Q_PROPERTY( QColor positionColor READ positionColor NOTIFY themeDataLoaded )
     Q_PROPERTY( QColor positionColorSemiOpaque READ positionColorSemiOpaque NOTIFY themeDataLoaded )
@@ -96,8 +98,6 @@ class QFIELD_CORE_EXPORT Theme final : public QObject
     Q_PROPERTY( QColor vertexNewColor READ vertexNewColor NOTIFY themeDataLoaded )
     Q_PROPERTY( QColor vertexNewColorSemiOpaque READ vertexNewColorSemiOpaque NOTIFY themeDataLoaded )
     Q_PROPERTY( QColor processingPreview READ processingPreview NOTIFY themeDataLoaded )
-
-    Q_PROPERTY( QColor errorColor READ errorColor NOTIFY darkThemeChanged )
 
     Q_PROPERTY( qreal fontScale READ fontScale WRITE setFontScale NOTIFY fontScaleChanged )
 
@@ -218,8 +218,11 @@ class QFIELD_CORE_EXPORT Theme final : public QObject
     QColor controlBorderColor() const { return mControlBorderColor; }
     void setControlBorderColor( const QColor &color );
 
-    QColor buttonTextColor() const { return mButtonTextColor; }
-    void setButtonTextColor( const QColor &color );
+    QColor buttonColor() const { return mButtonColor; }
+    void setButtonColor( const QColor &color );
+
+    QColor buttonBackgroundColor() const { return mButtonBackgroundColor; }
+    void setButtonBackgroundColor( const QColor &color );
 
     QColor toolButtonColor() const { return mToolButtonColor; }
     void setToolButtonColor( const QColor &color );
@@ -239,6 +242,15 @@ class QFIELD_CORE_EXPORT Theme final : public QObject
     QColor groupBoxSurfaceColor() const { return mGroupBoxSurfaceColor; }
     void setGroupBoxSurfaceColor( const QColor &color );
 
+    QColor goodColor() const { return mGoodColor; }
+    void setGoodColor( const QColor &color );
+
+    QColor warningColor() const { return mWarningColor; }
+    void setWarningColor( const QColor &color );
+
+    QColor errorColor() const { return mErrorColor; }
+    void setErrorColor( const QColor &color );
+
     QColor mainColorSemiOpaque() const { return mMainColorSemiOpaque; }
     QColor darkRed() const { return mDarkRed; }
     QColor darkGray() const { return mDarkGray; }
@@ -248,8 +260,6 @@ class QFIELD_CORE_EXPORT Theme final : public QObject
     QColor lightestGray() const { return mLightestGray; }
     QColor lightestGraySemiOpaque() const { return mLightestGraySemiOpaque; }
     QColor light() const { return mLight; }
-    QColor goodColor() const { return mGoodColor; }
-    QColor warningColor() const { return mWarningColor; }
     QColor cloudColor() const { return mCloudColor; }
     QColor positionColor() const { return mPositionColor; }
     QColor positionColorSemiOpaque() const { return mPositionColorSemiOpaque; }
@@ -274,8 +284,6 @@ class QFIELD_CORE_EXPORT Theme final : public QObject
     QColor vertexNewColor() const { return mVertexNewColor; }
     QColor vertexNewColorSemiOpaque() const { return mVertexNewColorSemiOpaque; }
     QColor processingPreview() const { return mProcessingPreview; }
-
-    QColor errorColor() const { return mDarkTheme ? QColor( 223, 52, 34 ) : QColor( 192, 57, 43 ); }
 
     bool darkTheme() const { return mDarkTheme; }
     void setDarkTheme( bool dark );
@@ -311,13 +319,17 @@ class QFIELD_CORE_EXPORT Theme final : public QObject
     void controlBackgroundAlternateColorChanged();
     void controlBackgroundDisabledColorChanged();
     void controlBorderColorChanged();
-    void buttonTextColorChanged();
+    void buttonColorChanged();
+    void buttonBackgroundColorChanged();
     void toolButtonColorChanged();
     void toolButtonBackgroundColorChanged();
     void toolButtonBackgroundSemiOpaqueColorChanged();
     void scrollBarBackgroundColorChanged();
     void groupBoxBackgroundColorChanged();
     void groupBoxSurfaceColorChanged();
+    void goodColorChanged();
+    void warningColorChanged();
+    void errorColorChanged();
     void darkThemeChanged();
     void fontScaleChanged();
     void themeDataLoaded();
@@ -341,7 +353,8 @@ class QFIELD_CORE_EXPORT Theme final : public QObject
     QColor mControlBackgroundAlternateColor;
     QColor mControlBackgroundDisabledColor;
     QColor mControlBorderColor;
-    QColor mButtonTextColor;
+    QColor mButtonColor;
+    QColor mButtonBackgroundColor;
     QColor mToolButtonColor;
     QColor mToolButtonBackgroundColor;
     QColor mToolButtonBackgroundSemiOpaqueColor;
@@ -360,6 +373,7 @@ class QFIELD_CORE_EXPORT Theme final : public QObject
     QColor mLight;
     QColor mGoodColor;
     QColor mWarningColor;
+    QColor mErrorColor;
     QColor mCloudColor;
     QColor mPositionColor;
     QColor mPositionColorSemiOpaque;

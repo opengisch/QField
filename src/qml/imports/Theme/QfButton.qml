@@ -13,8 +13,8 @@ import org.qfield
 Button {
   id: button
 
-  property color bgcolor: Theme.mainColor
-  property color color: button.enabled ? Theme.buttonTextColor : Theme.mainTextDisabledColor
+  property color bgcolor: Theme.buttonBackgroundColor
+  property color color: button.enabled ? Theme.buttonColor : Theme.mainTextDisabledColor
   property alias radius: backgroundRectangle.radius
   property alias borderColor: backgroundRectangle.border.color
   property bool dropdown: false

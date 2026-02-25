@@ -247,7 +247,7 @@ Item {
 
         bgcolor: modelData.details.styles !== undefined ? Theme.darkTheme ? modelData.details.styles.dark.color_fill : modelData.details.styles.light.color_fill : Theme.mainColor
         borderColor: modelData.details.styles !== undefined ? Theme.darkTheme ? modelData.details.styles.dark.color_stroke : modelData.details.styles.light.color_stroke : Theme.mainColor
-        color: modelData.details.styles !== undefined ? Theme.darkTheme ? modelData.details.styles.dark.color_text : modelData.details.styles.light.color_text : Theme.buttonTextColor
+        color: modelData.details.styles !== undefined ? Theme.darkTheme ? modelData.details.styles.dark.color_text : modelData.details.styles.light.color_text : Theme.buttonColor
         icon.source: modelData.details.styles !== undefined ? Theme.darkTheme ? modelData.details.styles.dark.logo : modelData.details.styles.light.logo : ""
         icon.color: "transparent"
 

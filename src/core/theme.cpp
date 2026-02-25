@@ -338,15 +338,26 @@ void Theme::setControlBorderColor( const QColor &color )
   emit controlBorderColorChanged();
 }
 
-void Theme::setButtonTextColor( const QColor &color )
+void Theme::setButtonColor( const QColor &color )
 {
-  if ( mButtonTextColor == color )
+  if ( mButtonColor == color )
   {
     return;
   }
 
-  mButtonTextColor = color;
-  emit buttonTextColorChanged();
+  mButtonColor = color;
+  emit buttonColorChanged();
+}
+
+void Theme::setButtonBackgroundColor( const QColor &color )
+{
+  if ( mButtonBackgroundColor == color )
+  {
+    return;
+  }
+
+  mButtonBackgroundColor = color;
+  emit buttonBackgroundColorChanged();
 }
 
 void Theme::setToolButtonColor( const QColor &color )
@@ -375,9 +386,11 @@ void Theme::setToolButtonBackgroundSemiOpaqueColor( const QColor &color )
 {
   if ( mToolButtonBackgroundSemiOpaqueColor == color )
   {
-    mToolButtonBackgroundSemiOpaqueColor = color;
-    emit toolButtonBackgroundSemiOpaqueColorChanged();
+    return;
   }
+
+  mToolButtonBackgroundSemiOpaqueColor = color;
+  emit toolButtonBackgroundSemiOpaqueColorChanged();
 }
 
 void Theme::setScrollBarBackgroundColor( const QColor &color )
@@ -395,9 +408,11 @@ void Theme::setGroupBoxBackgroundColor( const QColor &color )
 {
   if ( mGroupBoxBackgroundColor == color )
   {
-    mGroupBoxBackgroundColor = color;
-    emit groupBoxBackgroundColorChanged();
+    return;
   }
+
+  mGroupBoxBackgroundColor = color;
+  emit groupBoxBackgroundColorChanged();
 }
 
 void Theme::setGroupBoxSurfaceColor( const QColor &color )
@@ -409,6 +424,39 @@ void Theme::setGroupBoxSurfaceColor( const QColor &color )
 
   mGroupBoxSurfaceColor = color;
   emit groupBoxSurfaceColorChanged();
+}
+
+void Theme::setGoodColor( const QColor &color )
+{
+  if ( mGoodColor == color )
+  {
+    return;
+  }
+
+  mGoodColor = color;
+  emit goodColorChanged();
+}
+
+void Theme::setWarningColor( const QColor &color )
+{
+  if ( mWarningColor == color )
+  {
+    return;
+  }
+
+  mWarningColor = color;
+  emit warningColorChanged();
+}
+
+void Theme::setErrorColor( const QColor &color )
+{
+  if ( mErrorColor == color )
+  {
+    return;
+  }
+
+  mErrorColor = color;
+  emit errorColorChanged();
 }
 
 void Theme::setDarkTheme( bool dark )

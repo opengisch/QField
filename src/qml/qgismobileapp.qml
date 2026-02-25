@@ -2101,7 +2101,8 @@ ApplicationWindow {
         id: menuButton
         round: true
         iconSource: Theme.getThemeVectorIcon("ic_menu_white_24dp")
-        bgcolor: dashBoard.opened ? Theme.mainColor : Theme.darkGray
+        iconColor: Theme.toolButtonColor
+        bgcolor: dashBoard.opened ? Theme.mainColor : Theme.toolButtonBackgroundColor
 
         onClicked: dashBoard.opened ? dashBoard.close() : dashBoard.open()
 
@@ -2452,7 +2453,7 @@ ApplicationWindow {
                   text: qsTr("%1°").arg(modelData)
                   font: parent.selected ? Theme.strongTipFont : Theme.tipFont
                   anchors.centerIn: parent
-                  color: parent.selected ? Theme.buttonTextColor : Theme.mainTextColor
+                  color: parent.selected ? Theme.buttonColor : Theme.mainTextColor
                 }
 
                 Ripple {
@@ -2529,7 +2530,7 @@ ApplicationWindow {
                   text: modelData
                   font: parent.selected ? Theme.strongTipFont : Theme.tipFont
                   anchors.centerIn: parent
-                  color: tolorenceDelegate.selected ? Theme.buttonTextColor : Theme.mainTextColor
+                  color: tolorenceDelegate.selected ? Theme.buttonColor : Theme.mainTextColor
                   elide: Text.ElideRight
                   width: parent.width
                   horizontalAlignment: Text.AlignHCenter
