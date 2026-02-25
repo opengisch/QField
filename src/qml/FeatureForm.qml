@@ -853,7 +853,7 @@ Page {
     rightPadding: 0
     bottomPadding: 0
 
-    height: visible ? form.topMargin + 48 : 0
+    height: visible ? form.topMargin + 58 : 0
     visible: form.state === 'Add'
     objectName: "toolbar"
     background: Rectangle {
