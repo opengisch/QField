@@ -92,6 +92,19 @@ ApplicationWindow {
     }
   }
 
+  palette {
+    link: Theme.mainColor
+    linkVisited: Theme.mainColor
+  }
+
+  Connections {
+    target: Theme
+
+    function onDarkThemeChanged() {
+      Application.styleHints.colorScheme = Theme.darkTheme ? Qt.ColorScheme.Dark : Qt.ColorScheme.Light;
+    }
+  }
+
   LocatorModelSuperBridge {
     id: locatorBridge
     objectName: "locatorBridge"
