@@ -17,7 +17,6 @@
 #define QFIELDCLOUDSTATUS_H
 
 #include <QObject>
-#include <QTimer>
 
 class NetworkReply;
 
@@ -27,7 +26,7 @@ class NetworkReply;
  * QFieldCloudStatus fetches the QFieldCloud service status endpoint
  * and exposes the health state of the service to QML.
  *
- * It periodically polls the /api/v1/status/ endpoint and provides
+ * It fetches the /api/v1/status/ endpoint once per session and provides
  * properties to determine whether the service is degraded, has ongoing
  * incidents, or is under maintenance.
  */
@@ -103,7 +102,6 @@ class QFieldCloudStatus : public QObject
     void parseStatusResponse( const QByteArray &data );
 
     QString mUrl;
-    QTimer mRefreshTimer;
 
     QString mStatusPageUrl;
     QString mIncidentMessage;

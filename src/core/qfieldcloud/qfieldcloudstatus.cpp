@@ -27,8 +27,6 @@
 QFieldCloudStatus::QFieldCloudStatus( QObject *parent )
   : QObject( parent )
 {
-  mRefreshTimer.setSingleShot( false );
-  connect( &mRefreshTimer, &QTimer::timeout, this, &QFieldCloudStatus::fetchStatus );
 }
 
 QString QFieldCloudStatus::url() const
@@ -56,13 +54,7 @@ void QFieldCloudStatus::setUrl( const QString &url )
 
   if ( !mUrl.isEmpty() )
   {
-    mRefreshTimer.setInterval( 5 * 60 * 1000 );
     fetchStatus();
-    mRefreshTimer.start();
-  }
-  else
-  {
-    mRefreshTimer.stop();
   }
 }
 
@@ -130,6 +122,21 @@ void QFieldCloudStatus::fetchStatus()
     else
     {
       QgsMessageLog::logMessage( QStringLiteral( "QFieldCloud status check failed: %1" ).arg( rawReply->errorString() ), QStringLiteral( "QFieldCloud" ), Qgis::MessageLevel::Warning );
+
+      if ( rawReply->error() == QNetworkReply::HostNotFoundError )
+      {
+        mHasProblem = true;
+        mStatusType = StatusType::Incident;
+        mStatusMessage = tr( "QFieldCloud server is not reachable" );
+        mDetailsMessage = tr( "The server at %1 could not be reached. Please check your internet connection." ).arg( mUrl );
+
+        if ( mStatusPageUrl.isEmpty() && mUrl == QStringLiteral( "https://app.qfield.cloud" ) )
+        {
+          mStatusPageUrl = QStringLiteral( "https://status.qfield.cloud" );
+        }
+
+        emit statusUpdated();
+      }
     }
     mPendingReply->deleteLater();
     mPendingReply = nullptr;
@@ -162,9 +169,6 @@ void QFieldCloudStatus::parseStatusResponse( const QByteArray &data )
   const bool hasMaintenance = !mMaintenanceMessage.isEmpty();
 
   mHasProblem = databaseDegraded || storageDegraded || hasIncident || hasMaintenance;
-
-  // Adjust polling interval: faster when there's a problem, slower when ok
-  mRefreshTimer.setInterval( mHasProblem ? 30 * 1000 : 5 * 60 * 1000 );
 
   mStatusType = StatusType::Ok;
 
