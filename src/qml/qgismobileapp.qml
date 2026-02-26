@@ -4918,6 +4918,7 @@ ApplicationWindow {
     onStatusChanged: {
       if (cloudConnection.status === QFieldCloudConnection.Disconnected && previousStatus === QFieldCloudConnection.LoggedIn) {
         displayToast(qsTr('Signed out'));
+        cloudStatus.refresh();
       } else if (cloudConnection.status === QFieldCloudConnection.Connecting) {
         displayToast(qsTr('Connecting...'));
       } else if (cloudConnection.status === QFieldCloudConnection.LoggedIn) {
@@ -4935,12 +4936,8 @@ ApplicationWindow {
     }
     onLoginFailed: function (reason) {
       displayToast(reason);
+      cloudStatus.refresh();
     }
-  }
-
-  QFieldCloudStatus {
-    id: cloudStatus
-    url: cloudConnection.url
   }
 
   QFieldCloudProjectsModel {
@@ -4950,12 +4947,16 @@ ApplicationWindow {
     gpkgFlusher: gpkgFlusherAlias
 
     onProjectDownloaded: function (projectId, projectName, hasError, errorString) {
+      if (hasError) {
+        cloudStatus.refresh();
+      }
       return hasError ? displayToast(qsTr("Project %1 failed to download").arg(projectName), 'error') : displayToast(qsTr("Project %1 successfully downloaded, it's now available to open").arg(projectName));
     }
 
     onPushFinished: function (projectId, isDownloadingProject, hasError, errorString) {
       if (hasError) {
         displayToast(qsTr("Changes failed to reach QFieldCloud: %1").arg(errorString), 'error');
+        cloudStatus.refresh();
         return;
       }
       if (!isDownloadingProject) {
@@ -5044,7 +5045,6 @@ ApplicationWindow {
   QFieldCloudScreen {
     id: qfieldCloudScreen
 
-    cloudServiceStatus: cloudStatus
     anchors.fill: parent
     visible: false
     focus: visible
@@ -5064,7 +5064,6 @@ ApplicationWindow {
 
   QFieldCloudPopup {
     id: qfieldCloudPopup
-    cloudServiceStatus: cloudStatus
     visible: false
     focus: visible
     parent: Overlay.overlay
