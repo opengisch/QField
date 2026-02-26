@@ -95,7 +95,6 @@ void BluetoothReceiver::handleConnectDevice()
 
 void BluetoothReceiver::handleStateChanged( QBluetoothSocket::SocketState state )
 {
-  qDebug() << "bbb handleStateChanged" << state;
   QAbstractSocket::SocketState currentState;
   switch ( state )
   {
@@ -121,7 +120,6 @@ void BluetoothReceiver::handleStateChanged( QBluetoothSocket::SocketState state 
 
   if ( currentState == QAbstractSocket::UnconnectedState && mConnectOnDisconnect )
   {
-    qDebug() << "bbb singleShot";
     QTimer::singleShot( 1000, this, &BluetoothReceiver::doConnectDevice );
   }
   else
