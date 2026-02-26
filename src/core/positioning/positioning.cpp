@@ -45,12 +45,10 @@ Positioning::Positioning( QObject *parent )
 
 void Positioning::setupSource()
 {
-  qInfo() << "xxx setupSource, service mode:" << ( mServiceMode ? "on" : "off" );
   mPositioningSourceReplica.reset();
   mNode.reset();
   if ( mPositioningSource )
   {
-    qInfo() << "xxx delete old positioning source";
     mHost.disableRemoting( mPositioningSource );
     // Don't rely on deleteLater(), insure any device is disconnected prior to switching source
     mPositioningSource->setActive( false );
@@ -62,12 +60,10 @@ void Positioning::setupSource()
   QString nodeUrl;
   if ( mServiceMode && ( PlatformUtilities::instance()->capabilities() & PlatformUtilities::PositioningService ) )
   {
-    qInfo() << "xxx start positioning service";
     nodeUrl = PlatformUtilities::instance()->startPositioningService();
   }
   else
   {
-    qInfo() << "xxx stop any positioning service";
     PlatformUtilities::instance()->stopPositioningService();
 
     if ( mHost.hostUrl().isEmpty() )
@@ -75,7 +71,6 @@ void Positioning::setupSource()
       mHost.setHostUrl( QUrl( QStringLiteral( "local:replica" ) ) );
     }
 
-    qInfo() << "xxx create local positioning source";
     mPositioningSource = new PositioningSource( this );
     mHost.enableRemoting( mPositioningSource, "PositioningSource" );
     nodeUrl = QStringLiteral( "local:replica" );
@@ -653,7 +648,6 @@ double Positioning::projectedHorizontalAccuracy() const
 
 void Positioning::onPositionInformationChanged()
 {
-  qInfo() << "xxx got one";
   mPositionInformation = mPositioningSourceReplica->property( "positionInformation" ).value<GnssPositionInformation>();
 
   GnssPositionInformation::AccuracyQuality quality = GnssPositionInformation::AccuracyQuality::AccuracyBad;
