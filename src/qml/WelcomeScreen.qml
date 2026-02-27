@@ -933,7 +933,6 @@ Page {
   }
 
   Component.onCompleted: {
-    adjustWelcomeScreen();
     var runCount = settings.value("/QField/RunCount", 0) * 1;
     var feedbackFormShown = settings.value("/QField/FeedbackFormShown", false);
     if (!feedbackFormShown) {
@@ -944,7 +943,9 @@ Page {
         var daysToPrompt = 30;
         var runsToPrompt = 5;
         if (runCount >= runsToPrompt && (now - dt) >= (daysToPrompt * 24 * 60 * 60 * 1000)) {
-          feedbackView.visible = true;
+          if (appName === "QField") {
+            feedbackView.visible = true;
+          }
           settings.setValue("/QField/FeedbackFormShown", true);
         }
       } else {
