@@ -23,7 +23,7 @@
     </message>
     <message>
         <source>Powered by QField</source>
-        <translation type="unfinished"/>
+        <translation>QFIELD ஆல் இயக்கப்படுகிறது</translation>
     </message>
     <message>
         <source>%1 app directories</source>
@@ -31,7 +31,7 @@
     </message>
     <message>
         <source>%1 app directory</source>
-        <translation type="unfinished"/>
+        <translation>1 சதவீதம் பயன்பாட்டு அடைவு</translation>
     </message>
 </context>
 <context>
@@ -862,7 +862,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>The external storage&apos;s authentication configuration ID is missing, please insure it is imported into %1</source>
-        <translation type="unfinished"/>
+        <translation>வெளிப்புற சேமிப்பக அங்கீகார உள்ளமைவு ஐடி காணவில்லை, தயவுசெய்து அது %1 க்கு இறக்குமதி செய்யப்பட்டுள்ளதா என்பதை உறுதிப்படுத்தவும்.</translation>
     </message>
 </context>
 <context>

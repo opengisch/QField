@@ -23,7 +23,7 @@
     </message>
     <message>
         <source>Powered by QField</source>
-        <translation type="unfinished"/>
+        <translation>由QField提供支持</translation>
     </message>
     <message>
         <source>%1 app directories</source>
