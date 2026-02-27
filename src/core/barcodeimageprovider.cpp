@@ -18,11 +18,11 @@
 
 #include <QFileInfo>
 #include <QUrlQuery>
+#include <qgssymbollayerutils.h>
 
 #include <ZXing/BarcodeFormat.h>
 #include <ZXing/BitMatrix.h>
 #include <ZXing/MultiFormatWriter.h>
-#include <qgssymbollayerutils.h>s
 
 BarcodeImageProvider::BarcodeImageProvider()
   : QQuickImageProvider( Image )
