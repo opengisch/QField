@@ -83,7 +83,7 @@ AndroidPlatformUtilities::AndroidPlatformUtilities()
 PlatformUtilities::Capabilities AndroidPlatformUtilities::capabilities() const
 {
   PlatformUtilities::Capabilities capabilities = Capabilities() | NativeCamera | AdjustBrightness | CustomImport | CustomExport | CustomSend | FilePicker | VolumeKeys | UpdateProjectFromArchive | PositioningService;
-#ifdef WITH_SENTRY
+#if WITH_SENTRY
   capabilities |= SentryFramework;
 #endif
   return capabilities;
