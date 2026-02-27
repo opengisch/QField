@@ -523,6 +523,7 @@ Page {
 
           Text {
             id: recentText
+            visible: table.count > 0
             text: qsTr("Recent Projects")
             font.pointSize: Theme.tipFont.pointSize
             font.bold: true
@@ -918,11 +919,11 @@ Page {
   function adjustWelcomeScreen() {
     if (visible) {
       if (firstShown) {
-        welcomeText.text = " ";
+        welcomeText.text = "";
       } else {
         var firstRun = !settings.valueBool("/QField/FirstRunDone", false);
         if (firstRun) {
-          welcomeText.text = qsTr("Welcome to %1. First time using this application? Try the sample projects listed below.").arg(appName);
+          welcomeText.text = qsTr("Welcome to %1.").arg(appName) + (table.count > 0 ? qsTr("First time using this application? Try the sample projects listed below.") : "");
           settings.setValue("/QField/FirstRunDone", true);
           settings.setValue("/QField/showMapCanvasGuide", true);
         } else {
@@ -933,6 +934,7 @@ Page {
   }
 
   Component.onCompleted: {
+    adjustWelcomeScreen();
     var runCount = settings.value("/QField/RunCount", 0) * 1;
     var feedbackFormShown = settings.value("/QField/FeedbackFormShown", false);
     if (!feedbackFormShown) {
@@ -968,8 +970,8 @@ Page {
   }
 
   onVisibleChanged: {
-    adjustWelcomeScreen();
     if (!visible) {
+      welcomeText.text = "";
       feedbackView.visible = false;
       collectionView.visible = false;
       firstShown = true;
