@@ -22,6 +22,7 @@
 #include <ZXing/BarcodeFormat.h>
 #include <ZXing/BitMatrix.h>
 #include <ZXing/MultiFormatWriter.h>
+#include <qgssymbollayerutils.h>s
 
 BarcodeImageProvider::BarcodeImageProvider()
   : QQuickImageProvider( Image )
@@ -33,7 +34,7 @@ QImage BarcodeImageProvider::requestImage( const QString &id, QSize *size, const
   // the id is passed on as an encoded URL string which needs decoding
   const QUrlQuery urlQuery = QUrlQuery( QUrl( id.toUtf8() ) );
   const QString text = urlQuery.queryItemValue( QStringLiteral( "text" ), QUrl::FullyDecoded );
-  const QColor foregroundColor = QColor( urlQuery.queryItemValue( QStringLiteral( "color" ) ) );
+  const QColor foregroundColor = QgsSymbolLayerUtils::decodeColor( urlQuery.queryItemValue( QStringLiteral( "color" ) ) );
 
   if ( text.isEmpty() )
   {
