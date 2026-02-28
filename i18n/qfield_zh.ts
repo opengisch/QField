@@ -5767,12 +5767,16 @@ project</source>
         <translation>为了提高稳定性，%1将收集并发送匿名测评数据。</translation>
     </message>
     <message>
-        <source>Welcome to %1. First time using this application? Try the sample projects listed below.</source>
-        <translation>欢迎来到%1！是首次使用本应用程序吗？请试试下面的示例工程吧。</translation>
-    </message>
-    <message>
         <source>Welcome back to %1.</source>
         <translation>欢迎使用%1。</translation>
+    </message>
+    <message>
+        <source>Welcome to %1.</source>
+        <translation>欢迎来到%1。</translation>
+    </message>
+    <message>
+        <source>First time using this application? Try the sample projects listed below.</source>
+        <translation>是首次使用本应用程序吗？请试试下面的示例工程。</translation>
     </message>
 </context>
 <context>

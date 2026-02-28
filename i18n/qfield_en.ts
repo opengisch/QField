@@ -5642,11 +5642,15 @@ project</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Welcome to %1. First time using this application? Try the sample projects listed below.</source>
+        <source>Welcome back to %1.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Welcome back to %1.</source>
+        <source>Welcome to %1.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>First time using this application? Try the sample projects listed below.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
