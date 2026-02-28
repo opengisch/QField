@@ -22,6 +22,7 @@
 #include <QQuickImageProvider>
 #include <QQuickImageResponse>
 #include <qgsrasterdataprovider.h>
+#include <qobjectuniqueptr.h>
 
 class QgsLayerTreeModel;
 class QgsLayerTree;
@@ -61,7 +62,7 @@ class AsyncLegendImageResponse : public QQuickImageResponse
 
   private:
     std::unique_ptr<QgsRasterDataProvider> mDataProvider;
-    std::unique_ptr<QgsImageFetcher> mFetcher;
+    QObjectUniquePtr<QgsImageFetcher> mFetcher = nullptr;
 
     QImage mImage;
 };
