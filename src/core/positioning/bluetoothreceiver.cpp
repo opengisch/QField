@@ -26,6 +26,7 @@ BluetoothReceiver::BluetoothReceiver( const QString &address, QObject *parent )
   , mLocalDevice( std::make_unique<QBluetoothLocalDevice>() )
   , mSocket( new QBluetoothSocket( QBluetoothServiceInfo::RfcommProtocol ) )
 {
+  qInfo() << "BluetothReceiver: Creating the receiver";
   connect( mSocket, qOverload<QBluetoothSocket::SocketError>( &QBluetoothSocket::errorOccurred ), this, &BluetoothReceiver::handleErrorOccurred );
   connect( mSocket, &QBluetoothSocket::stateChanged, this, &BluetoothReceiver::handleStateChanged );
 
@@ -56,6 +57,7 @@ BluetoothReceiver::BluetoothReceiver( const QString &address, QObject *parent )
 
 BluetoothReceiver::~BluetoothReceiver()
 {
+  qInfo() << "BluetothReceiver: Deleting the receiver";
   disconnectDevice();
   mSocket->deleteLater();
   mSocket = nullptr;
@@ -118,8 +120,10 @@ void BluetoothReceiver::handleStateChanged( QBluetoothSocket::SocketState state 
       break;
   }
 
+  qInfo() << "BluetoothReceiver: State changed to" << state;
   if ( currentState == QAbstractSocket::UnconnectedState && mConnectOnDisconnect )
   {
+    qInfo() << QStringLiteral( "BluetoothReceiver: Reconnecting on failure (try #%1)" ).arg( mConnectionFailureCount );
     QTimer::singleShot( 1000, this, &BluetoothReceiver::doConnectDevice );
   }
   else
